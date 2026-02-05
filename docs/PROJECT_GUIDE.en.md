@@ -31,7 +31,7 @@ Each card is a `card.json` with typical fields:
 
 ### Add a new algorithm
 1. Create folder: `pages/algoritmi/<id>/`
-2. Add `card.json` + `index.html` + (optional) `img.png`
+2. Add `card.json` + `index.html` + (optional) `img.webp`
 3. Add the card path to `data/modules-manifest.json`
 
 ## Historical Draws

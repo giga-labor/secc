@@ -31,7 +31,7 @@ Ogni card è un `card.json` con campi tipici:
 
 ### Aggiungere un algoritmo
 1. Crea cartella: `pages/algoritmi/<id>/`
-2. Aggiungi `card.json` + `index.html` + (opzionale) `img.png`
+2. Aggiungi `card.json` + `index.html` + (opzionale) `img.webp`
 3. Inserisci il percorso in `data/modules-manifest.json`
 
 ## Storico estrazioni

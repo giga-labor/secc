@@ -104,10 +104,10 @@ const ensureAds = () => {
   const buildSideItems = (items) => items.map((item, index) => ({
     ...item,
     logo: index % 3 === 0
-      ? resolveWithBase('img/headerControlChaos3.png')
+      ? resolveWithBase('img/headerControlChaos3.webp')
       : index % 3 === 1
-        ? resolveWithBase('img/headerControlChaos.png')
-        : resolveWithBase('img/fortuna.png'),
+        ? resolveWithBase('img/headerControlChaos.webp')
+        : resolveWithBase('img/fortuna.webp'),
     href: ''
   }));
   const sideItemsLeft = buildSideItems(shuffle(fallbackItems));

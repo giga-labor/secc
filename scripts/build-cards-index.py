@@ -23,7 +23,7 @@ if algos_dir.exists():
         card_base = f'pages/algoritmi/{algo_dir.name}/'
         card.setdefault('page', card_base)
         card.setdefault('cardBase', card_base)
-        card.setdefault('image', 'img.png')
+        card.setdefault('image', 'img.webp')
         card.setdefault('isActive', False)
         image_name = str(card.get('image') or '').strip()
         if image_name and '/' not in image_name and not image_name.startswith(('http://', 'https://')):
@@ -45,7 +45,7 @@ if storico_card_path.exists():
         storico_base = 'pages/storico-estrazioni/'
         storico_card.setdefault('page', storico_base)
         storico_card.setdefault('cardBase', storico_base)
-        storico_card.setdefault('image', 'img.png')
+        storico_card.setdefault('image', 'img.webp')
         storico_card.setdefault('isActive', False)
         image_name = str(storico_card.get('image') or '').strip()
         if image_name and '/' not in image_name and not image_name.startswith(('http://', 'https://')):

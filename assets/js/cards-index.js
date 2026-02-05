@@ -40,7 +40,7 @@
     if (!card.id) card.id = id;
     if (!card.cardBase) card.cardBase = cardBase;
     if (!card.page) card.page = cardBase;
-    if (!card.image) card.image = 'img.png';
+    if (!card.image) card.image = 'img.webp';
     if (card.isActive === undefined) card.isActive = false;
     if (!card.title) card.title = card.id || id;
 

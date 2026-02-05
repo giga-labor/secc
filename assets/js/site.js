@@ -108,7 +108,7 @@ function isActive(module) {
 }
 
 function resolveCardImage(module) {
-  const fallback = 'img/headerControlChaos3.png';
+  const fallback = 'img/headerControlChaos3.webp';
   const imageValue = (module.image || '').trim();
   if (!imageValue) return fallback;
   if (imageValue.startsWith('http://') || imageValue.startsWith('https://') || imageValue.startsWith('/')) {

@@ -27,7 +27,7 @@ Cards are defined by `card.json` files under `pages/algoritmi/*/` and a few stat
 
 To add a new algorithm card:
 1. Create a folder: `pages/algoritmi/<id>/`
-2. Add `card.json` and `index.html` (and optional `img.png`)
+2. Add `card.json` and `index.html` (and optional `img.webp`)
 3. Add the card path to `data/modules-manifest.json`
 
 The site builds the cards index **at runtime** in the browser using the manifest.  

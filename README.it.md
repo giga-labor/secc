@@ -27,7 +27,7 @@ Le card sono definite da `card.json` in `pages/algoritmi/*/` e da alcune pagine 
 
 Per aggiungere un nuovo algoritmo:
 1. Crea la cartella: `pages/algoritmi/<id>/`
-2. Aggiungi `card.json` e `index.html` (eventuale `img.png`)
+2. Aggiungi `card.json` e `index.html` (eventuale `img.webp`)
 3. Inserisci il path della card in `data/modules-manifest.json`
 
 L’indice delle card viene generato **al volo** nel browser usando il manifest.  

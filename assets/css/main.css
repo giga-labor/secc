@@ -35,7 +35,7 @@ img {
   position: relative;
   padding: 5rem 5vw;
   background: linear-gradient(135deg, rgba(5, 6, 15, 0.95), rgba(8, 10, 27, 0.9)),
-    url('../../img/fortuna.png') center/cover no-repeat;
+    url('../../img/fortuna.webp') center/cover no-repeat;
   border-bottom: 1px solid var(--border);
 }
 
