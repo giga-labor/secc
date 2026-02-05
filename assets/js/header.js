@@ -45,6 +45,8 @@ const resolveWithBaseHref = (href, baseUrl = BASE.url) => {
 
 const AUDIO_ENABLED = false;
 
+const VERSION = window.CC_VERSION || '00.00.000';
+
 const buildHeaderMarkup = () => `
   <header id="site-header" class="sticky top-0 z-50 relative border-b border-white/10 backdrop-blur-sm">
     <div class="header-bg absolute inset-0 opacity-0"></div>
@@ -57,7 +59,10 @@ const buildHeaderMarkup = () => `
     </div>
     <div class="header-container relative mx-auto w-[calc(100%-2rem)] max-w-[60rem] px-12 py-20">
       <div class="header-wrap rounded-3xl border border-white/15 bg-gradient-to-br from-midnight/90 via-midnight/80 to-neon/10 px-6 py-8 shadow-glow backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-[0.35em] text-neon">Control Chaos</p>
+        <div class="header-topline">
+          <p class="text-xs uppercase tracking-[0.35em] text-neon">Control Chaos</p>
+          <span class="header-version" aria-label="Versione">${VERSION}</span>
+        </div>
         <h1 class="header-title mt-4 text-3xl sm:text-5xl font-semibold drop-shadow-[0_0_14px_rgba(255,217,102,0.35)]">Statistiche e algoritmi per domare il caos del <span class="superenalotto-mark" aria-label="Super-Enalotto"><span class="super-word">S<span class="super-smile"></span>per</span><span class="super-dash">-</span><span class="enalotto-word">Enalotto</span></span></h1>
         <div class="header-actions mt-10 flex flex-wrap items-center justify-between gap-4">
           <div class="header-actions__left flex flex-wrap items-center gap-4">
