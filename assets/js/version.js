@@ -1,5 +1,2 @@
-﻿window.CC_VERSION = '00.01.017';
-
-
-
+﻿window.CC_VERSION = '00.01.018';
 

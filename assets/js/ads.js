@@ -158,7 +158,7 @@ const ensureAds = () => {
   const hintLabel = getHintLabel();
   hint.innerHTML = `
     <span class="bottom-ad__hint-label">${hintLabel}</span>
-    <span class="bottom-ad__hint-arrow">↓</span>
+    <span class="bottom-ad__hint-arrow">&darr;</span>
   `;
   bottom.appendChild(hint);
   hint.dataset.hint = 'algorithms';
@@ -250,6 +250,32 @@ const ensureAds = () => {
   window.setTimeout(resizeAllSideTickers, 50);
   window.addEventListener('scroll', updateHintVisibility, { passive: true });
 
+  const updateLayoutReserve = () => {
+    const root = document.documentElement;
+    const toPx = (value) => {
+      const n = Number.parseFloat(value);
+      return Number.isFinite(n) ? n : 0;
+    };
+
+    let reserveBottom = 0;
+    let reserveRight = 0;
+
+    if (bottom.style.display !== 'none') {
+      const panelRect = bottomPanel.getBoundingClientRect();
+      reserveBottom = panelRect.height > 0 ? Math.ceil(panelRect.height + 20) : 120;
+    }
+
+    if (right.style.display !== 'none' && left.style.display === 'none') {
+      const panelRect = rightPanel.getBoundingClientRect();
+      const styles = getComputedStyle(rightPanel);
+      const margins = toPx(styles.marginLeft) + toPx(styles.marginRight);
+      reserveRight = panelRect.width > 0 ? Math.ceil(panelRect.width + margins + 12) : 220;
+    }
+
+    root.style.setProperty('--ad-reserve-bottom', `${reserveBottom}px`);
+    root.style.setProperty('--ad-reserve-right', `${reserveRight}px`);
+  };
+
   const updateAdLayout = () => {
     const isPortrait = window.matchMedia('(orientation: portrait)').matches;
     const isCompact = window.innerWidth < 900;
@@ -261,6 +287,7 @@ const ensureAds = () => {
       bottom.style.display = 'flex';
       document.documentElement.style.setProperty('--ad-rail-bottom', '120px');
       document.documentElement.dataset.adRail = 'bottom';
+      window.requestAnimationFrame(updateLayoutReserve);
       return;
     }
 
@@ -270,6 +297,7 @@ const ensureAds = () => {
       bottom.style.display = 'none';
       document.documentElement.style.setProperty('--ad-rail-bottom', '0px');
       document.documentElement.dataset.adRail = 'double';
+      window.requestAnimationFrame(updateLayoutReserve);
       return;
     }
 
@@ -278,6 +306,7 @@ const ensureAds = () => {
     bottom.style.display = 'none';
     document.documentElement.style.setProperty('--ad-rail-bottom', '120px');
     document.documentElement.dataset.adRail = 'right';
+    window.requestAnimationFrame(updateLayoutReserve);
   };
 
   updateAdLayout();
@@ -289,6 +318,7 @@ const ensureAds = () => {
     if (latestDraw) {
       buildBottomPanel(bottomItems);
       updateDrawTexts(latestDraw);
+      window.requestAnimationFrame(updateLayoutReserve);
     }
   });
 };
@@ -397,3 +427,5 @@ function getHintLabel() {
   if (isHome || isStats || isStorico) return 'Continua...';
   return 'Algoritmi';
 }
+
+
