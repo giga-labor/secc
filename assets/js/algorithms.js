@@ -48,6 +48,7 @@ function resolveWithBase(path) {
 
 function renderAlgorithms(area, grouped) {
   area.innerHTML = '';
+  const gridObservers = [];
   grouped.forEach((group) => {
     const section = document.createElement('section');
     section.className = 'mt-10';
@@ -66,25 +67,69 @@ function renderAlgorithms(area, grouped) {
       const card = document.createElement('a');
       const imageUrl = resolveCardImage(algorithm);
       const active = algorithm.isActive !== false;
-      card.className = `card-3d group relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl border border-white/10 transition hover:-translate-y-1 hover:border-neon/60${active ? ' is-active shadow-[0_0_22px_rgba(255,217,102,0.22)]' : ' bg-black/70 border-white/5 pointer-events-none'}`;
+      card.className = `card-3d algorithm-card group relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl border border-white/10 transition hover:-translate-y-1 hover:border-neon/60${active ? ' is-active shadow-[0_0_22px_rgba(255,217,102,0.22)]' : ' bg-black/70 border-white/5 pointer-events-none'}`;
       card.href = active ? (algorithm.page || '#') : '#';
+      const description = algorithm.subtitle || algorithm.narrativeSummary || 'Descrizione in arrivo';
+      let lastText = '';
+      let lastClass = 'text-[11px] text-ash';
+      if (active) {
+        if (algorithm.lastUpdated) {
+          lastText = `Aggiornato ${algorithm.lastUpdated}`;
+        } else {
+          lastText = 'NO DATA';
+          lastClass = 'text-[11px] uppercase tracking-[0.2em] text-red-400';
+        }
+      } else {
+        lastText = algorithm.lastUpdated ? `Aggiornato ${algorithm.lastUpdated}` : '';
+      }
+      const safeLastText = lastText || '&nbsp;';
       card.innerHTML = `
         ${active ? '' : '<div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/45"><span class="select-none whitespace-nowrap text-[clamp(0.68rem,2.1vw,1.9rem)] font-semibold uppercase tracking-[clamp(0.16em,0.8vw,0.5em)] text-neon/60 rotate-[-60deg] [text-shadow:0_0_18px_rgba(255,217,102,0.65),0_0_32px_rgba(0,0,0,0.85)]">coming soon</span></div>'}
-        <div class="relative h-28 overflow-hidden">
+        <div class="algorithm-card__media relative overflow-hidden">
           <img class="h-full w-full object-cover" src="${imageUrl}" alt="Anteprima di ${algorithm.title}">
         </div>
-        <div class="flex flex-1 flex-col gap-2 px-4 py-3">
+        <div class="algorithm-card__body flex flex-1 flex-col gap-2 px-4 py-3">
           <span class="text-[10px] uppercase tracking-[0.25em] text-neon">${algorithm.macroGroup || 'algoritmo'}</span>
-          ${active ? '' : '<span class="self-start rounded-full border border-white/20 bg-white/5 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-white/70">Non attivo</span>'}
           <h3 class="text-base font-semibold leading-tight ${active ? 'group-hover:text-neon' : ''}">${algorithm.title || 'Algoritmo'}</h3>
-          <p class="text-xs text-ash">${algorithm.subtitle || 'Descrizione in arrivo'}</p>
-          <p class="text-[11px] text-white/80">${algorithm.narrativeSummary || ''}</p>
-          <div class="mt-auto text-[11px] text-ash">${algorithm.lastUpdated ? `Aggiornato ${algorithm.lastUpdated}` : 'Ultimo aggiornamento in corso'}</div>
+          <p class="algorithm-card__desc text-xs text-ash">${description}</p>
+          <div class="mt-auto ${lastClass}">${safeLastText}</div>
         </div>
       `;
       grid.appendChild(card);
     });
     area.appendChild(section);
+
+    if (grid) {
+      const getCardMin = () => {
+        const raw = getComputedStyle(document.documentElement).getPropertyValue('--card-min');
+        const parsed = Number.parseFloat(raw);
+        return Number.isFinite(parsed) ? parsed : 220;
+      };
+      const getGap = () => {
+        const styles = getComputedStyle(grid);
+        const rawGap = styles.columnGap || styles.gap || '0';
+        const parsed = Number.parseFloat(rawGap);
+        return Number.isFinite(parsed) ? parsed : 0;
+      };
+      const updateColumns = () => {
+        const width = grid.clientWidth || grid.getBoundingClientRect().width || 0;
+        if (!width) return;
+        const cardMin = getCardMin();
+        const gap = getGap();
+        const columns = Math.max(1, Math.floor((width + gap) / (cardMin + gap)));
+        grid.style.setProperty('display', 'grid');
+        grid.style.setProperty('width', '100%');
+        grid.style.setProperty('grid-template-columns', `repeat(${columns}, minmax(0, 1fr))`, 'important');
+      };
+      updateColumns();
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(() => updateColumns());
+        observer.observe(grid);
+        gridObservers.push(observer);
+      } else {
+        window.addEventListener('resize', updateColumns);
+      }
+    }
   });
 }
 

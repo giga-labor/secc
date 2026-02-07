@@ -20,7 +20,7 @@ const fetchLatestDraw = async () => {
     const lastLine = lines[lines.length - 1];
     const delimiter = lastLine.includes(';') ? ';' : ',';
     const parts = lastLine.split(delimiter).map((cell) => cell.trim());
-    return parts[1] || '';
+    return parts[0] || '';
   } catch (error) {
     return '';
   }
@@ -29,7 +29,7 @@ const fetchLatestDraw = async () => {
 const buildFallbackItems = (latestDraw) => {
   const drawText = latestDraw ? `Ultima estrazione archiviata: ${latestDraw}` : 'Ultime estrazioni archiviate e consultabili';
   const base = [
-    { label: 'Control Chaos', text: 'Laboratorio SuperEnalotto con moduli in evoluzione' },
+    { label: 'SuperEnalotto Control Chaos', text: 'Laboratorio SuperEnalotto con moduli in evoluzione' },
     { label: 'Scopo', text: 'Analisi statistiche, logiche e narrative sui dati' },
     { label: 'Archivio', text: drawText, isDraw: true },
     { label: 'Trasparenza', text: 'Nessuna promessa di vincita, solo studio dei dati' },
@@ -38,14 +38,6 @@ const buildFallbackItems = (latestDraw) => {
   return shuffle(base);
 };
 
-const buildTickerText = (items) => {
-  const parts = items.map((item) => {
-    const label = item.label || 'Annuncio';
-    const text = item.text || '';
-    return `${label} — ${text}`;
-  });
-  return parts.join(' • ');
-};
 
 const estimateChars = (text) => String(text || '').replace(/\s+/g, ' ').trim().length;
 
@@ -75,6 +67,32 @@ const buildSideScroller = (items) => {
   });
   return track;
 };
+
+const buildBottomItem = (item) => {
+  const el = document.createElement('a');
+  el.className = 'ad-rail__item bottom-ad__item';
+  el.href = item.href || '#';
+  el.target = item.href ? '_blank' : '_self';
+  el.rel = item.href ? 'noopener noreferrer' : '';
+  const drawAttr = item.isDraw ? ' data-ad-draw="true"' : '';
+  el.innerHTML = `
+    <span class="ad-rail__logo">
+      <img src="${item.logo || ''}" alt="${item.label || 'Sponsor'} logo">
+    </span>
+    <span class="ad-rail__meta">
+      <span class="ad-rail__label">${item.label || 'Sponsor'}</span>
+      <span class="ad-rail__text"${drawAttr}>${item.text || ''}</span>
+    </span>
+  `;
+  return el;
+};
+const buildBottomMarker = () => {
+  const el = document.createElement('span');
+  el.className = 'bottom-ad__marker';
+  el.setAttribute('aria-hidden', 'true');
+  return el;
+};
+
 
 const updateDrawTexts = (latestDraw) => {
   if (!latestDraw) return;
@@ -113,6 +131,7 @@ const ensureAds = () => {
   const sideItemsLeft = buildSideItems(shuffle(fallbackItems));
   // Right rail continues the left sequence in reverse direction
   const sideItemsRight = buildSideItems(sideItemsLeft.map((item) => ({ ...item })));
+  const bottomItems = sideItemsLeft.map((item) => ({ ...item }));
   const leftPanel = left.querySelector('.ad-rail__panel');
   const rightPanel = right.querySelector('.ad-rail__panel');
 
@@ -123,25 +142,7 @@ const ensureAds = () => {
   bottomPanel.className = 'bottom-ad__panel';
   bottomPanel.id = 'bottomAdPanel';
 
-  const title = document.createElement('span');
-  title.className = 'bottom-ad__title';
-  title.textContent = 'Annunci';
 
-  const ticker = document.createElement('div');
-  ticker.className = 'bottom-ad__ticker';
-  ticker.setAttribute('aria-label', 'Annunci scorrevoli');
-
-  const items = fallbackItems;
-  const tickerText = document.createElement('span');
-  tickerText.className = 'bottom-ad__text';
-  tickerText.id = 'bottomAdTickerText';
-  tickerText.textContent = buildTickerText(items);
-  tickerText.dataset.baseText = tickerText.textContent;
-  tickerText.dataset.text = tickerText.textContent;
-  ticker.appendChild(tickerText);
-
-  bottomPanel.appendChild(title);
-  bottomPanel.appendChild(ticker);
   bottom.appendChild(bottomPanel);
   bottom.style.display = 'flex';
   bottom.style.zIndex = '9999';
@@ -192,9 +193,43 @@ const ensureAds = () => {
     panel.style.setProperty('--ticker-duration', `${duration.toFixed(1)}s`);
   };
 
+  const buildBottomPanel = (items) => {
+    if (!bottomPanel) return;
+    const existing = bottomPanel.querySelector('.bottom-ad__ticker');
+    if (existing) existing.remove();
+    const ticker = document.createElement('div');
+    ticker.className = 'bottom-ad__ticker';
+    ticker.setAttribute('aria-label', 'Annunci scorrevoli');
+    const viewport = document.createElement('div');
+    viewport.className = 'bottom-ad__viewport';
+    const track = document.createElement('div');
+    track.className = 'bottom-ad__track';
+    const appendItem = (item) => {
+      track.appendChild(buildBottomItem(item));
+      track.appendChild(buildBottomMarker());
+    };
+    items.forEach((item) => {
+      appendItem(item);
+    });
+    viewport.appendChild(track);
+    ticker.appendChild(viewport);
+    bottomPanel.appendChild(ticker);
+
+    const minWidth = Math.max(600, bottomPanel.getBoundingClientRect().width * 1.2);
+    let safety = 0;
+    while (track.scrollWidth < minWidth && safety < 6) {
+      items.forEach((item) => {
+        appendItem(item);
+      });
+      safety += 1;
+    }
+    resizeBottomTicker();
+  };
+
   const resizeAllSideTickers = () => {
     buildSidePanel(leftPanel, sideItemsLeft);
     buildSidePanel(rightPanel, sideItemsRight);
+    buildBottomPanel(bottomItems);
   };
 
   const updateHintVisibility = () => {
@@ -215,42 +250,109 @@ const ensureAds = () => {
   window.setTimeout(resizeAllSideTickers, 50);
   window.addEventListener('scroll', updateHintVisibility, { passive: true });
 
+  const updateAdLayout = () => {
+    const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+    const isCompact = window.innerWidth < 900;
+    const isWide = window.innerWidth >= 1200;
+
+    if (isCompact || isPortrait) {
+      left.style.display = 'none';
+      right.style.display = 'none';
+      bottom.style.display = 'flex';
+      document.documentElement.style.setProperty('--ad-rail-bottom', '120px');
+      document.documentElement.dataset.adRail = 'bottom';
+      return;
+    }
+
+    if (isWide) {
+      left.style.display = 'block';
+      right.style.display = 'block';
+      bottom.style.display = 'none';
+      document.documentElement.style.setProperty('--ad-rail-bottom', '0px');
+      document.documentElement.dataset.adRail = 'double';
+      return;
+    }
+
+    left.style.display = 'none';
+    right.style.display = 'block';
+    bottom.style.display = 'none';
+    document.documentElement.style.setProperty('--ad-rail-bottom', '120px');
+    document.documentElement.dataset.adRail = 'right';
+  };
+
+  updateAdLayout();
+  window.addEventListener('resize', updateAdLayout);
+  window.matchMedia('(orientation: portrait)').addEventListener('change', updateAdLayout);
+
   fetchLatestDraw().then((latestDraw) => {
     updateDrawTexts(latestDraw);
     if (latestDraw) {
-      const tickerText = document.getElementById('bottomAdTickerText');
-      if (tickerText) {
-        const updatedItems = buildFallbackItems(latestDraw);
-        const updatedBase = buildTickerText(updatedItems);
-        tickerText.dataset.baseText = updatedBase;
-        tickerText.textContent = updatedBase;
-      }
-      resizeBottomTicker();
+      buildBottomPanel(bottomItems);
+      updateDrawTexts(latestDraw);
     }
   });
 };
 
 const resizeBottomTicker = () => {
   const ticker = document.querySelector('.bottom-ad__ticker');
-  const text = document.getElementById('bottomAdTickerText');
-  if (!ticker || !text) return;
-  const base = text.dataset.baseText || text.textContent || '';
-  if (!base.trim()) return;
-  const containerWidth = ticker.getBoundingClientRect().width;
-  text.dataset.text = base;
-  text.textContent = base;
-  const singleWidth = text.scrollWidth;
-  if (!singleWidth) return;
-  const repeats = Math.max(2, Math.ceil((containerWidth * 2) / singleWidth));
-  text.textContent = Array.from({ length: repeats }).map(() => base).join(' • ');
-  text.dataset.text = text.textContent;
-  const baseChars = estimateChars(base);
-  const targetCharsPerSecond = 3.8;
-  const minDuration = 100;
-  const durationByChars = baseChars ? (baseChars / targetCharsPerSecond) : 50;
-  const durationByPixels = singleWidth ? (singleWidth / 18) : 50;
-  const duration = Math.max(minDuration, Math.min(240, Math.max(durationByChars, durationByPixels)));
-  ticker.style.setProperty('--ticker-duration', `${duration.toFixed(1)}s`);
+  const track = ticker?.querySelector('.bottom-ad__track');
+  if (!ticker || !track) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(0)';
+    return;
+  }
+
+  if (window.__bottomStepperTimer) {
+    window.clearTimeout(window.__bottomStepperTimer);
+    window.__bottomStepperTimer = null;
+  }
+
+  track.style.transition = 'none';
+  track.style.transform = 'translateX(0)';
+
+  const pause = 4000;
+  const speed = 70;
+
+  const step = () => {
+    if (!track.isConnected) return;
+    const firstItem = track.firstElementChild;
+    if (!firstItem) return;
+    let marker = firstItem.nextElementSibling;
+    if (!marker || !marker.classList.contains('bottom-ad__marker')) {
+      marker = track.querySelector('.bottom-ad__marker');
+    }
+
+    const tickerRect = ticker.getBoundingClientRect();
+    const markerRect = marker ? marker.getBoundingClientRect() : null;
+    let move = markerRect ? Math.round(markerRect.left - tickerRect.left) : 0;
+    if (!move || move <= 0) {
+      const firstRect = firstItem.getBoundingClientRect();
+      move = Math.round(firstRect.width);
+    }
+
+    const duration = Math.max(0.9, move / speed);
+    track.style.transition = `transform ${duration.toFixed(2)}s linear`;
+    track.style.transform = `translateX(-${move}px)`;
+
+    const onEnd = () => {
+      track.removeEventListener('transitionend', onEnd);
+      if (!track.isConnected) return;
+      track.style.transition = 'none';
+      if (marker && marker.classList.contains('bottom-ad__marker')) {
+        track.appendChild(firstItem);
+        track.appendChild(marker);
+      } else {
+        track.appendChild(firstItem);
+      }
+      track.style.transform = 'translateX(0)';
+      window.__bottomStepperTimer = window.setTimeout(step, pause);
+    };
+    track.addEventListener('transitionend', onEnd);
+  };
+
+  window.__bottomStepperTimer = window.setTimeout(step, pause);
 };
 
 window.addEventListener('load', resizeBottomTicker);

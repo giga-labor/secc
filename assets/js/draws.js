@@ -106,7 +106,13 @@ function parseItalianDate(value) {
 }
 
 function renderHeader(headers) {
-  const headerRow = headers.map((name) => `<th class="px-4 py-3">${name}</th>`).join('');
+  const headerRow = headers
+    .map((name) => {
+      const normalized = String(name || '').toLowerCase();
+      const label = normalized.includes('sequenziale') ? 'NR. SEQ' : name;
+      return `<th class="px-4 py-3">${label}</th>`;
+    })
+    .join('');
   elements.header.innerHTML = headerRow;
 }
 

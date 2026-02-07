@@ -2,8 +2,8 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storico estrazioni • Control Chaos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Storico estrazioni • SuperEnalotto Control Chaos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -32,8 +32,6 @@
   <div class="mx-auto max-w-5xl px-6 py-14">
     <header class="mt-6 space-y-3">
       <span class="text-xs uppercase tracking-[0.2em] text-ash">Archivio storico</span>
-      <h1 class="text-3xl font-semibold">Storico di tutte le estrazioni</h1>
-      <p class="text-ash max-w-3xl">Elenco completo delle estrazioni con numero concorso, data e numeri estratti. Filtri di ricerca, riepilogo e tabella.</p>
     </header>
 
     <section class="mt-10 rounded-3xl border border-white/10 bg-night p-6">
@@ -44,18 +42,20 @@
         </div>
         <span class="rounded-full border border-emerald-400 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-300" data-draws-status-tag>Archivio attivo</span>
       </div>
-      <div class="mt-6 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Record totali</p>
-          <p class="mt-2 text-2xl font-semibold" data-draws-count>—</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Prima estrazione</p>
-          <p class="mt-2 text-xl font-semibold" data-draws-first>—</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Ultima estrazione</p>
-          <p class="mt-2 text-xl font-semibold" data-draws-last>—</p>
+      <div class="mt-6 rounded-2xl border border-white/10 bg-midnight/80 p-4">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Record totali</p>
+            <p class="mt-2 text-2xl font-semibold" data-draws-count>?</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Prima estrazione</p>
+            <p class="mt-2 text-xl font-semibold" data-draws-first>?</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Ultima estrazione</p>
+            <p class="mt-2 text-xl font-semibold" data-draws-last>?</p>
+          </div>
         </div>
       </div>
     </section>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="mt-6 overflow-x-auto rounded-2xl border border-white/10">
-        <table class="min-w-full text-left text-sm">
+        <table class="draws-table min-w-full text-left text-sm">
           <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
             <tr data-draws-header>
               <th class="px-4 py-3">Data</th>
@@ -104,4 +104,5 @@
   <script src="../../assets/js/ads.js" defer></script>
 </body>
 </html>
+
 

@@ -66,7 +66,32 @@ const resolveWithBaseHref = (href, baseUrl = BASE.url) => {
 const AUDIO_ENABLED = false;
 
 const getVersion = () => window.CC_VERSION || '00.00.000';
-const VERSION = getVersion();
+const getLastDraw = () => String(window.CC_LAST_DRAW || '').trim();
+const getVersionDisplay = () => {
+  const base = getVersion();
+  const draw = getLastDraw();
+  return draw ? `${base}.${draw}` : base;
+};
+const VERSION = getVersionDisplay();
+
+const fetchLatestDrawHeader = async () => {
+  try {
+    const response = await fetch(resolveWithBaseHref('archives/draws/draws.csv'), { cache: 'no-store' });
+    if (!response.ok) return '';
+    const raw = await response.text();
+    const lines = raw
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0 && !line.startsWith('#'));
+    if (!lines.length) return '';
+    const lastLine = lines[lines.length - 1];
+    const delimiter = lastLine.includes(';') ? ';' : ',';
+    const parts = lastLine.split(delimiter).map((cell) => cell.trim());
+    return parts[0] || '';
+  } catch (error) {
+    return '';
+  }
+};
 
 const buildHeaderMarkup = () => `
   <header id="site-header" class="sticky top-0 z-50 relative border-b border-white/10 backdrop-blur-sm">
@@ -81,17 +106,39 @@ const buildHeaderMarkup = () => `
     <div class="header-container relative mx-auto w-[calc(100%-2rem)] max-w-[60rem] px-12 py-20">
       <div class="header-wrap rounded-3xl border border-white/15 bg-gradient-to-br from-midnight/90 via-midnight/80 to-neon/10 px-6 py-8 shadow-glow backdrop-blur-sm">
         <div class="header-topline">
-          <p class="text-xs uppercase tracking-[0.35em] text-neon">Control Chaos</p>
+          <p class="text-xs uppercase tracking-[0.35em] text-neon">SuperEnalotto Control Chaos</p>
           <span class="header-version" aria-label="Versione">${VERSION}</span>
         </div>
-        <h1 class="header-title mt-4 text-3xl sm:text-5xl font-semibold drop-shadow-[0_0_14px_rgba(255,217,102,0.35)]">Statistiche e algoritmi per domare il caos del <span class="superenalotto-mark" aria-label="Super-Enalotto"><span class="super-word">S<span class="super-smile"></span>per</span><span class="super-dash">-</span><span class="enalotto-word">Enalotto</span></span></h1>
+        <h1 class="header-title mt-4 text-3xl sm:text-5xl font-semibold drop-shadow-[0_0_14px_rgba(255,217,102,0.35)]">Statistiche e algoritmi per dominare il caos del <span class="superenalotto-mark" aria-label="Super-Enalotto"><span class="super-word">S<span class="super-u">u</span>per</span><span class="super-dash">-</span><span class="enalotto-word">Enalotto</span></span></h1>
         <div class="header-actions mt-10 flex flex-wrap items-center justify-between gap-4">
           <div class="header-actions__left flex flex-wrap items-center gap-4">
             <a class="home-badge home-badge--pentagon bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('index.html')}#top" aria-label="Home" data-tooltip="HOME PAGE"></a>
-            <a class="home-badge home-badge--triangle bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" aria-label="Top of page" data-tooltip="TOP OF PAGE" data-scroll-top href="#"></a>
-            <a class="home-badge bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('pages/storico-estrazioni/')}">Storico estrazioni</a>
-            <a class="home-badge bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('pages/algoritmi/index.html')}">ALGORITMI</a>
-            <a class="home-badge bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('pages/analisi-statistiche/')}">Analisi statistiche</a>
+            <a class="home-badge home-badge--icon bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('pages/storico-estrazioni/')}" aria-label="Storico estrazioni" data-tooltip="Storico estrazioni">
+              <svg class="home-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="icon-fill" cx="5" cy="6" r="2"></circle>
+                <circle class="icon-fill" cx="12" cy="12" r="2"></circle>
+                <circle class="icon-fill" cx="19" cy="18" r="2"></circle>
+                <path d="M7 6h4m3 6h4" stroke-linecap="round"></path>
+                <path d="M7 6l3 6 3 6" stroke-linecap="round"></path>
+              </svg>
+            </a>
+            <a class="home-badge home-badge--icon bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('pages/algoritmi/index.html')}" aria-label="Algoritmi" data-tooltip="Algoritmi">
+              <svg class="home-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="6" height="4" rx="1"></rect>
+                <rect x="15" y="4" width="6" height="4" rx="1"></rect>
+                <rect x="9" y="16" width="6" height="4" rx="1"></rect>
+                <path d="M6 8v4h12V8" stroke-linecap="round"></path>
+                <path d="M12 12v4" stroke-linecap="round"></path>
+              </svg>
+            </a>
+            <a class="home-badge home-badge--icon bg-neon/10 px-6 py-3 font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" href="${resolveWithBaseHref('pages/analisi-statistiche/')}" aria-label="Analisi statistiche" data-tooltip="Analisi statistiche">
+              <svg class="home-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 18l5-6 4 3 7-9" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle class="icon-fill" cx="9" cy="12" r="1.6"></circle>
+                <circle class="icon-fill" cx="13" cy="15" r="1.6"></circle>
+                <circle class="icon-fill" cx="20" cy="6" r="1.6"></circle>
+              </svg>
+            </a>
           </div>
           <div class="header-actions__right">
             <button class="home-badge home-badge--audio bg-neon/10 px-4 py-3 text-neon transition hover:-translate-y-1 hover:bg-neon/20 hover:shadow-[0_0_22px_rgba(255,217,102,0.45)]" type="button" aria-label="Audio" data-tooltip="MUSIC" data-audio-toggle${AUDIO_ENABLED ? '' : ' hidden'}>
@@ -123,7 +170,10 @@ if (header) {
       if (!href || href.startsWith('#')) return;
       const normalized = normalizeHrefPath(href);
       if (!normalized) return;
-      const isActive = currentPath === normalized || currentPath.startsWith(normalized);
+      const isRoot = normalized === BASE.path || normalized === '/';
+      const isActive = isRoot
+        ? currentPath === normalized || currentPath === '/index.html'
+        : currentPath === normalized || currentPath.startsWith(normalized);
       link.classList.toggle('is-active', isActive);
     });
   };
@@ -135,11 +185,15 @@ if (header) {
   const isHome = document.body && document.body.id === 'top';
   const setHeaderOffsets = () => {
     const container = header.querySelector('.header-container') || header;
+    const wrap = header.querySelector('.header-wrap') || container;
     const rect = container.getBoundingClientRect();
+    const wrapRect = wrap.getBoundingClientRect();
     const safePad = isHome ? 64 : 24;
     const offset = Math.ceil(rect.bottom + safePad);
     document.documentElement.style.setProperty('--fixed-header-offset', `${offset}px`);
     document.documentElement.style.setProperty('--header-fade-height', `${Math.ceil(rect.bottom + 10)}px`);
+    document.documentElement.style.setProperty('--col-x', `${Math.max(0, Math.round(wrapRect.left))}px`);
+    document.documentElement.style.setProperty('--col-w', `${Math.max(0, Math.round(wrapRect.width))}px`);
     if (main) {
       main.style.paddingTop = `${offset}px`;
     }
@@ -152,35 +206,67 @@ if (header) {
 const syncHeaderVersion = () => {
   const versionEl = document.querySelector('.header-version');
   if (versionEl) {
-    versionEl.textContent = getVersion();
+    versionEl.textContent = getVersionDisplay();
   }
+};
+
+const syncHeaderTitleVisibility = () => {
+  const titleEl = document.querySelector('#site-header .header-title');
+  if (!titleEl) return;
+  const size = Number.parseFloat(getComputedStyle(titleEl).fontSize);
+  const isTooSmall = Number.isFinite(size) && size < 14;
+  titleEl.classList.toggle('is-hidden', isTooSmall);
 };
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', syncHeaderVersion);
+  document.addEventListener('DOMContentLoaded', syncHeaderTitleVisibility);
 } else {
   syncHeaderVersion();
+  syncHeaderTitleVisibility();
 }
+
+fetchLatestDrawHeader().then((latestDraw) => {
+  if (!latestDraw) return;
+  window.CC_LAST_DRAW = latestDraw;
+  syncHeaderVersion();
+});
 
 const updateAdRails = () => {
   const container = header?.querySelector('.header-container');
   const wrap = header?.querySelector('.header-wrap');
   const title = header?.querySelector('.header-title');
   if (!container && !wrap && !title) return;
+  const headerRect = header?.getBoundingClientRect();
   let bottomAd = document.querySelector('[data-bottom-ad]');
   if (!bottomAd) {
     bottomAd = document.querySelector('.bottom-ad') || document.querySelector('.fixed.bottom-4.left-1\\/2');
     if (bottomAd) bottomAd.dataset.bottomAd = 'true';
   }
   const anchorRect = (container || wrap || title).getBoundingClientRect();
-  const top = Math.max(0, anchorRect.top);
-  const bottom = 24;
+  const wrapRect = wrap?.getBoundingClientRect();
+  const containerRect = container?.getBoundingClientRect();
+  const topSource = wrapRect?.top ?? containerRect?.top ?? headerRect?.top ?? anchorRect.top;
+  const top = Math.max(0, topSource);
+  const getBottomPad = () => {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue('--ad-rail-bottom');
+    const parsed = Number.parseFloat(raw);
+    return Number.isFinite(parsed) ? parsed : 24;
+  };
+  const bottom = getBottomPad();
   if (bottomAd) {
     const bottomRect = bottomAd.getBoundingClientRect();
-    const height = Math.max(0, bottomRect.bottom - top);
+    const isHidden = bottomRect.width === 0 || bottomRect.height === 0;
+    const bottomLimit = isHidden
+      ? Math.max(0, window.innerHeight - bottom)
+      : bottomRect.top;
+    const trim = 16;
+    const height = Math.max(0, bottomLimit - top - trim);
     document.documentElement.style.setProperty('--ad-rail-height', `${height}px`);
   } else {
-    document.documentElement.style.setProperty('--ad-rail-height', `calc(100vh - ${top}px - ${bottom}px)`);
+    const trim = 16;
+    const height = Math.max(0, window.innerHeight - top - bottom - trim);
+    document.documentElement.style.setProperty('--ad-rail-height', `${height}px`);
   }
   document.documentElement.style.setProperty('--ad-rail-top', `${top}px`);
 };
@@ -197,6 +283,7 @@ const onAdRailScroll = () => {
 
 window.addEventListener('load', updateAdRails);
 window.addEventListener('resize', updateAdRails);
+window.addEventListener('resize', syncHeaderTitleVisibility);
 // Ads stay standing; no scroll listener.
 
 const homeBadges = document.querySelectorAll('.home-badge[data-tooltip]');
