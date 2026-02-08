@@ -1,7 +1,7 @@
 # Control Chaos
 
 Sito statico per analisi, algoritmi e storico estrazioni SuperEnalotto.  
-Nessun backend: tutto Ë client-side statico.
+Nessun backend: tutto √® client-side statico.
 
 ## Repository
 - GitHub: `https://github.com/giga-labor/secc`
@@ -40,7 +40,7 @@ Nessun backend: tutto Ë client-side statico.
 ## Flusso Card
 - Le card sono caricate dai manifest e normalizzate in `assets/js/cards-index.js`.
 - Le card sono costruite da `window.CARDS.buildAlgorithmCard(...)` in `assets/js/cards.js`.
-- `no_data_show` Ë gestito per-card in `card.json`; default `true` quando assente.
+- `no_data_show` √® gestito per-card in `card.json`; default `true` quando assente.
 
 ## Documentazione AdSense e Ads
 Stato attuale:
@@ -51,10 +51,10 @@ Stato attuale:
 
 Checklist go-live monetizzazione:
 1. Inserisci la riga publisher reale in `ads.txt`.
-2. Integra script ufficiale AdSense e unit‡ conformi alle policy.
+2. Integra script ufficiale AdSense e unit√† conformi alle policy.
 3. Verifica pagine policy (`privacy`, `cookie`, `contatti`) e consenso cookie.
-4. Ricontrolla raggiungibilit‡ `robots.txt` + `sitemap.xml` in produzione.
-5. Verifica approvazione e crawlabilit‡ delle pagine monetizzate su dominio GitHub Pages.
+4. Ricontrolla raggiungibilit√† `robots.txt` + `sitemap.xml` in produzione.
+5. Verifica approvazione e crawlabilit√† delle pagine monetizzate su dominio GitHub Pages.
 
 ## Avvio Locale
 ```bat
@@ -72,7 +72,7 @@ URL atteso:
 - `https://giga-labor.github.io/secc/`
 
 ## Note
-- L'autoplay audio Ë limitato dai browser; toggle audio disabilitato di default.
+- L'autoplay audio √® limitato dai browser; toggle audio disabilitato di default.
 - Nessun backend richiesto.
 
 ## Documentation EN

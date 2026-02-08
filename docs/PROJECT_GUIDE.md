@@ -34,7 +34,7 @@ Portale statico SuperEnalotto con:
 1. I manifest elencano i `card.json`.
 2. `cards-index.js` carica e normalizza i dati.
 3. `cards.js` costruisce il markup card (`buildAlgorithmCard`).
-4. Il flag `no_data_show` Ë gestito per-card e defaulta a `true` se mancante.
+4. Il flag `no_data_show` √® gestito per-card e defaulta a `true` se mancante.
 
 ## AdSense / Ads: Stato e Checklist
 Stato attuale:
@@ -45,7 +45,7 @@ Stato attuale:
 
 Checklist go-live AdSense:
 1. Sostituisci placeholder in `ads.txt` con publisher reale (`pub-...`).
-2. Inserisci script ufficiale AdSense e unit‡ ads conformi.
+2. Inserisci script ufficiale AdSense e unit√† ads conformi.
 3. Verifica pagine legali e gestione consenso cookie.
 4. Verifica crawlability: `robots.txt`, `sitemap.xml`, URL pubblici.
 5. Controlla rendering ads su mobile/desktop senza CLS critico.
