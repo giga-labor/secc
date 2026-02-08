@@ -2,10 +2,34 @@ const AD_LAYOUT = Object.freeze({
   TABLET_LANDSCAPE: 1024
 });
 
+const resolveSiteBase = () => {
+  const script = document.querySelector('script[src*="assets/js/ads.js"]');
+  const rawSrc = script?.getAttribute('src') || '';
+  if (!rawSrc) return '/';
+  const normalized = rawSrc.replace(/\\/g, '/');
+  const idx = normalized.lastIndexOf('assets/js/ads.js');
+  if (idx === -1) return '/';
+  return normalized.slice(0, idx);
+};
+
+const buildPolicyRowMarkup = (baseHrefPrefix) => `
+  <div class="ad-policy-row ad-policy-row--fixed" data-ad-policy-row="true" aria-label="Informazioni legali">
+    <span class="ad-policy-row__brand">SuperEnalotto Control Chaos</span>
+    <a class="ad-policy-row__link" href="${baseHrefPrefix}pages/privacy-policy/index.html">Privacy Policy</a>
+    <span class="ad-policy-row__sep" aria-hidden="true">|</span>
+    <a class="ad-policy-row__link" href="${baseHrefPrefix}pages/cookie-policy/index.html">Cookie Policy</a>
+    <span class="ad-policy-row__sep" aria-hidden="true">|</span>
+    <a class="ad-policy-row__link" href="${baseHrefPrefix}pages/contatti-chi-siamo/index.html">Contatti / Chi siamo</a>
+    <span class="ad-policy-row__sep" aria-hidden="true">|</span>
+    <a class="ad-policy-row__link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">AdSense</a>
+  </div>
+`;
+
 const ensureAds = () => {
   if (document.querySelector('[data-cc-ads-root="true"]')) return;
 
   const root = document.documentElement;
+  const baseHrefPrefix = resolveSiteBase();
   const rightRail = document.createElement('aside');
   rightRail.className = 'ad-rail ad-rail--right';
   rightRail.dataset.adRail = 'right';
@@ -28,6 +52,11 @@ const ensureAds = () => {
       <div class="ad-slot-host" data-ad-host="bottom"></div>
     </div>
   `;
+
+  const policyRow = document.createElement('aside');
+  policyRow.className = 'ad-policy-fixed';
+  policyRow.dataset.ccAdsPolicy = 'true';
+  policyRow.innerHTML = buildPolicyRowMarkup(baseHrefPrefix);
 
   const adSlot = document.createElement('div');
   adSlot.className = 'ad-slot';
@@ -58,10 +87,10 @@ const ensureAds = () => {
     const rightVisible = !rightRail.hidden;
     const bottomVisible = !bottomAd.hidden;
     const reserveRight = rightVisible
-      ? Math.ceil((rightRail.querySelector('.ad-rail__panel')?.getBoundingClientRect().width || 0) + 16)
+      ? Math.ceil((rightRail.getBoundingClientRect().width || 0) + 16)
       : 0;
     const reserveBottom = bottomVisible
-      ? Math.ceil((bottomAd.querySelector('.bottom-ad__panel')?.getBoundingClientRect().height || 0) + 8)
+      ? Math.ceil((bottomAd.getBoundingClientRect().height || 0) + 8)
       : 0;
 
     root.style.setProperty('--ad-reserve-bottom', `${reserveBottom}px`);
@@ -91,6 +120,7 @@ const ensureAds = () => {
 
   document.body.appendChild(rightRail);
   document.body.appendChild(bottomAd);
+  document.body.appendChild(policyRow);
 
   updateAdLayout();
   window.addEventListener('load', updateAdLayout);
