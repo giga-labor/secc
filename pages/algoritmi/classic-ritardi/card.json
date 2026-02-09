@@ -3,12 +3,13 @@
     "title":  "classic-ritardi",
     "subtitle":  "Analisi dei numeri in ritardo (overdue)",
     "image":  "img.webp",
-    "lastUpdated":  "07/02/2026",
-    "hasNews":  false,
+    "lastUpdated":  "09/02/2026",
+    "hasNews":  true,
+    "usesOutData":  true,
     "statusTag":  "Scheda tecnica",
-    "narrativeSummary":  "Calcolo del ritardo di ciascun numero e confronto tra ritardo attuale e storico.",
-    "page":  "/pages/algoritmi/classic-ritardi/",
+    "narrativeSummary":  "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
+    "page":  "pages/algoritmi/classic-ritardi/",
     "macroGroup":  "statistica",
-    "isActive":  false,
+    "isActive":  true,
     "no_data_show":  true
 }

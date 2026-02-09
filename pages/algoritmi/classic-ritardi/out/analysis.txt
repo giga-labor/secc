@@ -1,0 +1,21 @@
+﻿Contesto e definizioni
+Ho analizzato 4.141 concorsi (dal n. 2 al n. 4142 in validazione storica), ciascuno con una sestina proposta da Classic Ritardi.
+Qui considero la dinamica di copertura hit delle sestine costruite con i 6 numeri a ritardo massimo sullo storico precedente.
+
+Lettura operativa del modello ritardi
+1) Logica di selezione
+- Per ogni concorso, il modello calcola per i numeri 1..90 quante estrazioni sono passate dall'ultima uscita.
+- La sestina proposta contiene i 6 numeri con ritardo piu alto (pari risolte per numero crescente).
+
+2) Cosa mostrano le metriche
+- La media hit/sestina e il tasso di concorsi con almeno 2 hit quantificano la tenuta del criterio su tutto lo storico.
+- Le distribuzioni con 2,3,4,5,6 hit descrivono la coda alta dei risultati ma non implicano stabilita predittiva.
+
+3) Limiti intrinseci del criterio ritardatari
+- In un processo casuale e indipendente, un numero in ritardo non ha probabilita superiore di uscire al concorso successivo.
+- Il ranking per ritardo e una regola di ordinamento statistico, non una prova di causalita.
+- Le performance osservate su storico possono variare nel tempo per sola fluttuazione campionaria.
+
+Conclusione
+Classic Ritardi e utile come strumento descrittivo e comparativo (monitoraggio assenze e rotazioni dei numeri), ma non fornisce garanzia di vantaggio predittivo.
+La metrica va letta insieme a disciplina di budget e gestione del rischio.

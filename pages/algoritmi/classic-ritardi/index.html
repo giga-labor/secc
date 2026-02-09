@@ -1,118 +1,691 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   
-  <title>classic-ritardi - Analisi algoritmo</title>
-  <meta name="description" content="classic-ritardi: Analisi dei numeri in ritardo (overdue). Scheda tecnica con approccio, metriche, limiti e note operative.">
+  <title>Classic Ritardi - SuperEnalotto Control Chaos</title>
+  <meta name="description" content="Scheda algoritmo Classic Ritardi: analisi dei numeri in ritardo su storico estrazioni, metodo, output e limiti operativi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=swap">
 <script src="../../../assets/js/ga4.js" defer></script>
 <link rel="stylesheet" href="../../../assets/css/tailwind.generated.css">
-<link rel="stylesheet" href="../../../assets/css/header.css">
+<link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/header.css">
   <link rel="stylesheet" href="../../../assets/css/ads.css">
+  <style>
+    .spotlight-hero-card--static {
+      cursor: default !important;
+      pointer-events: none !important;
+      transform: none !important;
+    }
+    .spotlight-hero-card--static:hover,
+    .spotlight-hero-card--static.is-hovered,
+    .spotlight-hero-card--static:focus-visible,
+    .spotlight-hero-card--static.is-selected {
+      transform: none !important;
+      filter: brightness(1.08) saturate(1.12) !important;
+      border-color: rgba(255, 217, 102, 0.55) !important;
+    }
+    .historical-pick {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(15, 18, 32, 0.9);
+      color: #cfd8ef;
+      font-weight: 700;
+      font-size: 0.78rem;
+      line-height: 1;
+    }
+    .historical-pick.is-hit {
+      position: relative;
+      border-color: rgba(255, 245, 206, 0.9);
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.95) 0 20%, rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0) 54%),
+        radial-gradient(circle at 52% 68%, rgba(255, 248, 196, 0.55) 0 34%, rgba(255, 221, 122, 0.28) 56%, rgba(16, 23, 40, 0.98) 100%);
+      color: #050505;
+      -webkit-text-stroke: 0.55px rgba(255, 243, 191, 0.96);
+      text-shadow:
+        0 0 1px rgba(255, 243, 191, 0.96),
+        0 0 7px rgba(255, 230, 144, 0.78);
+      box-shadow:
+        inset 0 2px 2px rgba(255, 255, 255, 0.72),
+        inset 0 -8px 14px rgba(8, 12, 22, 0.62),
+        inset 0 0 12px rgba(255, 241, 196, 0.24),
+        0 3px 8px rgba(4, 8, 18, 0.58),
+        0 0 12px rgba(255, 226, 142, 0.78),
+        0 0 26px rgba(255, 226, 142, 0.42);
+      min-width: 2.18rem;
+      height: 2.18rem;
+      font-size: 0.9rem;
+      transform: translateY(-1px) scale(1.09);
+    }
+    .tabs-shell {
+      margin-top: 0.8rem;
+      --active-notch-left: 0px;
+      --active-notch-width: 0px;
+    }
+    .folder-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-left: 0.65rem;
+      margin-bottom: -1px;
+      position: relative;
+      overflow: visible;
+    }
+    .tab-btn {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-bottom: none;
+      background:
+        linear-gradient(175deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 56%, rgba(10, 14, 26, 0.7)),
+        linear-gradient(145deg, rgba(28, 36, 70, 0.5), rgba(10, 14, 26, 0.44));
+      color: #cfd8ef;
+      border-radius: 0.6rem 0.6rem 0 0;
+      padding: 0.36rem 0.86rem 0.42rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -8px 14px rgba(7, 10, 20, 0.22);
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      position: relative;
+      z-index: 2;
+    }
+    .tab-btn.is-active {
+      border-color: rgba(255, 217, 102, 0.88);
+      background:
+        linear-gradient(180deg, rgba(255, 232, 173, 0.36), rgba(255, 217, 102, 0.16)),
+        linear-gradient(145deg, rgba(28, 36, 70, 0.54), rgba(10, 14, 26, 0.46));
+      color: #ffe8a0;
+      border-bottom-color: transparent;
+      box-shadow: 0 0 14px rgba(255, 217, 102, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.44);
+      transform: translateY(1px);
+      z-index: 4;
+    }
+    .tab-btn.is-active::after {
+      content: "";
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      top: 100%;
+      height: 18px;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 217, 102, 0.42) 0%,
+        rgba(255, 217, 102, 0.2) 46%,
+        rgba(255, 217, 102, 0) 100%
+      );
+      filter: blur(1.5px);
+    }
+    .tab-btn:not(.is-active) {
+      transform: translateY(2px);
+      opacity: 0.92;
+      z-index: 1;
+    }
+    .tabs-sheet {
+      margin-top: 0;
+      border: 1px solid rgba(255, 217, 102, 0.52);
+      border-top-color: rgba(255, 217, 102, 0.34);
+      border-radius: 0.8rem 1rem 1rem 1rem;
+      background:
+        linear-gradient(165deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04) 54%, rgba(10, 14, 26, 0.66)),
+        linear-gradient(145deg, rgba(28, 36, 70, 0.46), rgba(10, 14, 26, 0.4));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 241, 204, 0.22),
+        inset 0 0 14px rgba(255, 217, 102, 0.1),
+        inset 0 -12px 18px rgba(7, 10, 20, 0.22),
+        0 0 16px rgba(255, 217, 102, 0.22),
+        0 0 34px rgba(255, 217, 102, 0.12);
+      padding: 1rem 1rem 1.1rem;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .tabs-sheet::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -1px;
+      height: 1px;
+      background: rgba(255, 217, 102, 0.88);
+      pointer-events: none;
+      z-index: 3;
+      border-top-left-radius: 0.8rem;
+      border-top-right-radius: 1rem;
+      mask-image:
+        linear-gradient(
+          90deg,
+          #000 0 calc(var(--active-notch-left) - 0px),
+          transparent calc(var(--active-notch-left) - 0px) calc(var(--active-notch-left) + var(--active-notch-width)),
+          #000 calc(var(--active-notch-left) + var(--active-notch-width)) 100%
+        );
+      -webkit-mask-image:
+        linear-gradient(
+          90deg,
+          #000 0 calc(var(--active-notch-left) - 0px),
+          transparent calc(var(--active-notch-left) - 0px) calc(var(--active-notch-left) + var(--active-notch-width)),
+          #000 calc(var(--active-notch-left) + var(--active-notch-width)) 100%
+        );
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.is-active {
+      display: block;
+    }
+  </style>
 </head>
-<body class="min-h-screen bg-midnight text-white">
-<header class="border-b border-white/10 bg-midnight/90 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-6">
-      <div>
-        <p class="text-xs uppercase tracking-[0.2em] text-neon">SuperEnalotto Control Chaos</p>
-        <h1 class="mt-2 text-2xl font-semibold">classic-ritardi</h1>
-        <p class="mt-2 text-ash">Macro area: Statistici / Logici</p>
-      </div>
-      <nav class="flex flex-wrap gap-3">
-        <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../index.html">Tutti gli algoritmi</a>
-        <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../../storico-estrazioni/">Storico estrazioni</a>
-        <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../../../index.html">Home</a>
-      </nav>
+<body class="min-h-screen bg-midnight text-white" id="top">
+  <main class="content-fade mx-auto flex w-[calc(100%-2rem)] max-w-[85rem] flex-col gap-10 px-12 py-2">
+    <div class="content-box">
+      <section class="rounded-3xl bg-transparent p-6">
+        <div class="flex items-start justify-between gap-6">
+          <div class="min-w-0 flex-1">
+            <h1 class="text-2xl font-semibold">Classic Ritardi</h1>
+            <div class="mt-3 w-full max-w-[44rem] rounded-2xl border border-white/10 bg-midnight/70 px-4 py-2">
+              <div class="grid grid-cols-[minmax(0,16rem)_1fr] items-center gap-x-3 gap-y-1 text-xs">
+                <span class="uppercase tracking-[0.15em] text-ash">Ultimo concorso:</span>
+                <span class="font-semibold text-white" data-last-trained>N/D</span>
+                <span class="uppercase tracking-[0.15em] text-ash">Sestina proposta:</span>
+                <span class="font-semibold text-white" data-next-pick>N/D</span>
+              </div>
+            </div>
+          </div>
+          <div class="ml-auto w-[min(42vw,220px)] shrink-0">
+            <div class="card-3d is-active spotlight-hero-card spotlight-hero-card--static block w-full overflow-hidden rounded-xl" style="aspect-ratio: 15 / 8;" aria-hidden="true">
+              <img src="img.webp" alt="Anteprima Classic Ritardi" class="block h-full w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='../../../img/img_backup.webp';">
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs-shell mt-4 text-sm text-ash" data-tabs-root data-tab-panel-label="off">
+          <div class="folder-tabs">
+            <button class="tab-btn is-active" type="button" data-tab-target="algoritmo">Algoritmo</button>
+            <button class="tab-btn" type="button" data-tab-target="storica">Storica</button>
+            <button class="tab-btn" type="button" data-tab-target="metriche">Metrica</button>
+            <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
+          </div>
+          <div class="tabs-sheet">
+          <section class="tab-panel is-active space-y-6" data-tab-panel="algoritmo">
+            <p data-algo-intro>Caricamento scheda algoritmo...</p>
+            <div>
+              <h2 class="text-base font-semibold text-white">Scopo</h2>
+              <p data-algo-scope>...</p>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-white">Input</h2>
+              <ul class="list-disc pl-5" data-algo-input>
+                <li>...</li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-white">Metodo</h2>
+              <ul class="list-disc pl-5" data-algo-method>
+                <li>...</li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-white">Output</h2>
+              <p data-algo-output>...</p>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-white">Limiti</h2>
+              <ul class="list-disc pl-5" data-algo-limits>
+                <li>...</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="tab-panel space-y-4" data-tab-panel="storica">
+            <div class="overflow-x-auto rounded-2xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                  <tr>
+                    <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th>
+                    <th class="px-2 py-3 pl-1">Proposta</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5" data-historical-body>
+                  <tr>
+                    <td class="px-2 py-3 text-ash" colspan="2">Caricamento archivio storico...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 text-xs text-ash">
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-historical-prev>Prec</button>
+              <span data-historical-page>Pagina 1 / 1</span>
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-historical-next>Succ</button>
+            </div>
+          </section>
+
+          <section class="tab-panel space-y-4" data-tab-panel="metriche">
+            <p data-metrics-intro>Metriche di efficacia dell'algoritmo su storico validato.</p>
+            <div class="overflow-x-auto">
+              <div class="flex min-w-[44rem] flex-nowrap gap-2">
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">N/D</p>
+              </div>
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">N/D</p>
+              </div>
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">N/D</p>
+              </div>
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">N/D</p>
+              </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto rounded-2xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                  <tr>
+                    <th class="px-4 py-3">Metrica</th>
+                    <th class="px-4 py-3">Valore</th>
+                    <th class="px-4 py-3">Nota</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5" data-metrics-body>
+                  <tr><td class="px-4 py-3 text-ash" colspan="3">Caricamento metriche...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="tab-panel space-y-4" data-tab-panel="analisi">
+            <p data-analysis-intro>La parola all'esperto</p>
+            <div class="rounded-2xl border border-white/10 bg-midnight/60 px-4 py-3">
+              <p class="whitespace-pre-line break-words text-sm leading-relaxed text-white" data-analysis-text>Caricamento analisi...</p>
+            </div>
+          </section>
+
+          <div class="mt-6">
+            <h2 class="text-base font-semibold text-white">Navigazione</h2>
+            <div class="mt-2 flex flex-wrap gap-4">
+              <a class="text-neon hover:underline" href="../index.html">Torna al catalogo algoritmi</a>
+              <a class="text-neon hover:underline" href="#top">Torna a inizio pagina</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </header>
-
-  <main class="content-fade mx-auto max-w-5xl content-width px-6 py-10">
-    <section class="rounded-3xl border border-white/10 bg-night p-6">
-      <div class="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Sintesi</p>
-          <h2 class="mt-2 text-xl font-semibold">Panoramica risultati</h2>
-          <p class="mt-2 max-w-3xl text-ash">Calcolo del ritardo di ciascun numero e confronto tra ritardo attuale e storico.</p>
-        </div>
-        <span class="rounded-full border border-emerald-400 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-300">Analisi pronta</span>
-      </div>
-      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Ultimo run</p>
-          <p class="mt-2 text-lg font-semibold">Aggiornamento periodico</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Campioni analizzati</p>
-          <p class="mt-2 text-lg font-semibold">Storico completo</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Confidenza media</p>
-          <p class="mt-2 text-lg font-semibold">Statistica descrittiva</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Note chiave</p>
-          <p class="mt-2 text-lg font-semibold">Area Statistica</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mt-8 grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl border border-white/10 bg-night p-6">
-        <h3 class="text-xl font-semibold">Andamento storico</h3>
-        <p class="mt-2 text-sm text-ash">Trend temporale, stabilita delle metriche e variazioni su finestre mobili.</p>
-        <div class="mt-4 h-56 rounded-2xl border border-dashed border-white/15 bg-midnight/70"></div>
-      </div>
-      <div class="rounded-3xl border border-white/10 bg-night p-6">
-        <h3 class="text-xl font-semibold">Distribuzione indicatori</h3>
-        <p class="mt-2 text-sm text-ash">Distribuzione score e confronto tra pattern osservati e baseline teorica.</p>
-        <div class="mt-4 h-56 rounded-2xl border border-dashed border-white/15 bg-midnight/70"></div>
-      </div>
-    </section>
-
-    <section class="mt-8 rounded-3xl border border-white/10 bg-night p-6">
-      <h3 class="text-xl font-semibold">Top risultati e insight</h3>
-      <p class="mt-2 text-sm text-ash">Sintesi operativa con ranking e note di validazione statistica.</p>
-      <div class="mt-4 overflow-x-auto rounded-2xl border border-white/10">
-        <table class="min-w-full text-left text-sm">
-          <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
-            <tr>
-              <th class="px-4 py-3">Rank</th>
-              <th class="px-4 py-3">Combinazione</th>
-              <th class="px-4 py-3">Score</th>
-              <th class="px-4 py-3">Note</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-white/5">
-            <tr>
-              <td class="px-4 py-3 text-ash">1</td>
-              <td class="px-4 py-3 text-ash">Combinazione ad alta coerenza</td>
-              <td class="px-4 py-3 text-ash">Score composito</td>
-              <td class="px-4 py-3 text-ash">Da validare su storico esteso</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-ash">2</td>
-              <td class="px-4 py-3 text-ash">Combinazione alternativa</td>
-              <td class="px-4 py-3 text-ash">Score di confronto</td>
-              <td class="px-4 py-3 text-ash">Uso informativo, non predittivo certo</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
   </main>
 
   
 
   <script src="../../../assets/js/version.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const roots = Array.from(document.querySelectorAll('[data-tabs-root]'));
+      roots.forEach((root) => {
+        const buttons = Array.from(root.querySelectorAll('[data-tab-target]'));
+        const panels = Array.from(root.querySelectorAll('[data-tab-panel]'));
+        const shell = root.classList.contains('tabs-shell') ? root : root.closest('.tabs-shell');
+        const sheet = shell ? shell.querySelector('.tabs-sheet') : null;
+        const tabRow = shell ? shell.querySelector('.folder-tabs') : null;
+        if (!shell || !sheet || !tabRow) return;
+        const showPanelLabel = root.dataset.tabPanelLabel !== 'off';
+        const getLabelByTarget = (target) => {
+          const button = buttons.find((btn) => btn.dataset.tabTarget === target);
+          return button ? button.textContent.trim() : '';
+        };
+        const ensurePanelLabels = () => {
+          if (!showPanelLabel) {
+            panels.forEach((panel) => {
+              panel.querySelectorAll(':scope > [data-tab-active-label]').forEach((label) => label.remove());
+            });
+            return;
+          }
+          panels.forEach((panel) => {
+            let label = panel.querySelector(':scope > [data-tab-active-label]');
+            if (!label) {
+              label = document.createElement('p');
+              label.className = 'tab-active-label';
+              label.dataset.tabActiveLabel = '';
+              label.setAttribute('aria-live', 'polite');
+              panel.prepend(label);
+            }
+            label.textContent = getLabelByTarget(panel.dataset.tabPanel);
+          });
+        };
+        const updateNotch = () => {
+          const activeBtn = buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0];
+          if (!activeBtn) return;
+          const rowRect = tabRow.getBoundingClientRect();
+          const btnRect = activeBtn.getBoundingClientRect();
+          const firstBtnRect = buttons[0]?.getBoundingClientRect();
+          const left = Math.max(0, btnRect.left - rowRect.left);
+          const width = Math.max(0, btnRect.width);
+          const isWrapped = Boolean(firstBtnRect) && rowRect.height > (firstBtnRect.height + 6);
+          const isOverflowing = tabRow.scrollWidth > (tabRow.clientWidth + 4);
+          shell.classList.toggle('is-compact-tabs', isWrapped || isOverflowing);
+          shell.style.setProperty('--active-notch-left', `${left.toFixed(2)}px`);
+          shell.style.setProperty('--active-notch-width', `${width.toFixed(2)}px`);
+        };
+        const activate = (target) => {
+          buttons.forEach((btn) => btn.classList.toggle('is-active', btn.dataset.tabTarget === target));
+          panels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.tabPanel === target));
+          updateNotch();
+        };
+        const refreshTabsLayout = () => window.requestAnimationFrame(updateNotch);
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => activate(btn.dataset.tabTarget));
+        });
+        window.addEventListener('resize', refreshTabsLayout, { passive: true });
+        window.addEventListener('orientationchange', refreshTabsLayout, { passive: true });
+        window.addEventListener('pageshow', refreshTabsLayout, { passive: true });
+        document.addEventListener('visibilitychange', refreshTabsLayout, { passive: true });
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener('resize', refreshTabsLayout, { passive: true });
+        }
+        if ('ResizeObserver' in window) {
+          const observer = new ResizeObserver(() => refreshTabsLayout());
+          observer.observe(shell);
+          observer.observe(tabRow);
+          root._tabsResizeObserver = observer;
+        }
+        ensurePanelLabels();
+        refreshTabsLayout();
+        window.setTimeout(refreshTabsLayout, 80);
+        window.setTimeout(refreshTabsLayout, 220);
+      });
+
+      const historicalBody = document.querySelector('[data-historical-body]');
+      const historicalPrev = document.querySelector('[data-historical-prev]');
+      const historicalNext = document.querySelector('[data-historical-next]');
+      const historicalPage = document.querySelector('[data-historical-page]');
+      if (!historicalBody) return;
+
+      const historicalState = {
+        rows: [],
+        page: 1,
+        pageSize: 100
+      };
+
+      const updateHistoricalPager = () => {
+        const totalPages = Math.max(1, Math.ceil(historicalState.rows.length / historicalState.pageSize));
+        if (historicalPage) historicalPage.textContent = `Pagina ${historicalState.page} / ${totalPages}`;
+        if (historicalPrev) historicalPrev.disabled = historicalState.page <= 1;
+        if (historicalNext) historicalNext.disabled = historicalState.page >= totalPages;
+      };
+
+      const renderHistoricalRows = () => {
+        const rows = historicalState.rows;
+        if (!Array.isArray(rows) || rows.length === 0) {
+          historicalBody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="2">Nessun dato storico disponibile.</td></tr>';
+          updateHistoricalPager();
+          return;
+        }
+        const start = (historicalState.page - 1) * historicalState.pageSize;
+        const end = start + historicalState.pageSize;
+        const pageRows = rows.slice(start, end);
+        historicalBody.innerHTML = pageRows.map(({ draw, picks }) => {
+          const picksHtml = picks.map((pick) => {
+            const cls = pick.hit ? 'historical-pick is-hit' : 'historical-pick';
+            return `<span class="${cls}">${pick.value}</span>`;
+          }).join('');
+          return `
+            <tr>
+              <td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${draw}</td>
+              <td class="px-2 py-3 pl-1">
+                <div class="flex flex-wrap gap-2">${picksHtml}</div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+        updateHistoricalPager();
+      };
+
+      const parsePickTokens = (tokens) => {
+        return tokens
+          .filter(Boolean)
+          .slice(0, 6)
+          .map((token) => {
+          const hit = token.startsWith('[') && token.endsWith(']');
+          const numeric = token.replace(/[\[\]]/g, '');
+          const value = /^\d+$/.test(numeric) ? numeric.padStart(2, '0') : numeric;
+          return { value, hit };
+        });
+      };
+
+      const parseArchive = (raw) => {
+        const lines = String(raw || '')
+          .split(/\r?\n/)
+          .map((line) => line.trim())
+          .filter((line) => line.length > 0 && !line.startsWith('#'));
+        if (!lines.length) return [];
+
+        const sample = lines[0];
+        const semicolons = (sample.match(/;/g) || []).length;
+        const commas = (sample.match(/,/g) || []).length;
+        const delimiter = semicolons > commas ? ';' : ',';
+
+        const rows = lines.map((line) => {
+          const cells = line.split(delimiter).map((cell) => String(cell || '').trim());
+          if (!cells.length) return null;
+
+          const draw = cells[0];
+          let picks = [];
+
+          // draws.csv-like: NR. SEQUENZIALE,DATA,N1..N6
+          if (cells.length >= 8) {
+            picks = parsePickTokens(cells.slice(2, 8));
+          } else if (cells.length >= 2) {
+            // fallback legacy: concorso;sestina
+            picks = parsePickTokens(cells[1].split(/\s+/).map((x) => x.trim()));
+          }
+
+          return { draw, picks };
+        }).filter((row) => row && row.draw && row.picks.length > 0);
+
+        // Skip header if present.
+        return rows.filter((row) => !String(row.draw).toLowerCase().includes('nr. sequenziale') && String(row.draw).toLowerCase() !== 'concorso');
+      };
+
+      fetch('out/historical-db.csv', { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`status ${res.status}`);
+          return res.text();
+        })
+        .then((text) => {
+          const orderedRows = parseArchive(text).sort((a, b) => {
+            const aNum = Number.parseInt(String(a.draw), 10);
+            const bNum = Number.parseInt(String(b.draw), 10);
+            if (Number.isFinite(aNum) && Number.isFinite(bNum)) return bNum - aNum;
+            return String(b.draw).localeCompare(String(a.draw));
+          });
+          historicalState.rows = orderedRows;
+          historicalState.page = 1;
+          renderHistoricalRows();
+        })
+        .catch(() => {
+          historicalBody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="2">Archivio non disponibile o formato non valido.</td></tr>';
+          updateHistoricalPager();
+        });
+
+      if (historicalPrev) {
+        historicalPrev.addEventListener('click', () => {
+          if (historicalState.page <= 1) return;
+          historicalState.page -= 1;
+          renderHistoricalRows();
+        });
+      }
+      if (historicalNext) {
+        historicalNext.addEventListener('click', () => {
+          const totalPages = Math.max(1, Math.ceil(historicalState.rows.length / historicalState.pageSize));
+          if (historicalState.page >= totalPages) return;
+          historicalState.page += 1;
+          renderHistoricalRows();
+        });
+      }
+
+      const parseCsvRows = (raw) => {
+        const cleanCell = (value) => {
+          const v = String(value || '').trim();
+          if (v.startsWith('"') && v.endsWith('"') && v.length >= 2) {
+            return v.slice(1, -1).replace(/""/g, '"').trim();
+          }
+          return v;
+        };
+        const lines = String(raw || '')
+          .split(/\r?\n/)
+          .map((line) => line.trim())
+          .filter((line) => line.length > 0 && !line.startsWith('#'));
+        if (!lines.length) return { headers: [], rows: [] };
+        const header = lines[0].split(',').map((x) => cleanCell(x));
+        const rows = lines.slice(1).map((line) => {
+          const cells = line.split(',').map((x) => cleanCell(x));
+          if (cells.length <= header.length) return cells;
+          const merged = cells.slice(0, header.length - 1);
+          merged.push(cleanCell(cells.slice(header.length - 1).join(',').trim()));
+          return merged;
+        });
+        return { headers: header, rows };
+      };
+
+      const asList = (value) => String(value || '')
+        .split('|')
+        .map((x) => x.trim())
+        .filter(Boolean);
+
+      const applyAlgorithmSheet = (rows) => {
+        const map = new Map(rows.map((r) => [String(r[0] || '').trim().toUpperCase(), String(r[1] || '').trim()]));
+        const introEl = document.querySelector('[data-algo-intro]');
+        const scopeEl = document.querySelector('[data-algo-scope]');
+        const outputEl = document.querySelector('[data-algo-output]');
+        const inputEl = document.querySelector('[data-algo-input]');
+        const methodEl = document.querySelector('[data-algo-method]');
+        const limitsEl = document.querySelector('[data-algo-limits]');
+
+        if (introEl) introEl.textContent = map.get('INTRO') || 'N/D';
+        if (scopeEl) scopeEl.textContent = map.get('SCOPO') || 'N/D';
+        if (outputEl) outputEl.textContent = map.get('OUTPUT') || 'N/D';
+
+        const fillList = (el, values) => {
+          if (!el) return;
+          const list = asList(values);
+          if (!list.length) {
+            el.innerHTML = '<li>N/D</li>';
+            return;
+          }
+          el.innerHTML = list.map((item) => `<li>${item}</li>`).join('');
+        };
+
+        fillList(inputEl, map.get('INPUT'));
+        fillList(methodEl, map.get('METODO'));
+        fillList(limitsEl, map.get('LIMITI'));
+      };
+
+      const applyMetricsSheet = (rows) => {
+        const tbody = document.querySelector('[data-metrics-body]');
+        if (!tbody) return;
+        if (!rows.length) {
+          tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Nessuna metrica disponibile.</td></tr>';
+          return;
+        }
+
+        const cards = new Map();
+        document.querySelectorAll('[data-metric-card]').forEach((el) => {
+          cards.set(String(el.getAttribute('data-metric-card') || '').trim().toLowerCase(), el);
+        });
+        const lastTrainedEl = document.querySelector('[data-last-trained]');
+        const nextPickEl = document.querySelector('[data-next-pick]');
+
+        tbody.innerHTML = rows.map((r) => {
+          const metric = String(r[0] || '').trim();
+          const value = String(r[1] || '').trim();
+          const note = String(r[2] || '').trim();
+          const key = metric.toLowerCase();
+          const cardEl = cards.get(key);
+          if (cardEl) cardEl.textContent = value || 'N/D';
+          if (key === 'ultimo concorso calcolato' && lastTrainedEl) {
+            lastTrainedEl.textContent = value || 'N/D';
+          }
+          if (key === 'sestina proposta (prossimo concorso)' && nextPickEl) {
+            nextPickEl.textContent = value || 'N/D';
+          }
+          return `<tr><td class="px-4 py-3 text-ash">${metric}</td><td class="px-4 py-3 text-white">${value || 'N/D'}</td><td class="px-4 py-3 text-ash">${note || '-'}</td></tr>`;
+        }).join('');
+      };
+
+      const applyAnalysisText = (rawText) => {
+        const textEl = document.querySelector('[data-analysis-text]');
+        if (!textEl) return;
+        const text = String(rawText || '').trim();
+        if (!text) {
+          textEl.textContent = 'Nessuna analisi disponibile.';
+          return;
+        }
+        textEl.textContent = text;
+      };
+
+      fetch('out/algorithm-sheet.csv', { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`status ${res.status}`);
+          return res.text();
+        })
+        .then((text) => {
+          const parsed = parseCsvRows(text);
+          applyAlgorithmSheet(parsed.rows);
+        })
+        .catch(() => {
+          const introEl = document.querySelector('[data-algo-intro]');
+          if (introEl) introEl.textContent = 'Scheda algoritmo non disponibile.';
+        });
+
+      fetch('out/metrics-db.csv', { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`status ${res.status}`);
+          return res.text();
+        })
+        .then((text) => {
+          const parsed = parseCsvRows(text);
+          applyMetricsSheet(parsed.rows);
+        })
+        .catch(() => {
+          const tbody = document.querySelector('[data-metrics-body]');
+          if (tbody) {
+            tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Metriche non disponibili.</td></tr>';
+          }
+        });
+
+      fetch('out/analysis.txt', { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`status ${res.status}`);
+          return res.text();
+        })
+        .then((text) => {
+          applyAnalysisText(text);
+        })
+        .catch(() => {
+          const textEl = document.querySelector('[data-analysis-text]');
+          if (textEl) {
+            textEl.textContent = 'Analisi non disponibile.';
+          }
+        });
+    });
+  </script>
   <script src="../../../assets/js/header.js" defer></script>
   <script src="../../../assets/js/ads.js" defer></script>
 </body>
 </html>
-
 
 
 
