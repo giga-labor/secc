@@ -162,6 +162,38 @@ const CARDS = {
         color: #5b2e00;
         text-shadow: 0 1px 0 rgba(255, 245, 186, 0.75);
       }
+      .cc-card-media .card-type-badge.card-type-badge--category {
+        top: 0.5rem;
+        left: 0.56rem;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        min-width: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 0;
+        line-height: 1;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        font-style: normal;
+        font-family: "Palatino Linotype", "Book Antiqua", "Garamond", serif;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #ffe7ad;
+        -webkit-text-stroke: 0.22px rgba(255, 251, 236, 0.92);
+        text-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.42),
+          0 1px 0 rgba(89, 54, 0, 0.68),
+          0 3px 7px rgba(0, 0, 0, 0.9),
+          0 6px 14px rgba(0, 0, 0, 0.78),
+          0 0 8px rgba(255, 206, 77, 0.5);
+        filter:
+          drop-shadow(0 1px 0 rgba(255, 248, 224, 0.72))
+          drop-shadow(0 3px 8px rgba(0, 0, 0, 0.88));
+      }
       .card-type-badge.card-type-badge--news {
         top: auto;
         left: 0.55rem;
@@ -234,8 +266,9 @@ const CARDS = {
     const active = options.forceActive ? true : (algorithm.isActive !== false);
     const noDataShow = algorithm?.no_data_show !== false;
     const typeLabel = this.resolveCardType(algorithm);
-    const showNewsBadge = typeLabel === 'NOVITA';
-    const typeBadgeMarkup = showNewsBadge ? '<span class="card-type-badge card-type-badge--news">Novita</span>' : '';
+    const typeBadgeMarkup = this.buildTypeBadgeMarkup(typeLabel);
+    const showNewsBadge = this.hasNewsBadge(algorithm);
+    const newsBadgeMarkup = showNewsBadge ? '<span class="card-type-badge card-type-badge--news">Novita</span>' : '';
     const accessTier = this.resolveAccessTier(algorithm);
     const accessBadge = this.buildAccessBadgeMarkup(accessTier);
     const baseDescription = algorithm.subtitle || algorithm.narrativeSummary || 'Descrizione in arrivo';
@@ -293,6 +326,7 @@ const CARDS = {
       <div class="cc-card-media algorithm-card__media algorithm-card__media--third relative overflow-hidden">
         <img class="h-full w-full object-cover" src="${imageUrl}" alt="Anteprima di ${algorithm.title}">
         ${typeBadgeMarkup}
+        ${newsBadgeMarkup}
         <span class="card-date-badge${noDataDate && !hideNoDataDate ? ' is-no-data' : ''}${hideNoDataDate ? ' hidden' : ''}" data-date-badge>${hideNoDataDate ? '' : dateLabel}</span>
         ${accessBadge}
       </div>
@@ -344,14 +378,66 @@ const CARDS = {
     return `<span class="cc-tier-ribbon cc-tier-ribbon--${tier}" aria-label="Piano ${label}"><span class="cc-tier-ribbon__inner">${crown}${label}</span></span>`;
   },
 
+
+  buildTypeBadgeMarkup(typeLabel) {
+    const label = String(typeLabel || '').trim().toUpperCase();
+    if (!label) return '';
+    return `<span class="card-type-badge card-type-badge--category" aria-label="Tipologia ${label}">${label}</span>`;
+  },
+
+  hasNewsBadge(card) {
+    return Boolean(card && (card.hasNews || card.featured || (Array.isArray(card.news) && card.news.length > 0)));
+  },
+
+  normalizeCardTypeToken(rawValue) {
+    const raw = String(rawValue || '').trim().toLowerCase();
+    if (!raw) return '';
+    const aliases = {
+      menu: 'MENU',
+      spotlight: 'MENU',
+      dashboard: 'MENU',
+      home: 'MENU',
+      navigazione: 'MENU',
+      nav: 'MENU',
+      algoritmi: 'ALGORITMI',
+      algoritmo: 'ALGORITMI',
+      algs: 'ALGORITMI',
+      algorithm: 'ALGORITMI',
+      algorithms: 'ALGORITMI',
+      info: 'INFO',
+      standard: 'INFO',
+      pagina: 'INFO',
+      page: 'INFO',
+      archivi: 'ARCHIVI',
+      archivio: 'ARCHIVI',
+      storico: 'ARCHIVI',
+      draws: 'ARCHIVI',
+      history: 'ARCHIVI',
+      utility: 'UTILITY',
+      utilita: 'UTILITY',
+      tool: 'UTILITY',
+      tools: 'UTILITY',
+      stato: 'STATO',
+      status: 'STATO',
+      monitor: 'STATO',
+      controllo: 'STATO',
+      admin: 'STATO'
+    };
+    return aliases[raw] || '';
+  },
+
   resolveCardType(card) {
-    if (card && (card.hasNews || card.featured || (Array.isArray(card.news) && card.news.length > 0))) {
-      return 'NOVITA';
-    }
+    const direct = this.normalizeCardTypeToken(card?.type);
+    if (direct) return direct;
+    const macro = this.normalizeCardTypeToken(card?.macroGroup);
+    if (macro) return macro;
     const id = String(card?.id || '').toLowerCase();
-    const macro = String(card?.macroGroup || '').toLowerCase();
-    if (id.includes('storico') || macro.includes('storico')) return 'STORICO';
-    return 'ALGORITMO';
+    const page = String(card?.page || card?.cardBase || '').toLowerCase();
+    if (page.includes('/algoritmi/algs/') || id.startsWith('classic-') || id.startsWith('ml-') || id.startsWith('ai-')) return 'ALGORITMI';
+    if (page.includes('/algoritmi/spotlight/') || id.includes('spotlight') || page.includes('/home')) return 'MENU';
+    if (page.includes('/storico') || id.includes('storico') || id.includes('archivio') || id.includes('draw')) return 'ARCHIVI';
+    if (page.includes('/admin') || id.includes('monitor') || id.includes('status') || id.includes('stato')) return 'STATO';
+    return 'INFO';
   },
 
   resolveCardImage(card) {
