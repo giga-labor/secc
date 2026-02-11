@@ -654,6 +654,9 @@
       gap: 0.3rem;
       flex-wrap: nowrap;
       margin-top: 0.15rem;
+      position: relative;
+      transform-style: preserve-3d;
+      z-index: 20;
     }
     .ball-3d {
       position: relative;
@@ -668,6 +671,8 @@
       color: #07080f;
       background: radial-gradient(circle at 28% 28%, #ffffff 0%, #f4f6ff 22%, #d2d8ea 45%, #a2aac4 70%, #707a98 100%);
       box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.85), inset 0 -6px 12px rgba(0, 0, 0, 0.35), 0 8px 18px rgba(0, 0, 0, 0.4);
+      transform: translateZ(26px) translateY(-1px);
+      transform-style: preserve-3d;
     }
     .ball-3d::after {
       content: '';
@@ -680,6 +685,19 @@
       background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%);
       opacity: 0.9;
       filter: blur(1px);
+    }
+    .card-3d .ball-3d {
+      box-shadow:
+        inset 0 2px 6px rgba(255, 255, 255, 0.85),
+        inset 0 -6px 12px rgba(0, 0, 0, 0.35),
+        calc(var(--edge-right-a) * 24px) calc(var(--edge-bottom-a) * 22px) 14px rgba(5, 7, 15, 0.48),
+        calc(var(--edge-right-a) * 10px) calc(var(--edge-bottom-a) * 9px) 0 rgba(8, 12, 24, 0.4),
+        0 10px 16px rgba(0, 0, 0, 0.48),
+        0 2px 0 rgba(9, 12, 22, 0.5);
+    }
+    .card-3d:hover .ball-3d,
+    .card-3d.is-hovered .ball-3d {
+      transform: translateZ(28px) translateY(-2px);
     }
     .cards-shell {
       position: relative;
@@ -746,6 +764,8 @@
       inset: 1px;
       border-radius: inherit;
       background:
+        linear-gradient(135deg, rgba(4, 6, 12, var(--edge-right-a)) 0%, rgba(4, 6, 12, 0) calc(42% + var(--edge-spread))),
+        linear-gradient(45deg, rgba(3, 5, 10, var(--edge-bottom-a)) 0%, rgba(3, 5, 10, 0) calc(44% + var(--edge-spread-bottom))),
         linear-gradient(90deg, rgba(255, 246, 212, var(--edge-left-a)) 0%, rgba(255, 246, 212, 0) calc(9% + var(--edge-spread))),
         linear-gradient(270deg, rgba(7, 9, 18, var(--edge-right-a)) 0%, rgba(7, 9, 18, 0) calc(9% + var(--edge-spread))),
         linear-gradient(180deg, rgba(255, 255, 255, var(--edge-top-a)) 0%, rgba(255, 255, 255, 0) calc(12% + var(--edge-spread-top))),
@@ -1938,6 +1958,8 @@ main.home-main [data-module-area].news-strip {
 
 .card-3d::after {
   background:
+    linear-gradient(135deg, rgba(5, 7, 15, var(--edge-right-a)) 0%, rgba(5, 7, 15, 0) 48%),
+    linear-gradient(45deg, rgba(4, 6, 12, var(--edge-bottom-a)) 0%, rgba(4, 6, 12, 0) 52%),
     linear-gradient(0deg, rgba(6, 8, 18, 0.62) 0%, rgba(6, 8, 18, 0.34) 34%, rgba(6, 8, 18, 0.08) 64%, rgba(6, 8, 18, 0) 84%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 26%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, rgba(0, 0, 0, 0.76) 93%, rgba(0, 0, 0, 0) 100%);
@@ -2231,6 +2253,33 @@ html[data-ad-rail="bottom"] main.content-fade,
 html[data-ad-rail="bottom"] .mx-auto.max-w-5xl {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+/* Unified content frame: every page uses the exact same horizontal space
+   as the header title container. */
+:root {
+  --cc-frame-pad: clamp(1rem, 2.1vw, 1.8rem);
+}
+
+#site-header .header-container,
+main.content-width,
+main.content-fade,
+.mx-auto.max-w-5xl {
+  width: calc(var(--app-frame-width, var(--page-w)) - (var(--app-frame-gutter, 0px) * 2)) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#site-header .header-container {
+  padding-left: var(--cc-frame-pad) !important;
+  padding-right: var(--cc-frame-pad) !important;
+}
+
+main.content-fade > .content-box {
+  width: 100% !important;
+  padding-left: var(--cc-frame-pad) !important;
+  padding-right: var(--cc-frame-pad) !important;
 }
     .algorithm-card {
       width: clamp(var(--card-min), 22vw, var(--card-max));

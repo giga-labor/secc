@@ -1,0 +1,28 @@
+{
+  "name": "secc",
+  "version": "1.0.0",
+  "description": "Static website for SuperEnalotto analysis, algorithms, and historical draws.   No backend: everything is client-side static delivery.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No unit tests configured\"",
+    "simulate:telemetry": "node scripts/simulate-telemetry.mjs",
+    "smoke:runtime": "node scripts/smoke-runtime.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giga-labor/secc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giga-labor/secc/issues"
+  },
+  "homepage": "https://github.com/giga-labor/secc#readme",
+  "devDependencies": {
+    "playwright": "^1.58.2"
+  }
+}

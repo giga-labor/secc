@@ -1,0 +1,12 @@
+﻿{
+  "page_id": "analisi",
+  "version": "2.0.0",
+  "zones": [
+    {
+      "id": "analisi-bridge-main",
+      "type": "text_patch",
+      "mount": "[data-bridge-id='stats_bridge_classic_frequency'] p",
+      "html": "<strong>Studio correlato disponibile:</strong> frequenze, baseline e lettura comparata sono approfondite nel paper <a href='../algoritmi/algs/classic-frequency/index.html'>Classic Frequency</a>."
+    }
+  ]
+}

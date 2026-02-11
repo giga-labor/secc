@@ -81,11 +81,34 @@ async function createNewsCard(module) {
     const card = await window.CARDS.buildAlgorithmCard(module, { forceActive: true });
     return tuneCardMedia(card);
   }
-  const fallback = document.createElement('a');
-  fallback.className = 'card-3d algorithm-card is-active';
-  fallback.href = resolveWithBase(module.page || '#') || '#';
-  fallback.textContent = module.title || 'Modulo';
+  const fallback = buildFallbackCard(module);
   return tuneCardMedia(fallback);
+}
+
+function buildFallbackCard(module) {
+  const href = resolveWithBase(module.page || '#') || '#';
+  const title = module.title || 'Modulo';
+  const builder = window.CC_COMPONENTS;
+  if (builder && typeof builder.build === 'function' && builder.has('card')) {
+    const built = builder.build('card', {
+      tag: 'a',
+      className: 'cc-card cc-card-action card-3d algorithm-card is-active',
+      href,
+      dataset: {
+        cardId: String(module.id || title).toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        cardType: 'action'
+      },
+      slots: {
+        body: `<div class=\"cc-card-body algorithm-card__body flex flex-1 flex-col gap-2 px-4 py-4\"><h3 class=\"text-[0.98rem] font-semibold leading-tight\">${escapeHtml(title)}</h3></div>`
+      }
+    });
+    if (built) return built;
+  }
+  const fallback = document.createElement('a');
+  fallback.className = 'cc-card cc-card-action card-3d algorithm-card is-active';
+  fallback.href = href;
+  fallback.textContent = title;
+  return fallback;
 }
 
 function renderNoNews(area, totalCards) {

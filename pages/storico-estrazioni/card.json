@@ -5,6 +5,7 @@
   "subtitle": "$D",
   "showSubtitle": true,
   "image": "img.webp",
+  "mediaScale": 1.08,
   "lastUpdated": "02/02/2026",
   "hasNews": true,
   "statusTag": "Archivio",

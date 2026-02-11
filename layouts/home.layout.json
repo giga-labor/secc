@@ -1,0 +1,46 @@
+﻿{
+  "page_id": "home",
+  "version": "2.0.0",
+  "data_sources": {
+    "modules_manifest": "data/modules-manifest.json"
+  },
+  "kpi_items": [
+    {
+      "id": "kpi-archive",
+      "title": "Archivio",
+      "value": "Storico completo",
+      "meta": "Estrazioni verificate e consultabili",
+      "tone": "archive",
+      "href": "pages/storico-estrazioni/index.html"
+    },
+    {
+      "id": "kpi-focus",
+      "title": "Focus",
+      "value": "Pattern e anomalie",
+      "meta": "Segnali deboli e derive statistiche",
+      "tone": "focus",
+      "href": "pages/analisi-statistiche/index.html"
+    },
+    {
+      "id": "kpi-study",
+      "title": "Studi",
+      "value": "Paper tecnici live",
+      "meta": "Metodi, assunti, limiti e risultati",
+      "tone": "study",
+      "href": "pages/algoritmi/index.html"
+    }
+  ],
+  "zones": [
+    {
+      "id": "news-zone",
+      "type": "news_cards",
+      "mount": "[data-module-area]",
+      "limit": 12
+    },
+    {
+      "id": "kpi-zone",
+      "type": "kpi_cards",
+      "mount": "[data-kpi-cards]"
+    }
+  ]
+}

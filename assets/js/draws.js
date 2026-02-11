@@ -26,11 +26,23 @@ let drawNumberIndexes = [];
 let currentPage = 1;
 let searchTimer = null;
 let syncingScroll = false;
+let drawsMounted = false;
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (shouldUseRuntimeDirector()) return;
+  mountDrawsPage();
+});
+
+function shouldUseRuntimeDirector() {
+  return Boolean(window.CC_PAGE_ORCHESTRATOR && document.body?.dataset?.pageId === 'storico');
+}
+
+function mountDrawsPage() {
+  if (drawsMounted) return;
+  drawsMounted = true;
   if (!elements.body) return;
   loadDraws();
-});
+}
 
 async function loadDraws() {
   try {
@@ -295,3 +307,8 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 }
+
+window.CC_DRAWS_RUNTIME = {
+  mount: mountDrawsPage,
+  loadDraws
+};

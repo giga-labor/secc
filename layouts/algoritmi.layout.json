@@ -1,0 +1,12 @@
+﻿{
+  "page_id": "algoritmi",
+  "version": "2.0.0",
+  "zones": [
+    {
+      "id": "algoritmi-bridge",
+      "type": "text_patch",
+      "mount": "[data-bridge-id='algoritmi_bridge_spotlight'] p",
+      "html": "<strong>Percorso consigliato:</strong> parti dallo <a href='./spotlight/statistici/index.html'>Spotlight Statistici</a> e poi apri i paper algoritmici per confronto metodologico."
+    }
+  ]
+}

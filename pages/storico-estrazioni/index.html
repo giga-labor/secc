@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="../../assets/css/header.css">
   <link rel="stylesheet" href="../../assets/css/ads.css">
 </head>
-<body class="min-h-screen bg-midnight text-white">
+<body class="min-h-screen bg-midnight text-white" data-page-id="storico">
 
 
   <main class="content-fade mx-auto max-w-5xl content-width px-6 py-2">
@@ -23,6 +23,10 @@
     <header class="mt-6 space-y-3" data-page-kicker-wrap>
       <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Archivio storico</span>
     </header>
+
+    <aside class="cc-bridge-box" data-bridge-box data-bridge-id="archive_bridge_ritardi" data-linked-paper-id="classic-ritardi" data-source-data-module="storico-estrazioni">
+      <p><strong>Approfondimento teorico:</strong> i ritardi osservati nello storico sono discussi nello studio <a href="../algoritmi/algs/classic-ritardi/index.html">Classic Ritardi</a>.</p>
+    </aside>
 
     <div class="tabs-shell mt-10" data-tabs-root data-tab-panel-label="off">
       <div class="folder-tabs">
@@ -65,7 +69,7 @@
           </div>
 
           <div class="table-scroll-shell mt-2" data-draws-scroll-shell>
-            <div class="overflow-x-auto rounded-2xl border border-white/10" data-draws-scroll>
+            <div class="cc-table-wrap" data-draws-scroll>
               <table class="draws-table min-w-full text-left text-sm">
                 <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
                   <tr data-draws-header>
@@ -98,6 +102,9 @@
         </section>
       </div>
     </div>
+    <aside class="cc-bridge-box" data-bridge-box data-bridge-id="archive_bridge_frequency" data-linked-paper-id="classic-frequency" data-source-data-module="storico-estrazioni">
+      <p>Questo dataset storico e la base informativa comune: da qui tutti gli algoritmi ricavano statistiche e segnali di apprendimento.</p>
+    </aside>
     </div>
   </main>
 
@@ -105,10 +112,21 @@
 
   <script src="../../assets/js/version.js" defer></script>
 <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/component-builder.js" defer></script>
+  <script src="../../assets/js/core/cache-engine.js" defer></script>
+  <script src="../../assets/js/core/data-repository.js" defer></script>
+  <script src="../../assets/js/core/page-orchestrator.js" defer></script>
+  <script src="../../assets/js/architects/base.architect.js" defer></script>
+  <script src="../../assets/js/architects/storico.architect.js" defer></script>
+  <script src="../../assets/js/directors/storico.director.js" defer></script>
+  <script src="../../assets/js/runtime-bootstrap.js" defer></script>
   <script src="../../assets/js/draws.js" defer></script>
   <script src="../../assets/js/ads.js" defer></script>
 </body>
 </html>
+
+
+
 
 
 

@@ -16,9 +16,28 @@
   <link rel="stylesheet" href="../../assets/css/header.css">
   <link rel="stylesheet" href="../../assets/css/ads.css">
 </head>
-<body class="min-h-screen bg-midnight text-white">
+<body class="min-h-screen bg-midnight text-white" data-page-id="algoritmi">
   <main class="content-fade content-width mx-auto flex flex-col gap-0 py-0">
     <div class="content-box">
+    <section class="cc-hero-grid" data-section-id="algoritmi_overview">
+      <article class="cc-hero-panel">
+        <p class="text-xs uppercase tracking-[0.2em] text-ash">Catalogo studi</p>
+        <h2 class="mt-2 text-white">Algoritmi e paper tecnici</h2>
+        <p class="mt-2 text-ash">Ogni card porta a una pagina studio: contesto, metodo, output, limiti dichiarati e collegamenti correlati.</p>
+      </article>
+      <aside class="cc-hero-panel" data-section-id="algoritmi_actions">
+        <p class="text-xs uppercase tracking-[0.2em] text-ash">Accessi rapidi</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../analisi-statistiche/index.html">Analisi statistiche</a>
+          <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../storico-estrazioni/index.html">Archivio storico</a>
+        </div>
+      </aside>
+    </section>
+
+    <aside class="cc-bridge-box" data-bridge-box data-bridge-id="algoritmi_bridge_spotlight" data-linked-paper-id="spotlight-statistici" data-source-data-module="algoritmi-index">
+      <p><strong>Percorso consigliato:</strong> parti da <a href="./spotlight/statistici/index.html">Spotlight Statistici</a> per una lettura guidata dei paper principali.</p>
+    </aside>
+
     <section class="mt-0 pt-0" id="catalogo">
       <div class="mt-0 min-h-[65vh] space-y-10" data-algorithms-area>
         <div class="rounded-2xl border border-dashed border-white/15 bg-midnight/70 p-5 text-sm text-ash">Caricamento algoritmi...</div>
@@ -30,12 +49,23 @@
       
   <script src="../../assets/js/version.js" defer></script>
 <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/component-builder.js" defer></script>
+  <script src="../../assets/js/core/cache-engine.js" defer></script>
+  <script src="../../assets/js/core/data-repository.js" defer></script>
+  <script src="../../assets/js/core/page-orchestrator.js" defer></script>
+  <script src="../../assets/js/architects/base.architect.js" defer></script>
+  <script src="../../assets/js/architects/algoritmi.architect.js" defer></script>
+  <script src="../../assets/js/directors/algoritmi.director.js" defer></script>
+  <script src="../../assets/js/runtime-bootstrap.js" defer></script>
   <script src="../../assets/js/cards.js" defer></script>
 <script src="../../assets/js/cards-index.js" defer></script>
   <script src="../../assets/js/algorithms.js" defer></script>
   <script src="../../assets/js/ads.js" defer></script>
 </body>
 </html>
+
+
+
 
 
 

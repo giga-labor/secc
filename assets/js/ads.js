@@ -16,6 +16,7 @@ let adsenseLoaderPromise = null;
 let fundingChoicesPromise = null;
 let consentModeSource = 'custom';
 let adsInitialized = false;
+const adViewBound = new WeakSet();
 
 const resolveAdsenseConfig = () => {
   const override = (window.CC_ADSENSE_CONFIG && typeof window.CC_ADSENSE_CONFIG === 'object')
@@ -283,6 +284,24 @@ const renderAdsSlot = async (slotNode, position) => {
     slotNode.appendChild(createBlockedNotice());
     slotNode.dataset.ccAdMode = 'loader-error';
   }
+
+  bindAdTelemetry(slotNode, position);
+};
+
+const bindAdTelemetry = (slotNode, position) => {
+  if (!(slotNode instanceof HTMLElement)) return;
+  const telemetry = window.CC_TELEMETRY;
+  if (!telemetry || typeof telemetry.observeImpression !== 'function') return;
+  if (adViewBound.has(slotNode)) return;
+  adViewBound.add(slotNode);
+  const slotId = getSlotForPosition(position) || 'unknown';
+  telemetry.observeImpression(slotNode, 'ads_slot_view', () => ({
+    slot_id: slotId,
+    position,
+    ad_mode: slotNode.dataset.ccAdMode || 'unknown'
+  }), {
+    dedupKey: `ads_slot_view:${position}:${slotId}`
+  });
 };
 
 const createConsentBanner = () => {

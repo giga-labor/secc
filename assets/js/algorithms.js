@@ -1,12 +1,23 @@
 const cardsIndexPath = 'data/modules-manifest.json';
 const spotlightCardsIndexPath = 'data/algorithms-spotlight/modules-manifest.json';
 
-document.addEventListener('DOMContentLoaded', () => {
+function shouldUseRuntimeDirector() {
+  return Boolean(window.CC_PAGE_ORCHESTRATOR && document.body?.dataset?.pageId === 'algoritmi');
+}
+
+async function mountAlgorithmsPage(options = {}) {
   enableCardDepthForAll();
-  const area = document.querySelector('[data-algorithms-area]');
-  const counter = document.querySelector('[data-algorithms-count]');
+  const areaSelector = options.areaSelector || '[data-algorithms-area]';
+  const counterSelector = options.counterSelector || '[data-algorithms-count]';
+  const area = document.querySelector(areaSelector);
+  const counter = document.querySelector(counterSelector);
   if (!area) return;
-  loadAlgorithms(area, counter);
+  await loadAlgorithms(area, counter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (shouldUseRuntimeDirector()) return;
+  mountAlgorithmsPage();
 });
 
 async function loadSpotlightCards(area) {
@@ -199,11 +210,34 @@ async function createAlgorithmCard(algorithm, options = {}) {
     const card = await window.CARDS.buildAlgorithmCard(algorithm, options);
     return tuneCardMedia(card);
   }
-  const fallback = document.createElement('a');
-  fallback.className = 'card-3d algorithm-card is-active';
-  fallback.href = resolveWithBase(algorithm.page || '#') || '#';
-  fallback.textContent = algorithm.title || 'Algoritmo';
+  const fallback = buildFallbackCard(algorithm);
   return tuneCardMedia(fallback);
+}
+
+function buildFallbackCard(algorithm) {
+  const href = resolveWithBase(algorithm.page || '#') || '#';
+  const title = algorithm.title || 'Algoritmo';
+  const builder = window.CC_COMPONENTS;
+  if (builder && typeof builder.build === 'function' && builder.has('card')) {
+    const built = builder.build('card', {
+      tag: 'a',
+      className: 'cc-card cc-card-action card-3d algorithm-card is-active',
+      href,
+      dataset: {
+        cardId: String(algorithm.id || title).toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        cardType: 'action'
+      },
+      slots: {
+        body: `<div class=\"cc-card-body algorithm-card__body flex flex-1 flex-col gap-2 px-4 py-4\"><h3 class=\"text-[0.98rem] font-semibold leading-tight\">${escapeHtml(title)}</h3></div>`
+      }
+    });
+    if (built) return built;
+  }
+  const fallback = document.createElement('a');
+  fallback.className = 'cc-card cc-card-action card-3d algorithm-card is-active';
+  fallback.href = href;
+  fallback.textContent = title;
+  return fallback;
 }
 
 function enableCardDepthForAll() {
@@ -445,6 +479,15 @@ function sortByTitle(a, b) {
   return nameA.localeCompare(nameB);
 }
 
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function groupByMacro(items) {
   const groups = new Map();
   items.forEach((item) => {
@@ -484,4 +527,10 @@ function groupByMacro(items) {
 
   return sorted;
 }
+
+window.CC_ALGORITHMS_RUNTIME = {
+  mount: mountAlgorithmsPage,
+  loadAlgorithms,
+  loadSpotlightCards
+};
 

@@ -9,6 +9,379 @@ const ensureViewTransitionMeta = () => {
 
 ensureViewTransitionMeta();
 
+const CC_EVENT_VERSION = '1.0.0';
+
+const createTelemetryRuntime = () => {
+  if (window.CC_TELEMETRY) return window.CC_TELEMETRY;
+
+  const storageKey = 'cc_telemetry_events_v1';
+  const sessionKey = 'cc_telemetry_session_v1';
+  const dedupKey = 'cc_telemetry_dedup_v1';
+  const maxEvents = 1200;
+
+  const readJson = (key, fallback) => {
+    try {
+      const raw = window.localStorage.getItem(key);
+      if (!raw) return fallback;
+      const parsed = JSON.parse(raw);
+      return parsed ?? fallback;
+    } catch (_) {
+      return fallback;
+    }
+  };
+
+  const writeJson = (key, value) => {
+    try {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (_) {
+      // Ignore quota/privacy errors in dry-run mode.
+    }
+  };
+
+  const ensureSessionId = () => {
+    try {
+      const existing = window.sessionStorage.getItem(sessionKey);
+      if (existing) return existing;
+      const id = `cc-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+      window.sessionStorage.setItem(sessionKey, id);
+      return id;
+    } catch (_) {
+      return `cc-${Date.now().toString(36)}-fallback`;
+    }
+  };
+
+  const getPageType = () => {
+    const path = (window.location.pathname || '').toLowerCase();
+    if (/\/pages\/analisi-statistiche/.test(path)) return 'stats';
+    if (/\/pages\/storico-estrazioni/.test(path)) return 'archive';
+    if (/\/pages\/algoritmi\/algs\//.test(path)) return 'paper';
+    if (/\/pages\/algoritmi/.test(path)) return 'data_section';
+    if (/\/index\.html$|\/$/.test(path)) return 'dashboard';
+    return 'other';
+  };
+
+  const getDeviceType = () => {
+    const ua = (navigator.userAgent || '').toLowerCase();
+    if (/tablet|ipad/.test(ua)) return 'tablet';
+    if (/mobi|android/.test(ua)) return 'mobile';
+    return 'desktop';
+  };
+
+  const getViewportBucket = () => {
+    const w = window.innerWidth || document.documentElement.clientWidth || 0;
+    if (w < 360) return 'xs';
+    if (w < 768) return 'sm';
+    if (w < 1024) return 'md';
+    return 'lg';
+  };
+
+  const getSectionId = (element, fallback = '') => {
+    if (!element || !(element instanceof Element)) return fallback;
+    const host = element.closest('[data-section-id], section[id], [id]');
+    if (!host) return fallback;
+    return host.getAttribute('data-section-id') || host.id || fallback;
+  };
+
+  const rememberDedup = (key) => {
+    if (!key) return false;
+    const map = readJson(dedupKey, {});
+    if (map[key]) return true;
+    map[key] = Date.now();
+    writeJson(dedupKey, map);
+    return false;
+  };
+
+  const pushLocalEvent = (payload) => {
+    const events = readJson(storageKey, []);
+    events.push(payload);
+    if (events.length > maxEvents) {
+      events.splice(0, events.length - maxEvents);
+    }
+    writeJson(storageKey, events);
+  };
+
+  const track = (eventName, params = {}, options = {}) => {
+    if (!eventName) return;
+    const sessionId = ensureSessionId();
+    const element = options.element instanceof Element ? options.element : null;
+    const sectionId = params.section_id || getSectionId(element, options.sectionId || '');
+    const dedupToken = options.dedupKey ? `${sessionId}:${options.dedupKey}` : '';
+    if (options.oncePerSession && dedupToken && rememberDedup(dedupToken)) return;
+
+    const payload = {
+      event: String(eventName),
+      event_version: CC_EVENT_VERSION,
+      session_id: sessionId,
+      page_type: getPageType(),
+      page_path: window.location.pathname || '/',
+      section_id: String(sectionId || ''),
+      device_type: getDeviceType(),
+      viewport_bucket: getViewportBucket(),
+      ts: Date.now(),
+      ...params
+    };
+
+    pushLocalEvent(payload);
+
+    if (window.CC_TELEMETRY_DEBUG !== false) {
+      // Keep this visible during offline migration dry-run.
+      console.debug('[cc-telemetry]', payload);
+    }
+
+    if (typeof window.gtag === 'function') {
+      const gtagPayload = {};
+      Object.entries(payload).forEach(([key, value]) => {
+        if (['string', 'number', 'boolean'].includes(typeof value)) {
+          gtagPayload[key] = value;
+        }
+      });
+      window.gtag('event', payload.event, gtagPayload);
+    }
+  };
+
+  const observeImpression = (element, eventName, paramsBuilder = null, options = {}) => {
+    if (!(element instanceof Element) || !('IntersectionObserver' in window)) return;
+    let timer = 0;
+    let fired = false;
+    const threshold = Number.isFinite(options.threshold) ? options.threshold : 0.5;
+    const dwellMs = Number.isFinite(options.dwellMs) ? options.dwellMs : 1000;
+    const dedupBase = options.dedupKey || `${eventName}:${element.getAttribute('data-card-id') || element.id || 'node'}`;
+
+    const fire = () => {
+      if (fired) return;
+      fired = true;
+      const dynamic = typeof paramsBuilder === 'function' ? paramsBuilder(element) : {};
+      track(eventName, dynamic || {}, {
+        element,
+        oncePerSession: true,
+        dedupKey: dedupBase
+      });
+    };
+
+    const clear = () => {
+      if (!timer) return;
+      window.clearTimeout(timer);
+      timer = 0;
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (fired) return;
+        if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+          if (!timer) timer = window.setTimeout(fire, dwellMs);
+        } else {
+          clear();
+        }
+      });
+    }, { threshold: [0, threshold, 1] });
+
+    observer.observe(element);
+  };
+
+  window.CC_TELEMETRY = {
+    EVENT_VERSION: CC_EVENT_VERSION,
+    getSessionId: ensureSessionId,
+    getEvents: () => readJson(storageKey, []),
+    clearEvents: () => writeJson(storageKey, []),
+    track,
+    observeImpression,
+    getSectionId
+  };
+
+  return window.CC_TELEMETRY;
+};
+
+createTelemetryRuntime();
+
+const initTelemetryBindings = () => {
+  const telemetry = window.CC_TELEMETRY;
+  if (!telemetry || typeof telemetry.track !== 'function') return;
+
+  const resolvePaperId = () => {
+    const explicit = document.body?.getAttribute('data-paper-id');
+    if (explicit) return explicit;
+    const path = (window.location.pathname || '').replace(/\/$/, '');
+    const match = path.match(/\/pages\/algoritmi\/algs\/([^/]+)/i);
+    if (match) return match[1].toLowerCase();
+    return '';
+  };
+
+  const bridgeBoxes = document.querySelectorAll('[data-bridge-box]');
+  bridgeBoxes.forEach((box) => {
+    const bridgeId = box.getAttribute('data-bridge-id') || box.id || 'bridge';
+    const linkedPaperId = box.getAttribute('data-linked-paper-id') || '';
+    const sourceDataModule = box.getAttribute('data-source-data-module') || '';
+    telemetry.observeImpression(box, 'bridge_box_impression', () => ({
+      bridge_id: bridgeId,
+      linked_paper_id: linkedPaperId,
+      source_data_module: sourceDataModule
+    }), {
+      dedupKey: `bridge_box_impression:${bridgeId}`
+    });
+
+    box.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        telemetry.track('bridge_box_click', {
+          bridge_id: bridgeId,
+          linked_paper_id: linkedPaperId,
+          source_data_module: sourceDataModule
+        }, { element: box });
+      }, { passive: true });
+    });
+  });
+
+  const paperId = resolvePaperId();
+  if (!paperId) return;
+
+  telemetry.track('paper_view', {
+    paper_id: paperId,
+    topic: document.body?.getAttribute('data-paper-topic') || '',
+    level: document.body?.getAttribute('data-paper-level') || '',
+    entry_source: document.referrer ? 'internal' : 'direct'
+  });
+
+  const thresholds = [25, 50, 75, 100];
+  const fired = new Set();
+  let maxDepth = 0;
+  let engagedSeconds = 0;
+  let activeMs = Date.now();
+  let lastInteractionMs = Date.now();
+
+  const markInteraction = () => {
+    lastInteractionMs = Date.now();
+  };
+
+  ['scroll', 'mousemove', 'keydown', 'touchstart', 'click'].forEach((eventName) => {
+    window.addEventListener(eventName, markInteraction, { passive: true });
+  });
+
+  const getDepth = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    const docHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    return Math.max(0, Math.min(100, Math.round((scrollTop / docHeight) * 100)));
+  };
+
+  const handleDepth = () => {
+    const depth = getDepth();
+    if (depth > maxDepth) maxDepth = depth;
+    thresholds.forEach((t) => {
+      if (depth >= t && !fired.has(t)) {
+        fired.add(t);
+        telemetry.track('paper_scroll_depth', {
+          paper_id: paperId,
+          depth_pct: t
+        });
+      }
+    });
+  };
+
+  const depthHandler = () => window.requestAnimationFrame(handleDepth);
+  window.addEventListener('scroll', depthHandler, { passive: true });
+  window.addEventListener('resize', depthHandler, { passive: true });
+  handleDepth();
+
+  window.setInterval(() => {
+    const now = Date.now();
+    const tabActive = document.visibilityState === 'visible';
+    const interactedRecently = (now - lastInteractionMs) <= 30000;
+    if (tabActive && interactedRecently) {
+      engagedSeconds += Math.round((now - activeMs) / 1000);
+      telemetry.track('paper_read_time', {
+        paper_id: paperId,
+        engaged_seconds: engagedSeconds
+      });
+    }
+    activeMs = now;
+  }, 15000);
+
+  document.querySelectorAll('[data-related-paper-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const target = link.getAttribute('data-target-paper-id') || link.getAttribute('href') || '';
+      telemetry.track('related_paper_click', {
+        paper_id: paperId,
+        target_paper_id: target,
+        position: Number(link.getAttribute('data-position') || 0)
+      }, { element: link });
+    }, { passive: true });
+  });
+
+  const emitExit = () => {
+    handleDepth();
+    const now = Date.now();
+    const tabActive = document.visibilityState === 'visible';
+    const interactedRecently = (now - lastInteractionMs) <= 30000;
+    if (tabActive && interactedRecently) {
+      engagedSeconds += Math.max(0, Math.round((now - activeMs) / 1000));
+    }
+    activeMs = now;
+    telemetry.track('paper_exit', {
+      paper_id: paperId,
+      max_depth_pct: maxDepth,
+      engaged_seconds: engagedSeconds,
+      exit_type: document.visibilityState === 'hidden' ? 'hidden' : 'navigate'
+    });
+  };
+  window.addEventListener('pagehide', emitExit, { passive: true });
+  window.addEventListener('beforeunload', emitExit, { passive: true });
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTelemetryBindings);
+} else {
+  initTelemetryBindings();
+}
+
+const initPaperTemplateFrame = () => {
+  const path = (window.location.pathname || '').replace(/\/$/, '');
+  const match = path.match(/\/pages\/algoritmi\/algs\/([^/]+)$/i);
+  if (!match) return;
+  const paperId = String(match[1] || '').toLowerCase();
+  document.body?.setAttribute('data-paper-id', paperId);
+
+  const topic = paperId.includes('genetic')
+    ? 'neurali'
+    : (paperId.includes('classic') ? 'statistica' : 'ibrido');
+  document.body?.setAttribute('data-paper-topic', topic);
+  if (!document.body?.getAttribute('data-paper-level')) {
+    document.body?.setAttribute('data-paper-level', 'intermedio');
+  }
+
+  const main = document.querySelector('main');
+  if (!main) return;
+  const host = main.querySelector(':scope > .content-box') || main;
+  if (!host || host.querySelector('[data-paper-template="true"]')) return;
+
+  const titleNode = host.querySelector('h1, h2');
+  const titleText = String(titleNode?.textContent || paperId).trim();
+
+  const frame = document.createElement('section');
+  frame.className = 'cc-paper-layout cc-card cc-card-paper mt-6 p-5 sm:p-6';
+  frame.dataset.paperTemplate = 'true';
+  frame.setAttribute('data-section-id', 'paper_template');
+  frame.innerHTML = `
+    <header class="space-y-2">
+      <p class="text-xs uppercase tracking-[0.18em] text-ash">Paper template</p>
+      <h2 class="text-white">${titleText}</h2>
+      <p class="text-sm text-ash">Livello: ${document.body?.getAttribute('data-paper-level') || 'intermedio'} · Tema: ${topic}</p>
+    </header>
+    <div class="mt-4 space-y-3 text-sm text-ash">
+      <section><h3 class="text-white">Abstract</h3><p>Perche esiste lo studio, quale fenomeno osserva e quale domanda tecnica affronta.</p></section>
+      <section><h3 class="text-white">Dataset</h3><p>Fonte: archivio storico interno · periodo e cardinalita riportati nei dataset del modulo.</p></section>
+      <section><h3 class="text-white">Metodo</h3><p>Approccio dichiarato nel modulo (statistico/neurale/ibrido) con assunti principali espliciti.</p></section>
+      <section><h3 class="text-white">Output</h3><p>Risultati principali, pattern deboli e anomalie osservate.</p></section>
+      <section><h3 class="text-white">Limiti</h3><p>Nessuna promessa predittiva: il modello descrive scenari e rischio informativo.</p></section>
+      <section><h3 class="text-white">Collegamenti</h3><p><a href="${resolveWithBaseHref('pages/analisi-statistiche/index.html')}" data-related-paper-link data-target-paper-id="analisi-statistiche">Statistiche correlate</a> · <a href="${resolveWithBaseHref('pages/algoritmi/index.html')}" data-related-paper-link data-target-paper-id="catalogo-algoritmi">Catalogo studi</a></p></section>
+    </div>
+  `;
+  host.insertBefore(frame, host.firstElementChild || null);
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPaperTemplateFrame);
+} else {
+  initPaperTemplateFrame();
+}
+
 const rafThrottle = (fn) => {
   let frame = 0;
   return (...args) => {
@@ -96,6 +469,19 @@ const resolveWithBaseHref = (href, baseUrl = BASE.url) => {
   const trimmed = href.startsWith('/') ? href.slice(1) : href.replace(/^\.\//, '');
   return new URL(trimmed, baseUrl).toString();
 };
+
+const ensureMigrationStylesheet = () => {
+  const href = resolveWithBaseHref('assets/css/migration.css');
+  if (!href) return;
+  if (document.querySelector(`link[data-cc-migration-style="true"][href="${href}"]`)) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = href;
+  link.dataset.ccMigrationStyle = 'true';
+  document.head.appendChild(link);
+};
+
+ensureMigrationStylesheet();
 
 const AUDIO_ENABLED = true;
 

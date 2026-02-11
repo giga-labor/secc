@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/ads.css">
 </head>
-<body class="bg-midnight text-white" id="top">
+<body class="bg-midnight text-white" id="top" data-page-id="home">
 
 
   <main class="content-fade home-main mx-auto flex max-w-5xl content-width flex-col px-6 py-2" data-tab-panel-label="off">
@@ -30,17 +30,44 @@
           </div>
         </div>
       </section>
+
+      <section class="cc-hero-grid" data-section-id="dashboard_overview">
+        <article class="cc-hero-panel">
+          <p class="text-xs uppercase tracking-[0.2em] text-ash">Laboratorio tecnico</p>
+          <h2 class="mt-2 text-white">Analisi probabilistica, modelli neurali e studi operativi sul dataset storico</h2>
+          <p class="mt-2 text-ash">Control Chaos resta tecnico, ma la lettura e guidata: dati, ipotesi, limiti e approfondimenti in pagine studio collegate al contesto.</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/algoritmi/index.html">Apri studi e algoritmi</a>
+            <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="pages/analisi-statistiche/index.html">Vai alle statistiche</a>
+          </div>
+        </article>
+        <aside class="cc-hero-panel" data-section-id="dashboard_kpi">
+          <p class="text-xs uppercase tracking-[0.2em] text-ash">KPI rapidi</p>
+          <div class="cc-hero-kpis mt-3" data-kpi-cards></div>
+        </aside>
+      </section>
+
     </div>
   </main>
 
   <script src="assets/js/version.js" defer></script>
   <script src="assets/js/header.js" defer></script>
+  <script src="assets/js/component-builder.js" defer></script>
+  <script src="assets/js/core/cache-engine.js" defer></script>
+  <script src="assets/js/core/data-repository.js" defer></script>
+  <script src="assets/js/core/page-orchestrator.js" defer></script>
+  <script src="assets/js/architects/base.architect.js" defer></script>
+  <script src="assets/js/architects/home.architect.js" defer></script>
+  <script src="assets/js/directors/home.director.js" defer></script>
+  <script src="assets/js/runtime-bootstrap.js" defer></script>
   <script src="assets/js/cards.js" defer></script>
   <script src="assets/js/cards-index.js" defer></script>
-  <script src="assets/js/site.js" defer></script>
   <script src="assets/js/ads.js" defer></script>
 </body>
 </html>
+
+
+
 
 
 

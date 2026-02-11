@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-02-11T10:38:08.602Z",
+  "sessions_observed": 20,
+  "events_total": 267,
+  "kpi": {
+    "paper_ctr": 1,
+    "bridge_ctr": 0.597,
+    "avg_scroll_depth_pct": 0,
+    "avg_read_time_sec": 1,
+    "bounce_paper_rate": 0,
+    "data_to_paper_share": 1
+  },
+  "counts": {
+    "paper_card_impression": 20,
+    "paper_card_click": 20,
+    "bridge_box_impression": 67,
+    "bridge_box_click": 40,
+    "paper_view": 40,
+    "paper_exit": 40,
+    "ads_slot_view": 0
+  }
+}

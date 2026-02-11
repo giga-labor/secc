@@ -1,8 +1,8 @@
 const CARDS = {
   CARD_SIZE: Object.freeze({
-    minPx: 180,
-    maxPx: 186,
-    fluidWidth: '22vw'
+    minPx: 236,
+    maxPx: 286,
+    fluidWidth: '24vw'
   }),
 
   _cardSizingReady: false,
@@ -82,6 +82,8 @@ const CARDS = {
         pointer-events: none;
         transform: translateZ(10px);
         background:
+          linear-gradient(135deg, rgba(4, 6, 12, var(--edge-right-a)) 0%, rgba(4, 6, 12, 0) calc(42% + var(--edge-spread))),
+          linear-gradient(45deg, rgba(3, 5, 10, var(--edge-bottom-a)) 0%, rgba(3, 5, 10, 0) calc(44% + var(--edge-spread-bottom))),
           linear-gradient(90deg, rgba(255, 246, 212, var(--edge-left-a)) 0%, rgba(255, 246, 212, 0) calc(var(--edge-left-w) + var(--edge-spread))),
           linear-gradient(270deg, rgba(7, 9, 18, var(--edge-right-a)) 0%, rgba(7, 9, 18, 0) calc(var(--edge-right-w) + var(--edge-spread))),
           linear-gradient(180deg, rgba(255, 255, 255, var(--edge-top-a)) 0%, rgba(255, 255, 255, 0) calc(var(--edge-top-w) + var(--edge-spread-top))),
@@ -258,6 +260,45 @@ const CARDS = {
         text-shadow: 0 0 8px rgba(255, 217, 102, 0.4);
         white-space: nowrap;
       }
+      .cc-card3d .cc-card-media-frame {
+        position: relative;
+        flex: 0 0 auto;
+        width: 100%;
+        aspect-ratio: 15 / 8;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: hidden;
+      }
+      .cc-card3d .cc-card-media-frame > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .cc-card3d[data-cc-card-root="1"] {
+        contain: layout paint;
+      }
+      .cc-card3d[data-cc-card-root="1"] .cc-card-media-frame {
+        position: relative !important;
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        aspect-ratio: 15 / 8 !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: hidden !important;
+      }
+      .cc-card3d[data-cc-card-root="1"] .cc-card-media-frame > img {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
       .cc-card3d .ball-3d {
         position: relative;
         display: inline-flex;
@@ -279,10 +320,18 @@ const CARDS = {
           inset 0 2px 2px rgba(255, 255, 255, 0.78),
           inset 0 -8px 14px rgba(40, 25, 2, 0.62),
           inset 0 0 10px rgba(255, 245, 199, 0.28),
-          0 3px 8px rgba(4, 8, 18, 0.62),
+          calc(var(--edge-right-a) * 24px) calc(var(--edge-bottom-a) * 22px) 14px rgba(5, 7, 15, 0.48),
+          calc(var(--edge-right-a) * 10px) calc(var(--edge-bottom-a) * 9px) 0 rgba(8, 12, 24, 0.4),
+          0 10px 16px rgba(4, 8, 18, 0.62),
+          0 2px 0 rgba(9, 12, 22, 0.55),
           0 0 12px rgba(255, 212, 102, 0.84),
           0 0 28px rgba(255, 212, 102, 0.4);
-        transform: translateZ(8px);
+        transform: translateZ(26px) translateY(-1px);
+        transform-style: preserve-3d;
+      }
+      .cc-card3d:hover .ball-3d,
+      .cc-card3d.is-hovered .ball-3d {
+        transform: translateZ(28px) translateY(-2px);
       }
       .cc-card3d .ball-3d::before {
         content: '';
@@ -349,7 +398,9 @@ const CARDS = {
     this.ensureComponentStyles();
     this.ensureCardSizing();
     const size = this.getCardSizing();
-    const card = document.createElement('a');
+    const card = this.buildComponentCard({
+      tag: 'a'
+    });
     const imageUrl = this.resolveCardImage(algorithm);
     const imageFallbackUrl = this.resolveCardBackupImage();
     const active = options.forceActive ? true : (algorithm.isActive !== false);
@@ -365,6 +416,8 @@ const CARDS = {
     const titleTpl = this.renderDrawTemplate(algorithm.title || 'Algoritmo', latestDraw);
     const subtitleTpl = this.renderDrawTemplate(algorithm.subtitle || '', latestDraw);
     const summaryTpl = this.renderDrawTemplate(algorithm.narrativeSummary || '', latestDraw);
+    const mediaScaleRaw = Number.parseFloat(String(algorithm?.mediaScale ?? '1'));
+    const requestedMediaScale = Number.isFinite(mediaScaleRaw) && mediaScaleRaw > 0 ? mediaScaleRaw : 1;
     const showSubtitle = Boolean(algorithm?.showSubtitle === true) && Boolean(subtitleTpl.text);
     const subtitleHtml = showSubtitle ? subtitleTpl.html : '';
     const descriptionTpl = summaryTpl.text
@@ -413,38 +466,226 @@ const CARDS = {
     const isNoDataProposal = proposalText === '(NO DATA)';
     const hideNoDataProposal = isNoDataProposal && !noDataShow;
 
-    card.className = `cc-card3d card-3d algorithm-card group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition hover:border-neon/60${active ? ' is-active shadow-[0_0_22px_rgba(255,217,102,0.22)]' : ' is-inactive bg-black/70 border-white/5'}`;
+    const cardFamily = this.resolveTelemetryCardType(algorithm);
+    const cardTypeClass = cardFamily === 'paper' ? 'cc-card-paper' : 'cc-card-action';
+    const visualTone = this.resolveCardVisualTone(algorithm);
+    card.className = `cc-card cc-card3d ${cardTypeClass} cc-card-tone-${visualTone} card-3d algorithm-card group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition hover:border-neon/60${active ? ' is-active shadow-[0_0_22px_rgba(255,217,102,0.22)]' : ' is-inactive bg-black/70 border-white/5'}`;
+    card.dataset.cardFamily = cardFamily;
+    card.dataset.cardTone = visualTone;
     card.style.minWidth = size.min;
     card.style.maxWidth = size.max;
     card.style.width = size.clamp;
     card.href = active ? (resolveWithBase(algorithm.page || '#') || '#') : '#';
+
+    const cardId = this.resolveCardId(algorithm);
+    const cardType = this.resolveTelemetryCardType(algorithm);
+    card.dataset.cardId = cardId;
+    card.dataset.cardType = cardType;
+    card.dataset.destinationType = this.resolveDestinationType(card.href);
+    card.dataset.sourceBlock = String(options.sourceBlock || algorithm?.macroGroup || 'catalog');
+    card.dataset.ccCardRoot = '1';
+    const mediaScale = this.resolveCardMediaScale(cardId, requestedMediaScale);
+
     if (!active) {
       card.setAttribute('aria-disabled', 'true');
       card.addEventListener('click', (event) => event.preventDefault());
     }
 
-    card.innerHTML = `
-      ${active ? '' : '<div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/45"><span class="select-none whitespace-nowrap text-[clamp(0.68rem,2.1vw,1.9rem)] font-semibold uppercase tracking-[clamp(0.16em,0.8vw,0.5em)] text-neon/60 rotate-[-60deg] [text-shadow:0_0_18px_rgba(255,217,102,0.65),0_0_32px_rgba(0,0,0,0.85)]">coming soon</span></div>'}
-      <div class="cc-card-media algorithm-card__media algorithm-card__media--third relative overflow-hidden">
-        <img class="h-full w-full object-cover" src="${imageUrl}" alt="Anteprima di ${algorithm.title}">
+    const overlayHtml = active ? '' : '<div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/45"><span class="select-none whitespace-nowrap text-[clamp(0.68rem,2.1vw,1.9rem)] font-semibold uppercase tracking-[clamp(0.16em,0.8vw,0.5em)] text-neon/60 rotate-[-60deg] [text-shadow:0_0_18px_rgba(255,217,102,0.65),0_0_32px_rgba(0,0,0,0.85)]">coming soon</span></div>';
+    const mediaHtml = `
+      <div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden" style="position:relative;width:100%;aspect-ratio:15/8;min-height:0;max-height:none;overflow:hidden;">
+        <img class="h-full w-full object-cover" src="${imageUrl}" alt="Anteprima di ${algorithm.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform:scale(${mediaScale.toFixed(3)});transform-origin:center center;">
         ${typeBadgeMarkup}
         ${newsBadgeMarkup}
         <span class="card-date-badge${noDataDate && !hideNoDataDate ? ' is-no-data' : ''}${hideNoDataDate ? ' hidden' : ''}" data-date-badge>${hideNoDataDate ? '' : dateLabel}</span>
         ${accessBadge}
       </div>
+    `;
+    const bodyHtml = `
       <div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">
         <span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">${algorithm.macroGroup || 'algoritmo'}</span>
-        <h3 class="text-[0.98rem] font-semibold leading-tight ${active ? 'group-hover:text-neon' : ''}${titleTpl.hasBalls ? ' flex flex-wrap items-center gap-1' : ''}">${titleTpl.html}</h3>
-        ${subtitleHtml ? `<p class="text-[0.66rem] font-medium leading-[1.15] text-ash${subtitleTpl.hasBalls ? ' flex flex-wrap items-center gap-1' : ''}">${subtitleHtml}</p>` : ''}
-        <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash${descriptionTpl.hasBalls ? ' flex flex-wrap items-center gap-1' : ''}">${descriptionTpl.html}</p>
+        <h3 class="text-[0.98rem] font-semibold leading-tight ${active ? 'group-hover:text-neon' : ''}${titleTpl.hasBalls ? ' has-balls flex flex-wrap items-center gap-1' : ''}">${titleTpl.html}</h3>
+        ${subtitleHtml ? `<p class="text-[0.66rem] font-medium leading-[1.15] text-ash${subtitleTpl.hasBalls ? ' has-balls flex flex-wrap items-center gap-1' : ''}">${subtitleHtml}</p>` : ''}
+        <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash${descriptionTpl.hasBalls ? ' has-balls flex flex-wrap items-center gap-1' : ''}">${descriptionTpl.html}</p>
       </div>
+    `;
+    const footerHtml = `
       ${showRanking ? `<span class="cc-ranking-strip" aria-label="Ranking algoritmo"><span class="cc-ranking-strip__text">${rankingText}</span></span>` : ''}
       <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] whitespace-nowrap overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)] ${proposalClass}${hideNoDataProposal ? ' hidden' : ''}" style="font-size:clamp(0.42rem,0.68vw,0.64rem);text-align:center;" data-proposal-box>${hideNoDataProposal ? '' : proposalText}</div>
     `;
 
+    this.mountCardSlots(card, {
+      overlay: overlayHtml,
+      media: mediaHtml,
+      body: bodyHtml,
+      footer: footerHtml
+    });
+
     this.bindCardImageFallback(card, imageFallbackUrl);
     this.fitProposalBadge(card);
+    this.bindTelemetry(card, algorithm);
     return card;
+  },
+
+  bindTelemetry(card, algorithm) {
+    const telemetry = window.CC_TELEMETRY;
+    if (!telemetry || typeof telemetry.track !== 'function') return;
+    const cardId = String(card?.dataset?.cardId || this.resolveCardId(algorithm));
+    const cardType = String(card?.dataset?.cardType || this.resolveTelemetryCardType(algorithm));
+    const sourceBlock = String(card?.dataset?.sourceBlock || algorithm?.macroGroup || 'catalog');
+    const ctaType = cardType === 'paper' ? 'open_study' : 'open_module';
+    const destinationType = String(card?.dataset?.destinationType || this.resolveDestinationType(card?.href || ''));
+    let impressionEmitted = false;
+    const common = () => ({
+      card_id: cardId,
+      card_type: cardType,
+      source_block: sourceBlock
+    });
+
+    telemetry.observeImpression(card, 'card_impression', () => ({
+      ...(impressionEmitted = true, {}),
+      ...common(),
+      card_position: this.resolveCardPosition(card)
+    }), {
+      dedupKey: `card_impression:${cardId}`
+    });
+
+    if (cardType === 'paper') {
+      telemetry.observeImpression(card, 'paper_card_impression', () => ({
+        ...common(),
+        paper_id: this.resolvePaperId(algorithm),
+        card_position: this.resolveCardPosition(card)
+      }), {
+        dedupKey: `paper_card_impression:${cardId}`
+      });
+    }
+
+    let clickLock = false;
+    card.addEventListener('click', () => {
+      if (clickLock) return;
+      clickLock = true;
+      window.setTimeout(() => { clickLock = false; }, 320);
+      if (!impressionEmitted) {
+        impressionEmitted = true;
+        telemetry.track('card_impression', {
+          ...common(),
+          card_position: this.resolveCardPosition(card)
+        }, {
+          element: card,
+          oncePerSession: true,
+          dedupKey: `card_impression:${cardId}`
+        });
+        if (cardType === 'paper') {
+          telemetry.track('paper_card_impression', {
+            ...common(),
+            paper_id: this.resolvePaperId(algorithm),
+            card_position: this.resolveCardPosition(card)
+          }, {
+            element: card,
+            oncePerSession: true,
+            dedupKey: `paper_card_impression:${cardId}`
+          });
+        }
+      }
+      telemetry.track('card_click', {
+        ...common(),
+        card_position: this.resolveCardPosition(card),
+        cta_type: ctaType,
+        destination_type: destinationType
+      }, { element: card });
+
+      if (cardType === 'paper') {
+        telemetry.track('paper_card_click', {
+          ...common(),
+          paper_id: this.resolvePaperId(algorithm),
+          card_position: this.resolveCardPosition(card),
+          cta_type: ctaType,
+          destination_type: destinationType
+        }, { element: card });
+      }
+    }, { passive: true });
+  },
+
+  resolveCardPosition(card) {
+    if (!card || !card.parentElement) return -1;
+    return Array.from(card.parentElement.children).indexOf(card) + 1;
+  },
+
+  buildComponentCard(config = {}) {
+    const builder = window.CC_COMPONENTS;
+    if (builder && typeof builder.build === 'function' && builder.has('card')) {
+      return builder.build('card', config);
+    }
+    return document.createElement(String(config.tag || 'div'));
+  },
+
+  mountCardSlots(card, slots = {}) {
+    const builder = window.CC_COMPONENTS;
+    if (builder && typeof builder.build === 'function' && builder.has('card')) {
+      const built = builder.build('card', {
+        tag: card.tagName.toLowerCase(),
+        className: card.className,
+        attrs: Array.from(card.attributes).reduce((acc, attr) => {
+          if (!attr || !attr.name) return acc;
+          if (attr.name === 'class' || attr.name === 'style') return acc;
+          if (attr.name.startsWith('data-')) return acc;
+          acc[attr.name] = attr.value;
+          return acc;
+        }, {}),
+        dataset: { ...card.dataset },
+        style: {
+          minWidth: card.style.minWidth,
+          maxWidth: card.style.maxWidth,
+          width: card.style.width
+        },
+        slots
+      });
+      if (built) {
+        card.innerHTML = '';
+        while (built.firstChild) card.appendChild(built.firstChild);
+        return;
+      }
+    }
+    const html = `${slots.overlay || ''}${slots.media || ''}${slots.body || ''}${slots.footer || ''}`;
+    card.innerHTML = html;
+  },
+
+  resolveCardId(algorithm) {
+    const explicit = String(algorithm?.id || '').trim();
+    if (explicit) return explicit.toLowerCase();
+    const page = String(algorithm?.page || '').trim();
+    if (page) return page.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase();
+    const title = String(algorithm?.title || 'card').trim();
+    return title.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase();
+  },
+
+  resolveCardMediaScale(cardId, requestedScale) {
+    const id = String(cardId || '').trim().toLowerCase();
+    const scale = Number.isFinite(requestedScale) && requestedScale > 0 ? requestedScale : 1;
+    // Hard fallback for assets with strong inner padding.
+    if (id === 'storico-estrazioni') return Math.max(scale, 1.2);
+    return scale;
+  },
+
+  resolvePaperId(algorithm) {
+    return this.resolveCardId(algorithm);
+  },
+
+  resolveTelemetryCardType(algorithm) {
+    const page = String(algorithm?.page || '').toLowerCase();
+    if (page.includes('/algoritmi/algs/')) return 'paper';
+    if (page.includes('/algoritmi/spotlight/')) return 'paper';
+    return 'action';
+  },
+
+  resolveDestinationType(href) {
+    const value = String(href || '');
+    if (!value || value === '#') return 'none';
+    if (/^https?:\/\//i.test(value) && !value.includes(window.location.host)) return 'external';
+    if (value.includes('/algoritmi/algs/')) return 'paper';
+    if (value.includes('/algoritmi/')) return 'data_section';
+    if (value.includes('/pages/')) return 'data_section';
+    return 'internal';
   },
 
   fitProposalBadge(card) {
@@ -544,6 +785,15 @@ const CARDS = {
     return 'INFO';
   },
 
+  resolveCardVisualTone(card) {
+    const type = this.resolveCardType(card);
+    if (type === 'ALGORITMI') return 'algoritmi';
+    if (type === 'MENU') return 'menu';
+    if (type === 'ARCHIVI') return 'archivi';
+    if (type === 'STATO') return 'stato';
+    return 'info';
+  },
+
   resolveCardImage(card) {
     const imageValue = String(card?.image || '').trim();
     if (!imageValue) return resolveWithBase('img/img.webp');
@@ -581,9 +831,29 @@ const CARDS = {
     const imageEl = cardEl?.querySelector('img');
     if (!imageEl) return;
     imageEl.addEventListener('error', () => {
-      if (imageEl.dataset.fallbackApplied === '1') return;
-      imageEl.dataset.fallbackApplied = '1';
-      imageEl.src = fallbackUrl;
+      if (imageEl.dataset.fallbackApplied === '2') return;
+      if (imageEl.dataset.fallbackApplied !== '1') {
+        imageEl.dataset.fallbackApplied = '1';
+        imageEl.src = fallbackUrl;
+        cardEl?.classList?.add('cc-card-image-fallback');
+        return;
+      }
+      imageEl.dataset.fallbackApplied = '2';
+      const svg = encodeURIComponent(
+        `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'>
+          <defs>
+            <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+              <stop offset='0%' stop-color='#22305f'/>
+              <stop offset='58%' stop-color='#101936'/>
+              <stop offset='100%' stop-color='#090f22'/>
+            </linearGradient>
+          </defs>
+          <rect width='640' height='360' fill='url(#g)'/>
+          <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#ffe7a3' font-size='24' font-family='Segoe UI, Arial'>Preview non disponibile</text>
+        </svg>`
+      );
+      imageEl.src = `data:image/svg+xml;charset=utf-8,${svg}`;
+      cardEl?.classList?.add('cc-card-image-fallback');
     });
   },
 

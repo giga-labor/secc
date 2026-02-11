@@ -1,0 +1,12 @@
+﻿{
+  "page_id": "storico",
+  "version": "2.0.0",
+  "zones": [
+    {
+      "id": "storico-bridge-main",
+      "type": "text_patch",
+      "mount": "[data-bridge-id='archive_bridge_frequency'] p",
+      "html": "Questo dataset storico e la base informativa comune: da qui tutti gli algoritmi ricavano statistiche e segnali di apprendimento."
+    }
+  ]
+}
