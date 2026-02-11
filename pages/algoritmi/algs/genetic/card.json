@@ -4,12 +4,14 @@
   "subtitle": "Multi-agent online learning con aggiornamenti continui",
   "image": "img.webp",
   "lastUpdated": "07/02/2026",
-  "hasNews": false,
+  "hasNews": true,
+  "usesOutData": true,
   "statusTag": "Scheda tecnica",
   "narrativeSummary": "Multi-agent online learning con aggiornamenti continui.",
-  "page": "pages/algoritmi/algs/genetic/index.html",
+  "page": "pages/algoritmi/algs/genetic/",
   "macroGroup": "neurale",
-  "isActive": false,
+  "isActive": true,
   "no_data_show": true,
-  "accessTier": "off"
+  "accessTier": "off",
+  "type": "ALGORITMI"
 }

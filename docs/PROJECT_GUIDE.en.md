@@ -41,7 +41,8 @@ Current status:
 - `ads.txt` exists as template.
 - GA4 is centralized (`assets/js/ga4.js`).
 - Ad-slot UI host is project-managed (`assets/js/ads.js`, `window.CC_RENDER_AD_SLOT` hook).
-- Official AdSense script (`adsbygoogle.js`) is not embedded by default.
+- AdSense loader (`adsbygoogle.js`) is injected at runtime by `assets/js/ads.js`.
+- Funding Choices TCF loader is injected at runtime for certified CMP flow where available.
 
 AdSense go-live checklist:
 1. Replace `ads.txt` placeholder with real publisher (`pub-...`).

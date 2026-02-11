@@ -30,6 +30,13 @@ const GA_MEASUREMENT_ID = 'G-7FLYS8Y9BB';
   }
 
   if (!window.__ccGa4Initialized) {
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
     window.gtag('js', new Date());
     window.gtag('config', GA_MEASUREMENT_ID, { transport_type: 'beacon' });
     window.__ccGa4Initialized = true;

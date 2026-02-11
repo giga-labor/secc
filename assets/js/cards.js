@@ -8,6 +8,17 @@ const CARDS = {
   _cardSizingReady: false,
   _componentStylesReady: false,
   _csvRowsCache: new Map(),
+  _latestDrawDataPromise: null,
+  _rankingCache: new Map(),
+  _rankingPayouts: Object.freeze({
+    0: 1.53,
+    1: 3.36,
+    2: 21.51,
+    3: 326.72,
+    4: 11906.95,
+    5: 1235346.49,
+    6: 622614630.0
+  }),
 
   ensureComponentStyles() {
     if (this._componentStylesReady) return;
@@ -218,6 +229,84 @@ const CARDS = {
           0 2px 6px rgba(0,0,0,0.78),
           0 0 10px rgba(0,0,0,0.35);
       }
+      .cc-ranking-strip {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.42rem;
+        min-height: 7.8rem;
+        border-left: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 30;
+        pointer-events: none;
+      }
+      .cc-ranking-strip__text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        font-size: 0.56rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        color: #ffe6a0;
+        font-weight: 500;
+        font-family: "Palatino Linotype", "Book Antiqua", "Garamond", serif;
+        -webkit-text-stroke: 0.2px #000;
+        text-shadow: 0 0 8px rgba(255, 217, 102, 0.4);
+        white-space: nowrap;
+      }
+      .cc-card3d .ball-3d {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.86rem;
+        height: 1.86rem;
+        border-radius: 999px;
+        font-size: 0.79rem;
+        font-weight: 800;
+        color: #0c0900;
+        -webkit-text-stroke: 0.28px rgba(0, 0, 0, 0.65);
+        background:
+          radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.78) 0 18%, rgba(255, 255, 255, 0.14) 34%, rgba(255, 255, 255, 0) 56%),
+          radial-gradient(circle at 48% 76%, rgba(255, 245, 194, 0.66) 0 30%, rgba(240, 186, 56, 0.36) 54%, rgba(96, 61, 5, 0.92) 100%),
+          linear-gradient(170deg, #fff7d0 0%, #ffd66d 32%, #d9a129 66%, #7b4a00 100%);
+        border: 1px solid rgba(255, 226, 142, 0.95);
+        box-shadow:
+          inset 0 2px 2px rgba(255, 255, 255, 0.78),
+          inset 0 -8px 14px rgba(40, 25, 2, 0.62),
+          inset 0 0 10px rgba(255, 245, 199, 0.28),
+          0 3px 8px rgba(4, 8, 18, 0.62),
+          0 0 12px rgba(255, 212, 102, 0.84),
+          0 0 28px rgba(255, 212, 102, 0.4);
+        transform: translateZ(8px);
+      }
+      .cc-card3d .ball-3d::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.76) 0 16%, rgba(255, 255, 255, 0.06) 34%, rgba(255, 255, 255, 0) 52%),
+          radial-gradient(circle at 54% 84%, rgba(99, 57, 0, 0.34) 0 26%, rgba(99, 57, 0, 0) 56%);
+      }
+      .cc-card3d .ball-3d::after {
+        content: '';
+        position: absolute;
+        left: 18%;
+        top: 14%;
+        width: 38%;
+        height: 38%;
+        border-radius: 999px;
+        pointer-events: none;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0) 72%);
+        filter: blur(0.7px);
+        opacity: 0.76;
+      }
     `;
     document.head.appendChild(style);
   },
@@ -271,7 +360,16 @@ const CARDS = {
     const newsBadgeMarkup = showNewsBadge ? '<span class="card-type-badge card-type-badge--news">Novita</span>' : '';
     const accessTier = this.resolveAccessTier(algorithm);
     const accessBadge = this.buildAccessBadgeMarkup(accessTier);
-    const baseDescription = algorithm.subtitle || algorithm.narrativeSummary || 'Descrizione in arrivo';
+    const needsDrawTemplate = this.hasDrawTemplateTokens(algorithm);
+    const latestDraw = needsDrawTemplate ? await this.getLatestDrawData() : null;
+    const titleTpl = this.renderDrawTemplate(algorithm.title || 'Algoritmo', latestDraw);
+    const subtitleTpl = this.renderDrawTemplate(algorithm.subtitle || '', latestDraw);
+    const summaryTpl = this.renderDrawTemplate(algorithm.narrativeSummary || '', latestDraw);
+    const showSubtitle = Boolean(algorithm?.showSubtitle === true) && Boolean(subtitleTpl.text);
+    const subtitleHtml = showSubtitle ? subtitleTpl.html : '';
+    const descriptionTpl = summaryTpl.text
+      ? summaryTpl
+      : (subtitleTpl.text ? subtitleTpl : { text: 'Descrizione in arrivo', html: 'Descrizione in arrivo', hasBalls: false });
     const usesOutData = Boolean(algorithm?.usesOutData === true);
     const [metricsRows, historicalRows, latestArchiveSeq] = usesOutData
       ? await Promise.all([
@@ -286,7 +384,11 @@ const CARDS = {
     const noDataDate = !latestHistoricalDate;
     const hideNoDataDate = noDataDate && !noDataShow;
     const info = this.extractProposalInfo(metricsRows || []);
-    const description = baseDescription;
+    const rankingValue = Number.isFinite(algorithm?.rankingValue)
+      ? Number(algorithm.rankingValue)
+      : this.computeRankingValue(metricsRows || [], historicalRows || []);
+    const rankingText = this.formatRankingValue(rankingValue);
+    const showRanking = active && String(algorithm?.page || '').toLowerCase().includes('/algoritmi/algs/');
     const archiveAvailable = Array.isArray(historicalRows) && historicalRows.length > 0 && !noDataDate;
     const proposalNumbers = this.normalizeProposalNumbers(info.proposal);
     const proposalHas6 = proposalNumbers.length === 6;
@@ -332,9 +434,11 @@ const CARDS = {
       </div>
       <div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">
         <span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">${algorithm.macroGroup || 'algoritmo'}</span>
-        <h3 class="text-[0.98rem] font-semibold leading-tight ${active ? 'group-hover:text-neon' : ''}">${algorithm.title || 'Algoritmo'}</h3>
-        <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash">${description}</p>
+        <h3 class="text-[0.98rem] font-semibold leading-tight ${active ? 'group-hover:text-neon' : ''}${titleTpl.hasBalls ? ' flex flex-wrap items-center gap-1' : ''}">${titleTpl.html}</h3>
+        ${subtitleHtml ? `<p class="text-[0.66rem] font-medium leading-[1.15] text-ash${subtitleTpl.hasBalls ? ' flex flex-wrap items-center gap-1' : ''}">${subtitleHtml}</p>` : ''}
+        <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash${descriptionTpl.hasBalls ? ' flex flex-wrap items-center gap-1' : ''}">${descriptionTpl.html}</p>
       </div>
+      ${showRanking ? `<span class="cc-ranking-strip" aria-label="Ranking algoritmo"><span class="cc-ranking-strip__text">${rankingText}</span></span>` : ''}
       <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] whitespace-nowrap overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)] ${proposalClass}${hideNoDataProposal ? ' hidden' : ''}" style="font-size:clamp(0.42rem,0.68vw,0.64rem);text-align:center;" data-proposal-box>${hideNoDataProposal ? '' : proposalText}</div>
     `;
 
@@ -502,6 +606,112 @@ const CARDS = {
     return this._latestArchiveSeqPromise;
   },
 
+  async getLatestDrawData() {
+    if (this._latestDrawDataPromise) return this._latestDrawDataPromise;
+    this._latestDrawDataPromise = (async () => {
+      try {
+        const response = await fetch(resolveWithBase('archives/draws/draws.csv'), { cache: 'no-store' });
+        if (!response.ok) return null;
+        const raw = await response.text();
+        const rows = this.parseCsvRows(raw);
+        if (!rows.length) return null;
+        const last = rows[rows.length - 1] || {};
+        const seq = Number.parseInt(String(last['NR. SEQUENZIALE'] || '').trim(), 10);
+        const date = String(last['DATA'] || '').trim();
+        const numbers = [];
+        for (let i = 1; i <= 6; i += 1) {
+          const val = String(last[`N${i}`] || '').trim();
+          const n = Number.parseInt(val.replace(/[^\d]/g, ''), 10);
+          numbers.push(Number.isFinite(n) && n >= 1 && n <= 90 ? String(n).padStart(2, '0') : '');
+        }
+        return {
+          seq: Number.isFinite(seq) ? seq : null,
+          date: date || null,
+          numbers
+        };
+      } catch (error) {
+        return null;
+      }
+    })();
+    return this._latestDrawDataPromise;
+  },
+
+  hasDrawTemplateTokens(algorithm) {
+    const text = `${algorithm?.title || ''} ${algorithm?.subtitle || ''} ${algorithm?.narrativeSummary || ''}`;
+    return /\$D|\$SEQ|\$N[1-6]\b/i.test(String(text));
+  },
+
+  applyDrawTemplate(value, draw) {
+    const source = String(value || '');
+    if (!source) return '';
+    if (!/\$D|\$SEQ|\$N[1-6]\b/i.test(source)) return source;
+    const date = draw?.date || 'NO DATA';
+    const seq = Number.isFinite(draw?.seq) ? String(draw.seq) : 'NO DATA';
+    return source.replace(/\$D|\$SEQ|\$N[1-6]\b/gi, (token) => {
+      const up = token.toUpperCase();
+      if (up === '$D') return date;
+      if (up === '$SEQ') return seq;
+      const m = up.match(/^\$N([1-6])$/);
+      if (!m) return token;
+      const idx = Number.parseInt(m[1], 10) - 1;
+      return draw?.numbers?.[idx] || 'NO DATA';
+    });
+  },
+
+  renderDrawTemplate(value, draw) {
+    const source = String(value || '');
+    if (!source) return { text: '', html: '', hasBalls: false };
+    if (!/\$D|\$SEQ|\$N[1-6]\b/i.test(source)) {
+      const safe = this.escapeHtml(source);
+      return { text: source, html: safe, hasBalls: false };
+    }
+    const date = draw?.date || 'NO DATA';
+    const seq = Number.isFinite(draw?.seq) ? String(draw.seq) : 'NO DATA';
+    let hasBalls = false;
+    let textOut = '';
+    let htmlOut = '';
+    let index = 0;
+    const tokenRe = /\$D|\$SEQ|\$N[1-6]\b/gi;
+    for (let m = tokenRe.exec(source); m; m = tokenRe.exec(source)) {
+      const chunk = source.slice(index, m.index);
+      if (chunk) {
+        textOut += chunk;
+        htmlOut += this.escapeHtml(chunk);
+      }
+      const token = m[0].toUpperCase();
+      if (token === '$D') {
+        textOut += date;
+        htmlOut += this.escapeHtml(date);
+      } else if (token === '$SEQ') {
+        textOut += seq;
+        htmlOut += this.escapeHtml(seq);
+      } else {
+        const mm = token.match(/^\$N([1-6])$/);
+        const idx = mm ? Number.parseInt(mm[1], 10) - 1 : -1;
+        const num = draw?.numbers?.[idx] || 'NO DATA';
+        textOut += num;
+        htmlOut += `<span class="ball-3d">${this.escapeHtml(num)}</span>`;
+        hasBalls = true;
+      }
+      index = tokenRe.lastIndex;
+    }
+    const tail = source.slice(index);
+    if (tail) {
+      textOut += tail;
+      htmlOut += this.escapeHtml(tail);
+    }
+    return { text: textOut, html: htmlOut, hasBalls };
+  },
+
+  escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  },
+
   async readCsvRows(url) {
     if (!url) return null;
     if (this._csvRowsCache.has(url)) return this._csvRowsCache.get(url);
@@ -633,6 +843,95 @@ const CARDS = {
     return numbers;
   },
 
+  computeRankingValue(metricsRows, historicalRows) {
+    const exact = this.extractExactHitCounts(metricsRows, historicalRows);
+    if (!exact) return NaN;
+    let total = 0;
+    for (let k = 0; k <= 6; k += 1) {
+      const count = Number.isFinite(exact[k]) ? exact[k] : 0;
+      total += count * (this._rankingPayouts[k] || 0);
+    }
+    return total;
+  },
+
+  async computeRankingForAlgorithm(algorithm) {
+    const page = String(algorithm?.page || '').trim();
+    if (!page) return NaN;
+    const key = page.toLowerCase();
+    if (this._rankingCache.has(key)) return this._rankingCache.get(key);
+    try {
+      const metricsUrl = this.resolveMetricsUrl(algorithm);
+      const historicalUrl = this.resolveHistoricalUrl(algorithm);
+      const [metricsRows, historicalRows] = await Promise.all([
+        this.readCsvRows(metricsUrl),
+        this.readCsvRows(historicalUrl)
+      ]);
+      const score = this.computeRankingValue(metricsRows || [], historicalRows || []);
+      this._rankingCache.set(key, score);
+      return score;
+    } catch (_) {
+      this._rankingCache.set(key, NaN);
+      return NaN;
+    }
+  },
+
+  extractExactHitCounts(metricsRows, historicalRows) {
+    const out = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+    const byMetric = new Map(
+      (metricsRows || []).map((row) => [
+        String(row.METRICA || '').trim().toLowerCase(),
+        Number.parseInt(String(row.VALORE || '').replace(/[^\d-]/g, ''), 10)
+      ])
+    );
+    let hasExact = false;
+    for (let k = 2; k <= 6; k += 1) {
+      const v = byMetric.get(`con ${k} hit`);
+      if (Number.isFinite(v)) {
+        out[k] = Math.max(0, v);
+        hasExact = true;
+      }
+    }
+    if (hasExact) {
+      // Try to derive "Con 1 hit" and "Con 0 hit" from historical rows when available.
+      const fromHist = this.extractExactHitsFromHistorical(historicalRows);
+      if (fromHist.total > 0) {
+        out[1] = fromHist[1];
+        out[0] = fromHist[0];
+      }
+      return out;
+    }
+    const fromHist = this.extractExactHitsFromHistorical(historicalRows);
+    if (fromHist.total > 0) {
+      for (let k = 0; k <= 6; k += 1) out[k] = fromHist[k];
+      return out;
+    }
+    return null;
+  },
+
+  extractExactHitsFromHistorical(rows) {
+    const counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, total: 0 };
+    (rows || []).forEach((row) => {
+      let h = 0;
+      for (let i = 1; i <= 6; i += 1) {
+        const val = String(row[`N${i}`] || '').trim();
+        if (val.startsWith('[') && val.endsWith(']')) h += 1;
+      }
+      if (h >= 0 && h <= 6) {
+        counts[h] += 1;
+        counts.total += 1;
+      }
+    });
+    return counts;
+  },
+
+  formatRankingValue(value) {
+    if (!Number.isFinite(value)) return 'N/D';
+    return new Intl.NumberFormat('it-IT', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(value);
+  },
+
   enableDepth(root = document) {
     this.ensureComponentStyles();
     const host = root && root.querySelectorAll ? root : document;
@@ -762,21 +1061,10 @@ const CARDS = {
 
   async applyDrawsLatest(card) {
     try {
-      const response = await fetch(resolveWithBase('archives/draws/draws.csv'), { cache: 'no-store' });
-      if (!response.ok) throw new Error('draws not found');
-      const raw = await response.text();
-      const lines = raw
-        .split(/\r?\n/)
-        .map((line) => line.trim())
-        .filter((line) => line.length > 0 && !line.startsWith('#'));
-      if (!lines.length) return;
-      const lastLine = lines[lines.length - 1];
-      const delimiter = this.detectDelimiter(lastLine);
-      const parts = lastLine.split(delimiter).map((cell) => cell.trim());
-      if (parts.length < 7) return;
-
-      const drawDate = parts[1] || '';
-      const numbers = parts.slice(2, 8);
+      const draw = await this.getLatestDrawData();
+      if (!draw) return;
+      const drawDate = draw.date || '';
+      const numbers = Array.isArray(draw.numbers) ? draw.numbers : [];
 
       const updated = card.querySelector('[data-card-updated]');
       if (updated) {

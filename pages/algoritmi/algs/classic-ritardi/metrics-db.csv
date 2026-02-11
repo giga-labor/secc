@@ -1,16 +1,7 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4142,Conteggio archivio dal concorso 1 al concorso 4142
+Concorsi analizzati,4143,Conteggio archivio dal concorso 1 al concorso 4143
 Media hit/sestina,0.40,Media numeri corretti per concorso
 Hit rate >= 2,5.2%,Percentuale concorsi con almeno 2 hit
-Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Con 2 hit,199,Numero concorsi con esattamente 2 hit
-Con 3 hit,16,Numero concorsi con esattamente 3 hit
-Con 4 hit,1,Numero concorsi con esattamente 4 hit
-Con 5 hit,0,Numero concorsi con esattamente 5 hit
-Con 6 hit,0,Numero concorsi con esattamente 6 hit
-Commento - qualita,Copertura media bassa; usare il modello in ottica solo statistica.,Sintesi automatica
-Commento - continuita,Continuita limitata sui concorsi con almeno 2 hit.,Sintesi automatica
-Commento - periodo recente,Periodo recente sopra la media storica.,Ultimi 100 concorsi (o meno)
-Ultimo concorso calcolato,4142,Data estrazione: 07/02/2026
-Concorso successivo stimato,4143,Sestina proposta: 87 62 15 48 53 47
-Sestina proposta (prossimo concorso),87 62 15 48 53 47,Calcolata sui 6 numeri con ritardo massimo nello storico disponibile fino all'ultimo concorso estratto
+Ultimo concorso calcolato,4143,Data estrazione: 10/02/2026
+Concorso successivo stimato,4144,Sestina proposta: 87 62 48 53 47 23
+Sestina proposta (prossimo concorso),87 62 48 53 47 23,Calcolata sui 6 numeri con ritardo massimo

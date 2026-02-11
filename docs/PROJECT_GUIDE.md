@@ -41,7 +41,8 @@ Stato attuale:
 - `ads.txt` presente come template.
 - GA4 presente e centralizzato (`assets/js/ga4.js`).
 - Layout slot ads gestito dal progetto (`assets/js/ads.js`, hook `window.CC_RENDER_AD_SLOT`).
-- Script ufficiale AdSense (`adsbygoogle.js`) non integrato di default.
+- Loader AdSense (`adsbygoogle.js`) iniettato a runtime da `assets/js/ads.js`.
+- Loader Funding Choices TCF iniettato a runtime per flusso CMP certificato dove disponibile.
 
 Checklist go-live AdSense:
 1. Sostituisci placeholder in `ads.txt` con publisher reale (`pub-...`).

@@ -47,7 +47,8 @@ Stato attuale:
 - `ads.txt` presente come template e da sostituire con il tuo `pub-...` reale.
 - GA4 centralizzato in `assets/js/ga4.js`, incluso in tutti gli `index.html`.
 - Slot ads UI gestiti da `assets/js/ads.js` (hook `window.CC_RENDER_AD_SLOT`).
-- Nessun embed diretto `adsbygoogle.js` committato di default.
+- Loader AdSense (`adsbygoogle.js`) iniettato a runtime da `assets/js/ads.js`.
+- Loader Funding Choices TCF iniettato a runtime per flusso CMP certificato dove disponibile.
 
 Checklist go-live monetizzazione:
 1. Inserisci la riga publisher reale in `ads.txt`.

@@ -26,6 +26,7 @@ async function loadAlgorithms(area, counter) {
       loadCardsIndex(spotlightCardsIndexPath).catch(() => [])
     ]);
     const algorithms = cards.filter((card) => card.id && card.id !== 'storico-estrazioni');
+    await preloadAlgorithmRankings(algorithms);
     await renderAlgorithms(area, algorithms, spotlightCards);
     if (counter) {
       counter.textContent = `${algorithms.length} algoritmi`;
@@ -34,6 +35,19 @@ async function loadAlgorithms(area, counter) {
     area.innerHTML = '<div class="rounded-2xl border border-dashed border-white/15 bg-midnight/70 p-5 text-sm text-ash">Impossibile caricare gli algoritmi.</div>';
     if (counter) counter.textContent = '0 algoritmi';
   }
+}
+
+async function preloadAlgorithmRankings(cards) {
+  if (!window.CARDS || typeof window.CARDS.computeRankingForAlgorithm !== 'function') return;
+  const activeCards = (cards || []).filter((card) => card?.isActive !== false);
+  await Promise.all(activeCards.map(async (card) => {
+    try {
+      const ranking = await window.CARDS.computeRankingForAlgorithm(card);
+      if (Number.isFinite(ranking)) card.rankingValue = ranking;
+    } catch (_) {
+      // keep card without ranking
+    }
+  }));
 }
 
 async function loadCardsIndex(path) {

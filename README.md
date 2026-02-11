@@ -47,7 +47,8 @@ Current status:
 - `ads.txt` is present as template and must be replaced with your real `pub-...`.
 - GA4 is centralized in `assets/js/ga4.js` and included by all `index.html`.
 - Ad UI slots are project-managed by `assets/js/ads.js` (`window.CC_RENDER_AD_SLOT` hook).
-- No direct `adsbygoogle.js` embed is committed by default.
+- AdSense loader (`adsbygoogle.js`) is injected at runtime by `assets/js/ads.js`.
+- Funding Choices TCF loader is injected at runtime for certified CMP flow where available.
 
 Go-live checklist:
 1. Set real publisher line in `ads.txt`.

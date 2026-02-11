@@ -1,7 +1,7 @@
 CHIAVE,VALORE
-INTRO,Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri rispetto all'ultima estrazione in cui sono comparsi.
-SCOPO,Evidenziare i numeri piu assenti nel recente storico per produrre una sestina ordinata per ritardo decrescente senza finalita predittiva certa.
-INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo dell'archivio draws.csv
-METODO,Per ogni concorso calcola il ritardo per i numeri 1..90 rispetto allo storico precedente | Ordina per ritardo desc e numero asc in caso di pari | Seleziona i primi 6 ritardatari
-OUTPUT,Sestina ritardataria proposta e metriche di copertura hit su storico per lettura comparativa e monitoraggio nel tempo.
-LIMITI,Non produce garanzia di risultato futuro | Sensibile a rumore statistico e indipendenza del processo | Richiede aggiornamento periodico e contestualizzazione
+INTRO,Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.
+SCOPO,Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.
+OUTPUT,Sestina ritardataria proposta e metriche di copertura hit su storico.
+LIMITI,Non produce garanzia di risultato futuro | Sensibile a rumore statistico

@@ -1,13 +1,14 @@
 {
   "macroGroup": "storico",
   "id": "storico-estrazioni",
-  "title": "Storico estrazioni",
-  "subtitle": "Archivio completo delle estrazioni",
+  "title": "Ultima:",
+  "subtitle": "$D",
+  "showSubtitle": true,
   "image": "img.webp",
   "lastUpdated": "02/02/2026",
   "hasNews": true,
   "statusTag": "Archivio",
-  "narrativeSummary": "Le nuove estrazioni saranno disponibili quando pubblicate sul sito ufficiale.",
+  "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
   "page": "pages/storico-estrazioni/index.html",
   "type": "storico",
   "features": [
