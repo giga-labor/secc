@@ -3,7 +3,7 @@
 });
 
 const ADSENSE_DEFAULT_CONFIG = Object.freeze({
-  CLIENT: 'ca-pub-5166608547474961',
+  CLIENT: 'ca-pub-4257836243471373',
   SLOT_RIGHT: '',
   SLOT_BOTTOM: '',
   CMP_TCF_ENABLED: true
@@ -15,6 +15,7 @@ const CONSENT_EVENT_NAME = 'cc:consent-updated';
 let adsenseLoaderPromise = null;
 let fundingChoicesPromise = null;
 let consentModeSource = 'custom';
+let adsInitialized = false;
 
 const resolveAdsenseConfig = () => {
   const override = (window.CC_ADSENSE_CONFIG && typeof window.CC_ADSENSE_CONFIG === 'object')
@@ -391,45 +392,101 @@ const initConsentSource = async () => {
   }
 };
 
+const pickFirstElement = (selectors = []) => {
+  for (const selector of selectors) {
+    const node = document.querySelector(selector);
+    if (node instanceof HTMLElement) return node;
+  }
+  return null;
+};
+
+const resolveAdHost = (position) => {
+  const rightSelectors = [
+    '[data-ad-host="right"]',
+    '[data-cc-ad-host="right"]',
+    '[data-ads-host="right"]',
+    '#ad-slot-right',
+    '#ads-slot-right',
+    '#ad-right-slot',
+    '.ad-slot-host--right'
+  ];
+  const bottomSelectors = [
+    '[data-ad-host="bottom"]',
+    '[data-cc-ad-host="bottom"]',
+    '[data-ads-host="bottom"]',
+    '#ad-slot-bottom',
+    '#ads-slot-bottom',
+    '#ad-bottom-slot',
+    '.ad-slot-host--bottom'
+  ];
+  return pickFirstElement(position === 'bottom' ? bottomSelectors : rightSelectors);
+};
+
+const resolveAdContainer = (host, position) => {
+  if (!(host instanceof HTMLElement)) return null;
+  const rightContainerSelectors = '.ad-rail--right, .ad-rail, [data-ad-rail="right"], [data-cc-ad-container="right"]';
+  const bottomContainerSelectors = '.bottom-ad, [data-bottom-ad="true"], [data-cc-ad-container="bottom"]';
+  const selector = position === 'bottom' ? bottomContainerSelectors : rightContainerSelectors;
+  return host.closest(selector) || host;
+};
+
 const ensureAds = () => {
-  if (document.querySelector('[data-cc-ads-root="true"]')) return;
+  if (adsInitialized) return;
+  adsInitialized = true;
 
   const root = document.documentElement;
   const baseHrefPrefix = resolveSiteBase();
-  const rightRail = document.createElement('aside');
-  rightRail.className = 'ad-rail ad-rail--right';
-  rightRail.dataset.adRail = 'right';
+  let rightHost = resolveAdHost('right');
+  let rightRail = resolveAdContainer(rightHost, 'right');
+  const rightCreated = !(rightHost && rightRail);
+  if (rightCreated) {
+    rightRail = document.createElement('aside');
+    rightRail.className = 'ad-rail ad-rail--right';
+    rightRail.dataset.adRail = 'right';
+    rightRail.dataset.ccAdsRoot = 'true';
+    rightRail.setAttribute('aria-label', 'Annunci laterali');
+    rightRail.innerHTML = `
+      <div class="ad-rail__panel">
+        <p class="ad-rail__label-head">Annunci</p>
+        <div class="ad-slot-host" data-ad-host="right"></div>
+      </div>
+    `;
+    rightHost = rightRail.querySelector('[data-ad-host="right"]');
+  }
+
+  let bottomHost = resolveAdHost('bottom');
+  let bottomAd = resolveAdContainer(bottomHost, 'bottom');
+  const bottomCreated = !(bottomHost && bottomAd);
+  if (bottomCreated) {
+    bottomAd = document.createElement('aside');
+    bottomAd.className = 'bottom-ad';
+    bottomAd.dataset.bottomAd = 'true';
+    bottomAd.dataset.ccAdsRoot = 'true';
+    bottomAd.setAttribute('aria-label', 'Annunci in basso');
+    bottomAd.innerHTML = `
+      <div class="bottom-ad__panel">
+        <p class="ad-rail__label-head">Annunci</p>
+        <div class="ad-slot-host" data-ad-host="bottom"></div>
+      </div>
+    `;
+    bottomHost = bottomAd.querySelector('[data-ad-host="bottom"]');
+  }
   rightRail.dataset.ccAdsRoot = 'true';
-  rightRail.setAttribute('aria-label', 'Annunci laterali');
-  rightRail.innerHTML = `
-    <div class="ad-rail__panel">
-      <p class="ad-rail__label-head">Annunci</p>
-      <div class="ad-slot-host" data-ad-host="right"></div>
-    </div>
-  `;
-
-  const bottomAd = document.createElement('aside');
-  bottomAd.className = 'bottom-ad';
+  bottomAd.dataset.ccAdsRoot = 'true';
   bottomAd.dataset.bottomAd = 'true';
-  bottomAd.setAttribute('aria-label', 'Annunci in basso');
-  bottomAd.innerHTML = `
-    <div class="bottom-ad__panel">
-      <p class="ad-rail__label-head">Annunci</p>
-      <div class="ad-slot-host" data-ad-host="bottom"></div>
-    </div>
-  `;
 
-  const policyRow = document.createElement('aside');
-  policyRow.className = 'ad-policy-fixed';
-  policyRow.dataset.ccAdsPolicy = 'true';
-  policyRow.innerHTML = buildPolicyRowMarkup(baseHrefPrefix);
+  let policyRow = document.querySelector('[data-cc-ads-policy="true"]');
+  const policyCreated = !(policyRow instanceof HTMLElement);
+  if (!(policyRow instanceof HTMLElement)) {
+    policyRow = document.createElement('aside');
+    policyRow.className = 'ad-policy-fixed';
+    policyRow.dataset.ccAdsPolicy = 'true';
+    policyRow.innerHTML = buildPolicyRowMarkup(baseHrefPrefix);
+  }
 
   const adSlot = document.createElement('div');
   adSlot.className = 'ad-slot';
   adSlot.dataset.ccAdSlot = 'main';
-
-  const rightHost = rightRail.querySelector('[data-ad-host="right"]');
-  const bottomHost = bottomAd.querySelector('[data-ad-host="bottom"]');
   let currentPosition = 'right';
 
   const moveSlotTo = (host, position) => {
@@ -467,15 +524,15 @@ const ensureAds = () => {
     if (showRightRail) {
       rightRail.hidden = false;
       bottomAd.hidden = true;
-      rightRail.style.display = '';
-      bottomAd.style.display = 'none';
+      if (rightCreated) rightRail.style.display = '';
+      if (bottomCreated) bottomAd.style.display = 'none';
       root.dataset.adRail = 'right';
       moveSlotTo(rightHost, 'right');
     } else {
       rightRail.hidden = true;
       bottomAd.hidden = false;
-      rightRail.style.display = 'none';
-      bottomAd.style.display = '';
+      if (rightCreated) rightRail.style.display = 'none';
+      if (bottomCreated) bottomAd.style.display = '';
       root.dataset.adRail = 'bottom';
       moveSlotTo(bottomHost, 'bottom');
     }
@@ -484,9 +541,9 @@ const ensureAds = () => {
     rerenderCurrentAd();
   };
 
-  document.body.appendChild(rightRail);
-  document.body.appendChild(bottomAd);
-  document.body.appendChild(policyRow);
+  if (rightCreated) document.body.appendChild(rightRail);
+  if (bottomCreated) document.body.appendChild(bottomAd);
+  if (policyCreated) document.body.appendChild(policyRow);
 
   wireConsentUi();
 
