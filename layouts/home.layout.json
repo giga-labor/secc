@@ -38,6 +38,11 @@
       "limit": 12
     },
     {
+      "id": "proposals-zone",
+      "type": "proposals_list",
+      "mount": "[data-proposals-list]"
+    },
+    {
       "id": "kpi-zone",
       "type": "kpi_cards",
       "mount": "[data-kpi-cards]"

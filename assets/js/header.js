@@ -345,35 +345,6 @@ const initPaperTemplateFrame = () => {
   if (!document.body?.getAttribute('data-paper-level')) {
     document.body?.setAttribute('data-paper-level', 'intermedio');
   }
-
-  const main = document.querySelector('main');
-  if (!main) return;
-  const host = main.querySelector(':scope > .content-box') || main;
-  if (!host || host.querySelector('[data-paper-template="true"]')) return;
-
-  const titleNode = host.querySelector('h1, h2');
-  const titleText = String(titleNode?.textContent || paperId).trim();
-
-  const frame = document.createElement('section');
-  frame.className = 'cc-paper-layout cc-card cc-card-paper mt-6 p-5 sm:p-6';
-  frame.dataset.paperTemplate = 'true';
-  frame.setAttribute('data-section-id', 'paper_template');
-  frame.innerHTML = `
-    <header class="space-y-2">
-      <p class="text-xs uppercase tracking-[0.18em] text-ash">Paper template</p>
-      <h2 class="text-white">${titleText}</h2>
-      <p class="text-sm text-ash">Livello: ${document.body?.getAttribute('data-paper-level') || 'intermedio'} · Tema: ${topic}</p>
-    </header>
-    <div class="mt-4 space-y-3 text-sm text-ash">
-      <section><h3 class="text-white">Abstract</h3><p>Perche esiste lo studio, quale fenomeno osserva e quale domanda tecnica affronta.</p></section>
-      <section><h3 class="text-white">Dataset</h3><p>Fonte: archivio storico interno · periodo e cardinalita riportati nei dataset del modulo.</p></section>
-      <section><h3 class="text-white">Metodo</h3><p>Approccio dichiarato nel modulo (statistico/neurale/ibrido) con assunti principali espliciti.</p></section>
-      <section><h3 class="text-white">Output</h3><p>Risultati principali, pattern deboli e anomalie osservate.</p></section>
-      <section><h3 class="text-white">Limiti</h3><p>Nessuna promessa predittiva: il modello descrive scenari e rischio informativo.</p></section>
-      <section><h3 class="text-white">Collegamenti</h3><p><a href="${resolveWithBaseHref('pages/analisi-statistiche/index.html')}" data-related-paper-link data-target-paper-id="analisi-statistiche">Statistiche correlate</a> · <a href="${resolveWithBaseHref('pages/algoritmi/index.html')}" data-related-paper-link data-target-paper-id="catalogo-algoritmi">Catalogo studi</a></p></section>
-    </div>
-  `;
-  host.insertBefore(frame, host.firstElementChild || null);
 };
 
 if (document.readyState === 'loading') {
@@ -643,10 +614,23 @@ const buildHeaderMarkup = () => `
   </header>
 `;
 
-if (!header && document.body) {
-  document.body.insertAdjacentHTML('afterbegin', buildHeaderMarkup());
-  header = document.getElementById('site-header');
-}
+const ensureSiteHeader = () => {
+  let node = document.getElementById('site-header');
+  if (!node && document.body) {
+    document.body.insertAdjacentHTML('afterbegin', buildHeaderMarkup());
+    node = document.getElementById('site-header');
+  }
+  if (node) {
+    node.hidden = false;
+    node.style.removeProperty('display');
+    node.style.removeProperty('visibility');
+    node.removeAttribute('aria-hidden');
+  }
+  return node;
+};
+
+header = ensureSiteHeader();
+window.CC_HEADER_ENSURE = ensureSiteHeader;
 
 if (header) {
   const markActiveNav = () => {
@@ -667,9 +651,15 @@ if (header) {
   markActiveNav();
 }
 
+window.addEventListener('pageshow', () => {
+  header = ensureSiteHeader();
+});
+
 if (header) {
   const main = document.querySelector('main');
   const getResponsiveContentGap = () => {
+    const pageId = document.body?.dataset?.pageId || '';
+    if (pageId === 'algsheet') return 0;
     const width = window.innerWidth || document.documentElement.clientWidth || 0;
     const railMode = document.documentElement.getAttribute('data-ad-rail') || 'right';
     const isPortrait = window.matchMedia('(orientation: portrait)').matches;

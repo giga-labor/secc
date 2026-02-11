@@ -351,8 +351,167 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    .badge-novita {
+.badge-novita {
       animation: badge-led 1.4s steps(2, end) infinite;
+    }
+    .tab-btn.cc-tab-blink {
+      animation: cc-proposals-pulse 1.1s steps(2, end) infinite;
+      text-shadow: 0 0 8px rgba(255, 217, 102, 0.4);
+    }
+    .cc-proposals-table-wrap {
+      max-width: 100%;
+      overflow-x: auto;
+      padding-bottom: 0.15rem;
+    }
+    .cc-proposals-table-head {
+      display: grid;
+      grid-template-columns: 10.2rem 7rem minmax(26rem, 1fr);
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 44rem;
+      margin-bottom: 0.35rem;
+      padding: 0.2rem 0.35rem;
+    }
+    .cc-proposals-contest {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 1.9rem;
+      margin: 0.1rem 0.35rem 0.35rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(134, 239, 172, 0.42);
+      background: linear-gradient(170deg, rgba(36, 90, 60, 0.35), rgba(13, 32, 22, 0.36));
+      color: rgba(190, 255, 220, 0.95);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+    .cc-proposals-col {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(199, 214, 239, 0.88);
+      font-weight: 700;
+    }
+    .cc-proposals-col--rank {
+      text-align: center;
+    }
+    .cc-proposals-col--alg {
+      text-align: left;
+    }
+    .cc-proposals-col--balls {
+      text-align: left;
+    }
+    .cc-proposals-table-body {
+      display: grid;
+      gap: 0.36rem;
+    }
+    .cc-proposal-row {
+      display: grid;
+      grid-template-columns: 10.2rem 7rem minmax(26rem, 1fr);
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 44rem;
+      padding: 0.3rem 0.35rem;
+      border-radius: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02) 55%, rgba(6, 11, 22, 0.3));
+      text-decoration: none;
+      transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+    }
+    .cc-proposal-row:hover,
+    .cc-proposal-row:focus-visible {
+      border-color: rgba(255, 217, 102, 0.44);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03) 55%, rgba(6, 11, 22, 0.34));
+      transform: translateY(-1px);
+    }
+    .cc-proposal-rank {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: rgba(244, 249, 255, 0.96);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .cc-proposal-alg {
+      text-align: left;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(228, 237, 255, 0.96);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cc-proposal-balls {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    .cc-proposal-ball {
+      position: relative;
+      width: 2.28rem;
+      height: 2.28rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      color: rgba(225, 255, 236, 0.98);
+      border: 1px solid rgba(167, 255, 209, 0.55);
+      background:
+        radial-gradient(circle at 31% 25%, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.12) 29%, rgba(88, 230, 154, 0.2) 63%, rgba(13, 38, 24, 0.26) 100%),
+        linear-gradient(170deg, rgba(98, 245, 162, 0.26), rgba(11, 30, 20, 0.3));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.56),
+        inset 0 -10px 13px rgba(2, 12, 7, 0.48),
+        0 8px 12px rgba(0, 0, 0, 0.42),
+        0 0 10px rgba(74, 222, 128, 0.36);
+      backdrop-filter: blur(3px) saturate(1.15);
+      -webkit-backdrop-filter: blur(3px) saturate(1.15);
+      text-shadow:
+        0 1px 0 rgba(6, 18, 11, 0.78),
+        0 0 10px rgba(134, 255, 190, 0.52);
+      transform: translateZ(0);
+      overflow: hidden;
+    }
+    .cc-proposal-ball::before {
+      content: '';
+      position: absolute;
+      inset: 12% 14% auto 16%;
+      height: 34%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+    .cc-proposal-ball::after {
+      content: '';
+      position: absolute;
+      inset: auto 16% 10% 16%;
+      height: 22%;
+      border-radius: 999px;
+      background: radial-gradient(ellipse at center, rgba(5, 20, 11, 0.42), rgba(5, 20, 11, 0));
+      pointer-events: none;
+    }
+    @keyframes cc-proposals-pulse {
+      0%, 45% {
+        opacity: 1;
+        color: rgba(255, 217, 102, 0.95);
+      }
+      50%, 95% {
+        opacity: 0.35;
+        color: rgba(255, 255, 255, 0.88);
+      }
+      100% {
+        opacity: 1;
+        color: rgba(255, 217, 102, 0.95);
+      }
     }
     @keyframes badge-led {
       0%, 45% { opacity: 1; filter: brightness(1.05); background-color: rgba(5, 6, 15, 0.85); box-shadow: 0 0 10px rgba(255, 217, 102, 0.45); color: #FFD966; }
@@ -2344,6 +2503,32 @@ body :is(h1, h2, h3, h4, h5, h6, p, span, a, button, th, td, label, li, code) {
 
 .table-scroll-shell {
   position: relative;
+}
+
+/* Algsheet pages: content must start right after header, without top fade masking. */
+body[data-page-id="algsheet"] main.content-fade {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+body[data-page-id="algsheet"] main.content-fade > .content-box {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+body[data-page-id="algsheet"] {
+  --header-floating-gap: 0px;
+}
+
+body[data-page-id="algsheet"] #site-header {
+  position: relative !important;
+  top: 0 !important;
+}
+
+body[data-page-id="algsheet"] #site-header .header-container {
+  margin-top: 0 !important;
 }
 
 .table-scroll-shell [data-draws-scroll] {

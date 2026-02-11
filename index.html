@@ -22,11 +22,41 @@
   <main class="content-fade home-main mx-auto flex max-w-5xl content-width flex-col px-6 py-2" data-tab-panel-label="off">
     <div class="content-box">
       <section id="modules" class="pt-0" data-module-section data-tab-label="NEWS">
-        <div class="cards-shell bg-transparent">
-          <div class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth" data-module-area data-module-scroll>
-            <div class="rounded-2xl border border-dashed border-white/15 bg-midnight/40 px-5 py-6 text-sm text-ash">
-              Caricamento novità...
-            </div>
+        <div class="tabs-shell mt-2" data-tabs-root>
+          <div class="folder-tabs">
+            <button class="tab-btn is-active" type="button" data-tab-target="home-news">News</button>
+            <button class="tab-btn cc-tab-blink" type="button" data-tab-target="home-proposte">Proposte</button>
+            <button class="tab-btn" type="button" data-tab-target="home-analisi">Laboratorio</button>
+          </div>
+          <div class="tabs-sheet">
+            <section class="tab-panel is-active" data-tab-panel="home-news">
+              <div class="cards-shell bg-transparent">
+                <div class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth" data-module-area data-module-scroll>
+                  <div class="rounded-2xl border border-dashed border-white/15 bg-midnight/40 px-5 py-6 text-sm text-ash">
+                    Caricamento novità...
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="tab-panel space-y-2" data-tab-panel="home-proposte">
+              <p class="text-xs uppercase tracking-[0.2em] text-ash text-center">Proposte ordinate per ranking</p>
+              <div class="max-h-[24.5rem] overflow-auto pr-1 space-y-2 text-center" data-proposals-list>
+                <div class="rounded-xl border border-dashed border-white/15 bg-midnight/30 px-3 py-3 text-xs text-ash">
+                  Caricamento proposte...
+                </div>
+              </div>
+            </section>
+            <section class="tab-panel space-y-3" data-tab-panel="home-analisi">
+              <article class="cc-hero-panel">
+                <p class="text-xs uppercase tracking-[0.2em] text-ash">Laboratorio tecnico</p>
+                <h2 class="mt-2 text-white">Analisi probabilistica, modelli neurali e studi operativi sul dataset storico</h2>
+                <p class="mt-2 text-ash">Control Chaos resta tecnico, ma la lettura è guidata: dati, ipotesi, limiti e approfondimenti in pagine studio collegate al contesto.</p>
+                <div class="mt-4 flex flex-wrap gap-3">
+                  <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/algoritmi/index.html">Apri studi e algoritmi</a>
+                  <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="pages/analisi-statistiche/index.html">Vai alle statistiche</a>
+                </div>
+              </article>
+            </section>
           </div>
         </div>
       </section>
