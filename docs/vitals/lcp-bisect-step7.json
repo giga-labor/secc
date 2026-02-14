@@ -1,0 +1,72 @@
+[
+    {
+        "group":  "G1",
+        "disabled":  "assets/js/component-builder.js",
+        "lcp_ms":  20730.80,
+        "render_delay_ms":  20278.44,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  452.37,
+        "perf":  56
+    },
+    {
+        "group":  "G2",
+        "disabled":  "assets/js/core/cache-engine.js, assets/js/core/data-repository.js",
+        "lcp_ms":  12126.54,
+        "render_delay_ms":  11672.50,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  454.03,
+        "perf":  58
+    },
+    {
+        "group":  "G3",
+        "disabled":  "assets/js/core/page-orchestrator.js",
+        "lcp_ms":  11946.41,
+        "render_delay_ms":  11493.46,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  452.95,
+        "perf":  58
+    },
+    {
+        "group":  "G4",
+        "disabled":  "assets/js/architects/base.architect.js, assets/js/architects/home.architect.js",
+        "lcp_ms":  13439.30,
+        "render_delay_ms":  12985.72,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  453.57,
+        "perf":  58
+    },
+    {
+        "group":  "G5",
+        "disabled":  "assets/js/directors/home.director.js",
+        "lcp_ms":  11988.85,
+        "render_delay_ms":  11535.93,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  452.93,
+        "perf":  58
+    },
+    {
+        "group":  "G6",
+        "disabled":  "assets/js/runtime-bootstrap.js",
+        "lcp_ms":  13054.72,
+        "render_delay_ms":  12601.60,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  453.13,
+        "perf":  59
+    },
+    {
+        "group":  "G7",
+        "disabled":  "assets/js/cards.js, assets/js/cards-index.js",
+        "lcp_ms":  12693.17,
+        "render_delay_ms":  12241.87,
+        "load_delay_ms":  0,
+        "load_time_ms":  0,
+        "ttfb_ms":  451.30,
+        "perf":  59
+    }
+]

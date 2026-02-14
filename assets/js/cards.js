@@ -1,4 +1,4 @@
-const CARDS = {
+﻿const CARDS = {
   CARD_SIZE: Object.freeze({
     minPx: 178,
     maxPx: 210,

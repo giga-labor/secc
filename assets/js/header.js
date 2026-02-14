@@ -1,4 +1,4 @@
-const ensureViewTransitionMeta = () => {
+﻿const ensureViewTransitionMeta = () => {
   const existing = document.querySelector('meta[name="view-transition"]');
   if (existing) return;
   const meta = document.createElement('meta');
