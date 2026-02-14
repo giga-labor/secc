@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chaos Oracle - Control Chaos</title>
+  <meta name="description" content="Cameo 3D sperimentale: Chaos Oracle. Esperienza separata dal flusso operativo principale.">
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <link rel="stylesheet" href="../../assets/css/motion.css">
+</head>
+<body class="min-h-screen bg-midnight text-white" data-page-id="chaos-oracle">
+  <main class="content-fade mx-auto max-w-5xl content-width px-6 py-4">
+    <section class="content-box" data-chaos-oracle data-reveal="fade-up">
+      <header class="space-y-3">
+        <p class="text-xs uppercase tracking-[0.2em] text-ash">Cameo 3D</p>
+        <h1 class="text-2xl font-semibold text-white" data-split="lines">Chaos Oracle</h1>
+        <p class="text-ash">Esperienza WebGL separata dal flusso principale. Il resto del sito rimane orientato a leggibilita e performance.</p>
+        <div class="flex flex-wrap gap-3">
+          <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../index.html">Torna alla Home</a>
+          <button class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" data-chaos-start data-magnetic>Avvia scena</button>
+        </div>
+      </header>
+
+      <section class="mt-5 rounded-2xl border border-white/10 bg-midnight/70 p-4">
+        <div class="h-[360px] w-full overflow-hidden rounded-xl border border-white/10 bg-[#050812]" data-chaos-canvas></div>
+        <p class="mt-3 text-sm text-ash" data-chaos-status>Pronto all'avvio.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="../../assets/js/motion-runtime.js" defer></script>
+  <script src="../../assets/js/chaos-oracle.js" defer></script>
+</body>
+</html>

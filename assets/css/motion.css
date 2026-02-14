@@ -1,0 +1,68 @@
+.cc-transition-layer {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 18, 38, 0.72), rgba(4, 7, 17, 0.96));
+  opacity: 0;
+  pointer-events: none;
+  z-index: 12000;
+  transition: opacity 280ms ease;
+}
+
+.cc-transition-layer.is-visible,
+.cc-transition-active .cc-transition-layer {
+  opacity: 1;
+}
+
+.cc-motion-paused,
+.cc-motion-paused body {
+  overflow: hidden !important;
+}
+
+.cc-reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 560ms ease, transform 560ms ease;
+}
+
+.cc-reveal.cc-reveal--fade-in {
+  transform: none;
+}
+
+.cc-reveal.cc-reveal--clip-reveal {
+  clip-path: inset(0 0 100% 0);
+  transform: none;
+  transition: clip-path 640ms ease, opacity 500ms ease;
+}
+
+.cc-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+[data-split] .cc-split-token {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.cc-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 11990;
+  background: rgba(140, 210, 255, 0.88);
+  box-shadow: 0 0 10px rgba(120, 200, 255, 0.45);
+  transform: translate3d(-9999px, -9999px, 0);
+}
+
+.cc-reduced-motion .cc-reveal,
+.cc-reduced-motion [data-split] .cc-split-token {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
