@@ -87,6 +87,12 @@ Baseline valida registrata (`docs/lighthouse-home-v2-preM1.json`):
 - `CLS`: `0.2816`
 - `LCP`: `17851 ms`
 
+Snapshot post-M2 registrato (`docs/lighthouse-home-v3-m2.json`):
+- `Performance (mobile)`: `41`
+- `Accessibility`: `96`
+- `CLS`: `0.2625`
+- `LCP`: `17860 ms`
+
 Target minimi V3 (gate `M3`):
 - `CLS < 0.10` sulla home.
 - `Accessibility >= 90`.
@@ -156,7 +162,7 @@ Acceptance:
 - Layout integro desktop/mobile.
 Owner: `AI IDE`
 
-`C2` Tabs accessibility hardening (`TODO`)  
+`C2` Tabs accessibility hardening (`DONE`)  
 File:
 - `assets/js/architects/home.architect.js`
 - `assets/js/header.js`
@@ -177,7 +183,7 @@ Owner: `AI IDE`
 
 ### D. Cards grid hardening
 
-`D1` Desktop no horizontal overflow (`TODO`)  
+`D1` Desktop no horizontal overflow (`DONE`)  
 File:
 - `assets/css/main.css`
 Azioni:
@@ -190,7 +196,7 @@ Owner: `AI IDE`
 
 ### E. Ads isolation and CLS control
 
-`E1` Ad wrapper stabilization (`TODO`)  
+`E1` Ad wrapper stabilization (`DONE`)  
 File:
 - `assets/css/ads.css`
 Azioni:

@@ -2765,3 +2765,30 @@ main.home-main > .content-box {
   grid-template-columns: 1fr;
   margin-top: 0;
 }
+
+/* M2: D1 cards desktop overflow hardening */
+@media (min-width: 768px) {
+  main.home-main [data-module-area][data-module-scroll] {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    scroll-snap-type: none !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  main.home-main [data-module-area][data-module-scroll] > * {
+    min-width: 0 !important;
+    width: 100% !important;
+    scroll-snap-align: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  main.home-main [data-module-area][data-module-scroll] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+  }
+}
