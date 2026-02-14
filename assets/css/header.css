@@ -2501,6 +2501,18 @@ body :is(h1, h2, h3, h4, h5, h6, p, span, a, button, th, td, label, li, code) {
   text-shadow: var(--glass-text-relief);
 }
 
+/* LCP optimization: avoid expensive global text shadows in above-the-fold hero/modules */
+.hero-section :is(h1, h2, h3, p, a, button),
+#modules :is(h1, h2, h3, p, a, button) {
+  text-shadow: none !important;
+}
+
+.hero-section h2 {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
 .table-scroll-shell {
   position: relative;
 }

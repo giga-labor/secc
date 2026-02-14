@@ -111,6 +111,12 @@ Snapshot post-paint optimization (`docs/lighthouse-home-v3-postpaint-opt.json`):
 - `CLS`: `0.0011`
 - `LCP`: `20503 ms`
 
+Snapshot LCP tuning (`docs/lighthouse-home-v3-lcp-tuned-r2.json`):
+- `Performance (mobile)`: `57`
+- `Accessibility`: `100`
+- `CLS`: `0.0241`
+- `LCP`: `16615 ms`
+
 Target minimi V3 (gate `M3`):
 - `CLS < 0.10` sulla home.
 - `Accessibility >= 90`.
