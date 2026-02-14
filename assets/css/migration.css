@@ -377,13 +377,13 @@ html.cc-ready body[data-page-id="home"] .cc-card--featured {
 
 /* Keep runtime news available but not dominant in above-the-fold area */
 body[data-page-id="home"] section[data-tab-panel="home-news"] [data-module-area] {
-  max-height: 220px;
+  max-height: 380px;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   body[data-page-id="home"] section[data-tab-panel="home-news"] [data-module-area] {
-    max-height: 260px;
+    max-height: 420px;
   }
 }
 
