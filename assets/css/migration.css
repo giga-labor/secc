@@ -264,6 +264,129 @@ button:focus-visible {
   -webkit-backdrop-filter: var(--cc-blur-soft);
 }
 
+/* V4: home above-the-fold static block (LCP-safe) */
+body[data-page-id="home"] .cc-abovefold {
+  padding: 24px 0 16px;
+}
+
+/* V4.3: hard isolation for above-the-fold runtime independence */
+#cc-abovefold {
+  contain: layout paint style;
+  content-visibility: visible;
+}
+
+#cc-abovefold .cc-abovefold-featured {
+  contain: paint;
+}
+
+body[data-page-id="home"] .cc-abovefold-inner {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  body[data-page-id="home"] .cc-abovefold-inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+}
+
+body[data-page-id="home"] .cc-abovefold-featured {
+  margin: 0;
+}
+
+/* V4.6: promote textual LCP and keep featured image secondary */
+body[data-page-id="home"] .cc-abovefold-copy h1 {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: clamp(28px, 4.8vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-shadow: none;
+  max-width: 22ch;
+}
+
+body[data-page-id="home"] .cc-abovefold-copy p {
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 60ch;
+}
+
+@media (max-width: 767px) {
+  body[data-page-id="home"] .cc-abovefold-featured {
+    max-width: 180px;
+    max-height: 100px;
+  }
+
+  body[data-page-id="home"] .cc-abovefold-featured .cc-card-media {
+    max-height: 100px;
+  }
+
+  body[data-page-id="home"] .cc-abovefold-featured .cc-card-media img {
+    height: 100px;
+  }
+}
+
+body[data-page-id="home"] .cc-abovefold-kpi {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+body[data-page-id="home"] .cc-abovefold-kpi span {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: rgba(5, 8, 20, 0.45);
+}
+
+body[data-page-id="home"] .cc-card--featured {
+  display: block;
+  text-decoration: none;
+  background: rgba(9, 14, 30, 0.78) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+body[data-page-id="home"] .cc-card--featured .cc-card-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+body[data-page-id="home"] .cc-card--featured .cc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* V4-A: keep above-the-fold cheap to paint before runtime-ready */
+html:not(.cc-ready) body[data-page-id="home"] #cc-abovefold,
+html:not(.cc-ready) body[data-page-id="home"] #cc-abovefold * {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.cc-ready body[data-page-id="home"] .cc-card--featured {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Keep runtime news available but not dominant in above-the-fold area */
+body[data-page-id="home"] section[data-tab-panel="home-news"] [data-module-area] {
+  max-height: 220px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  body[data-page-id="home"] section[data-tab-panel="home-news"] [data-module-area] {
+    max-height: 260px;
+  }
+}
+
 .cc-hero-kpis {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

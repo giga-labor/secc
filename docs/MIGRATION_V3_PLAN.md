@@ -363,3 +363,119 @@ V3 e `DONE` quando:
 
 Regola:
 - non mischiare patch UI e patch analytics nello stesso commit.
+
+## 10. V4 Modern Look Home-only (target 10/10)
+
+Obiettivo:
+- rendere la modernizzazione visivamente evidente al primo colpo
+- mantenere rischio regressione minimo sulle pagine interne
+- non toccare backend, GA4/AdSense logic, contratti runtime V2
+
+### 10.1 Home-only design tokens reali
+
+File:
+- `assets/css/migration.css`
+
+Azioni:
+- introdurre token scoped solo alla home con prefisso `body[data-page-id="home"]`
+- usare solo variabili nei nuovi blocchi visuali modern look
+- evitare override globali non scoped
+
+Baseline token consigliati:
+- `--cc-space-1: 8px`
+- `--cc-space-2: 12px`
+- `--cc-space-3: 16px`
+- `--cc-space-4: 24px`
+- `--cc-space-5: 32px`
+- `--cc-radius-1: 12px`
+- `--cc-radius-2: 16px`
+- `--cc-surface-1: rgba(255,255,255,0.04)`
+- `--cc-surface-2: rgba(255,255,255,0.06)`
+- `--cc-border: rgba(255,255,255,0.10)`
+- `--cc-text-1: rgba(255,255,255,0.92)`
+- `--cc-text-2: rgba(255,255,255,0.72)`
+- `--cc-accent: rgba(120, 200, 255, 1)`
+- `--cc-accent-2: rgba(255, 120, 220, 1)`
+
+Acceptance:
+- nessuna regressione visiva su pagine non-home
+- nuove regole modern look limitate alla home
+
+### 10.2 Hero chiuso (1 CTA primaria + 1 CTA secondaria)
+
+File:
+- `index.html` (`#cc-abovefold`)
+- `assets/css/migration.css`
+
+Azioni:
+- above-the-fold con soli elementi core:
+  - `H1`
+  - sottotitolo max 2 righe
+  - 1 CTA primaria + 1 CTA secondaria
+- rimuovere terza CTA/micro-link dal blocco hero (eventuali quick links sotto la piega)
+- styling testo con gerarchia netta e senza effetti costosi
+
+Acceptance:
+- struttura hero stabile e leggibile in pochi secondi
+- gerarchia CTA coerente in tutte le viewport
+
+### 10.3 Tabs segmented premium (lightweight)
+
+File:
+- `assets/css/migration.css`
+
+Azioni:
+- restyle tabs come segmented control pulito:
+  - contenitore pill
+  - stato attivo ad alto contrasto
+  - focus-visible marcato
+- vietati pre-paint:
+  - `filter`
+  - `backdrop-filter`
+  - glow aggressivi
+  - animazioni pesanti
+- consentito: transizione leggera su colore/sfondo (`~120ms`)
+
+Acceptance:
+- stato attivo chiarissimo
+- keyboard navigation invariata e visibile
+- nessun peggioramento paint time dovuto ai tabs
+
+### 10.4 Header snello e riduzione rumore
+
+File:
+- `assets/css/header.css`
+- `assets/css/migration.css` (solo home)
+
+Azioni:
+- mantenere al massimo:
+  - 1 overlay
+  - 1 accento visivo
+- ridurre glow e gradienti concorrenti
+- text-shadow disattivato su testi principali hero/modules
+- ombre semplificate a un livello
+
+Acceptance:
+- percezione premium piu pulita
+- header meno invasivo sopra la piega
+
+### 10.5 Governance di rilascio
+
+Commit unico:
+- `v4-modern-look-home-only`
+
+File inclusi:
+- `index.html` (CTA hierarchy + microcopy)
+- `assets/css/migration.css` (tokens + hero + tabs + riduzione effetti)
+- `assets/css/header.css` (solo se indispensabile)
+
+Report obbligatori:
+- `docs/lighthouse-home-v4-modern-look.json`
+- update `docs/vitals/lcp-log.md`
+
+Gate:
+- nessuna regressione sulle pagine interne (scope home-only)
+- hero con 1 primaria + 1 secondaria
+- tabs attive + focus keyboard ok
+- CLS `< 0.10`
+- Accessibility invariata o migliorata

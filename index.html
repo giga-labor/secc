@@ -29,18 +29,47 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/ads.css">
+  <link rel="stylesheet" href="assets/css/migration.css">
 </head>
 <body class="bg-midnight text-white" id="top" data-page-id="home" data-hero-preload="true">
 
   <main class="content-fade home-main mx-auto flex max-w-5xl content-width flex-col px-6 py-2" data-tab-panel-label="off">
     <div class="content-box">
-      <section class="hero-section cc-hero-panel" data-section-id="dashboard_overview" aria-labelledby="home-hero-title">
-        <p class="text-xs uppercase tracking-[0.2em] text-ash">Laboratorio tecnico</p>
-        <h2 id="home-hero-title" class="mt-2 text-white">Analisi probabilistica, modelli neurali e studi operativi sul dataset storico</h2>
-        <p class="mt-2 text-ash">Control Chaos resta tecnico, ma la lettura e guidata: dati, ipotesi, limiti e approfondimenti in pagine studio collegate al contesto.</p>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/algoritmi/index.html">Apri studi e algoritmi</a>
-          <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="pages/analisi-statistiche/index.html">Vai alle statistiche</a>
+      <section id="cc-abovefold" class="cc-abovefold" data-static-abovefold="1" data-runtime-skip="1" data-section-id="dashboard_overview" aria-labelledby="cc-abovefold-title">
+        <div class="cc-abovefold-inner">
+          <div class="cc-abovefold-copy">
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Laboratorio tecnico</p>
+            <h1 id="cc-abovefold-title" class="mt-2 text-white">Statistiche e algoritmi per il SuperEnalotto</h1>
+            <p class="mt-2 text-ash">Analisi statistiche, studi algoritmici e strumenti operativi sul dataset storico. Nessuna promessa di vincita.</p>
+            <div class="cc-abovefold-cta mt-4 flex flex-wrap gap-3">
+              <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/algoritmi/index.html">Apri studi e algoritmi</a>
+              <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="pages/analisi-statistiche/index.html">Vai alle statistiche</a>
+            </div>
+            <div class="cc-abovefold-kpi mt-3 text-xs text-ash">
+              <span>Archivio verificato</span>
+              <span>Studi live</span>
+              <span>Metodo trasparente</span>
+            </div>
+          </div>
+          <figure class="cc-abovefold-featured" aria-label="Contenuto in evidenza">
+            <a class="cc-card cc-card--featured is-active" href="pages/algoritmi/index.html" data-featured-card="1" aria-label="Apri la sezione algoritmi in evidenza">
+              <div class="cc-card-media">
+                <img
+                  src="assets/img/featured/featured-hero-lite.webp"
+                  alt="Anteprima contenuto in evidenza"
+                  width="640"
+                  height="360"
+                  fetchpriority="high"
+                  decoding="async"
+                  loading="eager"
+                />
+              </div>
+              <div class="cc-card-body">
+                <div class="cc-card-title">In evidenza</div>
+                <div class="cc-card-subtitle">Apri la sezione algoritmi</div>
+              </div>
+            </a>
+          </figure>
         </div>
       </section>
 
@@ -55,6 +84,27 @@
             <section class="tab-panel is-active" data-tab-panel="home-news">
               <div class="cards-shell bg-transparent">
                 <div class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth" data-module-area data-module-scroll>
+                  <a
+                    class="cc-card cc-card3d cc-card-action cc-card-tone-study card-3d algorithm-card group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition is-active shadow-[0_0_22px_rgba(255,217,102,0.22)]"
+                    href="pages/algoritmi/algs/super6NN/index.html"
+                    data-lcp-seed="1"
+                    data-runtime-replace="news"
+                    aria-label="Anteprima rapida Super6 NN"
+                  >
+                    <div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden">
+                      <img
+                        class="h-full w-full object-cover"
+                        src="pages/algoritmi/algs/super6NN/img.webp"
+                        alt="Anteprima di Super6 NN"
+                        fetchpriority="high"
+                        decoding="async"
+                        loading="eager"
+                        width="1200"
+                        height="640"
+                        style="position:absolute;inset:0;width:100%;height:100%;"
+                      >
+                    </div>
+                  </a>
                   <div class="rounded-2xl border border-dashed border-white/15 bg-midnight/40 px-5 py-6 text-sm text-ash">
                     Caricamento novita...
                   </div>
@@ -109,3 +159,5 @@
   <script src="assets/js/ads.js" defer></script>
 </body>
 </html>
+
+
