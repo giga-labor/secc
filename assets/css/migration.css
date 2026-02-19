@@ -293,6 +293,18 @@ body[data-page-id="home"] {
   content-visibility: visible;
 }
 
+/* Allow the animated logo to overflow without being clipped by paint containment. */
+body[data-page-id="home"] #cc-abovefold {
+  contain: none !important;
+  overflow: visible !important;
+}
+
+body[data-page-id="home"] #cc-abovefold .cc-abovefold-inner,
+body[data-page-id="home"] #cc-abovefold .cc-abovefold-copy,
+body[data-page-id="home"] #cc-abovefold #cc-abovefold-title {
+  overflow: visible !important;
+}
+
 #cc-abovefold .cc-abovefold-featured {
   contain: paint;
 }
