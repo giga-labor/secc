@@ -1,0 +1,20 @@
+﻿{
+    "id":  "arc90-logico-algoritmica",
+    "title":  "ARC90",
+    "subtitle":  "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie",
+    "image":  "img.webp",
+    "lastUpdated":  "07/02/2026",
+    "hasNews":  false,
+    "statusTag":  "Scheda tecnica",
+    "narrativeSummary":  "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie.",
+    "page":  "pages/algoritmi/algs/arc90-logico-algoritmica/",
+    "macroGroup":  "ibrido",
+    "isActive":  true,
+    "no_data_show":  true,
+    "view":  true,
+    "accessTier":  "free",
+    "hits":  {
+                 "enabled":  false,
+                 "count":  0
+             }
+}

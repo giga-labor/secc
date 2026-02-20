@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti.
+SCOPO,Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.
+OUTPUT,Sestina frequenziale proposta e metriche di hit su storico.
+LIMITI,Non produce garanzia di risultato futuro | Sensibile a rumore statistico

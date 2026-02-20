@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.
+SCOPO,"Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche."
+INPUT,draws.csv condiviso di sistema | card.json algoritmi con isActive=true | out/historical-db.csv e out/metrics-db.csv dei moduli attivi.
+METODO,"Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero."
+OUTPUT,"historical-db.csv, metrics-db.csv, algorithm-sheet.csv, analysis.txt conformi standard secc-admin in cartella out/."
+LIMITI,Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi.

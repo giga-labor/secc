@@ -1,0 +1,40 @@
+[20:46:10] Fase OK: lock_acquire
+[20:46:10] Avvio fase: check_sources_quorum
+[20:46:12] Fase KO: check_sources_quorum -> Quorum insufficiente (1)
+[20:46:12] SERVER ciclo #12: quorum degraded (Quorum insufficiente (1))
+[20:46:12] Avvio fase: update_local_draws_stage
+[20:46:12] Fase OK: update_local_draws_stage
+[20:46:12] SERVER: nuovo draws rilevato, avvio pipeline completa post-update
+[20:46:12] Avvio fase: verify_draws_stage
+[20:46:12] Fase OK: verify_draws_stage
+[20:46:12] Avvio fase: apply_draws_local_atomic
+[20:46:12] Fase OK: apply_draws_local_atomic
+[20:46:12] Avvio fase: train_incremental_stage_all_active
+[20:52:02] Fase OK: train_incremental_stage_all_active
+[20:52:02] Avvio fase: verify_train_outputs_stage
+[20:52:02] Fase OK: verify_train_outputs_stage
+[20:52:02] Avvio fase: update_card_hits_stage
+[20:52:02] Fase OK: update_card_hits_stage
+[20:52:02] Avvio fase: verify_card_hits_stage
+[20:52:02] Fase OK: verify_card_hits_stage
+[20:52:02] Avvio fase: build_manifest_stage
+[20:52:02] Fase OK: build_manifest_stage
+[20:52:02] Avvio fase: verify_bundle_stage
+[20:52:02] Fase OK: verify_bundle_stage
+[20:52:02] Avvio fase: apply_stage_to_repo
+[20:52:02] Fase KO: apply_stage_to_repo -> Working tree non pulita (gate strict)
+M assets/js/version.js
+M pages/algoritmi/algs/paradox-logiche-decisionali-metriche/index.html
+?? .staging/
+?? .state/
+[20:52:02] SERVER ciclo #12: stop su apply_stage_to_repo (Working tree non pulita (gate strict)
+M assets/js/version.js
+M pages/algoritmi/algs/paradox-logiche-decisionali-metriche/index.html
+?? .staging/
+?? .state/)
+[20:52:02] Avvio fase: lock_release
+[20:52:02] Fase OK: lock_release
+[20:52:02] SERVER ciclo #12: degraded
+[20:52:02] SERVER: prossimo ciclo tra 2m 00s alle 20:54:02
+[20:54:02] SERVER ciclo #13: avvio
+[20:54:02] Avvio fase: git_add_commit_push_once

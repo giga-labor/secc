@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna.
+SCOPO,"Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo."
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo dell'archivio draws.csv
+METODO,Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo
+OUTPUT,Sestina co-occorrenziale proposta | Storico validato con evidenza hit | Metriche descrittive e note di interpretazione
+LIMITI,"Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa"
