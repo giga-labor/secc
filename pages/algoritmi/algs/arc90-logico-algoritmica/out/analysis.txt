@@ -13,14 +13,14 @@ Stato esecuzione
 
 Metriche storiche
 - Step valutati: 4148
-- Media hit/sestina: 0.3944
-- Hit>=2: 210/4148 (5.06%)
-- Hit>=3: 12/4148 (0.29%)
-- Hit>=4: 1/4148 (0.02%)
-- Hit>=5: 1/4148 (0.0241%)
-- Hit=6: 1/4148 (0.024108%)
+- Media hit/sestina: 0.3934
+- Hit>=2: 208/4148 (5.01%)
+- Hit>=3: 11/4148 (0.27%)
+- Hit>=4: 0/4148 (0.00%)
+- Hit>=5: 0/4148 (0.0000%)
+- Hit=6: 0/4148 (0.000000%)
 - Media ultimi 200 step: 0.3900
-- Deviazione standard hit: 0.5979
+- Deviazione standard hit: 0.5912
 
 Output operativo
 - Ultimo concorso disponibile: 4149 (20/02/2026)

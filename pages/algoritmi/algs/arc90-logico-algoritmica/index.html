@@ -220,6 +220,7 @@
           </div>
       <section class="mt-8 rounded-3xl border border-white/10 bg-night p-6" data-adsense-quality="1">
       <h3 class="text-xl font-semibold">Descrizione: ARC90</h3>
+      <p class="mt-3 text-sm text-ash">Nota metodologia ranking: la posizione in classifica deriva solo dalle conferme hit dei pronostici storici, verificati in sequenza sul concorso successivo (walk-forward), non da score teorici isolati.</p>
       <p class="mt-3 text-sm text-ash">ARC90 è un algoritmo ibrido neurale-statistico progettato per lavorare in modo strutturato su una sequenza temporale di estrazioni, con un obiettivo pratico: trasformare uno storico grezzo in un sistema coerente di proposta, valutazione e aggiornamento continuo. Non nasce come “oracolo”, ma come motore di ranking: prende dati storici, costruisce rappresentazioni interne, aggiorna i pesi in modo incrementale e produce una sestina candidata per il concorso successivo insieme a metriche osservabili. Il suo valore sta più nella disciplina del processo che nella promessa del risultato.</p>
       <p class="mt-4 text-sm text-ash">L’architettura concettuale di ARC90 ruota attorno a tre blocchi. Il primo è la memoria strutturata dei concorsi, implementata come insieme di neuroni permanenti: ogni concorso storico diventa un neurone con identità propria, feature, vettore di predizione e metadati di affidabilità. Il secondo è il backbone, una memoria trasversale che cattura relazioni numero-numero e segnali aggregati utili a mantenere continuità nel tempo. Il terzo è il livello neurale di apprendimento, che aggiorna i vettori di predizione in ottica incrementale usando lo storico disponibile fino a quel momento. Insieme, questi tre livelli permettono ad ARC90 di evitare sia l’approccio puramente statico (solo frequenze), sia quello puramente black-box (solo rete senza struttura interpretabile).</p>
       <p class="mt-4 text-sm text-ash">Il dato di partenza è l’archivio draws, ordinato per numero sequenziale. Da ogni riga ARC90 estrae i sei numeri validi del concorso, verifica coerenza minima e li integra nello stato interno. L’integrazione non è solo “salvataggio”: il concorso viene trasformato in una rappresentazione chiamata DNA (vettore di feature), che sintetizza informazioni come frequenze, ritardi, segnali recenti e pattern locali utili a descrivere il contesto in cui quel concorso è avvenuto. Questo passaggio è importante perché il modello non impara direttamente da una sestina “nuda”, ma da una codifica che prova a catturare struttura, non solo valori.</p>
@@ -336,6 +337,7 @@
   <script src="../../../../assets/js/ads.js" defer></script>
 </body>
 </html>
+
 
 
 
