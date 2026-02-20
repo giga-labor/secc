@@ -1,0 +1,7 @@
+﻿CHIAVE,VALORE
+INTRO,"ARC90 e un algoritmo ibrido neurale-statistico orientato a ranking e aggiornamento incrementale: usa storico estrazioni, memoria strutturata e regole di consenso per proporre una sestina candidata in modo trasparente e verificabile."
+SCOPO,"Uniformare ARC90 al formato secc-admin producendo storico hit, metriche operative e proposta prossima sestina."
+INPUT,"draws.csv admin ordinato per NR. SEQUENZIALE, con 6 numeri validi per concorso."
+METODO,"Sincronizzazione concorsi su CortexManager, lettura prediction vector neurale e selezione top-6 per concorso successivo."
+OUTPUT,"historical-db.csv, metrics-db.csv, algorithm-sheet.csv, analysis.txt in out/."
+LIMITI,"Nessuna garanzia predittiva; performance sensibili a drift statistico e qualita dei dati in ingresso."

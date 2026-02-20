@@ -7,7 +7,7 @@
   <meta name="google-adsense-account" content="ca-pub-4257836243471373">
   
   <title>ARC90 - SuperEnalotto Control Chaos</title>
-  <meta name="description" content="ARC90: Algoritmo custom con scoring e regole proprietarie. Scheda tecnica con approccio, metriche, limiti e note operative.">
+  <meta name="description" content="Scheda algoritmo ARC90: modello ibrido logico-algoritmico con output su storico estrazioni, metriche e limiti operativi.">
   <link rel="canonical" href="https://www.superenalottocc.it/pages/algoritmi/algs/arc90-logico-algoritmica/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,110 +15,312 @@
 <script src="../../../../assets/js/ga4.js" defer></script>
 <link rel="stylesheet" href="../../../../assets/css/tailwind.generated.css">
 <link rel="stylesheet" href="../../../../assets/css/main.css">
-<link rel="stylesheet" href="../../../../assets/css/header.css">
+  <link rel="stylesheet" href="../../../../assets/css/header.css">
   <link rel="stylesheet" href="../../../../assets/css/ads.css">
+  <style>
+    .spotlight-hero-card--static {
+      cursor: default !important;
+      pointer-events: none !important;
+      transform: none !important;
+    }
+    .spotlight-hero-card--static:hover,
+    .spotlight-hero-card--static.is-hovered,
+    .spotlight-hero-card--static:focus-visible,
+    .spotlight-hero-card--static.is-selected {
+      transform: none !important;
+      filter: brightness(1.08) saturate(1.12) !important;
+      border-color: rgba(255, 217, 102, 0.55) !important;
+    }
+    .historical-pick {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(15, 18, 32, 0.9);
+      color: #cfd8ef;
+      font-weight: 700;
+      font-size: 0.78rem;
+      line-height: 1;
+    }
+    .historical-pick.is-hit {
+      position: relative;
+      border-color: rgba(255, 245, 206, 0.9);
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.95) 0 20%, rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0) 54%),
+        radial-gradient(circle at 52% 68%, rgba(255, 248, 196, 0.55) 0 34%, rgba(255, 221, 122, 0.28) 56%, rgba(16, 23, 40, 0.98) 100%);
+      color: #050505;
+      -webkit-text-stroke: 0.55px rgba(255, 243, 191, 0.96);
+      text-shadow:
+        0 0 1px rgba(255, 243, 191, 0.96),
+        0 0 7px rgba(255, 230, 144, 0.78);
+      box-shadow:
+        inset 0 2px 2px rgba(255, 255, 255, 0.72),
+        inset 0 -8px 14px rgba(8, 12, 22, 0.62),
+        inset 0 0 12px rgba(255, 241, 196, 0.24),
+        0 3px 8px rgba(4, 8, 18, 0.58),
+        0 0 12px rgba(255, 226, 142, 0.78),
+        0 0 26px rgba(255, 226, 142, 0.42);
+      min-width: 2.18rem;
+      height: 2.18rem;
+      font-size: 0.9rem;
+      transform: translateY(-1px) scale(1.09);
+    }
+    .tabs-shell {
+      margin-top: 0.8rem;
+      --active-notch-left: 0px;
+      --active-notch-width: 0px;
+    }
+    .folder-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-left: 0.65rem;
+      margin-bottom: -1px;
+      position: relative;
+      overflow: visible;
+    }
+    .tab-btn {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-bottom: none;
+      background:
+        linear-gradient(175deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 56%, rgba(10, 14, 26, 0.7)),
+        linear-gradient(145deg, rgba(28, 36, 70, 0.5), rgba(10, 14, 26, 0.44));
+      color: #cfd8ef;
+      border-radius: 0.6rem 0.6rem 0 0;
+      padding: 0.36rem 0.86rem 0.42rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -8px 14px rgba(7, 10, 20, 0.22);
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      position: relative;
+      z-index: 2;
+    }
+    .tab-btn.is-active {
+      border-color: rgba(255, 217, 102, 0.88);
+      background:
+        linear-gradient(180deg, rgba(255, 232, 173, 0.36), rgba(255, 217, 102, 0.16)),
+        linear-gradient(145deg, rgba(28, 36, 70, 0.54), rgba(10, 14, 26, 0.46));
+      color: #ffe8a0;
+      border-bottom-color: transparent;
+      box-shadow: 0 0 14px rgba(255, 217, 102, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.44);
+      transform: translateY(1px);
+      z-index: 4;
+    }
+    .tab-btn.is-active::after {
+      content: "";
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      top: 100%;
+      height: 18px;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 217, 102, 0.42) 0%,
+        rgba(255, 217, 102, 0.2) 46%,
+        rgba(255, 217, 102, 0) 100%
+      );
+      filter: blur(1.5px);
+    }
+    .tab-btn:not(.is-active) {
+      transform: translateY(2px);
+      opacity: 0.92;
+      z-index: 1;
+    }
+    .tabs-sheet {
+      margin-top: 0;
+      border: 1px solid rgba(255, 217, 102, 0.52);
+      border-top-color: rgba(255, 217, 102, 0.34);
+      border-radius: 0.8rem 1rem 1rem 1rem;
+      background:
+        linear-gradient(165deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04) 54%, rgba(10, 14, 26, 0.66)),
+        linear-gradient(145deg, rgba(28, 36, 70, 0.46), rgba(10, 14, 26, 0.4));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 241, 204, 0.22),
+        inset 0 0 14px rgba(255, 217, 102, 0.1),
+        inset 0 -12px 18px rgba(7, 10, 20, 0.22),
+        0 0 16px rgba(255, 217, 102, 0.22),
+        0 0 34px rgba(255, 217, 102, 0.12);
+      padding: 1rem 1rem 1.1rem;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .tabs-sheet::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -1px;
+      height: 1px;
+      background: rgba(255, 217, 102, 0.88);
+      pointer-events: none;
+      z-index: 3;
+      border-top-left-radius: 0.8rem;
+      border-top-right-radius: 1rem;
+      mask-image:
+        linear-gradient(
+          90deg,
+          #000 0 calc(var(--active-notch-left) - 0px),
+          transparent calc(var(--active-notch-left) - 0px) calc(var(--active-notch-left) + var(--active-notch-width)),
+          #000 calc(var(--active-notch-left) + var(--active-notch-width)) 100%
+        );
+      -webkit-mask-image:
+        linear-gradient(
+          90deg,
+          #000 0 calc(var(--active-notch-left) - 0px),
+          transparent calc(var(--active-notch-left) - 0px) calc(var(--active-notch-left) + var(--active-notch-width)),
+          #000 calc(var(--active-notch-left) + var(--active-notch-width)) 100%
+        );
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.is-active {
+      display: block;
+    }
+  </style>
 </head>
-<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look" data-page-id="algsheet" data-style-lock="final">
-<header class="border-b border-white/10 bg-midnight/90 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-6">
-      <div>
-        <p class="text-xs uppercase tracking-[0.2em] text-neon">SuperEnalotto Control Chaos</p>
-        <p class="mt-2 text-ash">Macro area: Statistici / Logici</p>
-      </div>
-      <nav class="flex flex-wrap gap-3">
-        <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../index.html">Tutti gli algoritmi</a>
-        <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../../../storico-estrazioni/">Storico estrazioni</a>
-        <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../../../../index.html">Home</a>
-      </nav>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look" data-page-id="algsheet" id="top" data-style-lock="final">
+<main class="content-fade content-width mx-auto flex flex-col gap-0 py-0">
+    <div class="content-box">
+      <section class="rounded-3xl bg-transparent p-0">
+        <div class="flex items-start justify-between gap-6">
+          <div class="min-w-0 flex-1">
+                        <div class="mt-3 w-full max-w-[44rem] rounded-2xl border border-white/10 bg-midnight/70 px-4 py-2 text-xs">
+              <div class="flex flex-col gap-1.5">
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Ultimo concorso:</span><span class="font-semibold text-white" data-last-trained>N/D</span></p>
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Sestina proposta:</span><span class="font-semibold text-white" data-next-pick>N/D</span></p>
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Ranking:</span><span class="font-semibold text-white" data-ranking-value>N/D</span></p>
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Posizione:</span><span class="font-semibold text-white" data-ranking-position>N/D</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="ml-auto w-[min(42vw,220px)] shrink-0">
+            <div class="card-3d is-active spotlight-hero-card spotlight-hero-card--static block w-full overflow-hidden rounded-xl" style="aspect-ratio: 15 / 8;" aria-hidden="true">
+              <img src="img.webp" alt="Anteprima ARC90" class="block h-full w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='../../../../img/img_backup.webp';">
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs-shell mt-4 text-sm text-ash" data-tabs-root data-tab-panel-label="off">
+          <div class="folder-tabs">
+            <button class="tab-btn is-active" type="button" data-tab-target="algoritmo">Algoritmo</button>
+            <button class="tab-btn" type="button" data-tab-target="storica">Storica</button>
+            <button class="tab-btn" type="button" data-tab-target="metriche">Metrica</button>
+            <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
+          </div>
+      <section class="mt-8 rounded-3xl border border-white/10 bg-night p-6" data-adsense-quality="1">
+      <h3 class="text-xl font-semibold">Descrizione: ARC90</h3>
+      <p class="mt-3 text-sm text-ash">ARC90 è un algoritmo ibrido neurale-statistico progettato per lavorare in modo strutturato su una sequenza temporale di estrazioni, con un obiettivo pratico: trasformare uno storico grezzo in un sistema coerente di proposta, valutazione e aggiornamento continuo. Non nasce come “oracolo”, ma come motore di ranking: prende dati storici, costruisce rappresentazioni interne, aggiorna i pesi in modo incrementale e produce una sestina candidata per il concorso successivo insieme a metriche osservabili. Il suo valore sta più nella disciplina del processo che nella promessa del risultato.</p>
+      <p class="mt-4 text-sm text-ash">L’architettura concettuale di ARC90 ruota attorno a tre blocchi. Il primo è la memoria strutturata dei concorsi, implementata come insieme di neuroni permanenti: ogni concorso storico diventa un neurone con identità propria, feature, vettore di predizione e metadati di affidabilità. Il secondo è il backbone, una memoria trasversale che cattura relazioni numero-numero e segnali aggregati utili a mantenere continuità nel tempo. Il terzo è il livello neurale di apprendimento, che aggiorna i vettori di predizione in ottica incrementale usando lo storico disponibile fino a quel momento. Insieme, questi tre livelli permettono ad ARC90 di evitare sia l’approccio puramente statico (solo frequenze), sia quello puramente black-box (solo rete senza struttura interpretabile).</p>
+      <p class="mt-4 text-sm text-ash">Il dato di partenza è l’archivio draws, ordinato per numero sequenziale. Da ogni riga ARC90 estrae i sei numeri validi del concorso, verifica coerenza minima e li integra nello stato interno. L’integrazione non è solo “salvataggio”: il concorso viene trasformato in una rappresentazione chiamata DNA (vettore di feature), che sintetizza informazioni come frequenze, ritardi, segnali recenti e pattern locali utili a descrivere il contesto in cui quel concorso è avvenuto. Questo passaggio è importante perché il modello non impara direttamente da una sestina “nuda”, ma da una codifica che prova a catturare struttura, non solo valori.</p>
+      <p class="mt-4 text-sm text-ash">Una componente chiave di ARC90 è la credibilità dei neuroni. Ogni neurone possiede un livello di credibilità dinamico, che viene aggiornato in base al comportamento osservato e a regole di stabilità. In termini pratici, i neuroni non “pesano” tutti uguale quando si aggrega una proposta: un neurone più credibile ha più influenza nella costruzione della previsione di consenso. Questo riduce il rumore di record poco informativi e favorisce continuità nei segnali che nel tempo risultano più robusti. La credibilità, però, non è definitiva: può salire o scendere in funzione dei cicli di aggiornamento e delle regole di decadimento.</p>
+      <p class="mt-4 text-sm text-ash">Sul fronte predittivo, ARC90 lavora su 90 classi (una per ogni numero possibile). Il modello neurale produce un vettore di score su 90 posizioni; questi score vengono poi combinati con logiche di consenso, pesi di credibilità e vincoli operativi per estrarre una top-6 ordinata. In altre parole, la sestina finale non è il frutto di una singola decisione binaria, ma l’esito di un ranking su spazio completo, poi ridotto ai sei numeri con punteggio relativo più forte. Questo è più coerente con il problema reale rispetto a un’impostazione “secca” che prova a prevedere direttamente sei numeri senza distribuzione intermedia.</p>
+      <p class="mt-4 text-sm text-ash">Il training è incrementale. Significa che, quando arrivano nuovi concorsi, ARC90 non riparte da zero ogni volta: aggiorna il modello sul delta informativo mantenendo memoria dello stato precedente. Questo approccio è utile per due motivi: costo computazionale più sostenibile e adattamento progressivo ai cambiamenti di regime statistico. In un dominio dove i pattern sono instabili e spesso deboli, la capacità di aggiornare in continuo senza distruggere la memoria precedente è più pragmatica di un retrain totale frequente.</p>
+      <p class="mt-4 text-sm text-ash">Un aspetto fondamentale, soprattutto per valutare l’algoritmo in modo onesto, è l’anti-leakage temporale. ARC90, nel flusso corretto, deve generare una proposta per un concorso usando solo informazione disponibile prima di quel concorso, non dopo. In pratica, la validazione storica va fatta in stile walk-forward: predici, poi osservi il risultato, poi aggiorni. Questa disciplina evita l’errore più comune nei sistemi predittivi su serie temporali: sembrare molto migliori di quanto siano davvero perché si usa accidentalmente informazione futura durante la valutazione.</p>
+      <p class="mt-4 text-sm text-ash">L’output operativo è standardizzato in quattro file: scheda algoritmo, storico proposte con hit marcati, tabella metriche e analisi testuale. Questa standardizzazione non è solo comodità di UI: obbliga il motore a rendere espliciti i risultati in forma verificabile. Lo storico mostra come si comportano le proposte sui concorsi già chiusi, le metriche condensano indicatori di copertura e hit rate, l’analisi fornisce contesto interpretativo e limiti. È una forma di accountability: se le performance sono deboli, deve emergere chiaramente.</p>
+      <p class="mt-4 text-sm text-ash">Dal punto di vista statistico, ARC90 va letto con prudenza metodologica. Le lotterie hanno componente aleatoria elevata; anche quando emergono pattern, spesso sono fragili, transitori o non trasferibili. Per questo l’algoritmo è utile soprattutto come strumento di ordinamento delle ipotesi, non come garanzia di esito. La qualità si misura nella coerenza del processo, nella stabilità su finestre multiple, nella trasparenza della validazione e nella capacità di non “barare” con il tempo. Se i risultati sono deludenti, non è necessariamente un bug: può essere la fotografia realistica del segnale disponibile.</p>
+      <p class="mt-4 text-sm text-ash">I punti forti di ARC90 sono: memoria strutturata per concorso, integrazione tra feature statistiche e modello neurale, aggiornamento incrementale, peso dinamico dei contributi tramite credibilità, output tracciabile e verificabile. I punti deboli sono quelli tipici dei sistemi complessi su dati rumorosi: sensibilità ai parametri, rischio di overfitting locale, qualità dipendente dalla pulizia dello storico, performance che possono degradare in assenza di segnali persistenti. In più, maggiore complessità significa anche più superfici di errore operativo se non si mantiene rigorosa la pipeline.</p>
+      <p class="mt-4 text-sm text-ash">In sintesi, ARC90 è un motore ibrido pensato per portare ordine e metodo in un problema intrinsecamente incerto. Non è “forte” perché promette vincite, ma perché rende esplicita la catena dati-modello-output e permette valutazioni oneste nel tempo. Se usato bene, aiuta a distinguere tra impressioni e evidenze: produce una proposta, ma soprattutto produce il contesto per giudicarla. Ed è proprio questo il suo contributo principale: trasformare un ambiente ad alta variabilità in un processo analitico ripetibile, controllabile e leggibile.</p>
+    
+    
+    </section>
+        <div class="tabs-sheet">
+          <section class="tab-panel is-active space-y-4" data-tab-panel="algoritmo">
+            
+          </section>
+          <section class="tab-panel space-y-4" data-tab-panel="storica">
+            <div class="overflow-x-auto rounded-2xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                  <tr>
+                    <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th>
+                    <th class="px-2 py-3 pl-1">Proposta</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5" data-historical-body>
+                  <tr>
+                    <td class="px-2 py-3 text-ash" colspan="2">Caricamento archivio storico...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 text-xs text-ash">
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-historical-prev>Prec</button>
+              <span data-historical-page>Pagina 1 / 1</span>
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-historical-next>Succ</button>
+            </div>
+          </section>
+
+          <section class="tab-panel space-y-4" data-tab-panel="metriche">
+            <p data-metrics-intro>Metriche di efficacia dell'algoritmo su storico validato.</p>
+            <div class="overflow-x-auto">
+              <div class="flex min-w-[44rem] flex-nowrap gap-2">
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">N/D</p>
+              </div>
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">N/D</p>
+              </div>
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">N/D</p>
+              </div>
+              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
+                <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">N/D</p>
+              </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto rounded-2xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                  <tr>
+                    <th class="px-4 py-3">Metrica</th>
+                    <th class="px-4 py-3">Valore</th>
+                    <th class="px-4 py-3">Nota</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5" data-metrics-body>
+                  <tr><td class="px-4 py-3 text-ash" colspan="3">Caricamento metriche...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="tab-panel space-y-4" data-tab-panel="analisi">
+            <p data-analysis-intro>La parola all'esperto</p>
+            <div class="rounded-2xl border border-white/10 bg-midnight/60 px-4 py-3">
+              <p class="whitespace-pre-line break-words text-sm leading-relaxed text-white" data-analysis-text>Caricamento analisi...</p>
+            </div>
+          </section>
+
+          <div class="mt-6">
+            <h2 class="text-base font-semibold text-white">Navigazione</h2>
+            <div class="mt-2 flex flex-wrap gap-4">
+              <a class="text-neon hover:underline" href="../../index.html">Torna al catalogo algoritmi</a>
+              <a class="text-neon hover:underline" href="#top">Torna a inizio pagina</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </header>
-
-  <main class="content-fade mx-auto max-w-5xl content-width px-6 py-10">
-    <section class="rounded-3xl border border-white/10 bg-night p-6">
-      <div class="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Sintesi</p>
-          <h2 class="mt-2 text-xl font-semibold">Panoramica risultati</h2>
-          <p class="mt-2 max-w-3xl text-ash">Questa scheda descrive l approccio ARC90. Focus: Algoritmo custom con scoring e regole proprietarie. Metodo prevalente: area Statistica, con lettura operativa dei risultati su base storica.</p>
-        </div>
-        <span class="rounded-full border border-emerald-400 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-300">Analisi pronta</span>
-      </div>
-      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Ultimo run</p>
-          <p class="mt-2 text-lg font-semibold">Aggiornamento periodico</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Campioni analizzati</p>
-          <p class="mt-2 text-lg font-semibold">Storico completo</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Confidenza media</p>
-          <p class="mt-2 text-lg font-semibold">Variabile</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight/80 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Note chiave</p>
-          <p class="mt-2 text-lg font-semibold">Area Statistica</p>
-        </div>
-      </div>
-    </section>
-
-    
-    <section class="mt-8 rounded-3xl border border-white/10 bg-night p-6" data-adsense-quality="1">
-      <h3 class="text-xl font-semibold">Metodo, limiti e uso responsabile: ARC90</h3>
-      <p class="mt-3 text-sm text-ash">Questa scheda presenta un contenuto tecnico con finalita informativa. I risultati sono costruiti su storico estrazioni, metriche verificabili e regole di calcolo ripetibili. Nessuna sezione del sito promette esiti certi: il valore della pagina sta nella chiarezza metodologica e nella tracciabilita delle evidenze.</p>
-      <p class="mt-3 text-sm text-ash">La lettura consigliata segue tre passaggi: contesto del modello, verifica degli indicatori e controllo dei limiti. Un ranking elevato indica coerenza interna con i dati osservati nella finestra analizzata, ma non rappresenta garanzia predittiva. Questo principio e essenziale per distinguere tra segnale statistico e aspettativa non supportata.</p>
-      <p class="mt-3 text-sm text-ash">Per mantenere robustezza interpretativa, ogni output va confrontato con stabilita temporale, ampiezza campione e coerenza con altre sezioni del progetto. Quando gli indicatori convergono su piu finestre, la fiducia operativa aumenta; quando divergono, la pagina segnala prudenza e invita a non sovra-interpretare il dato.</p>
-      <p class="mt-3 text-sm text-ash">La scheda e pensata come supporto di analisi comparativa: aiuta a ordinare ipotesi, identificare scenari fragili e documentare il processo decisionale. Per una valutazione completa, integra sempre questa lettura con archivio storico, analisi statistiche aggregate e note metodologiche disponibili nelle pagine correlate.</p>
-      <p class="mt-3 text-sm text-ash">In sintesi, il contenuto favorisce trasparenza, aggiornamento continuo e uso responsabile delle informazioni. L'obiettivo non e semplificare il caso, ma migliorare la qualita delle decisioni in condizioni di incertezza.</p>
-      <p class="mt-3 text-sm text-ash" data-adsense-extra="1">Nota metodologica: la qualita del segnale viene valutata anche in funzione della stabilita inter-finestra, della copertura del campione e della coerenza con indicatori indipendenti. In presenza di conflitti tra metriche, l interpretazione corretta e conservativa.</p>
-    
-    </section><section class="mt-8 grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl border border-white/10 bg-night p-6">
-        <h3 class="text-xl font-semibold">Andamento storico</h3>
-        <p class="mt-2 text-sm text-ash">Trend temporale su finestre mobili: stabilità dello score, variazione della copertura e sensibilità ai cambi di periodo.</p>
-        <div class="mt-4 h-56 rounded-2xl border border-dashed border-white/15 bg-midnight/70"></div>
-      </div>
-      <div class="rounded-3xl border border-white/10 bg-night p-6">
-        <h3 class="text-xl font-semibold">Distribuzione punteggi</h3>
-        <p class="mt-2 text-sm text-ash">Distribuzione score e dispersione: confronto tra run omogenei per evidenziare robustezza e outlier.</p>
-        <div class="mt-4 h-56 rounded-2xl border border-dashed border-white/15 bg-midnight/70"></div>
-      </div>
-    </section>
-
-    <section class="mt-8 rounded-3xl border border-white/10 bg-night p-6">
-      <h3 class="text-xl font-semibold">Top risultati e insight</h3>
-      <p class="mt-2 text-sm text-ash">Sintesi operativa con ranking, score normalizzato, segnali di rischio e condizioni di utilizzo responsabile.</p>
-      <div class="mt-4 overflow-x-auto rounded-2xl border border-white/10">
-        <table class="min-w-full text-left text-sm">
-          <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
-            <tr>
-              <th class="px-4 py-3">Rank</th>
-              <th class="px-4 py-3">Combinazione</th>
-              <th class="px-4 py-3">Score</th>
-              <th class="px-4 py-3">Note</th>
-            </tr>
-          </thead>
-                    <tbody class="divide-y divide-white/5">
-            <tr>
-              <td class="px-4 py-3 text-ash">1</td>
-              <td class="px-4 py-3 text-ash">Combinazione ad alta coerenza</td>
-              <td class="px-4 py-3 text-ash">Score composito</td>
-              <td class="px-4 py-3 text-ash">Da validare con storico completo</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-ash">2</td>
-              <td class="px-4 py-3 text-ash">Combinazione alternativa</td>
-              <td class="px-4 py-3 text-ash">Score di confronto</td>
-              <td class="px-4 py-3 text-ash">Uso informativo, non predittivo certo</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
   </main>
 
-      
+  
+
     <script src="../../../../assets/js/core/cache-engine.js" defer></script>
   <script src="../../../../assets/js/core/data-repository.js" defer></script>
   <script src="../../../../assets/js/core/page-orchestrator.js" defer></script>
@@ -128,12 +330,12 @@
   <script src="../../../../assets/js/version.js" defer></script>
   <script src="../../../../assets/js/header.js" defer></script>
   <script src="../../../../assets/js/runtime-bootstrap.js" defer></script>
-
+  <script src="../../../../assets/js/algorithm-sheet-view.js" defer></script>
+  
   <script src="../../../../assets/js/component-builder.js" defer></script>
   <script src="../../../../assets/js/ads.js" defer></script>
 </body>
 </html>
-
 
 
 

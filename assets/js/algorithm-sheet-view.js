@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const shell = root.classList.contains('tabs-shell') ? root : root.closest('.tabs-shell');
         const sheet = shell ? shell.querySelector('.tabs-sheet') : null;
         const tabRow = shell ? shell.querySelector('.folder-tabs') : null;
+        const editorialSection = shell ? shell.querySelector(':scope > section[data-adsense-quality]') : null;
         if (!shell || !sheet || !tabRow) return;
         const showPanelLabel = root.dataset.tabPanelLabel !== 'off';
         const getLabelByTarget = (target) => {
@@ -58,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const activate = (target) => {
           buttons.forEach((btn) => btn.classList.toggle('is-active', btn.dataset.tabTarget === target));
           panels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.tabPanel === target));
+          if (editorialSection) {
+            const showEditorial = target === 'algoritmo';
+            editorialSection.hidden = !showEditorial;
+            editorialSection.classList.toggle('hidden', !showEditorial);
+          }
           updateNotch();
         };
         const refreshTabsLayout = () => window.requestAnimationFrame(updateNotch);
@@ -78,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
           root._tabsResizeObserver = observer;
         }
         ensurePanelLabels();
-        refreshTabsLayout();
+        const initialTarget = (buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0])?.dataset.tabTarget;
+        if (initialTarget) activate(initialTarget);
+        else refreshTabsLayout();
         window.setTimeout(refreshTabsLayout, 80);
         window.setTimeout(refreshTabsLayout, 220);
       });
@@ -87,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const historicalPrev = document.querySelector('[data-historical-prev]');
       const historicalNext = document.querySelector('[data-historical-next]');
       const historicalPage = document.querySelector('[data-historical-page]');
+      const rankingValueEl = document.querySelector('[data-ranking-value]');
+      const rankingPositionEl = document.querySelector('[data-ranking-position]');
       if (!historicalBody) return;
 
       const historicalState = {
@@ -191,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
           historicalState.rows = orderedRows;
           historicalState.page = 1;
           renderHistoricalRows();
+          setSummaryRanking(computeRanking([]));
           if (Array.isArray(latestMetricsRows)) {
             applyMetricsSheet(latestMetricsRows);
           }
@@ -249,6 +260,35 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!Number.isFinite(value)) return 'N/D';
         return new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
       };
+      const setSummaryRanking = (value) => {
+        if (rankingValueEl) rankingValueEl.textContent = formatRanking(value);
+      };
+      const setSummaryPosition = (value) => {
+        if (rankingPositionEl) rankingPositionEl.textContent = value || 'N/D';
+      };
+      const computeRankingFromCounts = (exact) => {
+        if (!exact) return NaN;
+        let score = 0;
+        for (let k = 0; k <= 6; k += 1) {
+          score += (exact[k] || 0) * (RANKING_PAYOUTS[k] || 0);
+        }
+        return score;
+      };
+      const computeRankingFromHistoricalRows = (rows) => {
+        const counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, total: 0 };
+        (rows || []).forEach((row) => {
+          let hit = 0;
+          (row.picks || []).forEach((pick) => {
+            if (pick && pick.hit) hit += 1;
+          });
+          if (hit >= 0 && hit <= 6) {
+            counts[hit] += 1;
+            counts.total += 1;
+          }
+        });
+        if (!counts.total) return NaN;
+        return computeRankingFromCounts(counts);
+      };
 
       const exactHitsFromHistorical = () => {
         const counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, total: 0 };
@@ -286,15 +326,81 @@ document.addEventListener('DOMContentLoaded', () => {
       const computeRanking = (rows) => {
         const fromMetrics = exactHitsFromMetrics(rows || []);
         const fromHistorical = exactHitsFromHistorical();
+        if (fromHistorical && fromHistorical.total > 0) {
+          return computeRankingFromCounts(fromHistorical);
+        }
         if (!fromMetrics && (!fromHistorical || fromHistorical.total <= 0)) {
           return NaN;
         }
-        const exact = fromMetrics || fromHistorical;
-        let score = 0;
-        for (let k = 0; k <= 6; k += 1) {
-          score += (exact[k] || 0) * (RANKING_PAYOUTS[k] || 0);
+        return computeRankingFromCounts(fromMetrics || fromHistorical);
+      };
+      const resolveCurrentAlgorithmId = () => {
+        const parts = String(window.location.pathname || '').split('/').filter(Boolean);
+        const idx = parts.indexOf('algs');
+        if (idx < 0 || idx + 1 >= parts.length) return '';
+        return parts[idx + 1];
+      };
+      const normalizePagePath = (value) => {
+        let page = String(value || '').trim();
+        if (!page) return '';
+        if (!page.startsWith('/')) page = `/${page}`;
+        if (!page.endsWith('/')) page = `${page}/`;
+        return page;
+      };
+      const computeGlobalRankingPosition = () => {
+        const currentId = resolveCurrentAlgorithmId();
+        if (!currentId) {
+          setSummaryPosition('N/D');
+          return;
         }
-        return score;
+        fetch('../../../../data/modules-manifest.json', { cache: 'no-store' })
+          .then((res) => {
+            if (!res.ok) throw new Error(`status ${res.status}`);
+            return res.json();
+          })
+          .then((manifest) => {
+            const cardPaths = (Array.isArray(manifest) ? manifest : [])
+              .map((path) => String(path || '').trim())
+              .filter((path) => path.includes('pages/algoritmi/algs/') && path.endsWith('/card.json'));
+            return Promise.all(cardPaths.map((path) => {
+              const relative = path.startsWith('/') ? path.slice(1) : path;
+              return fetch(`../../../../${relative}`, { cache: 'no-store' })
+                .then((res) => (res.ok ? res.json() : null))
+                .catch(() => null);
+            }));
+          })
+          .then((cards) => {
+            const activeCards = (cards || []).filter((card) => card && card.isActive === true && String(card.page || '').includes('pages/algoritmi/algs/'));
+            const totalActive = activeCards.length;
+            if (!totalActive) {
+              setSummaryPosition('N/D');
+              return;
+            }
+            return Promise.all(activeCards.map((card) => {
+              const pagePath = normalizePagePath(card.page);
+              if (!pagePath) return Promise.resolve({ id: String(card.id || ''), score: NaN });
+              return fetch(`${pagePath}out/historical-db.csv`, { cache: 'no-store' })
+                .then((res) => (res.ok ? res.text() : ''))
+                .then((text) => ({ id: String(card.id || ''), score: computeRankingFromHistoricalRows(parseArchive(text)) }))
+                .catch(() => ({ id: String(card.id || ''), score: NaN }));
+            })).then((scores) => {
+              const ranked = scores
+                .filter((entry) => Number.isFinite(entry.score))
+                .sort((a, b) => {
+                  if (b.score !== a.score) return b.score - a.score;
+                  return String(a.id).localeCompare(String(b.id));
+                });
+              const idx = ranked.findIndex((entry) => entry.id === currentId);
+              if (idx >= 0) {
+                setSummaryPosition(`${idx + 1}/${totalActive}`);
+              } else {
+                setSummaryPosition(`N/D/${totalActive}`);
+              }
+            });
+          })
+          .catch(() => {
+            setSummaryPosition('N/D');
+          });
       };
 
       const applyAlgorithmSheet = (rows) => {
@@ -330,6 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!tbody) return;
         if (!rows.length) {
           tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Nessuna metrica disponibile.</td></tr>';
+          setSummaryRanking(computeRanking([]));
           return;
         }
 
@@ -357,11 +464,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
 
         const hasRankingRow = rows.some((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
+        let rankingValue = computeRanking(rows || []);
         if (!hasRankingRow) {
-          const rankingValue = computeRanking(rows || []);
           html += `<tr><td class="px-4 py-3 text-ash">Ranking</td><td class="px-4 py-3 text-white">${formatRanking(rankingValue)}</td><td class="px-4 py-3 text-ash">Punteggio cumulato con tabella premi da hit esatti (0..6)</td></tr>`;
+        } else {
+          const rankingRow = rows.find((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
+          const rawValue = String((rankingRow && rankingRow[1]) || '').replace(/\./g, '').replace(',', '.');
+          const parsedValue = Number.parseFloat(rawValue);
+          if (Number.isFinite(parsedValue)) rankingValue = parsedValue;
         }
         tbody.innerHTML = html;
+        setSummaryRanking(rankingValue);
       };
 
       const applyAnalysisText = (rawText) => {
@@ -404,6 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (tbody) {
             tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Metriche non disponibili.</td></tr>';
           }
+          setSummaryRanking(computeRanking([]));
         });
 
       fetch('out/analysis.txt', { cache: 'no-store' })
@@ -420,6 +534,8 @@ document.addEventListener('DOMContentLoaded', () => {
             textEl.textContent = 'Analisi non disponibile.';
           }
         });
+
+      computeGlobalRankingPosition();
     });
 })();
 

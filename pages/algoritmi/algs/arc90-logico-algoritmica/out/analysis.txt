@@ -1,0 +1,31 @@
+Descrizione tecnica algoritmo ARC90
+ARC90 combina neuroni permanenti, credibilita meritocratica e aggregazione consenso su 90 numeri.
+Questo adapter esegue sincronizzazione dati e conversione verso formato output richiesto da secc-admin.
+
+Stato esecuzione
+- Draws usati: 4148
+- Nuovi concorsi importati in cortex: 4148
+- Step training incrementale: 1
+- Stato indice training: 4146 -> 4147
+- Valutazione storica anti-leakage: walk-forward stretto
+- Neuroni totali: 4148
+- Credibilita media: 0.2000
+
+Metriche storiche
+- Step valutati: 4147
+- Media hit/sestina: 0.3935
+- Hit>=2: 209/4147 (5.04%)
+- Hit>=3: 12/4147 (0.29%)
+- Hit>=4: 0/4147 (0.00%)
+- Hit>=5: 0/4147 (0.0000%)
+- Hit=6: 0/4147 (0.000000%)
+- Media ultimi 200 step: 0.4100
+- Deviazione standard hit: 0.5925
+
+Output operativo
+- Ultimo concorso disponibile: 4148 (19/02/2026)
+- Prossimo concorso stimato: 4149
+- Sestina proposta: 20 39 40 43 76 90
+
+Limiti
+Nessun modello garantisce predizione futura; le metriche sono descrittive e dipendono dalla qualita dello storico.

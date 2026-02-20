@@ -74,10 +74,11 @@
     "narrativeSummary": "Algoritmo custom con scoring e regole proprietarie.",
     "page": "pages/algoritmi/algs/arc90-logico-algoritmica/",
     "macroGroup": "statistica",
-    "isActive": false,
+    "isActive": true,
     "no_data_show": true,
     "cardBase": "pages/algoritmi/algs/arc90-logico-algoritmica/",
-    "imageVersion": 1770663711
+    "imageVersion": 1770663711,
+    "view": true
   },
   {
     "id": "classic-analisi-anomalie-pattern",

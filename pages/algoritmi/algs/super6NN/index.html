@@ -195,12 +195,12 @@
       <section class="rounded-3xl bg-transparent p-0">
         <div class="flex items-start justify-between gap-6">
           <div class="min-w-0 flex-1">
-            <div class="mt-3 w-full max-w-[44rem] rounded-2xl border border-white/10 bg-midnight/70 px-4 py-2">
-              <div class="grid grid-cols-[minmax(0,16rem)_1fr] items-center gap-x-3 gap-y-1 text-xs">
-                <span class="uppercase tracking-[0.15em] text-ash">Ultimo concorso:</span>
-                <span class="font-semibold text-white" data-last-trained>N/D</span>
-                <span class="uppercase tracking-[0.15em] text-ash">Sestina proposta:</span>
-                <span class="font-semibold text-white" data-next-pick>N/D</span>
+                        <div class="mt-3 w-full max-w-[44rem] rounded-2xl border border-white/10 bg-midnight/70 px-4 py-2 text-xs">
+              <div class="flex flex-col gap-1.5">
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Ultimo concorso:</span><span class="font-semibold text-white" data-last-trained>N/D</span></p>
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Sestina proposta:</span><span class="font-semibold text-white" data-next-pick>N/D</span></p>
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Ranking:</span><span class="font-semibold text-white" data-ranking-value>N/D</span></p>
+                <p class="flex items-center gap-2 whitespace-nowrap"><span class="uppercase tracking-[0.15em] text-ash">Posizione:</span><span class="font-semibold text-white" data-ranking-position>N/D</span></p>
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@
             <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
           </div>
       <section class="mt-8 rounded-3xl border border-white/10 bg-night p-6" data-adsense-quality="1">
-      <h3 class="text-xl font-semibold">Contesto editoriale e limiti: Super6 NN</h3>
+      <h3 class="text-xl font-semibold">Descrizione: Super6 NN</h3>
       <p class="mt-3 text-sm text-ash">Questa pagina documenta un modello sperimentale applicato a dati storici. I risultati hanno finalita informativa e non rappresentano promesse di esito. La lettura corretta parte dal metodo: input utilizzati, criteri di scoring, periodo analizzato e condizioni di aggiornamento.</p>
       <p class="mt-3 text-sm text-ash">I valori mostrati servono per confrontare scenari in modo coerente, non per trasformare un dominio aleatorio in previsione certa. Un punteggio alto indica compatibilita con i pattern osservati nella finestra considerata, ma richiede sempre verifica incrociata con statistiche aggregate e archivio completo.</p>
       <p class="mt-3 text-sm text-ash">Per ridurre errori interpretativi, il progetto adotta un approccio trasparente: separazione tra dato osservato e commento, limiti espliciti, linguaggio non promissorio e aggiornamenti periodici. Questo aiuta a mantenere la qualita informativa e a evitare conclusioni non supportate.</p>
@@ -230,36 +230,9 @@
     
     </section>
         <div class="tabs-sheet">
-          <section class="tab-panel is-active space-y-6" data-tab-panel="algoritmo">
-            <p data-algo-intro>Caricamento scheda algoritmo...</p>
-            <div>
-              <h2 class="text-base font-semibold text-white">Scopo</h2>
-              <p data-algo-scope>...</p>
-            </div>
-            <div>
-              <h2 class="text-base font-semibold text-white">Input</h2>
-              <ul class="list-disc pl-5" data-algo-input>
-                <li>...</li>
-              </ul>
-            </div>
-            <div>
-              <h2 class="text-base font-semibold text-white">Metodo</h2>
-              <ul class="list-disc pl-5" data-algo-method>
-                <li>...</li>
-              </ul>
-            </div>
-            <div>
-              <h2 class="text-base font-semibold text-white">Output</h2>
-              <p data-algo-output>...</p>
-            </div>
-            <div>
-              <h2 class="text-base font-semibold text-white">Limiti</h2>
-              <ul class="list-disc pl-5" data-algo-limits>
-                <li>...</li>
-              </ul>
-            </div>
+          <section class="tab-panel is-active space-y-4" data-tab-panel="algoritmo">
+            
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="storica">
             <div class="overflow-x-auto rounded-2xl border border-white/10">
               <table class="min-w-full text-left text-sm">
@@ -358,6 +331,10 @@
   <script src="../../../../assets/js/ads.js" defer></script>
 </body>
 </html>
+
+
+
+
 
 
 

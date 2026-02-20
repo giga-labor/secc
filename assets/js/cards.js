@@ -471,7 +471,8 @@
     const descriptionTpl = summaryTpl.text
       ? summaryTpl
       : (subtitleTpl.text ? subtitleTpl : { text: 'Descrizione in arrivo', html: 'Descrizione in arrivo', hasBalls: false });
-    const usesOutData = Boolean(algorithm?.usesOutData === true);
+    const isAlgorithmModule = String(algorithm?.page || '').toLowerCase().includes('/algoritmi/algs/');
+    const usesOutData = isAlgorithmModule && algorithm?.usesOutData !== false;
     const [metricsRows, historicalRows, latestArchiveSeq] = usesOutData
       ? await Promise.all([
         this.readCsvRows(this.resolveMetricsUrl(algorithm)),
@@ -480,19 +481,22 @@
       ])
       : [null, null, null];
 
-    const latestHistoricalDate = this.extractLatestHistoricalDate(historicalRows || []);
-    const dateLabel = latestHistoricalDate || 'NO DATA';
-    const noDataDate = !latestHistoricalDate;
-    const hideNoDataDate = noDataDate && !noDataShow;
     const info = this.extractProposalInfo(metricsRows || []);
+    const latestHistoricalDate = this.extractLatestHistoricalDate(historicalRows || []);
+    const trainingDateFromMetrics = this.extractTrainingDateFromMetrics(metricsRows || []);
+    const resolvedTrainingDate = latestHistoricalDate || trainingDateFromMetrics || null;
+    const dateLabel = resolvedTrainingDate || 'NO DATA';
+    const noDataDate = !resolvedTrainingDate;
+    const proposalNumbers = this.normalizeProposalNumbers(info.proposal);
+    const proposalHas6 = proposalNumbers.length === 6;
+    const hasTrainingSignals = Boolean(resolvedTrainingDate) || proposalHas6;
+    const hideNoDataDate = noDataDate && (!noDataShow || hasTrainingSignals);
     const rankingValue = Number.isFinite(algorithm?.rankingValue)
       ? Number(algorithm.rankingValue)
       : this.computeRankingValue(metricsRows || [], historicalRows || []);
     const rankingText = this.formatRankingValue(rankingValue);
-    const showRanking = active && String(algorithm?.page || '').toLowerCase().includes('/algoritmi/algs/');
-    const archiveAvailable = Array.isArray(historicalRows) && historicalRows.length > 0 && !noDataDate;
-    const proposalNumbers = this.normalizeProposalNumbers(info.proposal);
-    const proposalHas6 = proposalNumbers.length === 6;
+    const showRanking = active && isAlgorithmModule;
+    const archiveAvailable = Array.isArray(historicalRows) && historicalRows.length > 0;
     const nextSeqValid = Number.isFinite(info.nextSeq);
     const isUpdated = Number.isFinite(latestArchiveSeq) && nextSeqValid && info.nextSeq > latestArchiveSeq;
     const hitCountRaw = Number.parseInt(String(algorithm?.hits?.count ?? ''), 10);
@@ -501,18 +505,19 @@
 
     let proposalText = '(NO DATA)';
     let proposalClass = 'text-rose-300 border-rose-300/55 bg-rose-300/8';
-    if (!archiveAvailable) {
-      proposalText = '(NO DATA)';
-    } else if (proposalHas6 && nextSeqValid && Number.isFinite(latestArchiveSeq)) {
-      if (isUpdated) {
+    if (proposalHas6) {
+      if (!Number.isFinite(latestArchiveSeq) || !nextSeqValid || isUpdated) {
         proposalText = proposalNumbers.join(' ');
         proposalClass = 'text-black border-lime-100/95 bg-lime-300 shadow-[0_0_18px_rgba(163,255,190,0.95),0_0_34px_rgba(134,239,172,0.82),0_0_56px_rgba(74,222,128,0.52),inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-2px_6px_rgba(22,101,52,0.35)]';
       } else {
         proposalText = '(NO UPD)';
         proposalClass = 'text-amber-300 border-amber-300/60 bg-amber-300/10 shadow-[0_0_12px_rgba(251,191,36,0.22)]';
       }
-    } else {
+    } else if (!archiveAvailable && !hasTrainingSignals) {
       proposalText = '(NO DATA)';
+    } else {
+      proposalText = '(NO UPD)';
+      proposalClass = 'text-amber-300 border-amber-300/60 bg-amber-300/10 shadow-[0_0_12px_rgba(251,191,36,0.22)]';
     }
     const isNoDataProposal = proposalText === '(NO DATA)';
     const hideNoDataProposal = isNoDataProposal && !noDataShow;
@@ -1165,6 +1170,25 @@
     }
     return { nextSeq: Number.isFinite(nextSeq) ? nextSeq : null, proposal: proposal || null };
   },
+  extractTrainingDateFromMetrics(rows) {
+    const metrics = Array.isArray(rows) ? rows : [];
+    const candidates = [];
+    metrics.forEach((row) => {
+      const metric = String(row?.METRICA || '').trim().toLowerCase();
+      const value = String(row?.VALORE || '').trim();
+      const note = String(row?.NOTE || '').trim();
+      if (metric === 'ultimo concorso calcolato' || metric === 'concorso successivo stimato' || metric === 'sestina proposta (prossimo concorso)') {
+        candidates.push(value, note);
+      }
+    });
+    for (const text of candidates) {
+      const match = String(text).match(/(\d{1,2}\/\d{1,2}\/\d{4})/);
+      if (!match) continue;
+      const parsed = this.parseItalianDate(match[1]);
+      if (parsed && parsed.label) return parsed.label;
+    }
+    return null;
+  },
 
   normalizeProposalNumbers(rawProposal) {
     const tokens = String(rawProposal || '')
@@ -1499,9 +1523,12 @@ function resolveWithBase(path) {
   if (value.startsWith('#') || /^https?:\/\//i.test(value) || value.startsWith('file:')) {
     return value;
   }
+  const trimmed = value.startsWith('/') ? value.slice(1) : value.replace(/^\.\//, '');
+  if (/^https?:$/i.test(String(window.location.protocol || '')) && /^(pages|data|assets|img|archives)\//i.test(trimmed)) {
+    return new URL(`/${trimmed}`, window.location.origin).toString();
+  }
   const base = window.CC_BASE?.url;
   if (!base) return value;
-  const trimmed = value.startsWith('/') ? value.slice(1) : value.replace(/^\.\//, '');
   return new URL(trimmed, base).toString();
 }
 
