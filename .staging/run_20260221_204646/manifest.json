@@ -1,0 +1,226 @@
+{
+  "run_id": "20260221_204646",
+  "created_at": "2026-02-21T20:51:40",
+  "latest_local_contest_id": 4150,
+  "latest_external_contest_id": 31,
+  "hits_included": true,
+  "hits_changed_cards": 5,
+  "files": [
+    {
+      "stage_rel": "data/draws.csv",
+      "repo_rel": "archives/draws/draws.csv",
+      "sha256": "32ee9e993a8c0f482cd19d96b17e79c0fbf5ce90aa2e67b22e107b5cccb5c61d",
+      "size": 141733
+    },
+    {
+      "stage_rel": "algorithms/arc90-logico-algoritmica/card.json",
+      "repo_rel": "pages/algoritmi/algs/arc90-logico-algoritmica/card.json",
+      "sha256": "ee5316933189455663b824b808fdf555ad875f9104c08f0f9b592799ed555e6a",
+      "size": 593
+    },
+    {
+      "stage_rel": "algorithms/arc90-logico-algoritmica/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/arc90-logico-algoritmica/out/algorithm-sheet.csv",
+      "sha256": "4a9c54a22cac86bebf96bdd832d5d652466f0dcb94a0a7762b8890bc63a2cd91",
+      "size": 7426
+    },
+    {
+      "stage_rel": "algorithms/arc90-logico-algoritmica/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/arc90-logico-algoritmica/out/analysis.txt",
+      "sha256": "75ebae00c1c80015fb98d7bd72de35e7f8b03fc7958f55ec4c61de9c3ae196bd",
+      "size": 1058
+    },
+    {
+      "stage_rel": "algorithms/arc90-logico-algoritmica/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/arc90-logico-algoritmica/out/historical-db.csv",
+      "sha256": "a48a1d29173c2ca8cd710973b6af315bd979c9cdf3fee8d8a3518c534089494e",
+      "size": 147417
+    },
+    {
+      "stage_rel": "algorithms/arc90-logico-algoritmica/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/arc90-logico-algoritmica/out/metrics-db.csv",
+      "sha256": "94fba2eff5120f7ee99e9ddd9ff90d3b6a4966324b27e6c06ed0148bb3a3ce61",
+      "size": 992
+    },
+    {
+      "stage_rel": "algorithms/classic-co-occorrenze/card.json",
+      "repo_rel": "pages/algoritmi/algs/classic-co-occorrenze/card.json",
+      "sha256": "3b2fab245dcbb34318ba714a996197b64d8c6493a8e06efa1f9a6d8dddb5f435",
+      "size": 724
+    },
+    {
+      "stage_rel": "algorithms/classic-co-occorrenze/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-co-occorrenze/out/algorithm-sheet.csv",
+      "sha256": "e3e842581199350290b2a3d3fe2c70cf1a42617aac8cbd3eb016bdf80a7bbf2f",
+      "size": 1033
+    },
+    {
+      "stage_rel": "algorithms/classic-co-occorrenze/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/classic-co-occorrenze/out/analysis.txt",
+      "sha256": "4ded1cdb6b70a7d88dcc6ae37c6d9b27ab25cfc74a8681ff231128026fb8b5b6",
+      "size": 1608
+    },
+    {
+      "stage_rel": "algorithms/classic-co-occorrenze/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-co-occorrenze/out/historical-db.csv",
+      "sha256": "3587739255304c3fcd20a0b47bcebc16775e49d3bdc2f4fd6ed24c04227bc325",
+      "size": 147439
+    },
+    {
+      "stage_rel": "algorithms/classic-co-occorrenze/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-co-occorrenze/out/metrics-db.csv",
+      "sha256": "db933f23a17fba2f951eb8d8a993f7c9fb0a4dd7e28121177f37595955798b60",
+      "size": 934
+    },
+    {
+      "stage_rel": "algorithms/classic-frequency/card.json",
+      "repo_rel": "pages/algoritmi/algs/classic-frequency/card.json",
+      "sha256": "a12cffb1f4e96123369d9105608360323fed87c5007927da4607efdd1ed09069",
+      "size": 602
+    },
+    {
+      "stage_rel": "algorithms/classic-frequency/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-frequency/out/algorithm-sheet.csv",
+      "sha256": "44ecb2f2e721a61e32f7635fdbd5646e168c613b4807aadd0fef96031f8f7126",
+      "size": 575
+    },
+    {
+      "stage_rel": "algorithms/classic-frequency/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/classic-frequency/out/analysis.txt",
+      "sha256": "5e24df4add52970424c685892ee9c6105735f9972b9eeb44e57df321a5a0b99c",
+      "size": 142
+    },
+    {
+      "stage_rel": "algorithms/classic-frequency/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-frequency/out/historical-db.csv",
+      "sha256": "8d63e6b01c5066e52519054cb5716dab176be233b8856ab8014f795f2ab8048f",
+      "size": 147421
+    },
+    {
+      "stage_rel": "algorithms/classic-frequency/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-frequency/out/metrics-db.csv",
+      "sha256": "ae45859517019074359ab25c8364756111980fe242e1753c3c0be1ebcd758ebf",
+      "size": 504
+    },
+    {
+      "stage_rel": "algorithms/classic-ritardi/card.json",
+      "repo_rel": "pages/algoritmi/algs/classic-ritardi/card.json",
+      "sha256": "ca71001dce394405589c023eee02309952a71aa66271af54562b309d2d3eb6fa",
+      "size": 608
+    },
+    {
+      "stage_rel": "algorithms/classic-ritardi/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-ritardi/out/algorithm-sheet.csv",
+      "sha256": "4d8322f811a7496d93e189eb3de03195ec177ea31923640e675f9d73bff2b964",
+      "size": 577
+    },
+    {
+      "stage_rel": "algorithms/classic-ritardi/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/classic-ritardi/out/analysis.txt",
+      "sha256": "fdb631c53619509691df929852f7cdf76407c589af112c952c120835365c6464",
+      "size": 86
+    },
+    {
+      "stage_rel": "algorithms/classic-ritardi/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-ritardi/out/historical-db.csv",
+      "sha256": "ead5b17ce2adab3135bba41a0d9e986a1a41a3109f900fb8a86f12a2013e9f38",
+      "size": 147465
+    },
+    {
+      "stage_rel": "algorithms/classic-ritardi/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/classic-ritardi/out/metrics-db.csv",
+      "sha256": "08f49c37e9e161f9cba004f25bb4c3bce64df2c6e57e1c6cf73e94cf563223cd",
+      "size": 444
+    },
+    {
+      "stage_rel": "algorithms/genetic/card.json",
+      "repo_rel": "pages/algoritmi/algs/genetic/card.json",
+      "sha256": "8c29ebce8ebc9f302a99aa3c33cedf09c96689ba4bf0ced03b24ed271e92944e",
+      "size": 693
+    },
+    {
+      "stage_rel": "algorithms/genetic/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/genetic/out/algorithm-sheet.csv",
+      "sha256": "60615327b3b6f5f9063f025267c6ec46816e2c02f2f07f31f4bf26cb35fb71aa",
+      "size": 1137
+    },
+    {
+      "stage_rel": "algorithms/genetic/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/genetic/out/analysis.txt",
+      "sha256": "bf83efc47fee1a33ec70489a6d96461ee7c30dd588d0eb8718e24e430b3c217f",
+      "size": 2385
+    },
+    {
+      "stage_rel": "algorithms/genetic/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/genetic/out/historical-db.csv",
+      "sha256": "7e293a31223fef7dee9c6b2f799e5c62af6e52204dc659a423893120f182d7d8",
+      "size": 147435
+    },
+    {
+      "stage_rel": "algorithms/genetic/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/genetic/out/metrics-db.csv",
+      "sha256": "167588dfd0ebc2e5fe5dd7f1b287b78617a3e519320cde18225e4f9c338f48c1",
+      "size": 995
+    },
+    {
+      "stage_rel": "algorithms/paradox-logiche-decisionali-metriche/card.json",
+      "repo_rel": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/card.json",
+      "sha256": "38de77d2dc7b9e1278eb691ce310b47531e2f005dc8c1612c5846eeb9f858b32",
+      "size": 607
+    },
+    {
+      "stage_rel": "algorithms/paradox-logiche-decisionali-metriche/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/out/algorithm-sheet.csv",
+      "sha256": "4b5a860949cfd24567ddc092b22bedea3c75ca1116a26f8484ffc42ad099b158",
+      "size": 787
+    },
+    {
+      "stage_rel": "algorithms/paradox-logiche-decisionali-metriche/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/out/analysis.txt",
+      "sha256": "35c307f900d0a75ae5caee8e93f9ed02b224d98520f104f489c304bf57f44129",
+      "size": 946
+    },
+    {
+      "stage_rel": "algorithms/paradox-logiche-decisionali-metriche/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/out/historical-db.csv",
+      "sha256": "4c79d255a5cb38c81ecab0d15e0cc645d2bc7a9318a57ab8ef735fca9fe69c16",
+      "size": 147341
+    },
+    {
+      "stage_rel": "algorithms/paradox-logiche-decisionali-metriche/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/out/metrics-db.csv",
+      "sha256": "1dacf60932f5aed3a2ce876b967a3aab8aba9376f934ff7510c5bc65460329e2",
+      "size": 1172
+    },
+    {
+      "stage_rel": "algorithms/super6NN/card.json",
+      "repo_rel": "pages/algoritmi/algs/super6NN/card.json",
+      "sha256": "0976c4632b1dfbcd0d3251cb2a1e893a54c8c1a735d655db39c6a1566c24ee46",
+      "size": 5050
+    },
+    {
+      "stage_rel": "algorithms/super6NN/out/algorithm-sheet.csv",
+      "repo_rel": "pages/algoritmi/algs/super6NN/out/algorithm-sheet.csv",
+      "sha256": "ad83459512b75ecede4a4785765a1a6558450d2762150325649918bbd077fd20",
+      "size": 806
+    },
+    {
+      "stage_rel": "algorithms/super6NN/out/analysis.txt",
+      "repo_rel": "pages/algoritmi/algs/super6NN/out/analysis.txt",
+      "sha256": "b4318fd3c3178bd2d937fa18d38a20ef4d720e924a7acf9d1a8638f581ad4d7d",
+      "size": 1685
+    },
+    {
+      "stage_rel": "algorithms/super6NN/out/historical-db.csv",
+      "repo_rel": "pages/algoritmi/algs/super6NN/out/historical-db.csv",
+      "sha256": "69da7066b6bcf7dbfc0162a8b7f50b135853a76241b3d0faf055164b61788d36",
+      "size": 147387
+    },
+    {
+      "stage_rel": "algorithms/super6NN/out/metrics-db.csv",
+      "repo_rel": "pages/algoritmi/algs/super6NN/out/metrics-db.csv",
+      "sha256": "958f26fc1cc5fc7427b085e278df8bb997c41293d9a64ed4ce792b67d8475ebd",
+      "size": 1008
+    }
+  ]
+}

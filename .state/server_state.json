@@ -1,0 +1,200 @@
+{
+  "latest_local_contest_id": 4150,
+  "last_published_commit": "",
+  "per_algo_last_trained_contest_id": {
+    "arc90-logico-algoritmica": 4150,
+    "classic-co-occorrenze": 4150,
+    "classic-frequency": 4150,
+    "classic-ritardi": 4150,
+    "genetic": 4150,
+    "paradox-logiche-decisionali-metriche": 4150,
+    "super6NN": 4150
+  },
+  "last_card_hits_build_at": "2026-02-21T20:51:40",
+  "last_card_hits_changed_cards": 5,
+  "last_successful_run_id": "",
+  "last_email_status": "",
+  "pending_publish": {
+    "run_id": "20260221_204646",
+    "manifest_path": "D:\\PROGETTI\\SuperEnalotto\\01 Superenalotto ControlChaos\\secc\\.staging\\run_20260221_204646\\manifest.json",
+    "stage_root": "D:\\PROGETTI\\SuperEnalotto\\01 Superenalotto ControlChaos\\secc\\.staging\\run_20260221_204646",
+    "commit_sha": "",
+    "attempts": 0,
+    "created_at": "2026-02-21T20:51:40"
+  },
+  "run_journal": [
+    {
+      "ts": "2026-02-21T18:39:52",
+      "event": "lock_acquired",
+      "run_id": "20260221_183952",
+      "payload": {
+        "lease_until": "2026-02-21T18:41:52"
+      }
+    },
+    {
+      "ts": "2026-02-21T18:54:55",
+      "event": "lock_acquired",
+      "run_id": "20260221_185455",
+      "payload": {
+        "lease_until": "2026-02-21T18:56:55"
+      }
+    },
+    {
+      "ts": "2026-02-21T19:09:58",
+      "event": "lock_acquired",
+      "run_id": "20260221_190958",
+      "payload": {
+        "lease_until": "2026-02-21T19:11:58"
+      }
+    },
+    {
+      "ts": "2026-02-21T19:25:00",
+      "event": "lock_acquired",
+      "run_id": "20260221_192500",
+      "payload": {
+        "lease_until": "2026-02-21T19:27:00"
+      }
+    },
+    {
+      "ts": "2026-02-21T19:40:04",
+      "event": "lock_acquired",
+      "run_id": "20260221_194004",
+      "payload": {
+        "lease_until": "2026-02-21T19:42:04"
+      }
+    },
+    {
+      "ts": "2026-02-21T19:50:06",
+      "event": "lock_acquired",
+      "run_id": "20260221_195006",
+      "payload": {
+        "lease_until": "2026-02-21T19:52:06"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:00:09",
+      "event": "lock_acquired",
+      "run_id": "20260221_200009",
+      "payload": {
+        "lease_until": "2026-02-21T20:02:09"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:05:12",
+      "event": "lock_acquired",
+      "run_id": "20260221_200512",
+      "payload": {
+        "lease_until": "2026-02-21T20:07:12"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:10:15",
+      "event": "lock_acquired",
+      "run_id": "20260221_201015",
+      "payload": {
+        "lease_until": "2026-02-21T20:12:15"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:15:19",
+      "event": "lock_acquired",
+      "run_id": "20260221_201519",
+      "payload": {
+        "lease_until": "2026-02-21T20:17:19"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:20:22",
+      "event": "lock_acquired",
+      "run_id": "20260221_202022",
+      "payload": {
+        "lease_until": "2026-02-21T20:22:22"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:25:24",
+      "event": "lock_acquired",
+      "run_id": "20260221_202524",
+      "payload": {
+        "lease_until": "2026-02-21T20:27:24"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:30:27",
+      "event": "lock_acquired",
+      "run_id": "20260221_203027",
+      "payload": {
+        "lease_until": "2026-02-21T20:32:27"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:32:30",
+      "event": "lock_acquired",
+      "run_id": "20260221_203230",
+      "payload": {
+        "lease_until": "2026-02-21T20:34:30"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:34:33",
+      "event": "lock_acquired",
+      "run_id": "20260221_203433",
+      "payload": {
+        "lease_until": "2026-02-21T20:36:33"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:36:35",
+      "event": "lock_acquired",
+      "run_id": "20260221_203635",
+      "payload": {
+        "lease_until": "2026-02-21T20:38:35"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:38:37",
+      "event": "lock_acquired",
+      "run_id": "20260221_203837",
+      "payload": {
+        "lease_until": "2026-02-21T20:40:37"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:40:39",
+      "event": "lock_acquired",
+      "run_id": "20260221_204039",
+      "payload": {
+        "lease_until": "2026-02-21T20:42:39"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:42:42",
+      "event": "lock_acquired",
+      "run_id": "20260221_204242",
+      "payload": {
+        "lease_until": "2026-02-21T20:44:42"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:44:44",
+      "event": "lock_acquired",
+      "run_id": "20260221_204444",
+      "payload": {
+        "lease_until": "2026-02-21T20:46:44"
+      }
+    },
+    {
+      "ts": "2026-02-21T20:46:46",
+      "event": "lock_acquired",
+      "run_id": "20260221_204646",
+      "payload": {
+        "lease_until": "2026-02-21T20:48:46"
+      }
+    }
+  ],
+  "last_quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180
+  }
+}

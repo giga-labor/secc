@@ -1,0 +1,13 @@
+{
+  "policy_version": "1.0.0",
+  "quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180
+  },
+  "confirmations": 1,
+  "best_date": "21/02/2026",
+  "latest_external_contest_id": 31,
+  "raw": "CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)\nLocale corrente: seq=4149 data=20/02/2026\n\n[superenalotto.it] ALLINEATO\n  locale: seq=4149 data=20/02/2026 sestina=30 34 41 42 49 83\n  online: seq=30 data=20/02/2026 sestina=30 34 41 42 49 83\n  ref: https://www.superenalotto.it/archivio-estrazioni/concorso-30/20-febbraio-2026\n\n[superenalotto.com] ONLINE PIU AGGIORNATO\n  locale: seq=4149 data=20/02/2026 sestina=30 34 41 42 49 83\n  online: seq=31 data=21/02/2026 sestina=49 58 60 66 68 81\n  nuova_sestina_online: 49 58 60 66 68 81\n  ref: https://www.superenalotto.com/risultati/estrazione-21-02-2026",
+  "status": "degraded"
+}
