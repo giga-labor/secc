@@ -16,7 +16,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/arc90-logico-algoritmica/"
   },
@@ -37,7 +37,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/"
   },
@@ -123,7 +123,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/"
   },
@@ -166,7 +166,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/"
   },
@@ -188,7 +188,7 @@
     "view": true,
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi/"
   },
@@ -209,7 +209,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/"
   },
@@ -276,7 +276,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "featured": false,
     "news": [],
@@ -301,7 +301,7 @@
     "type": "ALGORITMI",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/super6NN/"
   },
