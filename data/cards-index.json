@@ -60,7 +60,7 @@
     "type": "ALGORITMI",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/"
   },
@@ -123,7 +123,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/"
   },
@@ -230,7 +230,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/"
   },
@@ -253,7 +253,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/genetic/"
   },
