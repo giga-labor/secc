@@ -1,8 +1,0 @@
-[21:07:32] Fase OK: apply_stage_to_repo
-[21:07:32] Avvio fase: lock_release
-[21:07:32] Fase OK: lock_release
-[21:07:32] Mirror aggiornato da stage (73 file) e locale allineato via deploy mirror -> locale
-[21:07:37] Avvio fase: lock_acquire
-[21:07:37] Run avviato: mode=single, action=git_add_commit_push_once
-[21:07:37] Fase OK: lock_acquire
-[21:07:37] Avvio fase: git_add_commit_push_once
