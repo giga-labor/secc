@@ -1,5 +1,30 @@
 ﻿(function () {
 document.addEventListener('DOMContentLoaded', () => {
+      const LAB_TECH_URL = '../../../laboratorio-tecnico/';
+      if (!document.getElementById('cc-proposal-style')) {
+        const proposalStyle = document.createElement('style');
+        proposalStyle.id = 'cc-proposal-style';
+        proposalStyle.textContent = `
+          .historical-pick.is-proposal {
+            border-color: rgba(123, 211, 255, 0.9);
+            background:
+              radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.92) 0 20%, rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0) 54%),
+              radial-gradient(circle at 52% 68%, rgba(165, 230, 255, 0.5) 0 34%, rgba(56, 189, 248, 0.34) 56%, rgba(9, 25, 45, 0.98) 100%);
+            color: #eaf8ff;
+            text-shadow: 0 0 6px rgba(125, 211, 252, 0.6);
+            box-shadow:
+              inset 0 2px 2px rgba(255, 255, 255, 0.62),
+              inset 0 -8px 14px rgba(8, 12, 22, 0.62),
+              0 3px 8px rgba(4, 8, 18, 0.58),
+              0 0 12px rgba(56, 189, 248, 0.65);
+            min-width: 2.18rem;
+            height: 2.18rem;
+            font-size: 0.9rem;
+            transform: translateY(-1px) scale(1.06);
+          }
+        `;
+        document.head.appendChild(proposalStyle);
+      }
       const RANKING_PAYOUTS = {
         0: 1.53,
         1: 3.36,
@@ -11,13 +36,58 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const roots = Array.from(document.querySelectorAll('[data-tabs-root]'));
       roots.forEach((root) => {
-        const buttons = Array.from(root.querySelectorAll('[data-tab-target]'));
-        const panels = Array.from(root.querySelectorAll('[data-tab-panel]'));
         const shell = root.classList.contains('tabs-shell') ? root : root.closest('.tabs-shell');
         const sheet = shell ? shell.querySelector('.tabs-sheet') : null;
         const tabRow = shell ? shell.querySelector('.folder-tabs') : null;
         const editorialSection = shell ? shell.querySelector(':scope > section[data-adsense-quality]') : null;
         if (!shell || !sheet || !tabRow) return;
+
+        // Standard globale richiesto: Storica prima, Algoritmo+Analisi ultima.
+        if (root.dataset.mergedAlgoAnalysis !== '1') {
+          const algoritmoBtn = root.querySelector('[data-tab-target="algoritmo"]');
+          const analisiBtn = root.querySelector('[data-tab-target="analisi"]');
+          const storicaBtn = root.querySelector('[data-tab-target="storica"]');
+          const metricheBtn = root.querySelector('[data-tab-target="metriche"]');
+          const algoritmoPanel = root.querySelector('[data-tab-panel="algoritmo"]');
+          const analisiPanel = root.querySelector('[data-tab-panel="analisi"]');
+          const storicaPanel = root.querySelector('[data-tab-panel="storica"]');
+          const metrichePanel = root.querySelector('[data-tab-panel="metriche"]');
+
+          if (algoritmoBtn && analisiBtn && algoritmoPanel && analisiPanel) {
+            const analysisIntro = analisiPanel.querySelector('[data-analysis-intro]');
+            const analysisBox = analisiPanel.querySelector('.rounded-2xl');
+            if (analysisIntro || analysisBox) {
+              const mergeHost = document.createElement('section');
+              mergeHost.className = 'mt-6 rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3';
+              mergeHost.innerHTML = '<h4 class="text-sm font-semibold text-white">Analisi sintetica</h4>';
+              if (analysisIntro) {
+                analysisIntro.classList.add('mt-2');
+                mergeHost.appendChild(analysisIntro);
+              }
+              if (analysisBox) {
+                analysisBox.classList.add('mt-3');
+                mergeHost.appendChild(analysisBox);
+              }
+              algoritmoPanel.appendChild(mergeHost);
+            }
+
+            algoritmoBtn.textContent = 'Algoritmo + Analisi';
+            analisiBtn.remove();
+            analisiPanel.remove();
+          }
+
+          // Ordine finale tabs: Storica, Metriche, Algoritmo+Analisi
+          [storicaBtn, metricheBtn, algoritmoBtn].forEach((btn) => {
+            if (btn && btn.parentElement === tabRow) tabRow.appendChild(btn);
+          });
+          [storicaPanel, metrichePanel, algoritmoPanel].forEach((panel) => {
+            if (panel && panel.parentElement === sheet) sheet.appendChild(panel);
+          });
+          root.dataset.mergedAlgoAnalysis = '1';
+        }
+
+        let buttons = Array.from(root.querySelectorAll('[data-tab-target]'));
+        let panels = Array.from(root.querySelectorAll('[data-tab-panel]'));
         const showPanelLabel = root.dataset.tabPanelLabel !== 'off';
         const getLabelByTarget = (target) => {
           const button = buttons.find((btn) => btn.dataset.tabTarget === target);
@@ -84,7 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
           root._tabsResizeObserver = observer;
         }
         ensurePanelLabels();
-        const initialTarget = (buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0])?.dataset.tabTarget;
+        const initialTarget =
+          buttons.find((btn) => btn.dataset.tabTarget === 'storica')?.dataset.tabTarget ||
+          (buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0])?.dataset.tabTarget;
         if (initialTarget) activate(initialTarget);
         else refreshTabsLayout();
         window.setTimeout(refreshTabsLayout, 80);
@@ -105,6 +177,51 @@ document.addEventListener('DOMContentLoaded', () => {
         pageSize: 100
       };
       let latestMetricsRows = null;
+      let nextContestProposal = [];
+
+      const normalizeInlineText = (value, maxLen = 240) => {
+        const text = String(value || '').replace(/\s+/g, ' ').trim();
+        if (!text) return '';
+        if (text.length <= maxLen) return text;
+        return `${text.slice(0, Math.max(0, maxLen - 1)).trimEnd()}...`;
+      };
+
+      const ensureLabCta = (host) => {
+        if (!host) return;
+        let cta = host.querySelector('[data-lab-cta]');
+        if (!cta) {
+          cta = document.createElement('a');
+          cta.dataset.labCta = '1';
+          cta.className = 'mt-4 inline-flex rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20';
+          cta.target = '_self';
+          host.appendChild(cta);
+        }
+        cta.href = LAB_TECH_URL;
+        cta.textContent = 'Apri il Laboratorio tecnico completo';
+      };
+
+      const renderOperationalAlgorithmPanel = (summary = {}) => {
+        const panel = document.querySelector('[data-tab-panel="algoritmo"]');
+        const box = panel ? panel.querySelector('section[data-adsense-quality]') : null;
+        if (!box) return;
+        const name = normalizeInlineText(
+          document.querySelector('h1.sr-only')?.textContent ||
+          document.title.replace(/\s*-\s*SuperEnalotto Control Chaos\s*$/i, ''),
+          80
+        ) || 'Modulo';
+        const intro = normalizeInlineText(summary.intro, 220) || 'Questa scheda mostra il funzionamento pratico del modulo in modo rapido.';
+        const scope = normalizeInlineText(summary.scope, 220) || 'Usa la tab Storica e la tab Metrica per verificare andamento e coerenza nel tempo.';
+        const output = normalizeInlineText(summary.output, 220) || 'La proposta resta comparativa: serve per orientarti, non per promettere esiti.';
+        box.innerHTML = `
+      <h3 class="text-xl font-semibold">In breve: ${name}</h3>
+      <p class="mt-3 text-sm text-ash">${intro}</p>
+      <p class="mt-3 text-sm text-ash">${scope}</p>
+      <p class="mt-3 text-sm text-ash">${output}</p>
+      <p class="mt-3 text-sm text-ash">La versione tecnica estesa, con note metodologiche complete, e centralizzata nel Laboratorio tecnico.</p>
+    `;
+        ensureLabCta(box);
+      };
+      renderOperationalAlgorithmPanel();
 
       const updateHistoricalPager = () => {
         const totalPages = Math.max(1, Math.ceil(historicalState.rows.length / historicalState.pageSize));
@@ -112,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (historicalPrev) historicalPrev.disabled = historicalState.page <= 1;
         if (historicalNext) historicalNext.disabled = historicalState.page >= totalPages;
       };
-
       const renderHistoricalRows = () => {
         const rows = historicalState.rows;
         if (!Array.isArray(rows) || rows.length === 0) {
@@ -123,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const start = (historicalState.page - 1) * historicalState.pageSize;
         const end = start + historicalState.pageSize;
         const pageRows = rows.slice(start, end);
-        historicalBody.innerHTML = pageRows.map(({ draw, picks }) => {
+        const historicalRowsHtml = pageRows.map(({ draw, picks }) => {
           const picksHtml = picks.map((pick) => {
             const cls = pick.hit ? 'historical-pick is-hit' : 'historical-pick';
             return `<span class="${cls}">${pick.value}</span>`;
@@ -137,6 +253,23 @@ document.addEventListener('DOMContentLoaded', () => {
             </tr>
           `;
         }).join('');
+
+        let proposalRowHtml = '';
+        if (historicalState.page === 1 && Array.isArray(nextContestProposal) && nextContestProposal.length === 6) {
+          const proposalBalls = nextContestProposal
+            .map((value) => `<span class="historical-pick is-proposal">${value}</span>`)
+            .join('');
+          proposalRowHtml = `
+            <tr class="bg-neon/10">
+              <td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 font-semibold text-neon">Proposta prossimo concorso</td>
+              <td class="px-2 py-3 pl-1">
+                <div class="flex flex-wrap gap-2">${proposalBalls}</div>
+              </td>
+            </tr>
+          `;
+        }
+
+        historicalBody.innerHTML = `${proposalRowHtml}${historicalRowsHtml}`;
         updateHistoricalPager();
       };
 
@@ -249,6 +382,11 @@ document.addEventListener('DOMContentLoaded', () => {
           return merged;
         });
         return { headers: header, rows };
+      };
+
+      const parseNextContestProposal = (rawValue) => {
+        const tokens = String(rawValue || '').match(/\d{1,2}/g) || [];
+        return tokens.slice(0, 6).map((value) => value.padStart(2, '0'));
       };
 
       const asList = (value) => String(value || '')
@@ -429,6 +567,11 @@ document.addEventListener('DOMContentLoaded', () => {
         fillList(inputEl, map.get('INPUT'));
         fillList(methodEl, map.get('METODO'));
         fillList(limitsEl, map.get('LIMITI'));
+        renderOperationalAlgorithmPanel({
+          intro: map.get('INTRO'),
+          scope: map.get('SCOPO'),
+          output: map.get('OUTPUT')
+        });
       };
 
       const applyMetricsSheet = (rows) => {
@@ -447,6 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lastTrainedEl = document.querySelector('[data-last-trained]');
         const nextPickEl = document.querySelector('[data-next-pick]');
 
+        let extractedProposal = [];
         let html = rows.map((r) => {
           const metric = String(r[0] || '').trim();
           const value = String(r[1] || '').trim();
@@ -459,6 +603,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           if (key === 'sestina proposta (prossimo concorso)' && nextPickEl) {
             nextPickEl.textContent = value || 'N/D';
+          }
+          if (key.includes('sestina proposta')) {
+            extractedProposal = parseNextContestProposal(value);
           }
           return `<tr><td class="px-4 py-3 text-ash">${metric}</td><td class="px-4 py-3 text-white">${value || 'N/D'}</td><td class="px-4 py-3 text-ash">${note || '-'}</td></tr>`;
         }).join('');
@@ -474,6 +621,10 @@ document.addEventListener('DOMContentLoaded', () => {
           if (Number.isFinite(parsedValue)) rankingValue = parsedValue;
         }
         tbody.innerHTML = html;
+        nextContestProposal = extractedProposal;
+        if (historicalState.rows.length) {
+          renderHistoricalRows();
+        }
         setSummaryRanking(rankingValue);
       };
 
@@ -482,10 +633,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!textEl) return;
         const text = String(rawText || '').trim();
         if (!text) {
-          textEl.textContent = 'Nessuna analisi disponibile.';
+          textEl.textContent = 'Approfondimento completo disponibile nel Laboratorio tecnico.';
+          ensureLabCta(textEl.closest('.rounded-2xl') || textEl.parentElement);
           return;
         }
-        textEl.textContent = text;
+        const preview = normalizeInlineText(text, 260);
+        textEl.textContent = `${preview}\n\nPer la versione completa apri il Laboratorio tecnico, sezione moduli.`;
+        ensureLabCta(textEl.closest('.rounded-2xl') || textEl.parentElement);
       };
 
       fetch('out/algorithm-sheet.csv', { cache: 'no-store' })
@@ -500,6 +654,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(() => {
           const introEl = document.querySelector('[data-algo-intro]');
           if (introEl) introEl.textContent = 'Scheda algoritmo non disponibile.';
+          renderOperationalAlgorithmPanel();
         });
 
       fetch('out/metrics-db.csv', { cache: 'no-store' })
@@ -538,4 +693,5 @@ document.addEventListener('DOMContentLoaded', () => {
       computeGlobalRankingPosition();
     });
 })();
+
 

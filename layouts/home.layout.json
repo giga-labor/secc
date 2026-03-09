@@ -1,4 +1,4 @@
-﻿{
+{
   "page_id": "home",
   "version": "2.0.0",
   "data_sources": {
@@ -19,7 +19,7 @@
       "value": "Pattern e anomalie",
       "meta": "Segnali deboli e derive statistiche",
       "tone": "focus",
-      "href": "pages/analisi-statistiche/index.html"
+      "href": "pages/laboratorio-tecnico/index.html"
     },
     {
       "id": "kpi-study",
@@ -49,3 +49,4 @@
     }
   ]
 }
+

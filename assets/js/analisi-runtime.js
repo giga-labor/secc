@@ -9,9 +9,14 @@ function isRankingPage() {
   return document.body?.dataset?.pageId === 'ranking';
 }
 
+function isLaboratorioPage() {
+  return document.body?.dataset?.pageId === 'laboratorio-tecnico';
+}
+
 function mountAnalisiPage() {
   if (analisiMounted) return;
   analisiMounted = true;
+  const requestedTab = new URLSearchParams(window.location.search || '').get('tab');
 
   const roots = Array.from(document.querySelectorAll('[data-tabs-root]'));
   roots.forEach((root) => {
@@ -86,12 +91,17 @@ function mountAnalisiPage() {
       root._tabsResizeObserver = observer;
     }
     ensurePanelLabels();
-    refreshTabsLayout();
+    const initialTarget = buttons.some((btn) => btn.dataset.tabTarget === requestedTab)
+      ? requestedTab
+      : ((buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0])?.dataset.tabTarget);
+    if (initialTarget) activate(initialTarget);
+    else refreshTabsLayout();
     window.setTimeout(refreshTabsLayout, 80);
     window.setTimeout(refreshTabsLayout, 220);
   });
 
   loadAnalisiRanking();
+  loadLaboratorioTechnicalCatalog();
 }
 
 const resolveWithBase = (path) => {
@@ -99,12 +109,21 @@ const resolveWithBase = (path) => {
   if (!value) return value;
   if (value.startsWith('#') || /^https?:\/\//i.test(value) || value.startsWith('file:')) return value;
   const base = window.CC_BASE?.url;
-  if (!base) return value;
   const trimmed = value.startsWith('/') ? value.slice(1) : value.replace(/^\.\//, '');
+  if (!base) {
+    if (/^(pages|data|assets|img|archives)\//i.test(trimmed)) return `/${trimmed}`;
+    return value;
+  }
   return new URL(trimmed, base).toString();
 };
 
 const formatRanking = (value) => new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+const escapeHtml = (value) => String(value || '')
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
 
 const parseCsvRows = (raw) => {
   const clean = (v) => {
@@ -176,6 +195,111 @@ const mergeExactCountsLikeCards = (metricsRows, historicalRows) => {
   return fromHist;
 };
 
+const normalizePageDir = (value) => {
+  let page = String(value || '').trim();
+  if (!page) return '';
+  if (!page.startsWith('/')) page = `/${page}`;
+  if (!page.endsWith('/')) page = `${page}/`;
+  return page;
+};
+
+async function loadLaboratorioTechnicalCatalog() {
+  const host = document.querySelector('[data-lab-algorithms]');
+  if (!host) return;
+  host.innerHTML = 'Caricamento moduli attivi in corso...';
+  try {
+    const manifestRes = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
+    if (!manifestRes.ok) throw new Error(`status ${manifestRes.status}`);
+    const manifest = await manifestRes.json();
+    const cardPaths = (Array.isArray(manifest) ? manifest : [])
+      .map((p) => String(p || '').trim())
+      .filter((p) => p.includes('pages/algoritmi/algs/') && p.endsWith('/card.json'));
+
+    const cards = (await Promise.all(cardPaths.map(async (path) => {
+      try {
+        const res = await fetch(resolveWithBase(path), { cache: 'no-store' });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (_) {
+        return null;
+      }
+    }))).filter(Boolean).filter((card) => card?.isActive !== false);
+
+    if (!cards.length) {
+      host.innerHTML = 'Nessun modulo tecnico attivo trovato.';
+      return;
+    }
+
+    cards.sort((a, b) => String(a.title || a.id || '').localeCompare(String(b.title || b.id || '')));
+    const entries = await Promise.all(cards.map(async (card) => {
+      const pageDir = normalizePageDir(card.page);
+      if (!pageDir) return null;
+      const sheetUrl = resolveWithBase(`${pageDir}out/algorithm-sheet.csv`);
+      const analysisUrl = resolveWithBase(`${pageDir}out/analysis.txt`);
+      const [sheetText, analysisText] = await Promise.all([
+        fetch(sheetUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => ''),
+        fetch(analysisUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => '')
+      ]);
+      const rows = parseCsvRows(sheetText);
+      const map = new Map(rows.map((row) => [String(row.CHIAVE || '').trim().toUpperCase(), String(row.VALORE || '').trim()]));
+      const facts = rows
+        .map((row) => ({
+          key: String(row.CHIAVE || '').trim(),
+          value: String(row.VALORE || '').trim()
+        }))
+        .filter((row) => row.key && row.value);
+      return {
+        title: String(card.title || card.id || 'Modulo'),
+        page: pageDir,
+        intro: String(map.get('INTRO') || card.subtitle || '').trim(),
+        scope: String(map.get('SCOPO') || '').trim(),
+        method: String(map.get('METODO') || '').trim(),
+        limits: String(map.get('LIMITI') || '').trim(),
+        analysis: String(analysisText || '').trim(),
+        facts
+      };
+    }));
+
+    const validEntries = entries.filter(Boolean);
+    if (!validEntries.length) {
+      host.innerHTML = 'Nessun dettaglio tecnico disponibile per i moduli attivi.';
+      return;
+    }
+
+    host.innerHTML = validEntries.map((entry) => {
+      const intro = escapeHtml(entry.intro || 'N/D');
+      const scope = escapeHtml(entry.scope || 'N/D');
+      const method = escapeHtml(entry.method || 'N/D');
+      const limits = escapeHtml(entry.limits || 'N/D');
+      const analysis = escapeHtml(entry.analysis || 'Analisi non disponibile.');
+      const factsRows = Array.isArray(entry.facts) ? entry.facts : [];
+      const factsHtml = factsRows.length
+        ? `<div class="mt-3 overflow-auto"><table class="min-w-full text-left text-xs"><tbody class="divide-y divide-white/10">${factsRows.map((row) => `<tr><td class="px-2 py-1 text-neon/90">${escapeHtml(row.key)}</td><td class="px-2 py-1 text-ash">${escapeHtml(row.value)}</td></tr>`).join('')}</tbody></table></div>`
+        : '<p class="mt-3 text-xs text-ash">Nessun campo tecnico addizionale disponibile.</p>';
+      const pageHref = resolveWithBase(entry.page);
+      return `
+        <article class="mb-4 rounded-2xl border border-white/10 bg-midnight/70 p-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-base font-semibold text-white">${escapeHtml(entry.title)}</h3>
+            <a class="rounded-full border border-neon/70 bg-neon/10 px-3 py-1 text-xs font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="${pageHref}">Apri scheda operativa</a>
+          </div>
+          <p class="mt-3 text-sm text-ash"><strong>Scopo:</strong> ${scope}</p>
+          <p class="mt-2 text-sm text-ash"><strong>Metodo:</strong> ${method}</p>
+          <p class="mt-2 text-sm text-ash"><strong>Intro:</strong> ${intro}</p>
+          <p class="mt-2 text-sm text-ash"><strong>Limiti:</strong> ${limits}</p>
+          <details class="mt-3 rounded-xl border border-white/10 bg-midnight/80 p-3">
+            <summary class="cursor-pointer text-sm font-semibold text-white">Dettaglio tecnico completo</summary>
+            ${factsHtml}
+            <pre class="mt-3 whitespace-pre-wrap break-words text-xs leading-relaxed text-ash">${analysis}</pre>
+          </details>
+        </article>
+      `;
+    }).join('');
+  } catch (_) {
+    host.innerHTML = 'Impossibile caricare il catalogo tecnico automatico. Apri temporaneamente il catalogo algoritmi per consultare le schede operative.';
+  }
+}
+
 const fetchAlgorithmRanking = async (card) => {
   const page = String(card?.page || '');
   if (!page) return null;
@@ -238,6 +362,10 @@ async function loadAnalisiRanking() {
 document.addEventListener('DOMContentLoaded', () => {
   if (shouldUseRuntimeDirectorAnalisi()) return;
   if (document.body?.dataset?.pageId === 'analisi') {
+    mountAnalisiPage();
+    return;
+  }
+  if (isLaboratorioPage()) {
     mountAnalisiPage();
     return;
   }

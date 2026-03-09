@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --cc-space-xs: 4px;
   --cc-space-s: 8px;
   --cc-space-m: 16px;
@@ -713,4 +713,71 @@ body[data-page-id="home"] .tabs-shell > .tabs-sheet {
     min-height: 334px !important;
   }
 
+}
+
+/* ===== 2026 Page Atmospheres: distinct backgrounds per section ===== */
+body.cc-redesign[data-page-id="home"] {
+  background:
+    radial-gradient(70% 58% at 0% 0%, rgba(255, 199, 131, 0.23), rgba(255, 199, 131, 0) 74%),
+    radial-gradient(54% 52% at 88% 8%, rgba(92, 197, 255, 0.24), rgba(92, 197, 255, 0) 72%),
+    linear-gradient(164deg, #040711 0%, #0a1127 42%, #060912 100%) !important;
+}
+
+body.cc-redesign[data-page-id="algoritmi"] {
+  background:
+    radial-gradient(58% 42% at 10% 4%, rgba(255, 215, 137, 0.26), rgba(255, 215, 137, 0) 70%),
+    radial-gradient(64% 52% at 100% 14%, rgba(88, 229, 207, 0.16), rgba(88, 229, 207, 0) 76%),
+    linear-gradient(168deg, #09060d 0%, #171023 43%, #0a0f1b 100%) !important;
+}
+
+body.cc-redesign[data-page-id="analisi"] {
+  background:
+    radial-gradient(76% 50% at 8% 6%, rgba(116, 205, 255, 0.24), rgba(116, 205, 255, 0) 70%),
+    radial-gradient(54% 45% at 92% 14%, rgba(159, 255, 179, 0.16), rgba(159, 255, 179, 0) 72%),
+    linear-gradient(166deg, #031016 0%, #091b2f 45%, #08111f 100%) !important;
+}
+
+body.cc-redesign[data-page-id="storico"] {
+  background:
+    radial-gradient(70% 54% at 2% 4%, rgba(248, 184, 120, 0.21), rgba(248, 184, 120, 0) 74%),
+    radial-gradient(58% 48% at 95% 10%, rgba(122, 255, 189, 0.16), rgba(122, 255, 189, 0) 74%),
+    linear-gradient(168deg, #090d11 0%, #13202a 46%, #0d151a 100%) !important;
+}
+
+body.cc-redesign[data-page-id="ranking"] {
+  background:
+    radial-gradient(66% 52% at 6% 6%, rgba(255, 208, 124, 0.2), rgba(255, 208, 124, 0) 76%),
+    radial-gradient(58% 48% at 92% 8%, rgba(189, 160, 255, 0.21), rgba(189, 160, 255, 0) 74%),
+    linear-gradient(164deg, #0b0814 0%, #161127 44%, #090d1b 100%) !important;
+}
+
+body.cc-redesign::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.44;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.028) 0,
+      rgba(255, 255, 255, 0.028) 1px,
+      transparent 1px,
+      transparent 15px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.022) 0,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px,
+      transparent 19px
+    );
+  mix-blend-mode: soft-light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.cc-redesign::after {
+    opacity: 0.24;
+  }
 }

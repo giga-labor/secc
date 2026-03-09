@@ -452,7 +452,8 @@
     const imageUrl = this.resolveCardImage(algorithm);
     const imageFallbackUrl = this.resolveCardBackupImage();
     const active = options.forceActive ? true : (algorithm.isActive !== false);
-    const noDataShow = algorithm?.no_data_show !== false;
+    const isAlgorithmModule = String(algorithm?.page || '').toLowerCase().includes('/algoritmi/algs/');
+    const noDataShow = isAlgorithmModule ? (algorithm?.no_data_show !== false) : false;
     const typeLabel = this.resolveCardType(algorithm);
     const typeBadgeMarkup = this.buildTypeBadgeMarkup(typeLabel);
     const showNewsBadge = this.hasNewsBadge(algorithm);
@@ -471,7 +472,6 @@
     const descriptionTpl = summaryTpl.text
       ? summaryTpl
       : (subtitleTpl.text ? subtitleTpl : { text: 'Descrizione in arrivo', html: 'Descrizione in arrivo', hasBalls: false });
-    const isAlgorithmModule = String(algorithm?.page || '').toLowerCase().includes('/algoritmi/algs/');
     const usesOutData = isAlgorithmModule && algorithm?.usesOutData !== false;
     const [metricsRows, historicalRows, latestArchiveSeq] = usesOutData
       ? await Promise.all([
@@ -502,13 +502,29 @@
     const hitCountRaw = Number.parseInt(String(algorithm?.hits?.count ?? ''), 10);
     const hitCount = Number.isFinite(hitCountRaw) && hitCountRaw > 0 ? hitCountRaw : 0;
     const hasHitStamp = Boolean(algorithm?.hits?.enabled === true) && hitCount > 0;
+    const cardFamily = this.resolveTelemetryCardType(algorithm);
+    const cardTypeClass = cardFamily === 'paper' ? 'cc-card-paper' : 'cc-card-action';
+    const visualTone = this.resolveCardVisualTone(algorithm);
+
+    const proposalGlowByTone = (() => {
+      if (visualTone === 'alg-stat') {
+        return 'text-black border-cyan-100/95 bg-cyan-300 shadow-[0_0_18px_rgba(125,239,255,0.95),0_0_34px_rgba(34,211,238,0.82),0_0_56px_rgba(8,145,178,0.52),inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-2px_6px_rgba(8,51,68,0.35)]';
+      }
+      if (visualTone === 'alg-neural') {
+        return 'text-white border-violet-200/95 bg-violet-500/85 shadow-[0_0_18px_rgba(196,181,253,0.95),0_0_34px_rgba(167,139,250,0.82),0_0_56px_rgba(124,58,237,0.52),inset_0_1px_0_rgba(255,255,255,0.75),inset_0_-2px_6px_rgba(46,16,101,0.45)]';
+      }
+      if (visualTone === 'alg-hybrid') {
+        return 'text-black border-emerald-100/95 bg-emerald-300 shadow-[0_0_18px_rgba(167,243,208,0.95),0_0_34px_rgba(52,211,153,0.82),0_0_56px_rgba(5,150,105,0.52),inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-2px_6px_rgba(6,78,59,0.35)]';
+      }
+      return 'text-black border-amber-100/95 bg-amber-300 shadow-[0_0_18px_rgba(253,230,138,0.95),0_0_34px_rgba(251,191,36,0.82),0_0_56px_rgba(217,119,6,0.52),inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-2px_6px_rgba(120,53,15,0.35)]';
+    })();
 
     let proposalText = '(NO DATA)';
     let proposalClass = 'text-rose-300 border-rose-300/55 bg-rose-300/8';
     if (proposalHas6) {
       if (!Number.isFinite(latestArchiveSeq) || !nextSeqValid || isUpdated) {
         proposalText = proposalNumbers.join(' ');
-        proposalClass = 'text-black border-lime-100/95 bg-lime-300 shadow-[0_0_18px_rgba(163,255,190,0.95),0_0_34px_rgba(134,239,172,0.82),0_0_56px_rgba(74,222,128,0.52),inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-2px_6px_rgba(22,101,52,0.35)]';
+        proposalClass = proposalGlowByTone;
       } else {
         proposalText = '(NO UPD)';
         proposalClass = 'text-amber-300 border-amber-300/60 bg-amber-300/10 shadow-[0_0_12px_rgba(251,191,36,0.22)]';
@@ -521,10 +537,6 @@
     }
     const isNoDataProposal = proposalText === '(NO DATA)';
     const hideNoDataProposal = isNoDataProposal && !noDataShow;
-
-    const cardFamily = this.resolveTelemetryCardType(algorithm);
-    const cardTypeClass = cardFamily === 'paper' ? 'cc-card-paper' : 'cc-card-action';
-    const visualTone = this.resolveCardVisualTone(algorithm);
     const hoverClass = active ? ' hover:border-neon/60' : '';
     card.className = `cc-card cc-card3d ${cardTypeClass} cc-card-tone-${visualTone} card-3d algorithm-card group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition${hoverClass}${active ? ' is-active shadow-[0_0_22px_rgba(255,217,102,0.22)]' : ' is-inactive bg-black/70 border-white/5'}`;
     card.dataset.cardFamily = cardFamily;
@@ -860,8 +872,27 @@
   },
 
   resolveCardVisualTone(card) {
+    const explicitCategory = String(card?.visualCategory || card?.category || '').trim().toLowerCase();
+    if (explicitCategory === 'statistici' || explicitCategory === 'statistica' || explicitCategory === 'logici' || explicitCategory === 'logico') {
+      return 'alg-stat';
+    }
+    if (explicitCategory === 'neurali' || explicitCategory === 'neurale' || explicitCategory === 'neural') {
+      return 'alg-neural';
+    }
+    if (explicitCategory === 'ibridi' || explicitCategory === 'ibrido' || explicitCategory === 'hybrid' || explicitCategory === 'custom') {
+      return 'alg-hybrid';
+    }
     const type = this.resolveCardType(card);
-    if (type === 'ALGORITMI') return 'algoritmi';
+    const macro = String(card?.macroGroup || '').trim().toLowerCase();
+    const id = String(card?.id || '').trim().toLowerCase();
+    const page = String(card?.page || card?.cardBase || '').toLowerCase();
+    const isAlgorithmLike = type === 'ALGORITMI' || page.includes('/algoritmi/algs/') || page.includes('/algoritmi/spotlight/');
+    if (isAlgorithmLike) {
+      if (macro.includes('stat')) return 'alg-stat';
+      if (macro.includes('ibrid') || /(arc90|paradox)/.test(id)) return 'alg-hybrid';
+      if (macro.includes('neur') || /(nn|ai|ml|lightgbm|pcn|rdp|pvx|mase|genetic|super6|superenalottoai|sequence|helix)/.test(id)) return 'alg-neural';
+      return 'alg-core';
+    }
     if (type === 'MENU') return 'menu';
     if (type === 'ARCHIVI') return 'archivi';
     if (type === 'STATO') return 'stato';
@@ -1442,7 +1473,13 @@
 
       const updated = card.querySelector('[data-card-updated]');
       if (updated) {
-        updated.textContent = drawDate || 'NO DATA';
+        if (drawDate) {
+          updated.textContent = drawDate;
+          updated.hidden = false;
+        } else {
+          updated.textContent = '';
+          updated.hidden = true;
+        }
       }
 
       const numbersRow = card.querySelector('[data-card-numbers]');

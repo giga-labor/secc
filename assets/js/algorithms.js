@@ -201,6 +201,7 @@ async function renderSpotlightCards(area, cards) {
 
 async function createAlgorithmCard(algorithm, options = {}) {
   if (!algorithm || algorithm.view !== true) return null;
+  const algorithmWithCategory = attachVisualCategory(algorithm);
   const tuneCardMedia = (card) => {
     const image = card?.querySelector?.('img');
     if (!image) return card;
@@ -209,11 +210,11 @@ async function createAlgorithmCard(algorithm, options = {}) {
     return card;
   };
   if (window.CARDS && typeof window.CARDS.buildAlgorithmCard === 'function') {
-    const card = await window.CARDS.buildAlgorithmCard(algorithm, options);
+    const card = await window.CARDS.buildAlgorithmCard(algorithmWithCategory, options);
     if (card) return tuneCardMedia(card);
     return null;
   }
-  const fallback = buildFallbackCard(algorithm);
+  const fallback = buildFallbackCard(algorithmWithCategory);
   return tuneCardMedia(fallback);
 }
 
@@ -293,8 +294,30 @@ function sortBySpotlightType(a, b) {
 
 function classifyCategoryFromText(value) {
   const key = String(value || '').toLowerCase();
-  if (key.includes('neur')) return 'neurali';
-  if (key.includes('ibrid')) return 'ibridi';
+  if (
+    key.includes('ibrid')
+    || key.includes('hybrid')
+    || key.includes('arc90')
+    || key.includes('paradox')
+    || key.includes('policy-value')
+    || key.includes('orchestrazione')
+  ) return 'ibridi';
+  if (
+    key.includes('neur')
+    || key.includes('neural')
+    || key.includes('lightgbm')
+    || key.includes('genetic')
+    || key.includes('pcn')
+    || key.includes('rdp')
+    || key.includes('nn')
+    || key.includes('super6')
+    || key.includes('superenalottoai')
+    || key.includes('helix')
+    || key.includes('mase')
+    || key.includes('sequence')
+    || key.includes('kairos')
+    || key.includes('ipx')
+  ) return 'neurali';
   return 'statistici';
 }
 
@@ -303,6 +326,14 @@ function classifyAlgorithmCategory(algorithm) {
   const id = String(algorithm?.id || '');
   const title = String(algorithm?.title || '');
   return classifyCategoryFromText(`${macro} ${id} ${title}`);
+}
+
+function attachVisualCategory(algorithm) {
+  if (!algorithm || typeof algorithm !== 'object') return algorithm;
+  return {
+    ...algorithm,
+    visualCategory: classifyAlgorithmCategory(algorithm)
+  };
 }
 
 function pickSpotlightByCategory(cards) {

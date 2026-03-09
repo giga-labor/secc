@@ -52,7 +52,7 @@ const createTelemetryRuntime = () => {
 
   const getPageType = () => {
     const path = (window.location.pathname || '').toLowerCase();
-    if (/\/pages\/analisi-statistiche/.test(path)) return 'stats';
+    if (/\/pages\/laboratorio-tecnico/.test(path)) return 'stats';
     if (/\/pages\/storico-estrazioni/.test(path)) return 'archive';
     if (/\/pages\/algoritmi\/algs\//.test(path)) return 'paper';
     if (/\/pages\/algoritmi/.test(path)) return 'data_section';
@@ -524,7 +524,7 @@ const getPageKickerLabel = () => {
   const path = (window.location.pathname || '').replace(/\\/g, '/').toLowerCase();
   if (path === '/' || path.endsWith('/index.html') && !path.includes('/pages/')) return 'HOME';
   if (path.includes('/pages/storico-estrazioni')) return 'ARCHIVIO STORICO';
-  if (path.includes('/pages/analisi-statistiche')) return 'ANALISI STATISTICHE';
+  if (path.includes('/pages/laboratorio-tecnico')) return 'LABORATORIO TECNICO';
   if (path.includes('/pages/ranking')) return 'RANKING';
   if (path.includes('/pages/algoritmi/spotlight/statistici')) return 'SPOTLIGHT STATISTICI';
   if (path.includes('/pages/algoritmi/spotlight/neurali')) return 'SPOTLIGHT NEURALI';
@@ -604,7 +604,7 @@ const buildHeaderMarkup = () => `
             <a class="home-badge home-badge--icon home-badge--home bg-neon/10 px-6 py-3 font-semibold text-neon transition" href="${resolveWithBaseHref('pages/algoritmi/index.html')}" aria-label="Algoritmi" data-tooltip="Algoritmi">
               <img class="home-badge__icon home-badge__icon--img" src="${resolveWithBaseHref('img/algoritm.webp')}" alt="" aria-hidden="true">
             </a>
-            <a class="home-badge home-badge--icon home-badge--home bg-neon/10 px-6 py-3 font-semibold text-neon transition" href="${resolveWithBaseHref('pages/analisi-statistiche/')}" aria-label="Analisi statistiche" data-tooltip="Analisi statistiche">
+            <a class="home-badge home-badge--icon home-badge--home bg-neon/10 px-6 py-3 font-semibold text-neon transition" href="${resolveWithBaseHref('pages/laboratorio-tecnico/')}" aria-label="Laboratorio Tecnico" data-tooltip="Laboratorio Tecnico">
               <img class="home-badge__icon home-badge__icon--img" src="${resolveWithBaseHref('img/statistic.webp')}" alt="" aria-hidden="true">
             </a>
           </div>
@@ -666,14 +666,14 @@ if (header) {
     const topline = header.querySelector('.header-topline');
     const homeHref = isFinalHome ? '#home' : resolveWithBaseHref('index.html#home');
     const algorithmsHref = resolveWithBaseHref('pages/algoritmi/index.html');
-    const dashboardHref = resolveWithBaseHref('pages/analisi-statistiche/index.html');
+    const dashboardHref = resolveWithBaseHref('pages/laboratorio-tecnico/index.html');
     const rankingHref = resolveWithBaseHref('pages/ranking/index.html');
     const oracleHref = resolveWithBaseHref('pages/oracle/index.html');
     if (left) {
       left.innerHTML = `
         <a class="cc-nav-link" href="${homeHref}">Home</a>
         <a class="cc-nav-link" href="${algorithmsHref}">Algorithms</a>
-        <a class="cc-nav-link" href="${dashboardHref}">Dashboard</a>
+        <a class="cc-nav-link" href="${dashboardHref}">Laboratorio</a>
         <a class="cc-nav-link" href="${rankingHref}">Ranking</a>
         <a class="cc-nav-link" href="${oracleHref}">Oracle</a>
       `;
@@ -700,7 +700,7 @@ if (header) {
         } else if (label === 'algorithms') {
           active = path.includes('/pages/algoritmi/');
         } else if (label === 'dashboard') {
-          active = path.includes('/pages/analisi-statistiche/');
+          active = path.includes('/pages/laboratorio-tecnico/') || path.includes('/pages/laboratorio-tecnico/');
         } else if (label === 'ranking') {
           active = path.includes('/pages/ranking/');
         } else if (label === 'oracle') {
@@ -1817,5 +1817,9 @@ document.addEventListener('click', (event) => {
   if (supportsCrossDocumentTransitions()) return;
   markPageNavigating();
 });
+
+
+
+
 
 
