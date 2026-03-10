@@ -5,20 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = 276;
+      if (w >= 1600) {
+        desktopReserve = 366;
+      } else if (w >= 1400) {
+        desktopReserve = 336;
+      } else if (w >= 1200) {
+        desktopReserve = 316;
+      }
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+      root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
+    })();
+  </script>
   <title>Ranking algoritmi - SuperEnalotto Control Chaos</title>
   <meta name="description" content="Ranking algoritmi SECC: classifica comparativa dei moduli attivi con punteggio cumulato e dettaglio hit 0..6.">
   <link rel="canonical" href="https://www.superenalottocc.it/pages/ranking/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional"></noscript>
   <script src="../../assets/js/ga4.js" defer></script>
   <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
   <link rel="stylesheet" href="../../assets/css/main.css">
   <link rel="stylesheet" href="../../assets/css/header.css">
   <link rel="stylesheet" href="../../assets/css/ads.css">
-  <link rel="stylesheet" href="../../assets/css/migration.css">
-  <script src="https://pl28786041.effectivegatecpm.com/6b/79/ba/6b79ba568da8791cfa9c41e755a1ac23.js" defer></script>
-  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
   <link rel="stylesheet" href="../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
@@ -36,6 +58,7 @@
   <meta name="author" content="SuperEnalotto Control Chaos">
   <meta name="theme-color" content="#081322">
   <meta name="format-detection" content="telephone=no">
+  <meta name="view-transition" content="same-origin">
   <link rel="alternate" hreflang="it-IT" href="https://www.superenalottocc.it/pages/ranking/">
   <link rel="alternate" hreflang="x-default" href="https://www.superenalottocc.it/pages/ranking/">
 <script type="application/ld+json">

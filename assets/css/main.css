@@ -380,15 +380,15 @@ body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card-label {
   border-radius: 999px;
   border: 1px solid rgba(255, 217, 102, 0.12);
   color: rgba(255, 217, 102, 0.86);
-  font-size: 0.48rem;
-  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1;
 }
 
 body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card-title {
   color: rgba(247, 250, 255, 0.95);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   line-height: 1.1;
   letter-spacing: 0.02em;
   font-weight: 600;
@@ -396,9 +396,9 @@ body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card-title {
 
 body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card-meta {
   color: rgba(199, 209, 229, 0.7);
-  font-size: 0.54rem;
+  font-size: 0.68rem;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -700,7 +700,7 @@ main {
 .module-grid {
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -1252,4 +1252,97 @@ button:focus-visible,
     align-items: flex-start;
     gap: 0.5rem;
   }
+}
+
+/* ── draws-table: celle sempre leggibili ── */
+.draws-table td,
+.draws-table th {
+  white-space: nowrap;
+}
+
+/* ── Tabelle generiche responsive ── */
+.cc-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Oracle teaser: immagine responsive ── */
+.cc-oracle-teaser__media img {
+  width: 100%;
+  height: auto;
+  max-height: 40svh;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .cc-oracle-teaser__media img {
+    max-height: 32svh;
+    border-radius: 0.85rem;
+  }
+}
+
+/* ── Wrapping testo in tutti i box di contenuto ──
+   Garantisce che testo lungo vada a capo invece di
+   uscire dal contenitore quando lo spazio si riduce. ── */
+.content-box p,
+.content-box li,
+.content-box h2,
+.content-box h3,
+.content-box h4,
+.tab-panel p,
+.tab-panel li,
+.tab-panel h2,
+.tab-panel h3,
+.tab-panel h4,
+.cc-card p,
+.cc-card li,
+.cc-bridge-box p,
+.cc-bridge-box li,
+.rounded-2xl p,
+.rounded-2xl li,
+.rounded-xl p,
+.rounded-xl li,
+[data-lab-algorithms] p,
+[data-lab-algorithms] li,
+[data-analysis-text],
+[data-analysis-intro],
+[data-metrics-intro] {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+/* Hyphenation per testi italiani in prosa */
+.content-box p,
+.tab-panel p,
+.cc-bridge-box p,
+.cc-card p,
+.rounded-2xl p,
+[data-analysis-text] {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Flex/grid children: prevent text squish */
+.content-box > *,
+.tab-panel > *,
+.cc-card > *,
+[data-lab-algorithms] > * {
+  min-width: 0;
+}
+
+/* Unified algorithm name link — used in ranking table and proposals list */
+.cc-alg-link {
+  color: rgba(228, 237, 255, 0.96);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+.cc-alg-link:hover,
+.cc-alg-link:focus-visible,
+:is(a:hover, a:focus-visible) .cc-alg-link {
+  color: rgba(255, 220, 110, 0.98);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

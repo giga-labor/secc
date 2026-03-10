@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
         5: 1235346.49,
         6: 622614630.0
       };
+
+      const escapeHtml = (value) => String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
       const roots = Array.from(document.querySelectorAll('[data-tabs-root]'));
       roots.forEach((root) => {
         const shell = root.classList.contains('tabs-shell') ? root : root.closest('.tabs-shell');
@@ -213,10 +220,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const scope = normalizeInlineText(summary.scope, 220) || 'Usa la tab Storica e la tab Metrica per verificare andamento e coerenza nel tempo.';
         const output = normalizeInlineText(summary.output, 220) || 'La proposta resta comparativa: serve per orientarti, non per promettere esiti.';
         box.innerHTML = `
-      <h3 class="text-xl font-semibold">In breve: ${name}</h3>
-      <p class="mt-3 text-sm text-ash">${intro}</p>
-      <p class="mt-3 text-sm text-ash">${scope}</p>
-      <p class="mt-3 text-sm text-ash">${output}</p>
+      <h3 class="text-xl font-semibold">In breve: ${escapeHtml(name)}</h3>
+      <p class="mt-3 text-sm text-ash">${escapeHtml(intro)}</p>
+      <p class="mt-3 text-sm text-ash">${escapeHtml(scope)}</p>
+      <p class="mt-3 text-sm text-ash">${escapeHtml(output)}</p>
       <p class="mt-3 text-sm text-ash">La versione tecnica estesa, con note metodologiche complete, e centralizzata nel Laboratorio tecnico.</p>
     `;
         ensureLabCta(box);
@@ -242,11 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const historicalRowsHtml = pageRows.map(({ draw, picks }) => {
           const picksHtml = picks.map((pick) => {
             const cls = pick.hit ? 'historical-pick is-hit' : 'historical-pick';
-            return `<span class="${cls}">${pick.value}</span>`;
+            return `<span class="${cls}">${escapeHtml(String(pick.value ?? ''))}</span>`;
           }).join('');
           return `
             <tr>
-              <td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${draw}</td>
+              <td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${escapeHtml(String(draw ?? ''))}</td>
               <td class="px-2 py-3 pl-1">
                 <div class="flex flex-wrap gap-2">${picksHtml}</div>
               </td>
@@ -257,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let proposalRowHtml = '';
         if (historicalState.page === 1 && Array.isArray(nextContestProposal) && nextContestProposal.length === 6) {
           const proposalBalls = nextContestProposal
-            .map((value) => `<span class="historical-pick is-proposal">${value}</span>`)
+            .map((value) => `<span class="historical-pick is-proposal">${escapeHtml(String(value ?? ''))}</span>`)
             .join('');
           proposalRowHtml = `
             <tr class="bg-neon/10">
@@ -561,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.innerHTML = '<li>N/D</li>';
             return;
           }
-          el.innerHTML = list.map((item) => `<li>${item}</li>`).join('');
+          el.innerHTML = list.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
         };
 
         fillList(inputEl, map.get('INPUT'));
@@ -607,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (key.includes('sestina proposta')) {
             extractedProposal = parseNextContestProposal(value);
           }
-          return `<tr><td class="px-4 py-3 text-ash">${metric}</td><td class="px-4 py-3 text-white">${value || 'N/D'}</td><td class="px-4 py-3 text-ash">${note || '-'}</td></tr>`;
+          return `<tr><td class="px-4 py-3 text-ash">${escapeHtml(metric)}</td><td class="px-4 py-3 text-white">${escapeHtml(value) || 'N/D'}</td><td class="px-4 py-3 text-ash">${escapeHtml(note) || '-'}</td></tr>`;
         }).join('');
 
         const hasRankingRow = rows.some((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');

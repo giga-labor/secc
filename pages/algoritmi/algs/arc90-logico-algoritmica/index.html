@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="robots" content="index,follow,max-image-preview:large"/>
 <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = 276;
+      if (w >= 1600) {
+        desktopReserve = 366;
+      } else if (w >= 1400) {
+        desktopReserve = 336;
+      } else if (w >= 1200) {
+        desktopReserve = 316;
+      }
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+      root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
+    })();
+  </script>
 <title>ARC90 - SuperEnalotto Control Chaos</title>
   <meta name="description" content="Scheda algoritmo ARC90: modello ibrido logico-algoritmico con output su storico estrazioni, metriche e limiti operativi."/>
   <link rel="canonical" href="https://www.superenalottocc.it/pages/algoritmi/algs/arc90-logico-algoritmica/"/>
@@ -19,6 +42,7 @@
   <meta name="twitter:title" content="ARC90 - SuperEnalotto Control Chaos"/>
   <meta name="twitter:description" content="Scheda algoritmo ARC90: modello ibrido logico-algoritmico con output su storico estrazioni, metriche e limiti operativi."/>
   <meta name="twitter:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/arc90-logico-algoritmica/img.webp"/>
+  <meta name="view-transition" content="same-origin">
   <script src="../../../../assets/js/ga4.js" defer></script>
   <link rel="stylesheet" href="../../../../assets/css/tailwind.generated.css">
   <link rel="stylesheet" href="../../../../assets/css/main.css">
@@ -219,8 +243,6 @@
       display: block;
     }
   </style>
-  <script src="https://pl28786041.effectivegatecpm.com/6b/79/ba/6b79ba568da8791cfa9c41e755a1ac23.js" defer></script>
-
   </head>
 <body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" data-page-id="algsheet" id="top" data-style-lock="final">
 <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
@@ -274,21 +296,21 @@
           <section class="tab-panel space-y-4" data-tab-panel="metriche">
             <p data-metrics-intro>Metriche di efficacia dell'algoritmo su storico validato.</p>
             <div class="overflow-x-auto">
-              <div class="flex min-w-[44rem] flex-nowrap gap-2">
-              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
                 <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">N/D</p>
               </div>
-              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
+              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
                 <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">N/D</p>
               </div>
-              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
+              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
                 <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">N/D</p>
               </div>
-              <div class="min-w-0 flex-1 rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="whitespace-nowrap text-[0.56rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
+              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
                 <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">N/D</p>
               </div>
               </div>

@@ -314,6 +314,7 @@ const fetchAlgorithmRanking = async (card) => {
     const ranking = rankingFromCounts(exact);
     return {
       title: String(card?.title || card?.id || 'Algoritmo'),
+      page: String(card?.page || ''),
       ranking,
       hits: exact
     };
@@ -352,7 +353,11 @@ async function loadAnalisiRanking() {
       const d = row.hits;
       const detail = `0:${d[0]} 1:${d[1]} 2:${d[2]} 3:${d[3]} 4:${d[4]} 5:${d[5]} 6:${d[6]}`;
       const rankingLabel = Number.isFinite(row.ranking) ? formatRanking(row.ranking) : 'N/D';
-      return `<tr><td class="px-4 py-3 text-ash">${idx + 1}</td><td class="px-4 py-3 text-white">${row.title}</td><td class="px-4 py-3 text-white">${rankingLabel}</td><td class="px-4 py-3 text-ash">${detail}</td></tr>`;
+      const href = row.page ? escapeHtml(resolveWithBase(row.page)) : null;
+      const titleCell = href
+        ? `<a href="${href}" class="cc-alg-link">${escapeHtml(row.title)}</a>`
+        : escapeHtml(row.title);
+      return `<tr><td class="px-4 py-3 text-ash">${idx + 1}</td><td class="px-4 py-3 text-white">${titleCell}</td><td class="px-4 py-3 text-white">${rankingLabel}</td><td class="px-4 py-3 text-ash">${detail}</td></tr>`;
     }).join('');
   } catch (_) {
     tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare il ranking algoritmi.</td></tr>';

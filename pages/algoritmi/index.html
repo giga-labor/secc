@@ -5,20 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = 276;
+      if (w >= 1600) {
+        desktopReserve = 366;
+      } else if (w >= 1400) {
+        desktopReserve = 336;
+      } else if (w >= 1200) {
+        desktopReserve = 316;
+      }
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+      root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
+    })();
+  </script>
   
   <title>Algoritmi - SuperEnalotto Control Chaos</title>
   <meta name="description" content="Catalogo algoritmi SuperEnalotto Control Chaos: modelli statistici, logici, neurali e ibridi con schede dedicate.">
   <link rel="canonical" href="https://www.superenalottocc.it/pages/algoritmi/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional"></noscript>
 <script src="../../assets/js/ga4.js" defer></script>
 <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
 <link rel="stylesheet" href="../../assets/css/main.css">
   <link rel="stylesheet" href="../../assets/css/header.css">
-  <link rel="stylesheet" href="../../assets/css/ads.css">
-  <script src="https://pl28786041.effectivegatecpm.com/6b/79/ba/6b79ba568da8791cfa9c41e755a1ac23.js" defer></script>
-  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">  <link rel="stylesheet" href="../../assets/css/migration.css">
   <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
   <link rel="stylesheet" href="../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../assets/css/user-first.css">
@@ -37,6 +59,7 @@
   <meta name="author" content="SuperEnalotto Control Chaos">
   <meta name="theme-color" content="#081322">
   <meta name="format-detection" content="telephone=no">
+  <meta name="view-transition" content="same-origin">
   <link rel="alternate" hreflang="it-IT" href="https://www.superenalottocc.it/pages/algoritmi/">
   <link rel="alternate" hreflang="x-default" href="https://www.superenalottocc.it/pages/algoritmi/">
 <script type="application/ld+json">
@@ -62,12 +85,12 @@
     <div class="content-box">
     <section class="cc-hero-grid" data-section-id="algoritmi_overview" data-reveal="fade-up">
       <article class="cc-hero-panel" data-reveal="fade-up">
-        <p class="whitespace-nowrap text-[11px] uppercase tracking-[0.14em] text-ash sm:text-xs sm:tracking-[0.2em]">Catalogo studi</p>
+        <p class="text-xs uppercase tracking-[0.14em] text-ash sm:tracking-[0.2em]">Catalogo studi</p>
         <h2 class="mt-2 text-white" data-reveal="fade-up" data-split="lines">Algoritmi e paper tecnici</h2>
         <p class="mt-2 text-ash" data-reveal="fade-in">Ogni card porta a una pagina studio: contesto, metodo, output, limiti dichiarati e collegamenti correlati.</p>
       </article>
       <aside class="cc-hero-panel" data-section-id="algoritmi_actions" data-reveal="fade-in">
-        <p class="whitespace-nowrap text-[11px] uppercase tracking-[0.14em] text-ash sm:text-xs sm:tracking-[0.2em]">Accessi rapidi</p>
+        <p class="text-xs uppercase tracking-[0.14em] text-ash sm:tracking-[0.2em]">Accessi rapidi</p>
         <div class="mt-3 flex flex-wrap gap-2">
           <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../laboratorio-tecnico/" data-magnetic="true">Laboratorio Tecnico</a>
           <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../storico-estrazioni/" data-magnetic="true">Archivio storico</a>

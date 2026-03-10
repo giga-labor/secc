@@ -142,7 +142,7 @@ function renderHeader(headers) {
     .map((name) => {
       const normalized = String(name || '').toLowerCase();
       const label = normalized.includes('sequenziale') ? 'NR. SEQ' : name;
-      return `<th class="px-4 py-3">${label}</th>`;
+      return `<th class="px-4 py-3">${escapeHtml(label)}</th>`;
     })
     .join('');
   elements.header.innerHTML = headerRow;

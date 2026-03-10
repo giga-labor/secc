@@ -340,10 +340,13 @@
         const title = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
         const href = escapeHtml(ctx.resolveWithBase(row.card.page || '#') || '#');
         const rank = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : 'N/D';
-        const ballsHtml = row.proposal.map((value) => `<span class="cc-proposal-ball">${escapeHtml(value)}</span>`).join('');
+        const ballsHtml = row.proposal.map((value) => {
+          const tone = getBallTone(parseInt(value, 10));
+          return `<span class="cc-proposal-ball${tone ? ' ' + tone : ''}">${escapeHtml(value)}</span>`;
+        }).join('');
         return `
           <a href="${href}" class="cc-proposal-row" title="${title}">
-            <span class="cc-proposal-alg">${title}</span>
+            <span class="cc-proposal-alg cc-alg-link">${title}</span>
             <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
             <span class="cc-proposal-balls">${ballsHtml}</span>
           </a>
@@ -363,6 +366,16 @@
       `;
     }
   }));
+
+  function getBallTone(n) {
+    if (!Number.isFinite(n)) return '';
+    if (n <= 15) return 'cc-ball-tone--azure';
+    if (n <= 30) return 'cc-ball-tone--coral';
+    if (n <= 45) return 'cc-ball-tone--gold';
+    if (n <= 60) return 'cc-ball-tone--emerald';
+    if (n <= 75) return 'cc-ball-tone--violet';
+    return 'cc-ball-tone--rose';
+  }
 
   function escapeHtml(value) {
     return String(value || '')
