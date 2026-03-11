@@ -148,6 +148,44 @@ body {
   line-height: 1.6;
 }
 
+/* Global skeleton loader used by async modules (cards, tables, placeholders). */
+.cc-skeleton,
+[data-cc-skeleton="1"] {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  color: transparent !important;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.12) 42%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 220% 100%;
+  animation: cc-skeleton-shimmer 1.18s ease-in-out infinite;
+}
+
+.cc-skeleton > * {
+  visibility: hidden !important;
+}
+
+.cc-skeleton--line {
+  min-height: 0.9rem;
+}
+
+.cc-skeleton--block {
+  min-height: 3.2rem;
+}
+
+@keyframes cc-skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 /* Cinematic typography for key pages */
 body.theme-cosmic h1,
 body.theme-cosmic h2 {
@@ -1345,4 +1383,34 @@ button:focus-visible,
   color: rgba(255, 220, 110, 0.98);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Runtime content-visibility hints for offscreen blocks */
+[data-cv-auto="1"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 780px;
+}
+
+/* Preserve visual identity on full tier, reduce only expensive compositing on lite tier */
+html.cc-perf-lite .cc-card3d,
+html.cc-perf-lite .cc-card,
+html.cc-perf-lite .cc-hero-panel,
+html.cc-perf-lite .tabs-sheet,
+html.cc-perf-lite .cc-table-wrap,
+html.cc-perf-lite #site-header .header-container {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.cc-perf-lite .cc-card3d,
+html.cc-perf-lite .cc-card,
+html.cc-perf-lite .cc-module-note,
+html.cc-perf-lite .cc-hero-panel {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.cc-perf-lite * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 120ms !important;
 }

@@ -9,6 +9,349 @@
 
 ensureViewTransitionMeta();
 
+const createPerformanceRuntime = () => {
+  if (window.CC_PERF) return window.CC_PERF;
+
+  const moduleStats = [];
+  const activeMarks = new Map();
+  const rafListeners = {
+    scroll: new Map(),
+    resize: new Map()
+  };
+  const flags = { scroll: true, resize: true };
+  let rafId = 0;
+  let domCount = 0;
+
+  const now = () => (typeof performance !== 'undefined' && typeof performance.now === 'function')
+    ? performance.now()
+    : Date.now();
+
+  const dispatch = () => {
+    rafId = 0;
+    if (flags.scroll) {
+      flags.scroll = false;
+      rafListeners.scroll.forEach((fn) => {
+        try { fn(); } catch (_) {}
+      });
+    }
+    if (flags.resize) {
+      flags.resize = false;
+      rafListeners.resize.forEach((fn) => {
+        try { fn(); } catch (_) {}
+      });
+    }
+  };
+
+  const schedule = (kind) => {
+    if (kind === 'scroll' || kind === 'resize') flags[kind] = true;
+    if (!rafId) rafId = window.requestAnimationFrame(dispatch);
+  };
+
+  const bindCoreEvents = () => {
+    window.addEventListener('scroll', () => schedule('scroll'), { passive: true });
+    window.addEventListener('resize', () => schedule('resize'), { passive: true });
+  };
+
+  const onRafEvent = (kind, key, fn) => {
+    if (!kind || typeof fn !== 'function') return () => {};
+    const bucket = rafListeners[kind];
+    if (!bucket) return () => {};
+    const id = String(key || `k-${bucket.size + 1}`);
+    bucket.set(id, fn);
+    return () => bucket.delete(id);
+  };
+
+  const markModuleStart = (name) => {
+    const key = String(name || 'module');
+    activeMarks.set(key, now());
+    return key;
+  };
+
+  const markModuleEnd = (name) => {
+    const key = String(name || 'module');
+    const startTs = activeMarks.get(key);
+    if (!Number.isFinite(startTs)) return null;
+    activeMarks.delete(key);
+    const durationMs = Math.max(0, now() - startTs);
+    const row = {
+      module: key,
+      duration_ms: Number(durationMs.toFixed(2)),
+      ts: Date.now()
+    };
+    moduleStats.push(row);
+    if (moduleStats.length > 200) moduleStats.splice(0, moduleStats.length - 200);
+    return row;
+  };
+
+  const wrapPromise = async (name, task) => {
+    markModuleStart(name);
+    try {
+      const out = await task;
+      markModuleEnd(name);
+      return out;
+    } catch (error) {
+      markModuleEnd(name);
+      throw error;
+    }
+  };
+
+  const perfState = {
+    longTasks: 0,
+    longTaskTotalMs: 0,
+    cls: 0
+  };
+
+  const initObservers = () => {
+    if (typeof window.PerformanceObserver !== 'function') return;
+    try {
+      const longTaskObs = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          const d = Number(entry.duration || 0);
+          if (d > 0) {
+            perfState.longTasks += 1;
+            perfState.longTaskTotalMs += d;
+          }
+        });
+      });
+      longTaskObs.observe({ type: 'longtask', buffered: true });
+    } catch (_) {}
+    try {
+      const clsObs = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          if (entry && !entry.hadRecentInput) {
+            perfState.cls += Number(entry.value || 0);
+          }
+        });
+      });
+      clsObs.observe({ type: 'layout-shift', buffered: true });
+    } catch (_) {}
+  };
+
+  const loadingPattern = /^\s*(caricamento\b.*|in attesa di\b.*)$/i;
+  const skeletonizeElement = (el) => {
+    if (!(el instanceof HTMLElement)) return false;
+    if (el.dataset.ccSkeleton === '1') return false;
+    const txt = (el.textContent || '').trim();
+    if (!txt || txt.length > 90 || !loadingPattern.test(txt)) return false;
+    el.dataset.ccSkeleton = '1';
+    el.setAttribute('aria-busy', 'true');
+    el.classList.add('cc-skeleton');
+    if (/tr|tbody/i.test(el.tagName)) {
+      el.classList.add('cc-skeleton--line');
+    } else {
+      el.classList.add('cc-skeleton--block');
+    }
+    return true;
+  };
+
+  const enhanceLoadingPlaceholders = (root = document) => {
+    const scope = (root instanceof Document || root instanceof Element) ? root : document;
+    const candidates = scope.querySelectorAll('p,span,div,td,th,li');
+    candidates.forEach((el) => {
+      if (!(el instanceof HTMLElement)) return;
+      if (el.children.length > 0) return;
+      skeletonizeElement(el);
+    });
+  };
+
+  let mutationScheduled = false;
+  const initPlaceholderObserver = () => {
+    if (!document.body || typeof MutationObserver !== 'function') return;
+    const observer = new MutationObserver(() => {
+      if (mutationScheduled) return;
+      mutationScheduled = true;
+      window.requestAnimationFrame(() => {
+        mutationScheduled = false;
+        enhanceLoadingPlaceholders(document);
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  };
+
+  const markPerformanceTier = () => {
+    const root = document.documentElement;
+    if (!root) return 'full';
+    const nav = navigator || {};
+    const conn = nav.connection || nav.mozConnection || nav.webkitConnection || null;
+    const reducedMotion = (() => {
+      try {
+        return Boolean(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      } catch (_) {
+        return false;
+      }
+    })();
+    const lowMemory = Number.isFinite(Number(nav.deviceMemory)) && Number(nav.deviceMemory) <= 4;
+    const lowCpu = Number.isFinite(Number(nav.hardwareConcurrency)) && Number(nav.hardwareConcurrency) <= 4;
+    const saveData = Boolean(conn && conn.saveData);
+    const slowNet = Boolean(conn && /(^2g$|slow-2g)/i.test(String(conn.effectiveType || '')));
+    const lite = reducedMotion || saveData || slowNet || (lowMemory && lowCpu);
+    const tier = lite ? 'lite' : 'full';
+    root.dataset.ccPerfTier = tier;
+    root.classList.toggle('cc-perf-lite', lite);
+    root.classList.toggle('cc-perf-full', !lite);
+    return tier;
+  };
+
+  const isLikelyAboveFold = (el) => {
+    if (!(el instanceof Element)) return false;
+    const rect = el.getBoundingClientRect();
+    const vh = Math.max(window.innerHeight || 0, 1);
+    if (rect.height <= 0 || rect.width <= 0) return false;
+    return rect.top <= Math.max(180, vh * 1.15);
+  };
+
+  const optimizeMediaNode = (node) => {
+    if (!(node instanceof Element)) return;
+
+    const images = node.matches('img') ? [node] : Array.from(node.querySelectorAll('img'));
+    images.forEach((img) => {
+      if (!(img instanceof HTMLImageElement)) return;
+      if (img.dataset.ccMediaOptimized === '1') return;
+      img.dataset.ccMediaOptimized = '1';
+      if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
+      const isAboveFold = isLikelyAboveFold(img);
+      const hasExplicitLoading = img.hasAttribute('loading');
+      if (!hasExplicitLoading) {
+        img.setAttribute('loading', isAboveFold ? 'eager' : 'lazy');
+      } else if (!isAboveFold && img.getAttribute('loading') === 'eager' && img.dataset.keepEager !== '1') {
+        img.setAttribute('loading', 'lazy');
+      }
+      if (!img.getAttribute('fetchpriority')) {
+        img.setAttribute('fetchpriority', isAboveFold ? 'high' : 'low');
+      } else if (!isAboveFold && img.getAttribute('fetchpriority') === 'high' && img.dataset.keepEager !== '1') {
+        img.setAttribute('fetchpriority', 'low');
+      }
+    });
+
+    const videos = node.matches('video') ? [node] : Array.from(node.querySelectorAll('video'));
+    videos.forEach((video) => {
+      if (!(video instanceof HTMLVideoElement)) return;
+      if (video.dataset.ccMediaOptimized === '1') return;
+      video.dataset.ccMediaOptimized = '1';
+      const isAboveFold = isLikelyAboveFold(video);
+      if (!video.hasAttribute('preload')) {
+        video.setAttribute('preload', isAboveFold ? 'metadata' : 'none');
+      } else if (!isAboveFold && video.getAttribute('preload') === 'auto') {
+        video.setAttribute('preload', 'metadata');
+      }
+      if (!video.hasAttribute('playsinline')) {
+        video.setAttribute('playsinline', '');
+      }
+    });
+
+    const iframes = node.matches('iframe') ? [node] : Array.from(node.querySelectorAll('iframe'));
+    iframes.forEach((frame) => {
+      if (!(frame instanceof HTMLIFrameElement)) return;
+      if (frame.dataset.ccMediaOptimized === '1') return;
+      frame.dataset.ccMediaOptimized = '1';
+      if (!frame.hasAttribute('loading')) frame.setAttribute('loading', 'lazy');
+      if (!frame.hasAttribute('referrerpolicy')) frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    });
+  };
+
+  const optimizeMedia = (root = document) => {
+    const scope = (root instanceof Document || root instanceof Element) ? root : document;
+    optimizeMediaNode(scope);
+  };
+
+  const applyContentVisibilityHints = () => {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const candidates = Array.from(main.querySelectorAll('section, article, .tabs-shell, .cc-table-wrap, .cc-module-note'));
+    candidates.forEach((el) => {
+      if (!(el instanceof HTMLElement)) return;
+      if (el.dataset.staticAbovefold === '1' || el.id === 'cc-abovefold') return;
+      if (isLikelyAboveFold(el)) return;
+      if (!el.dataset.cvAuto) el.dataset.cvAuto = '1';
+    });
+  };
+
+  let mediaMutationScheduled = false;
+  const initMediaObserver = () => {
+    if (!document.body || typeof MutationObserver !== 'function') return;
+    const observer = new MutationObserver((mutations) => {
+      if (mediaMutationScheduled) return;
+      mediaMutationScheduled = true;
+      window.requestAnimationFrame(() => {
+        mediaMutationScheduled = false;
+        mutations.forEach((m) => {
+          m.addedNodes.forEach((n) => {
+            if (!(n instanceof Element)) return;
+            optimizeMedia(n);
+          });
+        });
+        applyContentVisibilityHints();
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  };
+
+  const refreshDomCount = () => {
+    domCount = document.getElementsByTagName('*').length;
+  };
+
+  const getSnapshot = () => ({
+    long_tasks: perfState.longTasks,
+    long_task_total_ms: Number(perfState.longTaskTotalMs.toFixed(2)),
+    layout_shift_total: Number(perfState.cls.toFixed(4)),
+    dom_nodes: domCount,
+    modules: moduleStats.slice(-40)
+  });
+
+  const renderInChunks = async (items, renderOne, options = {}) => {
+    const list = Array.isArray(items) ? items : [];
+    if (!list.length || typeof renderOne !== 'function') return;
+    const chunkSizeRaw = Number(options.chunkSize || 10);
+    const chunkSize = Number.isFinite(chunkSizeRaw) && chunkSizeRaw > 0 ? Math.floor(chunkSizeRaw) : 10;
+    for (let i = 0; i < list.length; i += chunkSize) {
+      const slice = list.slice(i, i + chunkSize);
+      for (let j = 0; j < slice.length; j += 1) {
+        renderOne(slice[j], i + j);
+      }
+      await new Promise((resolve) => window.requestAnimationFrame(() => resolve()));
+    }
+  };
+
+  const printSnapshot = (label = 'runtime') => {
+    refreshDomCount();
+    const payload = getSnapshot();
+    console.info('[cc-perf]', label, payload);
+    return payload;
+  };
+
+  const init = () => {
+    markPerformanceTier();
+    bindCoreEvents();
+    initObservers();
+    enhanceLoadingPlaceholders(document);
+    optimizeMedia(document);
+    applyContentVisibilityHints();
+    initPlaceholderObserver();
+    initMediaObserver();
+    schedule('scroll');
+    schedule('resize');
+    window.setTimeout(() => printSnapshot('post-init'), 1200);
+  };
+
+  window.CC_PERF = {
+    init,
+    onScroll: (key, fn) => onRafEvent('scroll', key, fn),
+    onResize: (key, fn) => onRafEvent('resize', key, fn),
+    markModuleStart,
+    markModuleEnd,
+    wrapPromise,
+    renderInChunks,
+    enhanceLoadingPlaceholders,
+    optimizeMedia,
+    applyContentVisibilityHints,
+    getSnapshot,
+    printSnapshot
+  };
+  return window.CC_PERF;
+};
+
+createPerformanceRuntime();
+
 const CC_EVENT_VERSION = '1.0.0';
 
 const createTelemetryRuntime = () => {
@@ -192,6 +535,13 @@ const createTelemetryRuntime = () => {
 };
 
 createTelemetryRuntime();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    window.CC_PERF?.init?.();
+  }, { once: true });
+} else {
+  window.CC_PERF?.init?.();
+}
 
 const initTelemetryBindings = () => {
   const telemetry = window.CC_TELEMETRY;
@@ -276,8 +626,14 @@ const initTelemetryBindings = () => {
   };
 
   const depthHandler = () => window.requestAnimationFrame(handleDepth);
-  window.addEventListener('scroll', depthHandler, { passive: true });
-  window.addEventListener('resize', depthHandler, { passive: true });
+  const perfRuntime = window.CC_PERF;
+  if (perfRuntime && typeof perfRuntime.onScroll === 'function' && typeof perfRuntime.onResize === 'function') {
+    perfRuntime.onScroll('paper-depth', depthHandler);
+    perfRuntime.onResize('paper-depth', depthHandler);
+  } else {
+    window.addEventListener('scroll', depthHandler, { passive: true });
+    window.addEventListener('resize', depthHandler, { passive: true });
+  }
   handleDepth();
 
   window.setInterval(() => {
@@ -720,8 +1076,14 @@ if (header) {
     };
     updateHeaderMode();
     const onScroll = rafThrottle(updateHeaderMode);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    const perfRuntime = window.CC_PERF;
+    if (perfRuntime && typeof perfRuntime.onScroll === 'function' && typeof perfRuntime.onResize === 'function') {
+      perfRuntime.onScroll('header-mode', onScroll);
+      perfRuntime.onResize('header-mode', onScroll);
+    } else {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+    }
   }
 }
 
@@ -898,8 +1260,13 @@ const onAdRailScroll = () => {
 };
 
 window.addEventListener('load', updateAdRails);
-window.addEventListener('resize', rafThrottle(updateAdRails), { passive: true });
-window.addEventListener('resize', rafThrottle(syncHeaderTitleVisibility), { passive: true });
+if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function') {
+  window.CC_PERF.onResize('ad-rails', rafThrottle(updateAdRails));
+  window.CC_PERF.onResize('header-title-visibility', rafThrottle(syncHeaderTitleVisibility));
+} else {
+  window.addEventListener('resize', rafThrottle(updateAdRails), { passive: true });
+  window.addEventListener('resize', rafThrottle(syncHeaderTitleVisibility), { passive: true });
+}
 // Ads stay standing; no scroll listener.
 
 const bindGlassLight = () => {
@@ -994,11 +1361,19 @@ const bindGlassLight = () => {
   const scheduleRefresh = rafThrottle(refreshReflectiveTargets);
 
   window.addEventListener('pointermove', onPointerMove, { passive: true });
-  window.addEventListener('resize', () => {
-    scheduleRefresh();
-    scheduleApply();
-  }, { passive: true });
-  window.addEventListener('scroll', scheduleApply, { passive: true });
+  if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function' && typeof window.CC_PERF.onScroll === 'function') {
+    window.CC_PERF.onResize('glass-light', () => {
+      scheduleRefresh();
+      scheduleApply();
+    });
+    window.CC_PERF.onScroll('glass-light', scheduleApply);
+  } else {
+    window.addEventListener('resize', () => {
+      scheduleRefresh();
+      scheduleApply();
+    }, { passive: true });
+    window.addEventListener('scroll', scheduleApply, { passive: true });
+  }
   window.addEventListener('load', () => {
     scheduleRefresh();
     scheduleApply();
@@ -1499,17 +1874,17 @@ if (audioToggle && AUDIO_ENABLED) {
     scheduleCloseMenu();
   });
 
-  window.addEventListener('resize', () => {
-    if (!audioMenu) return;
-    if (audioMenu.classList.contains('is-visible')) {
-      positionMenu();
-    }
-  }, { passive: true });
-  window.addEventListener('scroll', () => {
-    if (audioMenu && audioMenu.classList.contains('is-visible')) {
-      positionMenu();
-    }
-  }, { passive: true });
+  const refreshAudioMenuPosition = () => {
+    if (!audioMenu || !audioMenu.classList.contains('is-visible')) return;
+    positionMenu();
+  };
+  if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function' && typeof window.CC_PERF.onScroll === 'function') {
+    window.CC_PERF.onResize('audio-menu', refreshAudioMenuPosition);
+    window.CC_PERF.onScroll('audio-menu', refreshAudioMenuPosition);
+  } else {
+    window.addEventListener('resize', refreshAudioMenuPosition, { passive: true });
+    window.addEventListener('scroll', refreshAudioMenuPosition, { passive: true });
+  }
 }
 
 const initTabsRoot = (root) => {
@@ -1643,7 +2018,11 @@ const initTabsRoot = (root) => {
       activate(nextBtn.dataset.tabTarget, { focus: true });
     });
   });
-  window.addEventListener('resize', refreshTabsLayout, { passive: true });
+  if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function') {
+    window.CC_PERF.onResize(`tabs-layout-${tabsIdBase}`, refreshTabsLayout);
+  } else {
+    window.addEventListener('resize', refreshTabsLayout, { passive: true });
+  }
   window.addEventListener('orientationchange', refreshTabsLayout, { passive: true });
   window.addEventListener('pageshow', refreshTabsLayout, { passive: true });
   document.addEventListener('visibilitychange', refreshTabsLayout, { passive: true });

@@ -257,7 +257,11 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       };
       resize();
-      window.addEventListener('resize', resize, { passive: true });
+      if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function') {
+        window.CC_PERF.onResize('oracle-canvas-resize', resize);
+      } else {
+        window.addEventListener('resize', resize, { passive: true });
+      }
 
       let raf = 0;
       const render = (t) => {

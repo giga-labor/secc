@@ -1508,6 +1508,13 @@ window.CARDS = CARDS;
   let depthObserver = null;
   let depthRebindTimer = 0;
 
+  const shouldActivateDepthRuntime = () => {
+    const pageId = String(document.body?.dataset?.pageId || '').toLowerCase();
+    if (['home', 'algoritmi', 'algspotlight'].includes(pageId)) return true;
+    if (document.querySelector('.card-3d, .cc-card3d, [data-card-id], [data-module-area], [data-algorithms-area]')) return true;
+    return false;
+  };
+
   const bindDepth = () => {
     try {
       if (!window.CARDS || typeof window.CARDS.enableDepth !== 'function') return;
@@ -1518,6 +1525,7 @@ window.CARDS = CARDS;
   };
 
   const start = () => {
+    if (!shouldActivateDepthRuntime()) return;
     bindDepth();
     // News/home cards can be mounted in deferred chunks.
     window.setTimeout(bindDepth, 260);

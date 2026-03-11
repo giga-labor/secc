@@ -143,11 +143,17 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           updateNotch();
         };
+        const tabsRuntimeId = root.dataset.tabsRuntimeId || `sheet-tabs-${Math.random().toString(36).slice(2, 8)}`;
+        root.dataset.tabsRuntimeId = tabsRuntimeId;
         const refreshTabsLayout = () => window.requestAnimationFrame(updateNotch);
         buttons.forEach((btn) => {
           btn.addEventListener('click', () => activate(btn.dataset.tabTarget));
         });
-        window.addEventListener('resize', refreshTabsLayout, { passive: true });
+        if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function') {
+          window.CC_PERF.onResize(tabsRuntimeId, refreshTabsLayout);
+        } else {
+          window.addEventListener('resize', refreshTabsLayout, { passive: true });
+        }
         window.addEventListener('orientationchange', refreshTabsLayout, { passive: true });
         window.addEventListener('pageshow', refreshTabsLayout, { passive: true });
         document.addEventListener('visibilitychange', refreshTabsLayout, { passive: true });
@@ -700,5 +706,4 @@ document.addEventListener('DOMContentLoaded', () => {
       computeGlobalRankingPosition();
     });
 })();
-
 

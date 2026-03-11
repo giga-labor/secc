@@ -259,7 +259,11 @@ function attachEvents() {
       updateHorizontalScrollControls();
     }, { passive: true });
   }
-  window.addEventListener('resize', updateHorizontalScrollControls, { passive: true });
+  if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function') {
+    window.CC_PERF.onResize('draws-scroll-layout', updateHorizontalScrollControls);
+  } else {
+    window.addEventListener('resize', updateHorizontalScrollControls, { passive: true });
+  }
   window.addEventListener('orientationchange', updateHorizontalScrollControls, { passive: true });
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', updateHorizontalScrollControls, { passive: true });

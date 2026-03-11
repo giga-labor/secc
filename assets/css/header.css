@@ -365,7 +365,7 @@
     }
     .cc-proposals-table-head {
       display: grid;
-      grid-template-columns: 10.2rem 7rem minmax(26rem, 1fr);
+      grid-template-columns: 10.2rem minmax(26rem, 1fr) 7rem;
       align-items: center;
       gap: 0.6rem;
       min-width: 44rem;
@@ -410,7 +410,7 @@
     }
     .cc-proposal-row {
       display: grid;
-      grid-template-columns: 10.2rem 7rem minmax(26rem, 1fr);
+      grid-template-columns: 10.2rem minmax(26rem, 1fr) 7rem;
       align-items: center;
       gap: 0.6rem;
       min-width: 44rem;

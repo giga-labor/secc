@@ -347,8 +347,8 @@
         return `
           <a href="${href}" class="cc-proposal-row" title="${title}">
             <span class="cc-proposal-alg cc-alg-link">${title}</span>
-            <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
             <span class="cc-proposal-balls">${ballsHtml}</span>
+            <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
           </a>
         `;
       }).join('');
@@ -358,8 +358,8 @@
           <div class="cc-proposals-contest">${escapeHtml(contestLabel)}</div>
           <div class="cc-proposals-table-head">
             <span class="cc-proposals-col cc-proposals-col--alg">Algoritmo</span>
-            <span class="cc-proposals-col cc-proposals-col--rank">Ranking</span>
             <span class="cc-proposals-col cc-proposals-col--balls">6 numeri proposti</span>
+            <span class="cc-proposals-col cc-proposals-col--rank">Ranking</span>
           </div>
           <div class="cc-proposals-table-body">${tableRows}</div>
         </div>

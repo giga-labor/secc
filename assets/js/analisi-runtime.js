@@ -72,12 +72,18 @@ function mountAnalisiPage() {
       panels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.tabPanel === target));
       updateNotch();
     };
+    const tabsRuntimeId = root.dataset.tabsRuntimeId || `analisi-tabs-${Math.random().toString(36).slice(2, 8)}`;
+    root.dataset.tabsRuntimeId = tabsRuntimeId;
     const refreshTabsLayout = () => window.requestAnimationFrame(updateNotch);
 
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => activate(btn.dataset.tabTarget));
     });
-    window.addEventListener('resize', refreshTabsLayout, { passive: true });
+    if (window.CC_PERF && typeof window.CC_PERF.onResize === 'function') {
+      window.CC_PERF.onResize(tabsRuntimeId, refreshTabsLayout);
+    } else {
+      window.addEventListener('resize', refreshTabsLayout, { passive: true });
+    }
     window.addEventListener('orientationchange', refreshTabsLayout, { passive: true });
     window.addEventListener('pageshow', refreshTabsLayout, { passive: true });
     document.addEventListener('visibilitychange', refreshTabsLayout, { passive: true });
@@ -266,7 +272,7 @@ async function loadLaboratorioTechnicalCatalog() {
       return;
     }
 
-    host.innerHTML = validEntries.map((entry) => {
+    const toArticleHtml = (entry) => {
       const intro = escapeHtml(entry.intro || 'N/D');
       const scope = escapeHtml(entry.scope || 'N/D');
       const method = escapeHtml(entry.method || 'N/D');
@@ -294,7 +300,17 @@ async function loadLaboratorioTechnicalCatalog() {
           </details>
         </article>
       `;
-    }).join('');
+    };
+
+    host.innerHTML = '';
+    const perf = window.CC_PERF;
+    if (perf && typeof perf.renderInChunks === 'function' && validEntries.length > 12) {
+      await perf.renderInChunks(validEntries, (entry) => {
+        host.insertAdjacentHTML('beforeend', toArticleHtml(entry));
+      }, { chunkSize: 6 });
+    } else {
+      host.innerHTML = validEntries.map((entry) => toArticleHtml(entry)).join('');
+    }
   } catch (_) {
     host.innerHTML = 'Impossibile caricare il catalogo tecnico automatico. Apri temporaneamente il catalogo algoritmi per consultare le schede operative.';
   }
@@ -349,7 +365,7 @@ async function loadAnalisiRanking() {
       tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con ranking disponibile.</td></tr>';
       return;
     }
-    tbody.innerHTML = ranked.map((row, idx) => {
+    const toRowHtml = (row, idx) => {
       const d = row.hits;
       const detail = `0:${d[0]} 1:${d[1]} 2:${d[2]} 3:${d[3]} 4:${d[4]} 5:${d[5]} 6:${d[6]}`;
       const rankingLabel = Number.isFinite(row.ranking) ? formatRanking(row.ranking) : 'N/D';
@@ -358,7 +374,17 @@ async function loadAnalisiRanking() {
         ? `<a href="${href}" class="cc-alg-link">${escapeHtml(row.title)}</a>`
         : escapeHtml(row.title);
       return `<tr><td class="px-4 py-3 text-ash">${idx + 1}</td><td class="px-4 py-3 text-white">${titleCell}</td><td class="px-4 py-3 text-white">${rankingLabel}</td><td class="px-4 py-3 text-ash">${detail}</td></tr>`;
-    }).join('');
+    };
+
+    tbody.innerHTML = '';
+    const perf = window.CC_PERF;
+    if (perf && typeof perf.renderInChunks === 'function' && ranked.length > 18) {
+      await perf.renderInChunks(ranked, (row, idx) => {
+        tbody.insertAdjacentHTML('beforeend', toRowHtml(row, idx));
+      }, { chunkSize: 10 });
+    } else {
+      tbody.innerHTML = ranked.map((row, idx) => toRowHtml(row, idx)).join('');
+    }
   } catch (_) {
     tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare il ranking algoritmi.</td></tr>';
   }
