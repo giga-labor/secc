@@ -1,0 +1,13 @@
+{
+  "policy_version": "1.0.0",
+  "quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180
+  },
+  "confirmations": 2,
+  "best_date": "10/03/2026",
+  "latest_external_contest_id": 40,
+  "raw": "CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)\nLocale corrente: seq=4159 data=10/03/2026\n\n[superenalotto.it] ALLINEATO\n  locale: seq=4159 data=10/03/2026 sestina=08 34 42 47 55 83\n  online: seq=40 data=10/03/2026 sestina=08 34 42 47 55 83\n  ref: https://www.superenalotto.it/archivio-estrazioni/concorso-40/10-marzo-2026\n\n[superenalotto.com] ALLINEATO\n  locale: seq=4159 data=10/03/2026 sestina=08 34 42 47 55 83\n  online: seq=40 data=10/03/2026 sestina=08 34 42 47 55 83\n  ref: https://www.superenalotto.com/risultati/estrazione-10-03-2026",
+  "status": "degraded"
+}
