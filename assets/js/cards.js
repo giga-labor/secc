@@ -1319,7 +1319,7 @@
   },
 
   formatRankingValue(value) {
-    if (!Number.isFinite(value)) return 'N/D';
+    if (!Number.isFinite(value)) return '--';
     return new Intl.NumberFormat('it-IT', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2

@@ -334,12 +334,12 @@
       const sharedSeq = validSeqs.length
         ? validSeqs.sort((a, b) => a - b)[validSeqs.length - 1]
         : null;
-      const contestLabel = Number.isFinite(sharedSeq) ? `Concorso ${sharedSeq}` : 'Concorso N/D';
+      const contestLabel = Number.isFinite(sharedSeq) ? `Concorso ${sharedSeq}` : 'Concorso --';
 
       const tableRows = rowsWithProposal.map((row) => {
         const title = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
         const href = escapeHtml(ctx.resolveWithBase(row.card.page || '#') || '#');
-        const rank = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : 'N/D';
+        const rank = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
         const ballsHtml = row.proposal.map((value) => {
           const tone = getBallTone(parseInt(value, 10));
           return `<span class="cc-proposal-ball${tone ? ' ' + tone : ''}">${escapeHtml(value)}</span>`;

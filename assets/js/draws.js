@@ -41,7 +41,19 @@ function mountDrawsPage() {
   if (drawsMounted) return;
   drawsMounted = true;
   if (!elements.body) return;
+  setLoadingState();
   loadDraws();
+}
+
+function setLoadingState() {
+  if (elements.status) elements.status.textContent = 'Archivio in caricamento...';
+  if (elements.page) elements.page.textContent = 'Pagina --';
+  if (elements.count) elements.count.textContent = '--';
+  if (elements.first) elements.first.textContent = '--';
+  if (elements.last) elements.last.textContent = '--';
+  if (elements.prev) elements.prev.disabled = true;
+  if (elements.next) elements.next.disabled = true;
+  if (elements.body) elements.body.setAttribute('aria-busy', 'true');
 }
 
 async function loadDraws() {
@@ -76,14 +88,18 @@ async function loadDraws() {
 
 function showUnavailable(message) {
   if (elements.body) {
+    elements.body.setAttribute('aria-busy', 'false');
     elements.body.innerHTML = `<tr><td class="px-4 py-6 text-ash" colspan="4">${message}</td></tr>`;
   }
   if (elements.status) {
     elements.status.textContent = 'Archivio non disponibile';
   }
-  if (elements.count) elements.count.textContent = '???';
-  if (elements.first) elements.first.textContent = '???';
-  if (elements.last) elements.last.textContent = '???';
+  if (elements.count) elements.count.textContent = '--';
+  if (elements.first) elements.first.textContent = '--';
+  if (elements.last) elements.last.textContent = '--';
+  if (elements.page) elements.page.textContent = 'Pagina --';
+  if (elements.prev) elements.prev.disabled = true;
+  if (elements.next) elements.next.disabled = true;
   updateHorizontalScrollControls();
 }
 function detectDelimiter(line) {
@@ -190,6 +206,7 @@ function getRowNumberSet(row) {
 function renderTable() {
   const start = (currentPage - 1) * pageSize;
   const pageRows = filtered.slice(start, start + pageSize);
+  if (elements.body) elements.body.setAttribute('aria-busy', 'false');
   if (!pageRows.length) {
     elements.body.innerHTML = `<tr><td class="px-4 py-6 text-ash" colspan="${elements.header.children.length || 4}">Nessun record trovato.</td></tr>`;
   } else {
@@ -211,15 +228,15 @@ function updatePagination() {
 
 function updateSummary() {
   if (!rows.length) {
-    elements.count.textContent = '0';
-    elements.first.textContent = '—';
-    elements.last.textContent = '—';
+    elements.count.textContent = '--';
+    elements.first.textContent = '--';
+    elements.last.textContent = '--';
     return;
   }
   elements.count.textContent = rows.length.toLocaleString('it-IT');
   const dates = rows.map((row) => row[dateIndex]).filter(Boolean);
-  elements.first.textContent = dates[dates.length - 1] || '—';
-  elements.last.textContent = dates[0] || '—';
+  elements.first.textContent = dates[dates.length - 1] || '--';
+  elements.last.textContent = dates[0] || '--';
   const statusTag = document.querySelector('[data-draws-status-tag]');
   if (statusTag) {
     statusTag.textContent = 'Archivio attivo';
@@ -316,3 +333,4 @@ window.CC_DRAWS_RUNTIME = {
   mount: mountDrawsPage,
   loadDraws
 };
+

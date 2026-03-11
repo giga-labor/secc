@@ -212,7 +212,7 @@ const normalizePageDir = (value) => {
 async function loadLaboratorioTechnicalCatalog() {
   const host = document.querySelector('[data-lab-algorithms]');
   if (!host) return;
-  host.innerHTML = 'Caricamento moduli attivi in corso...';
+  host.innerHTML = '<span class="cc-skeleton cc-skeleton--block block h-4 w-full" aria-hidden="true"></span>';
   try {
     const manifestRes = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
     if (!manifestRes.ok) throw new Error(`status ${manifestRes.status}`);
@@ -273,10 +273,10 @@ async function loadLaboratorioTechnicalCatalog() {
     }
 
     const toArticleHtml = (entry) => {
-      const intro = escapeHtml(entry.intro || 'N/D');
-      const scope = escapeHtml(entry.scope || 'N/D');
-      const method = escapeHtml(entry.method || 'N/D');
-      const limits = escapeHtml(entry.limits || 'N/D');
+      const intro = escapeHtml(entry.intro || '--');
+      const scope = escapeHtml(entry.scope || '--');
+      const method = escapeHtml(entry.method || '--');
+      const limits = escapeHtml(entry.limits || '--');
       const analysis = escapeHtml(entry.analysis || 'Analisi non disponibile.');
       const factsRows = Array.isArray(entry.facts) ? entry.facts : [];
       const factsHtml = factsRows.length
@@ -368,7 +368,7 @@ async function loadAnalisiRanking() {
     const toRowHtml = (row, idx) => {
       const d = row.hits;
       const detail = `0:${d[0]} 1:${d[1]} 2:${d[2]} 3:${d[3]} 4:${d[4]} 5:${d[5]} 6:${d[6]}`;
-      const rankingLabel = Number.isFinite(row.ranking) ? formatRanking(row.ranking) : 'N/D';
+      const rankingLabel = Number.isFinite(row.ranking) ? formatRanking(row.ranking) : '--';
       const href = row.page ? escapeHtml(resolveWithBase(row.page)) : null;
       const titleCell = href
         ? `<a href="${href}" class="cc-alg-link">${escapeHtml(row.title)}</a>`

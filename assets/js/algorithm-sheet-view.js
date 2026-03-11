@@ -408,14 +408,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .filter(Boolean);
 
       const formatRanking = (value) => {
-        if (!Number.isFinite(value)) return 'N/D';
+        if (!Number.isFinite(value)) return '--';
         return new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
       };
       const setSummaryRanking = (value) => {
         if (rankingValueEl) rankingValueEl.textContent = formatRanking(value);
       };
       const setSummaryPosition = (value) => {
-        if (rankingPositionEl) rankingPositionEl.textContent = value || 'N/D';
+        if (rankingPositionEl) rankingPositionEl.textContent = value || '--';
       };
       const computeRankingFromCounts = (exact) => {
         if (!exact) return NaN;
@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const computeGlobalRankingPosition = () => {
         const currentId = resolveCurrentAlgorithmId();
         if (!currentId) {
-          setSummaryPosition('N/D');
+          setSummaryPosition('--');
           return;
         }
         fetch('../../../../data/modules-manifest.json', { cache: 'no-store' })
@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const activeCards = (cards || []).filter((card) => card && card.isActive === true && String(card.page || '').includes('pages/algoritmi/algs/'));
             const totalActive = activeCards.length;
             if (!totalActive) {
-              setSummaryPosition('N/D');
+              setSummaryPosition('--');
               return;
             }
             return Promise.all(activeCards.map((card) => {
@@ -545,12 +545,12 @@ document.addEventListener('DOMContentLoaded', () => {
               if (idx >= 0) {
                 setSummaryPosition(`${idx + 1}/${totalActive}`);
               } else {
-                setSummaryPosition(`N/D/${totalActive}`);
+                setSummaryPosition(`--/${totalActive}`);
               }
             });
           })
           .catch(() => {
-            setSummaryPosition('N/D');
+            setSummaryPosition('--');
           });
       };
 
@@ -563,15 +563,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const methodEl = document.querySelector('[data-algo-method]');
         const limitsEl = document.querySelector('[data-algo-limits]');
 
-        if (introEl) introEl.textContent = map.get('INTRO') || 'N/D';
-        if (scopeEl) scopeEl.textContent = map.get('SCOPO') || 'N/D';
-        if (outputEl) outputEl.textContent = map.get('OUTPUT') || 'N/D';
+        if (introEl) introEl.textContent = map.get('INTRO') || '--';
+        if (scopeEl) scopeEl.textContent = map.get('SCOPO') || '--';
+        if (outputEl) outputEl.textContent = map.get('OUTPUT') || '--';
 
         const fillList = (el, values) => {
           if (!el) return;
           const list = asList(values);
           if (!list.length) {
-            el.innerHTML = '<li>N/D</li>';
+            el.innerHTML = '<li>--</li>';
             return;
           }
           el.innerHTML = list.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
@@ -610,17 +610,17 @@ document.addEventListener('DOMContentLoaded', () => {
           const note = String(r[2] || '').trim();
           const key = metric.toLowerCase();
           const cardEl = cards.get(key);
-          if (cardEl) cardEl.textContent = value || 'N/D';
+          if (cardEl) cardEl.textContent = value || '--';
           if (key === 'ultimo concorso calcolato' && lastTrainedEl) {
-            lastTrainedEl.textContent = value || 'N/D';
+            lastTrainedEl.textContent = value || '--';
           }
           if (key === 'sestina proposta (prossimo concorso)' && nextPickEl) {
-            nextPickEl.textContent = value || 'N/D';
+            nextPickEl.textContent = value || '--';
           }
           if (key.includes('sestina proposta')) {
             extractedProposal = parseNextContestProposal(value);
           }
-          return `<tr><td class="px-4 py-3 text-ash">${escapeHtml(metric)}</td><td class="px-4 py-3 text-white">${escapeHtml(value) || 'N/D'}</td><td class="px-4 py-3 text-ash">${escapeHtml(note) || '-'}</td></tr>`;
+          return `<tr><td class="px-4 py-3 text-ash">${escapeHtml(metric)}</td><td class="px-4 py-3 text-white">${escapeHtml(value) || '--'}</td><td class="px-4 py-3 text-ash">${escapeHtml(note) || '-'}</td></tr>`;
         }).join('');
 
         const hasRankingRow = rows.some((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
@@ -706,4 +706,3 @@ document.addEventListener('DOMContentLoaded', () => {
       computeGlobalRankingPosition();
     });
 })();
-

@@ -108,15 +108,15 @@
             <div class="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p class="text-xs uppercase tracking-[0.2em] text-ash">Record totali</p>
-                <p class="mt-2 text-2xl font-semibold" data-draws-count>?</p>
+                <p class="mt-2 text-2xl font-semibold" data-draws-count aria-live="polite">--</p>
               </div>
               <div>
                 <p class="text-xs uppercase tracking-[0.2em] text-ash">Prima estrazione</p>
-                <p class="mt-2 text-xl font-semibold" data-draws-first>?</p>
+                <p class="mt-2 text-xl font-semibold" data-draws-first aria-live="polite">--</p>
               </div>
               <div>
                 <p class="text-xs uppercase tracking-[0.2em] text-ash">Ultima estrazione</p>
-                <p class="mt-2 text-xl font-semibold" data-draws-last>?</p>
+                <p class="mt-2 text-xl font-semibold" data-draws-last aria-live="polite">--</p>
               </div>
             </div>
           </div>
@@ -143,10 +143,11 @@
                     <th class="px-4 py-3">Jolly/SuperStar</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-white/5" data-draws-body>
-                  <tr>
-                    <td class="px-4 py-6 text-ash" colspan="4">In attesa di <code class="text-neon">draws.csv</code>...</td>
-                  </tr>
+                <tbody class="divide-y divide-white/5" data-draws-body aria-busy="true">
+                  <tr><td class="px-4 py-3 text-ash" colspan="4"><span class="cc-skeleton cc-skeleton--line block h-4 w-full"></span></td></tr>
+                  <tr><td class="px-4 py-3 text-ash" colspan="4"><span class="cc-skeleton cc-skeleton--line block h-4 w-full"></span></td></tr>
+                  <tr><td class="px-4 py-3 text-ash" colspan="4"><span class="cc-skeleton cc-skeleton--line block h-4 w-full"></span></td></tr>
+                  <tr><td class="px-4 py-3 text-ash" colspan="4"><span class="cc-skeleton cc-skeleton--line block h-4 w-full"></span></td></tr>
                 </tbody>
               </table>
             </div>
@@ -156,10 +157,10 @@
           </div>
 
           <div class="mt-2 flex flex-wrap items-center justify-between gap-4">
-            <p class="text-sm text-ash" data-draws-status>0 record visualizzati</p>
+            <p class="text-sm text-ash" data-draws-status aria-live="polite">Archivio in caricamento...</p>
             <div class="flex items-center gap-1">
               <button class="rounded-lg border border-white/10 px-4 py-2 text-sm text-ash transition hover:border-neon hover:text-neon" data-draws-prev>Indietro</button>
-              <span class="text-sm text-ash" data-draws-page>Pagina 1</span>
+              <span class="text-sm text-ash" data-draws-page>Pagina --</span>
               <button class="rounded-lg border border-white/10 px-4 py-2 text-sm text-ash transition hover:border-neon hover:text-neon" data-draws-next>Avanti</button>
             </div>
           </div>
