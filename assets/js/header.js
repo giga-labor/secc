@@ -946,7 +946,7 @@ const buildHeaderMarkup = () => `
       <div class="header-wrap rounded-3xl border border-white/15 bg-gradient-to-br from-midnight/90 via-midnight/80 to-neon/10 px-6 py-8 shadow-glow backdrop-blur-sm">
         <div class="header-topline">
           <p class="text-xs uppercase tracking-[0.35em] text-neon">SuperEnalotto Control Chaos</p>
-          <span class="header-version" aria-label="Versione">${VERSION}</span>
+          <span class="header-version" aria-label="Versione" data-nosnippet>${VERSION}</span>
         </div>
         <h1 class="header-title mt-4 text-3xl sm:text-5xl font-semibold drop-shadow-[0_0_14px_rgba(255,217,102,0.35)]">Statistiche e algoritmi per dominare il caos del <span class="superenalotto-mark" aria-label="Super-Enalotto"><span class="super-word">S<span class="super-u">u</span>per</span><span class="super-dash">-</span><span class="enalotto-word">Enalotto</span></span></h1>
         <div class="header-actions mt-10 flex flex-wrap items-center justify-between gap-4">

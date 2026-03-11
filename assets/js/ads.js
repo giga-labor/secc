@@ -189,9 +189,9 @@ const buildPolicyRowMarkup = (baseHrefPrefix) => `
       <span class="ad-policy-row__sep" aria-hidden="true">|</span>
       <a class="ad-policy-row__link" href="${baseHrefPrefix}pages/contatti-chi-siamo/index.html">Contatti / Chi siamo</a>
       <span class="ad-policy-row__sep" aria-hidden="true">|</span>
-      <a class="ad-policy-row__link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">AdSense</a>
+      <a class="ad-policy-row__link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" data-nosnippet>AdSense</a>
       <span class="ad-policy-row__sep" aria-hidden="true">|</span>
-      <button class="ad-policy-row__button" type="button" data-consent-open="true">Gestisci cookie</button>
+      <button class="ad-policy-row__button" type="button" data-consent-open="true" data-nosnippet>Gestisci cookie</button>
     </div>
   </div>
 `;
@@ -241,8 +241,8 @@ const buildBottomReferralBannerMarkup = () => {
   const label = String(BOTTOM_REFERRAL_BANNER_CONFIG.LABEL || 'Partner');
   if (!/^https?:\/\//i.test(url) || !/^https?:\/\//i.test(src)) return '';
   return `
-    <a class="ad-referral-badge" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Referral Adsterra (${label})">
-      <span class="ad-referral-badge__label">${label}</span>
+    <a class="ad-referral-badge" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Referral Adsterra (${label})" data-nosnippet>
+      <span class="ad-referral-badge__label" data-nosnippet>${label}</span>
       <img class="ad-referral-badge__img" alt="Referral Adsterra" src="${src}" width="80" height="30" loading="lazy" decoding="async">
     </a>
   `;
@@ -255,8 +255,8 @@ const buildRightReferralBannerMarkup = () => {
   const label = String(RIGHT_REFERRAL_BANNER_CONFIG.LABEL || 'Partner');
   if (!/^https?:\/\//i.test(url) || !/^https?:\/\//i.test(src)) return '';
   return `
-    <a class="ad-referral-banner" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Referral Adsterra (${label})">
-      <span class="ad-referral-banner__label">${label}</span>
+    <a class="ad-referral-banner" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Referral Adsterra (${label})" data-nosnippet>
+      <span class="ad-referral-banner__label" data-nosnippet>${label}</span>
       <img class="ad-referral-banner__img" alt="Referral Adsterra" src="${src}" width="120" height="150" loading="lazy" decoding="async">
     </a>
   `;
@@ -268,8 +268,8 @@ const buildRightAdsterraDisplayMarkup = () => {
   const label = String(RIGHT_ADSTERRA_DISPLAY_CONFIG.LABEL || 'Partner Ad');
   if (!containerId) return '';
   return `
-    <section class="ad-adsterra-display ad-adsterra-display--right" aria-label="${label}">
-      <p class="ad-adsterra-display__label">${label}</p>
+    <section class="ad-adsterra-display ad-adsterra-display--right" aria-label="${label}" data-nosnippet>
+      <p class="ad-adsterra-display__label" data-nosnippet>${label}</p>
       <div class="ad-adsterra-display__host" id="${containerId}"></div>
     </section>
   `;
@@ -280,12 +280,12 @@ const buildAdsLabelHeadMarkup = (position = 'right') => {
   const url = String(config?.URL || '').trim();
   const hasLink = config?.ENABLED && /^https?:\/\//i.test(url);
   if (!hasLink) {
-    return '<div class="ad-rail__label-head"><span>ANNUNCI</span></div>';
+    return '<div class="ad-rail__label-head" data-nosnippet><span data-nosnippet>ANNUNCI</span></div>';
   }
   return `
-    <div class="ad-rail__label-head">
-      <span>ANNUNCI</span>
-      <a class="ad-rail__label-link" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer">Contenuti Sponsorizzati</a>
+    <div class="ad-rail__label-head" data-nosnippet>
+      <span data-nosnippet>ANNUNCI</span>
+      <a class="ad-rail__label-link" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" data-nosnippet>Contenuti Sponsorizzati</a>
     </div>
   `;
 };
@@ -296,7 +296,7 @@ const buildBottomAdsterraDisplayMarkup = () => {
   const label = String(BOTTOM_ADSTERRA_DISPLAY_CONFIG.LABEL || 'Partner Ad');
   if (!containerId) return '';
   return `
-    <section class="ad-adsterra-display ad-adsterra-display--bottom" aria-label="${label}">
+    <section class="ad-adsterra-display ad-adsterra-display--bottom" aria-label="${label}" data-nosnippet>
       <div class="ad-adsterra-display__host" id="${containerId}"></div>
     </section>
   `;
