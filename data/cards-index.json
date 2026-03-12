@@ -16,7 +16,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/arc90-logico-algoritmica/"
   },
@@ -81,7 +81,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/"
   },
@@ -145,7 +145,7 @@
     "view": true,
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/"
   },
@@ -230,7 +230,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/"
   },
@@ -304,6 +304,27 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/super6NN/"
+  },
+  {
+    "id": "laboratorio-tecnico",
+    "title": "Laboratorio Tecnico",
+    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
+    "statusTag": "Lab",
+    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/laboratorio-tecnico/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    }
   },
   {
     "macroGroup": "storico",
