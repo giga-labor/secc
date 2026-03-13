@@ -1,0 +1,79 @@
+[21:33:00] Fase OK: lock_acquire
+[21:33:00] Avvio fase: git_add_commit_push_once
+[21:33:00] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:33:00] Avvio fase: lock_release
+[21:33:00] Fase OK: lock_release
+[21:33:00] Nessun bundle pending da pubblicare
+[21:33:00] Run avviato: mode=single, action=git_add_commit_push_once
+[21:33:00] Avvio fase: lock_acquire
+[21:33:00] Fase OK: lock_acquire
+[21:33:00] Avvio fase: git_add_commit_push_once
+[21:33:01] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:33:01] Avvio fase: lock_release
+[21:33:01] Fase OK: lock_release
+[21:33:01] Nessun bundle pending da pubblicare
+[21:33:15] Run avviato: mode=single, action=git_add_commit_push_once
+[21:33:15] Avvio fase: lock_acquire
+[21:33:15] Fase OK: lock_acquire
+[21:33:15] Avvio fase: git_add_commit_push_once
+[21:33:15] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:33:15] Avvio fase: lock_release
+[21:33:15] Fase OK: lock_release
+[21:33:15] Nessun bundle pending da pubblicare
+[21:33:18] Run avviato: mode=single, action=git_add_commit_push_once
+[21:33:00] Run avviato: mode=single, action=git_add_commit_push_once
+[21:33:18] Avvio fase: lock_acquire
+[21:33:43] Fase OK: lock_acquire
+[21:34:11] Avvio fase: git_add_commit_push_once
+[21:34:11] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:34:11] Avvio fase: lock_release
+[21:34:11] Fase OK: lock_release
+[21:34:11] Nessun bundle pending da pubblicare
+[21:36:12] Run avviato: mode=single, action=git_add_commit_push_once
+[21:36:12] Avvio fase: lock_acquire
+[21:36:28] Fase OK: lock_acquire
+[21:36:56] Avvio fase: git_add_commit_push_once
+[21:37:03] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:37:12] Avvio fase: lock_release
+[21:37:16] Fase OK: lock_release
+[21:37:16] Nessun bundle pending da pubblicare
+[21:39:31] Avvio fase: lock_acquire
+[21:39:31] Fase OK: lock_acquire
+[21:39:31] Avvio fase: git_add_commit_push_once
+[21:39:31] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:39:31] Avvio fase: lock_release
+[21:39:31] Fase OK: lock_release
+[21:39:31] Nessun bundle pending da pubblicare
+[21:39:39] Avvio fase: lock_acquire
+[21:39:40] Fase OK: lock_acquire
+[21:39:40] Avvio fase: git_add_commit_push_once
+[21:39:40] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:39:40] Avvio fase: lock_release
+[21:39:40] Fase OK: lock_release
+[21:39:40] Nessun bundle pending da pubblicare
+[21:39:48] Avvio fase: lock_acquire
+[21:39:48] Fase OK: lock_acquire
+[21:39:48] Avvio fase: git_add_commit_push_once
+[21:39:48] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:39:48] Avvio fase: lock_release
+[21:39:48] Fase OK: lock_release
+[21:39:48] Nessun bundle pending da pubblicare
+[21:39:51] Run avviato: mode=single, action=git_add_commit_push_once
+[21:39:51] Avvio fase: lock_acquire
+[21:39:51] Fase OK: lock_acquire
+[21:39:51] Avvio fase: git_add_commit_push_once
+[21:39:51] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:39:51] Avvio fase: lock_release
+[21:39:51] Fase OK: lock_release
+[21:39:51] Nessun bundle pending da pubblicare
+[21:39:55] Run avviato: mode=single, action=git_add_commit_push_once
+[21:39:39] Run avviato: mode=single, action=git_add_commit_push_once
+[21:39:31] Run avviato: mode=single, action=git_add_commit_push_once
+[21:39:48] Run avviato: mode=single, action=git_add_commit_push_once
+[21:39:55] Avvio fase: lock_acquire
+[21:40:05] Fase OK: lock_acquire
+[21:40:10] Avvio fase: git_add_commit_push_once
+[21:40:10] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:40:10] Avvio fase: lock_release
+[21:40:10] Fase OK: lock_release
+[21:40:10] Nessun bundle pending da pubblicare

@@ -1,211 +1,505 @@
 {
-  "latest_local_contest_id": 4159,
-  "last_published_commit": "",
-  "per_algo_last_trained_contest_id": {},
-  "last_card_hits_build_at": "",
-  "last_card_hits_changed_cards": 0,
+  "latest_local_contest_id": 4161,
+  "last_published_commit": "1dd2869d1c76d6b9c2aa0e78c1c8a9eae04419f0",
+  "per_algo_last_trained_contest_id": {
+    "arc90-logico-algoritmica": 4161,
+    "classic-analisi-anomalie-pattern": 4161,
+    "classic-co-occorrenze": 4161,
+    "classic-coppie-terni-consecutivi": 4161,
+    "classic-coppie-terzine-frequenti": 4161,
+    "classic-distribuzioni-modelli-raggruppamento": 4161,
+    "classic-frequency": 4161,
+    "classic-ritardi": 4161,
+    "classic-ritardi-combinazioni": 4161,
+    "classic-statistiche-combinate-finestre-mobili": 4161,
+    "classic-tavole-probabilita-teorica-test-uniformita": 4161,
+    "genetic": 4161,
+    "paradox-logiche-decisionali-metriche": 4161,
+    "super6NN": 4161
+  },
+  "last_card_hits_build_at": "2026-03-12T21:06:24",
+  "last_card_hits_changed_cards": 4,
   "last_successful_run_id": "",
-  "last_email_status": "",
+  "last_email_status": "Email inviata",
   "pending_publish": {},
+  "consecutive_failures": 0,
+  "last_failure_at": "",
+  "last_failure_reason": "",
   "run_journal": [
     {
-      "ts": "2026-03-11T20:37:42",
+      "ts": "2026-03-12T21:12:25",
       "event": "lock_acquired",
-      "run_id": "20260311_203742",
+      "run_id": "20260312_211225",
       "payload": {
-        "lease_until": "2026-03-11T20:39:42"
+        "lease_until": "2026-03-12T21:14:25"
       }
     },
     {
-      "ts": "2026-03-11T20:39:48",
+      "ts": "2026-03-12T21:26:32",
       "event": "lock_acquired",
-      "run_id": "20260311_203948",
+      "run_id": "20260312_212632",
       "payload": {
-        "lease_until": "2026-03-11T20:41:48"
+        "lease_until": "2026-03-12T21:28:32"
       }
     },
     {
-      "ts": "2026-03-11T20:41:55",
+      "ts": "2026-03-12T21:26:41",
+      "event": "lock_released",
+      "run_id": "20260312_210016",
+      "payload": {}
+    },
+    {
+      "ts": "2026-03-12T21:28:41",
       "event": "lock_acquired",
-      "run_id": "20260311_204155",
+      "run_id": "20260312_212841",
       "payload": {
-        "lease_until": "2026-03-11T20:43:55"
+        "lease_until": "2026-03-12T21:30:41"
       }
     },
     {
-      "ts": "2026-03-11T20:44:00",
+      "ts": "2026-03-12T21:48:52",
       "event": "lock_acquired",
-      "run_id": "20260311_204400",
+      "run_id": "20260312_214852",
       "payload": {
-        "lease_until": "2026-03-11T20:46:00"
+        "lease_until": "2026-03-12T21:50:52"
       }
     },
     {
-      "ts": "2026-03-11T20:46:07",
+      "ts": "2026-03-12T21:51:13",
       "event": "lock_acquired",
-      "run_id": "20260311_204607",
+      "run_id": "20260312_215113",
       "payload": {
-        "lease_until": "2026-03-11T20:48:07"
+        "lease_until": "2026-03-12T21:53:13"
       }
     },
     {
-      "ts": "2026-03-11T20:48:12",
+      "ts": "2026-03-12T21:55:24",
       "event": "lock_acquired",
-      "run_id": "20260311_204812",
+      "run_id": "20260312_215524",
       "payload": {
-        "lease_until": "2026-03-11T20:50:12"
+        "lease_until": "2026-03-12T21:57:24"
       }
     },
     {
-      "ts": "2026-03-11T20:50:18",
+      "ts": "2026-03-12T21:57:41",
       "event": "lock_acquired",
-      "run_id": "20260311_205018",
+      "run_id": "20260312_215741",
       "payload": {
-        "lease_until": "2026-03-11T20:52:18"
+        "lease_until": "2026-03-12T21:59:41"
       }
     },
     {
-      "ts": "2026-03-11T20:52:23",
+      "ts": "2026-03-12T22:00:22",
       "event": "lock_acquired",
-      "run_id": "20260311_205223",
+      "run_id": "20260312_220022",
       "payload": {
-        "lease_until": "2026-03-11T20:54:23"
+        "lease_until": "2026-03-12T22:02:22"
       }
     },
     {
-      "ts": "2026-03-11T20:54:36",
+      "ts": "2026-03-13T19:53:20",
       "event": "lock_acquired",
-      "run_id": "20260311_205436",
+      "run_id": "20260313_195320",
       "payload": {
-        "lease_until": "2026-03-11T20:56:36"
+        "lease_until": "2026-03-13T19:55:20"
       }
     },
     {
-      "ts": "2026-03-11T20:57:00",
+      "ts": "2026-03-13T20:03:34",
       "event": "lock_acquired",
-      "run_id": "20260311_205700",
+      "run_id": "20260313_200334",
       "payload": {
-        "lease_until": "2026-03-11T20:59:00"
+        "lease_until": "2026-03-13T20:05:34"
       }
     },
     {
-      "ts": "2026-03-11T20:59:16",
+      "ts": "2026-03-13T20:09:00",
       "event": "lock_acquired",
-      "run_id": "20260311_205916",
+      "run_id": "20260313_200900",
       "payload": {
-        "lease_until": "2026-03-11T21:01:16"
+        "lease_until": "2026-03-13T20:11:00"
       }
     },
     {
-      "ts": "2026-03-11T21:01:38",
+      "ts": "2026-03-13T20:14:18",
       "event": "lock_acquired",
-      "run_id": "20260311_210138",
+      "run_id": "20260313_201418",
       "payload": {
-        "lease_until": "2026-03-11T21:03:38"
+        "lease_until": "2026-03-13T20:16:18"
       }
     },
     {
-      "ts": "2026-03-11T21:04:13",
+      "ts": "2026-03-13T20:19:31",
       "event": "lock_acquired",
-      "run_id": "20260311_210413",
+      "run_id": "20260313_201931",
       "payload": {
-        "lease_until": "2026-03-11T21:06:13"
+        "lease_until": "2026-03-13T20:21:31"
       }
     },
     {
-      "ts": "2026-03-11T21:06:42",
+      "ts": "2026-03-13T20:24:47",
       "event": "lock_acquired",
-      "run_id": "20260311_210642",
+      "run_id": "20260313_202447",
       "payload": {
-        "lease_until": "2026-03-11T21:08:42"
+        "lease_until": "2026-03-13T20:26:47"
       }
     },
     {
-      "ts": "2026-03-11T21:37:37",
+      "ts": "2026-03-13T20:29:57",
       "event": "lock_acquired",
-      "run_id": "20260311_213737",
+      "run_id": "20260313_202957",
       "payload": {
-        "lease_until": "2026-03-11T21:39:37"
+        "lease_until": "2026-03-13T20:31:57"
       }
     },
     {
-      "ts": "2026-03-11T21:40:22",
+      "ts": "2026-03-13T20:32:11",
       "event": "lock_acquired",
-      "run_id": "20260311_214022",
+      "run_id": "20260313_203211",
       "payload": {
-        "lease_until": "2026-03-11T21:42:22"
+        "lease_until": "2026-03-13T20:34:11"
       }
     },
     {
-      "ts": "2026-03-11T21:42:40",
+      "ts": "2026-03-13T20:34:35",
       "event": "lock_acquired",
-      "run_id": "20260311_214240",
+      "run_id": "20260313_203435",
       "payload": {
-        "lease_until": "2026-03-11T21:44:40"
+        "lease_until": "2026-03-13T20:36:35"
       }
     },
     {
-      "ts": "2026-03-11T21:45:05",
+      "ts": "2026-03-13T20:36:49",
       "event": "lock_acquired",
-      "run_id": "20260311_214505",
+      "run_id": "20260313_203649",
       "payload": {
-        "lease_until": "2026-03-11T21:47:05"
+        "lease_until": "2026-03-13T20:38:49"
       }
     },
     {
-      "ts": "2026-03-11T21:51:50",
+      "ts": "2026-03-13T20:39:00",
       "event": "lock_acquired",
-      "run_id": "20260311_215150",
+      "run_id": "20260313_203900",
       "payload": {
-        "lease_until": "2026-03-11T21:53:50"
+        "lease_until": "2026-03-13T20:41:00"
       }
     },
     {
-      "ts": "2026-03-11T21:54:18",
+      "ts": "2026-03-13T20:41:09",
       "event": "lock_acquired",
-      "run_id": "20260311_215418",
+      "run_id": "20260313_204109",
       "payload": {
-        "lease_until": "2026-03-11T21:56:18"
+        "lease_until": "2026-03-13T20:43:09"
       }
     },
     {
-      "ts": "2026-03-11T21:56:25",
+      "ts": "2026-03-13T20:43:15",
       "event": "lock_acquired",
-      "run_id": "20260311_215625",
+      "run_id": "20260313_204315",
       "payload": {
-        "lease_until": "2026-03-11T21:58:25"
+        "lease_until": "2026-03-13T20:45:15"
       }
     },
     {
-      "ts": "2026-03-11T22:10:18",
+      "ts": "2026-03-13T20:45:25",
       "event": "lock_acquired",
-      "run_id": "20260311_221018",
+      "run_id": "20260313_204525",
       "payload": {
-        "lease_until": "2026-03-11T22:12:18"
+        "lease_until": "2026-03-13T20:47:25"
       }
     },
     {
-      "ts": "2026-03-11T22:16:16",
+      "ts": "2026-03-13T20:47:34",
       "event": "lock_acquired",
-      "run_id": "20260311_221616",
+      "run_id": "20260313_204734",
       "payload": {
-        "lease_until": "2026-03-11T22:18:16"
+        "lease_until": "2026-03-13T20:49:34"
       }
     },
     {
-      "ts": "2026-03-11T22:21:45",
+      "ts": "2026-03-13T20:49:44",
       "event": "lock_acquired",
-      "run_id": "20260311_222145",
+      "run_id": "20260313_204944",
       "payload": {
-        "lease_until": "2026-03-11T22:23:45"
+        "lease_until": "2026-03-13T20:51:44"
       }
     },
     {
-      "ts": "2026-03-11T22:41:44",
+      "ts": "2026-03-13T20:51:59",
       "event": "lock_acquired",
-      "run_id": "20260311_224144",
+      "run_id": "20260313_205159",
       "payload": {
-        "lease_until": "2026-03-11T22:43:44"
+        "lease_until": "2026-03-13T20:53:59"
+      }
+    },
+    {
+      "ts": "2026-03-13T20:54:59",
+      "event": "lock_acquired",
+      "run_id": "20260313_205459",
+      "payload": {
+        "lease_until": "2026-03-13T20:56:59"
+      }
+    },
+    {
+      "ts": "2026-03-13T20:58:03",
+      "event": "lock_acquired",
+      "run_id": "20260313_205803",
+      "payload": {
+        "lease_until": "2026-03-13T21:00:03"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:00:46",
+      "event": "lock_acquired",
+      "run_id": "20260313_210046",
+      "payload": {
+        "lease_until": "2026-03-13T21:02:46"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:22:24",
+      "event": "lock_acquired",
+      "run_id": "20260313_212224",
+      "payload": {
+        "lease_until": "2026-03-13T21:24:24"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:24:58",
+      "event": "lock_acquired",
+      "run_id": "20260313_212458",
+      "payload": {
+        "lease_until": "2026-03-13T21:26:58"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:25:11",
+      "event": "lock_released",
+      "run_id": "20260313_212458",
+      "payload": {}
+    },
+    {
+      "ts": "2026-03-13T21:25:54",
+      "event": "lock_acquired",
+      "run_id": "20260313_212554",
+      "payload": {
+        "lease_until": "2026-03-13T21:27:54"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:28:31",
+      "event": "lock_acquired",
+      "run_id": "20260313_212831",
+      "payload": {
+        "lease_until": "2026-03-13T21:30:31"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:30:33",
+      "event": "lock_acquired",
+      "run_id": "20260313_213033",
+      "payload": {
+        "lease_until": "2026-03-13T21:32:33"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:30:34",
+      "event": "lock_acquired",
+      "run_id": "20260313_213033",
+      "payload": {
+        "lease_until": "2026-03-13T21:32:34"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:30:36",
+      "event": "lock_acquired",
+      "run_id": "20260313_213033",
+      "payload": {
+        "lease_until": "2026-03-13T21:32:36"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:30:42",
+      "event": "lock_acquired",
+      "run_id": "20260313_213033",
+      "payload": {
+        "lease_until": "2026-03-13T21:32:42"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:30:54",
+      "event": "lock_acquired",
+      "run_id": "20260313_213033",
+      "payload": {
+        "lease_until": "2026-03-13T21:32:54"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:32:13",
+      "event": "lock_acquired",
+      "run_id": "20260313_213213",
+      "payload": {
+        "lease_until": "2026-03-13T21:34:13"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:32:14",
+      "event": "lock_acquired",
+      "run_id": "20260313_213213",
+      "payload": {
+        "lease_until": "2026-03-13T21:34:14"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:32:14",
+      "event": "lock_acquired",
+      "run_id": "20260313_213213",
+      "payload": {
+        "lease_until": "2026-03-13T21:34:14"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:33:00",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:35:00"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:33:00",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:35:00"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:33:15",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:35:15"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:33:43",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:35:43"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:36:28",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:38:28"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:39:31",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:41:31"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:39:39",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:41:39"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:39:48",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:41:48"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:39:51",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:41:51"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:40:05",
+      "event": "lock_acquired",
+      "run_id": "20260313_213300",
+      "payload": {
+        "lease_until": "2026-03-13T21:42:05"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:42:38",
+      "event": "lock_acquired",
+      "run_id": "20260313_214238",
+      "payload": {
+        "lease_until": "2026-03-13T21:44:38"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:43:19",
+      "event": "lock_acquired",
+      "run_id": "20260313_214319",
+      "payload": {
+        "lease_until": "2026-03-13T21:45:19"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:46:51",
+      "event": "lock_acquired",
+      "run_id": "20260313_214319",
+      "payload": {
+        "lease_until": "2026-03-13T21:48:51"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:49:53",
+      "event": "lock_acquired",
+      "run_id": "20260313_214319",
+      "payload": {
+        "lease_until": "2026-03-13T21:51:53"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:53:10",
+      "event": "lock_acquired",
+      "run_id": "20260313_215310",
+      "payload": {
+        "lease_until": "2026-03-13T21:55:10"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:53:18",
+      "event": "lock_acquired",
+      "run_id": "20260313_215310",
+      "payload": {
+        "lease_until": "2026-03-13T21:55:18"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:53:35",
+      "event": "lock_acquired",
+      "run_id": "20260313_215310",
+      "payload": {
+        "lease_until": "2026-03-13T21:55:35"
+      }
+    },
+    {
+      "ts": "2026-03-13T21:56:56",
+      "event": "lock_acquired",
+      "run_id": "20260313_215310",
+      "payload": {
+        "lease_until": "2026-03-13T21:58:56"
       }
     }
   ],

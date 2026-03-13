@@ -1,0 +1,42 @@
+[21:43:19] Fase OK: lock_acquire
+[21:43:19] Avvio fase: git_add_commit_push_once
+[21:43:20] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:43:20] Avvio fase: lock_release
+[21:43:20] Fase OK: lock_release
+[21:43:20] Nessun bundle pending da pubblicare
+[21:43:20] Run avviato: mode=single, action=git_add_commit_push_once
+[21:43:20] Avvio fase: lock_acquire
+[21:43:20] Errore non gestito pipeline: [WinError 5] Accesso negato: 'D:\\PROGETTI\\SuperEnalotto\\01 Superenalotto ControlChaos\\admin_renforce\\secc\\.state\\server_state.json.tmp' -> 'D:\\PROGETTI\\SuperEnalotto\\01 Superenalotto ControlChaos\\admin_renforce\\secc\\.state\\server_state.json'
+[21:43:20] Run avviato: mode=single, action=git_add_commit_push_once
+[21:43:20] Avvio fase: git_add_commit_push_once
+[21:43:20] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:43:20] Nessun bundle pending da pubblicare
+[21:43:20] Run avviato: mode=single, action=git_add_commit_push_once
+[21:43:20] Avvio fase: git_add_commit_push_once
+[21:43:20] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:43:20] Nessun bundle pending da pubblicare
+[21:43:19] Run avviato: mode=single, action=git_add_commit_push_once
+[21:43:41] Run avviato: mode=single, action=git_add_commit_push_once
+[21:43:41] Avvio fase: git_add_commit_push_once
+[21:43:41] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:43:41] Nessun bundle pending da pubblicare
+[21:44:58] Avvio fase: git_add_commit_push_once
+[21:44:59] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:44:59] Nessun bundle pending da pubblicare
+[21:44:58] Run avviato: mode=single, action=git_add_commit_push_once
+[21:46:11] Run avviato: mode=single, action=git_add_commit_push_once
+[21:46:11] Avvio fase: lock_acquire
+[21:46:51] Fase OK: lock_acquire
+[21:47:32] Avvio fase: git_add_commit_push_once
+[21:47:47] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:47:52] Avvio fase: lock_release
+[21:47:56] Fase OK: lock_release
+[21:47:56] Nessun bundle pending da pubblicare
+[21:49:35] Run avviato: mode=single, action=git_add_commit_push_once
+[21:49:35] Avvio fase: lock_acquire
+[21:49:53] Fase OK: lock_acquire
+[21:50:08] Avvio fase: git_add_commit_push_once
+[21:50:18] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
+[21:50:22] Avvio fase: lock_release
+[21:50:22] Fase OK: lock_release
+[21:50:22] Nessun bundle pending da pubblicare

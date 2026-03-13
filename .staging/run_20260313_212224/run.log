@@ -1,0 +1,3 @@
+[21:22:24] Fase OK: lock_acquire
+[21:22:24] Avvio fase: check_sources_quorum
+[21:22:24] Run avviato: mode=server, action=run_server_total

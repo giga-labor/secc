@@ -1,0 +1,4 @@
+[21:22:58] Fase KO: lock_acquire -> Lock attivo da altro run (20260313_212224)
+[21:22:58] SERVER ciclo #1: lock non disponibile (Lock attivo da altro run (20260313_212224))
+[21:22:58] SERVER: prossimo ciclo tra 2m 00s alle 21:24:58
+[21:24:58] SERVER ciclo #2: avvio

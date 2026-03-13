@@ -1,5 +1,0 @@
-[21:45:05] Fase OK: lock_acquire
-[21:45:05] Avvio fase: check_sources_quorum
-[21:45:21] Fase KO: check_sources_quorum -> Quorum insufficiente (2)
-[21:45:21] SERVER ciclo #4: quorum degraded (Quorum insufficiente (2))
-[21:45:21] Avvio fase: update_local_draws_stage
