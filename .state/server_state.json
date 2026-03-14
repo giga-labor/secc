@@ -12,27 +12,11 @@
   "last_failure_reason": "",
   "run_journal": [
     {
-      "ts": "2026-03-14T21:06:47",
+      "ts": "2026-03-14T21:54:10",
       "event": "lock_acquired",
-      "run_id": "20260314_210647",
+      "run_id": "20260314_215410",
       "payload": {
-        "lease_until": "2026-03-14T21:08:47"
-      }
-    },
-    {
-      "ts": "2026-03-14T21:09:48",
-      "event": "lock_acquired",
-      "run_id": "20260314_210948",
-      "payload": {
-        "lease_until": "2026-03-14T21:11:48"
-      }
-    },
-    {
-      "ts": "2026-03-14T21:12:31",
-      "event": "lock_acquired",
-      "run_id": "20260314_211231",
-      "payload": {
-        "lease_until": "2026-03-14T21:14:31"
+        "lease_until": "2026-03-14T21:56:10"
       }
     }
   ],
