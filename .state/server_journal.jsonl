@@ -1,2 +1,6 @@
-{"ts": "2026-03-14T11:55:20", "event": "lock_acquired", "run_id": "20260314_115520", "payload": {"lease_until": "2026-03-14T11:57:20"}}
-{"ts": "2026-03-14T11:55:23", "event": "lock_released", "run_id": "20260314_115520", "payload": {}}
+{"ts": "2026-03-14T21:06:47", "event": "lock_acquired", "run_id": "20260314_210647", "payload": {"lease_until": "2026-03-14T21:08:47"}}
+{"ts": "2026-03-14T21:07:46", "event": "lock_released", "run_id": "20260314_210647", "payload": {}}
+{"ts": "2026-03-14T21:09:48", "event": "lock_acquired", "run_id": "20260314_210948", "payload": {"lease_until": "2026-03-14T21:11:48"}}
+{"ts": "2026-03-14T21:10:30", "event": "lock_released", "run_id": "20260314_210948", "payload": {}}
+{"ts": "2026-03-14T21:12:31", "event": "lock_acquired", "run_id": "20260314_211231", "payload": {"lease_until": "2026-03-14T21:14:31"}}
+{"ts": "2026-03-14T21:12:56", "event": "lock_released", "run_id": "20260314_211231", "payload": {}}
