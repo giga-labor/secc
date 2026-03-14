@@ -1,8 +1,0 @@
-[21:22:39] Fase KO: lock_acquire -> Lock attivo da altro run (20260313_212224)
-[21:22:39] SERVER ciclo #1: lock non disponibile (Lock attivo da altro run (20260313_212224))
-[21:22:39] SERVER: prossimo ciclo tra 2m 00s alle 21:24:39
-[21:22:47] Modalita server arrestata da operatore
-[21:22:54] Run avviato: mode=server, action=run_server_total
-[21:22:46] Richiesta stop ricevuta.
-[21:22:39] Run avviato: mode=server, action=run_server_total
-[21:22:54] SERVER ciclo #1: avvio

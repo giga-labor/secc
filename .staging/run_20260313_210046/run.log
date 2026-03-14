@@ -1,5 +1,0 @@
-[21:07:42] Fase OK: train_incremental_stage_all_active
-[21:08:38] SERVER ciclo #20: stop su verify_train_outputs_stage (Run interrotto da operatore)
-[21:08:38] SERVER ciclo #20: degraded
-[21:08:38] SERVER: prossimo ciclo tra 1m 00s alle 21:09:38
-[21:08:38] Modalita server arrestata da operatore

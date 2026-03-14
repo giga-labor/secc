@@ -1,6 +1,0 @@
-[21:42:38] Fase OK: lock_acquire
-[21:42:43] Avvio fase: git_add_commit_push_once
-[21:42:43] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
-[21:42:43] Avvio fase: lock_release
-[21:42:43] Fase OK: lock_release
-[21:42:43] Nessun bundle pending da pubblicare
