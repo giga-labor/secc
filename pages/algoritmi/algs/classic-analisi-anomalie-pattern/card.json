@@ -16,5 +16,8 @@
   "hits": {
     "enabled": false,
     "count": 0
-  }
+  },
+  "type": "ALGORITMI",
+  "featured": false,
+  "news": []
 }
