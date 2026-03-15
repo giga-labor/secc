@@ -36,11 +36,13 @@ async function loadAlgorithms(area, counter) {
       loadCardsIndex(cardsIndexPath),
       loadCardsIndex(spotlightCardsIndexPath).catch(() => [])
     ]);
-    const algorithms = cards.filter((card) => card.id && card.id !== 'storico-estrazioni' && card.view === true);
+    const allAlgorithms = cards.filter((card) => isAlgorithmCard(card));
+    const algorithms = allAlgorithms.filter((card) => card.view === true);
+    const activeVisibleCount = algorithms.filter((card) => card?.isActive !== false).length;
     await preloadAlgorithmRankings(algorithms);
     await renderAlgorithms(area, algorithms, spotlightCards);
     if (counter) {
-      counter.textContent = `${algorithms.length} algoritmi`;
+      counter.textContent = `${algorithms.length} algoritmi (${activeVisibleCount} attivi)`;
     }
   } catch (error) {
     area.innerHTML = '<div class="rounded-2xl border border-dashed border-white/15 bg-midnight/70 p-5 text-sm text-ash">Impossibile caricare gli algoritmi.</div>';
@@ -326,6 +328,14 @@ function classifyAlgorithmCategory(algorithm) {
   const id = String(algorithm?.id || '');
   const title = String(algorithm?.title || '');
   return classifyCategoryFromText(`${macro} ${id} ${title}`);
+}
+
+function isAlgorithmCard(card) {
+  if (!card || typeof card !== 'object' || !card.id) return false;
+  const page = String(card.page || '').toLowerCase();
+  const type = String(card.type || '').toUpperCase();
+  if (page.includes('/pages/algoritmi/algs/') || page.includes('/algoritmi/algs/')) return true;
+  return type === 'ALGORITMI';
 }
 
 function attachVisualCategory(algorithm) {

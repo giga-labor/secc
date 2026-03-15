@@ -10,10 +10,17 @@
       const aggregatePath = resolveAggregateIndexPath(cardsIndexPath);
       if (aggregatePath) {
         const aggregate = await fetchJson(resolveWithBase(aggregatePath), { cache: 'no-store' }, true);
+        const manifestPath = resolveWithBase(resolveManifestPath(cardsIndexPath));
+        const manifest = await fetchJson(manifestPath, { cache: 'no-store' }, true);
         if (Array.isArray(aggregate) && aggregate.length) {
-          return aggregate
+          const aggregateCards = aggregate
             .map((card) => normalizeCard(card))
             .filter(Boolean);
+          if (Array.isArray(manifest) && manifest.length) {
+            const manifestCards = await buildFromManifest(manifest);
+            return mergeCardsPreferAggregate(aggregateCards, manifestCards);
+          }
+          return aggregateCards;
         }
       }
       const manifestPath = resolveWithBase(resolveManifestPath(cardsIndexPath));
@@ -101,6 +108,33 @@
       return 'data/modules-manifest.json';
     }
     return cardsIndexPath;
+  }
+
+  function mergeCardsPreferAggregate(aggregateCards, manifestCards) {
+    const out = [];
+    const byKey = new Map();
+    const keyOf = (card) => {
+      const id = String(card?.id || '').trim().toLowerCase();
+      if (id) return `id:${id}`;
+      const base = String(card?.cardBase || '').trim().toLowerCase();
+      return base ? `base:${base}` : '';
+    };
+
+    (aggregateCards || []).forEach((card) => {
+      const key = keyOf(card);
+      if (!key || byKey.has(key)) return;
+      byKey.set(key, card);
+      out.push(card);
+    });
+
+    (manifestCards || []).forEach((card) => {
+      const key = keyOf(card);
+      if (!key || byKey.has(key)) return;
+      byKey.set(key, card);
+      out.push(card);
+    });
+
+    return out;
   }
 
   function resolveAggregateIndexPath(cardsIndexPath) {
