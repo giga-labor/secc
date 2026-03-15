@@ -84,15 +84,30 @@
     <div class="content-box">
       <section class="rounded-3xl bg-transparent p-6">
         <div class="flex flex-wrap items-start justify-between gap-4">
-          <div>
+          <div class="flex-1 min-w-0">
             <p class="text-xs uppercase tracking-[0.2em] text-ash">Tipologia</p>
             <div class="mb-2 mt-1 h-px w-24 bg-gradient-to-r from-neon/80 via-white/60 to-transparent"></div>
             <h1 class="text-2xl font-semibold">Algoritmi Neurali</h1>
             <span class="mt-2 inline-flex rounded-full border border-white/10 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-ash">Ultimo aggiornamento: 07/02/2026</span>
           </div>
-          <div class="ml-auto w-[min(42vw,220px)]">
-            <a data-spotlight-hero-card class="card-3d is-active spotlight-hero-card block w-full cursor-pointer overflow-hidden rounded-xl transition hover:border-neon/70" style="aspect-ratio: 15 / 8;" href="../../#group-neurali" aria-label="Vai all'elenco algoritmi neurali">
-              <img src="img.webp" alt="Anteprima algoritmi neurali" class="block h-full w-full object-cover" loading="lazy" width="220" height="117" onerror="this.onerror=null;this.src='../../../../img/img_backup.webp';">
+          <div class="ml-auto flex w-auto items-start gap-2 self-start shrink-0 flex-nowrap">
+            <a class="cc-card cc-card3d card-3d cc-card-action cc-card-tone-menu group relative flex flex-col overflow-hidden rounded-2xl border border-white/15 transition hover:-translate-y-0.5" style="min-height:82px;width:132px;" href="../../" onclick="if (window.history.length > 1) { window.history.back(); return false; } return true;" aria-label="Torna indietro">
+              <div class="cc-card-media cc-card-media-frame relative overflow-hidden" style="width:100%;aspect-ratio:15/8;min-height:0;max-height:none;">
+                <img src="../../../../img/algoritm.webp" alt="Navigazione algoritmi" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="cc-card-body flex flex-1 flex-col items-center justify-center px-2 py-1.5 text-center">
+                <span class="text-[10px] uppercase tracking-[0.16em] text-ash/90">Navigazione</span>
+                <span class="mt-0.5 text-[11px] font-semibold text-white group-hover:text-neon">Torna indietro</span>
+              </div>
+            </a>
+            <a class="cc-card cc-card3d card-3d cc-card-action cc-card-tone-alg-neural group relative flex flex-col overflow-hidden rounded-2xl border border-[#b7a2f4]/60 transition hover:-translate-y-0.5" style="min-height:82px;width:132px;" href="../../#group-neurali" aria-label="Vai al gruppo neurali">
+              <div class="cc-card-media cc-card-media-frame relative overflow-hidden" style="width:100%;aspect-ratio:15/8;min-height:0;max-height:none;">
+                <img src="./img.webp" alt="Algoritmi neurali" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="cc-card-body flex flex-1 flex-col items-center justify-center px-2 py-1.5 text-center">
+                <span class="text-[10px] uppercase tracking-[0.16em] text-[#ddd1ff]">Neurali</span>
+                <span class="mt-0.5 text-[11px] font-semibold text-[#b7a2f4]">Vai al gruppo</span>
+              </div>
             </a>
           </div>
         </div>
@@ -144,5 +159,8 @@
   <script src="../../../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
+
+
+
 
 

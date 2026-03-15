@@ -1025,22 +1025,20 @@ if (header) {
     const dashboardHref = resolveWithBaseHref('pages/laboratorio-tecnico/index.html');
     const rankingHref = resolveWithBaseHref('pages/ranking/index.html');
     const oracleHref = resolveWithBaseHref('pages/oracle/index.html');
-    const policyHref = resolveWithBaseHref('pages/policy-consenso/index.html');
     if (left) {
       left.innerHTML = `
         <a class="cc-nav-link" href="${homeHref}">Home</a>
-        <a class="cc-nav-link" href="${algorithmsHref}">Algorithms</a>
+        <a class="cc-nav-link" href="${algorithmsHref}">Algoritmi</a>
         <a class="cc-nav-link" href="${dashboardHref}">Laboratorio</a>
-        <a class="cc-nav-link" href="${rankingHref}">Ranking</a>
+        <a class="cc-nav-link" href="${rankingHref}">Classifica Algoritmi</a>
         <a class="cc-nav-link" href="${oracleHref}">Oracle</a>
-        <a class="cc-nav-link" href="${policyHref}">Policy e Consenso</a>
       `;
     }
     if (right) {
-      right.innerHTML = '';
-      right.style.display = 'none';
-      right.hidden = true;
-      right.setAttribute('aria-hidden', 'true');
+      right.style.display = '';
+      right.hidden = false;
+      right.removeAttribute('aria-hidden');
+      right.innerHTML = '<div class="cc-nav-policy-host" data-cc-nav-policy-host="true" aria-live="polite"></div>';
     }
     if (marquee) marquee.style.display = 'none';
     if (title) title.style.display = 'none';
@@ -1055,16 +1053,14 @@ if (header) {
         let active = false;
         if (label === 'home') {
           active = path === '/' || (path.endsWith('/index.html') && !path.includes('/pages/'));
-        } else if (label === 'algorithms') {
+        } else if (label === 'algoritmi') {
           active = path.includes('/pages/algoritmi/');
         } else if (label === 'laboratorio') {
           active = path.includes('/pages/laboratorio-tecnico/') || path.includes('/pages/laboratorio-tecnico/');
-        } else if (label === 'ranking') {
+        } else if (label === 'classifica algoritmi') {
           active = path.includes('/pages/ranking/');
         } else if (label === 'oracle') {
           active = path.includes('/pages/oracle/');
-        } else if (label === 'policy e consenso') {
-          active = path.includes('/pages/policy-consenso/');
         }
         link.classList.toggle('is-active', active);
       });

@@ -1,6 +1,101 @@
 ﻿(function () {
 document.addEventListener('DOMContentLoaded', () => {
       const LAB_TECH_URL = '../../../laboratorio-tecnico/';
+      if (document.body) document.body.dataset.pageKicker = 'off';
+      const main = document.querySelector('main');
+      if (main) main.dataset.pageKicker = 'off';
+      document.querySelectorAll('header[data-page-kicker-wrap]').forEach((el) => el.remove());
+      const GROUP_META = {
+        statistici: {
+          label: 'Statistici',
+          href: '../../#group-statistici',
+          toneClass: 'cc-card-tone-alg-stat',
+          borderClass: 'border-[#8fceec]/60',
+          titleClass: 'text-[#bfe8ff]',
+          ctaClass: 'text-[#8fceec]',
+          image: '../../spotlight/statistici/img.webp'
+        },
+        neurali: {
+          label: 'Neurali',
+          href: '../../#group-neurali',
+          toneClass: 'cc-card-tone-alg-neural',
+          borderClass: 'border-[#b7a2f4]/60',
+          titleClass: 'text-[#ddd1ff]',
+          ctaClass: 'text-[#b7a2f4]',
+          image: '../../spotlight/neurali/img.webp'
+        },
+        ibridi: {
+          label: 'Ibridi',
+          href: '../../#group-ibridi',
+          toneClass: 'cc-card-tone-alg-hybrid',
+          borderClass: 'border-[#7ecba5]/60',
+          titleClass: 'text-[#c9f2de]',
+          ctaClass: 'text-[#7ecba5]',
+          image: '../../spotlight/ibridi/img.webp'
+        }
+      };
+      const resolveGroupKey = (raw) => {
+        const key = String(raw || '').trim().toLowerCase();
+        if (!key) return 'statistici';
+        if (key.includes('neur')) return 'neurali';
+        if (key.includes('ibrid') || key.includes('hybrid') || key.includes('custom')) return 'ibridi';
+        return 'statistici';
+      };
+      const injectSheetNavCards = (groupKey) => {
+        if (document.querySelector('[data-sheet-nav-cards="1"]')) return;
+        const meta = GROUP_META[groupKey] || GROUP_META.statistici;
+        const host = document.createElement('div');
+        host.dataset.sheetNavCards = '1';
+        host.className = 'ml-auto flex flex-nowrap items-start justify-end gap-2';
+        host.style.position = 'fixed';
+        host.style.top = 'calc(var(--fixed-header-offset, 88px) + 42px)';
+        host.style.right = 'calc(var(--ad-reserve-right, 0px) + 8px)';
+        host.style.zIndex = '2147481000';
+        host.style.display = 'flex';
+        host.style.flexWrap = 'nowrap';
+        host.style.gap = '8px';
+        host.style.pointerEvents = 'none';
+        host.innerHTML = `
+          <a class="cc-card cc-card3d card-3d cc-card-action cc-card-tone-menu group relative flex flex-col overflow-hidden rounded-2xl border border-white/15 transition hover:-translate-y-0.5 shrink-0" style="min-height:72px;width:114px;" href="../../" onclick="if (window.history.length > 1) { window.history.back(); return false; } return true;" aria-label="Torna indietro">
+            <div class="cc-card-media cc-card-media-frame relative overflow-hidden" style="width:100%;aspect-ratio:15/8;min-height:0;max-height:none;">
+              <img src="/img/algoritm.webp" alt="Navigazione algoritmi" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="cc-card-body flex flex-1 flex-col items-center justify-center px-2 py-1.5 text-center">
+              <span class="text-[10px] uppercase tracking-[0.16em] text-ash/90">Navigazione</span>
+              <span class="mt-0.5 text-[10px] font-semibold text-white group-hover:text-neon">Torna indietro</span>
+            </div>
+          </a>
+          <a class="cc-card cc-card3d card-3d cc-card-action ${meta.toneClass} group relative flex flex-col overflow-hidden rounded-2xl border ${meta.borderClass} transition hover:-translate-y-0.5 shrink-0" style="min-height:72px;width:114px;" href="${meta.href}" aria-label="Vai al gruppo ${meta.label.toLowerCase()}">
+            <div class="cc-card-media cc-card-media-frame relative overflow-hidden" style="width:100%;aspect-ratio:15/8;min-height:0;max-height:none;">
+              <img src="${meta.image}" alt="Algoritmi ${meta.label.toLowerCase()}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="cc-card-body flex flex-1 flex-col items-center justify-center px-2 py-1.5 text-center">
+              <span class="text-[10px] uppercase tracking-[0.16em] ${meta.titleClass}">${meta.label}</span>
+              <span class="mt-0.5 text-[10px] font-semibold ${meta.ctaClass}">Vai al gruppo</span>
+            </div>
+          </a>
+        `;
+        document.body.appendChild(host);
+        if (window.CARDS && typeof window.CARDS.enableDepth === 'function') {
+          window.CARDS.enableDepth(host);
+        }
+      };
+      const ensureFixedSheetTitle = () => {
+        const fixed = document.querySelector('[data-sheet-fixed-title="1"]');
+        if (fixed) fixed.remove();
+        if (document.body) document.body.removeAttribute('data-sheet-fixed-title-ready');
+      };
+      fetch('card.json', { cache: 'no-store' })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((card) => {
+          injectSheetNavCards(resolveGroupKey(card?.macroGroup));
+          ensureFixedSheetTitle();
+        })
+        .catch(() => {
+          injectSheetNavCards('statistici');
+          ensureFixedSheetTitle();
+        });
+
       if (!document.getElementById('cc-proposal-style')) {
         const proposalStyle = document.createElement('style');
         proposalStyle.id = 'cc-proposal-style';
@@ -24,6 +119,76 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         `;
         document.head.appendChild(proposalStyle);
+      }
+      if (!document.getElementById('cc-sheet-nav-style')) {
+        const navStyle = document.createElement('style');
+        navStyle.id = 'cc-sheet-nav-style';
+        navStyle.textContent = `
+          [data-sheet-nav-cards="1"] {
+            position: fixed;
+            top: calc(var(--fixed-header-offset, 88px) + 42px);
+            right: calc(var(--ad-reserve-right, 0px) + 8px);
+            z-index: 2147481000;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 8px;
+            pointer-events: none;
+          }
+          [data-sheet-nav-cards="1"] > a {
+            pointer-events: auto;
+          }
+          @media (max-width: 1023px) {
+            [data-sheet-nav-cards="1"] {
+              right: 8px;
+              top: calc(var(--fixed-header-offset, 84px) + 34px);
+            }
+          }
+        `;
+        document.head.appendChild(navStyle);
+      }
+      if (!document.getElementById('cc-sheet-title-pin-style')) {
+        const titleStyle = document.createElement('style');
+        titleStyle.id = 'cc-sheet-title-pin-style';
+        titleStyle.textContent = `
+          [data-tab-panel="algoritmo"] > section[data-adsense-quality] > :is(h1,h2,h3) {
+            display: none !important;
+          }
+          [data-tab-panel="algoritmo"] > :is(h1,h2,h3) {
+            display: none !important;
+          }
+          [data-tab-panel="algoritmo"] section > :is(h1,h2,h3) {
+            display: none !important;
+          }
+          [data-tab-panel="algoritmo"] :is(h1,h2,h3) {
+            display: none !important;
+          }
+          [data-tab-panel="algoritmo"] > section[data-adsense-quality] {
+            padding-top: 4.4rem;
+          }
+          [data-sheet-fixed-title="1"] {
+            position: fixed;
+            top: calc(var(--fixed-header-offset, 88px) + 42px);
+            left: 10px;
+            z-index: 2147480900;
+            display: inline-block !important;
+            max-width: min(74vw, 960px);
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            pointer-events: none;
+            font-size: clamp(2rem, 3.3vw, 2.9rem) !important;
+            line-height: 1.05 !important;
+          }
+          [data-sheet-fixed-title="1"]::after {
+            content: none;
+          }
+        `;
+        document.head.appendChild(titleStyle);
       }
       const RANKING_PAYOUTS = {
         0: 1.53,
@@ -142,10 +307,14 @@ document.addEventListener('DOMContentLoaded', () => {
             editorialSection.classList.toggle('hidden', !showEditorial);
           }
           updateNotch();
+          ensureFixedSheetTitle();
         };
         const tabsRuntimeId = root.dataset.tabsRuntimeId || `sheet-tabs-${Math.random().toString(36).slice(2, 8)}`;
         root.dataset.tabsRuntimeId = tabsRuntimeId;
-        const refreshTabsLayout = () => window.requestAnimationFrame(updateNotch);
+        const refreshTabsLayout = () => window.requestAnimationFrame(() => {
+          updateNotch();
+          ensureFixedSheetTitle();
+        });
         buttons.forEach((btn) => {
           btn.addEventListener('click', () => activate(btn.dataset.tabTarget));
         });
@@ -217,21 +386,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const panel = document.querySelector('[data-tab-panel="algoritmo"]');
         const box = panel ? panel.querySelector('section[data-adsense-quality]') : null;
         if (!box) return;
-        const name = normalizeInlineText(
-          document.querySelector('h1.sr-only')?.textContent ||
-          document.title.replace(/\s*-\s*SuperEnalotto Control Chaos\s*$/i, ''),
-          80
-        ) || 'Modulo';
         const intro = normalizeInlineText(summary.intro, 220) || 'Questa scheda mostra il funzionamento pratico del modulo in modo rapido.';
         const scope = normalizeInlineText(summary.scope, 220) || 'Usa la tab Storica e la tab Metrica per verificare andamento e coerenza nel tempo.';
         const output = normalizeInlineText(summary.output, 220) || 'La proposta resta comparativa: serve per orientarti, non per promettere esiti.';
         box.innerHTML = `
-      <h3 class="text-xl font-semibold">In breve: ${escapeHtml(name)}</h3>
       <p class="mt-3 text-sm text-ash">${escapeHtml(intro)}</p>
       <p class="mt-3 text-sm text-ash">${escapeHtml(scope)}</p>
       <p class="mt-3 text-sm text-ash">${escapeHtml(output)}</p>
       <p class="mt-3 text-sm text-ash">La versione tecnica estesa, con note metodologiche complete, e centralizzata nel Laboratorio tecnico.</p>
     `;
+        ensureFixedSheetTitle();
         ensureLabCta(box);
       };
       renderOperationalAlgorithmPanel();

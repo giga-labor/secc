@@ -66,6 +66,33 @@
         transition: transform 130ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 180ms ease, border-color 180ms ease, filter 180ms ease;
         will-change: transform;
       }
+      .cards-shell,
+      .cards-viewport,
+      [data-algorithms-area],
+      [data-group-grid],
+      .tabs-sheet,
+      .tabs-sheet .grid {
+        overflow: visible !important;
+      }
+      [data-module-area] {
+        overflow: visible !important;
+      }
+      [data-module-area][data-module-scroll] {
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+      }
+      .cc-card3d,
+      .card-3d {
+        z-index: 1;
+      }
+      .cc-card3d:hover,
+      .cc-card3d.is-hovered,
+      .cc-card3d:focus-visible,
+      .card-3d:hover,
+      .card-3d.is-hovered,
+      .card-3d:focus-visible {
+        z-index: 28;
+      }
       .cc-card3d::before {
         content: '';
         position: absolute;
@@ -536,7 +563,7 @@
         display: block;
       }
       .cc-card3d[data-cc-card-root="1"] {
-        contain: layout paint;
+        contain: layout style;
       }
       .cc-card3d[data-cc-card-root="1"] .cc-card-media-frame {
         position: relative !important;
