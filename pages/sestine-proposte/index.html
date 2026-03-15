@@ -46,6 +46,26 @@
   <link rel="stylesheet" href="../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
   <link rel="stylesheet" href="/assets/css/lab-referral.css">
+  <style>
+    @media (max-width: 768px) {
+      .cc-proposal-row {
+        min-width: 0 !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.45rem !important;
+        align-items: start !important;
+      }
+      .cc-proposal-balls {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(2.15rem, max-content));
+        justify-content: start !important;
+        gap: 0.42rem 0.52rem !important;
+        white-space: normal !important;
+      }
+      .cc-proposal-rank {
+        text-align: left !important;
+      }
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="proposte" data-style-lock="final" data-auto-tabs="off">
   <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
