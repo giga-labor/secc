@@ -1,0 +1,158 @@
+﻿HiSPA - Historical Pattern Scoring Algorithm (SECC-Compliant)
+============================================================
+
+Scopo
+-----
+HiSPA e un algoritmo statistico puro, progressivo e deterministico per generare la proposta del concorso N+1 usando solo dati disponibili fino al concorso N.
+
+Compliance SECC (obbligatoria)
+------------------------------
+HiSPA deve rispettare lo stesso standard degli algoritmi statistici SECC esistenti.
+
+1) Architettura (regola richiesta):
+- `run.py` resta solo interfaccia/entrypoint SECC.
+- La logica algoritmica non va concentrata in `run.py`.
+- L'algoritmo deve vivere in una cartella dedicata:
+  - `pages/algoritmi/algs/hispa/core/`
+  - moduli consigliati: `engine.py`, `model.py`, `io_utils.py`, `backtest.py`.
+- `run.py` deve solo:
+  - leggere configurazione/input
+  - chiamare il motore in `core`
+  - salvare output standard in `out/`
+
+2) Struttura file algoritmo:
+- `pages/algoritmi/algs/hispa/run.py`
+- `pages/algoritmi/algs/hispa/core/` (cartella dedicata logica)
+- `pages/algoritmi/algs/hispa/out/analysis.txt`
+- `pages/algoritmi/algs/hispa/out/algorithm-sheet.csv`
+- `pages/algoritmi/algs/hispa/out/historical-db.csv`
+- `pages/algoritmi/algs/hispa/out/metrics-db.csv`
+
+3) Input draws (stesso pattern SECC):
+- prima scelta: variabile env `SECC_ADMIN_DRAWS_PATH`
+- fallback: `archives/draws/draws.csv`
+- supporto CSV con delimitatore `,` o `;`
+- campi attesi: `NR. SEQUENZIALE`, `DATA`, `N1..N6`
+
+4) Output `historical-db.csv` (stesso schema SECC):
+- colonne: `NR. SEQUENZIALE,DATA,N1,N2,N3,N4,N5,N6`
+- ogni riga = proposta prodotta per quel concorso target
+- numero indovinato va marcato con parentesi quadre, es. `[27]`
+
+5) Output `metrics-db.csv` (stesso schema SECC):
+- colonne: `METRICA,VALORE,NOTE`
+- includere almeno: concorsi analizzati, media hit/sestina, hit rate >=2, best streak, ultimo concorso calcolato, concorso successivo stimato, sestina proposta prossimo concorso
+
+6) Output `algorithm-sheet.csv`:
+- colonne: `CHIAVE,VALORE`
+- chiavi minime: `INTRO, SCOPO, INPUT, METODO, OUTPUT, LIMITI`
+
+7) Output `analysis.txt`:
+- testo breve di sintesi run incrementale
+
+8) Modalita operativa:
+- incremento progressivo (append solo concorsi nuovi)
+- se storico out incoerente rispetto al draws corrente: rebuild safe
+
+Regola temporale (no leakage)
+-----------------------------
+Per stimare N+1:
+- query = sestina reale del concorso N
+- ricerca pattern solo in 1..N-1
+- eventi osservati su t+1 (con t <= N-1)
+- il concorso N+1 reale e usato solo per validazione backtest
+
+Pattern usati
+-------------
+Dalla query Q(N) generare tutti i sottoinsiemi non vuoti:
+- ordine 1: 6 singoli
+- ordine 2: 15 coppie
+- ordine 3: 20 terzine
+- ordine 4: 15 quartine
+- ordine 5: 6 cinquine
+- ordine 6: 1 sestina
+Totale: 63 pattern
+
+Formula score numeri (HiSPA)
+----------------------------
+Per ogni pattern p di ordine o, frequenza storica f_p(N) su 1..N-1:
+
+peso_pattern(p, N) = W[o] * rarita(f_p(N)) * affidabilita(f_p(N), o)
+
+Scelta consigliata:
+- rarita(f) = 1 / (f ^ alpha)
+- affidabilita(f, o) = f / (f + k[o])
+
+Quindi:
+
+peso_pattern(p, N) = W[o] * (f_p(N)^(1-alpha)) / (f_p(N) + k[o])
+
+Default consigliato: alpha = 0.5
+
+Score del numero x (1..90):
+
+Score_N(x) = Somma_{p in Patterns(Q(N))} Somma_{t in Occ(p,1..N-1)} [peso_pattern(p,N) * I(x in D(t+1))]
+
+Dove:
+- D(t+1) = sestina reale del concorso successivo
+- I(condizione) = 1 se vero, 0 altrimenti
+
+Pesi iniziali consigliati
+------------------------
+W:
+- W[1]=1.00
+- W[2]=1.80
+- W[3]=3.20
+- W[4]=5.00
+- W[5]=4.20
+- W[6]=3.00
+
+k:
+- k[1]=20
+- k[2]=10
+- k[3]=6
+- k[4]=4
+- k[5]=3
+- k[6]=2
+
+Interpretazione
+---------------
+- rarita alta aumenta influenza informativa
+- affidabilita bassa frena pattern con campione scarso
+- pattern troppo comuni vengono ridimensionati
+- obiettivo: segnali rari ma credibili
+
+Backtest progressivo
+--------------------
+Per N da START a LAST-1:
+1. usa Q(N)
+2. calcola score 1..90 su storico 1..N-1
+3. proposta = top-6 score
+4. confronta con estrazione reale N+1
+5. salva su `historical-db.csv` con hit marcati `[NN]`
+6. aggiorna `metrics-db.csv`, `algorithm-sheet.csv`, `analysis.txt`
+
+Metriche cumulative minime
+--------------------------
+- distribuzione hit 0..6
+- media hit/sestina
+- hit rate >=2
+- best streak (>=1 hit)
+- media hit ultimi 100
+
+Classificazione metodologica
+----------------------------
+HiSPA resta statistico puro:
+- nessun ML supervisionato
+- nessuna rete neurale
+- nessun training su target futuri
+- solo frequenze empiriche condizionate + scoring deterministico
+
+Naming
+------
+Nome ufficiale consigliato:
+HiSPA = Historical Pattern Scoring Algorithm
+
+Nota: nome coerente, distintivo e adatto al sistema SECC.
+
+

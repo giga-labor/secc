@@ -1,0 +1,8 @@
+CHIAVE,VALORE
+INTRO,HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi.
+SCOPO,Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale.
+INPUT,draws.csv ordinato per NR. SEQUENZIALE | query=N | ricerca pattern su 1..N-1 | verifica su N+1
+METODO,63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati
+OUTPUT,historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt
+LIMITI,Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura.
+PARAMETRI,alpha=0.50 | W1=1.00 | W2=1.80 | W3=3.20 | W4=5.00 | W5=4.20 | W6=3.00 | k1=20 | k2=10 | k3=6 | k4=4 | k5=3 | k6=2
