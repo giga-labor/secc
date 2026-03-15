@@ -520,19 +520,28 @@
     })();
 
     let proposalText = '(NO DATA)';
+    let proposalHtml = '(NO DATA)';
+    let proposalHasBalls = false;
     let proposalClass = 'text-rose-300 border-rose-300/55 bg-rose-300/8';
     if (proposalHas6) {
       if (!Number.isFinite(latestArchiveSeq) || !nextSeqValid || isUpdated) {
         proposalText = proposalNumbers.join(' ');
+        proposalHtml = proposalNumbers
+          .map((value) => `<span class="ball-3d">${this.escapeHtml(value)}</span>`)
+          .join('');
+        proposalHasBalls = true;
         proposalClass = proposalGlowByTone;
       } else {
         proposalText = '(NO UPD)';
+        proposalHtml = '(NO UPD)';
         proposalClass = 'text-amber-300 border-amber-300/60 bg-amber-300/10 shadow-[0_0_12px_rgba(251,191,36,0.22)]';
       }
     } else if (!archiveAvailable && !hasTrainingSignals) {
       proposalText = '(NO DATA)';
+      proposalHtml = '(NO DATA)';
     } else {
       proposalText = '(NO UPD)';
+      proposalHtml = '(NO UPD)';
       proposalClass = 'text-amber-300 border-amber-300/60 bg-amber-300/10 shadow-[0_0_12px_rgba(251,191,36,0.22)]';
     }
     const isNoDataProposal = proposalText === '(NO DATA)';
@@ -597,7 +606,7 @@
     `;
     const footerHtml = `
       ${showRanking ? `<span class="cc-ranking-strip" aria-label="Ranking algoritmo"><span class="cc-ranking-strip__text">${rankingText}</span></span>` : ''}
-      <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] whitespace-nowrap overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)] ${proposalClass}${hideNoDataProposal ? ' hidden' : ''}" style="font-size:clamp(0.42rem,0.68vw,0.64rem);text-align:center;" data-proposal-box>${hideNoDataProposal ? '' : proposalText}</div>
+      <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto border px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)] ${proposalHasBalls ? 'has-balls flex flex-wrap items-center justify-center gap-1 rounded-2xl' : 'rounded-full whitespace-nowrap'} ${proposalClass}${hideNoDataProposal ? ' hidden' : ''}" style="font-size:clamp(0.42rem,0.68vw,0.64rem);text-align:center;" data-proposal-box>${hideNoDataProposal ? '' : proposalHtml}</div>
     `;
 
     this.mountCardSlots(card, {
