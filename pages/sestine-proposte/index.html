@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = 276;
+      if (w >= 1600) {
+        desktopReserve = 366;
+      } else if (w >= 1400) {
+        desktopReserve = 336;
+      } else if (w >= 1200) {
+        desktopReserve = 316;
+      }
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+      root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
+    })();
+  </script>
+  <title>Sestine Proposte - SuperEnalotto Control Chaos</title>
+  <meta name="description" content="Sestine proposte ordinate per ranking dagli algoritmi attivi.">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/sestine-proposte/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional"></noscript>
+  <script src="../../assets/js/ga4.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/site-guide.css">
+  <link rel="stylesheet" href="../../assets/css/user-first.css">
+  <link rel="stylesheet" href="/assets/css/balls-standard.css">
+  <link rel="stylesheet" href="/assets/css/lab-referral.css">
+</head>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="proposte" data-style-lock="final" data-auto-tabs="off">
+  <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
+    <h1 class="sr-only">Sestine Proposte</h1>
+    <div class="content-box">
+      <header class="mt-6 space-y-3" data-page-kicker-wrap>
+        <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Proposte</span>
+        <h2 class="text-white text-xl font-semibold">Sestine proposte ordinate per ranking</h2>
+        <p class="text-ash">Elenco aggiornato delle proposte generate dagli algoritmi attivi.</p>
+      </header>
+
+      <section class="rounded-3xl bg-transparent p-0 mt-6 space-y-3">
+        <div class="max-h-[34rem] overflow-auto pr-1 space-y-2 text-center" data-proposals-list>
+          <div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">
+            Caricamento proposte in corso...
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../assets/js/version.js" defer></script>
+  <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/cards.js" defer></script>
+  <script src="../../assets/js/component-builder.js" defer></script>
+  <script src="../../assets/js/ads.js" defer></script>
+  <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+  <script>
+    (function () {
+      const toHref = (path) => {
+        const p = String(path || '').trim();
+        if (!p) return '#';
+        if (/^https?:\/\//i.test(p) || p.startsWith('/')) return p;
+        return `../../${p.replace(/^\.?\/*/, '')}`;
+      };
+
+      const escapeHtml = (value) => String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+      const getBallTone = (n) => {
+        if (!Number.isFinite(n)) return '';
+        if (n <= 15) return 'cc-ball-tone--azure';
+        if (n <= 30) return 'cc-ball-tone--coral';
+        if (n <= 45) return 'cc-ball-tone--gold';
+        if (n <= 60) return 'cc-ball-tone--emerald';
+        if (n <= 75) return 'cc-ball-tone--violet';
+        return 'cc-ball-tone--rose';
+      };
+
+      const loadManifestCards = async () => {
+        if (window.CC_REPO && typeof window.CC_REPO.loadCardsByManifest === 'function') {
+          return window.CC_REPO.loadCardsByManifest('../../data/modules-manifest.json');
+        }
+        const res = await fetch('../../data/modules-manifest.json', { cache: 'no-store' });
+        if (!res.ok) return [];
+        const manifest = await res.json();
+        const entries = Array.isArray(manifest?.cards) ? manifest.cards : (Array.isArray(manifest) ? manifest : []);
+        if (!entries.length) return [];
+        if (entries.every((e) => typeof e === 'string')) {
+          const rows = await Promise.all(entries.map(async (entry) => {
+            try {
+              const r = await fetch(toHref(entry), { cache: 'no-store' });
+              if (!r.ok) return null;
+              return await r.json();
+            } catch (_) {
+              return null;
+            }
+          }));
+          return rows.filter(Boolean);
+        }
+        return entries.filter((e) => e && typeof e === 'object');
+      };
+
+      const render = async () => {
+        const host = document.querySelector('[data-proposals-list]');
+        if (!host) return;
+        const cardsApi = window.CARDS;
+        if (!cardsApi) {
+          host.innerHTML = '<div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">Motore card non disponibile.</div>';
+          return;
+        }
+
+        const modules = await loadManifestCards();
+        const activeAlgorithms = (Array.isArray(modules) ? modules : []).filter((card) => {
+          if (!card || card.isActive === false) return false;
+          const page = String(card.page || '').toLowerCase();
+          return page.includes('/algoritmi/algs/');
+        });
+
+        if (!activeAlgorithms.length) {
+          host.innerHTML = '<div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">Nessun algoritmo attivo disponibile.</div>';
+          return;
+        }
+
+        const latestArchiveSeq = (typeof cardsApi.getLatestArchiveSeq === 'function')
+          ? await cardsApi.getLatestArchiveSeq()
+          : null;
+
+        const rows = await Promise.all(activeAlgorithms.map(async (card) => {
+          let ranking = Number.isFinite(card?.rankingValue) ? Number(card.rankingValue) : Number.NaN;
+          if (!Number.isFinite(ranking) && typeof cardsApi.computeRankingForAlgorithm === 'function') {
+            ranking = await cardsApi.computeRankingForAlgorithm(card);
+          }
+
+          let proposal = [];
+          if (typeof cardsApi.resolveMetricsUrl === 'function'
+            && typeof cardsApi.readCsvRows === 'function'
+            && typeof cardsApi.extractProposalInfo === 'function'
+            && typeof cardsApi.normalizeProposalNumbers === 'function') {
+            const metricsUrl = cardsApi.resolveMetricsUrl(card);
+            const metricsRows = await cardsApi.readCsvRows(metricsUrl);
+            const info = cardsApi.extractProposalInfo(metricsRows || []);
+            const nextSeq = Number.isFinite(info?.nextSeq) ? info.nextSeq : null;
+            const isUpdated = Number.isFinite(latestArchiveSeq) && Number.isFinite(nextSeq) && nextSeq > latestArchiveSeq;
+            proposal = isUpdated || !Number.isFinite(latestArchiveSeq)
+              ? cardsApi.normalizeProposalNumbers(info?.proposal)
+              : [];
+          }
+
+          return { card, ranking, proposal };
+        }));
+
+        const rowsWithProposal = rows
+          .filter((row) => Array.isArray(row.proposal) && row.proposal.length === 6)
+          .sort((a, b) => {
+            const ra = Number.isFinite(a.ranking) ? a.ranking : Number.NEGATIVE_INFINITY;
+            const rb = Number.isFinite(b.ranking) ? b.ranking : Number.NEGATIVE_INFINITY;
+            return rb - ra;
+          });
+
+        if (!rowsWithProposal.length) {
+          host.innerHTML = '<div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">Nessuna proposta disponibile al momento.</div>';
+          return;
+        }
+
+        const rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        host.innerHTML = rowsWithProposal.map((row) => {
+          const title = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
+          const href = escapeHtml(toHref(row.card.page || '#'));
+          const rank = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
+          const balls = row.proposal.map((value) => {
+            const tone = getBallTone(parseInt(value, 10));
+            return `<span class="cc-proposal-ball${tone ? ` ${tone}` : ''}">${escapeHtml(value)}</span>`;
+          }).join('');
+          return `
+            <a href="${href}" class="cc-proposal-row" title="${title}">
+              <span class="cc-proposal-alg cc-alg-link">${title}</span>
+              <span class="cc-proposal-balls">${balls}</span>
+              <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
+            </a>
+          `;
+        }).join('');
+      };
+
+      window.addEventListener('load', () => {
+        window.setTimeout(() => { render().catch(() => {}); }, 60);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -5,8 +5,7 @@
   const DEFAULT_MODULES = [
     "site-guide.js",
     "user-first.js",
-    "balls-standardizer.js",
-    "lab-referral.js"
+    "balls-standardizer.js"
   ];
 
   const loaded = new Set();
@@ -80,4 +79,3 @@
     window.addEventListener("load", schedule, { once: true, passive: true });
   }
 })();
-

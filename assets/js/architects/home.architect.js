@@ -38,10 +38,10 @@
             forceActive: false,
             sourceBlock: 'home_news',
             chunked: true,
-            chunkSize: 6,
-            initialLimit: 1,
-            deferRestMs: 2500,
-            renderRestInIdle: true,
+            chunkSize: 8,
+            initialLimit: 8,
+            deferRestMs: 0,
+            renderRestInIdle: false,
             deferDepth: true
           });
           continue;
@@ -95,28 +95,18 @@
 
     async buildHomeNewsCards(allCards) {
       const cards = Array.isArray(allCards) ? allCards : [];
-      const included = cards.filter((card) => this.isNewsFeedEligibleCard(card));
-      const storicoCard = included.find((card) => String(card?.id || '').toLowerCase() === 'storico-estrazioni')
-        || included.find((card) => String(card?.type || '').toLowerCase() === 'storico');
+      const maxCards = 8;
+      const storicoCard = cards.find((card) => String(card?.id || '').toLowerCase() === 'storico-estrazioni')
+        || cards.find((card) => String(card?.type || '').toLowerCase() === 'storico');
+      const proposteInfoCard = cards.find((card) => String(card?.id || '').toLowerCase() === 'sestine-proposte-info');
 
-      const core = included.filter((card) => card !== storicoCard);
-      const withHits = core
-        .filter((card) => this.hasHitsBadge(card))
-        .sort((a, b) => {
-          const hitDelta = this.getHitCount(b) - this.getHitCount(a);
-          if (hitDelta !== 0) return hitDelta;
-          return String(b.lastUpdated || '').localeCompare(String(a.lastUpdated || ''));
-        });
-      const activeNews = core
-        .filter((card) => card.isActive !== false && this.hasNewsBadge(card) && !this.hasHitsBadge(card))
-        .sort((a, b) => String(b.lastUpdated || '').localeCompare(String(a.lastUpdated || '')));
-      const comingSoon = core
-        .filter((card) => card.isActive === false && !this.hasHitsBadge(card))
-        .sort((a, b) => String(a.title || a.id || '').localeCompare(String(b.title || b.id || '')));
+      const core = cards.filter((card) => card && card !== storicoCard && card !== proposteInfoCard && card.view === true && card.isActive !== false);
+      const algorithmCards = core.filter((card) => this.isAlgorithmCard(card));
 
       const ordered = [];
       const seen = new Set();
       const pushUnique = (card) => {
+        if (ordered.length >= maxCards) return;
         if (!card) return;
         const key = String(card.id || card.page || card.title || '').toLowerCase();
         if (!key || seen.has(key)) return;
@@ -125,48 +115,63 @@
       };
 
       pushUnique(storicoCard);
-      withHits.forEach(pushUnique);
-      activeNews.forEach(pushUnique);
+      pushUnique(proposteInfoCard);
 
-      // Add rotating random cards before coming soon items.
-      const randomPool = cards.filter((card) => {
-        if (!card || card.view === false || card.isActive === false) return false;
+      const cardsApi = window.CARDS;
+      const latestArchiveSeq = (cardsApi && typeof cardsApi.getLatestArchiveSeq === 'function')
+        ? await cardsApi.getLatestArchiveSeq()
+        : NaN;
+
+      const latestHitRows = await Promise.all(algorithmCards.map(async (card) => {
+        const latestContestHits = await this.getLatestContestHits(card, latestArchiveSeq, cardsApi);
+        return { card, latestContestHits };
+      }));
+      const withRecentStrongHits = latestHitRows
+        .filter((row) => Number.isFinite(row.latestContestHits) && row.latestContestHits >= 2)
+        .sort((a, b) => {
+          const hitDelta = b.latestContestHits - a.latestContestHits;
+          if (hitDelta !== 0) return hitDelta;
+          return String(b.card?.lastUpdated || '').localeCompare(String(a.card?.lastUpdated || ''));
+        })
+        .map((row) => row.card);
+      withRecentStrongHits.forEach(pushUnique);
+
+      const rankingRows = await Promise.all(algorithmCards.map(async (card) => {
+        let ranking = Number.isFinite(card?.rankingValue) ? Number(card.rankingValue) : Number.NaN;
+        if (!Number.isFinite(ranking) && cardsApi && typeof cardsApi.computeRankingForAlgorithm === 'function') {
+          ranking = await cardsApi.computeRankingForAlgorithm(card);
+        }
+        return {
+          card,
+          ranking,
+          family: this.resolveAlgorithmFamily(card)
+        };
+      }));
+      const byFamilyTop = ['statistico', 'neurale', 'ibrido']
+        .map((family) => rankingRows
+          .filter((row) => row.family === family && Number.isFinite(row.ranking))
+          .sort((a, b) => b.ranking - a.ranking)[0])
+        .filter(Boolean)
+        .map((row) => row.card);
+      byFamilyTop.forEach(pushUnique);
+
+      const randomPool = core.filter((card) => {
         const key = String(card.id || card.page || card.title || '').toLowerCase();
         return Boolean(key) && !seen.has(key);
       });
       this.shuffleInPlace(randomPool);
-      const randomExtras = randomPool.slice(0, 3).map((card, idx) => ({
-        ...card,
-        hasNews: true,
-        statusTag: card.statusTag || 'Random',
-        subtitle: String(card.subtitle || card.narrativeSummary || 'Scelta casuale del momento').trim(),
-        __homeRandom: true,
-        __homeRandomOrder: idx + 1
-      }));
-      randomExtras.forEach(pushUnique);
-      comingSoon.forEach(pushUnique);
-
-      // Safety net: if nothing is eligible, still show a small random set.
-      if (!ordered.length) {
-        const fallbackPool = cards.filter((card) => {
-          if (!card || card.view === false || card.isActive === false) return false;
-          const key = String(card.id || card.page || card.title || '').toLowerCase();
-          return Boolean(key) && !seen.has(key);
-        });
-        this.shuffleInPlace(fallbackPool);
-        fallbackPool.slice(0, 3).forEach((card, idx) => {
-          pushUnique({
-            ...card,
-            hasNews: true,
-            statusTag: card.statusTag || 'Random',
-            subtitle: String(card.subtitle || card.narrativeSummary || 'Scelta casuale del momento').trim(),
-            __homeRandom: true,
-            __homeRandomOrder: idx + 1
-          });
+      while (ordered.length < maxCards && randomPool.length) {
+        const card = randomPool.shift();
+        if (!card) break;
+        pushUnique({
+          ...card,
+          hasNews: true,
+          statusTag: card.statusTag || 'Random',
+          subtitle: String(card.subtitle || card.narrativeSummary || 'Scelta casuale del momento').trim()
         });
       }
 
-      return ordered;
+      return ordered.slice(0, maxCards);
     },
 
     shuffleInPlace(items) {
@@ -196,6 +201,25 @@
     getHitCount(card) {
       const raw = Number.parseInt(String(card?.hits?.count ?? ''), 10);
       return Number.isFinite(raw) && raw > 0 ? raw : 0;
+    },
+
+    isAlgorithmCard(card) {
+      const page = String(card?.page || '').toLowerCase();
+      return page.includes('/algoritmi/algs/');
+    },
+
+    resolveAlgorithmFamily(card) {
+      const raw = [
+        String(card?.macroGroup || ''),
+        String(card?.group || ''),
+        String(card?.category || ''),
+        String(card?.type || ''),
+        String(card?.title || '')
+      ].join(' ').toLowerCase();
+      if (/(neural|neurale|rete neurale|nn|ai\b)/.test(raw)) return 'neurale';
+      if (/(hybrid|ibrid|misto)/.test(raw)) return 'ibrido';
+      if (/(stat|frequenz|probabil|classico|classic|analisi|storic)/.test(raw)) return 'statistico';
+      return '';
     },
 
     async getLatestContestHits(card, latestSeq, cardsApi) {

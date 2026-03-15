@@ -1025,6 +1025,7 @@ if (header) {
     const dashboardHref = resolveWithBaseHref('pages/laboratorio-tecnico/index.html');
     const rankingHref = resolveWithBaseHref('pages/ranking/index.html');
     const oracleHref = resolveWithBaseHref('pages/oracle/index.html');
+    const policyHref = resolveWithBaseHref('pages/policy-consenso/index.html');
     if (left) {
       left.innerHTML = `
         <a class="cc-nav-link" href="${homeHref}">Home</a>
@@ -1032,13 +1033,14 @@ if (header) {
         <a class="cc-nav-link" href="${dashboardHref}">Laboratorio</a>
         <a class="cc-nav-link" href="${rankingHref}">Ranking</a>
         <a class="cc-nav-link" href="${oracleHref}">Oracle</a>
+        <a class="cc-nav-link" href="${policyHref}">Policy e Consenso</a>
       `;
     }
     if (right) {
-      right.style.display = '';
-      right.hidden = false;
-      right.removeAttribute('aria-hidden');
-      right.innerHTML = '<div class="cc-nav-policy-host" data-cc-nav-policy-host="true" aria-live="polite"></div>';
+      right.innerHTML = '';
+      right.style.display = 'none';
+      right.hidden = true;
+      right.setAttribute('aria-hidden', 'true');
     }
     if (marquee) marquee.style.display = 'none';
     if (title) title.style.display = 'none';
@@ -1055,12 +1057,14 @@ if (header) {
           active = path === '/' || (path.endsWith('/index.html') && !path.includes('/pages/'));
         } else if (label === 'algorithms') {
           active = path.includes('/pages/algoritmi/');
-        } else if (label === 'dashboard') {
+        } else if (label === 'laboratorio') {
           active = path.includes('/pages/laboratorio-tecnico/') || path.includes('/pages/laboratorio-tecnico/');
         } else if (label === 'ranking') {
           active = path.includes('/pages/ranking/');
         } else if (label === 'oracle') {
           active = path.includes('/pages/oracle/');
+        } else if (label === 'policy e consenso') {
+          active = path.includes('/pages/policy-consenso/');
         }
         link.classList.toggle('is-active', active);
       });
@@ -2068,6 +2072,8 @@ const applyAutoGlassTabs = () => {
   const path = (window.location.pathname || '').toLowerCase();
   const isAlgorithmsCatalog = /\/pages\/algoritmi(?:\/index\.html|\/)?$/.test(path);
   if (isAlgorithmsCatalog) return;
+  const autoTabsDisabled = document.body?.dataset?.autoTabs === 'off';
+  if (autoTabsDisabled) return;
   if (document.querySelector('[data-tabs-root]')) {
     document.querySelectorAll('[data-tabs-root]').forEach(initTabsRoot);
     return;
@@ -2100,14 +2106,14 @@ const applyAutoGlassTabs = () => {
     const titleNode = section.querySelector('h2, h1, h3');
     const rawTitle = titleNode ? titleNode.textContent : '';
     const explicitLabel = String(section.dataset.tabLabel || '').trim();
-    const label = String(explicitLabel || rawTitle || `Sezione ${index + 1}`).trim().slice(0, 40);
+    const label = String(explicitLabel || rawTitle || 'Panoramica').trim().slice(0, 40);
     const target = slugifyTab(label, index);
 
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = `tab-btn${index === 0 ? ' is-active' : ''}`;
     btn.dataset.tabTarget = target;
-    btn.textContent = label || `Sezione ${index + 1}`;
+    btn.textContent = label || 'Panoramica';
 
     section.classList.add('tab-panel');
     if (index === 0) section.classList.add('is-active');

@@ -1,4 +1,5 @@
 .lab-referral {
+  display: none !important;
   border: 1px dashed rgba(255, 211, 134, 0.62);
   border-radius: 14px;
   background: rgba(52, 37, 10, 0.28);
