@@ -1,26 +1,27 @@
 PARADOX - Analisi tecnica run
 
-Concorsi disponibili nel draws condiviso: 4162
-Algoritmi attivi con output validi: 13
+Concorsi disponibili nel draws condiviso: 4163
+Algoritmi attivi con output validi: 14
 Campioni meta-neurali usati: 12000
 Stato modello neurale: D:\PROGETTI\SuperEnalotto\01 Superenalotto ControlChaos\iARGOS\secc-mirror\pages\algoritmi\algs\paradox-logiche-decisionali-metriche\paradox_engine\models\meta_mlp.json
 
 Pesi finali algoritmo (normalizzati):
-- arc90-logico-algoritmica: 0.0769
-- classic-analisi-anomalie-pattern: 0.0769
-- classic-co-occorrenze: 0.0769
-- classic-coppie-terni-consecutivi: 0.0769
-- classic-coppie-terzine-frequenti: 0.0769
-- classic-distribuzioni-modelli-raggruppamento: 0.0769
-- classic-frequency: 0.0769
-- classic-ritardi: 0.0769
-- classic-ritardi-combinazioni: 0.0769
-- classic-statistiche-combinate-finestre-mobili: 0.0769
-- classic-tavole-probabilita-teorica-test-uniformita: 0.0769
-- genetic-algorithm-evolutionary: 0.0769
-- super6NN: 0.0769
+- arc90-logico-algoritmica: 0.0714
+- classic-analisi-anomalie-pattern: 0.0714
+- classic-co-occorrenze: 0.0714
+- classic-coppie-terni-consecutivi: 0.0714
+- classic-coppie-terzine-frequenti: 0.0714
+- classic-distribuzioni-modelli-raggruppamento: 0.0714
+- classic-frequency: 0.0714
+- classic-ritardi: 0.0714
+- classic-ritardi-combinazioni: 0.0714
+- classic-statistiche-combinate-finestre-mobili: 0.0714
+- classic-tavole-probabilita-teorica-test-uniformita: 0.0714
+- genetic-algorithm-evolutionary: 0.0714
+- hispa: 0.0714
+- super6NN: 0.0714
 
-Sestina Paradox proposta per prossimo concorso: 82 09 51 77 85 86
+Sestina Paradox proposta per prossimo concorso: 82 51 59 77 85 86
 
 Note metodologia:
 - Discovery automatica tramite card.json (isActive=true), senza lista manuale.
