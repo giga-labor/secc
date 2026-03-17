@@ -1,5 +1,5 @@
 ﻿(function () {
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
       const LAB_TECH_URL = '../../../laboratorio-tecnico/';
       if (document.body) document.body.dataset.pageKicker = 'off';
       const main = document.querySelector('main');
