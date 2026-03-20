@@ -3,29 +3,29 @@ ARC90 combina neuroni permanenti, credibilita meritocratica e aggregazione conse
 Questo adapter esegue sincronizzazione dati e conversione verso formato output richiesto da secc-admin.
 
 Stato esecuzione
-- Draws usati: 4163
-- Nuovi concorsi importati in cortex: 4163
-- Step training incrementale: 1
-- Stato indice training: 4161 -> 4162
+- Draws usati: 4164
+- Nuovi concorsi importati in cortex: 4164
+- Step training incrementale: 0
+- Stato indice training: 4163 -> 4163
 - Valutazione storica anti-leakage: walk-forward stretto
-- Neuroni totali: 4163
+- Neuroni totali: 4164
 - Credibilita media: 0.2000
 
 Metriche storiche
-- Step valutati: 4162
-- Media hit/sestina: 0.3933
-- Hit>=2: 208/4162 (5.00%)
-- Hit>=3: 11/4162 (0.26%)
-- Hit>=4: 0/4162 (0.00%)
-- Hit>=5: 0/4162 (0.0000%)
-- Hit=6: 0/4162 (0.000000%)
-- Media ultimi 200 step: 0.3900
-- Deviazione standard hit: 0.5909
+- Step valutati: 4163
+- Media hit/sestina: 0.3932
+- Hit>=2: 208/4163 (5.00%)
+- Hit>=3: 11/4163 (0.26%)
+- Hit>=4: 0/4163 (0.00%)
+- Hit>=5: 0/4163 (0.0000%)
+- Hit=6: 0/4163 (0.000000%)
+- Media ultimi 200 step: 0.3850
+- Deviazione standard hit: 0.5908
 
 Output operativo
-- Ultimo concorso disponibile: 4163 (17/03/2026)
-- Prossimo concorso stimato: 4164
-- Sestina proposta: 02 13 16 41 53 56
+- Ultimo concorso disponibile: 4164 (19/03/2026)
+- Prossimo concorso stimato: 4165
+- Sestina proposta: 19 39 45 54 62 89
 
 Limiti
 Nessun modello garantisce predizione futura; le metriche sono descrittive e dipendono dalla qualita dello storico.
