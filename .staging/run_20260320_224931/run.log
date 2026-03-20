@@ -1,0 +1,8 @@
+[22:49:31] Fase OK: lock_acquire
+[22:49:35] AI nulla osta OK su verify_bundle_stage
+[22:49:37] Avvio fase: verify_bundle_stage
+[22:49:39] Fase KO: verify_bundle_stage -> Manifest assente o vuoto
+[22:49:42] AI nulla osta OK su lock_release
+[22:49:44] Avvio fase: lock_release
+[22:49:47] Fase OK: lock_release
+[22:49:49] Manifest assente o vuoto

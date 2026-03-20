@@ -1,0 +1,8 @@
+[22:48:22] Fase OK: lock_acquire
+[22:48:25] AI nulla osta OK su update_cards_stage
+[22:48:28] Avvio fase: update_cards_stage
+[22:48:30] Fase OK: update_cards_stage
+[22:48:34] AI nulla osta OK su lock_release
+[22:48:35] Avvio fase: lock_release
+[22:48:38] Fase OK: lock_release
+[22:48:40] Card hits inclusi (changed=0) | indici runtime cards rigenerati

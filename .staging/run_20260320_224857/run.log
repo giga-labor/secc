@@ -1,0 +1,8 @@
+[22:48:57] Fase OK: lock_acquire
+[22:49:01] AI nulla osta OK su verify_cards_stage
+[22:49:03] Avvio fase: verify_cards_stage
+[22:49:05] Fase OK: verify_cards_stage
+[22:49:08] AI nulla osta OK su lock_release
+[22:49:10] Avvio fase: lock_release
+[22:49:13] Fase OK: lock_release
+[22:49:15] Cards stage verificato (solo hits; indici runtime non presenti in stage)
