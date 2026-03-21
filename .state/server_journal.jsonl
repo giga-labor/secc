@@ -2,3 +2,5 @@
 {"ts": "2026-03-21T21:27:28", "event": "lock_released", "run_id": "20260321_212723", "payload": {}}
 {"ts": "2026-03-21T21:28:29", "event": "lock_acquired", "run_id": "20260321_212829", "payload": {"lease_until": "2026-03-21T21:30:29"}}
 {"ts": "2026-03-21T21:28:34", "event": "lock_released", "run_id": "20260321_212829", "payload": {}}
+{"ts": "2026-03-21T21:29:36", "event": "lock_acquired", "run_id": "20260321_212936", "payload": {"lease_until": "2026-03-21T21:31:36"}}
+{"ts": "2026-03-21T21:29:40", "event": "lock_released", "run_id": "20260321_212936", "payload": {}}
