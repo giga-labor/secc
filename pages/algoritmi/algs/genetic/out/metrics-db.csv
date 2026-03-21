@@ -1,6 +1,6 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4165,Conteggio archivio dal concorso 1 al concorso 4165
-Media hit/sestina,0.40,Media numeri corretti per concorso
+Concorsi analizzati,4166,Conteggio archivio dal concorso 1 al concorso 4166
+Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,4.6%,Percentuale concorsi con almeno 2 hit
 Hit rate >= 3,0.4%,Percentuale concorsi con almeno 3 hit
 Hit rate >= 4,0.0%,Percentuale concorsi con almeno 4 hit
@@ -12,6 +12,6 @@ Con 4 hit,1,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Ultimo concorso calcolato,4165,Data estrazione: 20/03/2026
-Concorso successivo stimato,4166,Sestina proposta: 09 38 59 77 82 70
-Sestina proposta (prossimo concorso),09 38 59 77 82 70,Calcolata su storico progressivo GeneticSE
+Ultimo concorso calcolato,4166,Data estrazione: 21/03/2026
+Concorso successivo stimato,4167,Sestina proposta: 38 59 77 82 70 65
+Sestina proposta (prossimo concorso),38 59 77 82 70 65,Calcolata su storico progressivo GeneticSE
