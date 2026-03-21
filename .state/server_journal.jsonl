@@ -4,3 +4,7 @@
 {"ts": "2026-03-21T21:28:34", "event": "lock_released", "run_id": "20260321_212829", "payload": {}}
 {"ts": "2026-03-21T21:29:36", "event": "lock_acquired", "run_id": "20260321_212936", "payload": {"lease_until": "2026-03-21T21:31:36"}}
 {"ts": "2026-03-21T21:29:40", "event": "lock_released", "run_id": "20260321_212936", "payload": {}}
+{"ts": "2026-03-21T21:30:42", "event": "lock_acquired", "run_id": "20260321_213042", "payload": {"lease_until": "2026-03-21T21:32:42"}}
+{"ts": "2026-03-21T21:30:45", "event": "lock_released", "run_id": "20260321_213042", "payload": {}}
+{"ts": "2026-03-21T21:31:47", "event": "lock_acquired", "run_id": "20260321_213147", "payload": {"lease_until": "2026-03-21T21:33:47"}}
+{"ts": "2026-03-21T21:31:51", "event": "lock_released", "run_id": "20260321_213147", "payload": {}}
