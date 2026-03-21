@@ -1,8 +1,0 @@
-[22:50:42] Fase OK: lock_acquire
-[22:50:45] AI nulla osta OK su git_add_commit_push_once
-[22:50:47] Avvio fase: git_add_commit_push_once
-[22:50:49] Fase KO: git_add_commit_push_once -> Nessun bundle pending da pubblicare
-[22:50:53] AI nulla osta OK su lock_release
-[22:50:55] Avvio fase: lock_release
-[22:50:57] Fase OK: lock_release
-[22:50:59] Nessun bundle pending da pubblicare
