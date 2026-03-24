@@ -34,6 +34,11 @@
   ],
   "zones": [
     {
+      "id": "hero-status-zone",
+      "type": "hero_status",
+      "mount": "[data-home-live-status]"
+    },
+    {
       "id": "news-zone",
       "type": "news_cards",
       "mount": "[data-module-area]",

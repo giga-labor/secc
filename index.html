@@ -114,6 +114,9 @@
             <div class="cc-abovefold-focus" data-reveal="fade-up">
               <p class="cc-abovefold-focus__label">Ingresso principale</p>
               <p class="cc-abovefold-focus__text">Una sola azione per iniziare: apri le sestine attive e analizza subito la proposta del prossimo concorso.</p>
+              <div class="cc-home-live" data-home-live-status aria-live="polite">
+                <span class="cc-home-live__item">Sincronizzazione dati in corso...</span>
+              </div>
               <a class="cc-abovefold-focus__cta rounded-full border border-neon/70 bg-neon/10 px-6 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/sestine-proposte/" data-magnetic="true">Inizia da Sestine</a>
             </div>
           </div>
@@ -193,8 +196,11 @@
 
       <section class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="home_proposals">
         <header class="cc-home-block__head">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Sestine di oggi</p>
-          <h2 class="text-white">Proposte attive per il prossimo concorso</h2>
+          <div class="cc-home-block__titles">
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Sestine di oggi</p>
+            <h2 class="text-white">Proposte attive per il prossimo concorso</h2>
+          </div>
+          <a class="cc-home-block__action" href="pages/sestine-proposte/">Apri tutte le sestine</a>
         </header>
         <div class="cc-home-block__body" data-home-proposals>
           <div class="cc-home-empty">Caricamento proposte in corso...</div>
@@ -203,8 +209,11 @@
 
       <section class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="home_active_algorithms">
         <header class="cc-home-block__head">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Algoritmi attivi</p>
-          <h2 class="text-white">Moduli operativi con ranking live</h2>
+          <div class="cc-home-block__titles">
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Algoritmi attivi</p>
+            <h2 class="text-white">Moduli operativi con ranking live</h2>
+          </div>
+          <a class="cc-home-block__action" href="pages/ranking/">Apri punteggio</a>
         </header>
         <div class="cc-home-block__body" data-home-active-algorithms>
           <div class="cc-home-empty">Caricamento algoritmi in corso...</div>
@@ -213,8 +222,11 @@
 
       <section class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="home_trends">
         <header class="cc-home-block__head">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Trend numerici</p>
-          <h2 class="text-white">Caldi, freddi e anomalie di ritardo</h2>
+          <div class="cc-home-block__titles">
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Trend numerici</p>
+            <h2 class="text-white">Caldi, freddi e anomalie di ritardo</h2>
+          </div>
+          <a class="cc-home-block__action" href="pages/analisi-statistiche/">Apri analisi</a>
         </header>
         <div class="cc-home-block__body" data-home-trends>
           <div class="cc-home-empty">Trend in caricamento...</div>
@@ -223,8 +235,11 @@
 
       <section class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="home_community_activity">
         <header class="cc-home-block__head">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Attivita utenti</p>
-          <h2 class="text-white">Community operativa del giorno</h2>
+          <div class="cc-home-block__titles">
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Attivita utenti</p>
+            <h2 class="text-white">Community operativa del giorno</h2>
+          </div>
+          <a class="cc-home-block__action" href="pages/community/#community_feedback_form">Scrivi all'amministratore</a>
         </header>
         <div class="cc-home-block__body" data-home-community>
           <div class="cc-home-empty">Feed community in caricamento...</div>

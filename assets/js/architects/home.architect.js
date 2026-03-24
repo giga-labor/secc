@@ -26,10 +26,16 @@
         if (!zone?.mount) continue;
         const host = document.querySelector(zone.mount);
         if (!host) continue;
-        if (host.closest('[data-runtime-skip="1"]')) continue;
+        const allowStaticHost = zone.type === 'hero_status';
+        if (!allowStaticHost && host.closest('[data-runtime-skip="1"]')) continue;
 
         if (zone.type === 'kpi_cards') {
           this.renderKpi(host, data.kpi_items || []);
+          continue;
+        }
+
+        if (zone.type === 'hero_status') {
+          this.renderHeroStatus(host, data);
           continue;
         }
 
@@ -625,6 +631,36 @@
       if (window.CARDS && typeof window.CARDS.enableDepth === 'function') {
         window.CARDS.enableDepth(host);
       }
+    },
+
+    renderHeroStatus(host, data) {
+      if (!host) return;
+      const modules = Array.isArray(data?.modules) ? data.modules : [];
+      const activeAlgorithms = modules.filter((card) => {
+        if (!card || card.isActive === false) return false;
+        const page = String(card.page || '').toLowerCase();
+        return page.includes('/algoritmi/algs/');
+      }).length;
+
+      const draws = Array.isArray(data?.draws_rows) ? data.draws_rows : [];
+      const latestRow = draws.length ? draws[draws.length - 1] : null;
+      const latestSeq = latestRow ? String(latestRow['NR. SEQUENZIALE'] || '--').trim() : '--';
+      const latestDate = latestRow ? String(latestRow.Data || latestRow.DATA || '--').trim() : '--';
+
+      const feed = data?.community_feed && typeof data.community_feed === 'object' ? data.community_feed : null;
+      const communityUpdated = feed && feed.updated_at ? String(feed.updated_at).trim() : '';
+      const communityShort = communityUpdated
+        ? communityUpdated.replace('T', ' ').replace('Z', '').slice(0, 16)
+        : '';
+      const communityLabel = communityUpdated
+        ? `Community aggiornata: ${escapeHtml(communityShort)}`
+        : 'Community: nessun aggiornamento utenti';
+
+      host.innerHTML = `
+        <span class="cc-home-live__item">Ultimo concorso: ${escapeHtml(latestSeq)} (${escapeHtml(latestDate)})</span>
+        <span class="cc-home-live__item">Algoritmi attivi: ${escapeHtml(String(activeAlgorithms))}</span>
+        <span class="cc-home-live__item">${communityLabel}</span>
+      `;
     },
 
     async renderProposals(host, modules) {
