@@ -890,19 +890,7 @@ const buildGroupedPageHubNav = () => {
 };
 
 const applyStructuredPageHubNavigation = () => {
-  const hubs = document.querySelectorAll('.cc-page-hub');
-  hubs.forEach((hub) => {
-    if (!(hub instanceof HTMLElement)) return;
-    if (hub.dataset.navAuto === 'off' || hub.dataset.navGrouped === '1') return;
-    if (hub.querySelector('[data-policy-open], [data-consent-open]')) return;
-    const legacyGrid = hub.querySelector(':scope > .cc-page-hub__grid');
-    if (!legacyGrid) return;
-    const title = hub.querySelector(':scope > .cc-page-hub__title');
-    if (title) title.textContent = 'Navigazione logica';
-    const grouped = buildGroupedPageHubNav();
-    hub.replaceChild(grouped, legacyGrid);
-    hub.dataset.navGrouped = '1';
-  });
+  // Disabled by design: bottom legacy navigation blocks are globally hidden.
 };
 
 const ensureMigrationStylesheet = () => {
@@ -2190,14 +2178,14 @@ const applyAutoGlassTabs = () => {
     const titleNode = section.querySelector('h2, h1, h3');
     const rawTitle = titleNode ? titleNode.textContent : '';
     const explicitLabel = String(section.dataset.tabLabel || '').trim();
-    const label = String(explicitLabel || rawTitle || 'Panoramica').trim().slice(0, 40);
+    const label = String(explicitLabel || rawTitle || 'Sezione').trim().slice(0, 40);
     const target = slugifyTab(label, index);
 
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = `tab-btn${index === 0 ? ' is-active' : ''}`;
     btn.dataset.tabTarget = target;
-    btn.textContent = label || 'Panoramica';
+    btn.textContent = label || 'Sezione';
 
     section.classList.add('tab-panel');
     if (index === 0) section.classList.add('is-active');

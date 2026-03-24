@@ -1086,7 +1086,7 @@
       'Messaggio principale: {t}',
       'Elemento utile: {t}',
       'Indicazione pratica: {t}',
-      'Panoramica veloce: {t}',
+      'Vista rapida: {t}',
       'Osservazione utile: {t}',
       'Per orientarti meglio: {t}',
       'Nota operativa: {t}',

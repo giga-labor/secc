@@ -322,18 +322,7 @@ body.cc-final-look #site-header.cc-nav-minimal .cc-nav-group:last-child {
 }
 
 body.cc-final-look #site-header.cc-nav-minimal .cc-nav-group__label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 1.1rem;
-  padding: 0.06rem 0.34rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 217, 102, 0.2);
-  color: rgba(255, 217, 102, 0.82);
-  font-size: 0.57rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  display: none !important;
 }
 
 body.cc-final-look #site-header.cc-nav-minimal .header-actions__right {
@@ -768,6 +757,12 @@ body.cc-final-look .cc-hero-panel > p.text-xs::after {
   width: min(100%, var(--cc-card-max-inline));
   max-width: var(--cc-card-max-inline);
   justify-self: center;
+}
+
+/* Hard cap for all interactive cards: never exceed max inline size. */
+body.cc-final-look :is(.cc-card, .cc-card3d, .card-3d, .algorithm-card, .cc-ranking-card):not(.cc-card--featured):not(.spotlight-hero-card) {
+  width: min(100%, var(--cc-card-max-inline)) !important;
+  max-width: var(--cc-card-max-inline) !important;
 }
 
 .cc-home-active-card {
