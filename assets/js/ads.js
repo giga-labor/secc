@@ -1212,27 +1212,17 @@ const ensureAds = () => {
   bottomAd.dataset.ccAdsRoot = 'true';
   bottomAd.dataset.bottomAd = 'true';
 
-  let policyRow = document.querySelector('[data-cc-ads-policy="true"]');
-  const policyCreated = !(policyRow instanceof HTMLElement);
-  if (!(policyRow instanceof HTMLElement)) {
-    policyRow = document.createElement('aside');
-    policyRow.className = 'ad-policy-fixed';
-    policyRow.dataset.ccAdsPolicy = 'true';
-    policyRow.innerHTML = buildPolicyRowMarkup(baseHrefPrefix);
+  const existingPolicyRow = document.querySelector('[data-cc-ads-policy="true"]');
+  if (existingPolicyRow instanceof HTMLElement) {
+    existingPolicyRow.remove();
   }
-  syncPolicyBrandVersion(policyRow);
   syncFooterVersionBadge();
-  const policyMountedInHeader = mountHeaderPolicyMenu(baseHrefPrefix);
-  if (policyMountedInHeader && policyRow?.parentElement) {
-    policyRow.remove();
-  }
 
   if (disableDisplayAds) {
     root.style.setProperty('--ad-reserve-bottom', '0px');
     root.style.setProperty('--ad-reserve-left', '0px');
     root.style.setProperty('--ad-reserve-right', '0px');
     root.style.setProperty('--ad-rail-bottom', '0px');
-    if (!policyMountedInHeader && policyCreated) document.body.appendChild(policyRow);
     wireConsentUi();
 
     const startPolicyOnly = async () => {
@@ -1317,8 +1307,6 @@ const ensureAds = () => {
 
   if (rightCreated) document.body.appendChild(rightRail);
   if (bottomCreated) document.body.appendChild(bottomAd);
-  if (!policyMountedInHeader && policyCreated) document.body.appendChild(policyRow);
-
   wireConsentUi();
   wireRightRailSmartlinkUi();
 

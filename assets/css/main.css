@@ -1195,8 +1195,13 @@ body.cc-final-look .cc-hero-panel > p.text-xs::after {
   }
 
   .cc-ranking-podium {
-    grid-template-columns: repeat(2, minmax(min(var(--card-min, 178px), 100%), var(--cc-card-max-inline)));
+    grid-template-columns: 1fr;
     gap: 0.82rem;
+  }
+
+  .cc-ranking-list-wrap .cc-ranking-cards-grid,
+  body[data-page-id="ranking"] .cc-ranking-cards-grid {
+    grid-template-columns: 1fr !important;
   }
 
   .cc-ranking-podium-wrap {
@@ -1211,7 +1216,6 @@ body.cc-final-look .cc-hero-panel > p.text-xs::after {
   .cc-ranking-podium__slot--first {
     order: 1;
     transform: none;
-    grid-column: 1 / -1;
   }
 
   .cc-ranking-podium__slot--second {
