@@ -1778,6 +1778,40 @@ p[data-reveal] {
   line-height: 1.35;
 }
 
+#cc-abovefold .cc-abovefold-focus {
+  margin-top: 0.95rem;
+  max-width: 44ch;
+  padding: 0.7rem 0.85rem 0.85rem;
+  border-radius: 0.95rem;
+  border: 1px solid rgba(255, 217, 102, 0.24);
+  background: linear-gradient(160deg, rgba(255, 217, 102, 0.08), rgba(255, 217, 102, 0.02) 34%, rgba(8, 12, 24, 0.58));
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
+}
+
+#cc-abovefold .cc-abovefold-focus__label {
+  margin: 0;
+  font-size: 0.66rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 220, 146, 0.94) !important;
+}
+
+#cc-abovefold .cc-abovefold-focus__text {
+  margin: 0.42rem 0 0.68rem;
+  font-size: 0.88rem;
+  line-height: 1.32;
+  color: rgba(233, 242, 255, 0.92) !important;
+}
+
+#cc-abovefold .cc-abovefold-focus__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
+  line-height: 1;
+}
+
 #cc-abovefold {
   position: relative;
   z-index: 20;
@@ -1799,6 +1833,13 @@ main.home-main > .content-box {
   #cc-abovefold-title .cc-title-inline {
     display: inline-block;
     padding-right: clamp(88px, 30vw, 130px);
+  }
+  #cc-abovefold .cc-abovefold-focus {
+    margin-top: 0.82rem;
+    padding: 0.62rem 0.72rem 0.74rem;
+  }
+  #cc-abovefold .cc-abovefold-focus__text {
+    font-size: 0.84rem;
   }
   #cc-abovefold-title .cc-title-video {
     position: absolute;
