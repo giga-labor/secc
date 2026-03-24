@@ -1,4 +1,4 @@
-﻿:root {
+:root {
       --header-scroll: 269px;
       --header-floating-gap: 8px;
       --fixed-header-offset: 0px;
@@ -1656,12 +1656,18 @@
     }
     .folder-tabs {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 0.35rem;
       padding-left: 0.65rem;
       margin-bottom: -1px;
       position: relative;
-      overflow: visible;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .folder-tabs::-webkit-scrollbar {
+      display: none;
     }
     .tab-btn {
       border: 1px solid rgba(255, 255, 255, 0.24);
@@ -1682,6 +1688,8 @@
       transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
       position: relative;
       z-index: 2;
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
     .tab-btn.is-active {
       border-color: rgba(255, 217, 102, 0.88);
@@ -2543,17 +2551,37 @@ main.content-fade > .content-box {
    fixed clamp width only in horizontal news strips. */
 [data-group-grid] > .algorithm-card,
 .tabs-sheet .grid > .algorithm-card {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: min(100%, var(--cc-card-max-inline, var(--card-max, 210px))) !important;
+  max-width: var(--cc-card-max-inline, var(--card-max, 210px)) !important;
   min-width: 0 !important;
-  justify-self: stretch !important;
+  justify-self: center !important;
 }
 
 main.home-main [data-module-area].news-strip > .algorithm-card,
 main.home-main [data-module-area]:not(.news-grid):not([data-group-grid]) > .algorithm-card {
   width: clamp(var(--card-min), 22vw, var(--card-max));
-  max-width: var(--card-max);
+  max-width: min(var(--card-max), var(--cc-card-max-inline, var(--card-max, 210px)));
   flex: 0 0 auto;
+}
+
+/* Global hard cap for all tactile cards: never exceed algorithm-list size. */
+body.cc-final-look .cc-card3d,
+body.cc-final-look .card-3d,
+body.cc-final-look .algorithm-card,
+body.cc-final-look .module-card {
+  width: min(100%, clamp(var(--card-min, 178px), 24vw, var(--cc-card-max-inline, var(--card-max, 210px)))) !important;
+  max-width: var(--cc-card-max-inline, var(--card-max, 210px)) !important;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+}
+
+body.cc-final-look .cc-card--featured {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  justify-self: stretch !important;
 }
 
 body :is(h1, h2, h3, h4, h5, h6, p, span, a, button, th, td, label, li, code) {
@@ -2883,6 +2911,7 @@ html.cc-ready .standing-marquee__track {
     width: 100%;
     overflow: visible;
     flex-wrap: wrap;
+    align-items: stretch !important;
     row-gap: 0.35rem;
   }
 
@@ -2892,33 +2921,73 @@ html.cc-ready .standing-marquee__track {
     display: flex !important;
     flex-wrap: nowrap !important;
     justify-content: flex-start !important;
-    gap: 0.45rem !important;
+    gap: 0.55rem !important;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-bottom: 0.1rem;
+    padding: 0.08rem 0 0.18rem;
+    touch-action: pan-x;
+  }
+
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-groups {
+    width: max-content;
+    min-width: 100%;
   }
 
   body.cc-final-look #site-header.cc-nav-minimal .header-actions__left::-webkit-scrollbar {
     display: none;
   }
 
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-groups {
+    flex-wrap: nowrap;
+    gap: 0.52rem;
+  }
+
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-group {
+    flex: 0 0 auto;
+    gap: 0.45rem;
+    padding-right: 0.62rem;
+    border-right-color: rgba(255, 255, 255, 0.2);
+  }
+
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-group__label {
+    display: none;
+  }
+
   body.cc-final-look #site-header.cc-nav-minimal .cc-nav-link {
     flex: 0 0 auto;
     white-space: nowrap;
-    font-size: 0.68rem;
-    padding: 0.36rem 0.2rem;
+    min-height: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(11, 16, 30, 0.68));
+    padding: 0.5rem 0.68rem;
+    border-bottom-width: 1px;
+  }
+
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-link:hover,
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-link:focus-visible {
+    border-color: rgba(255, 217, 102, 0.56);
+    background: linear-gradient(180deg, rgba(255, 217, 102, 0.18), rgba(15, 20, 36, 0.82));
+  }
+
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-link.is-active {
+    border-color: rgba(255, 217, 102, 0.7);
+    background: linear-gradient(180deg, rgba(255, 217, 102, 0.24), rgba(22, 29, 50, 0.9));
+    color: rgba(255, 232, 184, 0.98);
   }
 
   body.cc-final-look #site-header.cc-nav-minimal .header-actions__right {
-    width: 100%;
-    justify-content: flex-end !important;
-    margin-left: 0 !important;
-    padding-left: 0;
-    padding-top: 0.28rem;
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: none !important;
   }
 
   body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy {
@@ -2926,11 +2995,18 @@ html.cc-ready .standing-marquee__track {
     width: 100%;
   }
 
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__trigger {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
   body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__links {
     right: 0;
     left: auto;
     min-width: min(30rem, 96vw);
     max-width: min(32rem, 96vw);
+    grid-template-columns: 1fr;
     justify-content: stretch;
     gap: 0.4rem;
   }
@@ -2938,6 +3014,18 @@ html.cc-ready .standing-marquee__track {
   body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card {
     width: 100%;
     min-width: 0;
+  }
+
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card-title,
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-policy__card-meta {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 420px) {
+  body.cc-final-look #site-header.cc-nav-minimal .cc-nav-link {
+    font-size: 0.76rem;
+    padding: 0.46rem 0.58rem;
   }
 }
 
@@ -2947,6 +3035,24 @@ html.cc-ready .standing-marquee__track {
   box-shadow:
     0 0 0 2px rgba(5, 6, 15, 0.88),
     0 0 0 4px rgba(255, 217, 102, 0.34) !important;
+}
+
+/* Keep every submenu tab-row readable: no accidental wraps/cuts on any page variant. */
+body.cc-final-look .folder-tabs {
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+body.cc-final-look .folder-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+body.cc-final-look .tab-btn {
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
 }
 
 /* M2: D1 cards desktop overflow hardening */

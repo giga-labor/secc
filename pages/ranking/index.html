@@ -87,7 +87,7 @@
       </header>
 
       <aside class="cc-bridge-box" data-bridge-box data-bridge-id="ranking_bridge_dashboard" data-linked-paper-id="laboratorio-tecnico" data-source-data-module="ranking">
-        <p><strong>Contesto:</strong> il ranking confronta i moduli attivi usando i dati `out/*` standard. Per interpretazione metodologica consulta <a href="../laboratorio-tecnico/">Laboratorio Tecnico</a>.</p>
+        <p><strong>Classifica degli algoritmi:</strong> scopri subito quali algoritmi hanno centrato piu numeri nelle estrazioni passate.</p>
       </aside>
 
       <section class="rounded-3xl bg-transparent p-0 mt-6">
@@ -97,38 +97,29 @@
           </div>
           <div class="tabs-sheet">
             <section class="tab-panel is-active space-y-4" data-tab-panel="ranking">
-              <h2 class="text-lg font-semibold text-white">Classifica algoritmi attivi</h2>
-              <p class="text-ash">La classifica usa il punteggio cumulato calcolato dalle hit esatte (0..6) ricavate dai file `historical-db.csv` e/o `metrics-db.csv` dei moduli attivi. Il ranking e descrittivo e comparativo, non una garanzia di esito futuro.</p>
-              <div class="cc-table-wrap">
-                <table class="min-w-full text-left text-sm">
-                  <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
-                    <tr>
-                      <th class="px-4 py-3">Posizione</th>
-                      <th class="px-4 py-3">Algoritmo</th>
-                      <th class="px-4 py-3">Ranking</th>
-                      <th class="px-4 py-3">Dettaglio</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-white/5" data-ranking-body data-seo-fallback="ranking"><tr><td class="px-4 py-3 text-ash">1</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-analisi-anomalie-pattern/">classic-analisi-anomalie-pattern</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr><tr><td class="px-4 py-3 text-ash">2</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-coppie-terni-consecutivi/">classic-coppie-terni-consecutivi</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr><tr><td class="px-4 py-3 text-ash">3</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-coppie-terzine-frequenti/">classic-coppie-terzine-frequenti</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr><tr><td class="px-4 py-3 text-ash">4</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/">classic-distribuzioni-modelli-raggruppamento</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr><tr><td class="px-4 py-3 text-ash">5</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-ritardi-combinazioni/">classic-ritardi-combinazioni</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr><tr><td class="px-4 py-3 text-ash">6</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/">classic-statistiche-combinate-finestre-mobili</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr><tr><td class="px-4 py-3 text-ash">7</td><td class="px-4 py-3 text-white"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/">classic-tavole-probabilita-teorica-test-uniformita</a></td><td class="px-4 py-3 text-white">--</td><td class="px-4 py-3 text-ash">Snapshot iniziale</td></tr></tbody>
-                </table>
+              <div class="cc-ranking-cards-grid" data-ranking-cards data-seo-fallback="ranking">
+                <a class="cc-card cc-card3d card-3d algorithm-card cc-ranking-card group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-study is-active" href="/pages/algoritmi/algs/classic-analisi-anomalie-pattern/" aria-label="Apri classic-analisi-anomalie-pattern">
+                  <span class="cc-ranking-card__badge">#1</span>
+                  <div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden">
+                    <img class="h-full w-full object-cover" src="/pages/algoritmi/algs/classic-analisi-anomalie-pattern/img.webp" alt="Anteprima classic-analisi-anomalie-pattern" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">
+                    <span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">RANKING</span>
+                    <h3 class="text-[0.98rem] font-semibold leading-tight group-hover:text-neon">classic-analisi-anomalie-pattern</h3>
+                    <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash">Snapshot iniziale in attesa del calcolo live.</p>
+                  </div>
+                  <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border border-neon/70 bg-neon/10 px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] text-neon overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)]">Punteggio: --</div>
+                </a>
               </div>
             </section>
 
             <div class="mt-6 flex flex-wrap gap-3">
               <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../laboratorio-tecnico/">Apri Laboratorio</a>
               <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../algoritmi/">Vai al catalogo algoritmi</a>
+              <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../community/">Apri Community</a>
               <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../oracle/">Apri Oracle</a>
             </div>
 
-            <section class="cc-page-hub" data-reveal="fade-up">
-              <h3 class="cc-page-hub__title">Continua l'esplorazione</h3>
-              <div class="cc-page-hub__grid">
-                <a class="cc-page-hub__item" href="../../#home">Home</a>
-                <a class="cc-page-hub__item" href="../algoritmi/">Algorithms</a>
-                <a class="cc-page-hub__item" href="../laboratorio-tecnico/">Laboratorio</a>
-                <a class="cc-page-hub__item" href="../oracle/">Oracle</a>
-              </div>
-            </section>
           </div>
         </div>
       </section>
@@ -137,18 +128,234 @@
 
   <script src="../../assets/js/version.js" defer></script>
   <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/cards.js" defer></script>
   <script src="../../assets/js/component-builder.js" defer></script>
   <script src="../../assets/js/core/cache-engine.js" defer></script>
   <script src="../../assets/js/core/data-repository.js" defer></script>
   <script src="../../assets/js/core/page-orchestrator.js" defer></script>
   <script src="../../assets/js/motion.js" defer></script>
   <script src="../../assets/js/architects/base.architect.js" defer></script>
-  <script src="../../assets/js/analisi-runtime.js" defer></script>
+  <script src="../../assets/js/analisi-runtime.js?v=20260324b" defer></script>
+  <script>
+    (function () {
+      function forceLoadRanking() {
+        var api = window.CC_ANALISI_RUNTIME;
+        if (!api || typeof api.loadRanking !== 'function') return false;
+        try {
+          api.loadRanking();
+          return true;
+        } catch (_) {
+          return false;
+        }
+      }
+
+      function runForce() {
+        if (forceLoadRanking()) return;
+        window.setTimeout(forceLoadRanking, 220);
+        window.setTimeout(forceLoadRanking, 800);
+      }
+
+      if (document.readyState === 'complete') {
+        runForce();
+      } else {
+        window.addEventListener('load', runForce, { once: true, passive: true });
+      }
+      window.addEventListener('pageshow', runForce, { passive: true });
+    })();
+  </script>
+  <script>
+    (function () {
+      var PAYOUTS = { 0: 1.53, 1: 3.36, 2: 21.51, 3: 326.72, 4: 11906.95, 5: 1235346.49, 6: 622614630.0 };
+
+      function escapeHtml(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function formatScore(value) {
+        var n = Number(value);
+        if (!Number.isFinite(n)) return '--';
+        return new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+      }
+
+      function parseCsvRows(raw) {
+        var text = String(raw || '');
+        var lines = text.split(/\r?\n/).map(function (line) { return line.trim(); }).filter(function (line) {
+          return line && !line.startsWith('#');
+        });
+        if (lines.length < 2) return [];
+        var header = lines[0].split(',').map(function (h) { return String(h || '').trim(); });
+        return lines.slice(1).map(function (line) {
+          var cells = line.split(',').map(function (c) { return String(c || '').trim(); });
+          var row = {};
+          header.forEach(function (h, i) { row[h] = cells[i] || ''; });
+          return row;
+        });
+      }
+
+      function countsFromMetrics(rows) {
+        var counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+        var hasAny = false;
+        (rows || []).forEach(function (row) {
+          var metric = String(row['METRICA'] || '').trim().toLowerCase();
+          var m = metric.match(/^con\s+([0-6])\s+hit$/);
+          if (!m) return;
+          var k = Number.parseInt(m[1], 10);
+          var v = Number.parseInt(String(row['VALORE'] || '').replace(/[^\d-]/g, ''), 10);
+          if (!Number.isFinite(v)) return;
+          counts[k] = Math.max(0, v);
+          hasAny = true;
+        });
+        return hasAny ? counts : null;
+      }
+
+      function countsFromHistorical(rows) {
+        var counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+        (rows || []).forEach(function (row) {
+          var h = 0;
+          for (var i = 1; i <= 6; i += 1) {
+            var value = String(row['N' + i] || '').trim();
+            if (value.startsWith('[') && value.endsWith(']')) h += 1;
+          }
+          if (h >= 0 && h <= 6) counts[h] += 1;
+        });
+        return counts;
+      }
+
+      function mergeCounts(metricsCounts, histCounts) {
+        if (metricsCounts) {
+          var out = Object.assign({}, metricsCounts);
+          out[0] = histCounts[0] || 0;
+          out[1] = histCounts[1] || 0;
+          return out;
+        }
+        return histCounts;
+      }
+
+      function computeScore(counts) {
+        var total = 0;
+        for (var k = 0; k <= 6; k += 1) total += (counts[k] || 0) * (PAYOUTS[k] || 0);
+        return total;
+      }
+
+      function resolveImage(card, page) {
+        var image = String(card && (card.image || card.img) || '').trim();
+        if (image && (/^(https?:\/\/|\/)/i.test(image))) return image;
+        var pageDir = String(page || '').trim();
+        if (pageDir && !pageDir.endsWith('/')) pageDir += '/';
+        if (image && pageDir) return '/' + (pageDir + image).replace(/^\/+/, '');
+        return '/img/algoritm.webp';
+      }
+
+      function cardHtml(row, position, podium) {
+        var title = escapeHtml(row.title || 'Algoritmo');
+        var href = '/' + String(row.page || '').replace(/^\/+/, '');
+        var detail = 'Hit 0:' + row.hits[0] + ' 1:' + row.hits[1] + ' 2:' + row.hits[2] + ' 3:' + row.hits[3] + ' 4:' + row.hits[4] + ' 5:' + row.hits[5] + ' 6:' + row.hits[6];
+        var podiumClass = podium ? (' cc-ranking-card--podium cc-ranking-card--podium-' + position) : '';
+        return ''
+          + '<a href="' + escapeHtml(href) + '" class="cc-card cc-card3d card-3d algorithm-card cc-ranking-card' + podiumClass + ' group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-study is-active" aria-label="Apri ' + title + '">'
+          + '<span class="cc-ranking-card__badge">#' + position + '</span>'
+          + '<div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden" style="position:relative;width:100%;aspect-ratio:15/8;min-height:0;max-height:none;overflow:hidden;">'
+          + '<img class="h-full w-full object-cover" src="' + escapeHtml(resolveImage(row.card, row.page)) + '" alt="Anteprima ' + title + '" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">'
+          + '</div>'
+          + '<div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">'
+          + '<span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">ALGORITMO</span>'
+          + '<h3 class="text-[0.98rem] font-semibold leading-tight group-hover:text-neon">' + title + '</h3>'
+          + '<p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash">' + escapeHtml(detail) + '</p>'
+          + '</div>'
+          + '<div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border border-neon/70 bg-neon/10 px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] text-neon overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)]">Punteggio: ' + escapeHtml(formatScore(row.ranking)) + '</div>'
+          + '</a>';
+      }
+
+      async function buildRows() {
+        var mRes = await fetch('/data/modules-manifest.json', { cache: 'no-store' });
+        if (!mRes.ok) return [];
+        var manifest = await mRes.json();
+        if (!Array.isArray(manifest)) return [];
+        var cards = await Promise.all(manifest.map(async function (p) {
+          if (typeof p !== 'string') return null;
+          try {
+            var res = await fetch('/' + p.replace(/^\/+/, ''), { cache: 'no-store' });
+            if (!res.ok) return null;
+            return await res.json();
+          } catch (_) {
+            return null;
+          }
+        }));
+        var algs = cards.filter(function (c) {
+          return c && c.isActive !== false && String(c.page || '').indexOf('/algoritmi/algs/') !== -1;
+        });
+        var rows = await Promise.all(algs.map(async function (card) {
+          var page = String(card.page || '').replace(/^\/+/, '');
+          var dir = page.endsWith('/') ? page : (page + '/');
+          var metricsText = '';
+          var historicalText = '';
+          try {
+            var mr = await fetch('/' + dir + 'out/metrics-db.csv', { cache: 'no-store' });
+            if (mr.ok) metricsText = await mr.text();
+          } catch (_) {}
+          try {
+            var hr = await fetch('/' + dir + 'out/historical-db.csv', { cache: 'no-store' });
+            if (hr.ok) historicalText = await hr.text();
+          } catch (_) {}
+          var metrics = parseCsvRows(metricsText);
+          var historical = parseCsvRows(historicalText);
+          var counts = mergeCounts(countsFromMetrics(metrics), countsFromHistorical(historical));
+          return {
+            title: String(card.title || card.id || 'Algoritmo'),
+            page: page,
+            ranking: computeScore(counts),
+            hits: counts,
+            card: card
+          };
+        }));
+        return rows.sort(function (a, b) { return b.ranking - a.ranking; });
+      }
+
+      async function ensureRankingCardsVisible() {
+        var host = document.querySelector('[data-ranking-cards]');
+        if (!host) return;
+        var current = host.querySelectorAll('.cc-ranking-card').length;
+        if (current > 1) return;
+        var rows = await buildRows();
+        if (!rows.length) return;
+        var podium = rows.slice(0, 3);
+        var others = rows.slice(3);
+        var podiumHtml = podium.map(function (row, idx) {
+          var pos = idx + 1;
+          var slot = pos === 1 ? 'cc-ranking-podium__slot cc-ranking-podium__slot--first' : (pos === 2 ? 'cc-ranking-podium__slot cc-ranking-podium__slot--second' : 'cc-ranking-podium__slot cc-ranking-podium__slot--third');
+          return '<article class="' + slot + '">' + cardHtml(row, pos, true) + '</article>';
+        }).join('');
+        var othersHtml = others.map(function (row, idx) { return cardHtml(row, idx + 4, false); }).join('');
+        host.classList.remove('cc-ranking-cards-grid');
+        host.classList.add('cc-ranking-cards-host');
+        host.innerHTML = ''
+          + '<div class="cc-ranking-layout">'
+          + '<section class="cc-ranking-podium-wrap"><h3 class="cc-ranking-section-title">Podio algoritmi</h3><div class="cc-ranking-podium">' + podiumHtml + '</div></section>'
+          + (others.length ? '<section class="cc-ranking-list-wrap"><h3 class="cc-ranking-section-title">Tutti gli altri algoritmi</h3><div class="cc-ranking-cards-grid">' + othersHtml + '</div></section>' : '')
+          + '</div>';
+        if (window.CARDS && typeof window.CARDS.enableDepth === 'function') window.CARDS.enableDepth(host);
+      }
+
+      window.addEventListener('load', function () {
+        window.setTimeout(function () { ensureRankingCardsVisible().catch(function () {}); }, 1200);
+      }, { once: true, passive: true });
+      window.addEventListener('pageshow', function () {
+        window.setTimeout(function () { ensureRankingCardsVisible().catch(function () {}); }, 500);
+      }, { passive: true });
+    })();
+  </script>
   <script src="../../assets/js/runtime-bootstrap.js" defer></script>
   <script src="../../assets/js/ads.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
+
+
 
 
 

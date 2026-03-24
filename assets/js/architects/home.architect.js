@@ -6,8 +6,12 @@
     async collectData(layout) {
       const sources = layout?.data_sources || {};
       const modules = await ctx.repo.loadCardsByManifest(sources.modules_manifest || 'data/modules-manifest.json');
+      const communityFeed = await this.loadCommunityFeed(sources.community_feed || 'data/community-feed.json');
+      const drawsRows = await this.loadDrawsRows(sources.draws_csv || 'archives/draws/draws.csv');
       return {
         modules,
+        community_feed: communityFeed,
+        draws_rows: drawsRows,
         kpi_items: Array.isArray(layout?.kpi_items) ? layout.kpi_items : []
       };
     },
@@ -16,7 +20,7 @@
       const { mountCardList } = window.CC_ARCHITECT_BASE || {};
       const zones = Array.isArray(layout?.zones) ? layout.zones : [];
       const motion = window.CC_MOTION;
-      let newsHost = null;
+      const interactiveHosts = [];
 
       for (const zone of zones) {
         if (!zone?.mount) continue;
@@ -30,7 +34,7 @@
         }
 
         if (zone.type === 'news_cards') {
-          newsHost = host;
+          interactiveHosts.push(host);
           const all = Array.isArray(data.modules) ? data.modules : [];
           const orderedNews = await this.buildHomeNewsCards(all);
           const limited = zone.limit ? orderedNews.slice(0, zone.limit) : orderedNews;
@@ -51,6 +55,22 @@
           await this.renderProposals(host, data.modules || []);
           continue;
         }
+
+        if (zone.type === 'active_algorithms') {
+          await this.renderActiveAlgorithms(host, data.modules || [], { limit: zone.limit });
+          interactiveHosts.push(host);
+          continue;
+        }
+
+        if (zone.type === 'trend_numbers') {
+          this.renderTrendNumbers(host, data.draws_rows || []);
+          continue;
+        }
+
+        if (zone.type === 'community_activity') {
+          this.renderCommunityActivity(host, data.community_feed || null);
+          continue;
+        }
       }
 
       if (state.mode === 'patch') {
@@ -63,19 +83,24 @@
         motion.initNavOverlay();
         motion.initMagnetic(main);
         motion.initLiftDrop(main);
+        motion.initAlgorithmCardsInteractions(main);
         motion.initOracleCameo();
-        if (newsHost) {
-          this.forceNewsDepthRebind(newsHost);
-          motion.initAlgorithmCardsInteractions(newsHost);
-          window.setTimeout(() => {
-            this.forceNewsDepthRebind(newsHost);
-            motion.initAlgorithmCardsInteractions(newsHost);
-          }, 700);
-          window.setTimeout(() => {
-            this.forceNewsDepthRebind(newsHost);
-            motion.initAlgorithmCardsInteractions(newsHost);
-          }, 2800);
-        }
+        interactiveHosts.forEach((host) => {
+          this.forceNewsDepthRebind(host);
+          motion.initAlgorithmCardsInteractions(host);
+        });
+        window.setTimeout(() => {
+          interactiveHosts.forEach((host) => {
+            this.forceNewsDepthRebind(host);
+            motion.initAlgorithmCardsInteractions(host);
+          });
+        }, 700);
+        window.setTimeout(() => {
+          interactiveHosts.forEach((host) => {
+            this.forceNewsDepthRebind(host);
+            motion.initAlgorithmCardsInteractions(host);
+          });
+        }, 2800);
       }
     },
 
@@ -247,6 +272,323 @@
       } catch (_) {
         return NaN;
       }
+    },
+
+    async loadCommunityFeed(path) {
+      if (!ctx.repo || typeof ctx.repo.fetchJson !== 'function') return null;
+      try {
+        const payload = await ctx.repo.fetchJson(path, { cache: 'no-store' });
+        if (!payload || typeof payload !== 'object') return null;
+        return payload;
+      } catch (_) {
+        return null;
+      }
+    },
+
+    async loadDrawsRows(path) {
+      const source = String(path || '').trim();
+      if (!source) return [];
+      try {
+        const url = ctx.resolveWithBase(source);
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) return [];
+        const raw = await res.text();
+        return this.parseDrawsCsv(raw);
+      } catch (_) {
+        return [];
+      }
+    },
+
+    parseDrawsCsv(raw) {
+      const text = String(raw || '');
+      if (!text.trim()) return [];
+      const lines = text
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line && !line.startsWith('#'));
+      if (lines.length < 2) return [];
+      const delimiter = this.detectDelimiter(lines[0]);
+      const header = lines[0].split(delimiter).map((cell) => String(cell || '').trim());
+      const rows = lines.slice(1).map((line) => {
+        const cells = line.split(delimiter).map((cell) => String(cell || '').trim());
+        const row = {};
+        header.forEach((name, idx) => {
+          row[name] = cells[idx] || '';
+        });
+        return row;
+      });
+      rows.sort((a, b) => {
+        const seqA = Number.parseInt(String(a['NR. SEQUENZIALE'] || '').trim(), 10);
+        const seqB = Number.parseInt(String(b['NR. SEQUENZIALE'] || '').trim(), 10);
+        if (Number.isFinite(seqA) && Number.isFinite(seqB)) return seqA - seqB;
+        const da = this.parseItalianDate(a.Data || a.DATA || '');
+        const db = this.parseItalianDate(b.Data || b.DATA || '');
+        return da - db;
+      });
+      return rows;
+    },
+
+    detectDelimiter(line) {
+      const source = String(line || '');
+      const semicolon = (source.match(/;/g) || []).length;
+      const comma = (source.match(/,/g) || []).length;
+      if (!semicolon && !comma) return ';';
+      return semicolon >= comma ? ';' : ',';
+    },
+
+    parseItalianDate(value) {
+      const source = String(value || '').trim();
+      if (!source) return 0;
+      const parts = source.split('/');
+      if (parts.length !== 3) return 0;
+      const day = Number.parseInt(parts[0], 10);
+      const month = Number.parseInt(parts[1], 10);
+      const year = Number.parseInt(parts[2], 10);
+      if (!Number.isFinite(day) || !Number.isFinite(month) || !Number.isFinite(year)) return 0;
+      return new Date(year, month - 1, day).getTime();
+    },
+
+    async renderActiveAlgorithms(host, modules, options = {}) {
+      host.innerHTML = '';
+      const all = Array.isArray(modules) ? modules : [];
+      const max = Math.max(1, Number(options.limit) || 6);
+      const activeAlgorithms = all.filter((card) => {
+        if (!card || card.isActive === false || card.view !== true) return false;
+        return this.isAlgorithmCard(card);
+      });
+      if (!activeAlgorithms.length) {
+        host.innerHTML = '<div class="cc-home-empty">Nessun algoritmo attivo disponibile.</div>';
+        return;
+      }
+
+      const cardsApi = window.CARDS;
+      const candidatePool = activeAlgorithms
+        .slice()
+        .sort((a, b) => {
+          const hitA = this.getHitCount(a);
+          const hitB = this.getHitCount(b);
+          if (hitB !== hitA) return hitB - hitA;
+          return String(b?.lastUpdated || '').localeCompare(String(a?.lastUpdated || ''));
+        })
+        .slice(0, Math.max(max * 2, 12));
+
+      const rows = await Promise.all(candidatePool.map(async (card) => {
+        let ranking = Number.isFinite(card?.rankingValue) ? Number(card.rankingValue) : Number.NaN;
+        if (!Number.isFinite(ranking) && cardsApi && typeof cardsApi.computeRankingForAlgorithm === 'function') {
+          ranking = await cardsApi.computeRankingForAlgorithm(card);
+        }
+        const family = this.resolveAlgorithmFamily(card) || 'core';
+        return { card, ranking, family };
+      }));
+      rows.sort((a, b) => {
+        const ra = Number.isFinite(a.ranking) ? a.ranking : Number.NEGATIVE_INFINITY;
+        const rb = Number.isFinite(b.ranking) ? b.ranking : Number.NEGATIVE_INFINITY;
+        if (rb !== ra) return rb - ra;
+        return String(b.card?.lastUpdated || '').localeCompare(String(a.card?.lastUpdated || ''));
+      });
+
+      const top = rows.slice(0, max);
+      const rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const html = top.map((row, index) => {
+        const rankText = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
+        const title = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
+        const subtitle = escapeHtml(String(row.card.subtitle || row.card.narrativeSummary || 'Modulo attivo monitorato').trim());
+        const href = escapeHtml(ctx.resolveWithBase(row.card.page || '#') || '#');
+        const tone = this.resolveFamilyVisualTone(row.family);
+        const imageUrl = this.resolveCardImageUrl(row.card);
+        const familyLabel = escapeHtml(String(row.family || row.card?.macroGroup || 'core').toUpperCase());
+        const hitsCount = this.getHitCount(row.card);
+        const hitsLabel = hitsCount > 0 ? `${hitsCount} hit ultimo concorso` : 'Nessun hit recente';
+        return `
+          <a href="${href}" class="cc-card cc-card3d card-3d algorithm-card group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-${tone} is-active" aria-label="Apri ${title}">
+            <span class="cc-home-active-card__badge">#${index + 1}</span>
+            <div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden" style="position:relative;width:100%;aspect-ratio:15/8;min-height:0;max-height:none;overflow:hidden;">
+              <img class="h-full w-full object-cover" src="${imageUrl}" alt="Anteprima ${title}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+            </div>
+            <div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">
+              <span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">${familyLabel}</span>
+              <h4 class="text-[0.98rem] font-semibold leading-tight group-hover:text-neon">${title}</h4>
+              <p class="text-[0.66rem] font-medium leading-[1.15] text-ash">${subtitle}</p>
+              <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash">${escapeHtml(hitsLabel)}</p>
+            </div>
+            <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border border-neon/70 bg-neon/10 px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] text-neon overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)]">Punteggio: ${rankText}</div>
+          </a>
+        `;
+      }).join('');
+
+      host.innerHTML = `<div class="cc-home-active-grid">${html}</div>`;
+    },
+
+    resolveFamilyVisualTone(family) {
+      const value = String(family || '').toLowerCase();
+      if (value === 'statistico') return 'alg-stat';
+      if (value === 'neurale') return 'alg-neural';
+      if (value === 'ibrido') return 'alg-hybrid';
+      return 'study';
+    },
+
+    resolveCardImageUrl(card) {
+      const image = String(card?.image || card?.img || '').trim();
+      const page = String(card?.page || '').trim();
+      let candidate = '';
+      if (/^(https?:\/\/|file:|data:|\/)/i.test(image)) {
+        candidate = image;
+      } else if (image && page) {
+        const base = /\.html?$/i.test(page)
+          ? page.replace(/[^/]+$/i, '')
+          : `${page.replace(/\/?$/, '/')}`;
+        candidate = `${base}${image}`;
+      } else if (image) {
+        candidate = image;
+      }
+      if (!candidate) candidate = 'img/algoritm.webp';
+      return escapeHtml(ctx.resolveWithBase(candidate) || '#');
+    },
+
+    renderTrendNumbers(host, rows) {
+      host.innerHTML = '';
+      const list = Array.isArray(rows) ? rows : [];
+      if (!list.length) {
+        host.innerHTML = '<div class="cc-home-empty">Trend numerici non disponibili al momento.</div>';
+        return;
+      }
+      const numbersByRow = list.map((row) => this.extractSixNumbers(row)).filter((chunk) => chunk.length === 6);
+      if (!numbersByRow.length) {
+        host.innerHTML = '<div class="cc-home-empty">Impossibile estrarre trend dai dati storici.</div>';
+        return;
+      }
+
+      const recentWindow = numbersByRow.slice(-90);
+      const frequencies = new Map();
+      for (let n = 1; n <= 90; n += 1) frequencies.set(n, 0);
+      recentWindow.forEach((draw) => {
+        draw.forEach((n) => {
+          if (!frequencies.has(n)) return;
+          frequencies.set(n, (frequencies.get(n) || 0) + 1);
+        });
+      });
+      const ordered = Array.from(frequencies.entries()).sort((a, b) => b[1] - a[1] || a[0] - b[0]);
+      const hot = ordered.slice(0, 6).map(([n, c]) => ({ n, c }));
+      const cold = ordered.slice(-6).reverse().map(([n, c]) => ({ n, c }));
+      const anomalies = this.computeDelays(numbersByRow).slice(0, 6);
+
+      host.innerHTML = `
+        <div class="cc-home-trends-grid">
+          <article class="cc-home-trend-card">
+            <h4>Numeri caldi</h4>
+            <p>Ultime 90 estrazioni analizzate</p>
+            <div class="cc-home-trend-balls">${this.renderTrendBalls(hot, 'hot')}</div>
+          </article>
+          <article class="cc-home-trend-card">
+            <h4>Numeri freddi</h4>
+            <p>Bassa presenza recente</p>
+            <div class="cc-home-trend-balls">${this.renderTrendBalls(cold, 'cold')}</div>
+          </article>
+          <article class="cc-home-trend-card">
+            <h4>Anomalie ritardo</h4>
+            <p>Numeri assenti da piu concorsi</p>
+            <div class="cc-home-trend-balls">${this.renderTrendBalls(anomalies, 'delay')}</div>
+          </article>
+        </div>
+      `;
+    },
+
+    extractSixNumbers(row) {
+      if (!row || typeof row !== 'object') return [];
+      const keys = Object.keys(row);
+      const picks = [];
+      for (let i = 0; i < keys.length; i += 1) {
+        const key = String(keys[i] || '').trim().toUpperCase();
+        if (!/^N[1-6]$/.test(key)) continue;
+        const parsed = Number.parseInt(String(row[keys[i]] || '').replace(/[^\d]/g, ''), 10);
+        if (Number.isFinite(parsed) && parsed >= 1 && parsed <= 90) picks.push(parsed);
+      }
+      return picks.slice(0, 6);
+    },
+
+    computeDelays(numbersByRow) {
+      const lastSeen = new Map();
+      for (let n = 1; n <= 90; n += 1) lastSeen.set(n, null);
+      const orderedDesc = numbersByRow.slice().reverse();
+      orderedDesc.forEach((draw, idx) => {
+        draw.forEach((n) => {
+          if (!lastSeen.has(n)) return;
+          if (lastSeen.get(n) === null) lastSeen.set(n, idx);
+        });
+      });
+      return Array.from(lastSeen.entries())
+        .map(([n, seen]) => ({ n, c: seen === null ? orderedDesc.length : seen }))
+        .sort((a, b) => b.c - a.c || a.n - b.n);
+    },
+
+    renderTrendBalls(items, kind) {
+      const list = Array.isArray(items) ? items : [];
+      return list.map((item) => {
+        const n = Number(item?.n);
+        const c = Number(item?.c);
+        const tone = getBallTone(n);
+        const value = Number.isFinite(n) ? String(n).padStart(2, '0') : '--';
+        const detail = kind === 'delay'
+          ? `${Number.isFinite(c) ? c : '--'} rit.`
+          : `${Number.isFinite(c) ? c : '--'}x`;
+        return `<span class="cc-home-trend-ball"><span class="cc-proposal-ball${tone ? ` ${tone}` : ''}">${escapeHtml(value)}</span><small>${escapeHtml(detail)}</small></span>`;
+      }).join('');
+    },
+
+    renderCommunityActivity(host, feed) {
+      host.innerHTML = '';
+      const payload = feed && typeof feed === 'object' ? feed : null;
+      if (!payload) {
+        host.innerHTML = `
+          <div class="cc-home-empty">
+            Feed community non disponibile.
+            <a class="cc-alg-link" href="${escapeHtml(ctx.resolveWithBase('pages/community/index.html'))}">Apri Community</a>
+          </div>
+        `;
+        return;
+      }
+      const contest = escapeHtml(String(payload.contest_seq || '--'));
+      const updatedAt = escapeHtml(String(payload.updated_at || '--'));
+      const leaderboard = Array.isArray(payload.leaderboard) ? payload.leaderboard.slice(0, 3) : [];
+      const activities = Array.isArray(payload.activities) ? payload.activities.slice(0, 4) : [];
+
+      const leaderboardHtml = leaderboard.length
+        ? leaderboard.map((entry) => {
+          const alias = escapeHtml(entry?.alias || 'utente');
+          const score = escapeHtml(String(entry?.score ?? '--'));
+          const position = escapeHtml(String(entry?.position ?? '--'));
+          return `<li><span>#${position}</span><strong>${alias}</strong><em>${score}</em></li>`;
+        }).join('')
+        : '<li><span>#--</span><strong>Nessun utente ha ancora pubblicato risultati.</strong><em>--</em></li>';
+
+      const activitiesHtml = activities.length
+        ? activities.map((entry) => {
+          const alias = escapeHtml(entry?.alias || 'utente');
+          const action = escapeHtml(entry?.action || 'azione');
+          const payloadTxt = escapeHtml(String(entry?.payload || ''));
+          return `<li><strong>${alias}</strong> ${action}<span>${payloadTxt}</span></li>`;
+        }).join('')
+        : '<li><strong>Feed</strong> Nessun utente ha inviato attivita recenti<span>--</span></li>';
+
+      host.innerHTML = `
+        <div class="cc-home-community">
+          <header>
+            <h4>Attivita utenti</h4>
+            <p>Concorso ${contest} - aggiornato ${updatedAt}</p>
+          </header>
+          <div class="cc-home-community__grid">
+            <article>
+              <h5>Top player</h5>
+              <ul>${leaderboardHtml}</ul>
+            </article>
+            <article>
+              <h5>Ultime azioni</h5>
+              <ul>${activitiesHtml}</ul>
+            </article>
+          </div>
+          <a class="cc-home-community__cta" href="${escapeHtml(ctx.resolveWithBase('pages/community/index.html'))}">Apri Community completa</a>
+        </div>
+      `;
     },
 
     renderKpi(host, items) {

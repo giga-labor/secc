@@ -228,15 +228,15 @@ function updatePagination() {
 
 function updateSummary() {
   if (!rows.length) {
-    elements.count.textContent = '--';
-    elements.first.textContent = '--';
-    elements.last.textContent = '--';
+    if (elements.count) elements.count.textContent = '--';
+    if (elements.first) elements.first.textContent = '--';
+    if (elements.last) elements.last.textContent = '--';
     return;
   }
-  elements.count.textContent = rows.length.toLocaleString('it-IT');
+  if (elements.count) elements.count.textContent = rows.length.toLocaleString('it-IT');
   const dates = rows.map((row) => row[dateIndex]).filter(Boolean);
-  elements.first.textContent = dates[dates.length - 1] || '--';
-  elements.last.textContent = dates[0] || '--';
+  if (elements.first) elements.first.textContent = dates[dates.length - 1] || '--';
+  if (elements.last) elements.last.textContent = dates[0] || '--';
   const statusTag = document.querySelector('[data-draws-status-tag]');
   if (statusTag) {
     statusTag.textContent = 'Archivio attivo';

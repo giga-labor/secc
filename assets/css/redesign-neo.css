@@ -366,6 +366,25 @@ body.cc-redesign .cc-page-hub__item:hover {
   color: #ffe4ad !important;
 }
 
+body.cc-neo .cc-home-active-card,
+body.cc-redesign .cc-home-active-card,
+body.cc-neo .cc-home-loop__card,
+body.cc-redesign .cc-home-loop__card {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+body.cc-neo .cc-home-active-card:hover,
+body.cc-redesign .cc-home-active-card:hover,
+body.cc-neo .cc-home-loop__card:hover,
+body.cc-redesign .cc-home-loop__card:hover {
+  border-color: rgba(255, 205, 123, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(255, 205, 123, 0.2) inset,
+    0 18px 35px rgba(0, 0, 0, 0.42);
+}
+
 body.cc-neo [data-page-kicker],
 body.cc-redesign [data-page-kicker] {
   color: #d8e7ff !important;
@@ -410,6 +429,14 @@ body.cc-redesign[data-page-id="ranking"] {
     radial-gradient(66% 50% at 6% 3%, rgba(255, 204, 124, 0.2), rgba(255, 204, 124, 0) 72%),
     radial-gradient(54% 42% at 92% 8%, rgba(189, 165, 255, 0.22), rgba(189, 165, 255, 0) 72%),
     linear-gradient(166deg, #0c0915 0%, #181228 44%, #0b1020 100%) !important;
+}
+
+body.cc-neo[data-page-id="community"],
+body.cc-redesign[data-page-id="community"] {
+  background:
+    radial-gradient(62% 46% at 5% 6%, rgba(136, 226, 255, 0.2), rgba(136, 226, 255, 0) 74%),
+    radial-gradient(54% 46% at 96% 12%, rgba(255, 205, 127, 0.18), rgba(255, 205, 127, 0) 76%),
+    linear-gradient(165deg, #08101d 0%, #111b2c 44%, #0a1220 100%) !important;
 }
 
 @media (max-width: 1023px) {

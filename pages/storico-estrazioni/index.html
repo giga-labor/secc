@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -79,7 +79,7 @@
 </script>
   <link rel="stylesheet" href="/assets/css/lab-referral.css">
 </head>
-<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" data-page-id="storico" data-style-lock="final">
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" data-page-id="storico" data-style-lock="final" data-auto-tabs="off">
 <main class="content-fade mx-auto max-w-5xl content-width px-6 py-2">
       <h1 class="sr-only">Storico estrazioni</h1>
     <div class="content-box">
@@ -87,94 +87,42 @@
       <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Archivio storico</span>
     </header>
 
-    <aside class="cc-bridge-box" data-bridge-box data-bridge-id="archive_bridge_ritardi" data-linked-paper-id="classic-ritardi" data-source-data-module="storico-estrazioni">
-      <p><strong>Approfondimento teorico:</strong> i ritardi osservati nello storico sono discussi nello studio <a href="../algoritmi/algs/classic-ritardi/">Classic Ritardi</a>.</p>
-    </aside>
-
-    <div class="tabs-shell mt-10" data-tabs-root data-tab-panel-label="off">
-      <div class="folder-tabs">
-        <button class="tab-btn is-active" type="button" data-tab-target="riepilogo">Riepilogo</button>
-        <button class="tab-btn" type="button" data-tab-target="archivio">Archivio</button>
+<section class="mt-10 space-y-4" aria-label="Archivio storico estrazioni">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <span class="rounded-full border border-emerald-400 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-300" data-draws-status-tag>Archivio attivo</span>
+        <label class="sr-only" for="draws-search-input">Cerca per data, numero concorso o combinazione</label>
+        <input id="draws-search-input" class="w-full sm:w-72 rounded-full border border-white/10 bg-midnight/80 px-4 py-2 text-sm text-white placeholder:text-ash focus:outline-none focus:ring-2 focus:ring-neon" type="search" placeholder="Cerca..." data-draws-search autocomplete="off">
       </div>
-      <div class="tabs-sheet">
-        <section class="tab-panel is-active space-y-4" data-tab-panel="riepilogo">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-semibold">Dati estrazioni</h2>
-            </div>
-            <span class="rounded-full border border-emerald-400 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-300" data-draws-status-tag>Archivio attivo</span>
-          </div>
-          <div class="mt-2 rounded-2xl border border-white/10 bg-midnight/80 p-4">
-            <div class="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <p class="text-xs uppercase tracking-[0.2em] text-ash">Record totali</p>
-                <p class="mt-2 text-2xl font-semibold" data-draws-count aria-live="polite">4159</p>
-              </div>
-              <div>
-                <p class="text-xs uppercase tracking-[0.2em] text-ash">Prima estrazione</p>
-                <p class="mt-2 text-xl font-semibold" data-draws-first aria-live="polite">12/03/1997</p>
-              </div>
-              <div>
-                <p class="text-xs uppercase tracking-[0.2em] text-ash">Ultima estrazione</p>
-                <p class="mt-2 text-xl font-semibold" data-draws-last aria-live="polite">10/03/2026</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section class="tab-panel space-y-4" data-tab-panel="archivio">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h3 class="text-xl font-semibold">Filtro rapido</h3>
-              <p class="text-ash text-sm">Cerca per data, numero concorso o combinazione.</p>
-            </div>
-            <label class="sr-only" for="draws-search-input">Cerca per data, numero concorso o combinazione</label>
-            <input id="draws-search-input" class="w-full sm:w-72 rounded-full border border-white/10 bg-midnight/80 px-4 py-2 text-sm text-white placeholder:text-ash focus:outline-none focus:ring-2 focus:ring-neon" type="search" placeholder="Cerca..." data-draws-search autocomplete="off">
-          </div>
-
-          <div class="table-scroll-shell mt-2" data-draws-scroll-shell>
-            <div class="cc-table-wrap" data-draws-scroll>
-              <table class="draws-table min-w-full text-left text-sm">
-                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
-                  <tr data-draws-header>
-                    <th class="px-4 py-3">Data</th>
-                    <th class="px-4 py-3">Concorso</th>
-                    <th class="px-4 py-3">Numeri</th>
-                    <th class="px-4 py-3">Jolly/SuperStar</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-white/5" data-draws-body aria-busy="true" data-seo-fallback="storico"><tr><td class="px-4 py-3 text-ash">10/03/2026</td><td class="px-4 py-3 text-ash">4159</td><td class="px-4 py-3 text-ash">8 34 42 47 55 83</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">07/03/2026</td><td class="px-4 py-3 text-ash">4158</td><td class="px-4 py-3 text-ash">3 12 18 40 45 69</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">06/03/2026</td><td class="px-4 py-3 text-ash">4157</td><td class="px-4 py-3 text-ash">4 17 22 37 50 88</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">05/03/2026</td><td class="px-4 py-3 text-ash">4156</td><td class="px-4 py-3 text-ash">7 23 39 62 63 78</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">03/03/2026</td><td class="px-4 py-3 text-ash">4155</td><td class="px-4 py-3 text-ash">4 16 42 48 56 68</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">28/02/2026</td><td class="px-4 py-3 text-ash">4154</td><td class="px-4 py-3 text-ash">14 17 33 63 64 80</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">27/02/2026</td><td class="px-4 py-3 text-ash">4153</td><td class="px-4 py-3 text-ash">10 14 49 55 71 79</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">26/02/2026</td><td class="px-4 py-3 text-ash">4152</td><td class="px-4 py-3 text-ash">18 30 36 52 67 72</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">24/02/2026</td><td class="px-4 py-3 text-ash">4151</td><td class="px-4 py-3 text-ash">4 18 23 26 45 87</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">21/02/2026</td><td class="px-4 py-3 text-ash">4150</td><td class="px-4 py-3 text-ash">49 58 60 66 68 81</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">20/02/2026</td><td class="px-4 py-3 text-ash">4149</td><td class="px-4 py-3 text-ash">30 34 41 42 49 83</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">19/02/2026</td><td class="px-4 py-3 text-ash">4148</td><td class="px-4 py-3 text-ash">20 39 40 43 76 90</td><td class="px-4 py-3 text-ash">--</td></tr></tbody>
-              </table>
-            </div>
-          </div>
-          <div class="table-scroll-fixedbar" data-draws-scrollbar hidden aria-hidden="true">
-            <div class="table-scroll-fixedbar__inner" data-draws-scrollbar-inner></div>
-          </div>
-
-          <div class="mt-2 flex flex-wrap items-center justify-between gap-4">
-            <p class="text-sm text-ash" data-draws-status aria-live="polite">4159 record</p>
-            <div class="flex items-center gap-1">
-              <button class="rounded-lg border border-white/10 px-4 py-2 text-sm text-ash transition hover:border-neon hover:text-neon" data-draws-prev>Indietro</button>
-              <span class="text-sm text-ash" data-draws-page>Pagina 1 / 1</span>
-              <button class="rounded-lg border border-white/10 px-4 py-2 text-sm text-ash transition hover:border-neon hover:text-neon" data-draws-next>Avanti</button>
-            </div>
-          </div>
-        </section>
+      <div class="table-scroll-shell mt-2" data-draws-scroll-shell>
+        <div class="cc-table-wrap" data-draws-scroll>
+          <table class="draws-table min-w-full text-left text-sm">
+            <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+              <tr data-draws-header>
+                <th class="px-4 py-3">Data</th>
+                <th class="px-4 py-3">Concorso</th>
+                <th class="px-4 py-3">Numeri</th>
+                <th class="px-4 py-3">Jolly/SuperStar</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5" data-draws-body aria-busy="true" data-seo-fallback="storico"><tr><td class="px-4 py-3 text-ash">10/03/2026</td><td class="px-4 py-3 text-ash">4159</td><td class="px-4 py-3 text-ash">8 34 42 47 55 83</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">07/03/2026</td><td class="px-4 py-3 text-ash">4158</td><td class="px-4 py-3 text-ash">3 12 18 40 45 69</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">06/03/2026</td><td class="px-4 py-3 text-ash">4157</td><td class="px-4 py-3 text-ash">4 17 22 37 50 88</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">05/03/2026</td><td class="px-4 py-3 text-ash">4156</td><td class="px-4 py-3 text-ash">7 23 39 62 63 78</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">03/03/2026</td><td class="px-4 py-3 text-ash">4155</td><td class="px-4 py-3 text-ash">4 16 42 48 56 68</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">28/02/2026</td><td class="px-4 py-3 text-ash">4154</td><td class="px-4 py-3 text-ash">14 17 33 63 64 80</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">27/02/2026</td><td class="px-4 py-3 text-ash">4153</td><td class="px-4 py-3 text-ash">10 14 49 55 71 79</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">26/02/2026</td><td class="px-4 py-3 text-ash">4152</td><td class="px-4 py-3 text-ash">18 30 36 52 67 72</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">24/02/2026</td><td class="px-4 py-3 text-ash">4151</td><td class="px-4 py-3 text-ash">4 18 23 26 45 87</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">21/02/2026</td><td class="px-4 py-3 text-ash">4150</td><td class="px-4 py-3 text-ash">49 58 60 66 68 81</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">20/02/2026</td><td class="px-4 py-3 text-ash">4149</td><td class="px-4 py-3 text-ash">30 34 41 42 49 83</td><td class="px-4 py-3 text-ash">--</td></tr><tr><td class="px-4 py-3 text-ash">19/02/2026</td><td class="px-4 py-3 text-ash">4148</td><td class="px-4 py-3 text-ash">20 39 40 43 76 90</td><td class="px-4 py-3 text-ash">--</td></tr></tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <aside class="cc-bridge-box" data-bridge-box data-bridge-id="archive_bridge_frequency" data-linked-paper-id="classic-frequency" data-source-data-module="storico-estrazioni">
-      <p>Questo dataset storico è la base informativa comune: da qui tutti gli algoritmi ricavano statistiche e segnali di apprendimento.</p>
-    </aside>
-    <section class="cc-page-hub" data-reveal="fade-up">
-      <h3 class="cc-page-hub__title">Continua l'esplorazione</h3>
-      <div class="cc-page-hub__grid">
-        <a class="cc-page-hub__item" href="../../#home">Home</a>
-        <a class="cc-page-hub__item" href="../algoritmi/">Algorithms</a>
-        <a class="cc-page-hub__item" href="../laboratorio-tecnico/">Laboratorio</a>
-        <a class="cc-page-hub__item" href="../oracle/">Oracle</a>
+      <div class="table-scroll-fixedbar" data-draws-scrollbar hidden aria-hidden="true">
+        <div class="table-scroll-fixedbar__inner" data-draws-scrollbar-inner></div>
+      </div>
+
+      <div class="mt-2 flex flex-wrap items-center justify-between gap-4">
+        <p class="text-sm text-ash" data-draws-status aria-live="polite">4159 record</p>
+        <div class="flex items-center gap-1">
+          <button class="rounded-lg border border-white/10 px-4 py-2 text-sm text-ash transition hover:border-neon hover:text-neon" data-draws-prev>Indietro</button>
+          <span class="text-sm text-ash" data-draws-page>Pagina 1 / 1</span>
+          <button class="rounded-lg border border-white/10 px-4 py-2 text-sm text-ash transition hover:border-neon hover:text-neon" data-draws-next>Avanti</button>
+        </div>
       </div>
     </section>
-    </div>
+</div>
   </main>
 
   
@@ -195,5 +143,7 @@
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
+
+
 
 

@@ -3,8 +3,6 @@
   window.__CC_LAZY_BOOTSTRAP__ = true;
 
   const DEFAULT_MODULES = [
-    "site-guide.js",
-    "user-first.js",
     "balls-standardizer.js"
   ];
 

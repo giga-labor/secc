@@ -123,6 +123,51 @@ const resolveWithBase = (path) => {
   return new URL(trimmed, base).toString();
 };
 
+const buildFetchCandidates = (path) => {
+  const value = String(path || '').trim();
+  if (!value) return [];
+  if (value.startsWith('#') || /^https?:\/\//i.test(value) || value.startsWith('file:')) return [value];
+  const trimmed = value.startsWith('/') ? value.slice(1) : value.replace(/^\.\//, '');
+  const fromBase = resolveWithBase(trimmed);
+  const rootAbsolute = `/${trimmed}`;
+  const pageRelative = `../../${trimmed}`;
+  const direct = trimmed;
+  return Array.from(new Set([fromBase, rootAbsolute, pageRelative, direct].filter(Boolean)));
+};
+
+const fetchFirstOk = async (path, init = { cache: 'no-store' }) => {
+  const candidates = buildFetchCandidates(path);
+  for (let i = 0; i < candidates.length; i += 1) {
+    try {
+      const res = await fetch(candidates[i], init);
+      if (res.ok) return res;
+    } catch (_) {
+      // Try next candidate.
+    }
+  }
+  return null;
+};
+
+const fetchJsonFirstOk = async (path) => {
+  const res = await fetchFirstOk(path, { cache: 'no-store' });
+  if (!res) return null;
+  try {
+    return await res.json();
+  } catch (_) {
+    return null;
+  }
+};
+
+const fetchTextFirstOk = async (path) => {
+  const res = await fetchFirstOk(path, { cache: 'no-store' });
+  if (!res) return '';
+  try {
+    return await res.text();
+  } catch (_) {
+    return '';
+  }
+};
+
 const formatRanking = (value) => new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
 const escapeHtml = (value) => String(value || '')
   .replace(/&/g, '&amp;')
@@ -207,6 +252,23 @@ const normalizePageDir = (value) => {
   if (!page.startsWith('/')) page = `/${page}`;
   if (!page.endsWith('/')) page = `${page}/`;
   return page;
+};
+
+const resolveRankingTone = (family) => {
+  const value = String(family || '').toLowerCase();
+  if (value === 'statistico') return 'alg-stat';
+  if (value === 'neurale') return 'alg-neural';
+  if (value === 'ibrido') return 'alg-hybrid';
+  return 'study';
+};
+
+const resolveRankingImage = (card, page) => {
+  const image = String(card?.image || card?.img || '').trim();
+  if (/^(https?:\/\/|file:|data:|\/)/i.test(image)) return resolveWithBase(image);
+  const pageDir = normalizePageDir(page || card?.page || '');
+  if (image && pageDir) return resolveWithBase(`${pageDir}${image}`);
+  if (image) return resolveWithBase(image);
+  return resolveWithBase('img/algoritm.webp');
 };
 
 async function loadLaboratorioTechnicalCatalog() {
@@ -320,19 +382,21 @@ const fetchAlgorithmRanking = async (card) => {
   const page = String(card?.page || '');
   if (!page) return null;
   const base = /\.html?$/i.test(page) ? page.replace(/[^/]+$/i, '') : `${page.replace(/\/?$/, '/')}`;
-  const metricsUrl = resolveWithBase(`${base}out/metrics-db.csv`);
-  const historicalUrl = resolveWithBase(`${base}out/historical-db.csv`);
+  const metricsUrl = `${base}out/metrics-db.csv`;
+  const historicalUrl = `${base}out/historical-db.csv`;
   try {
-    const [mRes, hRes] = await Promise.all([fetch(metricsUrl, { cache: 'no-store' }), fetch(historicalUrl, { cache: 'no-store' })]);
-    const metricsRows = mRes.ok ? parseCsvRows(await mRes.text()) : [];
-    const historicalRows = hRes.ok ? parseCsvRows(await hRes.text()) : [];
+    const [metricsText, historicalText] = await Promise.all([fetchTextFirstOk(metricsUrl), fetchTextFirstOk(historicalUrl)]);
+    const metricsRows = metricsText ? parseCsvRows(metricsText) : [];
+    const historicalRows = historicalText ? parseCsvRows(historicalText) : [];
     const exact = mergeExactCountsLikeCards(metricsRows, historicalRows);
     const ranking = rankingFromCounts(exact);
     return {
       title: String(card?.title || card?.id || 'Algoritmo'),
       page: String(card?.page || ''),
       ranking,
-      hits: exact
+      hits: exact,
+      family: String(card?.macroGroup || ''),
+      card
     };
   } catch (_) {
     return null;
@@ -341,20 +405,14 @@ const fetchAlgorithmRanking = async (card) => {
 
 async function loadAnalisiRanking() {
   const tbody = document.querySelector('[data-ranking-body]');
-  if (!tbody) return;
+  const cardsHost = document.querySelector('[data-ranking-cards]');
+  if (!tbody && !cardsHost) return;
   try {
-    const res = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
-    if (!res.ok) throw new Error(`status ${res.status}`);
-    const manifest = await res.json();
+    const manifest = await fetchJsonFirstOk('data/modules-manifest.json');
+    if (!manifest) throw new Error('manifest_unavailable');
     const cardPaths = Array.isArray(manifest) ? manifest.filter((x) => typeof x === 'string') : [];
     const cards = (await Promise.all(cardPaths.map(async (path) => {
-      try {
-        const cardRes = await fetch(resolveWithBase(path), { cache: 'no-store' });
-        if (!cardRes.ok) return null;
-        return await cardRes.json();
-      } catch (_) {
-        return null;
-      }
+      return await fetchJsonFirstOk(path);
     }))).filter(Boolean);
     const algs = cards.filter((x) => x?.isActive !== false && String(x?.page || '').includes('/algoritmi/algs/'));
     const rankedRaw = (await Promise.all(algs.map(fetchAlgorithmRanking))).filter(Boolean);
@@ -362,9 +420,38 @@ async function loadAnalisiRanking() {
       .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
       .sort((a, b) => b._rank - a._rank);
     if (!ranked.length) {
-      tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con ranking disponibile.</td></tr>';
+      if (cardsHost) cardsHost.innerHTML = '<div class="cc-home-empty">Nessun algoritmo attivo con ranking disponibile.</div>';
+      if (tbody) tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con ranking disponibile.</td></tr>';
       return;
     }
+
+    const toCardHtml = (row, rankPosition, options = {}) => {
+      const d = row.hits;
+      const detail = `Hit 0:${d[0]} 1:${d[1]} 2:${d[2]} 3:${d[3]} 4:${d[4]} 5:${d[5]} 6:${d[6]}`;
+      const rankingLabel = Number.isFinite(row.ranking) ? formatRanking(row.ranking) : '--';
+      const href = row.page ? escapeHtml(resolveWithBase(row.page)) : '#';
+      const title = escapeHtml(row.title);
+      const family = escapeHtml(String(row.family || 'core').toUpperCase());
+      const tone = resolveRankingTone(row.family);
+      const imageUrl = escapeHtml(resolveRankingImage(row.card, row.page) || '#');
+      const isPodium = options && options.podium === true;
+      const podiumClass = isPodium ? ` cc-ranking-card--podium cc-ranking-card--podium-${rankPosition}` : '';
+      return `
+        <a href="${href}" class="cc-card cc-card3d card-3d algorithm-card cc-ranking-card${podiumClass} group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-${tone} is-active" aria-label="Apri ${title}">
+          <span class="cc-ranking-card__badge">#${rankPosition}</span>
+          <div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden" style="position:relative;width:100%;aspect-ratio:15/8;min-height:0;max-height:none;overflow:hidden;">
+            <img class="h-full w-full object-cover" src="${imageUrl}" alt="Anteprima ${title}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          </div>
+          <div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">
+            <span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">${family}</span>
+            <h3 class="text-[0.98rem] font-semibold leading-tight group-hover:text-neon">${title}</h3>
+            <p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash">${escapeHtml(detail)}</p>
+          </div>
+          <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border border-neon/70 bg-neon/10 px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] text-neon overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)]">Punteggio: ${rankingLabel}</div>
+        </a>
+      `;
+    };
+
     const toRowHtml = (row, idx) => {
       const d = row.hits;
       const detail = `0:${d[0]} 1:${d[1]} 2:${d[2]} 3:${d[3]} 4:${d[4]} 5:${d[5]} 6:${d[6]}`;
@@ -376,21 +463,67 @@ async function loadAnalisiRanking() {
       return `<tr><td class="px-4 py-3 text-ash">${idx + 1}</td><td class="px-4 py-3 text-white">${titleCell}</td><td class="px-4 py-3 text-white">${rankingLabel}</td><td class="px-4 py-3 text-ash">${detail}</td></tr>`;
     };
 
-    tbody.innerHTML = '';
-    const perf = window.CC_PERF;
-    if (perf && typeof perf.renderInChunks === 'function' && ranked.length > 18) {
-      await perf.renderInChunks(ranked, (row, idx) => {
-        tbody.insertAdjacentHTML('beforeend', toRowHtml(row, idx));
-      }, { chunkSize: 10 });
-    } else {
-      tbody.innerHTML = ranked.map((row, idx) => toRowHtml(row, idx)).join('');
+    if (cardsHost) {
+      const podium = ranked.slice(0, 3);
+      const others = ranked.slice(3);
+
+      const podiumHtml = podium.map((row, idx) => {
+        const rankPosition = idx + 1;
+        const slotClass = rankPosition === 1
+          ? 'cc-ranking-podium__slot cc-ranking-podium__slot--first'
+          : rankPosition === 2
+            ? 'cc-ranking-podium__slot cc-ranking-podium__slot--second'
+            : 'cc-ranking-podium__slot cc-ranking-podium__slot--third';
+        return `<article class="${slotClass}">${toCardHtml(row, rankPosition, { podium: true })}</article>`;
+      }).join('');
+
+      const othersHtml = others.map((row, idx) => toCardHtml(row, idx + 4)).join('');
+      const rankingMarkup = `
+        <div class="cc-ranking-layout">
+          <section class="cc-ranking-podium-wrap">
+            <h3 class="cc-ranking-section-title">Podio algoritmi</h3>
+            <div class="cc-ranking-podium">${podiumHtml}</div>
+          </section>
+          ${others.length
+            ? `<section class="cc-ranking-list-wrap">
+                <h3 class="cc-ranking-section-title">Tutti gli altri algoritmi</h3>
+                <div class="cc-ranking-cards-grid">${othersHtml}</div>
+              </section>`
+            : ''}
+        </div>
+      `;
+
+      cardsHost.classList.remove('cc-ranking-cards-grid');
+      cardsHost.classList.add('cc-ranking-cards-host');
+      cardsHost.innerHTML = rankingMarkup;
+      if (window.CARDS && typeof window.CARDS.enableDepth === 'function') {
+        window.CARDS.enableDepth(cardsHost);
+      }
+    } else if (tbody) {
+      const perf = window.CC_PERF;
+      tbody.innerHTML = '';
+      if (perf && typeof perf.renderInChunks === 'function' && ranked.length > 18) {
+        await perf.renderInChunks(ranked, (row, idx) => {
+          tbody.insertAdjacentHTML('beforeend', toRowHtml(row, idx));
+        }, { chunkSize: 10 });
+      } else {
+        tbody.innerHTML = ranked.map((row, idx) => toRowHtml(row, idx)).join('');
+      }
     }
   } catch (_) {
-    tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare il ranking algoritmi.</td></tr>';
+    if (cardsHost) {
+      const hasFallbackCard = Boolean(cardsHost.querySelector('.algorithm-card'));
+      if (!hasFallbackCard) {
+        cardsHost.innerHTML = '<div class="cc-home-empty">Impossibile caricare il ranking algoritmi.</div>';
+      }
+    }
+    if (tbody) tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare il ranking algoritmi.</td></tr>';
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+let rankingBooted = false;
+
+const bootAnalisiRuntime = () => {
   if (shouldUseRuntimeDirectorAnalisi()) return;
   if (document.body?.dataset?.pageId === 'analisi') {
     mountAnalisiPage();
@@ -401,9 +534,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
   if (isRankingPage()) {
+    if (rankingBooted) return;
+    rankingBooted = true;
     loadAnalisiRanking();
   }
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootAnalisiRuntime, { once: true });
+} else {
+  bootAnalisiRuntime();
+}
+
+window.addEventListener('pageshow', bootAnalisiRuntime, { passive: true });
+window.addEventListener('load', bootAnalisiRuntime, { passive: true });
 
 window.CC_ANALISI_RUNTIME = {
   mount: mountAnalisiPage,

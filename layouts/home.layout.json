@@ -1,8 +1,10 @@
 {
   "page_id": "home",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "data_sources": {
-    "modules_manifest": "data/modules-manifest.json"
+    "modules_manifest": "data/modules-manifest.json",
+    "community_feed": "data/community-feed.json",
+    "draws_csv": "archives/draws/draws.csv"
   },
   "kpi_items": [
     {
@@ -35,12 +37,33 @@
       "id": "news-zone",
       "type": "news_cards",
       "mount": "[data-module-area]",
-      "limit": 12
+      "limit": 8
     },
     {
       "id": "kpi-zone",
       "type": "kpi_cards",
       "mount": "[data-kpi-cards]"
+    },
+    {
+      "id": "proposals-zone",
+      "type": "proposals_list",
+      "mount": "[data-home-proposals]"
+    },
+    {
+      "id": "active-algorithms-zone",
+      "type": "active_algorithms",
+      "mount": "[data-home-active-algorithms]",
+      "limit": 6
+    },
+    {
+      "id": "trend-zone",
+      "type": "trend_numbers",
+      "mount": "[data-home-trends]"
+    },
+    {
+      "id": "community-zone",
+      "type": "community_activity",
+      "mount": "[data-home-community]"
     }
   ]
 }

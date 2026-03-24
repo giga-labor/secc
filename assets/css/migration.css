@@ -751,6 +751,19 @@ body.cc-redesign[data-page-id="ranking"] {
     linear-gradient(164deg, #0b0814 0%, #161127 44%, #090d1b 100%) !important;
 }
 
+body.cc-redesign[data-page-id="community"] {
+  background:
+    radial-gradient(62% 46% at 5% 6%, rgba(136, 226, 255, 0.2), rgba(136, 226, 255, 0) 74%),
+    radial-gradient(54% 46% at 96% 12%, rgba(255, 205, 127, 0.18), rgba(255, 205, 127, 0) 76%),
+    linear-gradient(165deg, #08101d 0%, #111b2c 44%, #0a1220 100%) !important;
+}
+
+body[data-page-id="home"] .cc-home-block,
+body[data-page-id="community"] .cc-home-block {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
 body.cc-redesign::after {
   content: "";
   position: fixed;

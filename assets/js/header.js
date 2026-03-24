@@ -1,4 +1,4 @@
-﻿const ensureViewTransitionMeta = () => {
+const ensureViewTransitionMeta = () => {
   const existing = document.querySelector('meta[name="view-transition"]');
   if (existing) return;
   const meta = document.createElement('meta');
@@ -800,6 +800,111 @@ const resolveWithBaseHref = (href, baseUrl = BASE.url) => {
   return new URL(trimmed, baseUrl).toString();
 };
 
+const NAV_STRUCTURE = [
+  { id: 'hub', label: 'Hub', items: ['home'] },
+  { id: 'operativo', label: 'Operativo', items: ['sestine', 'ranking', 'laboratorio'] },
+  { id: 'analisi', label: 'Analisi', items: ['algoritmi', 'storico'] },
+  { id: 'community', label: 'Community', items: ['community', 'oracle'] },
+  { id: 'policy', label: 'Policy', items: ['policy_consenso'] }
+];
+
+const NAV_ITEMS = {
+  home: { label: 'Home', href: 'index.html#home' },
+  sestine: { label: 'Sestine', href: 'pages/sestine-proposte/index.html' },
+  ranking: { label: 'Ranking', href: 'pages/ranking/index.html' },
+  laboratorio: { label: 'Laboratorio', href: 'pages/laboratorio-tecnico/index.html' },
+  algoritmi: { label: 'Algoritmi', href: 'pages/algoritmi/index.html' },
+  storico: { label: 'Storico', href: 'pages/storico-estrazioni/index.html' },
+  community: { label: 'Community', href: 'pages/community/index.html' },
+  oracle: { label: 'Oracle', href: 'pages/oracle/index.html' },
+  policy_consenso: { label: 'Policy e Consenso', href: 'pages/policy-consenso/index.html' }
+};
+
+const isNavKeyActive = (key) => {
+  const path = (window.location.pathname || '').replace(/\\/g, '/').replace(/\/index\.html$/, '/').toLowerCase();
+  if (key === 'home') return path === '/' || (path.endsWith('/index.html') && !path.includes('/pages/'));
+  if (key === 'sestine') return path.includes('/pages/sestine-proposte/');
+  if (key === 'ranking') return path.includes('/pages/ranking/');
+  if (key === 'laboratorio') return path.includes('/pages/laboratorio-tecnico/');
+  if (key === 'algoritmi') return path.includes('/pages/algoritmi/');
+  if (key === 'storico') return path.includes('/pages/storico-estrazioni/');
+  if (key === 'community') return path.includes('/pages/community/');
+  if (key === 'oracle') return path.includes('/pages/oracle/');
+  if (key === 'policy_consenso') {
+    return path.includes('/pages/policy-consenso/')
+      || path.includes('/pages/privacy-policy/')
+      || path.includes('/pages/cookie-policy/')
+      || path.includes('/pages/termini-servizio/')
+      || path.includes('/pages/disclaimer/')
+      || path.includes('/pages/contatti-chi-siamo/');
+  }
+  return false;
+};
+
+const resolveNavHref = (key) => {
+  const item = NAV_ITEMS[key];
+  if (!item) return '#';
+  if (key === 'home' && document.body?.dataset?.pageId === 'home') return '#home';
+  return resolveWithBaseHref(item.href);
+};
+
+const buildGroupedHeaderNavMarkup = () => NAV_STRUCTURE.map((group) => {
+  const links = group.items.map((key) => {
+    const item = NAV_ITEMS[key];
+    if (!item) return '';
+    return `<a class="cc-nav-link" data-nav-key="${key}" href="${resolveNavHref(key)}">${item.label}</a>`;
+  }).join('');
+  return `<div class="cc-nav-group" data-nav-group="${group.id}" aria-label="${group.label}">${links}</div>`;
+}).join('');
+
+const buildGroupedPageHubNav = () => {
+  const container = document.createElement('div');
+  container.className = 'cc-page-hub-groups';
+  NAV_STRUCTURE.forEach((group) => {
+    const groupNode = document.createElement('section');
+    groupNode.className = 'cc-page-hub-group';
+    const label = document.createElement('p');
+    label.className = 'cc-page-hub-group__label';
+    label.textContent = group.label;
+    const grid = document.createElement('div');
+    grid.className = 'cc-page-hub__grid cc-page-hub__grid--group';
+    group.items.forEach((key) => {
+      const item = NAV_ITEMS[key];
+      if (!item) return;
+      const anchor = document.createElement('a');
+      anchor.className = 'cc-page-hub__item';
+      anchor.dataset.navKey = key;
+      anchor.href = resolveNavHref(key);
+      anchor.textContent = item.label;
+      if (isNavKeyActive(key)) {
+        anchor.classList.add('is-active');
+        anchor.setAttribute('aria-current', 'page');
+      }
+      grid.appendChild(anchor);
+    });
+    groupNode.appendChild(label);
+    groupNode.appendChild(grid);
+    container.appendChild(groupNode);
+  });
+  return container;
+};
+
+const applyStructuredPageHubNavigation = () => {
+  const hubs = document.querySelectorAll('.cc-page-hub');
+  hubs.forEach((hub) => {
+    if (!(hub instanceof HTMLElement)) return;
+    if (hub.dataset.navAuto === 'off' || hub.dataset.navGrouped === '1') return;
+    if (hub.querySelector('[data-policy-open], [data-consent-open]')) return;
+    const legacyGrid = hub.querySelector(':scope > .cc-page-hub__grid');
+    if (!legacyGrid) return;
+    const title = hub.querySelector(':scope > .cc-page-hub__title');
+    if (title) title.textContent = 'Navigazione logica';
+    const grouped = buildGroupedPageHubNav();
+    hub.replaceChild(grouped, legacyGrid);
+    hub.dataset.navGrouped = '1';
+  });
+};
+
 const ensureMigrationStylesheet = () => {
   const href = resolveWithBaseHref('assets/css/migration.css');
   if (!href) return;
@@ -882,6 +987,7 @@ const getPageKickerLabel = () => {
   if (path.includes('/pages/storico-estrazioni')) return 'ARCHIVIO STORICO';
   if (path.includes('/pages/laboratorio-tecnico')) return 'LABORATORIO TECNICO';
   if (path.includes('/pages/ranking')) return 'RANKING';
+  if (path.includes('/pages/community')) return 'COMMUNITY';
   if (path.includes('/pages/algoritmi/spotlight/statistici')) return 'SPOTLIGHT STATISTICI';
   if (path.includes('/pages/algoritmi/spotlight/neurali')) return 'SPOTLIGHT NEURALI';
   if (path.includes('/pages/algoritmi/spotlight/ibridi')) return 'SPOTLIGHT IBRIDI';
@@ -963,6 +1069,9 @@ const buildHeaderMarkup = () => `
             <a class="home-badge home-badge--icon home-badge--home bg-neon/10 px-6 py-3 font-semibold text-neon transition" href="${resolveWithBaseHref('pages/laboratorio-tecnico/')}" aria-label="Laboratorio Tecnico" data-tooltip="Laboratorio Tecnico">
               <img class="home-badge__icon home-badge__icon--img" src="${resolveWithBaseHref('img/statistic.webp')}" alt="" aria-hidden="true">
             </a>
+            <a class="home-badge home-badge--home bg-neon/10 px-4 py-3 font-semibold text-neon transition" href="${resolveWithBaseHref('pages/community/')}" aria-label="Community" data-tooltip="Community">
+              <span class="text-xs uppercase tracking-[0.15em]">Community</span>
+            </a>
           </div>
           <div class="header-actions__right">
             <button class="home-badge home-badge--audio home-badge--home bg-neon/10 px-4 py-3 text-neon transition" type="button" aria-label="Audio" data-tooltip="MUSIC" data-audio-toggle${AUDIO_ENABLED ? '' : ' hidden'}>
@@ -1013,32 +1122,20 @@ if (header) {
   markActiveNav();
 
   const isFinalLock = document.body?.dataset?.styleLock === 'final';
-  const isFinalHome = document.body?.dataset?.pageId === 'home';
   if (isFinalLock) {
     const left = header.querySelector('.header-actions__left');
     const right = header.querySelector('.header-actions__right');
     const marquee = header.querySelector('.standing-marquee');
     const title = header.querySelector('.header-title');
     const topline = header.querySelector('.header-topline');
-    const homeHref = isFinalHome ? '#home' : resolveWithBaseHref('index.html#home');
-    const algorithmsHref = resolveWithBaseHref('pages/algoritmi/index.html');
-    const dashboardHref = resolveWithBaseHref('pages/laboratorio-tecnico/index.html');
-    const rankingHref = resolveWithBaseHref('pages/ranking/index.html');
-    const oracleHref = resolveWithBaseHref('pages/oracle/index.html');
     if (left) {
-      left.innerHTML = `
-        <a class="cc-nav-link" href="${homeHref}">Home</a>
-        <a class="cc-nav-link" href="${algorithmsHref}">Algoritmi</a>
-        <a class="cc-nav-link" href="${dashboardHref}">Laboratorio</a>
-        <a class="cc-nav-link" href="${rankingHref}">Classifica Algoritmi</a>
-        <a class="cc-nav-link" href="${oracleHref}">Oracle</a>
-      `;
+      left.innerHTML = `<div class="cc-nav-groups">${buildGroupedHeaderNavMarkup()}</div>`;
     }
     if (right) {
-      right.style.display = '';
-      right.hidden = false;
-      right.removeAttribute('aria-hidden');
-      right.innerHTML = '<div class="cc-nav-policy-host" data-cc-nav-policy-host="true" aria-live="polite"></div>';
+      right.style.display = 'none';
+      right.hidden = true;
+      right.setAttribute('aria-hidden', 'true');
+      right.innerHTML = '';
     }
     if (marquee) marquee.style.display = 'none';
     if (title) title.style.display = 'none';
@@ -1046,23 +1143,13 @@ if (header) {
     header.classList.add('cc-nav-minimal', 'header--top');
 
     const markMinimalNavActive = () => {
-      const navLinks = header.querySelectorAll('.cc-nav-link[href]');
-      const path = (window.location.pathname || '').replace(/\/index\.html$/, '/').toLowerCase();
+      const navLinks = header.querySelectorAll('.cc-nav-link[href][data-nav-key]');
       navLinks.forEach((link) => {
-        const label = String(link.textContent || '').trim().toLowerCase();
-        let active = false;
-        if (label === 'home') {
-          active = path === '/' || (path.endsWith('/index.html') && !path.includes('/pages/'));
-        } else if (label === 'algoritmi') {
-          active = path.includes('/pages/algoritmi/');
-        } else if (label === 'laboratorio') {
-          active = path.includes('/pages/laboratorio-tecnico/') || path.includes('/pages/laboratorio-tecnico/');
-        } else if (label === 'classifica algoritmi') {
-          active = path.includes('/pages/ranking/');
-        } else if (label === 'oracle') {
-          active = path.includes('/pages/oracle/');
-        }
+        const key = String(link.dataset.navKey || '').trim();
+        const active = isNavKeyActive(key);
         link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
       });
     };
     markMinimalNavActive();
@@ -1089,6 +1176,7 @@ if (header) {
 
 window.addEventListener('pageshow', () => {
   header = ensureSiteHeader();
+  applyStructuredPageHubNavigation();
 });
 
 if (header) {
@@ -2129,9 +2217,11 @@ const applyAutoGlassTabs = () => {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', applyAutoGlassTabs);
   document.addEventListener('DOMContentLoaded', applyUnifiedPageKicker);
+  document.addEventListener('DOMContentLoaded', applyStructuredPageHubNavigation);
 } else {
   applyAutoGlassTabs();
   applyUnifiedPageKicker();
+  applyStructuredPageHubNavigation();
 }
 
 const smoothScrollToTop = (duration = 600) => {

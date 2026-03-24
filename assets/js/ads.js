@@ -211,6 +211,8 @@ const buildHeaderPolicyMenuMarkup = (baseHrefPrefix) => {
 const mountHeaderPolicyMenu = (baseHrefPrefix) => {
   const header = document.getElementById('site-header');
   if (!(header instanceof HTMLElement)) return false;
+  const primaryPolicyLink = header.querySelector('.cc-nav-link[data-nav-key="policy_consenso"], .cc-nav-link[href*="policy-consenso"]');
+  if (primaryPolicyLink instanceof HTMLElement) return false;
   const rightHost = header.querySelector('.header-actions__right');
   if (!(rightHost instanceof HTMLElement)) return false;
   rightHost.style.display = '';

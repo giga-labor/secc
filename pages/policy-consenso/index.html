@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -534,20 +534,42 @@
             </section>
 
             <div class="mt-6 flex flex-wrap gap-3">
-              <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../#home">Home</a>
+              <a class="rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../index.html#home">Home</a>
               <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="../laboratorio-tecnico/">Laboratorio</a>
               <a class="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 transition hover:-translate-y-1 hover:border-neon/70 hover:text-neon" href="#top">Torna in alto</a>
             </div>
 
             <section class="cc-page-hub" data-reveal="fade-up">
-              <h3 class="cc-page-hub__title">Accesso rapido</h3>
-              <div class="cc-page-hub__grid">
-                <button class="cc-page-hub__item" type="button" data-policy-open="policy:privacy">Privacy</button>
-                <button class="cc-page-hub__item" type="button" data-policy-open="policy:cookie">Cookie</button>
-                <button class="cc-page-hub__item" type="button" data-policy-open="legale:termini">Termini</button>
-                <button class="cc-page-hub__item" type="button" data-policy-open="legale:disclaimer">Disclaimer</button>
-                <button class="cc-page-hub__item" type="button" data-policy-open="supporto:contatti">Contatti</button>
-                <button class="cc-page-hub__item" type="button" data-consent-open="true">Gestisci cookie</button>
+              <h3 class="cc-page-hub__title">Navigazione logica</h3>
+              <div class="cc-page-hub-groups">
+                <section class="cc-page-hub-group">
+                  <p class="cc-page-hub-group__label">Policy</p>
+                  <div class="cc-page-hub__grid cc-page-hub__grid--group">
+                    <button class="cc-page-hub__item" type="button" data-policy-open="policy:privacy">Privacy</button>
+                    <button class="cc-page-hub__item" type="button" data-policy-open="policy:cookie">Cookie</button>
+                  </div>
+                </section>
+                <section class="cc-page-hub-group">
+                  <p class="cc-page-hub-group__label">Legale</p>
+                  <div class="cc-page-hub__grid cc-page-hub__grid--group">
+                    <button class="cc-page-hub__item" type="button" data-policy-open="legale:termini">Termini</button>
+                    <button class="cc-page-hub__item" type="button" data-policy-open="legale:disclaimer">Disclaimer</button>
+                  </div>
+                </section>
+                <section class="cc-page-hub-group">
+                  <p class="cc-page-hub-group__label">Supporto</p>
+                  <div class="cc-page-hub__grid cc-page-hub__grid--group">
+                    <button class="cc-page-hub__item" type="button" data-policy-open="supporto:contatti">Contatti</button>
+                    <button class="cc-page-hub__item" type="button" data-consent-open="true">Gestisci cookie</button>
+                  </div>
+                </section>
+                <section class="cc-page-hub-group">
+                  <p class="cc-page-hub-group__label">Ecosistema</p>
+                  <div class="cc-page-hub__grid cc-page-hub__grid--group">
+                    <a class="cc-page-hub__item" href="../community/">Community</a>
+                    <a class="cc-page-hub__item" href="../laboratorio-tecnico/">Laboratorio</a>
+                  </div>
+                </section>
               </div>
             </section>
           </div>
@@ -632,5 +654,6 @@
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
+
 
 
