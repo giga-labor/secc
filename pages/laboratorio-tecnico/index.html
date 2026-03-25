@@ -29,7 +29,7 @@
     })();
   </script>
   <title>Laboratorio Tecnico - SuperEnalotto Control Chaos</title>
-  <meta name="description" content="Laboratorio Tecnico SECC: tutte le spiegazioni approfondite su statistiche, algoritmi, metriche, limiti e metodo operativo.">
+  <meta name="description" content="Laboratorio Tecnico SECC: formule statistiche, schede tecniche algoritmi, pesi hit, bias cognitivi e metodo operativo documentato.">
   <link rel="canonical" href="https://www.superenalottocc.it/pages/laboratorio-tecnico/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,12 +51,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SuperEnalotto Control Chaos">
   <meta property="og:title" content="Laboratorio Tecnico - SuperEnalotto Control Chaos">
-  <meta property="og:description" content="Tutte le spiegazioni tecniche e dettagliate su statistiche, algoritmi e metodo operativo.">
+  <meta property="og:description" content="Formule, pipeline, schede tecniche e bias documentati. Base tecnica verificabile per ogni modulo attivo.">
   <meta property="og:url" content="https://www.superenalottocc.it/pages/laboratorio-tecnico/">
   <meta property="og:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Laboratorio Tecnico - SuperEnalotto Control Chaos">
-  <meta name="twitter:description" content="Approfondimenti tecnici completi su statistiche, algoritmi e interpretazione risultati.">
+  <meta name="twitter:description" content="Approfondimenti tecnici completi: formule statistiche, schede algoritmi, bias cognitivi, metodo operativo.">
   <meta name="twitter:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
   <script type="application/ld+json">
   {
@@ -64,7 +64,7 @@
     "@type": "WebPage",
     "name": "Laboratorio Tecnico - SuperEnalotto Control Chaos",
     "url": "https://www.superenalottocc.it/pages/laboratorio-tecnico/",
-    "description": "Tutte le spiegazioni tecniche e dettagliate su statistiche, algoritmi e metodo operativo.",
+    "description": "Formule, pipeline, schede tecniche e bias documentati. Base tecnica verificabile per ogni modulo attivo.",
     "inLanguage": "it-IT",
     "isPartOf": {
       "@type": "WebSite",
@@ -79,15 +79,38 @@
 <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
   <h1 class="sr-only">Laboratorio Tecnico</h1>
   <div class="content-box">
-    <header class="mt-6 space-y-3" data-page-kicker-wrap>
-      <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Laboratorio Tecnico</span>
-      <h2 class="text-white">Tutte le spiegazioni tecniche, in un solo posto</h2>
-    </header>
 
-    <aside class="cc-bridge-box" data-bridge-box>
-      <p>Qui trovi la versione completa: formule, pipeline, assunzioni, limiti e schede tecniche dei moduli.</p>
-      <p>La lettura rapida resta nelle pagine operative, mentre qui puoi verificare come viene costruito ogni indicatore.</p>
-    </aside>
+    <header class="mt-6 space-y-2" data-page-kicker-wrap>
+      <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Laboratorio Tecnico</span>
+      <h2 class="text-white">Base tecnica documentata e verificabile</h2>
+      <p class="text-sm text-ash max-w-2xl">Formule, pipeline di calcolo, assunzioni operative e limiti dichiarati per ogni modulo. Il contenuto operativo rapido resta nelle pagine di sezione — qui trovi la documentazione tecnica completa.</p>
+      <div class="cc-lab-kpi-bar">
+        <div class="cc-lab-kpi-item">
+          <span class="cc-lab-kpi-value">30+</span>
+          <span class="cc-lab-kpi-label">Algoritmi documentati</span>
+        </div>
+        <div class="cc-lab-kpi-item">
+          <span class="cc-lab-kpi-value">27 anni</span>
+          <span class="cc-lab-kpi-label">Storico analizzato</span>
+        </div>
+        <div class="cc-lab-kpi-item">
+          <span class="cc-lab-kpi-value">5</span>
+          <span class="cc-lab-kpi-label">Sezioni tecniche</span>
+        </div>
+        <div class="cc-lab-kpi-item">
+          <span class="cc-lab-kpi-value">4</span>
+          <span class="cc-lab-kpi-label">Bias documentati</span>
+        </div>
+        <div class="cc-lab-kpi-item">
+          <span class="cc-lab-kpi-value">3</span>
+          <span class="cc-lab-kpi-label">Famiglie di modelli</span>
+        </div>
+      </div>
+      <aside class="rounded-2xl border border-sky-400/30 bg-sky-400/10 p-4 text-sm text-ash">
+        <p><strong class="text-white">Gestione iARGOS:</strong> iARGOS supervisiona l'intero backend del sito (admin, automazioni, sincronizzazione dati e controlli operativi), non solo questa pagina.</p>
+        <p class="mt-1">Versione live: <span class="font-mono text-neon" data-lab-iargos-version>--</span> <span class="mx-1 text-ash/60">|</span> Ultimo update: <span class="font-mono text-ash" data-lab-iargos-updated>--</span></p>
+      </aside>
+    </header>
 
     <section class="tabs-shell mt-6" data-tabs-root data-tab-panel-label="off">
       <div class="folder-tabs">
@@ -96,81 +119,177 @@
         <button class="tab-btn" type="button" data-tab-target="lab-metriche">Metriche</button>
         <button class="tab-btn" type="button" data-tab-target="lab-limiti">Limiti e bias</button>
         <button class="tab-btn" type="button" data-tab-target="lab-metodo">Metodo operativo</button>
+        <button class="tab-btn" type="button" data-tab-target="lab-iargos"><span class="normal-case">iARGOS</span></button>
       </div>
 
       <div class="tabs-sheet">
-        <section class="tab-panel is-active space-y-4" data-tab-panel="lab-statistiche" id="lab-statistiche">
-          <h3 class="text-white">Fondamenti statistici approfonditi</h3>
-          <p>Le metriche principali sono frequenze, ritardi, co-occorrenze, dispersione e stabilita temporale. Ogni lettura viene interpretata su finestre multiple per evitare conclusioni basate su un solo periodo.</p>
+
+        <!-- ========== TAB: STATISTICHE ========== -->
+        <section class="tab-panel is-active space-y-5" data-tab-panel="lab-statistiche" id="lab-statistiche">
+          <div>
+            <h3 class="text-white">Fondamenti statistici con formule</h3>
+            <p class="mt-1 text-sm text-ash">Le metriche principali sono frequenze, ritardi, co-occorrenze, dispersione e stabilita temporale. Ogni valore viene calcolato su finestre multiple (30, 90, 180, full) per evitare conclusioni basate su un solo periodo.</p>
+          </div>
+
           <div class="grid gap-3 md:grid-cols-2">
             <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
-              <h4 class="text-white">Frequenze e normalizzazione</h4>
-              <p class="mt-2 text-sm text-ash">La frequenza e analizzata in forma assoluta e relativa. I valori vengono confrontati con il baseline storico per distinguere segnali strutturali da oscillazioni casuali.</p>
+              <h4 class="text-white">Frequenza relativa</h4>
+              <p class="mt-1 text-sm text-ash">Rapporto tra occorrenze di un numero e totale estrazioni nella finestra. Confrontata con il baseline per identificare segnali strutturali.</p>
+              <code class="cc-lab-formula">F(n, W) = occ(n, W) / |W|
+Baseline = 6 / 90 ≈ 0.0667 per estrazione</code>
+              <div class="cc-lab-scale mt-2">
+                <span class="cc-lab-scale__item cc-lab-scale__item--strong"><span class="cc-lab-scale__dot"></span>Forte &gt; 1.4×</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--medium"><span class="cc-lab-scale__dot"></span>Medio 1.1–1.4×</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--weak"><span class="cc-lab-scale__dot"></span>Debole &lt; 1.1×</span>
+              </div>
             </article>
+
             <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
-              <h4 class="text-white">Ritardi e distribuzione attesa</h4>
-              <p class="mt-2 text-sm text-ash">Il ritardo non e letto come obbligo di uscita. Viene valutato come scostamento rispetto alla distribuzione storica del numero e al suo comportamento nelle diverse fasi del dataset.</p>
+              <h4 class="text-white">Ritardo assoluto e relativo</h4>
+              <p class="mt-1 text-sm text-ash">Estrazioni trascorse dall'ultima uscita. Non implica obbligo di rientro — viene letto come scostamento dalla distribuzione storica di quel numero.</p>
+              <code class="cc-lab-formula">R(n) = idx_corrente − idx_ultima_uscita(n)
+R_atteso(n) = media storica dei ritorni di n</code>
+              <div class="cc-lab-scale mt-2">
+                <span class="cc-lab-scale__item cc-lab-scale__item--strong"><span class="cc-lab-scale__dot"></span>Anomalia &gt; 2× R_atteso</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--medium"><span class="cc-lab-scale__dot"></span>Elevato 1.5–2×</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--weak"><span class="cc-lab-scale__dot"></span>Normale &lt; 1.5×</span>
+              </div>
             </article>
+
             <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
               <h4 class="text-white">Co-occorrenze e persistenza</h4>
-              <p class="mt-2 text-sm text-ash">Le coppie e le terzine vengono classificate in base alla persistenza su piu finestre. Una co-occorrenza e considerata robusta solo se mantiene coerenza dopo aggiornamenti successivi.</p>
+              <p class="mt-1 text-sm text-ash">Conta le estrazioni in cui due numeri escono insieme. Una coppia e considerata robusta solo se mantiene coerenza su finestre temporali diverse.</p>
+              <code class="cc-lab-formula">CO(a, b) = |{draw : a ∈ draw ∧ b ∈ draw}| / N
+Persistenza = CO(a,b,W1) ≈ CO(a,b,W2)</code>
+              <div class="cc-lab-scale mt-2">
+                <span class="cc-lab-scale__item cc-lab-scale__item--strong"><span class="cc-lab-scale__dot"></span>Robusta: coerente su 3+ finestre</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--weak"><span class="cc-lab-scale__dot"></span>Fragile: diverge tra finestre</span>
+              </div>
             </article>
+
             <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
               <h4 class="text-white">Stabilita e regime change</h4>
-              <p class="mt-2 text-sm text-ash">La stabilita misura quanto un segnale resiste quando cambia il contesto temporale. Se degrada rapidamente, il segnale viene marcato come fragile e non prioritario.</p>
+              <p class="mt-1 text-sm text-ash">Misura quanto un segnale resiste al cambiamento del contesto temporale. Se un indicatore degrada rapidamente aggiungendo o rimuovendo estrazioni, viene marcato come fragile.</p>
+              <code class="cc-lab-formula">S(n) = 1 − |F(n, W_corto) − F(n, W_lungo)|
+           / max(F(n, W_corto), F(n, W_lungo))</code>
+              <div class="cc-lab-scale mt-2">
+                <span class="cc-lab-scale__item cc-lab-scale__item--strong"><span class="cc-lab-scale__dot"></span>Stabile S &gt; 0.85</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--medium"><span class="cc-lab-scale__dot"></span>Variabile 0.6–0.85</span>
+                <span class="cc-lab-scale__item cc-lab-scale__item--weak"><span class="cc-lab-scale__dot"></span>Fragile &lt; 0.6</span>
+              </div>
             </article>
           </div>
+
           <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
-            <h4 class="text-white">Controlli tecnici applicati</h4>
-            <ul class="mt-2 space-y-1 text-sm text-ash">
-              <li>Confronto finestre corte, medie e lunghe.</li>
-              <li>Verifica coerenza pre/post aggiornamento dataset.</li>
-              <li>Riduzione effetti di recency bias e selection bias.</li>
-              <li>Classificazione scenario: forte, intermedio, debole.</li>
+            <h4 class="text-white">Controlli tecnici applicati sistematicamente</h4>
+            <ul class="cc-lab-checklist mt-3">
+              <li>Confronto finestre corte (30), medie (90) e lunghe (180+) per ogni indicatore.</li>
+              <li>Verifica coerenza del segnale prima e dopo ogni aggiornamento del dataset.</li>
+              <li>Riduzione effetti di recency bias tramite normalizzazione su full-history.</li>
+              <li>Classificazione scenario: <strong class="text-white">forte</strong> (convergenza 3+ finestre), <strong class="text-white">intermedio</strong> (2 finestre), <strong class="text-white">debole</strong> (1 finestra).</li>
+              <li>Segnali marcati come fragili non vengono usati come criterio primario nelle proposte.</li>
             </ul>
           </article>
         </section>
 
+        <!-- ========== TAB: ALGORITMI ========== -->
         <section class="tab-panel space-y-4" data-tab-panel="lab-algoritmi" id="lab-algoritmi">
-          <h3 class="text-white">Schede tecniche complete algoritmi</h3>
-          <p>Ogni modulo attivo viene caricato con dettaglio tecnico reale dai file `out/algorithm-sheet.csv` e `out/analysis.txt`: scopo, metodo, limiti, note estese e link alla scheda operativa.</p>
-          <p>Questa sezione e la base documentale unica per algoritmi, statistiche derivate e logica di consultazione.</p>
+          <div>
+            <h3 class="text-white">Schede tecniche complete degli algoritmi</h3>
+            <p class="mt-1 text-sm text-ash">Ogni modulo viene documentato con scopo, metodo, limiti dichiarati e note operative. I dati vengono letti in tempo reale dai file <code class="text-neon/80 text-xs">out/algorithm-sheet.csv</code> e <code class="text-neon/80 text-xs">out/analysis.txt</code> di ciascun algoritmo.</p>
+            <p class="mt-1 text-sm text-ash">Le famiglie di modelli attivi sono tre: <strong class="text-white">Statistico</strong> (analisi frequenze, ritardi, co-occorrenze), <strong class="text-white">Neurale</strong> (reti neurali e modelli ML), <strong class="text-white">Ibrido</strong> (combinazione di approcci). Ogni famiglia ha criteri di validazione specifici.</p>
+          </div>
           <div class="rounded-2xl border border-white/10 bg-midnight/70 p-4 text-sm text-ash" data-lab-algorithms>
             <span class="cc-skeleton cc-skeleton--block block h-4 w-full" aria-hidden="true"></span>
           </div>
         </section>
 
-        <section class="tab-panel space-y-4" data-tab-panel="lab-metriche" id="lab-metriche">
-          <h3 class="text-white">Metriche, ranking e punteggio</h3>
-          <p>Qui trovi il punteggio storico degli algoritmi: indica chi ha centrato piu numeri nelle estrazioni passate e serve per un confronto chiaro tra moduli.</p>
+        <!-- ========== TAB: METRICHE ========== -->
+        <section class="tab-panel space-y-5" data-tab-panel="lab-metriche" id="lab-metriche">
+          <div>
+            <h3 class="text-white">Metriche, pesi hit e formula di ranking</h3>
+            <p class="mt-1 text-sm text-ash">Il ranking e un punteggio cumulato che riflette la qualita storica delle previsioni di ogni algoritmo. Non e una garanzia futura — e un indicatore comparativo tra moduli.</p>
+          </div>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Formula di ranking</h4>
+            <p class="mt-1 text-sm text-ash">Il punteggio finale e la somma dei pesi di ogni hit registrato nell'archivio storico del modulo, normalizzata sul numero di estrazioni coperte.</p>
+            <code class="cc-lab-formula">Ranking(alg) = Σ peso(hit_k) × freq_relativa(hit_k)
+           per k = 0 … 6
+
+dove freq_relativa(k) = n_estrazioni_con_k_hit / n_totale</code>
+            <div class="cc-lab-ranking-note mt-3">
+              I pesi crescono in modo non lineare: 3 hit (326×) vale quanto circa 15 estrazioni con 2 hit (21×). Un solo risultato a 5 hit (1.2M×) domina completamente il ranking di un modulo.
+            </div>
+          </article>
+
+          <h4 class="text-white">Tabella pesi per numero di hit</h4>
           <div class="cc-table-wrap">
             <table class="min-w-full text-left text-sm">
               <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
                 <tr>
                   <th class="px-4 py-3">Hit</th>
                   <th class="px-4 py-3">Peso</th>
+                  <th class="px-4 py-3 w-40">Intensita</th>
                   <th class="px-4 py-3">Interpretazione</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/5 text-ash">
-                <tr><td class="px-4 py-3">0</td><td class="px-4 py-3">1.53</td><td class="px-4 py-3">baseline</td></tr>
-                <tr><td class="px-4 py-3">1</td><td class="px-4 py-3">3.36</td><td class="px-4 py-3">segnale minimo</td></tr>
-                <tr><td class="px-4 py-3">2</td><td class="px-4 py-3">21.51</td><td class="px-4 py-3">convergenza iniziale</td></tr>
-                <tr><td class="px-4 py-3">3</td><td class="px-4 py-3">326.72</td><td class="px-4 py-3">segnale robusto</td></tr>
-                <tr><td class="px-4 py-3">4</td><td class="px-4 py-3">11906.95</td><td class="px-4 py-3">evento raro</td></tr>
-                <tr><td class="px-4 py-3">5</td><td class="px-4 py-3">1235346.49</td><td class="px-4 py-3">evento eccezionale</td></tr>
-                <tr><td class="px-4 py-3">6</td><td class="px-4 py-3">622614630.00</td><td class="px-4 py-3">caso estremo</td></tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">0</td>
+                  <td class="px-4 py-3 font-mono">1.53</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:0.1%"></div></div></div></td>
+                  <td class="px-4 py-3">baseline neutro</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">1</td>
+                  <td class="px-4 py-3 font-mono">3.36</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:0.2%"></div></div></div></td>
+                  <td class="px-4 py-3">segnale minimo</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">2</td>
+                  <td class="px-4 py-3 font-mono">21.51</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:1.5%"></div></div></div></td>
+                  <td class="px-4 py-3">convergenza iniziale</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">3</td>
+                  <td class="px-4 py-3 font-mono text-yellow-300/80">326.72</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:5%"></div></div></div></td>
+                  <td class="px-4 py-3">segnale robusto</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">4</td>
+                  <td class="px-4 py-3 font-mono text-orange-300/80">11 906.95</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:20%"></div></div></div></td>
+                  <td class="px-4 py-3">evento raro</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">5</td>
+                  <td class="px-4 py-3 font-mono text-red-300/80">1 235 346.49</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:60%"></div></div></div></td>
+                  <td class="px-4 py-3">evento eccezionale</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-mono">6</td>
+                  <td class="px-4 py-3 font-mono text-purple-300/80">622 614 630.00</td>
+                  <td class="px-4 py-3"><div class="cc-lab-weight-bar"><div class="cc-lab-weight-bar__track"><div class="cc-lab-weight-bar__fill" style="width:100%"></div></div></div></td>
+                  <td class="px-4 py-3">caso estremo (teorico)</td>
+                </tr>
               </tbody>
             </table>
           </div>
+
           <h4 class="text-white">Ranking live moduli attivi</h4>
+          <p class="text-sm text-ash">Classifica aggiornata in base ai hit accumulati nell'archivio storico di ogni modulo. I valori vengono calcolati al caricamento della pagina.</p>
           <div class="cc-table-wrap">
             <table class="min-w-full text-left text-sm">
               <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
                 <tr>
-                  <th class="px-4 py-3">Posizione</th>
+                  <th class="px-4 py-3">Pos.</th>
                   <th class="px-4 py-3">Algoritmo</th>
-                  <th class="px-4 py-3">Ranking</th>
+                  <th class="px-4 py-3">Punteggio</th>
                   <th class="px-4 py-3">Dettaglio hit</th>
                 </tr>
               </thead>
@@ -181,30 +300,190 @@
           </div>
         </section>
 
-        <section class="tab-panel space-y-4" data-tab-panel="lab-limiti" id="lab-limiti">
-          <h3 class="text-white">Limiti metodologici e bias cognitivi</h3>
-          <p>I principali rischi di interpretazione sono: bias di recenza, bias di conferma, illusione di controllo e overfitting narrativo. Per questo il progetto separa chiaramente contenuto operativo da contenuto tecnico esteso.</p>
-          <p>Un ritardo elevato non implica recupero a breve; una frequenza elevata non implica continuita futura; una co-occorrenza forte puo essere instabile se non persiste su finestre diverse.</p>
-          <p>Il metodo corretto e probabilistico e graduato: scenario forte/intermedio/debole in base a convergenza, consistenza e stabilita, non su singolo indicatore.</p>
+        <!-- ========== TAB: LIMITI E BIAS ========== -->
+        <section class="tab-panel space-y-5" data-tab-panel="lab-limiti" id="lab-limiti">
+          <div>
+            <h3 class="text-white">Limiti metodologici e bias cognitivi</h3>
+            <p class="mt-1 text-sm text-ash">Il progetto separa contenuto operativo da contenuto tecnico esteso proprio perche i bias di lettura sono il rischio principale nell'analisi di dati stocastici. Questa sezione documenta i quattro bias piu frequenti, come si manifestano e come vengono mitigati.</p>
+          </div>
+
+          <div class="cc-lab-bias-grid">
+            <article class="cc-lab-bias-card">
+              <span class="cc-lab-bias-card__name">Bias #1</span>
+              <h4 class="cc-lab-bias-card__title">Bias di recenza</h4>
+              <p class="cc-lab-bias-card__desc">Sopravvalutare eventi recenti rispetto alla distribuzione storica. Un numero uscito 3 volte nell'ultimo mese sembra "caldo" anche se storicamente e nella media.</p>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Segnale d'allarme</span>
+                <span class="cc-lab-bias-card__row-text">Si considera solo la finestra corta ignorando quella lunga. Il segnale "scompare" se si allarga il periodo di analisi.</span>
+              </div>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Contromisura</span>
+                <span class="cc-lab-bias-card__row-text">Normalizzazione obbligatoria su full-history. Un segnale vale solo se persiste su finestre 30, 90 e 180+.</span>
+              </div>
+            </article>
+
+            <article class="cc-lab-bias-card">
+              <span class="cc-lab-bias-card__name">Bias #2</span>
+              <h4 class="cc-lab-bias-card__title">Bias di conferma</h4>
+              <p class="cc-lab-bias-card__desc">Cercare e pesare solo le prove che confermano l'aspettativa iniziale, ignorando i controesempi presenti nei dati.</p>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Segnale d'allarme</span>
+                <span class="cc-lab-bias-card__row-text">Si cita solo la finestra in cui il pattern e evidente. Le finestre in cui il pattern non regge vengono omesse.</span>
+              </div>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Contromisura</span>
+                <span class="cc-lab-bias-card__row-text">Report sempre con tutte le finestre, incluse quelle contraddittorie. Classificazione scenario obbligatoria: forte/intermedio/debole.</span>
+              </div>
+            </article>
+
+            <article class="cc-lab-bias-card">
+              <span class="cc-lab-bias-card__name">Bias #3</span>
+              <h4 class="cc-lab-bias-card__title">Illusione di controllo</h4>
+              <p class="cc-lab-bias-card__desc">Credere di poter influenzare o prevedere eventi intrinsecamente casuali. Un ritardo elevato non implica recupero imminente: ogni estrazione e indipendente.</p>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Segnale d'allarme</span>
+                <span class="cc-lab-bias-card__row-text">Frasi come "deve uscire presto" o "e in debito". Il ritardo non accumula probabilita — la distribuzione resta uniforme.</span>
+              </div>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Contromisura</span>
+                <span class="cc-lab-bias-card__row-text">Ogni nota tecnica dichiara esplicitamente l'indipendenza delle estrazioni. I ritardi sono descrittivi, non predittivi.</span>
+              </div>
+            </article>
+
+            <article class="cc-lab-bias-card">
+              <span class="cc-lab-bias-card__name">Bias #4</span>
+              <h4 class="cc-lab-bias-card__title">Overfitting narrativo</h4>
+              <p class="cc-lab-bias-card__desc">Costruire una storia coerente su pattern che sono casuali. Con abbastanza variabili, qualunque dataset mostra correlazioni apparenti.</p>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Segnale d'allarme</span>
+                <span class="cc-lab-bias-card__row-text">Pattern visibili solo su una finestra specifica o con parametri scelti a posteriori. La co-occorrenza "scompare" su periodi diversi.</span>
+              </div>
+              <div class="cc-lab-bias-card__row">
+                <span class="cc-lab-bias-card__row-label">Contromisura</span>
+                <span class="cc-lab-bias-card__row-text">Validazione out-of-sample obbligatoria. I moduli vengono testati su periodi non usati nella fase di sviluppo prima dell'attivazione.</span>
+              </div>
+            </article>
+          </div>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Regola operativa generale</h4>
+            <p class="mt-2 text-sm text-ash">Un segnale e utile solo se: (1) persiste su almeno due finestre temporali diverse, (2) non scompare aggiungendo gli ultimi 30 concorsi, (3) e riproducibile con gli stessi parametri in modo indipendente. In assenza di tutte e tre le condizioni, il segnale viene classificato come <strong class="text-white">debole</strong> e non usato come criterio primario.</p>
+          </article>
         </section>
 
-        <section class="tab-panel space-y-4" data-tab-panel="lab-metodo" id="lab-metodo">
-          <h3 class="text-white">Metodo operativo consigliato (workflow)</h3>
-          <p><strong>Step 1:</strong> Archivio estrazioni per contesto dati reale.<br><strong>Step 2:</strong> Ranking per filtrare i moduli con performance comparative migliori.<br><strong>Step 3:</strong> Lettura tecnica in Laboratorio su algoritmi selezionati.<br><strong>Step 4:</strong> Validazione su finestre temporali diverse e controllo stabilita.</p>
+        <!-- ========== TAB: METODO OPERATIVO ========== -->
+        <section class="tab-panel space-y-5" data-tab-panel="lab-metodo" id="lab-metodo">
+          <div>
+            <h3 class="text-white">Metodo operativo consigliato</h3>
+            <p class="mt-1 text-sm text-ash">Un workflow in 4 passi per leggere i dati in modo critico e riproducibile, dal contesto storico alla validazione finale.</p>
+          </div>
+
+          <div class="cc-lab-steps">
+            <div class="cc-lab-step">
+              <div class="cc-lab-step__num">1</div>
+              <div>
+                <p class="cc-lab-step__title">Archivio estrazioni — contesto dati reale</p>
+                <p class="cc-lab-step__text">Parti sempre dallo storico completo. Identifica il periodo di analisi, le finestre rilevanti e i numeri con comportamenti anomali (ritardi estremi, frequenze fuori distribuzione). Senza contesto storico, qualsiasi lettura e priva di riferimento.</p>
+              </div>
+            </div>
+            <div class="cc-lab-step">
+              <div class="cc-lab-step__num">2</div>
+              <div>
+                <p class="cc-lab-step__title">Ranking — filtraggio per performance comparativa</p>
+                <p class="cc-lab-step__text">Usa il ranking come filtro iniziale, non come verdetto assoluto. Seleziona i moduli con punteggio piu alto nelle ultime sessioni. Considera la consistenza nel tempo, non solo il valore assoluto: un modulo con ranking stabile e piu affidabile di uno con un singolo picco.</p>
+              </div>
+            </div>
+            <div class="cc-lab-step">
+              <div class="cc-lab-step__num">3</div>
+              <div>
+                <p class="cc-lab-step__title">Laboratorio Tecnico — lettura critica approfondita</p>
+                <p class="cc-lab-step__text">Per ogni modulo selezionato, leggi la scheda tecnica completa (tab Algoritmi). Verifica scopo dichiarato, metodo, limiti e note operative. Se il metodo del modulo non e compatibile con il tuo contesto di analisi, escludilo indipendentemente dal ranking.</p>
+              </div>
+            </div>
+            <div class="cc-lab-step">
+              <div class="cc-lab-step__num">4</div>
+              <div>
+                <p class="cc-lab-step__title">Validazione — coerenza su finestre diverse e controllo stabilita</p>
+                <p class="cc-lab-step__text">Prima di usare una proposta, verifica che il segnale sia coerente su almeno due finestre temporali (es. 90 e 180 estrazioni). Un segnale che regge solo sulla finestra corta e fragile. Documenta le assunzioni e i parametri usati per garantire riproducibilita.</p>
+              </div>
+            </div>
+          </div>
+
           <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
             <h4 class="text-white">Pipeline tecnica del dato</h4>
-            <p class="mt-2 text-sm text-ash"><strong>Input:</strong> `archives/draws/draws.csv` + file `out/` dei moduli.<br><strong>Trasformazioni:</strong> parsing, conteggio hit, normalizzazione metriche, ranking cumulato.<br><strong>Output:</strong> schede operative, classifica comparativa, spiegazioni tecniche estese in Laboratorio.</p>
+            <p class="mt-1 mb-3 text-sm text-ash">Come i dati grezzi diventano schede operative e ranking.</p>
+            <div class="cc-lab-pipeline">
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--input">draws.csv</span>
+              <span class="cc-lab-pipeline__arrow">→</span>
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--proc">parsing + normalizzazione</span>
+              <span class="cc-lab-pipeline__arrow">→</span>
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--proc">conteggio hit</span>
+              <span class="cc-lab-pipeline__arrow">→</span>
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--proc">calcolo ranking cumulato</span>
+              <span class="cc-lab-pipeline__arrow">→</span>
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--output">metrics-db.csv</span>
+              <span class="cc-lab-pipeline__arrow">+</span>
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--output">historical-db.csv</span>
+              <span class="cc-lab-pipeline__arrow">→</span>
+              <span class="cc-lab-pipeline__node cc-lab-pipeline__node--output">schede operative</span>
+            </div>
+            <p class="mt-3 text-xs text-ash">Input: <code class="text-neon/70">archives/draws/draws.csv</code> + file <code class="text-neon/70">out/</code> di ogni modulo. Output: classifica comparativa e documentazione tecnica estesa nel Laboratorio.</p>
           </article>
+
           <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
-            <h4 class="text-white">Checklist di qualita</h4>
-            <ul class="mt-2 space-y-1 text-sm text-ash">
-              <li>Coerenza dati tra manifest, card e file `out/`.</li>
-              <li>Tracciabilita del calcolo (passaggi ripetibili).</li>
-              <li>Documentazione limiti e assunzioni per ogni modulo.</li>
-              <li>Separazione netta tra informazione tecnica e consultazione rapida.</li>
+            <h4 class="text-white">Checklist di qualita del dato</h4>
+            <ul class="cc-lab-checklist mt-3">
+              <li>Coerenza tra manifest, card.json e file <code class="text-neon/70 text-xs">out/</code> di ogni algoritmo.</li>
+              <li>Tracciabilita del calcolo: ogni passaggio e ripetibile con gli stessi dati di input.</li>
+              <li>Limiti e assunzioni dichiarati esplicitamente per ogni modulo nella scheda tecnica.</li>
+              <li>Separazione netta tra informazione tecnica (Laboratorio) e consultazione rapida (pagine operative).</li>
+              <li>Segnali classificati obbligatoriamente come forte / intermedio / debole prima della pubblicazione.</li>
+              <li>Validazione out-of-sample documentata per i modelli neurali e ibridi.</li>
             </ul>
           </article>
         </section>
+
+        <!-- ========== TAB: IARGOS ========== -->
+        <section class="tab-panel space-y-5" data-tab-panel="lab-iargos" id="lab-iargos">
+          <div>
+            <h3 class="text-white">Scheda tecnica iARGOS</h3>
+            <p class="mt-1 text-sm text-ash">iARGOS è un sistema di AI supervisionale applicato all'intero backend del sito. Non è solo un monitor automatico: interpreta segnali operativi, decide priorità di intervento e adatta progressivamente le azioni in base agli esiti reali.</p>
+          </div>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Cosa fa iARGOS</h4>
+            <p class="mt-2 text-sm text-ash">L'obiettivo primario di iARGOS è mantenere il backend del sito in stato coerente, stabile e recuperabile. Quando rileva criticità, la AI assegna priorità operative e privilegia i task di ripristino rispetto alle attività di routine. L'esecuzione avviene in sequenza ordinata, con controllo di esito a ogni step, per ridurre conflitti e sovraccarico tra processi concorrenti.</p>
+            <p class="mt-2 text-sm text-ash">iARGOS valuta contesto, rischio e stato del circuito prima di agire su pipeline, sincronizzazioni e servizi di controllo. La decisione non è statica: la AI combina stato corrente, storico recente e segnali di affidabilità delle azioni precedenti. Se un'azione non porta risultato, tenta alternative compatibili o una reiterazione controllata, sempre con tracciabilità nel log di apprendimento.</p>
+            <p class="mt-2 text-sm text-ash">In pratica, iARGOS funziona come un supervisore AI del backend: osserva, decide, esegue, verifica e apprende. Questo permette al sistema di migliorare nel tempo la capacità di prevenire stalli, ridurre tempi di recupero e mantenere continuità operativa anche in presenza di warning o condizioni non ottimali.</p>
+          </article>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Come funziona il ciclo</h4>
+            <ul class="cc-lab-checklist mt-3">
+              <li><strong class="text-white">Rilevazione</strong>: acquisisce stato live, severità, coerenza mirror e allineamento locale/remoto.</li>
+              <li><strong class="text-white">Decisione</strong>: applica priorità operative (rosso &gt; arancio &gt; verde, routine in coda).</li>
+              <li><strong class="text-white">Esecuzione</strong>: processa task uno alla volta con controllo di esito per ogni step.</li>
+              <li><strong class="text-white">Verifica</strong>: ricalcola lo stato overview e aggiorna circuito, coda e learning.</li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Stato live</h4>
+            <p class="mt-2 text-sm text-ash">Versione: <span class="font-mono text-neon" data-lab-iargos-version>--</span></p>
+            <p class="mt-1 text-sm text-ash">Ultimo aggiornamento: <span class="font-mono" data-lab-iargos-updated>--</span></p>
+          </article>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Apprendimento e adattamento</h4>
+            <ul class="cc-lab-checklist mt-3">
+              <li><strong class="text-white">Reinforcement</strong>: aggiorna confidenza azioni in base a outcome positivi o negativi.</li>
+              <li><strong class="text-white">Tutor feedback</strong>: integra interventi manuali come segnali utili per le iterazioni successive.</li>
+              <li><strong class="text-white">Circuit breaker</strong>: limita retry improduttivi e protegge da stalli ricorsivi.</li>
+              <li><strong class="text-white">Riprova controllata</strong>: se un passaggio resta incompleto, iARGOS pianifica nuova esecuzione con verifica esito.</li>
+            </ul>
+          </article>
+        </section>
+
       </div>
     </section>
 
@@ -224,7 +503,3 @@
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
-
-
-
-

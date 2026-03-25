@@ -83,6 +83,22 @@
         // patch mode currently rerenders only configured zones.
       }
 
+      // Patch community stat counters after all zones are rendered
+      {
+        const allModules = Array.isArray(data?.modules) ? data.modules : [];
+        const activeCount = allModules.filter((card) => {
+          if (!card || card.isActive === false) return false;
+          return String(card.page || '').toLowerCase().includes('/algoritmi/algs/');
+        }).length;
+        const drawCount = Array.isArray(data?.draws_rows) ? data.draws_rows.length : 0;
+        document.querySelectorAll('[data-community-alg-count]').forEach((el) => {
+          el.textContent = String(activeCount);
+        });
+        document.querySelectorAll('[data-community-draw-count]').forEach((el) => {
+          el.textContent = drawCount.toLocaleString('it-IT');
+        });
+      }
+
       if (motion) {
         const main = document.querySelector('main') || document;
         motion.initHomeReveals(main);
@@ -478,24 +494,43 @@
       const cold = ordered.slice(-6).reverse().map(([n, c]) => ({ n, c }));
       const anomalies = this.computeDelays(numbersByRow).slice(0, 6);
 
+      const hotTop = hot[0];
+      const hotTitle = `Frequenza elevata rilevata (ultimi 90 concorsi)`;
+      const hotInsight = hotTop
+        ? `Il numero ${escapeHtml(String(hotTop.n).padStart(2, '0'))} è uscito ${hotTop.c} volte — sopra la media statistica`
+        : 'Distribuzione nella norma';
+
+      const coldTop = cold[0];
+      const coldTitle = `Numeri in latenza prolungata`;
+      const coldInsight = coldTop
+        ? `Il numero ${escapeHtml(String(coldTop.n).padStart(2, '0'))} è uscito solo ${coldTop.c} volte nelle ultime 90 estrazioni`
+        : 'Nessun numero particolarmente freddo';
+
+      const delayTop = anomalies[0];
+      const delayTitle = `Anomalie di ritardo rilevate`;
+      const delayInsight = delayTop
+        ? `Il numero ${escapeHtml(String(delayTop.n).padStart(2, '0'))} non esce da ${delayTop.c} concorsi consecutivi`
+        : 'Nessuna anomalia di ritardo significativa';
+
       host.innerHTML = `
         <div class="cc-home-trends-grid">
           <article class="cc-home-trend-card">
-            <h4>Numeri caldi</h4>
-            <p>Ultime 90 estrazioni analizzate</p>
+            <h4>${hotTitle}</h4>
+            <p class="cc-home-trend-card__insight">${hotInsight}</p>
             <div class="cc-home-trend-balls">${this.renderTrendBalls(hot, 'hot')}</div>
           </article>
           <article class="cc-home-trend-card">
-            <h4>Numeri freddi</h4>
-            <p>Bassa presenza recente</p>
+            <h4>${coldTitle}</h4>
+            <p class="cc-home-trend-card__insight">${coldInsight}</p>
             <div class="cc-home-trend-balls">${this.renderTrendBalls(cold, 'cold')}</div>
           </article>
           <article class="cc-home-trend-card">
-            <h4>Anomalie ritardo</h4>
-            <p>Numeri assenti da piu concorsi</p>
+            <h4>${delayTitle}</h4>
+            <p class="cc-home-trend-card__insight">${delayInsight}</p>
             <div class="cc-home-trend-balls">${this.renderTrendBalls(anomalies, 'delay')}</div>
           </article>
         </div>
+        <p class="cc-home-trends-loop-hint"><a class="cc-home-loop-link" href="${escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/'))}">Approfondisci nel Laboratorio →</a></p>
       `;
     },
 
@@ -543,20 +578,34 @@
 
     renderCommunityActivity(host, feed) {
       host.innerHTML = '';
+      const communityUrl = escapeHtml(ctx.resolveWithBase('pages/community/index.html'));
+      const fallbackHtml = `
+        <div class="cc-home-community-fallback">
+          <p class="cc-home-community-fallback__title">Sistema di analisi operativo</p>
+          <div class="cc-home-community-fallback__stats">
+            <span class="cc-home-community-fallback__stat"><strong data-community-alg-count>--</strong> algoritmi attivi</span>
+            <span class="cc-home-community-fallback__stat"><strong data-community-draw-count>--</strong> estrazioni analizzate</span>
+            <span class="cc-home-community-fallback__stat"><strong>dal 1997</strong></span>
+          </div>
+          <p class="cc-home-community-fallback__cta-text">Partecipa alla community e condividi le tue analisi.</p>
+          <a class="cc-home-community-fallback__cta" href="${communityUrl}">Entra nella Community</a>
+        </div>
+      `;
+
       const payload = feed && typeof feed === 'object' ? feed : null;
       if (!payload) {
-        host.innerHTML = `
-          <div class="cc-home-empty">
-            Feed community non disponibile.
-            <a class="cc-alg-link" href="${escapeHtml(ctx.resolveWithBase('pages/community/index.html'))}">Apri Community</a>
-          </div>
-        `;
+        host.innerHTML = fallbackHtml;
         return;
       }
       const contest = escapeHtml(String(payload.contest_seq || '--'));
       const updatedAt = escapeHtml(String(payload.updated_at || '--'));
       const leaderboard = Array.isArray(payload.leaderboard) ? payload.leaderboard.slice(0, 3) : [];
       const activities = Array.isArray(payload.activities) ? payload.activities.slice(0, 4) : [];
+
+      if (!leaderboard.length && !activities.length) {
+        host.innerHTML = fallbackHtml;
+        return;
+      }
 
       const leaderboardHtml = leaderboard.length
         ? leaderboard.map((entry) => {
@@ -592,7 +641,7 @@
               <ul>${activitiesHtml}</ul>
             </article>
           </div>
-          <a class="cc-home-community__cta" href="${escapeHtml(ctx.resolveWithBase('pages/community/index.html'))}">Apri Community completa</a>
+          <a class="cc-home-community__cta" href="${communityUrl}">Apri Community completa</a>
         </div>
       `;
     },
@@ -656,11 +705,105 @@
         ? `Community aggiornata: ${escapeHtml(communityShort)}`
         : 'Community: nessun aggiornamento utenti';
 
+      const chaosIndex = this.computeChaosIndex(draws);
+      const signal = this.computeHeroSignal(draws);
+      const chaosNote = 'Indice di Caos (0-100): combina ritardi >=30, varianza frequenze ultime 30 estrazioni e ripetizioni negli ultimi 5 concorsi.';
+      const signalHtml = signal
+        ? `<div class="cc-home-signal"><span class="cc-home-signal__label">Segnale del Giorno</span><span class="cc-home-signal__text">${escapeHtml(signal)}</span></div>`
+        : '';
+
       host.innerHTML = `
+        ${signalHtml}
         <span class="cc-home-live__item">Ultimo concorso: ${escapeHtml(latestSeq)} (${escapeHtml(latestDate)})</span>
         <span class="cc-home-live__item">Algoritmi attivi: ${escapeHtml(String(activeAlgorithms))}</span>
         <span class="cc-home-live__item">${communityLabel}</span>
+        <span class="cc-home-live__item cc-home-live__item--chaos">Indice di Caos: ${escapeHtml(String(chaosIndex))}/100</span>
+        <p class="cc-home-live__note">${escapeHtml(chaosNote)}</p>
       `;
+
+    },
+
+    computeHeroSignal(rows) {
+      const list = Array.isArray(rows) ? rows : [];
+      const numbersByRow = list.map((row) => this.extractSixNumbers(row)).filter((chunk) => chunk.length === 6);
+      if (numbersByRow.length < 30) return null;
+
+      const signals = [];
+
+      // Segnale 1: ritardatari oltre 40 concorsi
+      const delays = this.computeDelays(numbersByRow);
+      const longDelayed = delays.filter((d) => d.c >= 40);
+      if (longDelayed.length >= 3) {
+        const shown = longDelayed.slice(0, 6);
+        const nums = shown.map((d) => String(d.n).padStart(2, '0')).join(', ');
+        const extra = longDelayed.length > 6 ? ` e altri ${longDelayed.length - 6}` : '';
+        signals.push(`${longDelayed.length} numeri assenti da oltre 40 concorsi: ${nums}${extra}`);
+      }
+
+      // Segnale 2: concentrazione numeri alti nelle ultime 30 estrazioni
+      const recent30 = numbersByRow.slice(-30);
+      const allRecent = recent30.flat();
+      const highCount = allRecent.filter((n) => n >= 61).length;
+      if (allRecent.length > 0 && highCount / allRecent.length > 0.45) {
+        const pct = Math.round((highCount / allRecent.length) * 100);
+        signals.push(`Alta concentrazione di numeri alti (61–90) nelle ultime 30 estrazioni: ${pct}% delle uscite`);
+      }
+
+      // Segnale 3: frequenza anomala nelle ultime 90 estrazioni
+      const window90 = numbersByRow.slice(-90);
+      const freq = new Map();
+      for (let n = 1; n <= 90; n += 1) freq.set(n, 0);
+      window90.forEach((draw) => draw.forEach((n) => freq.set(n, (freq.get(n) || 0) + 1)));
+      const freqValues = Array.from(freq.values());
+      const mean = freqValues.reduce((s, v) => s + v, 0) / freqValues.length;
+      const topEntry = Array.from(freq.entries()).sort((a, b) => b[1] - a[1])[0];
+      if (topEntry && topEntry[1] > mean * 2.5) {
+        signals.push(`Frequenza anomala: il numero ${String(topEntry[0]).padStart(2, '0')} è uscito ${topEntry[1]} volte nelle ultime 90 estrazioni`);
+      }
+
+      // Segnale 4: ripetizioni negli ultimi 5 concorsi
+      const last5 = numbersByRow.slice(-5);
+      const repCount = new Map();
+      last5.flat().forEach((n) => repCount.set(n, (repCount.get(n) || 0) + 1));
+      const repeated = Array.from(repCount.entries()).filter(([, c]) => c >= 3);
+      if (repeated.length > 0) {
+        const nums = repeated.slice(0, 2).map(([n]) => String(n).padStart(2, '0')).join(', ');
+        signals.push(`Ripetizione insolita negli ultimi 5 concorsi: numeri ${nums} usciti 3+ volte`);
+      }
+
+      if (!signals.length) return null;
+
+      // Rotazione giornaliera tra i segnali attivi
+      const now = new Date();
+      const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+      return signals[dayOfYear % signals.length];
+    },
+
+    computeChaosIndex(rows) {
+      const list = Array.isArray(rows) ? rows : [];
+      const numbersByRow = list.map((row) => this.extractSixNumbers(row)).filter((chunk) => chunk.length === 6);
+      if (numbersByRow.length < 10) return 0;
+
+      const delays = this.computeDelays(numbersByRow);
+      const delayed30 = delays.filter((d) => d.c >= 30).length;
+      const comp1 = Math.min(40, Math.round((delayed30 / 20) * 40));
+
+      const window30 = numbersByRow.slice(-30);
+      const freq30 = new Map();
+      for (let n = 1; n <= 90; n += 1) freq30.set(n, 0);
+      window30.forEach((draw) => draw.forEach((n) => freq30.set(n, (freq30.get(n) || 0) + 1)));
+      const freqVals = Array.from(freq30.values());
+      const mean30 = freqVals.reduce((s, v) => s + v, 0) / freqVals.length;
+      const variance = freqVals.reduce((s, v) => s + Math.pow(v - mean30, 2), 0) / freqVals.length;
+      const comp2 = Math.min(40, Math.round((variance / 4) * 40));
+
+      const last5 = numbersByRow.slice(-5);
+      const repCount = new Map();
+      last5.flat().forEach((n) => repCount.set(n, (repCount.get(n) || 0) + 1));
+      const repeatedCount = Array.from(repCount.values()).filter((c) => c >= 3).length;
+      const comp3 = Math.min(20, repeatedCount * 10);
+
+      return Math.min(100, comp1 + comp2 + comp3);
     },
 
     async renderProposals(host, modules) {

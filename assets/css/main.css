@@ -1812,9 +1812,10 @@ p[data-reveal] {
 }
 
 #cc-abovefold .cc-abovefold-focus {
-  margin-top: 0.95rem;
-  max-width: 44ch;
-  padding: 0.7rem 0.85rem 0.85rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: min(100%, 36rem);
+  padding: 0.9rem 1rem 1rem;
   border-radius: 0.95rem;
   border: 1px solid rgba(255, 217, 102, 0.24);
   background: linear-gradient(160deg, rgba(255, 217, 102, 0.08), rgba(255, 217, 102, 0.02) 34%, rgba(8, 12, 24, 0.58));
@@ -1831,39 +1832,56 @@ p[data-reveal] {
 }
 
 #cc-abovefold .cc-abovefold-focus__text {
-  margin: 0.42rem 0 0.68rem;
-  font-size: 0.88rem;
-  line-height: 1.32;
+  margin: 0.45rem 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
   color: rgba(233, 242, 255, 0.92) !important;
 }
 
 #cc-abovefold .cc-home-live {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.32rem;
-  margin: 0 0 0.68rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+  margin: 0 0 0.8rem;
 }
 
 #cc-abovefold .cc-home-live__item {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.5rem;
-  padding: 0.12rem 0.5rem;
-  border-radius: 999px;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 2rem;
+  padding: 0.36rem 0.62rem;
+  border-radius: 0.62rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(3, 7, 18, 0.56);
   color: rgba(233, 242, 255, 0.92);
-  font-size: 0.72rem;
-  line-height: 1.1;
+  font-size: 0.76rem;
+  line-height: 1.35;
   letter-spacing: 0.02em;
+  white-space: normal;
 }
 
 #cc-abovefold .cc-abovefold-focus__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.2rem;
+  min-height: 2.3rem;
   line-height: 1;
+  margin-top: 0.15rem;
+}
+
+#cc-abovefold .cc-home-live__note {
+  margin: 0.15rem 0 0;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: rgba(210, 224, 244, 0.72);
+}
+
+#cc-abovefold .cc-home-live__item--chaos {
+  background: linear-gradient(135deg, rgba(255, 200, 0, 0.18), rgba(255, 160, 0, 0.12));
+  border-color: rgba(255, 200, 0, 0.40);
+  color: #ffd700;
+  font-weight: 700;
 }
 
 #cc-abovefold {
@@ -1889,15 +1907,20 @@ main.home-main > .content-box {
     padding-right: clamp(88px, 30vw, 130px);
   }
   #cc-abovefold .cc-abovefold-focus {
-    margin-top: 0.82rem;
-    padding: 0.62rem 0.72rem 0.74rem;
+    margin-top: 0.88rem;
+    padding: 0.74rem 0.82rem 0.86rem;
+    max-width: 100%;
   }
   #cc-abovefold .cc-abovefold-focus__text {
-    font-size: 0.84rem;
+    font-size: 0.85rem;
   }
   #cc-abovefold .cc-home-live__item {
-    font-size: 0.68rem;
-    padding: 0.1rem 0.42rem;
+    font-size: 0.7rem;
+    padding: 0.32rem 0.5rem;
+    min-height: 1.85rem;
+  }
+  #cc-abovefold .cc-home-live__note {
+    font-size: 0.64rem;
   }
   #cc-abovefold-title .cc-title-video {
     position: absolute;
@@ -2159,4 +2182,455 @@ html.cc-perf-lite * {
 /* Algsheet: hide scrollable title inside panel - only the pinned fixed title should be visible */
 [data-page-id="algsheet"] [data-tab-panel="algoritmo"] :is(h1, h2, h3):not(.sr-only) {
   display: none !important;
+}
+
+/* ===== Homepage Enhancement: Segnale del Giorno + Chaos Index ===== */
+
+.cc-home-signal {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.65rem 0.8rem;
+  margin-bottom: 0.55rem;
+  background: linear-gradient(135deg, rgba(220, 60, 30, 0.13), rgba(255, 140, 0, 0.10));
+  border: 1px solid rgba(255, 120, 40, 0.35);
+  border-radius: 0.7rem;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  width: 100%;
+}
+
+.cc-home-signal__label {
+  flex-shrink: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ff8c28;
+  font-size: 0.65rem;
+  padding-top: 0.05rem;
+}
+
+.cc-home-signal__text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cc-home-live__item--chaos {
+  background: linear-gradient(135deg, rgba(255, 200, 0, 0.18), rgba(255, 160, 0, 0.12));
+  border: 1px solid rgba(255, 200, 0, 0.40);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+/* ===== Homepage Enhancement: Trend card insight + Lab link ===== */
+
+.cc-home-trend-card__insight {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 0.2rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.cc-home-trends-loop-hint {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.cc-home-loop-link {
+  font-size: 0.75rem;
+  color: rgba(100, 210, 255, 0.80);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.cc-home-loop-link:hover {
+  color: #64d2ff;
+  text-decoration: underline;
+}
+
+/* ===== Homepage Enhancement: Community fallback block ===== */
+
+.cc-home-community-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 0.85rem;
+}
+
+.cc-home-community-fallback__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cc-home-community-fallback__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+
+.cc-home-community-fallback__stat {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cc-home-community-fallback__stat strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-right: 0.2rem;
+}
+
+.cc-home-community-fallback__cta-text {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.45);
+  max-width: 28rem;
+}
+
+.cc-home-community-fallback__cta {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(100, 210, 255, 0.45);
+  background: rgba(100, 210, 255, 0.08);
+  color: #64d2ff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cc-home-community-fallback__cta:hover {
+  background: rgba(100, 210, 255, 0.18);
+  color: #ffffff;
+}
+
+/* ===== Laboratorio Tecnico: enhancements ===== */
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-kpi-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.85rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-kpi-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-kpi-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-kpi-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.45);
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-formula {
+  display: block;
+  margin: 0.6rem 0;
+  padding: 0.55rem 0.85rem;
+  background: rgba(100, 210, 255, 0.07);
+  border-left: 3px solid rgba(100, 210, 255, 0.45);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  color: #a8e6ff;
+  letter-spacing: 0.02em;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item--strong {
+  background: rgba(50, 220, 120, 0.15);
+  border: 1px solid rgba(50, 220, 120, 0.35);
+  color: #50dc78;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item--medium {
+  background: rgba(255, 200, 0, 0.12);
+  border: 1px solid rgba(255, 200, 0, 0.32);
+  color: #ffd700;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item--weak {
+  background: rgba(255, 100, 60, 0.10);
+  border: 1px solid rgba(255, 100, 60, 0.28);
+  color: #ff6c3c;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item--strong .cc-lab-scale__dot { background: #50dc78; }
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item--medium .cc-lab-scale__dot { background: #ffd700; }
+[data-page-id="laboratorio-tecnico"] .cc-lab-scale__item--weak   .cc-lab-scale__dot { background: #ff6c3c; }
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-weight-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-weight-bar__track {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-weight-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(100,210,255,0.7), rgba(100,210,255,0.3));
+  transition: width 0.4s ease;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  [data-page-id="laboratorio-tecnico"] .cc-lab-bias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(255,100,60,0.22);
+  background: rgba(255,100,60,0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card__name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ff8060;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card__title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card__desc {
+  font-size: 0.77rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.45;
+  margin: 0;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card__row-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-bias-card__row-text {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.025);
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-step__num {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(100,210,255,0.15);
+  border: 1px solid rgba(100,210,255,0.35);
+  color: #64d2ff;
+  margin-top: 0.1rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-step__title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.2rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-step__text {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.45;
+  margin: 0;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.85rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-pipeline__node {
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-pipeline__node--input {
+  background: rgba(100,210,255,0.15);
+  border: 1px solid rgba(100,210,255,0.35);
+  color: #64d2ff;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-pipeline__node--proc {
+  background: rgba(255,200,0,0.12);
+  border: 1px solid rgba(255,200,0,0.30);
+  color: #ffd700;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-pipeline__node--output {
+  background: rgba(50,220,120,0.12);
+  border: 1px solid rgba(50,220,120,0.30);
+  color: #50dc78;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-pipeline__arrow {
+  color: rgba(255,255,255,0.25);
+  font-size: 0.75rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-checklist li::before {
+  content: '✓';
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(50,220,120,0.15);
+  border: 1px solid rgba(50,220,120,0.30);
+  color: #50dc78;
+  font-size: 0.62rem;
+  font-weight: 700;
+  margin-top: 0.05rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-lab-ranking-note {
+  padding: 0.65rem 0.9rem;
+  background: rgba(100,210,255,0.06);
+  border: 1px solid rgba(100,210,255,0.2);
+  border-radius: 0.6rem;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
 }

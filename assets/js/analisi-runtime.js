@@ -108,6 +108,7 @@ function mountAnalisiPage() {
 
   loadAnalisiRanking();
   loadLaboratorioTechnicalCatalog();
+  loadLaboratorioIargosStatus();
 }
 
 const resolveWithBase = (path) => {
@@ -270,6 +271,41 @@ const resolveRankingImage = (card, page) => {
   if (image) return resolveWithBase(image);
   return resolveWithBase('img/algoritm.webp');
 };
+
+const setTextAll = (selector, value) => {
+  const nodes = Array.from(document.querySelectorAll(selector));
+  nodes.forEach((node) => {
+    node.textContent = String(value ?? '--');
+  });
+};
+
+async function loadLaboratorioIargosStatus() {
+  const hasTargets = Boolean(
+    document.querySelector('[data-lab-iargos-version], [data-lab-iargos-updated]')
+  );
+  if (!hasTargets) return;
+
+  const fallback = () => {
+    setTextAll('[data-lab-iargos-version]', '--');
+    setTextAll('[data-lab-iargos-updated]', '--');
+  };
+
+  try {
+    const data = await fetchJsonFirstOk('data/iargos-public-status.json');
+    if (!data || typeof data !== 'object') {
+      fallback();
+      return;
+    }
+
+    const version = String(data.version || '--');
+    const updatedAt = String(data.updated_at || data.checked_at || '--');
+
+    setTextAll('[data-lab-iargos-version]', version);
+    setTextAll('[data-lab-iargos-updated]', updatedAt);
+  } catch (_) {
+    fallback();
+  }
+}
 
 async function loadLaboratorioTechnicalCatalog() {
   const host = document.querySelector('[data-lab-algorithms]');
@@ -551,5 +587,6 @@ window.addEventListener('load', bootAnalisiRuntime, { passive: true });
 
 window.CC_ANALISI_RUNTIME = {
   mount: mountAnalisiPage,
-  loadRanking: loadAnalisiRanking
+  loadRanking: loadAnalisiRanking,
+  loadIargosStatus: loadLaboratorioIargosStatus
 };
