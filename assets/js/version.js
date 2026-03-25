@@ -1,2 +1,2 @@
-window.CC_VERSION = '00.10.000';
+window.CC_VERSION = '00.10.004';
 
