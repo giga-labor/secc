@@ -44,6 +44,39 @@
     }).format(date);
   };
 
+  const parseIntSafe = (value, fallback = 0) => {
+    const n = Number.parseInt(String(value ?? ''), 10);
+    return Number.isFinite(n) ? n : fallback;
+  };
+
+  const mountPulse = (feed) => {
+    const onlineNode = document.querySelector('[data-community-online]');
+    const actionsNode = document.querySelector('[data-community-actions]');
+    const signalsNode = document.querySelector('[data-community-signals]');
+    const noteNode = document.querySelector('[data-community-pulse-note]');
+    if (!onlineNode && !actionsNode && !signalsNode && !noteNode) return;
+
+    const payload = feed && typeof feed === 'object' ? feed : null;
+    const pulse = payload && payload.pulse && typeof payload.pulse === 'object' ? payload.pulse : {};
+    const online = parseIntSafe(pulse.online_users, 0);
+    const actions24 = parseIntSafe(pulse.actions_24h, Array.isArray(payload?.activities) ? payload.activities.length : 0);
+    const signalsToday = parseIntSafe(pulse.signals_today, Array.isArray(payload?.highlights) ? payload.highlights.length : 0);
+    const demoMode = Boolean(payload?.demo_mode);
+
+    if (onlineNode) onlineNode.textContent = String(online);
+    if (actionsNode) actionsNode.textContent = String(actions24);
+    if (signalsNode) signalsNode.textContent = String(signalsToday);
+    if (noteNode) {
+      if (payload && demoMode) {
+        noteNode.textContent = 'Modalita demo dichiarata: in attesa dei primi segnali reali della community.';
+      } else if (payload) {
+        noteNode.textContent = 'Dati reali community aggiornati da feed statico.';
+      } else {
+        noteNode.textContent = 'Nessun feed disponibile: contatori impostati su fallback minimo.';
+      }
+    }
+  };
+
   const mountHighlights = (feed) => {
     const host = document.querySelector('[data-community-highlights]');
     if (!host) return;
@@ -98,6 +131,7 @@
     if (leaderboard) leaderboard.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="5">Nessun utente ha ancora inviato risultati in classifica.</td></tr>';
     if (activities) activities.innerHTML = '<li class="text-ash">Nessun utente ha ancora inviato attivita recenti.</li>';
     if (highlights) highlights.innerHTML = '<li>Nessun utente ha ancora generato highlight operativi.</li>';
+    mountPulse(null);
   };
 
   const setFormStatus = (message, tone = 'muted') => {
@@ -351,6 +385,7 @@
       mountHighlights(feed);
       mountLeaderboard(feed);
       mountActivities(feed);
+      mountPulse(feed);
       applyDepth();
       setFormStatus('Invio disponibile: il messaggio sara inoltrato automaticamente ad admin.', 'muted');
     } catch (_) {

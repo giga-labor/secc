@@ -1124,6 +1124,34 @@ body.cc-final-look :is(.cc-card, .cc-card3d, .card-3d, .algorithm-card, .cc-rank
   color: rgba(191, 204, 230, 0.84);
 }
 
+.cc-home-community__demo {
+  margin: 0.14rem 0 0.45rem;
+  font-size: 0.68rem;
+  color: rgba(255, 196, 131, 0.92);
+}
+
+.cc-home-community__pulse {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem 1rem;
+  margin: 0 0 0.65rem;
+  padding: 0.42rem 0.58rem;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(100, 210, 255, 0.24);
+  background: rgba(100, 210, 255, 0.08);
+}
+
+.cc-home-community__pulse span {
+  font-size: 0.68rem;
+  color: rgba(202, 230, 250, 0.9);
+}
+
+.cc-home-community__pulse strong {
+  font-size: 0.82rem;
+  color: #ffffff;
+  margin-right: 0.24rem;
+}
+
 .cc-home-community__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1861,6 +1889,105 @@ p[data-reveal] {
   white-space: normal;
 }
 
+#cc-abovefold .cc-home-live__item--ok {
+  border-color: rgba(96, 223, 161, 0.42);
+  background: rgba(30, 86, 58, 0.32);
+  color: rgba(197, 255, 225, 0.95);
+}
+
+#cc-abovefold .cc-home-live__item--warn {
+  border-color: rgba(255, 182, 120, 0.46);
+  background: rgba(98, 56, 22, 0.34);
+  color: rgba(255, 228, 192, 0.95);
+}
+
+#cc-abovefold .cc-home-iargos-status {
+  margin-bottom: 0.72rem;
+  padding: 0.62rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(100, 210, 255, 0.28);
+  background: linear-gradient(160deg, rgba(100, 210, 255, 0.11), rgba(8, 14, 26, 0.45));
+}
+
+#cc-abovefold .cc-home-iargos-status__title {
+  margin: 0 0 0.48rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(160, 230, 255, 0.95);
+  font-weight: 800;
+}
+
+#cc-abovefold .cc-home-live__link {
+  display: inline-flex;
+  margin-top: 0.4rem;
+  padding: 0.16rem 0.58rem;
+  border-radius: 999px;
+  border: 1px solid rgba(100, 210, 255, 0.44);
+  color: rgba(160, 230, 255, 0.95);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+#cc-abovefold .cc-home-live__link:hover {
+  background: rgba(100, 210, 255, 0.14);
+  color: #ffffff;
+}
+
+#cc-abovefold .cc-home-live__inline-link {
+  color: rgba(163, 234, 255, 0.92);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#cc-abovefold .cc-home-live__inline-link:hover {
+  text-decoration: underline;
+}
+
+#cc-abovefold .cc-home-iargos-log {
+  margin-bottom: 0.72rem;
+  padding: 0.62rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(3, 8, 18, 0.52);
+}
+
+#cc-abovefold .cc-home-iargos-log__label {
+  margin: 0 0 0.45rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(222, 234, 255, 0.9);
+}
+
+#cc-abovefold .cc-home-iargos-log__list {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#cc-abovefold .cc-home-iargos-log__list li {
+  display: grid;
+  grid-template-columns: minmax(7.3rem, auto) 1fr;
+  gap: 0.45rem;
+  align-items: baseline;
+  font-size: 0.67rem;
+}
+
+#cc-abovefold .cc-home-iargos-log__list li span {
+  color: rgba(182, 204, 238, 0.88);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+#cc-abovefold .cc-home-iargos-log__list li strong {
+  color: rgba(233, 242, 255, 0.92);
+  font-weight: 600;
+}
+
 #cc-abovefold .cc-abovefold-focus__cta {
   display: inline-flex;
   align-items: center;
@@ -1918,6 +2045,10 @@ main.home-main > .content-box {
     font-size: 0.7rem;
     padding: 0.32rem 0.5rem;
     min-height: 1.85rem;
+  }
+  #cc-abovefold .cc-home-iargos-log__list li {
+    grid-template-columns: 1fr;
+    gap: 0.18rem;
   }
   #cc-abovefold .cc-home-live__note {
     font-size: 0.64rem;

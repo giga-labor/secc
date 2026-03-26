@@ -288,6 +288,11 @@ async function loadLaboratorioIargosStatus() {
   const fallback = () => {
     setTextAll('[data-lab-iargos-version]', '--');
     setTextAll('[data-lab-iargos-updated]', '--');
+    setTextAll('[data-lab-iargos-state]', '--');
+    setTextAll('[data-lab-iargos-sync]', '--');
+    setTextAll('[data-lab-iargos-training]', '--');
+    const logHost = document.querySelector('[data-lab-iargos-log]');
+    if (logHost) logHost.innerHTML = '<li>Log iARGOS non disponibile.</li>';
   };
 
   try {
@@ -299,9 +304,30 @@ async function loadLaboratorioIargosStatus() {
 
     const version = String(data.version || '--');
     const updatedAt = String(data.updated_at || data.checked_at || '--');
+    const runtime = data.runtime && typeof data.runtime === 'object' ? data.runtime : {};
+    const state = String(runtime.state_label || data.severity || '--');
+    const syncAt = String(runtime.last_sync_at || data.updated_at || data.checked_at || '--');
+    const trainingAt = String(runtime.last_training_at || '--');
+    const logRows = Array.isArray(data.activity_log) ? data.activity_log.slice(0, 6) : [];
 
     setTextAll('[data-lab-iargos-version]', version);
     setTextAll('[data-lab-iargos-updated]', updatedAt);
+    setTextAll('[data-lab-iargos-state]', state);
+    setTextAll('[data-lab-iargos-sync]', syncAt);
+    setTextAll('[data-lab-iargos-training]', trainingAt);
+
+    const logHost = document.querySelector('[data-lab-iargos-log]');
+    if (logHost) {
+      if (!logRows.length) {
+        logHost.innerHTML = '<li>Nessun evento iARGOS recente disponibile.</li>';
+      } else {
+        logHost.innerHTML = logRows.map((row) => {
+          const ts = escapeHtml(String(row?.ts || '--'));
+          const event = escapeHtml(String(row?.event || '--'));
+          return `<li><span class="font-mono text-neon/80">${ts}</span> - ${event}</li>`;
+        }).join('');
+      }
+    }
   } catch (_) {
     fallback();
   }

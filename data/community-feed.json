@@ -1,7 +1,58 @@
 {
-  "updated_at": "",
-  "contest_seq": "",
-  "leaderboard": [],
-  "activities": [],
-  "highlights": []
+  "updated_at": "2026-03-26 10:30:00",
+  "contest_seq": "3224",
+  "demo_mode": true,
+  "pulse": {
+    "online_users": 12,
+    "actions_24h": 37,
+    "signals_today": 9
+  },
+  "leaderboard": [
+    {
+      "position": 1,
+      "alias": "ChaosScout",
+      "score": 128.4,
+      "streak": "4/5",
+      "favorite_algorithm": "super6NN"
+    },
+    {
+      "position": 2,
+      "alias": "DataRitardista",
+      "score": 114.2,
+      "streak": "3/5",
+      "favorite_algorithm": "classic-ritardi"
+    },
+    {
+      "position": 3,
+      "alias": "ArcObserver",
+      "score": 102.7,
+      "streak": "2/5",
+      "favorite_algorithm": "arc90-logico-algoritmica"
+    }
+  ],
+  "activities": [
+    {
+      "ts": "2026-03-26T09:42:00Z",
+      "alias": "ChaosScout",
+      "action": "ha condiviso una sestina test",
+      "payload": "06 10 49 55 77 85"
+    },
+    {
+      "ts": "2026-03-26T09:57:00Z",
+      "alias": "DataRitardista",
+      "action": "ha commentato il ranking live",
+      "payload": "focus su numeri freddi >35 ritardi"
+    },
+    {
+      "ts": "2026-03-26T10:08:00Z",
+      "alias": "ArcObserver",
+      "action": "ha inviato segnale Oracle",
+      "payload": "anomalia su cluster alti"
+    }
+  ],
+  "highlights": [
+    "3 utenti hanno inviato segnali coerenti sul concorso 3224 (feed demo).",
+    "Trend community: attenzione su ritardi >30 concorsi (feed demo).",
+    "Alias piu attivo oggi: ChaosScout (feed demo)."
+  ]
 }

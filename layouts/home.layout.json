@@ -4,7 +4,8 @@
   "data_sources": {
     "modules_manifest": "data/modules-manifest.json",
     "community_feed": "data/community-feed.json",
-    "draws_csv": "archives/draws/draws.csv"
+    "draws_csv": "archives/draws/draws.csv",
+    "iargos_public_status": "data/iargos-public-status.json"
   },
   "kpi_items": [
     {

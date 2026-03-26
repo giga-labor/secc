@@ -8,10 +8,12 @@
       const modules = await ctx.repo.loadCardsByManifest(sources.modules_manifest || 'data/modules-manifest.json');
       const communityFeed = await this.loadCommunityFeed(sources.community_feed || 'data/community-feed.json');
       const drawsRows = await this.loadDrawsRows(sources.draws_csv || 'archives/draws/draws.csv');
+      const iargosStatus = await this.loadIargosStatus(sources.iargos_public_status || 'data/iargos-public-status.json');
       return {
         modules,
         community_feed: communityFeed,
         draws_rows: drawsRows,
+        iargos_status: iargosStatus,
         kpi_items: Array.isArray(layout?.kpi_items) ? layout.kpi_items : []
       };
     },
@@ -297,6 +299,17 @@
     },
 
     async loadCommunityFeed(path) {
+      if (!ctx.repo || typeof ctx.repo.fetchJson !== 'function') return null;
+      try {
+        const payload = await ctx.repo.fetchJson(path, { cache: 'no-store' });
+        if (!payload || typeof payload !== 'object') return null;
+        return payload;
+      } catch (_) {
+        return null;
+      }
+    },
+
+    async loadIargosStatus(path) {
       if (!ctx.repo || typeof ctx.repo.fetchJson !== 'function') return null;
       try {
         const payload = await ctx.repo.fetchJson(path, { cache: 'no-store' });
@@ -597,6 +610,21 @@
         host.innerHTML = fallbackHtml;
         return;
       }
+      const pulse = payload.pulse && typeof payload.pulse === 'object' ? payload.pulse : {};
+      const pulseOnline = Number.parseInt(String(pulse.online_users ?? ''), 10);
+      const pulseActions = Number.parseInt(String(pulse.actions_24h ?? ''), 10);
+      const pulseSignals = Number.parseInt(String(pulse.signals_today ?? ''), 10);
+      const pulseHtml = `
+        <div class="cc-home-community__pulse">
+          <span><strong>${Number.isFinite(pulseOnline) ? pulseOnline : 0}</strong> online</span>
+          <span><strong>${Number.isFinite(pulseActions) ? pulseActions : 0}</strong> azioni 24h</span>
+          <span><strong>${Number.isFinite(pulseSignals) ? pulseSignals : 0}</strong> segnali oggi</span>
+        </div>
+      `;
+      const isDemoFeed = Boolean(payload.demo_mode);
+      const demoText = isDemoFeed
+        ? '<p class="cc-home-community__demo">Feed in modalita demo dichiarata: verra sostituito dai primi segnali reali.</p>'
+        : '';
       const contest = escapeHtml(String(payload.contest_seq || '--'));
       const updatedAt = escapeHtml(String(payload.updated_at || '--'));
       const leaderboard = Array.isArray(payload.leaderboard) ? payload.leaderboard.slice(0, 3) : [];
@@ -630,7 +658,9 @@
           <header>
             <h4>Attivita utenti</h4>
             <p>Concorso ${contest} - aggiornato ${updatedAt}</p>
+            ${demoText}
           </header>
+          ${pulseHtml}
           <div class="cc-home-community__grid">
             <article>
               <h5>Top player</h5>
@@ -707,18 +737,84 @@
 
       const chaosIndex = this.computeChaosIndex(draws);
       const signal = this.computeHeroSignal(draws);
-      const chaosNote = 'Indice di Caos (0-100): combina ritardi >=30, varianza frequenze ultime 30 estrazioni e ripetizioni negli ultimi 5 concorsi.';
+      const iargos = data?.iargos_status && typeof data.iargos_status === 'object' ? data.iargos_status : null;
+      const runtime = iargos && typeof iargos.runtime === 'object' ? iargos.runtime : {};
+      const alignment = iargos && typeof iargos.alignment === 'object' ? iargos.alignment : {};
+      const statusLevel = String(runtime.state_level || '').toLowerCase();
+      const operationalByState = statusLevel ? statusLevel === 'ok' : String(iargos?.severity || '').toLowerCase() !== 'critical';
+      const stateLabel = String(runtime.state_label || (operationalByState ? 'operativo' : 'attenzione')).toUpperCase();
+      const archiveSynced = (typeof runtime.archive_synced === 'boolean')
+        ? runtime.archive_synced
+        : String(alignment.archive_update_state || '').toLowerCase() === 'green';
+      const alignedCountRaw = Number.parseInt(String(runtime.algorithms_aligned_count ?? ''), 10);
+      const totalCountRaw = Number.parseInt(String(runtime.algorithms_total_count ?? ''), 10);
+      const alignedCount = Number.isFinite(alignedCountRaw) ? alignedCountRaw : activeAlgorithms;
+      const totalCount = Number.isFinite(totalCountRaw) ? totalCountRaw : activeAlgorithms;
+      const queuePendingRaw = Number.parseInt(String(runtime.queue_pending ?? iargos?.queue?.pending ?? ''), 10);
+      const queuePending = Number.isFinite(queuePendingRaw) ? queuePendingRaw : 0;
+      const formatStatusTs = (value) => {
+        const raw = String(value || '').trim();
+        if (!raw || raw === '--') return '--';
+        const normalized = /\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}(:\d{2})?/.test(raw) ? raw.replace(' ', 'T') : raw;
+        const dt = new Date(normalized);
+        if (!Number.isFinite(dt.getTime())) return escapeHtml(raw);
+        return escapeHtml(new Intl.DateTimeFormat('it-IT', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).format(dt));
+      };
+      const lastSyncAt = formatStatusTs(runtime.last_sync_at || iargos?.updated_at || iargos?.checked_at || '--');
+      const lastTrainingAt = formatStatusTs(runtime.last_training_at || '--');
+      const iargosStatusNote = archiveSynced ? 'Archivio sincronizzato' : 'Archivio in verifica';
+      const iargosStatusClass = operationalByState ? 'cc-home-live__item--ok' : 'cc-home-live__item--warn';
+      const iargosLabHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-iargos'));
+      const chaosGuideHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-statistiche'));
+      const chaosNote = 'Indice di Caos (0-100): misura la volatilita complessiva del dataset recente.';
+      const signalVsChaos = 'Segnale del Giorno = pattern qualitativo dominante. Indice di Caos = metrica quantitativa di instabilita.';
+      const activityLog = Array.isArray(iargos?.activity_log) ? iargos.activity_log.slice(0, 5) : [];
+      const logHtml = activityLog.length
+        ? `
+          <div class="cc-home-iargos-log">
+            <p class="cc-home-iargos-log__label">LOG iARGOS</p>
+            <ul class="cc-home-iargos-log__list">
+              ${activityLog.map((entry) => {
+                const ts = formatStatusTs(entry?.ts || '--');
+                const msg = escapeHtml(String(entry?.event || '--'));
+                return `<li><span>${ts}</span><strong>${msg}</strong></li>`;
+              }).join('')}
+            </ul>
+          </div>
+        `
+        : '';
       const signalHtml = signal
         ? `<div class="cc-home-signal"><span class="cc-home-signal__label">Segnale del Giorno</span><span class="cc-home-signal__text">${escapeHtml(signal)}</span></div>`
         : '';
+      const statusHtml = `
+        <div class="cc-home-iargos-status">
+          <p class="cc-home-iargos-status__title">iARGOS STATUS</p>
+          <span class="cc-home-live__item ${iargosStatusClass}">Stato: ${escapeHtml(stateLabel)}</span>
+          <span class="cc-home-live__item ${archiveSynced ? 'cc-home-live__item--ok' : 'cc-home-live__item--warn'}">${escapeHtml(iargosStatusNote)}</span>
+          <span class="cc-home-live__item">Ultimo training: ${lastTrainingAt}</span>
+          <span class="cc-home-live__item">Algoritmi allineati: ${escapeHtml(String(alignedCount))}/${escapeHtml(String(totalCount))}</span>
+          <span class="cc-home-live__item">Task in coda: ${escapeHtml(String(queuePending))}</span>
+          <span class="cc-home-live__item">Ultima sincronizzazione: ${lastSyncAt}</span>
+          <a class="cc-home-live__link" href="${iargosLabHref}">Dettagli tecnici iARGOS</a>
+        </div>
+      `;
 
       host.innerHTML = `
         ${signalHtml}
+        ${statusHtml}
+        ${logHtml}
         <span class="cc-home-live__item">Ultimo concorso: ${escapeHtml(latestSeq)} (${escapeHtml(latestDate)})</span>
         <span class="cc-home-live__item">Algoritmi attivi: ${escapeHtml(String(activeAlgorithms))}</span>
         <span class="cc-home-live__item">${communityLabel}</span>
         <span class="cc-home-live__item cc-home-live__item--chaos">Indice di Caos: ${escapeHtml(String(chaosIndex))}/100</span>
-        <p class="cc-home-live__note">${escapeHtml(chaosNote)}</p>
+        <p class="cc-home-live__note">${escapeHtml(chaosNote)} <a class="cc-home-live__inline-link" href="${chaosGuideHref}">Scopri come viene calcolato</a></p>
+        <p class="cc-home-live__note">${escapeHtml(signalVsChaos)}</p>
       `;
 
     },
@@ -885,13 +981,17 @@
         const title = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
         const href = escapeHtml(ctx.resolveWithBase(row.card.page || '#') || '#');
         const rank = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
+        const iargosLabel = row.isUpdated ? 'Generata da iARGOS' : 'Validata da iARGOS';
         const ballsHtml = row.proposal.map((value) => {
           const tone = getBallTone(parseInt(value, 10));
           return `<span class="cc-proposal-ball${tone ? ' ' + tone : ''}">${escapeHtml(value)}</span>`;
         }).join('');
         return `
           <a href="${href}" class="cc-proposal-row" title="${title}">
-            <span class="cc-proposal-alg cc-alg-link">${title}</span>
+            <span class="cc-proposal-alg-wrap">
+              <span class="cc-proposal-alg cc-alg-link">${title}</span>
+              <span class="cc-proposal-iargos">${escapeHtml(iargosLabel)}</span>
+            </span>
             <span class="cc-proposal-balls">${ballsHtml}</span>
             <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
           </a>
