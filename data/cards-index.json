@@ -1,56 +1,5 @@
 [
   {
-    "id": "laboratorio-tecnico",
-    "title": "Laboratorio Tecnico",
-    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
-    "statusTag": "Lab",
-    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
-    "macroGroup": "statistica",
-    "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/laboratorio-tecnico/",
-    "image": "img.webp",
-    "lastUpdated": "",
-    "hasNews": true,
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    }
-  },
-  {
-    "macroGroup": "storico",
-    "id": "storico-estrazioni",
-    "title": "Estrazione del:",
-    "subtitle": "$D",
-    "showSubtitle": true,
-    "image": "img.webp",
-    "mediaScale": 1.08,
-    "lastUpdated": "02/02/2026",
-    "hasNews": true,
-    "statusTag": "Archivio",
-    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
-    "page": "pages/storico-estrazioni/index.html",
-    "type": "ARCHIVI",
-    "features": [
-      "draws-latest"
-    ],
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "off",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/storico-estrazioni/",
-    "imageVersion": 1771969284
-  },
-  {
     "id": "arc90-logico-algoritmica",
     "title": "ARC90",
     "subtitle": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie",
@@ -140,8 +89,7 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/"
   },
   {
     "id": "classic-coppie-terzine-frequenti",
@@ -162,8 +110,7 @@
       "enabled": false,
       "count": 1
     },
-    "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/"
   },
   {
     "id": "classic-distribuzioni-modelli-raggruppamento",
@@ -184,8 +131,7 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/"
   },
   {
     "id": "classic-frequency",
@@ -207,8 +153,28 @@
       "enabled": false,
       "count": 1
     },
-    "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-frequency/"
+  },
+  {
+    "id": "classic-ritardi-combinazioni",
+    "title": "classic-ritardi-combinazioni",
+    "subtitle": "Ritardi su combinazioni multiple",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Ritardi di gruppi di numeri (terni, quaterne e oltre) su base storica.",
+    "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/"
   },
   {
     "id": "classic-ritardi",
@@ -230,30 +196,7 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-ritardi-combinazioni",
-    "title": "classic-ritardi-combinazioni",
-    "subtitle": "Ritardi su combinazioni multiple",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Ritardi di gruppi di numeri (terni, quaterne e oltre) su base storica.",
-    "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-ritardi/"
   },
   {
     "id": "classic-statistiche-combinate-finestre-mobili",
@@ -274,8 +217,7 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/"
   },
   {
     "id": "classic-tavole-probabilita-teorica-test-uniformita",
@@ -325,29 +267,6 @@
     "cardBase": "pages/algoritmi/algs/genetic/"
   },
   {
-    "id": "hispa",
-    "title": "HiSPA",
-    "subtitle": "Historical Pattern Scoring Algorithm progressivo",
-    "image": "img.webp",
-    "lastUpdated": "15/03/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Algoritmo statistico progressivo basato su pattern dell'ultima sestina reale e scoring condizionato dei concorsi successivi storici.",
-    "page": "pages/algoritmi/algs/hispa/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "type": "ALGORITMI",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 1
-    },
-    "cardBase": "pages/algoritmi/algs/hispa/"
-  },
-  {
     "id": "paradox-logiche-decisionali-metriche",
     "title": "Paradox Logiche Decisionali Metriche",
     "subtitle": "Descrizione in arrivo",
@@ -394,5 +313,101 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/super6NN/"
+  },
+  {
+    "id": "hispa",
+    "title": "HiSPA",
+    "subtitle": "Historical Pattern Scoring Algorithm progressivo",
+    "image": "img.webp",
+    "lastUpdated": "15/03/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Algoritmo statistico progressivo basato su pattern dell'ultima sestina reale e scoring condizionato dei concorsi successivi storici.",
+    "page": "pages/algoritmi/algs/hispa/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "type": "ALGORITMI",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 1
+    },
+    "cardBase": "pages/algoritmi/algs/hispa/"
+  },
+  {
+    "id": "sestine-proposte-info",
+    "title": "Sestine Proposte",
+    "subtitle": "Apri subito le proposte ordinate",
+    "statusTag": "Proposte",
+    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
+    "macroGroup": "info",
+    "page": "pages/sestine-proposte/index.html",
+    "image": "img/statistic.webp",
+    "lastUpdated": "15/03/2026",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "type": "INFO",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/sestine-proposte/"
+  },
+  {
+    "id": "laboratorio-tecnico",
+    "title": "Laboratorio Tecnico",
+    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
+    "statusTag": "Lab",
+    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/laboratorio-tecnico/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    }
+  },
+  {
+    "macroGroup": "storico",
+    "id": "storico-estrazioni",
+    "title": "Estrazione del:",
+    "subtitle": "$D",
+    "showSubtitle": true,
+    "image": "img.webp",
+    "mediaScale": 1.08,
+    "lastUpdated": "02/02/2026",
+    "hasNews": true,
+    "statusTag": "Archivio",
+    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
+    "page": "pages/storico-estrazioni/index.html",
+    "type": "ARCHIVI",
+    "features": [
+      "draws-latest"
+    ],
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/storico-estrazioni/",
+    "imageVersion": 1771969284
   }
 ]
