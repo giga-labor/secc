@@ -822,7 +822,14 @@
     computeHeroSignal(rows) {
       const list = Array.isArray(rows) ? rows : [];
       const numbersByRow = list.map((row) => this.extractSixNumbers(row)).filter((chunk) => chunk.length === 6);
-      if (numbersByRow.length < 30) return null;
+      if (!numbersByRow.length) return null;
+
+      const latestRow = list[list.length - 1] && typeof list[list.length - 1] === 'object' ? list[list.length - 1] : null;
+      const latestSeq = latestRow ? String(latestRow['NR. SEQUENZIALE'] || '--').trim() : '--';
+      const latestDate = latestRow ? String(latestRow.Data || latestRow.DATA || '--').trim() : '--';
+      const contestPrefix = (latestSeq !== '--' || latestDate !== '--')
+        ? `Concorso ${latestSeq} (${latestDate}): `
+        : '';
 
       const signals = [];
 
@@ -833,16 +840,33 @@
         const shown = longDelayed.slice(0, 6);
         const nums = shown.map((d) => String(d.n).padStart(2, '0')).join(', ');
         const extra = longDelayed.length > 6 ? ` e altri ${longDelayed.length - 6}` : '';
-        signals.push(`${longDelayed.length} numeri assenti da oltre 40 concorsi: ${nums}${extra}`);
+        const maxDelay = Number(longDelayed[0]?.c || 40);
+        const score = longDelayed.length + Math.min(12, Math.round(maxDelay / 5));
+        signals.push({
+          score,
+          text: `${longDelayed.length} numeri in ritardo oltre 40 concorsi (max ${maxDelay}): ${nums}${extra}`
+        });
       }
 
-      // Segnale 2: concentrazione numeri alti nelle ultime 30 estrazioni
+      // Segnale 2: sbilanciamento fascia alta/bassa nelle ultime 30 estrazioni
       const recent30 = numbersByRow.slice(-30);
       const allRecent = recent30.flat();
       const highCount = allRecent.filter((n) => n >= 61).length;
-      if (allRecent.length > 0 && highCount / allRecent.length > 0.45) {
-        const pct = Math.round((highCount / allRecent.length) * 100);
-        signals.push(`Alta concentrazione di numeri alti (61–90) nelle ultime 30 estrazioni: ${pct}% delle uscite`);
+      const lowCount = allRecent.filter((n) => n <= 30).length;
+      if (allRecent.length > 0) {
+        const highPct = Math.round((highCount / allRecent.length) * 100);
+        const lowPct = Math.round((lowCount / allRecent.length) * 100);
+        if (highPct >= 45) {
+          signals.push({
+            score: Math.max(1, Math.round((highPct - 33) / 2)),
+            text: `fascia alta in evidenza (61-90): ${highPct}% delle uscite nelle ultime 30 estrazioni`
+          });
+        } else if (lowPct >= 45) {
+          signals.push({
+            score: Math.max(1, Math.round((lowPct - 33) / 2)),
+            text: `fascia bassa in evidenza (01-30): ${lowPct}% delle uscite nelle ultime 30 estrazioni`
+          });
+        }
       }
 
       // Segnale 3: frequenza anomala nelle ultime 90 estrazioni
@@ -851,28 +875,53 @@
       for (let n = 1; n <= 90; n += 1) freq.set(n, 0);
       window90.forEach((draw) => draw.forEach((n) => freq.set(n, (freq.get(n) || 0) + 1)));
       const freqValues = Array.from(freq.values());
-      const mean = freqValues.reduce((s, v) => s + v, 0) / freqValues.length;
+      const mean = freqValues.reduce((s, v) => s + v, 0) / Math.max(1, freqValues.length);
       const topEntry = Array.from(freq.entries()).sort((a, b) => b[1] - a[1])[0];
-      if (topEntry && topEntry[1] > mean * 2.5) {
-        signals.push(`Frequenza anomala: il numero ${String(topEntry[0]).padStart(2, '0')} è uscito ${topEntry[1]} volte nelle ultime 90 estrazioni`);
+      if (topEntry && mean > 0) {
+        const ratio = topEntry[1] / mean;
+        if (ratio >= 2.5) {
+          signals.push({
+            score: Math.max(1, Math.round(ratio * 4)),
+            text: `frequenza anomala: il numero ${String(topEntry[0]).padStart(2, '0')} e uscito ${topEntry[1]} volte nelle ultime ${window90.length} estrazioni`
+          });
+        }
       }
 
       // Segnale 4: ripetizioni negli ultimi 5 concorsi
       const last5 = numbersByRow.slice(-5);
       const repCount = new Map();
       last5.flat().forEach((n) => repCount.set(n, (repCount.get(n) || 0) + 1));
-      const repeated = Array.from(repCount.entries()).filter(([, c]) => c >= 3);
+      const repeated = Array.from(repCount.entries()).filter(([, c]) => c >= 3).sort((a, b) => b[1] - a[1] || a[0] - b[0]);
       if (repeated.length > 0) {
-        const nums = repeated.slice(0, 2).map(([n]) => String(n).padStart(2, '0')).join(', ');
-        signals.push(`Ripetizione insolita negli ultimi 5 concorsi: numeri ${nums} usciti 3+ volte`);
+        const nums = repeated.slice(0, 3).map(([n]) => String(n).padStart(2, '0')).join(', ');
+        const topRep = Number(repeated[0]?.[1] || 3);
+        const score = repeated.length * 3 + topRep;
+        signals.push({
+          score,
+          text: `ripetizioni ravvicinate negli ultimi 5 concorsi: ${nums} (fino a ${topRep} presenze)`
+        });
       }
 
-      if (!signals.length) return null;
+      if (signals.length) {
+        signals.sort((a, b) => (b.score - a.score) || (String(b.text).length - String(a.text).length));
+        return `${contestPrefix}${signals[0].text}`;
+      }
 
-      // Rotazione giornaliera tra i segnali attivi
-      const now = new Date();
-      const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
-      return signals[dayOfYear % signals.length];
+      // Fallback dinamico: nessuna anomalia forte, ma frase sempre ancorata ai dati reali.
+      const recent20 = numbersByRow.slice(-20);
+      const recentFlat = recent20.flat();
+      if (!recentFlat.length) return null;
+      const evenCount = recentFlat.filter((n) => n % 2 === 0).length;
+      const evenPct = Math.round((evenCount / recentFlat.length) * 100);
+      const freq20 = new Map();
+      recentFlat.forEach((n) => freq20.set(n, (freq20.get(n) || 0) + 1));
+      const top2 = Array.from(freq20.entries())
+        .sort((a, b) => b[1] - a[1] || a[0] - b[0])
+        .slice(0, 2)
+        .map(([n, c]) => `${String(n).padStart(2, '0')}(${c})`)
+        .join(', ');
+      const highPct20 = Math.round((recentFlat.filter((n) => n >= 61).length / recentFlat.length) * 100);
+      return `${contestPrefix}quadro stabile: nessuna anomalia dominante; top ricorrenze ultime 20 estrazioni ${top2 || '--'}, fascia alta ${highPct20}%, pari ${evenPct}%`;
     },
 
     computeChaosIndex(rows) {
