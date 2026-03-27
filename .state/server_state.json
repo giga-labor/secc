@@ -7,9 +7,9 @@
   "last_successful_run_id": "",
   "last_email_status": "",
   "pending_publish": {},
-  "consecutive_failures": 0,
-  "last_failure_at": "",
-  "last_failure_reason": "",
+  "consecutive_failures": 3,
+  "last_failure_at": "2026-03-27T22:32:54",
+  "last_failure_reason": "Nessun bundle pending da pubblicare",
   "run_journal": [
     {
       "ts": "2026-03-27T21:46:24",
@@ -274,6 +274,20 @@
       "payload": {
         "lease_until": "2026-03-27T22:26:23"
       }
+    },
+    {
+      "ts": "2026-03-27T22:25:32",
+      "event": "lock_acquired",
+      "run_id": "20260327_222532",
+      "payload": {
+        "lease_until": "2026-03-27T22:27:32"
+      }
+    },
+    {
+      "ts": "2026-03-27T22:25:48",
+      "event": "lock_released",
+      "run_id": "20260327_222532",
+      "payload": {}
     }
   ],
   "last_quorum_policy": {
