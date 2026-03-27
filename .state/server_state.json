@@ -7,8 +7,8 @@
   "last_successful_run_id": "",
   "last_email_status": "",
   "pending_publish": {},
-  "consecutive_failures": 3,
-  "last_failure_at": "2026-03-27T22:32:54",
+  "consecutive_failures": 4,
+  "last_failure_at": "2026-03-27T22:35:21",
   "last_failure_reason": "Nessun bundle pending da pubblicare",
   "run_journal": [
     {
