@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-03-27 21:40:47",
+  "updated_at": "2026-03-27 21:42:02",
   "version": "02.04.002",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 14 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 21 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -24,17 +24,17 @@
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": false,
-    "git_dirty": true,
+    "git_dirty": false,
     "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
   "circuit": {
     "state": "CLOSED",
-    "consecutive_failures": 0,
-    "consecutive_successes": 2,
+    "consecutive_failures": 1,
+    "consecutive_successes": 0,
     "consecutive_no_execution_cycles": 3,
-    "updated_at": "2026-03-27 21:40:28"
+    "updated_at": "2026-03-27 21:41:43"
   },
   "queue": {
     "total": 102,
@@ -56,9 +56,9 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": false,
-    "last_sync_at": "2026-03-27 21:40:31",
+    "last_sync_at": "2026-03-27 21:41:45",
     "last_training_at": "2026-03-27 21:38:32",
-    "last_deploy_at": "2026-03-27 21:40:31",
+    "last_deploy_at": "2026-03-27 21:41:44",
     "algorithms_total_count": 0,
     "algorithms_aligned_count": 0,
     "queue_pending": 1,
@@ -67,61 +67,61 @@
   },
   "activity_log": [
     {
-      "ts": "2026-03-27 21:40:31",
+      "ts": "2026-03-27 21:41:45",
+      "event": "Auto-heal eseguito",
+      "status": "ERR",
+      "source": "iargos",
+      "action": "iargos-auto-heal"
+    },
+    {
+      "ts": "2026-03-27 21:41:44",
+      "event": "Verifica post-esecuzione completata",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-post-exec-check"
+    },
+    {
+      "ts": "2026-03-27 21:41:11",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-03-27 21:41:01",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-plan-rebuild"
+    },
+    {
+      "ts": "2026-03-27 21:40:54",
       "event": "Auto-heal eseguito: mirror_deploy_local",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-auto-heal"
     },
     {
-      "ts": "2026-03-27 21:40:31",
+      "ts": "2026-03-27 21:40:54",
       "event": "Verifica post-esecuzione completata",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-post-exec-check"
     },
     {
-      "ts": "2026-03-27 21:40:23",
+      "ts": "2026-03-27 21:40:47",
       "event": "Deploy mirror -> locale completato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-hardening-plan-override"
     },
     {
-      "ts": "2026-03-27 21:39:33",
-      "event": "Nuovo check archivio programmato",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-schedule"
-    },
-    {
-      "ts": "2026-03-27 21:39:33",
-      "event": "Verifica archivio online completata",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-check"
-    },
-    {
-      "ts": "2026-03-27 21:39:31",
-      "event": "Auto-heal eseguito: mirror_step3_publish",
+      "ts": "2026-03-27 21:40:31",
+      "event": "Auto-heal eseguito: mirror_deploy_local",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-auto-heal"
-    },
-    {
-      "ts": "2026-03-27 21:39:31",
-      "event": "Verifica post-esecuzione completata",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-post-exec-check"
-    },
-    {
-      "ts": "2026-03-27 21:38:47",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
     }
   ],
-  "checked_at": "2026-03-27 21:40:47"
+  "checked_at": "2026-03-27 21:42:02"
 }
