@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-03-26 21:25:29",
+  "updated_at": "2026-03-27 21:37:26",
   "version": "02.04.002",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 12 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 3 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -32,9 +32,9 @@
   "circuit": {
     "state": "CLOSED",
     "consecutive_failures": 0,
-    "consecutive_successes": 2,
+    "consecutive_successes": 6,
     "consecutive_no_execution_cycles": 1,
-    "updated_at": "2026-03-26 21:24:20"
+    "updated_at": "2026-03-27 21:37:11"
   },
   "queue": {
     "total": 102,
@@ -56,9 +56,9 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": false,
-    "last_sync_at": "2026-03-26 21:25:02",
-    "last_training_at": "2026-03-26 21:25:14",
-    "last_deploy_at": "2026-03-26 21:25:14",
+    "last_sync_at": "2026-03-27 21:37:15",
+    "last_training_at": "2026-03-27 21:37:13",
+    "last_deploy_at": "2026-03-26 21:27:52",
     "algorithms_total_count": 0,
     "algorithms_aligned_count": 0,
     "queue_pending": 1,
@@ -67,61 +67,61 @@
   },
   "activity_log": [
     {
-      "ts": "2026-03-26 21:25:02",
-      "event": "Nuovo check archivio programmato",
+      "ts": "2026-03-27 21:37:14",
+      "event": "Monitor online completato",
       "status": "OK",
       "source": "iargos",
-      "action": "iargos-draws-online-schedule"
+      "action": "iargos-site-online-check"
     },
     {
-      "ts": "2026-03-26 21:25:02",
-      "event": "Verifica archivio online completata",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-check"
-    },
-    {
-      "ts": "2026-03-26 21:24:42",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-03-26 21:24:29",
-      "event": "Nuovo check archivio programmato",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-schedule"
-    },
-    {
-      "ts": "2026-03-26 21:24:28",
-      "event": "Verifica archivio online completata",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-check"
-    },
-    {
-      "ts": "2026-03-26 21:24:27",
-      "event": "Auto-heal eseguito: mirror_step3_publish",
+      "ts": "2026-03-27 21:37:13",
+      "event": "Auto-heal eseguito: updates_start(server,run_server_total)",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-auto-heal"
     },
     {
-      "ts": "2026-03-26 21:24:27",
+      "ts": "2026-03-27 21:37:13",
       "event": "Verifica post-esecuzione completata",
-      "status": "OK",
+      "status": "WARN",
       "source": "iargos",
       "action": "iargos-post-exec-check"
     },
     {
-      "ts": "2026-03-26 21:23:03",
-      "event": "Publish locale -> online completato",
+      "ts": "2026-03-27 21:37:03",
+      "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
-      "action": "iargos-hardening-plan-override"
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-03-27 21:36:51",
+      "event": "Task monitor online inserito",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-site-monitor"
+    },
+    {
+      "ts": "2026-03-27 21:36:48",
+      "event": "Nuovo check archivio programmato",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-draws-online-schedule"
+    },
+    {
+      "ts": "2026-03-27 21:36:48",
+      "event": "Verifica archivio online completata",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-draws-online-check"
+    },
+    {
+      "ts": "2026-03-27 16:07:41",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
     }
   ],
-  "checked_at": "2026-03-26 21:25:29"
+  "checked_at": "2026-03-27 21:37:26"
 }
