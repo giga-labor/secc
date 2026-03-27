@@ -154,6 +154,22 @@
       "payload": {
         "lease_until": "2026-03-27T22:08:33"
       }
+    },
+    {
+      "ts": "2026-03-27T22:07:43",
+      "event": "lock_acquired",
+      "run_id": "20260327_220743",
+      "payload": {
+        "lease_until": "2026-03-27T22:09:43"
+      }
+    },
+    {
+      "ts": "2026-03-27T22:08:55",
+      "event": "lock_acquired",
+      "run_id": "20260327_220855",
+      "payload": {
+        "lease_until": "2026-03-27T22:10:55"
+      }
     }
   ],
   "last_quorum_policy": {
