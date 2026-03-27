@@ -1,0 +1,13 @@
+[21:49:59] Fase OK: lock_acquire
+[21:50:01] AI nulla osta OK su check_sources_quorum
+[21:50:01] Avvio fase: check_sources_quorum
+[21:50:03] Fase OK: check_sources_quorum
+[21:50:05] AI nulla osta OK su update_local_draws_stage
+[21:50:05] Avvio fase: update_local_draws_stage
+[21:50:06] Fase OK: update_local_draws_stage
+[21:50:08] AI nulla osta OK su lock_release
+[21:50:08] Avvio fase: lock_release
+[21:50:08] Fase OK: lock_release
+[21:50:08] SERVER in ascolto: nessun nuovo draws, ciclo terminato senza training/deploy/publish
+[21:50:08] SERVER: prossimo ciclo tra 1m 00s alle 21:51:00
+[21:51:09] SERVER ciclo #7: avvio
