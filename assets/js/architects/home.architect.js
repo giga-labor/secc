@@ -758,6 +758,37 @@
       const numbersByRow = list.map((row) => this.extractSixNumbers(row)).filter((chunk) => chunk.length === 6);
       if (!numbersByRow.length) return null;
 
+      const now = new Date();
+      const dayKey = (() => {
+        try {
+          return new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Europe/Rome',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).format(now);
+        } catch (_) {
+          const y = now.getUTCFullYear();
+          const m = String(now.getUTCMonth() + 1).padStart(2, '0');
+          const d = String(now.getUTCDate()).padStart(2, '0');
+          return `${y}-${m}-${d}`;
+        }
+      })();
+      const parsedDaySeed = Number.parseInt(String(dayKey || '').replace(/[^\d]/g, ''), 10);
+      const daySeed = Number.isFinite(parsedDaySeed)
+        ? parsedDaySeed
+        : (now.getUTCFullYear() * 372 + (now.getUTCMonth() + 1) * 31 + now.getUTCDate());
+      const dailyWrap = (text) => {
+        const templates = [
+          'Focus del giorno: {text}',
+          'Traccia odierna: {text}',
+          'Monitoraggio giornaliero: {text}',
+          'Segnale guida di oggi: {text}'
+        ];
+        const index = Math.abs(daySeed) % templates.length;
+        return templates[index].replace('{text}', String(text || '').trim());
+      };
+
       const latestRow = list[list.length - 1] && typeof list[list.length - 1] === 'object' ? list[list.length - 1] : null;
       const latestSeq = latestRow ? String(latestRow['NR. SEQUENZIALE'] || '--').trim() : '--';
       const latestDate = latestRow ? String(latestRow.Data || latestRow.DATA || '--').trim() : '--';
@@ -838,7 +869,11 @@
 
       if (signals.length) {
         signals.sort((a, b) => (b.score - a.score) || (String(b.text).length - String(a.text).length));
-        return `${contestPrefix}${signals[0].text}`;
+        const topScore = Number(signals[0]?.score || 0);
+        const pool = signals.filter((row) => Number(row?.score || 0) >= Math.max(1, topScore - 2));
+        const candidates = pool.length ? pool : signals;
+        const chosen = candidates[Math.abs(daySeed) % candidates.length] || signals[0];
+        return `${contestPrefix}${dailyWrap(chosen.text)}`;
       }
 
       // Fallback dinamico: nessuna anomalia forte, ma frase sempre ancorata ai dati reali.
@@ -855,7 +890,8 @@
         .map(([n, c]) => `${String(n).padStart(2, '0')}(${c})`)
         .join(', ');
       const highPct20 = Math.round((recentFlat.filter((n) => n >= 61).length / recentFlat.length) * 100);
-      return `${contestPrefix}quadro stabile: nessuna anomalia dominante; top ricorrenze ultime 20 estrazioni ${top2 || '--'}, fascia alta ${highPct20}%, pari ${evenPct}%`;
+      const fallbackText = `quadro stabile: nessuna anomalia dominante; top ricorrenze ultime 20 estrazioni ${top2 || '--'}, fascia alta ${highPct20}%, pari ${evenPct}%`;
+      return `${contestPrefix}${dailyWrap(fallbackText)}`;
     },
 
     computeChaosIndex(rows) {
