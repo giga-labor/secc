@@ -1,0 +1,9 @@
+[22:19:44] AI nulla osta NEGATO su apply_draws_local_atomic: Gate AI: mirror/flow guard non coerente, blocco step avanzato.
+[22:19:44] SERVER ciclo #1: stop post-update su apply_draws_local_atomic (Gate AI: Gate AI: mirror/flow guard non coerente, blocco step avanzato.)
+[22:19:45] AI nulla osta OK su lock_release
+[22:19:45] Avvio fase: lock_release
+[22:19:45] Fase OK: lock_release
+[22:19:45] SERVER ciclo #1: degraded
+[22:19:45] SERVER: prossimo ciclo tra 1m 00s alle 22:20:00
+[22:20:01] Richiesta stop ricevuta.
+[22:20:01] Modalita server arrestata da operatore
