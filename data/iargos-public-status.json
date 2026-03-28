@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-03-28 18:19:39",
+  "updated_at": "2026-03-28 18:32:21",
   "version": "02.04.002",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "warning",
-  "summary": "Rilevati 18 warning non bloccanti (monitoraggio consigliato).",
+  "severity": "info",
+  "summary": "Rilevati 25 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
-  "task_precedence": "IMMEDIATE",
+  "task_precedence": "ROUTINE",
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": true,
+    "p2_flow_guard": false,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
@@ -23,7 +23,7 @@
   "alignment": {
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": false,
+    "flow_guard_ok": true,
     "git_dirty": false,
     "remote_ahead": 0,
     "remote_behind": 0,
@@ -33,8 +33,8 @@
     "state": "OPEN",
     "consecutive_failures": 3,
     "consecutive_successes": 0,
-    "consecutive_no_execution_cycles": 38,
-    "updated_at": "2026-03-28 18:19:23"
+    "consecutive_no_execution_cycles": 40,
+    "updated_at": "2026-03-28 18:32:02"
   },
   "queue": {
     "total": 102,
@@ -55,10 +55,10 @@
     "state_level": "warn",
     "state_label": "monitoraggio",
     "is_operational": false,
-    "archive_synced": false,
-    "last_sync_at": "2026-03-28 18:15:16",
-    "last_training_at": "2026-03-28 18:13:32",
-    "last_deploy_at": "2026-03-28 18:13:32",
+    "archive_synced": true,
+    "last_sync_at": "2026-03-28 18:30:28",
+    "last_training_at": "2026-03-28 18:19:41",
+    "last_deploy_at": "2026-03-28 18:21:05",
     "algorithms_total_count": 0,
     "algorithms_aligned_count": 0,
     "queue_pending": 1,
@@ -67,61 +67,61 @@
   },
   "activity_log": [
     {
-      "ts": "2026-03-28 18:16:11",
+      "ts": "2026-03-28 18:31:33",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-03-28 18:15:16",
+      "ts": "2026-03-28 18:30:28",
       "event": "Monitor online completato",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-site-online-check"
     },
     {
-      "ts": "2026-03-28 18:15:03",
+      "ts": "2026-03-28 18:30:13",
       "event": "Task monitor online inserito",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-site-monitor"
     },
     {
-      "ts": "2026-03-28 18:14:10",
+      "ts": "2026-03-28 18:26:15",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-03-28 18:24:01",
       "event": "Nuovo check archivio programmato",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-draws-online-schedule"
     },
     {
-      "ts": "2026-03-28 18:14:10",
+      "ts": "2026-03-28 18:24:01",
       "event": "Verifica archivio online completata",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-draws-online-check"
     },
     {
-      "ts": "2026-03-28 18:13:36",
-      "event": "Auto-heal eseguito: mirror_auto_fix_map",
+      "ts": "2026-03-28 18:21:08",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-03-28 18:21:05",
+      "event": "Auto-heal eseguito: mirror_step3_publish",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-auto-heal"
-    },
-    {
-      "ts": "2026-03-28 18:13:36",
-      "event": "Verifica post-esecuzione completata",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-post-exec-check"
-    },
-    {
-      "ts": "2026-03-28 18:13:32",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
     }
   ],
-  "checked_at": "2026-03-28 18:19:38"
+  "checked_at": "2026-03-28 18:32:20"
 }
