@@ -746,8 +746,6 @@
       host.innerHTML = `
         ${signalHtml}
         ${statusHtml}
-        <span class="cc-home-live__item">Ultimo concorso: ${escapeHtml(latestSeq)} (${escapeHtml(latestDate)})</span>
-        <span class="cc-home-live__item">Algoritmi attivi: ${escapeHtml(String(activeAlgorithms))}</span>
         <span class="cc-home-live__item cc-home-live__item--chaos">Indice di Caos: ${escapeHtml(String(chaosIndex))}/100</span>
         <p class="cc-home-live__note">${escapeHtml(chaosNote)} <a class="cc-home-live__inline-link" href="${chaosGuideHref}">Scopri come viene calcolato</a></p>
         <p class="cc-home-live__note">${escapeHtml(signalVsChaos)}</p>
