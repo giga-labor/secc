@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-03-28 22:20:42",
-  "version": "02.04.003",
+  "updated_at": "2026-03-28 23:05:43",
+  "version": "02.04.006",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 21 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 31 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -32,9 +32,9 @@
   "circuit": {
     "state": "CLOSED",
     "consecutive_failures": 0,
-    "consecutive_successes": 0,
-    "consecutive_no_execution_cycles": 45,
-    "updated_at": "2026-03-28 22:20:13"
+    "consecutive_successes": 1,
+    "consecutive_no_execution_cycles": 2,
+    "updated_at": "2026-03-28 23:04:59"
   },
   "queue": {
     "total": 102,
@@ -56,72 +56,72 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_sync_at": "2026-03-28 22:20:14",
-    "last_training_at": "2026-03-28 22:20:14",
-    "last_deploy_at": "2026-03-28 22:20:34",
-    "algorithms_total_count": 0,
-    "algorithms_aligned_count": 0,
+    "last_sync_at": "2026-03-28 23:05:03",
+    "last_training_at": "2026-03-28 23:04:51",
+    "last_deploy_at": "2026-03-28 23:05:35",
+    "algorithms_total_count": 15,
+    "algorithms_aligned_count": 15,
     "queue_pending": 1,
     "queue_running": 1,
     "circuit_state": "CLOSED"
   },
   "activity_log": [
     {
-      "ts": "2026-03-28 22:20:34",
+      "ts": "2026-03-28 23:05:35",
       "event": "Publish locale -> online completato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-hardening-plan-override"
     },
     {
-      "ts": "2026-03-28 22:20:14",
-      "event": "Verifica post-esecuzione completata",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-post-exec-check"
-    },
-    {
-      "ts": "2026-03-28 22:20:10",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
-    },
-    {
-      "ts": "2026-03-28 22:20:07",
-      "event": "Nuovo check archivio programmato",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-schedule"
-    },
-    {
-      "ts": "2026-03-28 22:20:07",
-      "event": "Verifica archivio online completata",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-draws-online-check"
-    },
-    {
-      "ts": "2026-03-28 22:20:05",
-      "event": "Auto-heal eseguito: updates_stop",
+      "ts": "2026-03-28 23:05:03",
+      "event": "Auto-heal eseguito: mirror_deploy_local",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-auto-heal"
     },
     {
-      "ts": "2026-03-28 22:20:05",
+      "ts": "2026-03-28 23:05:03",
       "event": "Verifica post-esecuzione completata",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-post-exec-check"
     },
     {
-      "ts": "2026-03-28 22:20:01",
+      "ts": "2026-03-28 23:05:01",
       "event": "Publish locale -> online completato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-03-28 23:04:51",
+      "event": "Deploy mirror -> locale completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-03-28 23:04:24",
+      "event": "Deploy mirror -> locale completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-03-28 23:03:52",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-03-28 23:03:38",
+      "event": "Verifica post-esecuzione completata",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-post-exec-check"
     }
   ],
-  "checked_at": "2026-03-28 22:20:41"
+  "checked_at": "2026-03-28 23:05:42"
 }
