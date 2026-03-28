@@ -726,15 +726,6 @@
       const latestSeq = latestRow ? String(latestRow['NR. SEQUENZIALE'] || '--').trim() : '--';
       const latestDate = latestRow ? String(latestRow.Data || latestRow.DATA || '--').trim() : '--';
 
-      const feed = data?.community_feed && typeof data.community_feed === 'object' ? data.community_feed : null;
-      const communityUpdated = feed && feed.updated_at ? String(feed.updated_at).trim() : '';
-      const communityShort = communityUpdated
-        ? communityUpdated.replace('T', ' ').replace('Z', '').slice(0, 16)
-        : '';
-      const communityLabel = communityUpdated
-        ? `Community aggiornata: ${escapeHtml(communityShort)}`
-        : 'Community: nessun aggiornamento utenti';
-
       const chaosIndex = this.computeChaosIndex(draws);
       const signal = this.computeHeroSignal(draws);
       const iargosLabHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-iargos'));
@@ -757,7 +748,6 @@
         ${statusHtml}
         <span class="cc-home-live__item">Ultimo concorso: ${escapeHtml(latestSeq)} (${escapeHtml(latestDate)})</span>
         <span class="cc-home-live__item">Algoritmi attivi: ${escapeHtml(String(activeAlgorithms))}</span>
-        <span class="cc-home-live__item">${communityLabel}</span>
         <span class="cc-home-live__item cc-home-live__item--chaos">Indice di Caos: ${escapeHtml(String(chaosIndex))}/100</span>
         <p class="cc-home-live__note">${escapeHtml(chaosNote)} <a class="cc-home-live__inline-link" href="${chaosGuideHref}">Scopri come viene calcolato</a></p>
         <p class="cc-home-live__note">${escapeHtml(signalVsChaos)}</p>
