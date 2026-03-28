@@ -2838,3 +2838,113 @@ html.cc-perf-lite * {
   color: rgba(255,255,255,0.65);
   line-height: 1.5;
 }
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-trigger {
+  position: relative;
+  display: inline-block;
+  width: min(100%, 23rem);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background: rgba(7, 12, 24, 0.75);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-trigger img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-trigger picture {
+  display: block;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-trigger:hover,
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-trigger:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(124, 214, 255, 0.6);
+  box-shadow: 0 0 0 1px rgba(124, 214, 255, 0.35), 0 10px 24px rgba(2, 8, 20, 0.45);
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-trigger__badge {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.54rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(8, 14, 28, 0.82);
+  color: rgba(224, 240, 255, 0.98);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-modal {
+  position: fixed;
+  top: 0;
+  left: var(--ad-reserve-left, 0px);
+  right: var(--ad-reserve-right, 0px);
+  bottom: calc(var(--ad-reserve-bottom, 0px) + env(safe-area-inset-bottom, 0px));
+  z-index: 120;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(0.9rem, env(safe-area-inset-top, 0px) + 0.55rem) 0.9rem 0.9rem;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-modal[hidden] {
+  display: none !important;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(2, 6, 14, 0.8);
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 62rem);
+  margin: 0 auto;
+  padding: 0.8rem 0.8rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  background: linear-gradient(160deg, rgba(10, 16, 30, 0.96), rgba(5, 9, 18, 0.94));
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.55rem;
+  padding: 0.24rem 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(12, 18, 34, 0.86);
+  color: rgba(228, 238, 255, 0.98);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+[data-page-id="laboratorio-tecnico"] .cc-iargos-video-modal__player {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(42rem, calc(100dvh - var(--ad-reserve-bottom, 0px) - 8.8rem));
+  border-radius: 0.7rem;
+  background: #000;
+}
+
+body.cc-iargos-video-modal-open {
+  overflow: hidden;
+}

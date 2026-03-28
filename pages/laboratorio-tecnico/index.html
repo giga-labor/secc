@@ -475,6 +475,26 @@ dove freq_relativa(k) = n_estrazioni_con_k_hit / n_totale</code>
           </article>
 
           <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
+            <h4 class="text-white">Grafo iARGOS (video)</h4>
+            <p class="mt-2 text-sm text-ash">Tocca la miniatura del grafo per avviare il video tecnico iARGOS.</p>
+            <button
+              type="button"
+              class="cc-iargos-video-trigger mt-3"
+              data-iargos-video-open
+              aria-label="Apri video iARGOS">
+              <picture>
+                <source srcset="../../assets/img/iargos-graph-preview.webp" type="image/webp">
+                <img
+                  src="../../assets/img/iargos-graph-preview.svg"
+                  alt="Miniatura grafo iARGOS"
+                  loading="lazy"
+                  decoding="async">
+              </picture>
+              <span class="cc-iargos-video-trigger__badge">Riproduci video iARGOS</span>
+            </button>
+          </article>
+
+          <article class="rounded-2xl border border-white/10 bg-midnight/70 p-4">
             <h4 class="text-white">Apprendimento e adattamento</h4>
             <ul class="cc-lab-checklist mt-3">
               <li><strong class="text-white">Reinforcement</strong>: aggiorna confidenza azioni in base a outcome positivi o negativi.</li>
@@ -490,6 +510,17 @@ dove freq_relativa(k) = n_estrazioni_con_k_hit / n_totale</code>
 
   </div>
 </main>
+
+<div class="cc-iargos-video-modal" data-iargos-video-modal hidden aria-hidden="true">
+  <button type="button" class="cc-iargos-video-modal__backdrop" data-iargos-video-close aria-label="Chiudi video iARGOS"></button>
+  <div class="cc-iargos-video-modal__dialog" role="dialog" aria-modal="true" aria-label="Video iARGOS">
+    <button type="button" class="cc-iargos-video-modal__close" data-iargos-video-close aria-label="Chiudi">Chiudi</button>
+    <video class="cc-iargos-video-modal__player" data-iargos-video-player controls playsinline preload="metadata">
+      <source src="../../assets/video/iARGOS.webm" type="video/webm">
+      Il tuo browser non supporta il video HTML5.
+    </video>
+  </div>
+</div>
 
 <script src="../../assets/js/version.js" defer></script>
 <script src="../../assets/js/header.js" defer></script>

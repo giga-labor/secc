@@ -1,5 +1,6 @@
 ﻿const ANALISI_PAYOUTS = { 0: 1.53, 1: 3.36, 2: 21.51, 3: 326.72, 4: 11906.95, 5: 1235346.49, 6: 622614630.0 };
 let analisiMounted = false;
+let iargosVideoBound = false;
 
 function shouldUseRuntimeDirectorAnalisi() {
   return Boolean(window.CC_PAGE_ORCHESTRATOR && document.body?.dataset?.pageId === 'analisi');
@@ -109,6 +110,47 @@ function mountAnalisiPage() {
   loadAnalisiRanking();
   loadLaboratorioTechnicalCatalog();
   loadLaboratorioIargosStatus();
+  initLaboratorioIargosVideo();
+}
+
+function initLaboratorioIargosVideo() {
+  if (iargosVideoBound) return;
+  const openBtn = document.querySelector('[data-iargos-video-open]');
+  const modal = document.querySelector('[data-iargos-video-modal]');
+  const video = document.querySelector('[data-iargos-video-player]');
+  if (!openBtn || !modal || !(video instanceof HTMLVideoElement)) return;
+
+  const closeNodes = Array.from(document.querySelectorAll('[data-iargos-video-close]'));
+  const closeModal = () => {
+    modal.setAttribute('hidden', '');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cc-iargos-video-modal-open');
+    video.pause();
+    try {
+      video.currentTime = 0;
+    } catch (_) {
+      // ignore seek errors on close
+    }
+  };
+  const openModal = () => {
+    modal.removeAttribute('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cc-iargos-video-modal-open');
+    video.preload = 'auto';
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {
+        // autoplay can fail on some browsers; controls remain available.
+      });
+    }
+  };
+
+  openBtn.addEventListener('click', openModal);
+  closeNodes.forEach((node) => node.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+  iargosVideoBound = true;
 }
 
 const resolveWithBase = (path) => {
