@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-03-28 18:36:49",
-  "version": "02.04.002",
+  "updated_at": "2026-03-28 18:47:18",
+  "version": "02.04.003",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "info",
-  "summary": "Rilevati 29 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 33 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "ROUTINE",
   "alignment_priority": {
@@ -32,20 +32,20 @@
   "circuit": {
     "state": "CLOSED",
     "consecutive_failures": 0,
-    "consecutive_successes": 0,
-    "consecutive_no_execution_cycles": 40,
-    "updated_at": "2026-03-28 18:33:29"
+    "consecutive_successes": 2,
+    "consecutive_no_execution_cycles": 41,
+    "updated_at": "2026-03-28 18:38:36"
   },
   "queue": {
-    "total": 101,
+    "total": 102,
     "pending": 1,
     "running": 0,
-    "done": 81,
+    "done": 82,
     "failed": 19,
     "by_type": {
       "check_draws_online": 21,
+      "site_online_check": 39,
       "heal": 35,
-      "site_online_check": 38,
       "send_site_online_report_email": 5,
       "run_unaligned_algorithms": 1,
       "send_alert_email": 1
@@ -56,9 +56,9 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_sync_at": "2026-03-28 18:34:01",
+    "last_sync_at": "2026-03-28 18:45:06",
     "last_training_at": "2026-03-28 18:19:41",
-    "last_deploy_at": "2026-03-28 18:33:32",
+    "last_deploy_at": "2026-03-28 18:38:38",
     "algorithms_total_count": 0,
     "algorithms_aligned_count": 0,
     "queue_pending": 1,
@@ -67,61 +67,61 @@
   },
   "activity_log": [
     {
-      "ts": "2026-03-28 18:36:28",
+      "ts": "2026-03-28 18:46:29",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-03-28 18:34:01",
+      "ts": "2026-03-28 18:45:06",
+      "event": "Monitor online completato",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-site-online-check"
+    },
+    {
+      "ts": "2026-03-28 18:45:05",
+      "event": "Task monitor online inserito",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-site-monitor"
+    },
+    {
+      "ts": "2026-03-28 18:44:02",
       "event": "Nuovo check archivio programmato",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-draws-online-schedule"
     },
     {
-      "ts": "2026-03-28 18:34:01",
+      "ts": "2026-03-28 18:44:02",
       "event": "Verifica archivio online completata",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-draws-online-check"
     },
     {
-      "ts": "2026-03-28 18:33:32",
+      "ts": "2026-03-28 18:41:28",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-03-28 18:38:38",
       "event": "Auto-heal eseguito: mirror_step3_publish",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-auto-heal"
     },
     {
-      "ts": "2026-03-28 18:33:32",
+      "ts": "2026-03-28 18:38:38",
       "event": "Verifica post-esecuzione completata",
       "status": "OK",
-      "source": "iargos",
-      "action": "iargos-post-exec-check"
-    },
-    {
-      "ts": "2026-03-28 18:32:51",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
-    },
-    {
-      "ts": "2026-03-28 18:32:29",
-      "event": "Auto-heal eseguito: mirror_deploy_local",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-auto-heal"
-    },
-    {
-      "ts": "2026-03-28 18:32:29",
-      "event": "Verifica post-esecuzione completata",
-      "status": "WARN",
       "source": "iargos",
       "action": "iargos-post-exec-check"
     }
   ],
-  "checked_at": "2026-03-28 18:36:49"
+  "checked_at": "2026-03-28 18:47:18"
 }
