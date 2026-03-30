@@ -1,0 +1,16 @@
+{
+  "latest_local_contest_id": 4170,
+  "last_published_commit": "",
+  "per_algo_last_trained_contest_id": {},
+  "last_card_hits_build_at": "",
+  "last_card_hits_changed_cards": 0,
+  "last_successful_run_id": "",
+  "last_email_status": "",
+  "pending_publish": {},
+  "consecutive_failures": 1,
+  "last_failure_at": "2026-03-30T23:16:21",
+  "last_failure_reason": "Nessun bundle pending da pubblicare",
+  "run_journal": [],
+  "last_quorum_policy": {},
+  "quorum_degraded_since": ""
+}
