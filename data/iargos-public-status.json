@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-01 01:16:29",
+  "updated_at": "2026-04-01 01:18:20",
   "version": "02.04.006",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 8 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 10 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -26,16 +26,16 @@
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
     "git_dirty": true,
-    "remote_ahead": 0,
+    "remote_ahead": 1,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
   "circuit": {
-    "state": "CLOSED",
-    "consecutive_failures": 2,
+    "state": "OPEN",
+    "consecutive_failures": 3,
     "consecutive_successes": 0,
     "consecutive_no_execution_cycles": 14,
-    "updated_at": "2026-04-01 01:14:31"
+    "updated_at": "2026-04-01 01:16:33"
   },
   "queue": {
     "total": 54,
@@ -58,13 +58,13 @@
     "state_at": "",
     "severity": "warning",
     "task_precedence": "IMMEDIATE",
-    "circuit_state": "CLOSED",
+    "circuit_state": "OPEN",
     "active_priorities": [
       "p6_local_publish",
       "p8_backup_over_limit"
     ],
     "active_priorities_count": 2,
-    "consecutive_crisis_cycles": 21,
+    "consecutive_crisis_cycles": 22,
     "human_escalation_requested": true,
     "novelty_detected": true,
     "novelty_streak": 3,
@@ -79,7 +79,7 @@
       "ready_to_exit": false,
       "stable_cycles": 0,
       "novelty_streak": 3,
-      "crisis_cycles": 21,
+      "crisis_cycles": 22,
       "human_escalation_requested": true,
       "stabilization_mode_active": true,
       "post_intervention_active": true,
@@ -303,7 +303,7 @@
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro."
     },
     "catalog_stale": true,
-    "catalog_age_sec": 961831,
+    "catalog_age_sec": 961942,
     "queue_pending": 3,
     "queue_running": 1,
     "queue_ready": 0
@@ -318,21 +318,42 @@
     "since": "2026-04-01 00:55:33"
   },
   "runtime": {
-    "state_level": "ok",
-    "state_label": "operativo",
-    "is_operational": true,
+    "state_level": "warn",
+    "state_label": "monitoraggio",
+    "is_operational": false,
     "archive_synced": true,
     "last_push_at": "2026-04-01 01:13:12",
-    "last_sync_at": "2026-04-01 01:16:29",
+    "last_sync_at": "2026-04-01 01:18:20",
     "last_training_at": "2026-04-01 01:13:42",
-    "last_deploy_at": "2026-04-01 01:15:28",
+    "last_deploy_at": "2026-04-01 01:17:28",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 3,
     "queue_running": 1,
-    "circuit_state": "CLOSED"
+    "circuit_state": "OPEN"
   },
   "activity_log": [
+    {
+      "ts": "2026-04-01 01:17:28",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-04-01 01:17:10",
+      "event": "Publish locale -> online completato",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-tutor-encouragement"
+    },
+    {
+      "ts": "2026-04-01 01:16:57",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
     {
       "ts": "2026-04-01 01:15:28",
       "event": "Publish locale -> online completato",
@@ -367,28 +388,7 @@
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-01 01:12:35",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
-    },
-    {
-      "ts": "2026-04-01 01:12:21",
-      "event": "Publish locale -> online completato",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-tutor-encouragement"
-    },
-    {
-      "ts": "2026-04-01 01:11:28",
-      "event": "Auto-heal eseguito",
-      "status": "ERR",
-      "source": "iargos",
-      "action": "iargos-auto-heal"
     }
   ],
-  "checked_at": "2026-04-01 01:16:29"
+  "checked_at": "2026-04-01 01:18:20"
 }
