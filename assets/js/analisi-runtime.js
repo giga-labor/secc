@@ -338,7 +338,8 @@ async function loadLaboratorioIargosStatus() {
       month: '2-digit',
       year: 'numeric',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
+      second: '2-digit'
     }).format(dt);
   };
 
@@ -354,7 +355,8 @@ async function loadLaboratorioIargosStatus() {
     }
 
     const runtime = data.runtime && typeof data.runtime === 'object' ? data.runtime : {};
-    const updatedAt = formatStatusTs(data.updated_at || '--');
+    const runtime = data.runtime && typeof data.runtime === 'object' ? data.runtime : {};
+    const updatedAt = formatStatusTs(runtime.last_push_at || '--');
     setTextAll('[data-lab-iargos-updated]', updatedAt);
   } catch (_) {
     fallback();
