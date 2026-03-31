@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-01 01:22:59",
+  "updated_at": "2026-04-01 01:23:14",
   "version": "02.04.006",
   "enabled": true,
   "learning_mode": false,
@@ -26,7 +26,7 @@
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
     "git_dirty": true,
-    "remote_ahead": 1,
+    "remote_ahead": 2,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
@@ -303,7 +303,7 @@
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro."
     },
     "catalog_stale": true,
-    "catalog_age_sec": 962221,
+    "catalog_age_sec": 962236,
     "queue_pending": 2,
     "queue_running": 1,
     "queue_ready": 0
@@ -322,8 +322,8 @@
     "state_label": "monitoraggio",
     "is_operational": false,
     "archive_synced": true,
-    "last_push_at": "2026-04-01 01:18:28",
-    "last_sync_at": "2026-04-01 01:22:59",
+    "last_push_at": "2026-04-01 01:23:10",
+    "last_sync_at": "2026-04-01 01:23:14",
     "last_training_at": "2026-04-01 01:20:48",
     "last_deploy_at": "2026-04-01 01:21:56",
     "algorithms_total_count": 15,
@@ -390,5 +390,5 @@
       "action": "iargos-alignment-audit"
     }
   ],
-  "checked_at": "2026-04-01 01:22:59"
+  "checked_at": "2026-04-01 01:23:14"
 }
