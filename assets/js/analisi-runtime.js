@@ -354,7 +354,7 @@ async function loadLaboratorioIargosStatus() {
     }
 
     const runtime = data.runtime && typeof data.runtime === 'object' ? data.runtime : {};
-    const updatedAt = formatStatusTs(runtime.last_push_at || runtime.last_sync_at || data.updated_at || data.checked_at || '--');
+    const updatedAt = formatStatusTs(data.updated_at || '--');
     setTextAll('[data-lab-iargos-updated]', updatedAt);
   } catch (_) {
     fallback();
