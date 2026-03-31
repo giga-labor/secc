@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-01 01:12:52",
+  "updated_at": "2026-04-01 01:16:29",
   "version": "02.04.006",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 10 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 8 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -26,30 +26,30 @@
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
     "git_dirty": true,
-    "remote_ahead": 1,
+    "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
   "circuit": {
     "state": "CLOSED",
-    "consecutive_failures": 0,
-    "consecutive_successes": 2,
-    "consecutive_no_execution_cycles": 13,
-    "updated_at": "2026-04-01 01:09:01"
+    "consecutive_failures": 2,
+    "consecutive_successes": 0,
+    "consecutive_no_execution_cycles": 14,
+    "updated_at": "2026-04-01 01:14:31"
   },
   "queue": {
-    "total": 52,
-    "pending": 1,
+    "total": 54,
+    "pending": 3,
     "running": 1,
     "done": 49,
     "failed": 1,
     "by_type": {
       "check_draws_online": 21,
       "heal": 9,
-      "site_online_check": 17,
+      "send_alert_email": 2,
+      "site_online_check": 18,
       "send_site_online_report_email": 3,
-      "run_unaligned_algorithms": 1,
-      "send_alert_email": 1
+      "run_unaligned_algorithms": 1
     }
   },
   "operational_snapshot": {
@@ -64,7 +64,7 @@
       "p8_backup_over_limit"
     ],
     "active_priorities_count": 2,
-    "consecutive_crisis_cycles": 19,
+    "consecutive_crisis_cycles": 21,
     "human_escalation_requested": true,
     "novelty_detected": true,
     "novelty_streak": 3,
@@ -79,7 +79,7 @@
       "ready_to_exit": false,
       "stable_cycles": 0,
       "novelty_streak": 3,
-      "crisis_cycles": 19,
+      "crisis_cycles": 21,
       "human_escalation_requested": true,
       "stabilization_mode_active": true,
       "post_intervention_active": true,
@@ -303,8 +303,8 @@
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro."
     },
     "catalog_stale": true,
-    "catalog_age_sec": 961614,
-    "queue_pending": 1,
+    "catalog_age_sec": 961831,
+    "queue_pending": 3,
     "queue_running": 1,
     "queue_ready": 0
   },
@@ -322,17 +322,52 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-01 00:59:32",
-    "last_sync_at": "2026-04-01 01:12:52",
-    "last_training_at": "2026-04-01 01:08:16",
-    "last_deploy_at": "2026-04-01 01:12:35",
+    "last_push_at": "2026-04-01 01:13:12",
+    "last_sync_at": "2026-04-01 01:16:29",
+    "last_training_at": "2026-04-01 01:13:42",
+    "last_deploy_at": "2026-04-01 01:15:28",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
-    "queue_pending": 1,
+    "queue_pending": 3,
     "queue_running": 1,
     "circuit_state": "CLOSED"
   },
   "activity_log": [
+    {
+      "ts": "2026-04-01 01:15:28",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-04-01 01:15:21",
+      "event": "Task monitor online inserito",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-site-monitor"
+    },
+    {
+      "ts": "2026-04-01 01:15:16",
+      "event": "Publish locale -> online completato",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-tutor-encouragement"
+    },
+    {
+      "ts": "2026-04-01 01:13:42",
+      "event": "Deploy mirror -> locale completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-plan-scope-filter"
+    },
+    {
+      "ts": "2026-04-01 01:13:39",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
     {
       "ts": "2026-04-01 01:12:35",
       "event": "Publish locale -> online completato",
@@ -353,42 +388,7 @@
       "status": "ERR",
       "source": "iargos",
       "action": "iargos-auto-heal"
-    },
-    {
-      "ts": "2026-04-01 01:10:40",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
-    },
-    {
-      "ts": "2026-04-01 01:10:24",
-      "event": "Publish locale -> online completato",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-tutor-encouragement"
-    },
-    {
-      "ts": "2026-04-01 01:08:58",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
-    },
-    {
-      "ts": "2026-04-01 01:08:35",
-      "event": "Audit allineamento: drift rilevato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-01 01:08:16",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
     }
   ],
-  "checked_at": "2026-04-01 01:12:52"
+  "checked_at": "2026-04-01 01:16:29"
 }
