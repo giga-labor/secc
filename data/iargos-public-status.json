@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-01 00:47:52",
+  "updated_at": "2026-04-01 00:52:04",
   "version": "02.04.006",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 13 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 11 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -26,16 +26,16 @@
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
     "git_dirty": true,
-    "remote_ahead": 1,
+    "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
   "circuit": {
     "state": "CLOSED",
     "consecutive_failures": 0,
-    "consecutive_successes": 2,
+    "consecutive_successes": 3,
     "consecutive_no_execution_cycles": 12,
-    "updated_at": "2026-04-01 00:45:00"
+    "updated_at": "2026-04-01 00:48:13"
   },
   "queue": {
     "total": 54,
@@ -45,16 +45,16 @@
     "failed": 1,
     "by_type": {
       "check_draws_online": 21,
-      "heal": 9,
       "site_online_check": 18,
+      "heal": 9,
       "send_alert_email": 2,
       "send_site_online_report_email": 3,
       "run_unaligned_algorithms": 1
     }
   },
   "operational_snapshot": {
-    "state": "recovering",
-    "cause": "p6_local_publish",
+    "state": "human_attention",
+    "cause": "tutor_human_escalation_requested",
     "state_at": "",
     "severity": "warning",
     "task_precedence": "IMMEDIATE",
@@ -64,8 +64,8 @@
       "p8_backup_over_limit"
     ],
     "active_priorities_count": 2,
-    "consecutive_crisis_cycles": 9,
-    "human_escalation_requested": false,
+    "consecutive_crisis_cycles": 10,
+    "human_escalation_requested": true,
     "novelty_detected": true,
     "novelty_streak": 1,
     "novelty_last_reason": "unclassified_non_improving_case",
@@ -79,8 +79,8 @@
       "ready_to_exit": false,
       "stable_cycles": 0,
       "novelty_streak": 1,
-      "crisis_cycles": 9,
-      "human_escalation_requested": false,
+      "crisis_cycles": 10,
+      "human_escalation_requested": true,
       "stabilization_mode_active": false,
       "post_intervention_active": true,
       "playbook": {
@@ -291,7 +291,8 @@
         "novelty_streak == 0",
         "stabilization_mode_active == False",
         "post_intervention_active == False",
-        "human_escalation_requested == False"
+        "human_escalation_requested == False",
+        "human_escalation_requested rientrata dopo stabilizzazione"
       ],
       "next_actions": [
         "confermare solo trial Zona A a rischio minimo",
@@ -302,7 +303,7 @@
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro."
     },
     "catalog_stale": true,
-    "catalog_age_sec": 960114,
+    "catalog_age_sec": 960366,
     "queue_pending": 3,
     "queue_running": 1,
     "queue_ready": 0
@@ -321,10 +322,10 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-01 00:42:16",
-    "last_sync_at": "2026-04-01 00:47:52",
+    "last_push_at": "2026-04-01 00:48:05",
+    "last_sync_at": "2026-04-01 00:52:04",
     "last_training_at": "2026-04-01 00:43:56",
-    "last_deploy_at": "2026-04-01 00:47:31",
+    "last_deploy_at": "2026-04-01 00:51:31",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 3,
@@ -332,6 +333,48 @@
     "circuit_state": "CLOSED"
   },
   "activity_log": [
+    {
+      "ts": "2026-04-01 00:51:31",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-04-01 00:51:19",
+      "event": "Publish locale -> online completato",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-tutor-encouragement"
+    },
+    {
+      "ts": "2026-04-01 00:50:48",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-01 00:50:15",
+      "event": "Auto-heal eseguito",
+      "status": "ERR",
+      "source": "iargos",
+      "action": "iargos-auto-heal"
+    },
+    {
+      "ts": "2026-04-01 00:49:54",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-04-01 00:48:48",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
     {
       "ts": "2026-04-01 00:47:31",
       "event": "Publish locale -> online completato",
@@ -345,49 +388,7 @@
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-01 00:46:45",
-      "event": "Audit allineamento: drift rilevato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-01 00:45:59",
-      "event": "Publish locale -> online completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-hardening-plan-override"
-    },
-    {
-      "ts": "2026-04-01 00:45:26",
-      "event": "Task monitor online inserito",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-site-monitor"
-    },
-    {
-      "ts": "2026-04-01 00:45:20",
-      "event": "Audit allineamento: drift rilevato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-01 00:45:09",
-      "event": "Auto-heal eseguito: updates_stop",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-auto-heal"
-    },
-    {
-      "ts": "2026-04-01 00:45:03",
-      "event": "Verifica post-esecuzione completata",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-post-exec-check"
     }
   ],
-  "checked_at": "2026-04-01 00:47:52"
+  "checked_at": "2026-04-01 00:52:04"
 }
