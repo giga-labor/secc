@@ -1,0 +1,587 @@
+﻿<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<base href="../../../"/>
+<script>
+  (function () {
+    if (window.location.protocol === 'file:') return;
+    var path = window.location.pathname || '';
+    var lower = path.toLowerCase();
+    if (!lower.endsWith('/index.html')) return;
+    var target = path.slice(0, path.length - 'index.html'.length);
+    if (!target.endsWith('/')) target += '/';
+    window.location.replace(target + window.location.search + window.location.hash);
+  })();
+</script>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="google-adsense-account" content="ca-pub-4257836243471373"/>
+<title>Chaos Oracle Cosmos - iARGOS evol</title>
+<meta name="description" content="Chaos Oracle Cosmos: navigazione nel cosmo con cards e algoritmi iARGOS evol, predisposta per future missioni."/>
+<link rel="canonical" href="https://www.superenalottocc.it/"/>
+<link rel="amphtml" href="https://www.superenalottocc.it/amp/"/>
+<link rel="icon" type="image/png" href="img/secc3.png"/>
+<script src="pages/oracle/cosmos/assets/js/ga4.js" defer></script>
+<link rel="stylesheet" href="pages/oracle/cosmos/assets/css/ads.css">
+<script src="pages/oracle/cosmos/assets/js/ads.js" defer></script>
+<link rel="stylesheet" href="pages/oracle/cosmos/assets/css/engine.css">
+<style>
+#guideOverlay{
+  position:fixed;
+  inset:0;
+  z-index:78;
+  display:none;
+  box-sizing:border-box;
+  pointer-events:none;
+}
+#guideOverlay.on{
+  display:block;
+}
+#guideOverlay .guideBack{
+  display:none;
+}
+#guideOverlay .guideSpot{
+  position:absolute;
+  left:0;
+  top:0;
+  width:0;
+  height:0;
+  border-radius:12px;
+  border:2px solid rgba(250,213,115,0.96);
+  box-shadow:0 0 0 1px rgba(168,214,255,0.55) inset, 0 0 24px rgba(160,212,255,0.62), 0 0 38px rgba(245,205,108,0.48);
+  pointer-events:none;
+  opacity:0;
+  transition:all .24s ease;
+}
+#guideOverlay.on .guideSpot.is-on{
+  opacity:1;
+}
+#guideOverlay .guideLink{
+  display:none;
+  position:absolute;
+  left:0;
+  top:0;
+  width:0;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(120,210,255,0.95), rgba(247,205,99,0.95));
+  box-shadow:0 0 10px rgba(120,210,255,0.55), 0 0 18px rgba(247,205,99,0.42);
+  transform-origin:0 50%;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .2s ease;
+}
+#guideOverlay.on .guideLink.is-on{ opacity:1; }
+#guideOverlay .guidePanel{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:min(920px, calc(100vw - var(--ads-rail-w) - 44px));
+  max-width:100%;
+  max-height:min(78vh, 700px);
+  box-sizing:border-box;
+  overflow:auto;
+  overflow-x:hidden;
+  word-break:break-word;
+  pointer-events:auto;
+  border:2px solid rgba(247,205,99,0.92);
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(8,16,42,0.94), rgba(5,11,30,0.94));
+  box-shadow:0 0 0 1px rgba(168,214,255,0.55) inset, 0 0 24px rgba(160,212,255,0.62), 0 0 38px rgba(245,205,108,0.48), 0 18px 56px rgba(0,0,0,0.48);
+  color:#e9f3ff;
+  padding:20px 22px 18px;
+}
+@media (max-width:760px){
+  #guideOverlay .guidePanel{width:min(100%, calc(100vw - var(--ads-rail-w) - 24px));}
+  #guideOverlay .guideBody{font-size:15px;}
+  #guideOverlay .guideList{font-size:14px;}
+}
+#guideOverlay .guideKicker{
+  margin:0 0 3px;
+  font:700 10px/1.05 "Rajdhani",sans-serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#f0cb66;
+}
+#guideOverlay .guideTitle{
+  margin:0;
+  font:700 clamp(19px, 2.8vw, 29px)/1.02 "Rajdhani",sans-serif;
+  letter-spacing:.02em;
+}
+#guideOverlay .guideBody{
+  margin:7px 0 0;
+  font:600 17px/1.5 "Rajdhani",sans-serif;
+  color:#d7e7ff;
+}
+#guideOverlay .guideList{
+  margin:10px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:7px;
+  color:#c7daff;
+  font:600 15px/1.5 "Rajdhani",sans-serif;
+}
+#guideOverlay .guideList li::before{
+  content:"•";
+  color:#f0cb66;
+  margin-right:8px;
+}
+#guideOverlay .guideNote{
+  margin:10px 0 0;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(247,209,106,0.86);
+  background:linear-gradient(180deg, rgba(62,47,19,0.72), rgba(34,26,11,0.66));
+  box-shadow:0 0 0 1px rgba(255,223,142,0.26) inset, 0 0 16px rgba(247,209,106,0.20);
+  color:#fff1c9;
+  font:700 14px/1.35 "Rajdhani",sans-serif;
+  letter-spacing:.02em;
+}
+#guideOverlay .guideKeys{
+  margin-top:10px;
+  display:grid;
+  gap:8px;
+  overflow-x:hidden;
+}
+#guideOverlay .guideKey{
+  border:1px solid rgba(126,170,241,0.35);
+  border-radius:999px;
+  padding:3px 9px;
+  font:700 11px/1 "Rajdhani",sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#bfd6ff;
+  background:rgba(18,34,66,0.56);
+}
+#guideOverlay .guideKeyboard{
+  display:grid;
+  gap:6px;
+  padding:10px;
+  border:1px solid rgba(137,174,231,0.20);
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(14,24,48,0.55), rgba(8,14,30,0.45));
+  overflow:hidden;
+  max-width:100%;
+}
+#guideOverlay .gk-row{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  max-width:100%;
+  overflow-x:hidden;
+}
+#guideOverlay .gk-key{
+  min-width:30px;
+  height:28px;
+  padding:0 8px;
+  border-radius:7px;
+  border:1px solid rgba(145,176,220,0.20);
+  background:linear-gradient(180deg, rgba(76,94,128,0.22), rgba(32,44,70,0.24));
+  color:rgba(210,222,245,0.38);
+  font:700 11px/28px "Rajdhani",sans-serif;
+  letter-spacing:.06em;
+  text-align:center;
+  user-select:none;
+  filter:blur(.35px) saturate(.75);
+}
+#guideOverlay .gk-key.wide{ min-width:64px; }
+#guideOverlay .gk-key.xwide{ min-width:82px; }
+#guideOverlay .gk-key.hot{
+  border-color:rgba(247,209,106,0.80);
+  color:rgba(255,245,220,0.98);
+  background:linear-gradient(180deg, rgba(94,74,30,0.82), rgba(54,42,16,0.86));
+  box-shadow:0 0 0 1px rgba(255,223,142,0.38) inset, 0 0 14px rgba(247,209,106,0.40), 0 0 20px rgba(120,210,255,0.24);
+  filter:none;
+}
+#guideOverlay .gk-nonkbd{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  max-width:100%;
+  overflow-x:hidden;
+}
+#guideOverlay .g-inline-key{
+  display:inline-block;
+  min-width:22px;
+  height:20px;
+  line-height:20px;
+  padding:0 6px;
+  margin:0 2px;
+  border-radius:6px;
+  border:1px solid rgba(247,209,106,0.78);
+  background:linear-gradient(180deg, rgba(94,74,30,0.82), rgba(54,42,16,0.86));
+  box-shadow:0 0 0 1px rgba(255,223,142,0.30) inset, 0 0 10px rgba(247,209,106,0.30), 0 0 14px rgba(120,210,255,0.20);
+  color:rgba(255,245,220,0.98);
+  font:700 11px/20px "Rajdhani",sans-serif;
+  letter-spacing:.06em;
+  vertical-align:baseline;
+  white-space:nowrap;
+}
+#guideOverlay .guideFooter{
+  position:sticky;
+  left:0;
+  right:0;
+  bottom:0;
+  margin-top:14px;
+  padding-top:12px;
+  padding-bottom:2px;
+  border-top:1px solid rgba(117,154,219,0.22);
+  background:linear-gradient(180deg, rgba(8,16,42,0), rgba(8,16,42,0.96) 26%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  z-index:2;
+  overflow-x:hidden;
+}
+#guideOverlay .guideStep{
+  font:600 12px/1 "Rajdhani",sans-serif;
+  letter-spacing:.15em;
+  color:#96b5e8;
+}
+#guideOverlay .guideActions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  overflow-x:hidden;
+}
+#guideOverlay .guideTopicMenu{
+  margin-top:6px;
+  display:grid;
+  gap:10px;
+}
+#guideOverlay .guideTopicGroup{
+  padding:8px 9px 9px;
+  border:1px solid rgba(136,173,228,0.28);
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(12,22,42,0.52), rgba(8,14,30,0.42));
+}
+#guideOverlay .guideTopicHead{
+  margin:0 0 7px;
+  color:#f0cb66;
+  font:700 12px/1 "Rajdhani",sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+#guideOverlay .guideTopicButtons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  max-width:100%;
+  overflow-x:hidden;
+}
+#guideOverlay .guideBtn{
+  border:1px solid rgba(229,203,124,0.42);
+  border-radius:10px;
+  background:linear-gradient(180deg, rgba(28,38,64,0.9), rgba(16,24,44,0.9));
+  color:#f3deb2;
+  padding:8px 12px;
+  font:700 14px/1 "Rajdhani",sans-serif;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+#guideOverlay .guideBtn--accent{
+  color:#fdf3d3;
+  border-color:rgba(247,209,106,0.72);
+  background:linear-gradient(180deg, rgba(66,51,21,0.92), rgba(42,34,15,0.92));
+}
+#guideOverlay .guideBtn[disabled]{
+  opacity:.42;
+  cursor:default;
+}
+.guide-focus{
+  position:relative;
+  z-index:79 !important;
+  box-shadow:0 0 0 2px rgba(247,205,99,0.92);
+  border-radius:10px;
+  animation:guideFocusPulse 1.05s ease-in-out infinite;
+}
+@keyframes guideFocusPulse{
+  0%,100%{
+    box-shadow:
+      0 0 0 2px rgba(247,205,99,0.92),
+      0 0 16px rgba(120,210,255,0.34),
+      0 0 28px rgba(247,205,99,0.22);
+    filter:brightness(1);
+  }
+  50%{
+    box-shadow:
+      0 0 0 2px rgba(255,231,158,0.98),
+      0 0 24px rgba(120,210,255,0.62),
+      0 0 42px rgba(247,205,99,0.48);
+    filter:brightness(1.18);
+  }
+}
+body.guide-focus-mode .guide-isolate{
+  opacity:.22;
+  filter:saturate(.58) brightness(.52);
+  transition:opacity .22s ease, filter .22s ease;
+}
+body.guide-focus-mode .guide-isolate.guide-spot{
+  opacity:1;
+  filter:none;
+  position:relative;
+  z-index:80;
+}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="quickTeleportFade" aria-hidden="true"></div>
+<div id="reticle" aria-hidden="true">
+  <span class="reticle-ring"></span>
+  <span class="reticle-arm h"></span>
+  <span class="reticle-arm v"></span>
+  <span class="reticle-dot"></span>
+</div>
+
+<header class="hud guide-isolate" aria-label="HUD operativo">
+  <section class="hud-group" aria-label="Identita sistema">
+    <div class="brand" id="brandTitle">
+      <div class="dot-g"></div>
+      <span class="superenalotto-mark superenalotto-mark--small superenalotto-mark--joined" aria-label="Super-Enalotto">
+        <span class="super-word">S<span class="super-u">u</span>per</span><span class="super-dash">-</span><span class="enalotto-word">Enalotto</span>
+      </span>
+      <span class="brand-sub">ControlChaos</span>
+    </div>
+    <div class="so-nav so-nav--compact">
+      <select id="soSelect" class="so-select so-select--compact" aria-label="Seleziona Sistema Orbitante">
+        <option value="" selected disabled hidden>SISTEMI ORBITANTI</option>
+        <option value="__exit_site__">Esci dal Cosmos</option>
+        <option value="root">Oracle Experience</option>
+        <option value="alg_statistici">SO Statistici</option>
+        <option value="alg_ibridi">SO Ibridi</option>
+        <option value="alg_neurali">SO Neurali</option>
+      </select>
+      <span id="soCurrent" class="so-current">Oracle Experience</span>
+      <span id="navModeBadge" class="so-current nav-mode-badge">FULL EXPLORER</span>
+    </div>
+  </section>
+  <section class="hud-group" aria-label="Aiuti">
+    <div class="so-nav help-nav">
+      <button id="helpMenuBtn" class="so-current help-current" type="button" aria-label="Apri menu aiuti">MENU AIUTI</button>
+    </div>
+  </section>
+</header>
+<div class="tags-layer" id="tagsLayer"></div>
+<aside class="ctrl guide-isolate" id="hudMove" aria-hidden="true">
+  <div class="ctrl-title">Movimento</div>
+  <div class="ctrlviz">
+    <div class="cap move-grid" aria-label="Tasti di movimento">
+      <div class="move-keys" data-ctrl-group="wasd">
+        <div class="row r1"><kbd data-tip-key="q">Q</kbd><kbd data-tip-key="w">W</kbd><kbd data-tip-key="e">E</kbd></div>
+        <div class="row r2"><kbd data-tip-key="a">A</kbd><kbd data-tip-key="s">S</kbd><kbd data-tip-key="d">D</kbd></div>
+      </div>
+      <div class="boost-col" data-ctrl-group="boost">
+        <div class="boost-main">
+          <kbd class="kbd-wide" data-tip-key="ctrl">Ctrl</kbd>
+          <kbd class="kbd-wide" data-tip-key="alt">Alt</kbd>
+        </div>
+        <div class="boost-side">
+          <kbd class="kbd-wide" data-tip-key="ctrlalt">Ctrl+Alt</kbd>
+        </div>
+      </div>
+      <div class="note">
+        <span><b>WASD</b> volo</span>
+        <span><b>Q/E</b> quota</span>
+        <span><b>Ctrl</b> boost 1</span>
+        <span><b>Alt</b> boost 2</span>
+        <span><b>Ctrl+Alt</b> boost 3</span>
+      </div>
+    </div>
+  </div>
+</aside>
+<aside class="ctrl ctrl-right guide-isolate" id="hudCamera" aria-hidden="true">
+  <div class="ctrl-title">Camera</div>
+  <div class="ctrlviz">
+    <div class="mouseWrap" aria-label="Mouse" data-tip-key="mouse" data-ctrl-group="mouse">
+      <div class="mouse" aria-hidden="true">
+        <div class="btn l"></div><div class="btn r"></div><div class="wheel"></div><div class="hint"></div>
+      </div>
+      <div class="note">
+        <span><b>Drag</b> ruota</span>
+        <span><b>Click</b> seleziona</span>
+      </div>
+    </div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="cap arrows" aria-label="Frecce direzionali" data-ctrl-group="arrows">
+      <div class="row r1"><kbd data-tip-key="up">&uarr;</kbd></div>
+      <div class="row r2"><kbd data-tip-key="left">&larr;</kbd><kbd data-tip-key="down">&darr;</kbd><kbd data-tip-key="right">&rarr;</kbd></div>
+      <div class="note">
+        <span><b>Frecce</b> yaw/pitch</span>
+      </div>
+    </div>
+  </div>
+</aside>
+<div id="hudKeyTip" class="hud-key-tip" aria-hidden="true"></div>
+<aside id="tipCalHud" class="guide-isolate" aria-label="Offset attivazione tips">
+  <div class="tip-cal-title">Offset Tips</div>
+  <label>X px <input id="tipCalX" type="number" step="1" min="-300" max="300" value="0"></label>
+  <label>Y px <input id="tipCalY" type="number" step="1" min="-300" max="300" value="0"></label>
+  <div class="tip-cal-actions">
+    <button id="tipCalCapture" type="button">Rileva SOH</button>
+    <button id="tipCalAuto" type="button">Auto</button>
+    <button id="tipCalApply" type="button">Applica</button>
+    <button id="tipCalReset" type="button">Reset</button>
+  </div>
+  <div id="tipCalStatus">Campioni: 0</div>
+</aside>
+<div id="tipCalMarker" aria-hidden="true"></div>
+ <div id="cur"></div>
+ <div id="navHud" class="guide-isolate">
+  <div class="hud-mode-switch" aria-hidden="true">
+   <span class="seg seg-navs is-on" id="hudModeNavs">NAVS</span>
+   <span class="seg seg-comms" id="hudModeComms">COMMS <span class="seg-badge" id="hudModeCommsBadge">3</span></span>
+  </div>
+  <div class="navHudRow">
+   <div class="coordWrap">
+    <div id="coordCell" aria-hidden="true">
+     <div class="h">
+       <div class="t">SOH</div>
+       <div class="s">DARH</div>
+     </div>
+     <div class="g">
+       <div class="k">D -</div><div class="v" id="coordDist">--</div>
+       <div class="k">A -</div><div class="v" id="coordAz">--</div>
+       <div class="k">R</div><div class="v" id="coordBrg">--</div>
+      </div>
+     </div>
+     <div id="sorCell" aria-hidden="true">
+      <div class="h">
+        <div class="t">SOR</div>
+        <div class="s">DARR</div>
+      </div>
+      <div class="g">
+        <div class="k">D -</div><div class="v" id="sorDist">--</div>
+        <div class="k">A -</div><div class="v" id="sorAz">--</div>
+        <div class="k">R</div><div class="v" id="sorBrg">--</div>
+      </div>
+     </div>
+     <div id="coordEdit" aria-hidden="true">
+     <div class="box" role="dialog" aria-label="Inserisci coordinate SOH">
+       <div class="top">
+         <div class="tt">Coordinate SOH</div>
+         <button class="x" id="coordEditClose" type="button">Chiudi</button>
+       </div>
+        <label>D <input id="coordEditDist" type="text" inputmode="decimal" placeholder="1.50 UA"></label>
+        <label>A (deg) <input id="coordEditAz" type="number" step="0.1" min="-90" max="90" inputmode="decimal"></label>
+        <label>R (0-359) <input id="coordEditRil" type="number" step="1" min="0" max="359" inputmode="numeric"></label>
+        <div class="coordSearch" aria-label="Ricerca oggetti">
+          <div class="coordSearchRow">
+            <input id="objSearchInput" class="coordSearchInput" type="text" placeholder="Cerca oggetto..." autocomplete="off" spellcheck="false" />
+            <button id="objSearchGo" class="btn coordSearchGo" type="button">Inserisci</button>
+          </div>
+          <div id="objSearchInfo" class="coordSearchInfo">-</div>
+        </div>
+       <div class="btns">
+         <button class="btn" id="coordEditCancel" type="button">Annulla</button>
+         <button class="btn" id="coordEditGo" type="button">Vai</button>
+       </div>
+      </div>
+   </div>
+   </div>
+   <div id="ribbon" aria-hidden="true">
+    <canvas id="ribbonCv" width="240" height="44"></canvas>
+   </div>
+    <div id="compass">
+     <canvas id="compassCv" width="72" height="72"></canvas>
+    </div>
+    <div id="travelPct" aria-hidden="true">
+      <div class="num" id="travelPctNum">0%</div>
+      <div class="lbl" id="travelPctLbl">COMPLETAMENTO</div>
+    </div>
+    <div id="travelBoost" aria-hidden="true">
+      <div class="b-head">BOOST</div>
+      <div class="b-rail"><div class="b-fill" id="travelBoostFill"></div></div>
+      <div class="b-label" id="travelBoostLbl">CRUISE</div>
+   </div>
+  </div>
+ </div>
+ <div id="commHud" class="guide-isolate" aria-hidden="true">
+  <div class="hud-mode-switch" aria-hidden="true">
+   <span class="seg seg-navs" id="commModeNavs">NAVS</span>
+   <span class="seg seg-comms is-on" id="commModeComms">COMMS <span class="seg-badge" id="commModeCommsBadge">3</span></span>
+  </div>
+  <div class="commHudRow">
+   <div class="commPanel">
+    <div class="commCap">
+      <div class="commKicker">Link attivo</div>
+      <div class="commTarget" id="commTarget">Nessuno</div>
+    </div>
+    <button class="commMail" id="commMail" type="button" aria-label="Messaggi">
+      <span class="commMailIcon" aria-hidden="true"></span>
+      <span class="commMailLabel">Messaggi</span>
+      <span class="commMailBadge" id="commUnread">0</span>
+    </button>
+ </div>
+ </div>
+</div>
+<div id="commAttachToast" aria-live="polite" aria-atomic="true"></div>
+ <div id="glassPage" class="guide-isolate" aria-hidden="true">
+   <div id="glassBack"></div>
+   <div id="glassPanel" role="dialog" aria-modal="true">
+   <div id="glassTop">
+       <div id="glassName">Pagina</div>
+       <button id="glassClose" type="button">Chiudi</button>
+     </div>
+     <div id="glassMessages" aria-hidden="true">
+       <div class="msgGrid" id="msgGrid">
+       </div>
+     </div>
+     <iframe id="glassFrame" title="Contenuto"></iframe>
+   </div>
+ </div>
+ 
+ <div id="midTitle" aria-hidden="true">
+   <div class="t1"><em>Control</em>Chaos</div>
+   <div class="t2">SuperEnalotto</div>
+ </div>
+ <div id="guideOverlay" aria-hidden="true">
+   <div class="guideBack"></div>
+   <div class="guideSpot" id="guideSpot"></div>
+   <div class="guideLink" id="guideLink"></div>
+   <section class="guidePanel" role="dialog" aria-modal="true" aria-label="Guida rapida">
+     <p class="guideBody" id="guideBody"></p>
+     <ul class="guideList" id="guideList"></ul>
+     <div class="guideNote" id="guideNote" hidden></div>
+     <div class="guideKeys" id="guideKeys" aria-label="Tasti consigliati"></div>
+     <div class="guideFooter">
+       <span class="guideStep" id="guideStep">01 / 03</span>
+       <div class="guideActions">
+         <button class="guideBtn" id="guideDismiss" type="button">Non mostrare piu</button>
+         <button class="guideBtn guideBtn--accent" id="guideAction" type="button" hidden>Azione</button>
+         <button class="guideBtn" id="guidePrev" type="button">Indietro</button>
+         <button class="guideBtn" id="guideNext" type="button">Avanti</button>
+         <button class="guideBtn" id="guideClose" type="button">Chiudi</button>
+       </div>
+     </div>
+   </section>
+ </div>
+<script src="pages/oracle/cosmos/assets/js/object-archive.js"></script>
+<script src="https://www.superenalottocc.it/assets/js/version.js"></script>
+<script src="assets/js/version.js"></script>
+<script src="pages/oracle/cosmos/assets/js/so-config.js"></script>
+<script src="pages/oracle/cosmos/assets/js/star-map.js"></script>
+<script src="pages/oracle/cosmos/assets/js/so-hud.js"></script>
+<script src="pages/oracle/cosmos/assets/js/core/coord-object-registry.js"></script>
+<script src="pages/oracle/cosmos/assets/js/ui/embedded-page-mode.js"></script>
+<script src="pages/oracle/cosmos/assets/js/render/cosmic-word.js"></script>
+<script src="pages/oracle/cosmos/assets/js/navigation/autopilot-helpers.js"></script>
+<script src="pages/oracle/cosmos/assets/js/navigation/soh-hub-service.js"></script>
+<script src="pages/oracle/cosmos/assets/js/math/engine-math.js"></script>
+<script src="pages/oracle/cosmos/assets/js/render/shaders.js"></script>
+<script src="pages/oracle/cosmos/assets/js/render/card-texture.js"></script>
+<script src="pages/oracle/cosmos/assets/js/render/swarm-dust.js"></script>
+<script src="pages/oracle/cosmos/assets/js/utils/data-utils.js"></script>
+<script src="pages/oracle/cosmos/assets/js/ui/guide-overlay.js"></script>
+<script src="pages/oracle/cosmos/assets/js/ui/glass-comms.js"></script>
+<script src="pages/oracle/cosmos/assets/js/app-main.js"></script>
+</body>
+</html>
+

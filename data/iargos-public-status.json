@@ -4,8 +4,8 @@
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "warning",
-  "summary": "Rilevati 8 warning non bloccanti (monitoraggio consigliato).",
+  "severity": "info",
+  "summary": "Rilevati 11 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "ROUTINE",
   "alignment_priority": {
@@ -32,10 +32,10 @@
   },
   "circuit": {
     "state": "OPEN",
-    "consecutive_failures": 5,
+    "consecutive_failures": 1,
     "consecutive_successes": 0,
     "consecutive_no_execution_cycles": 0,
-    "updated_at": "2026-04-01 02:53:50"
+    "updated_at": "2026-04-01 13:01:31"
   },
   "queue": {
     "total": 53,
@@ -53,32 +53,32 @@
     }
   },
   "operational_snapshot": {
-    "state": "degraded",
-    "cause": "tutor_stabilization_mode",
+    "state": "blocked",
+    "cause": "circuit_breaker_open",
     "state_at": "",
-    "severity": "warning",
+    "severity": "info",
     "task_precedence": "ROUTINE",
     "circuit_state": "OPEN",
     "active_priorities": [],
     "active_priorities_count": 0,
-    "consecutive_crisis_cycles": 43,
-    "human_escalation_requested": true,
-    "novelty_detected": true,
-    "novelty_streak": 10,
-    "novelty_last_reason": "unclassified_non_improving_case",
-    "stabilization_mode_active": true,
-    "stabilization_mode_reason": "unclassified_non_improving_case",
-    "stabilization_mode_since": "2026-04-01 01:55:51",
+    "consecutive_crisis_cycles": 2,
+    "human_escalation_requested": false,
+    "novelty_detected": false,
+    "novelty_streak": 0,
+    "novelty_last_reason": "",
+    "stabilization_mode_active": false,
+    "stabilization_mode_reason": "",
+    "stabilization_mode_since": "",
     "recovery_mode_active": false,
     "recovery_mode_stable_cycles": 0,
     "recovery_mode_threshold": 2,
     "recovery_guidance": {
       "ready_to_exit": false,
       "stable_cycles": 0,
-      "novelty_streak": 10,
-      "crisis_cycles": 43,
-      "human_escalation_requested": true,
-      "stabilization_mode_active": true,
+      "novelty_streak": 0,
+      "crisis_cycles": 2,
+      "human_escalation_requested": false,
+      "stabilization_mode_active": false,
       "post_intervention_active": true,
       "playbook": {
         "id": "playbook_publish_recovery",
@@ -288,8 +288,7 @@
         "novelty_streak == 0",
         "stabilization_mode_active == False",
         "post_intervention_active == False",
-        "human_escalation_requested == False",
-        "human_escalation_requested rientrata dopo stabilizzazione"
+        "human_escalation_requested == False"
       ],
       "next_actions": [
         "confermare solo trial Zona A a rischio minimo",
@@ -299,32 +298,37 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro."
     },
-    "catalog_stale": true,
-    "catalog_age_sec": 967748,
+    "catalog_stale": false,
+    "catalog_age_sec": 35825,
     "queue_pending": 2,
     "queue_running": 1,
-    "queue_ready": 0
+    "queue_ready": 0,
+    "standby_active": false,
+    "standby_reason": "",
+    "standby_enter_at": "",
+    "standby_next_wake_at": "",
+    "standby_prewake_in_sec": 0
   },
   "tutor_stabilization": {
-    "triggered": true,
-    "novelty_detected": true,
-    "novelty_streak": 10,
+    "triggered": false,
+    "novelty_detected": false,
+    "novelty_streak": 0,
     "threshold": 2,
-    "reason": "unclassified_non_improving_case",
-    "active": true,
-    "since": "2026-04-01 01:55:51"
+    "reason": "",
+    "active": false,
+    "since": ""
   },
   "runtime": {
     "state_level": "warn",
     "state_label": "monitoraggio",
     "is_operational": false,
     "archive_synced": true,
-    "last_push_at": "2026-04-01 02:55:01",
+    "last_push_at": "2026-04-01 13:03:52",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-01 02:02:18",
-    "last_training_at": "2026-04-01 02:54:17",
-    "last_deploy_at": "2026-04-01 02:54:55",
+    "last_training_at": "2026-04-01 12:59:40",
+    "last_deploy_at": "2026-04-01 13:03:45",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 2,
@@ -333,60 +337,60 @@
   },
   "activity_log": [
     {
-      "ts": "2026-04-01 02:54:55",
+      "ts": "2026-04-01 13:03:45",
       "event": "Publish locale -> online completato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-hardening-plan-override"
     },
     {
-      "ts": "2026-04-01 02:54:45",
-      "event": "Deploy mirror -> locale completato",
+      "ts": "2026-04-01 13:03:33",
+      "event": "Publish locale -> online completato",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-tutor-encouragement"
     },
     {
-      "ts": "2026-04-01 02:54:17",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
+      "ts": "2026-04-01 13:01:47",
+      "event": "Monitor online completato",
+      "status": "OK",
       "source": "iargos",
-      "action": "iargos-plan-scope-filter"
+      "action": "iargos-site-online-check"
     },
     {
-      "ts": "2026-04-01 02:54:04",
+      "ts": "2026-04-01 13:01:35",
+      "event": "Auto-heal eseguito",
+      "status": "ERR",
+      "source": "iargos",
+      "action": "iargos-auto-heal"
+    },
+    {
+      "ts": "2026-04-01 13:01:24",
+      "event": "Publish locale -> online completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-hardening-plan-override"
+    },
+    {
+      "ts": "2026-04-01 13:00:52",
+      "event": "Task monitor online inserito",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-site-monitor"
+    },
+    {
+      "ts": "2026-04-01 13:00:22",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-01 02:53:26",
+      "ts": "2026-04-01 12:59:40",
       "event": "Deploy mirror -> locale completato",
       "status": "WARN",
       "source": "iargos",
-      "action": "iargos-plan-scope-filter"
-    },
-    {
-      "ts": "2026-04-01 02:52:32",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-plan-scope-filter"
-    },
-    {
-      "ts": "2026-04-01 02:51:39",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-plan-scope-filter"
-    },
-    {
-      "ts": "2026-04-01 02:50:59",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-plan-scope-filter"
+      "action": "iargos-hardening-plan-override"
     }
   ],
   "checked_at": "2026-04-01 02:02:18"
