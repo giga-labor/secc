@@ -5,7 +5,7 @@
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 11 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Rilevati 7 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -25,17 +25,17 @@
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": true,
-    "remote_ahead": 0,
+    "git_dirty": false,
+    "remote_ahead": 1,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
   "circuit": {
-    "state": "CLOSED",
-    "consecutive_failures": 0,
-    "consecutive_successes": 2,
-    "consecutive_no_execution_cycles": 2,
-    "updated_at": "2026-04-01 02:00:22"
+    "state": "OPEN",
+    "consecutive_failures": 3,
+    "consecutive_successes": 0,
+    "consecutive_no_execution_cycles": 7,
+    "updated_at": "2026-04-01 02:40:19"
   },
   "queue": {
     "total": 53,
@@ -58,15 +58,15 @@
     "state_at": "",
     "severity": "warning",
     "task_precedence": "IMMEDIATE",
-    "circuit_state": "CLOSED",
+    "circuit_state": "OPEN",
     "active_priorities": [
       "p6_local_publish"
     ],
     "active_priorities_count": 1,
-    "consecutive_crisis_cycles": 9,
+    "consecutive_crisis_cycles": 32,
     "human_escalation_requested": true,
     "novelty_detected": true,
-    "novelty_streak": 5,
+    "novelty_streak": 10,
     "novelty_last_reason": "unclassified_non_improving_case",
     "stabilization_mode_active": true,
     "stabilization_mode_reason": "unclassified_non_improving_case",
@@ -77,49 +77,49 @@
     "recovery_guidance": {
       "ready_to_exit": false,
       "stable_cycles": 0,
-      "novelty_streak": 5,
-      "crisis_cycles": 9,
+      "novelty_streak": 10,
+      "crisis_cycles": 32,
       "human_escalation_requested": true,
       "stabilization_mode_active": true,
       "post_intervention_active": true,
       "playbook": {
-        "id": "playbook_backup_pressure_recovery",
-        "trigger": "p8_backup_over_limit",
-        "goal": "ridurre pressione backup senza disturbare il servizio",
+        "id": "playbook_publish_recovery",
+        "trigger": "p6_local_publish",
+        "goal": "riprendere publish in modo sicuro",
         "allowed_actions": [
-          "backup_prune_mirror_keep5",
-          "backup_prune_mirror_keep10",
-          "updates_stop"
+          "updates_start(single,resume_pending_publish)",
+          "mirror_step3_publish",
+          "mirror_deploy_local"
         ],
         "preferred_sequence": [
-          "backup_prune_mirror_keep5",
-          "backup_prune_mirror_keep10",
-          "updates_stop"
+          "updates_start(single,resume_pending_publish)",
+          "mirror_step3_publish",
+          "mirror_deploy_local"
         ],
         "avoid_actions": [
-          "updates_start(server,run_server_total)",
-          "mirror_step3_publish_force"
+          "mirror_step3_publish_force",
+          "publish_force"
         ],
         "signals": [
-          "backup",
-          "over_limit",
-          "disk_pressure"
+          "pending_publish",
+          "flow_guard",
+          "publish"
         ],
-        "description": "Playbook per contenere crescita backup e ripristinare spazio operativo."
+        "description": "Playbook per ripartenza publish e recupero pending_publish."
       },
       "preferred_sequence": [
-        "backup_prune_mirror_keep5",
-        "backup_prune_mirror_keep10",
-        "updates_stop"
+        "updates_start(single,resume_pending_publish)",
+        "mirror_step3_publish",
+        "mirror_deploy_local"
       ],
       "allowed_actions": [
-        "backup_prune_mirror_keep5",
-        "backup_prune_mirror_keep10",
-        "updates_stop"
+        "updates_start(single,resume_pending_publish)",
+        "mirror_step3_publish",
+        "mirror_deploy_local"
       ],
       "avoid_actions": [
-        "updates_start(server,run_server_total)",
-        "mirror_step3_publish_force"
+        "mirror_step3_publish_force",
+        "publish_force"
       ],
       "tool_guides": [
         {
@@ -299,10 +299,10 @@
         "fermare subito se compare worsened o uncertain ripetuto",
         "non sbloccare Zona B/C finché non ci sono 2 cicli puliti consecutivi"
       ],
-      "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: ridurre pressione backup senza disturbare il servizio."
+      "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro."
     },
     "catalog_stale": true,
-    "catalog_age_sec": 964583,
+    "catalog_age_sec": 966936,
     "queue_pending": 2,
     "queue_running": 1,
     "queue_ready": 0
@@ -310,85 +310,85 @@
   "tutor_stabilization": {
     "triggered": true,
     "novelty_detected": true,
-    "novelty_streak": 5,
+    "novelty_streak": 10,
     "threshold": 2,
     "reason": "unclassified_non_improving_case",
     "active": true,
     "since": "2026-04-01 01:55:51"
   },
   "runtime": {
-    "state_level": "ok",
-    "state_label": "operativo",
-    "is_operational": true,
+    "state_level": "warn",
+    "state_label": "monitoraggio",
+    "is_operational": false,
     "archive_synced": true,
-    "last_push_at": "2026-04-01 02:00:13",
+    "last_push_at": "2026-04-01 02:41:33",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-01 02:02:18",
-    "last_training_at": "2026-04-01 02:02:04",
-    "last_deploy_at": "2026-04-01 02:02:04",
+    "last_training_at": "2026-04-01 02:40:44",
+    "last_deploy_at": "2026-04-01 02:41:21",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 2,
     "queue_running": 1,
-    "circuit_state": "CLOSED"
+    "circuit_state": "OPEN"
   },
   "activity_log": [
     {
-      "ts": "2026-04-01 02:02:04",
-      "event": "Deploy mirror -> locale completato",
-      "status": "WARN",
-      "source": "iargos",
-      "action": "iargos-plan-scope-filter"
-    },
-    {
-      "ts": "2026-04-01 02:02:00",
+      "ts": "2026-04-01 02:41:29",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-01 02:01:38",
+      "ts": "2026-04-01 02:41:21",
       "event": "Publish locale -> online completato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-hardening-plan-override"
     },
     {
-      "ts": "2026-04-01 02:00:43",
-      "event": "Monitor online completato",
+      "ts": "2026-04-01 02:41:06",
+      "event": "Deploy mirror -> locale completato",
       "status": "OK",
       "source": "iargos",
-      "action": "iargos-site-online-check"
+      "action": "iargos-tutor-encouragement"
     },
     {
-      "ts": "2026-04-01 02:00:34",
-      "event": "Auto-heal eseguito: mirror_step3_publish",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-auto-heal"
-    },
-    {
-      "ts": "2026-04-01 02:00:34",
-      "event": "Auto-heal eseguito",
+      "ts": "2026-04-01 02:40:44",
+      "event": "Deploy mirror -> locale completato",
       "status": "WARN",
       "source": "iargos",
-      "action": "iargos-auto-heal-settle-wait"
+      "action": "iargos-plan-scope-filter"
     },
     {
-      "ts": "2026-04-01 02:00:28",
-      "event": "Verifica post-esecuzione completata",
+      "ts": "2026-04-01 02:39:51",
+      "event": "Deploy mirror -> locale completato",
       "status": "WARN",
       "source": "iargos",
-      "action": "iargos-post-exec-check"
+      "action": "iargos-plan-scope-filter"
     },
     {
-      "ts": "2026-04-01 02:00:11",
-      "event": "Task monitor online inserito",
-      "status": "OK",
+      "ts": "2026-04-01 02:38:49",
+      "event": "Deploy mirror -> locale completato",
+      "status": "WARN",
       "source": "iargos",
-      "action": "iargos-site-monitor"
+      "action": "iargos-plan-scope-filter"
+    },
+    {
+      "ts": "2026-04-01 02:37:37",
+      "event": "Deploy mirror -> locale completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-plan-scope-filter"
+    },
+    {
+      "ts": "2026-04-01 02:36:18",
+      "event": "Deploy mirror -> locale completato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-plan-scope-filter"
     }
   ],
   "checked_at": "2026-04-01 02:02:18"
