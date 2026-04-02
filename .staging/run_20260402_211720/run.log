@@ -1,2 +1,3 @@
-[21:30:58] TRAIN progress: 5/15 (33%) -> classic-coppie-terzine-frequenti OK
-[21:31:32] TRAIN progress: 5/15 (33%) -> avvio classic-distribuzioni-modelli-raggruppamento
+[21:33:07] TRAIN progress: 7/15 (46%) -> classic-frequency OK
+[21:33:40] TRAIN progress: 7/15 (46%) -> avvio classic-ritardi
+[21:34:11] TRAIN progress: 8/15 (53%) -> classic-ritardi OK
