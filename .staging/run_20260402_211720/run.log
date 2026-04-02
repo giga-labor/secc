@@ -1,6 +1,0 @@
-[21:47:18] TRAIN progress: 15/15 (100%) -> super6NN OK
-[21:47:51] Fase OK: train_incremental_stage_all_active
-[21:48:25] AI nulla osta OK su verify_train_outputs_stage
-[21:48:56] Avvio fase: verify_train_outputs_stage
-[21:49:28] Fase KO: verify_train_outputs_stage -> output staged training assente
-[21:49:57] output staged training assente
