@@ -4,14 +4,14 @@
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "info",
-  "summary": "Rilevati 14 warning non bloccanti (monitoraggio consigliato).",
+  "severity": "warning",
+  "summary": "Rilevati 3 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
-  "task_precedence": "ROUTINE",
+  "task_precedence": "PRIORITY",
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": false,
+    "p2_flow_guard": true,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
@@ -24,7 +24,7 @@
   "alignment": {
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
+    "flow_guard_ok": false,
     "git_dirty": false,
     "remote_ahead": 0,
     "remote_behind": 0,
@@ -48,14 +48,16 @@
     }
   },
   "operational_snapshot": {
-    "state": "green",
-    "cause": "all_aligned",
+    "state": "degraded",
+    "cause": "p2_flow_guard",
     "state_at": "",
-    "severity": "info",
-    "task_precedence": "ROUTINE",
+    "severity": "warning",
+    "task_precedence": "PRIORITY",
     "circuit_state": "CLOSED",
-    "active_priorities": [],
-    "active_priorities_count": 0,
+    "active_priorities": [
+      "p2_flow_guard"
+    ],
+    "active_priorities_count": 1,
     "consecutive_crisis_cycles": 0,
     "human_escalation_requested": false,
     "novelty_detected": false,
@@ -316,13 +318,13 @@
     "state_level": "ok",
     "state_label": "operativo",
     "is_operational": true,
-    "archive_synced": true,
-    "last_push_at": "2026-04-02 22:22:17",
+    "archive_synced": false,
+    "last_push_at": "2026-04-02 23:51:05",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-02 21:16:00",
     "last_training_at": "2026-04-02 21:49:57",
-    "last_deploy_at": "2026-04-02 21:47:35",
+    "last_deploy_at": "2026-04-02 23:50:26",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 0,
@@ -332,56 +334,56 @@
   },
   "activity_log": [
     {
+      "ts": "2026-04-02 23:50:13",
+      "event": "Eseguito task version_bump",
+      "status": "OK",
+      "source": "cart",
+      "action": "task:version_bump"
+    },
+    {
+      "ts": "2026-04-02 23:48:56",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-02 23:47:42",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-02 23:30:21",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-02 23:17:22",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-02 23:11:31",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-02 23:10:14",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
       "ts": "2026-04-02 23:09:06",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 23:06:42",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 23:06:01",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 23:05:42",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 22:52:14",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 22:48:36",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 22:42:53",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-02 22:25:51",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
