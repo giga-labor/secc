@@ -5,7 +5,7 @@
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Rilevati 2 warning non bloccanti (monitoraggio consigliato).",
+  "summary": "Publish locale pendente: git_dirty=True, remote_ahead=0, remote_behind=0.",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -38,12 +38,13 @@
     "updated_at": "2026-04-01 21:02:54"
   },
   "queue": {
-    "total": 3,
-    "pending": 1,
+    "total": 6,
+    "pending": 0,
     "running": 0,
-    "done": 0,
+    "done": 3,
     "failed": 0,
     "by_type": {
+      "send_alert_email": 3,
       "heal": 3
     }
   },
@@ -296,7 +297,7 @@
     },
     "catalog_stale": false,
     "catalog_age_sec": 0,
-    "queue_pending": 1,
+    "queue_pending": 0,
     "queue_running": 0,
     "queue_ready": 0,
     "standby_active": false,
@@ -319,7 +320,7 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-03 00:44:07",
+    "last_push_at": "2026-04-03 01:28:33",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-02 21:16:00",
@@ -327,63 +328,63 @@
     "last_deploy_at": "2026-04-03 00:42:05",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
-    "queue_pending": 1,
+    "queue_pending": 0,
     "queue_running": 0,
     "circuit_state": "CLOSED",
     "mirror_update_started_at": "2026-04-02 21:16:00"
   },
   "activity_log": [
     {
-      "ts": "2026-04-03 00:41:37",
+      "ts": "2026-04-03 01:26:01",
       "event": "Eseguito task version_bump",
       "status": "OK",
       "source": "cart",
       "action": "task:version_bump"
     },
     {
-      "ts": "2026-04-03 00:39:35",
+      "ts": "2026-04-03 01:21:59",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-03 00:19:38",
+      "ts": "2026-04-03 01:16:23",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-03 00:04:21",
-      "event": "Eseguito task version_bump",
-      "status": "OK",
-      "source": "cart",
-      "action": "task:version_bump"
-    },
-    {
-      "ts": "2026-04-03 00:03:13",
+      "ts": "2026-04-03 01:12:44",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-02 23:55:30",
+      "ts": "2026-04-03 01:05:40",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-02 23:50:13",
-      "event": "Eseguito task version_bump",
+      "ts": "2026-04-03 01:00:05",
+      "event": "Audit allineamento: ok",
       "status": "OK",
-      "source": "cart",
-      "action": "task:version_bump"
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-02 23:48:56",
+      "ts": "2026-04-03 00:55:18",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-03 00:52:13",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
