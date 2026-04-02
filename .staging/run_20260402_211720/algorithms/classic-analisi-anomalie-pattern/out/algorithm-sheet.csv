@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte.
+SCOPO,"Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo."
+INPUT,Storico draws.csv validato completo | Ordinamento cronologico corretto | Aggiornamento progressivo concorso per concorso
+METODO,"Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi"
+OUTPUT,historical-db.csv con hit incrementali | metrics-db.csv con metriche anomalie e copertura | algorithm-sheet.csv | analysis.txt
+LIMITI,Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti
