@@ -1367,23 +1367,92 @@ initHudKeyTips();
 
 // â”€â”€â”€ WEBGL SETUP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const cv=document.getElementById('c');
+function mountWebglFallback(reason){
+  const why = reason ? `<p style="margin:8px 0 0;color:#ffd58b;font-size:14px">${reason}</p>` : '';
+  document.body.innerHTML=`
+    <main id="cosmosFallbackRoot" style="position:relative;z-index:10000;min-height:100vh;padding:30px 16px 180px;max-width:980px;margin:0 auto;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#f5f0e6;background:#050914">
+      <button id="cosmosFallbackBackBtnTop" type="button" style="position:fixed;top:14px;left:14px;z-index:9999;color:#e8c87a;border:1px solid rgba(232,200,122,.58);border-radius:999px;padding:9px 14px;background:rgba(7,12,24,.82);backdrop-filter:blur(4px);cursor:pointer">
+        ← Torna indietro
+      </button>
+      <section style="display:grid;gap:18px">
+        <header style="display:grid;gap:10px">
+          <span style="display:inline-block;max-width:max-content;padding:5px 10px;border:1px solid rgba(255,213,139,.55);border-radius:999px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#ffd58b">Chaos Oracle Cosmos</span>
+          <h1 style="font-size:clamp(30px,4.5vw,48px);line-height:1.05;margin:0">Modalita 3D non disponibile</h1>
+          <p style="opacity:.88;margin:0;max-width:72ch">
+            Il tuo browser o dispositivo non riesce ad avviare WebGL. Questa sezione e progettata come esperienza 3D interattiva.
+            Puoi continuare con una anteprima video e con la navigazione standard del sito.
+          </p>
+          ${why}
+        </header>
+        <section style="border:1px solid rgba(140,173,255,.32);background:linear-gradient(180deg,rgba(17,28,56,.8),rgba(8,13,26,.88));border-radius:16px;padding:12px 12px 96px">
+          <video id="cosmosFallbackVideo" autoplay muted loop playsinline controls preload="metadata" poster="img/headerControlChaos3.webp" style="display:block;width:100%;height:auto;max-height:calc(62vh - 32px);border-radius:12px;background:#02040b;margin-bottom:10px">
+            <source id="cosmosFallbackSource" src="assets/video/cosmos-navigation.webm" type="video/webm">
+          </video>
+          <p id="cosmosFallbackCaption" style="margin:10px 2px 0;opacity:.78;font-size:13px">Anteprima loop di una navigazione probabile nel Cosmos (modalita dimostrativa).</p>
+        </section>
+        <section style="display:grid;gap:10px">
+          <h2 style="margin:0;font-size:20px">Come abilitare la modalita 3D</h2>
+          <ul style="margin:0;padding-left:18px;display:grid;gap:6px;opacity:.9">
+            <li>Usa un browser aggiornato (Chrome, Edge, Firefox, Safari).</li>
+            <li>Attiva accelerazione hardware nelle impostazioni browser.</li>
+            <li>Controlla eventuali policy aziendali o estensioni che bloccano WebGL.</li>
+          </ul>
+        </section>
+        <nav aria-label="Navigazione alternativa" style="display:grid;gap:10px">
+          <h2 style="margin:0;font-size:20px">Continua sul sito</h2>
+          <button id="cosmosFallbackBackBtn" type="button" style="max-width:max-content;color:#e8c87a;border:1px solid rgba(232,200,122,.45);border-radius:12px;padding:10px 14px;background:rgba(232,200,122,.10);cursor:pointer">
+            Torna alla pagina precedente
+          </button>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+            <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/oracle/">Oracle</a>
+            <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/algoritmi/">Algoritmi</a>
+            <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/storico-estrazioni/">Storico estrazioni</a>
+            <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/ranking/">Ranking</a>
+          </div>
+        </nav>
+      </section>
+    </main>`;
+  const fallbackVideo=document.getElementById('cosmosFallbackVideo');
+  const fallbackSource=document.getElementById('cosmosFallbackSource');
+  const fallbackCaption=document.getElementById('cosmosFallbackCaption');
+  if(fallbackVideo && fallbackSource){
+    const backupSrc='assets/video/iARGOS.webm';
+    let switched=false;
+    fallbackVideo.addEventListener('error',()=>{
+      if(switched) return;
+      switched=true;
+      fallbackSource.src=backupSrc;
+      fallbackVideo.load();
+      if(fallbackCaption){
+        fallbackCaption.textContent='Anteprima dimostrativa generale (fallback video attivo).';
+      }
+    });
+  }
+  const goBack=()=>{
+      if(window.history.length > 1){
+        window.history.back();
+      }else{
+        window.location.href='pages/oracle/';
+      }
+    };
+  const backBtn=document.getElementById('cosmosFallbackBackBtn');
+  if(backBtn){
+    backBtn.addEventListener('click',goBack);
+  }
+  const backBtnTop=document.getElementById('cosmosFallbackBackBtnTop');
+  if(backBtnTop){
+    backBtnTop.addEventListener('click',goBack);
+  }
+}
 const gl=cv.getContext('webgl2')||cv.getContext('webgl');
 if(!gl){
-  document.body.innerHTML=`
-    <main style="min-height:100vh;padding:40px 18px;max-width:920px;margin:0 auto;font-family:system-ui,Segoe UI,Roboto,Arial;color:#f5f0e6">
-      <h1 style="font-size:34px;line-height:1.05;margin:0 0 10px">SuperEnalotto Control Chaos</h1>
-      <p style="opacity:.75;margin:0 0 22px">WebGL non disponibile. Puoi comunque navigare il sito:</p>
-      <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px">
-        <li><a style="color:#e8c87a" href="pages/algoritmi/">Algoritmi</a></li>
-        <li><a style="color:#e8c87a" href="pages/analisi-statistiche/">Dashboard</a></li>
-        <li><a style="color:#e8c87a" href="pages/storico-estrazioni/">Archivio estrazioni</a></li>
-        <li><a style="color:#e8c87a" href="pages/ranking/">Ranking</a></li>
-        <li><a style="color:#e8c87a" href="pages/oracle/">Oracle</a></li>
-        <li><a style="color:#e8c87a" href="pages/contatti-chi-siamo/">Chi siamo</a></li>
-      </ul>
-    </main>`;
+  mountWebglFallback('WebGL non rilevato o disattivato in avvio.');
   return;
 }
+cv.addEventListener('webglcontextlost',(ev)=>{
+  if(ev && typeof ev.preventDefault==='function') ev.preventDefault();
+  mountWebglFallback('Il contesto WebGL e stato perso durante la sessione.');
+});
 gl.getExtension('OES_element_index_uint');
 
 function applySceneViewport(force){
