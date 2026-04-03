@@ -5,18 +5,18 @@
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Publish locale pendente: git_dirty=True, remote_ahead=0, remote_behind=0.",
+  "summary": "Flusso publish non allineato: Flusso non valido (contenuto mirror incluso nel deploy cambiato). Esegui di nuovo Deploy mirror -> locale prima del publish.",
   "overview_green": false,
-  "task_precedence": "IMMEDIATE",
+  "task_precedence": "PRIORITY",
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": false,
+    "p2_flow_guard": true,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": true,
+    "p6_local_publish": false,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -24,8 +24,8 @@
   "alignment": {
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
-    "git_dirty": true,
+    "flow_guard_ok": false,
+    "git_dirty": false,
     "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0
@@ -38,25 +38,25 @@
     "updated_at": "2026-04-01 21:02:54"
   },
   "queue": {
-    "total": 6,
+    "total": 7,
     "pending": 0,
     "running": 0,
-    "done": 3,
+    "done": 4,
     "failed": 0,
     "by_type": {
-      "send_alert_email": 3,
+      "send_alert_email": 4,
       "heal": 3
     }
   },
   "operational_snapshot": {
     "state": "degraded",
-    "cause": "p6_local_publish",
+    "cause": "p2_flow_guard",
     "state_at": "",
     "severity": "warning",
-    "task_precedence": "IMMEDIATE",
+    "task_precedence": "PRIORITY",
     "circuit_state": "CLOSED",
     "active_priorities": [
-      "p6_local_publish"
+      "p2_flow_guard"
     ],
     "active_priorities_count": 1,
     "consecutive_crisis_cycles": 0,
@@ -319,13 +319,13 @@
     "state_level": "ok",
     "state_label": "operativo",
     "is_operational": true,
-    "archive_synced": true,
-    "last_push_at": "2026-04-03 01:28:33",
+    "archive_synced": false,
+    "last_push_at": "2026-04-03 01:43:52",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-02 21:16:00",
     "last_training_at": "2026-04-02 21:49:57",
-    "last_deploy_at": "2026-04-03 00:42:05",
+    "last_deploy_at": "2026-04-03 01:42:05",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 0,
@@ -334,6 +334,20 @@
     "mirror_update_started_at": "2026-04-02 21:16:00"
   },
   "activity_log": [
+    {
+      "ts": "2026-04-03 01:41:30",
+      "event": "Eseguito task version_bump",
+      "status": "OK",
+      "source": "cart",
+      "action": "task:version_bump"
+    },
+    {
+      "ts": "2026-04-03 01:38:23",
+      "event": "Audit allineamento: ok",
+      "status": "OK",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
     {
       "ts": "2026-04-03 01:26:01",
       "event": "Eseguito task version_bump",
@@ -371,20 +385,6 @@
     },
     {
       "ts": "2026-04-03 01:00:05",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-03 00:55:18",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-03 00:52:13",
       "event": "Audit allineamento: ok",
       "status": "OK",
       "source": "iargos",
