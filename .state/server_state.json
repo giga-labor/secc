@@ -1,0 +1,47 @@
+{
+  "latest_local_contest_id": 4174,
+  "last_published_commit": "",
+  "per_algo_last_trained_contest_id": {
+    "arc90-logico-algoritmica": 4174,
+    "classic-analisi-anomalie-pattern": 4174,
+    "classic-co-occorrenze": 4174,
+    "classic-coppie-terni-consecutivi": 4174,
+    "classic-coppie-terzine-frequenti": 4174,
+    "classic-distribuzioni-modelli-raggruppamento": 4174,
+    "classic-frequency": 4174,
+    "classic-ritardi": 4174,
+    "classic-ritardi-combinazioni": 4174,
+    "classic-statistiche-combinate-finestre-mobili": 4174,
+    "classic-tavole-probabilita-teorica-test-uniformita": 4174,
+    "genetic": 4174,
+    "hispa": 4174,
+    "paradox-logiche-decisionali-metriche": 4174,
+    "super6NN": 4174
+  },
+  "last_card_hits_build_at": "",
+  "last_card_hits_changed_cards": 0,
+  "last_successful_run_id": "",
+  "last_email_status": "",
+  "pending_publish": {},
+  "consecutive_failures": 0,
+  "last_failure_at": "",
+  "last_failure_reason": "",
+  "run_journal": [
+    {
+      "ts": "2026-04-04T21:48:59",
+      "event": "lock_acquired",
+      "run_id": "20260404_214859",
+      "payload": {
+        "lease_until": "2026-04-04T21:50:59"
+      }
+    }
+  ],
+  "last_quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180,
+    "max_block_minutes": 15,
+    "fallback_latest_source": true
+  },
+  "quorum_degraded_since": ""
+}
