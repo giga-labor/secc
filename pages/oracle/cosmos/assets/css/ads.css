@@ -641,6 +641,26 @@
   justify-self: center;
 }
 
+.ad-internal-underlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: opacity 220ms ease;
+}
+
+.ad-internal-underlay.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ad-adsterra-display__host iframe,
+.ad-adsterra-display__host > div,
+.ad-adsterra-display__host > img,
+.ad-adsterra-display__host > a:not(.ad-internal-underlay) {
+  position: relative;
+  z-index: 2;
+}
+
 .ad-internal-fallback {
   display: grid;
   text-decoration: none;

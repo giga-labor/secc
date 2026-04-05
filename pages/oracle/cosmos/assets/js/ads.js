@@ -320,91 +320,53 @@ const buildBottomAdsterraDisplayMarkup = () => {
   `;
 };
 
-const renderRightAdsterraFallback = (container) => {
-  if (!(container instanceof HTMLElement)) return;
-  const url = String(RIGHT_REFERRAL_BANNER_CONFIG.URL || '').trim();
-  const src = String(RIGHT_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
-  const localSrc = String(RIGHT_REFERRAL_BANNER_CONFIG.LOCAL_IMAGE_SRC || '').trim();
-  if (!/^https?:\/\//i.test(url)) return;
-  const smartUrl = String(SMARTLINK_CONFIG.URL || '').trim();
-  const smartLinkMarkup = SMARTLINK_CONFIG.ENABLED && /^https?:\/\//i.test(smartUrl)
-    ? `<a class="ad-rail__label-link" href="${smartUrl}" target="_blank" rel="nofollow sponsored noopener noreferrer">Apri contenuto sponsorizzato</a>`
-    : '';
-  const resolvedSrc = localSrc || src;
-  if (!resolvedSrc) return;
-  container.innerHTML = `
-    <a class="ad-referral-banner" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Partner fallback">
-      <span class="ad-referral-banner__label">Partner</span>
-      <img class="ad-referral-banner__img" alt="Partner fallback" src="${resolvedSrc}" data-src-remote="${src}" width="120" height="150" loading="lazy" decoding="async">
-    </a>
-    ${smartLinkMarkup}
-  `;
-  const img = container.querySelector('.ad-referral-banner__img');
-  if (img instanceof HTMLImageElement && src && localSrc && localSrc !== src) {
-    img.addEventListener('error', () => {
-      img.src = src;
-    }, { once: true });
-  }
-  container.dataset.adsterraLoaded = 'fallback';
-  container.dataset.adsterraRetryAt = String(Date.now() + 45000);
-};
-
-const renderBottomAdsterraFallback = (container) => {
-  if (!(container instanceof HTMLElement)) return;
-  const url = String(BOTTOM_REFERRAL_BANNER_CONFIG.URL || '').trim();
-  const src = String(BOTTOM_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
-  const localSrc = String(BOTTOM_REFERRAL_BANNER_CONFIG.LOCAL_IMAGE_SRC || '').trim();
-  if (!/^https?:\/\//i.test(url)) return;
-  const resolvedSrc = localSrc || src;
-  if (!resolvedSrc) return;
-  container.innerHTML = `
-    <a class="ad-referral-badge" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Partner fallback">
-      <span class="ad-referral-badge__label">Partner</span>
-      <img class="ad-referral-badge__img" alt="Partner fallback" src="${resolvedSrc}" data-src-remote="${src}" width="80" height="30" loading="lazy" decoding="async">
-    </a>
-  `;
-  const img = container.querySelector('.ad-referral-badge__img');
-  if (img instanceof HTMLImageElement && src && localSrc && localSrc !== src) {
-    img.addEventListener('error', () => {
-      img.src = src;
-    }, { once: true });
-  }
-  container.dataset.adsterraLoaded = 'fallback';
-  container.dataset.adsterraRetryAt = String(Date.now() + 45000);
-};
-
-const renderInternalSiteAdFallback = (container, position) => {
-  if (!(container instanceof HTMLElement)) return false;
+const buildInternalUnderlayMarkup = (position) => {
   const cfg = position === 'right' ? INTERNAL_SITE_ADS.RIGHT : INTERNAL_SITE_ADS.BOTTOM;
-  if (!cfg || !cfg.ENABLED) return false;
+  if (!cfg || !cfg.ENABLED) return '';
   const url = String(cfg.URL || '').trim();
-  if (!/^https?:\/\//i.test(url)) return false;
-
+  if (!/^https?:\/\//i.test(url)) return '';
   if (position === 'right') {
     const kicker = String(cfg.KICKER || 'SuperEnalottoCC');
     const title = String(cfg.TITLE || 'Scopri di piu');
     const cta = String(cfg.CTA || 'Apri');
-    container.innerHTML = `
-      <a class="ad-internal-fallback ad-internal-fallback--right" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
+    return `
+      <a class="ad-internal-fallback ad-internal-fallback--right ad-internal-underlay" data-cc-internal-underlay="1" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
         <span class="ad-internal-fallback__kicker">${kicker}</span>
         <strong class="ad-internal-fallback__title">${title}</strong>
         <span class="ad-internal-fallback__cta">${cta}</span>
       </a>
     `;
-  } else {
-    const title = String(cfg.TITLE || 'Scopri di piu');
-    const cta = String(cfg.CTA || 'Apri');
-    container.innerHTML = `
-      <a class="ad-internal-fallback ad-internal-fallback--bottom" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
-        <strong class="ad-internal-fallback__title">${title}</strong>
-        <span class="ad-internal-fallback__cta">${cta}</span>
-      </a>
-    `;
   }
+  const title = String(cfg.TITLE || 'Scopri di piu');
+  const cta = String(cfg.CTA || 'Apri');
+  return `
+    <a class="ad-internal-fallback ad-internal-fallback--bottom ad-internal-underlay" data-cc-internal-underlay="1" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
+      <strong class="ad-internal-fallback__title">${title}</strong>
+      <span class="ad-internal-fallback__cta">${cta}</span>
+    </a>
+  `;
+};
 
-  container.dataset.adsterraLoaded = 'fallback-internal';
-  container.dataset.adsterraRetryAt = String(Date.now() + 45000);
-  return true;
+const ensureInternalUnderlay = (container, position) => {
+  if (!(container instanceof HTMLElement)) return null;
+  let underlay = container.querySelector('[data-cc-internal-underlay="1"]');
+  if (underlay instanceof HTMLElement) return underlay;
+  const markup = buildInternalUnderlayMarkup(position);
+  if (!markup) return null;
+  const wrap = document.createElement('div');
+  wrap.innerHTML = markup.trim();
+  underlay = wrap.firstElementChild;
+  if (!(underlay instanceof HTMLElement)) return null;
+  container.appendChild(underlay);
+  return underlay;
+};
+
+const setInternalUnderlayVisible = (container, visible) => {
+  if (!(container instanceof HTMLElement)) return;
+  const underlay = container.querySelector('[data-cc-internal-underlay="1"]');
+  if (!(underlay instanceof HTMLElement)) return;
+  underlay.classList.toggle('is-hidden', !visible);
+  underlay.setAttribute('aria-hidden', visible ? 'false' : 'true');
 };
 
 const isVisibleAdElement = (el) => {
@@ -418,13 +380,14 @@ const isVisibleAdElement = (el) => {
 
 const hasAdsterraCreative = (container) => {
   if (!(container instanceof HTMLElement)) return false;
-  const iframe = container.querySelector('iframe');
+  const iframe = container.querySelector('iframe:not([data-cc-internal-underlay="1"])');
   if (iframe && isVisibleAdElement(iframe)) return true;
-  const img = container.querySelector('img');
+  const img = container.querySelector('img:not([data-cc-internal-underlay="1"])');
   if (img && isVisibleAdElement(img)) return true;
   const rich = Array.from(container.children).some((el) => {
     const tag = String(el.tagName || '').toUpperCase();
     if (tag === 'SCRIPT') return false;
+    if (el.getAttribute('data-cc-internal-underlay') === '1') return false;
     if (!isVisibleAdElement(el)) return false;
     if (tag === 'IFRAME' || tag === 'IMG' || tag === 'OBJECT' || tag === 'EMBED' || tag === 'A') return true;
     return el.childElementCount > 0 || String(el.textContent || '').trim().length > 0;
@@ -453,16 +416,14 @@ const ensureRightAdsterraDisplayLoader = () => {
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
   if (container.dataset.adsterraLoading === '1') return;
-  const loadedState = String(container.dataset.adsterraLoaded || '');
-  const retryAt = Number.parseInt(String(container.dataset.adsterraRetryAt || '0'), 10) || 0;
-  if ((loadedState === 'fallback' || loadedState === 'fallback-internal') && Date.now() < retryAt) return;
   if (container.dataset.adsterraLoaded === '1') {
     rightAdsterraDisplayLoaded = true;
     return;
   }
+  ensureInternalUnderlay(container, 'right');
+  setInternalUnderlayVisible(container, true);
   container.dataset.adsterraLoading = '1';
   container.dataset.adsterraLoaded = '0';
-  container.textContent = '';
 
   const maxAttempts = 2;
   const runAttempt = (attemptNo) => {
@@ -480,9 +441,7 @@ const ensureRightAdsterraDisplayLoader = () => {
       container.dataset.adsterraLoading = '0';
       container.dataset.adsterraLoaded = '0';
       rightAdsterraDisplayLoaded = false;
-      if (!renderInternalSiteAdFallback(container, 'right')) {
-        renderRightAdsterraFallback(container);
-      }
+      setInternalUnderlayVisible(container, true);
     };
     script.async = false;
     script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
@@ -498,6 +457,7 @@ const ensureRightAdsterraDisplayLoader = () => {
           rightAdsterraDisplayLoaded = true;
           container.dataset.adsterraLoading = '0';
           container.dataset.adsterraLoaded = '1';
+          setInternalUnderlayVisible(container, false);
           window.requestAnimationFrame(fitRightAdsterraDisplay);
           return;
         }
@@ -524,16 +484,14 @@ const ensureBottomAdsterraDisplayLoader = () => {
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
   if (container.dataset.adsterraLoading === '1') return;
-  const loadedState = String(container.dataset.adsterraLoaded || '');
-  const retryAt = Number.parseInt(String(container.dataset.adsterraRetryAt || '0'), 10) || 0;
-  if ((loadedState === 'fallback' || loadedState === 'fallback-internal') && Date.now() < retryAt) return;
   if (container.dataset.adsterraLoaded === '1') {
     bottomAdsterraDisplayLoaded = true;
     return;
   }
+  ensureInternalUnderlay(container, 'bottom');
+  setInternalUnderlayVisible(container, true);
   container.dataset.adsterraLoading = '1';
   container.dataset.adsterraLoaded = '0';
-  container.textContent = '';
 
   const maxAttempts = 2;
   const runAttempt = (attemptNo) => {
@@ -551,9 +509,7 @@ const ensureBottomAdsterraDisplayLoader = () => {
       container.dataset.adsterraLoading = '0';
       container.dataset.adsterraLoaded = '0';
       bottomAdsterraDisplayLoaded = false;
-      if (!renderInternalSiteAdFallback(container, 'bottom')) {
-        renderBottomAdsterraFallback(container);
-      }
+      setInternalUnderlayVisible(container, true);
     };
     script.async = false;
     script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
@@ -569,6 +525,7 @@ const ensureBottomAdsterraDisplayLoader = () => {
           bottomAdsterraDisplayLoaded = true;
           container.dataset.adsterraLoading = '0';
           container.dataset.adsterraLoaded = '1';
+          setInternalUnderlayVisible(container, false);
           window.requestAnimationFrame(fitBottomAdsterraDisplay);
           return;
         }
