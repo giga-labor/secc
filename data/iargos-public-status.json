@@ -5,7 +5,7 @@
   "learning_mode": false,
   "developing_mode": false,
   "severity": "ok",
-  "summary": "Autodiagnosi autoreferenziali escluse dal calcolo: 14.",
+  "summary": "Autodiagnosi autoreferenziali escluse dal calcolo: 13.",
   "overview_green": false,
   "task_precedence": "ROUTINE",
   "alignment_priority": {
@@ -57,11 +57,11 @@
     "circuit_state": "CLOSED",
     "active_priorities": [],
     "active_priorities_count": 0,
-    "consecutive_crisis_cycles": 0,
+    "consecutive_crisis_cycles": 1,
     "human_escalation_requested": false,
-    "novelty_detected": false,
-    "novelty_streak": 0,
-    "novelty_last_reason": "",
+    "novelty_detected": true,
+    "novelty_streak": 1,
+    "novelty_last_reason": "unknown_final_outcome; unclassified_non_improving_case",
     "stabilization_mode_active": false,
     "stabilization_mode_reason": "",
     "stabilization_mode_since": "",
@@ -71,8 +71,8 @@
     "recovery_guidance": {
       "ready_to_exit": false,
       "stable_cycles": 0,
-      "novelty_streak": 0,
-      "crisis_cycles": 0,
+      "novelty_streak": 1,
+      "crisis_cycles": 1,
       "human_escalation_requested": false,
       "stabilization_mode_active": false,
       "post_intervention_active": false,
@@ -299,7 +299,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro.",
       "live_system": {
-        "updated_at": "2026-04-05 23:29:20",
+        "updated_at": "2026-04-05 23:30:12",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -361,9 +361,9 @@
               "effectiveness_pct": 0.0
             },
             "publish": {
-              "attempts": 6,
+              "attempts": 7,
               "resolves": 3,
-              "effectiveness_pct": 50.0
+              "effectiveness_pct": 42.9
             }
           }
         },
@@ -389,7 +389,7 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-05 23:28:27",
+            "last_reload": "2026-04-05 23:30:09",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
@@ -403,7 +403,7 @@
               },
               "check_draws_online": {
                 "score_global": 0.102,
-                "total_obs_weighted": 119.65,
+                "total_obs_weighted": 119.64,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -424,20 +424,20 @@
               },
               "mirror_rebuild": {
                 "score_global": 0.111,
-                "total_obs_weighted": 17.69,
+                "total_obs_weighted": 17.68,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.251,
-                "total_obs_weighted": 90.41,
+                "score_global": 0.249,
+                "total_obs_weighted": 91.4,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 264.11
+            "total_observations_weighted": 265.08
           }
         }
       },
@@ -448,8 +448,7 @@
         "enabled": true,
         "playbook": "playbook_publish_recovery",
         "active_flags": [
-          "p6_local_publish",
-          "p8_backup_over_limit"
+          "p6_local_publish"
         ],
         "mismatch_detected": false,
         "mismatch_count": 0,
@@ -468,7 +467,7 @@
           "publish",
           "backup_prune_mirror_keep5"
         ],
-        "ts": "2026-04-05 23:29:20"
+        "ts": "2026-04-05 23:30:12"
       }
     },
     "catalog_stale": false,
@@ -484,10 +483,10 @@
   },
   "tutor_stabilization": {
     "triggered": false,
-    "novelty_detected": false,
-    "novelty_streak": 0,
+    "novelty_detected": true,
+    "novelty_streak": 1,
     "threshold": 2,
-    "reason": "",
+    "reason": "unknown_final_outcome; unclassified_non_improving_case",
     "active": false,
     "since": ""
   },
@@ -502,7 +501,7 @@
     "last_sync_at": "2026-04-04T21:47:55",
     "last_training_at": "2026-04-05 23:14:45",
     "last_deploy_at": "2026-04-05 21:57:59",
-    "mirror_last_modified_at": "2026-04-05 23:28:53",
+    "mirror_last_modified_at": "2026-04-05 23:29:21",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 0,
