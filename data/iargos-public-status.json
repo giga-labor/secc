@@ -299,7 +299,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro.",
       "live_system": {
-        "updated_at": "2026-04-05 20:06:07",
+        "updated_at": "2026-04-05 20:12:58",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -361,24 +361,24 @@
               "effectiveness_pct": 25.0
             },
             "check_draws_online": {
-              "attempts": 11,
+              "attempts": 18,
               "resolves": 0,
               "effectiveness_pct": 0.0
             },
             "deploy_mirror_local": {
-              "attempts": 19,
-              "resolves": 15,
-              "effectiveness_pct": 78.9
+              "attempts": 21,
+              "resolves": 17,
+              "effectiveness_pct": 81.0
             },
             "mirror_rebuild": {
-              "attempts": 15,
-              "resolves": 15,
+              "attempts": 17,
+              "resolves": 17,
               "effectiveness_pct": 100.0
             },
             "publish": {
-              "attempts": 39,
+              "attempts": 41,
               "resolves": 13,
-              "effectiveness_pct": 33.3
+              "effectiveness_pct": 31.7
             }
           }
         },
@@ -395,7 +395,7 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-05 20:06:04",
+            "last_reload": "2026-04-05 20:12:56",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
@@ -408,15 +408,15 @@
                 "verdict": "problematico"
               },
               "check_draws_online": {
-                "score_global": 0.111,
-                "total_obs_weighted": 17.88,
+                "score_global": 0.108,
+                "total_obs_weighted": 24.87,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "deploy_mirror_local": {
-                "score_global": 0.225,
-                "total_obs_weighted": 22.88,
+                "score_global": 0.215,
+                "total_obs_weighted": 24.87,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -429,21 +429,21 @@
                 "verdict": "neutro"
               },
               "mirror_rebuild": {
-                "score_global": 0.112,
-                "total_obs_weighted": 15.93,
+                "score_global": 0.111,
+                "total_obs_weighted": 17.93,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.225,
-                "total_obs_weighted": 76.56,
+                "score_global": 0.221,
+                "total_obs_weighted": 78.53,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 139.21
+            "total_observations_weighted": 152.14
           }
         }
       },
@@ -476,12 +476,12 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-05 20:06:02",
+    "last_push_at": "2026-04-05 20:12:55",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-04T21:47:55",
     "last_training_at": "2026-04-04 22:17:16",
-    "last_deploy_at": "2026-04-05 20:04:58",
+    "last_deploy_at": "2026-04-05 20:11:43",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 15,
     "queue_pending": 0,
@@ -501,13 +501,6 @@
       "ts": "2026-04-05 19:17:37",
       "event": "Audit allineamento: ok",
       "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-05 18:30:35",
-      "event": "Audit allineamento: drift rilevato",
-      "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     }
