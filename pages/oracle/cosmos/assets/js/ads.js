@@ -56,32 +56,103 @@ const BOTTOM_REFERRAL_BANNER_CONFIG = Object.freeze({
 const INTERNAL_SITE_ADS = Object.freeze({
   RIGHT: Object.freeze({
     ENABLED: true,
-    URL: 'https://www.superenalottocc.it/pages/algoritmi/',
-    KICKER: 'SuperEnalottoCC',
-    TITLE: 'Scopri gli algoritmi',
-    CTA: 'Apri ora'
+    VARIANTS: Object.freeze([
+      Object.freeze({
+        URL: 'https://www.superenalottocc.it/pages/algoritmi/',
+        KICKER: 'SuperEnalottoCC',
+        TITLE: 'Algoritmi Premium',
+        CTA: 'Scopri',
+        THEME: 'theme-cosmos'
+      }),
+      Object.freeze({
+        URL: 'https://www.superenalottocc.it/pages/oracle/cosmos/',
+        KICKER: 'Chaos Oracle',
+        TITLE: 'Naviga nel cosmo',
+        CTA: 'Entra',
+        THEME: 'theme-aurora'
+      }),
+      Object.freeze({
+        URL: 'https://www.superenalottocc.it/pages/laboratorio-tecnico/',
+        KICKER: 'Lab Tecnico',
+        TITLE: 'Metriche e insight',
+        CTA: 'Apri',
+        THEME: 'theme-plasma'
+      })
+    ])
   }),
   BOTTOM: Object.freeze({
     ENABLED: true,
-    URL: 'https://www.superenalottocc.it/pages/analisi-statistiche/',
-    TITLE: 'Analisi statistiche live',
-    CTA: 'Entra'
+    VARIANTS: Object.freeze([
+      Object.freeze({
+        URL: 'https://www.superenalottocc.it/pages/analisi-statistiche/',
+        TITLE: 'Analisi statistiche live',
+        CTA: 'Entra',
+        THEME: 'theme-signal'
+      }),
+      Object.freeze({
+        URL: 'https://www.superenalottocc.it/pages/algoritmi/',
+        TITLE: 'Top algoritmi del giorno',
+        CTA: 'Scopri',
+        THEME: 'theme-vortex'
+      }),
+      Object.freeze({
+        URL: 'https://www.superenalottocc.it/pages/community/',
+        TITLE: 'Community previsioni',
+        CTA: 'Partecipa',
+        THEME: 'theme-comet'
+      })
+    ])
   })
 });
 const INTERNAL_SLOT_ADS = Object.freeze({
-  RIGHT: Object.freeze({
-    URL: 'https://www.superenalottocc.it/pages/oracle/cosmos/',
-    TITLE: 'Chaos Oracle',
-    SUB: 'Cosmo interattivo',
-    CTA: 'Apri'
-  }),
-  BOTTOM: Object.freeze({
-    URL: 'https://www.superenalottocc.it/pages/laboratorio-tecnico/',
-    TITLE: 'Lab tecnico',
-    SUB: 'Insights & update',
-    CTA: 'Esplora'
-  })
+  RIGHT: Object.freeze([
+    Object.freeze({
+      URL: 'https://www.superenalottocc.it/pages/oracle/cosmos/',
+      TITLE: 'Chaos Oracle',
+      SUB: 'Cosmo interattivo',
+      CTA: 'Apri',
+      THEME: 'theme-cosmos'
+    }),
+    Object.freeze({
+      URL: 'https://www.superenalottocc.it/pages/algoritmi/',
+      TITLE: 'Pacchetti algoritmi',
+      SUB: 'Nuove strategie',
+      CTA: 'Scopri',
+      THEME: 'theme-aurora'
+    }),
+    Object.freeze({
+      URL: 'https://www.superenalottocc.it/pages/community/',
+      TITLE: 'Community VIP',
+      SUB: 'Trend e ranking',
+      CTA: 'Accedi',
+      THEME: 'theme-plasma'
+    })
+  ]),
+  BOTTOM: Object.freeze([
+    Object.freeze({
+      URL: 'https://www.superenalottocc.it/pages/laboratorio-tecnico/',
+      TITLE: 'Lab tecnico',
+      SUB: 'Insights & update',
+      CTA: 'Esplora',
+      THEME: 'theme-signal'
+    }),
+    Object.freeze({
+      URL: 'https://www.superenalottocc.it/pages/analisi-statistiche/',
+      TITLE: 'Statistiche live',
+      SUB: 'Pattern in tempo reale',
+      CTA: 'Entra',
+      THEME: 'theme-vortex'
+    }),
+    Object.freeze({
+      URL: 'https://www.superenalottocc.it/pages/algoritmi/spotlight/',
+      TITLE: 'Spotlight algoritmi',
+      SUB: 'I piu performanti',
+      CTA: 'Apri',
+      THEME: 'theme-comet'
+    })
+  ])
 });
+let _houseCreativeCounter = 0;
 
 const isLocalDevHost = () => {
   try {
@@ -337,25 +408,31 @@ const buildBottomAdsterraDisplayMarkup = () => {
 
 const buildInternalUnderlayMarkup = (position) => {
   const cfg = position === 'right' ? INTERNAL_SITE_ADS.RIGHT : INTERNAL_SITE_ADS.BOTTOM;
-  if (!cfg || !cfg.ENABLED) return '';
-  const url = String(cfg.URL || '').trim();
+  const list = Array.isArray(cfg?.VARIANTS) ? cfg.VARIANTS : [];
+  if (!cfg || !cfg.ENABLED || !list.length) return '';
+  const i = _houseCreativeCounter % list.length;
+  _houseCreativeCounter += 1;
+  const creative = list[i] || list[0];
+  const url = String(creative.URL || '').trim();
   if (!/^https?:\/\//i.test(url)) return '';
   if (position === 'right') {
-    const kicker = String(cfg.KICKER || 'SuperEnalottoCC');
-    const title = String(cfg.TITLE || 'Scopri di piu');
-    const cta = String(cfg.CTA || 'Apri');
+    const kicker = String(creative.KICKER || 'SuperEnalottoCC');
+    const title = String(creative.TITLE || 'Scopri di piu');
+    const cta = String(creative.CTA || 'Apri');
+    const theme = String(creative.THEME || 'theme-cosmos');
     return `
-      <a class="ad-internal-fallback ad-internal-fallback--right ad-internal-underlay" data-cc-internal-underlay="1" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
+      <a class="ad-internal-fallback ad-internal-fallback--right ad-internal-underlay ${theme}" data-cc-internal-underlay="1" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
         <span class="ad-internal-fallback__kicker">${kicker}</span>
         <strong class="ad-internal-fallback__title">${title}</strong>
         <span class="ad-internal-fallback__cta">${cta}</span>
       </a>
     `;
   }
-  const title = String(cfg.TITLE || 'Scopri di piu');
-  const cta = String(cfg.CTA || 'Apri');
+  const title = String(creative.TITLE || 'Scopri di piu');
+  const cta = String(creative.CTA || 'Apri');
+  const theme = String(creative.THEME || 'theme-signal');
   return `
-    <a class="ad-internal-fallback ad-internal-fallback--bottom ad-internal-underlay" data-cc-internal-underlay="1" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
+    <a class="ad-internal-fallback ad-internal-fallback--bottom ad-internal-underlay ${theme}" data-cc-internal-underlay="1" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
       <strong class="ad-internal-fallback__title">${title}</strong>
       <span class="ad-internal-fallback__cta">${cta}</span>
     </a>
@@ -1021,14 +1098,20 @@ const createBlockedNotice = (title = 'Annunci sospesi', text = 'Apri "Gestisci c
 };
 
 const createInternalSlotAd = (position = 'right') => {
-  const cfg = position === 'bottom' ? INTERNAL_SLOT_ADS.BOTTOM : INTERNAL_SLOT_ADS.RIGHT;
+  const list = position === 'bottom' ? INTERNAL_SLOT_ADS.BOTTOM : INTERNAL_SLOT_ADS.RIGHT;
+  const variants = Array.isArray(list) ? list : [];
+  if (!variants.length) return null;
+  const i = _houseCreativeCounter % variants.length;
+  _houseCreativeCounter += 1;
+  const cfg = variants[i] || variants[0];
   const url = String(cfg.URL || '').trim();
   if (!/^https?:\/\//i.test(url)) return null;
   const title = String(cfg.TITLE || 'SuperEnalottoCC');
   const sub = String(cfg.SUB || '');
   const cta = String(cfg.CTA || 'Apri');
+  const theme = String(cfg.THEME || (position === 'bottom' ? 'theme-signal' : 'theme-cosmos'));
   const wrap = document.createElement('a');
-  wrap.className = `ad-house-slot ad-house-slot--${position}`;
+  wrap.className = `ad-house-slot ad-house-slot--${position} ${theme}`;
   wrap.href = url;
   wrap.target = '_blank';
   wrap.rel = 'noopener noreferrer sponsored';
