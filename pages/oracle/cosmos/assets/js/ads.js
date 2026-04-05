@@ -331,6 +331,28 @@ const renderBottomAdsterraFallback = (container) => {
   container.dataset.adsterraLoaded = 'fallback';
 };
 
+const hasAdsterraCreative = (container) => {
+  if (!(container instanceof HTMLElement)) return false;
+  const iframe = container.querySelector('iframe');
+  if (iframe) return true;
+  const img = container.querySelector('img');
+  if (img) return true;
+  const rich = Array.from(container.children).some((el) => {
+    const tag = String(el.tagName || '').toUpperCase();
+    if (tag === 'SCRIPT') return false;
+    if (tag === 'IFRAME' || tag === 'IMG' || tag === 'OBJECT' || tag === 'EMBED') return true;
+    return el.childElementCount > 0 || String(el.textContent || '').trim().length > 0;
+  });
+  return rich;
+};
+
+const clearAdsterraScripts = (container) => {
+  if (!(container instanceof HTMLElement)) return;
+  container.querySelectorAll('script[data-cc-adsterra-right-display], script[data-cc-adsterra-bottom-display]').forEach((el) => {
+    try { el.remove(); } catch (_) {}
+  });
+};
+
 const ensureRightAdsterraDisplayLoader = () => {
   if (!RIGHT_ADSTERRA_DISPLAY_CONFIG.ENABLED) return;
   if (rightAdsterraDisplayLoaded) return;
@@ -344,42 +366,56 @@ const ensureRightAdsterraDisplayLoader = () => {
   const container = document.getElementById(containerId);
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
+  if (container.dataset.adsterraLoading === '1') return;
   if (container.dataset.adsterraLoaded === '1') {
     rightAdsterraDisplayLoaded = true;
     return;
   }
+  container.dataset.adsterraLoading = '1';
+  container.dataset.adsterraLoaded = '0';
   container.textContent = '';
-  window.atOptions = {
-    key,
-    format,
-    height,
-    width,
-    params: {}
-  };
-  const script = document.createElement('script');
-  script.async = false;
-  script.src = scriptSrc;
-  script.setAttribute('data-cfasync', 'false');
-  script.dataset.ccAdsterraRightDisplay = 'true';
-  script.onload = () => {
-    rightAdsterraDisplayLoaded = true;
-    container.dataset.adsterraLoaded = '1';
-    window.requestAnimationFrame(fitRightAdsterraDisplay);
-  };
-  script.onerror = () => {
-    rightAdsterraDisplayLoaded = false;
-    container.dataset.adsterraLoaded = '0';
-    renderRightAdsterraFallback(container);
-  };
-  container.appendChild(script);
-  window.setTimeout(() => {
-    const hasCreative = Boolean(container.querySelector('iframe, img, div'));
-    const state = String(container.dataset.adsterraLoaded || '');
-    if (!hasCreative && state !== '1') {
+
+  const maxAttempts = 2;
+  const runAttempt = (attemptNo) => {
+    clearAdsterraScripts(container);
+    window.atOptions = { key, format, height, width, params: {} };
+    const script = document.createElement('script');
+    script.async = false;
+    script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
+    script.setAttribute('data-cfasync', 'false');
+    script.dataset.ccAdsterraRightDisplay = 'true';
+    script.onerror = () => {
+      if (attemptNo < maxAttempts) {
+        window.setTimeout(() => runAttempt(attemptNo + 1), 260);
+        return;
+      }
+      container.dataset.adsterraLoading = '0';
+      container.dataset.adsterraLoaded = '0';
       rightAdsterraDisplayLoaded = false;
       renderRightAdsterraFallback(container);
-    }
-  }, 3500);
+    };
+    script.onload = () => {
+      window.setTimeout(() => {
+        if (hasAdsterraCreative(container)) {
+          rightAdsterraDisplayLoaded = true;
+          container.dataset.adsterraLoading = '0';
+          container.dataset.adsterraLoaded = '1';
+          window.requestAnimationFrame(fitRightAdsterraDisplay);
+          return;
+        }
+        if (attemptNo < maxAttempts) {
+          runAttempt(attemptNo + 1);
+          return;
+        }
+        container.dataset.adsterraLoading = '0';
+        container.dataset.adsterraLoaded = '0';
+        rightAdsterraDisplayLoaded = false;
+        renderRightAdsterraFallback(container);
+      }, 1200);
+    };
+    container.appendChild(script);
+  };
+  runAttempt(1);
 };
 
 const ensureBottomAdsterraDisplayLoader = () => {
@@ -395,36 +431,56 @@ const ensureBottomAdsterraDisplayLoader = () => {
   const container = document.getElementById(containerId);
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
+  if (container.dataset.adsterraLoading === '1') return;
   if (container.dataset.adsterraLoaded === '1') {
     bottomAdsterraDisplayLoaded = true;
     return;
   }
+  container.dataset.adsterraLoading = '1';
+  container.dataset.adsterraLoaded = '0';
   container.textContent = '';
-  window.atOptions = { key, format, height, width, params: {} };
-  const script = document.createElement('script');
-  script.async = false;
-  script.src = scriptSrc;
-  script.setAttribute('data-cfasync', 'false');
-  script.dataset.ccAdsterraBottomDisplay = 'true';
-  script.onload = () => {
-    bottomAdsterraDisplayLoaded = true;
-    container.dataset.adsterraLoaded = '1';
-    window.requestAnimationFrame(fitBottomAdsterraDisplay);
-  };
-  script.onerror = () => {
-    bottomAdsterraDisplayLoaded = false;
-    container.dataset.adsterraLoaded = '0';
-    renderBottomAdsterraFallback(container);
-  };
-  container.appendChild(script);
-  window.setTimeout(() => {
-    const hasCreative = Boolean(container.querySelector('iframe, img, div'));
-    const state = String(container.dataset.adsterraLoaded || '');
-    if (!hasCreative && state !== '1') {
+
+  const maxAttempts = 2;
+  const runAttempt = (attemptNo) => {
+    clearAdsterraScripts(container);
+    window.atOptions = { key, format, height, width, params: {} };
+    const script = document.createElement('script');
+    script.async = false;
+    script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
+    script.setAttribute('data-cfasync', 'false');
+    script.dataset.ccAdsterraBottomDisplay = 'true';
+    script.onerror = () => {
+      if (attemptNo < maxAttempts) {
+        window.setTimeout(() => runAttempt(attemptNo + 1), 260);
+        return;
+      }
+      container.dataset.adsterraLoading = '0';
+      container.dataset.adsterraLoaded = '0';
       bottomAdsterraDisplayLoaded = false;
       renderBottomAdsterraFallback(container);
-    }
-  }, 3500);
+    };
+    script.onload = () => {
+      window.setTimeout(() => {
+        if (hasAdsterraCreative(container)) {
+          bottomAdsterraDisplayLoaded = true;
+          container.dataset.adsterraLoading = '0';
+          container.dataset.adsterraLoaded = '1';
+          window.requestAnimationFrame(fitBottomAdsterraDisplay);
+          return;
+        }
+        if (attemptNo < maxAttempts) {
+          runAttempt(attemptNo + 1);
+          return;
+        }
+        container.dataset.adsterraLoading = '0';
+        container.dataset.adsterraLoaded = '0';
+        bottomAdsterraDisplayLoaded = false;
+        renderBottomAdsterraFallback(container);
+      }, 1200);
+    };
+    container.appendChild(script);
+  };
+  runAttempt(1);
 };
 
 const fitRightAdsterraDisplay = () => {
