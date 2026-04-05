@@ -68,6 +68,20 @@ const INTERNAL_SITE_ADS = Object.freeze({
     CTA: 'Entra'
   })
 });
+const INTERNAL_SLOT_ADS = Object.freeze({
+  RIGHT: Object.freeze({
+    URL: 'https://www.superenalottocc.it/pages/oracle/cosmos/',
+    TITLE: 'Chaos Oracle',
+    SUB: 'Cosmo interattivo',
+    CTA: 'Apri'
+  }),
+  BOTTOM: Object.freeze({
+    URL: 'https://www.superenalottocc.it/pages/laboratorio-tecnico/',
+    TITLE: 'Lab tecnico',
+    SUB: 'Insights & update',
+    CTA: 'Esplora'
+  })
+});
 
 const isLocalDevHost = () => {
   try {
@@ -1006,10 +1020,38 @@ const createBlockedNotice = (title = 'Annunci sospesi', text = 'Apri "Gestisci c
   return notice;
 };
 
+const createInternalSlotAd = (position = 'right') => {
+  const cfg = position === 'bottom' ? INTERNAL_SLOT_ADS.BOTTOM : INTERNAL_SLOT_ADS.RIGHT;
+  const url = String(cfg.URL || '').trim();
+  if (!/^https?:\/\//i.test(url)) return null;
+  const title = String(cfg.TITLE || 'SuperEnalottoCC');
+  const sub = String(cfg.SUB || '');
+  const cta = String(cfg.CTA || 'Apri');
+  const wrap = document.createElement('a');
+  wrap.className = `ad-house-slot ad-house-slot--${position}`;
+  wrap.href = url;
+  wrap.target = '_blank';
+  wrap.rel = 'noopener noreferrer sponsored';
+  wrap.setAttribute('aria-label', title);
+  wrap.innerHTML = `
+    <span class="ad-house-slot__orb ad-house-slot__orb--a"></span>
+    <span class="ad-house-slot__orb ad-house-slot__orb--b"></span>
+    <strong class="ad-house-slot__title">${title}</strong>
+    <span class="ad-house-slot__sub">${sub}</span>
+    <span class="ad-house-slot__cta">${cta}</span>
+  `;
+  return wrap;
+};
+
 const renderBlockedSlotState = (slotNode, mode, title = 'Annunci sospesi', text = 'Apri "Gestisci cookie" per attivare AdSense.') => {
   if (!(slotNode instanceof HTMLElement)) return;
   slotNode.textContent = '';
-  if (SHOW_BLOCKED_ADS_NOTICE) {
+  const pos = String(slotNode.getAttribute('data-cc-ad-slot') || '').toLowerCase().includes('bottom') ? 'bottom' : 'right';
+  const houseAd = createInternalSlotAd(pos);
+  if (houseAd) {
+    slotNode.classList.remove('is-transparent-empty');
+    slotNode.appendChild(houseAd);
+  } else if (SHOW_BLOCKED_ADS_NOTICE) {
     slotNode.appendChild(createBlockedNotice(title, text));
     slotNode.classList.remove('is-transparent-empty');
   } else {

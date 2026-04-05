@@ -357,6 +357,118 @@
   background: transparent;
 }
 
+.ad-house-slot {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  text-decoration: none;
+  color: #f4f8ff;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(173, 213, 255, 0.42);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(255,255,255,0.08);
+  isolation: isolate;
+}
+
+.ad-house-slot__orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.ad-house-slot__orb--a {
+  width: 120px;
+  height: 120px;
+  left: -20px;
+  top: -18px;
+  background: radial-gradient(circle, rgba(114,190,255,0.95), rgba(114,190,255,0.05));
+}
+
+.ad-house-slot__orb--b {
+  width: 104px;
+  height: 104px;
+  right: -16px;
+  bottom: -18px;
+  background: radial-gradient(circle, rgba(255,204,127,0.92), rgba(255,204,127,0.03));
+}
+
+.ad-house-slot__title,
+.ad-house-slot__sub,
+.ad-house-slot__cta {
+  position: relative;
+  z-index: 1;
+}
+
+.ad-house-slot__title {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ad-house-slot__sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.ad-house-slot__cta {
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 222, 152, 0.7);
+  border-radius: 999px;
+  background: rgba(255, 206, 120, 0.12);
+  padding: 0.26rem 0.56rem;
+  justify-self: start;
+}
+
+.ad-house-slot--right {
+  width: 100%;
+  min-height: 260px;
+  grid-template-rows: auto auto auto;
+  align-content: center;
+  gap: 0.44rem;
+  padding: 0.7rem 0.62rem;
+  background:
+    linear-gradient(165deg, rgba(10, 24, 52, 0.95), rgba(6, 13, 30, 0.96)),
+    repeating-linear-gradient(150deg, rgba(120,170,255,0.08) 0 8px, rgba(120,170,255,0) 8px 16px);
+}
+
+.ad-house-slot--right .ad-house-slot__title {
+  font-size: 1rem;
+}
+
+.ad-house-slot--bottom {
+  width: 100%;
+  min-height: 50px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.58rem;
+  padding: 0.34rem 0.5rem;
+  background:
+    linear-gradient(90deg, rgba(22, 38, 66, 0.95), rgba(17, 22, 45, 0.96)),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+}
+
+.ad-house-slot--bottom .ad-house-slot__title {
+  grid-column: 1;
+  font-size: 0.84rem;
+}
+
+.ad-house-slot--bottom .ad-house-slot__sub {
+  grid-column: 1;
+  font-size: 0.56rem;
+}
+
+.ad-house-slot--bottom .ad-house-slot__cta {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  justify-self: end;
+}
+
 .bottom-ad {
   position: fixed;
   left: 0;
