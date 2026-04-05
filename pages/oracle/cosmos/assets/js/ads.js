@@ -23,6 +23,7 @@ const RIGHT_REFERRAL_BANNER_CONFIG = Object.freeze({
   ENABLED: true,
   URL: 'https://beta.publishers.adsterra.com/referral/gEwu8JJXMD',
   IMAGE_SRC: 'https://landings-cdn.adsterratech.com/referralBanners/gif/120x150_adsterra_reff.gif',
+  LOCAL_IMAGE_SRC: 'pages/oracle/cosmos/assets/img/adsterra/referral-120x150.gif',
   LABEL: 'Partner'
 });
 const RIGHT_ADSTERRA_DISPLAY_CONFIG = Object.freeze({
@@ -49,6 +50,7 @@ const BOTTOM_REFERRAL_BANNER_CONFIG = Object.freeze({
   ENABLED: true,
   URL: 'https://beta.publishers.adsterra.com/referral/gEwu8JJXMD',
   IMAGE_SRC: 'https://landings-cdn.adsterratech.com/referralBanners/png/80%20x%2030%20px.png',
+  LOCAL_IMAGE_SRC: 'pages/oracle/cosmos/assets/img/adsterra/referral-80x30.png',
   LABEL: 'Partner'
 });
 
@@ -307,13 +309,27 @@ const renderRightAdsterraFallback = (container) => {
   if (!(container instanceof HTMLElement)) return;
   const url = String(RIGHT_REFERRAL_BANNER_CONFIG.URL || '').trim();
   const src = String(RIGHT_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
-  if (!/^https?:\/\//i.test(url) || !/^https?:\/\//i.test(src)) return;
+  const localSrc = String(RIGHT_REFERRAL_BANNER_CONFIG.LOCAL_IMAGE_SRC || '').trim();
+  if (!/^https?:\/\//i.test(url)) return;
+  const smartUrl = String(SMARTLINK_CONFIG.URL || '').trim();
+  const smartLinkMarkup = SMARTLINK_CONFIG.ENABLED && /^https?:\/\//i.test(smartUrl)
+    ? `<a class="ad-rail__label-link" href="${smartUrl}" target="_blank" rel="nofollow sponsored noopener noreferrer">Apri contenuto sponsorizzato</a>`
+    : '';
+  const resolvedSrc = localSrc || src;
+  if (!resolvedSrc) return;
   container.innerHTML = `
     <a class="ad-referral-banner" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Partner fallback">
       <span class="ad-referral-banner__label">Partner</span>
-      <img class="ad-referral-banner__img" alt="Partner fallback" src="${src}" width="120" height="150" loading="lazy" decoding="async">
+      <img class="ad-referral-banner__img" alt="Partner fallback" src="${resolvedSrc}" data-src-remote="${src}" width="120" height="150" loading="lazy" decoding="async">
     </a>
+    ${smartLinkMarkup}
   `;
+  const img = container.querySelector('.ad-referral-banner__img');
+  if (img instanceof HTMLImageElement && src && localSrc && localSrc !== src) {
+    img.addEventListener('error', () => {
+      img.src = src;
+    }, { once: true });
+  }
   container.dataset.adsterraLoaded = 'fallback';
 };
 
@@ -321,13 +337,22 @@ const renderBottomAdsterraFallback = (container) => {
   if (!(container instanceof HTMLElement)) return;
   const url = String(BOTTOM_REFERRAL_BANNER_CONFIG.URL || '').trim();
   const src = String(BOTTOM_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
-  if (!/^https?:\/\//i.test(url) || !/^https?:\/\//i.test(src)) return;
+  const localSrc = String(BOTTOM_REFERRAL_BANNER_CONFIG.LOCAL_IMAGE_SRC || '').trim();
+  if (!/^https?:\/\//i.test(url)) return;
+  const resolvedSrc = localSrc || src;
+  if (!resolvedSrc) return;
   container.innerHTML = `
     <a class="ad-referral-badge" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Partner fallback">
       <span class="ad-referral-badge__label">Partner</span>
-      <img class="ad-referral-badge__img" alt="Partner fallback" src="${src}" width="80" height="30" loading="lazy" decoding="async">
+      <img class="ad-referral-badge__img" alt="Partner fallback" src="${resolvedSrc}" data-src-remote="${src}" width="80" height="30" loading="lazy" decoding="async">
     </a>
   `;
+  const img = container.querySelector('.ad-referral-badge__img');
+  if (img instanceof HTMLImageElement && src && localSrc && localSrc !== src) {
+    img.addEventListener('error', () => {
+      img.src = src;
+    }, { once: true });
+  }
   container.dataset.adsterraLoaded = 'fallback';
 };
 
