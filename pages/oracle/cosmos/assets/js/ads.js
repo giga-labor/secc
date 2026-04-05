@@ -346,6 +346,7 @@ const renderRightAdsterraFallback = (container) => {
     }, { once: true });
   }
   container.dataset.adsterraLoaded = 'fallback';
+  container.dataset.adsterraRetryAt = String(Date.now() + 45000);
 };
 
 const renderBottomAdsterraFallback = (container) => {
@@ -369,6 +370,7 @@ const renderBottomAdsterraFallback = (container) => {
     }, { once: true });
   }
   container.dataset.adsterraLoaded = 'fallback';
+  container.dataset.adsterraRetryAt = String(Date.now() + 45000);
 };
 
 const renderInternalSiteAdFallback = (container, position) => {
@@ -401,19 +403,30 @@ const renderInternalSiteAdFallback = (container, position) => {
   }
 
   container.dataset.adsterraLoaded = 'fallback-internal';
+  container.dataset.adsterraRetryAt = String(Date.now() + 45000);
   return true;
+};
+
+const isVisibleAdElement = (el) => {
+  if (!(el instanceof HTMLElement)) return false;
+  const style = window.getComputedStyle(el);
+  if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+  if (Number(style.opacity || '1') <= 0.02) return false;
+  const rect = el.getBoundingClientRect();
+  return rect.width >= 24 && rect.height >= 24;
 };
 
 const hasAdsterraCreative = (container) => {
   if (!(container instanceof HTMLElement)) return false;
   const iframe = container.querySelector('iframe');
-  if (iframe) return true;
+  if (iframe && isVisibleAdElement(iframe)) return true;
   const img = container.querySelector('img');
-  if (img) return true;
+  if (img && isVisibleAdElement(img)) return true;
   const rich = Array.from(container.children).some((el) => {
     const tag = String(el.tagName || '').toUpperCase();
     if (tag === 'SCRIPT') return false;
-    if (tag === 'IFRAME' || tag === 'IMG' || tag === 'OBJECT' || tag === 'EMBED') return true;
+    if (!isVisibleAdElement(el)) return false;
+    if (tag === 'IFRAME' || tag === 'IMG' || tag === 'OBJECT' || tag === 'EMBED' || tag === 'A') return true;
     return el.childElementCount > 0 || String(el.textContent || '').trim().length > 0;
   });
   return rich;
@@ -440,6 +453,9 @@ const ensureRightAdsterraDisplayLoader = () => {
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
   if (container.dataset.adsterraLoading === '1') return;
+  const loadedState = String(container.dataset.adsterraLoaded || '');
+  const retryAt = Number.parseInt(String(container.dataset.adsterraRetryAt || '0'), 10) || 0;
+  if ((loadedState === 'fallback' || loadedState === 'fallback-internal') && Date.now() < retryAt) return;
   if (container.dataset.adsterraLoaded === '1') {
     rightAdsterraDisplayLoaded = true;
     return;
@@ -509,6 +525,9 @@ const ensureBottomAdsterraDisplayLoader = () => {
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
   if (container.dataset.adsterraLoading === '1') return;
+  const loadedState = String(container.dataset.adsterraLoaded || '');
+  const retryAt = Number.parseInt(String(container.dataset.adsterraRetryAt || '0'), 10) || 0;
+  if ((loadedState === 'fallback' || loadedState === 'fallback-internal') && Date.now() < retryAt) return;
   if (container.dataset.adsterraLoaded === '1') {
     bottomAdsterraDisplayLoaded = true;
     return;
