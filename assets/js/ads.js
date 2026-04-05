@@ -22,8 +22,9 @@ const RIGHT_RAIL_SMARTLINK_CONFIG = Object.freeze({
 const RIGHT_REFERRAL_BANNER_CONFIG = Object.freeze({
   ENABLED: true,
   URL: 'https://beta.publishers.adsterra.com/referral/gEwu8JJXMD',
-  IMAGE_SRC: 'https://landings-cdn.adsterratech.com/referralBanners/gif/120x150_adsterra_reff.gif',
-  LABEL: 'Partner'
+  IMAGE_SRC: 'assets/img/adsterra/referral-120x150.gif',
+  LABEL: 'Partner',
+  CLICKABLE: false
 });
 const RIGHT_ADSTERRA_DISPLAY_CONFIG = Object.freeze({
   ENABLED: true,
@@ -48,8 +49,9 @@ const BOTTOM_ADSTERRA_DISPLAY_CONFIG = Object.freeze({
 const BOTTOM_REFERRAL_BANNER_CONFIG = Object.freeze({
   ENABLED: true,
   URL: 'https://beta.publishers.adsterra.com/referral/gEwu8JJXMD',
-  IMAGE_SRC: 'https://landings-cdn.adsterratech.com/referralBanners/png/80%20x%2030%20px.png',
-  LABEL: 'Partner'
+  IMAGE_SRC: 'assets/img/adsterra/referral-80x30.png',
+  LABEL: 'Partner',
+  CLICKABLE: false
 });
 
 const isLocalDevHost = () => {
@@ -62,6 +64,9 @@ const isLocalDevHost = () => {
 };
 
 const ADS_THIRD_PARTY_LOCAL_BYPASS = isLocalDevHost();
+const UNSAFE_AD_HOST_PATTERNS = Object.freeze([
+  'effectivegatecpm.com'
+]);
 
 const CONSENT_STORAGE_KEY = 'cc_cookie_consent_v1';
 const CONSENT_EVENT_NAME = 'cc:consent-updated';
@@ -173,6 +178,56 @@ const ensureAdsStylesheet = () => {
   return adsStylesheetPromise;
 };
 
+const purgeUnsafeAdResidues = () => {
+  const patterns = UNSAFE_AD_HOST_PATTERNS;
+  if (!patterns || patterns.length === 0) return;
+
+  document.querySelectorAll('script[src]').forEach((node) => {
+    if (!(node instanceof HTMLScriptElement)) return;
+    const src = String(node.getAttribute('src') || '').toLowerCase();
+    if (!src) return;
+    if (!patterns.some((pattern) => src.includes(pattern))) return;
+    node.remove();
+  });
+
+  document.querySelectorAll('[data-smartlink-card], [data-smartlink-open-window]').forEach((node) => {
+    if (node instanceof HTMLElement) node.remove();
+  });
+};
+
+let adPopupGuardInstalled = false;
+let adWindowOpenAllowedUntil = 0;
+
+const isAdInteractionTarget = (target) => {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest('.ad-adsterra-display, .ad-referral-banner, .ad-referral-badge, .ad-slot, .ad-slot-host'));
+};
+
+const installAdPopupGuard = () => {
+  if (adPopupGuardInstalled) return;
+  adPopupGuardInstalled = true;
+
+  const originalOpen = typeof window.open === 'function' ? window.open.bind(window) : null;
+  if (!originalOpen) return;
+
+  document.addEventListener('pointerdown', (event) => {
+    adWindowOpenAllowedUntil = isAdInteractionTarget(event.target) ? (Date.now() + 1500) : 0;
+  }, true);
+
+  document.addEventListener('keydown', (event) => {
+    const key = String(event?.key || '').toLowerCase();
+    if (key !== 'enter' && key !== ' ') return;
+    adWindowOpenAllowedUntil = isAdInteractionTarget(event.target) ? (Date.now() + 1500) : 0;
+  }, true);
+
+  window.open = function guardedWindowOpen(...args) {
+    if (Date.now() <= adWindowOpenAllowedUntil) {
+      return originalOpen(...args);
+    }
+    return null;
+  };
+};
+
 const buildPolicyRowMarkup = (baseHrefPrefix) => `
   <div class="ad-policy-row ad-policy-row--fixed" data-ad-policy-row="true" aria-label="Informazioni legali">
     <div class="ad-policy-row__top">
@@ -238,37 +293,48 @@ const buildRightRailSmartlinkMarkup = () => {
 
 const buildBottomReferralBannerMarkup = () => {
   if (!BOTTOM_REFERRAL_BANNER_CONFIG.ENABLED) return '';
-  const url = String(BOTTOM_REFERRAL_BANNER_CONFIG.URL || '').trim();
-  const src = String(BOTTOM_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
+  const rawSrc = String(BOTTOM_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
+  const src = /^https?:\/\//i.test(rawSrc) ? rawSrc : resolveAssetHref(rawSrc);
   const label = String(BOTTOM_REFERRAL_BANNER_CONFIG.LABEL || 'Partner');
-  if (!/^https?:\/\//i.test(url) || !/^https?:\/\//i.test(src)) return '';
+  if (!/^https?:\/\//i.test(src)) return '';
   return `
-    <a class="ad-referral-badge" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Referral Adsterra (${label})" data-nosnippet>
+    <div class="ad-referral-badge" role="img" aria-label="Referral Adsterra (${label})" data-nosnippet>
       <span class="ad-referral-badge__label" data-nosnippet>${label}</span>
       <img class="ad-referral-badge__img" alt="Referral Adsterra" src="${src}" width="80" height="30" loading="lazy" decoding="async">
-    </a>
+    </div>
   `;
 };
 
 const buildRightReferralBannerMarkup = () => {
   if (!RIGHT_REFERRAL_BANNER_CONFIG.ENABLED) return '';
-  const url = String(RIGHT_REFERRAL_BANNER_CONFIG.URL || '').trim();
-  const src = String(RIGHT_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
+  const rawSrc = String(RIGHT_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
+  const src = /^https?:\/\//i.test(rawSrc) ? rawSrc : resolveAssetHref(rawSrc);
   const label = String(RIGHT_REFERRAL_BANNER_CONFIG.LABEL || 'Partner');
-  if (!/^https?:\/\//i.test(url) || !/^https?:\/\//i.test(src)) return '';
+  if (!/^https?:\/\//i.test(src)) return '';
   return `
-    <a class="ad-referral-banner" href="${url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="Referral Adsterra (${label})" data-nosnippet>
+    <div class="ad-referral-banner" role="img" aria-label="Referral Adsterra (${label})" data-nosnippet>
       <span class="ad-referral-banner__label" data-nosnippet>${label}</span>
       <img class="ad-referral-banner__img" alt="Referral Adsterra" src="${src}" width="120" height="150" loading="lazy" decoding="async">
-    </a>
+    </div>
   `;
 };
 
 const buildRightAdsterraDisplayMarkup = () => {
-  if (!RIGHT_ADSTERRA_DISPLAY_CONFIG.ENABLED) return '';
   const containerId = String(RIGHT_ADSTERRA_DISPLAY_CONFIG.CONTAINER_ID || '').trim();
   const label = String(RIGHT_ADSTERRA_DISPLAY_CONFIG.LABEL || 'Partner Ad');
-  if (!containerId) return '';
+  const fallbackSrcRaw = String(RIGHT_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
+  const fallbackSrc = /^https?:\/\//i.test(fallbackSrcRaw) ? fallbackSrcRaw : resolveAssetHref(fallbackSrcRaw);
+  if (!containerId || !/^https?:\/\//i.test(fallbackSrc)) return '';
+  if (!RIGHT_ADSTERRA_DISPLAY_CONFIG.ENABLED) {
+    return `
+      <section class="ad-adsterra-display ad-adsterra-display--right" aria-label="${label}" data-nosnippet>
+        <p class="ad-adsterra-display__label" data-nosnippet>${label}</p>
+        <div class="ad-adsterra-display__host" id="${containerId}">
+          <img alt="Partner Ad" src="${fallbackSrc}" width="160" height="300" loading="lazy" decoding="async">
+        </div>
+      </section>
+    `;
+  }
   return `
     <section class="ad-adsterra-display ad-adsterra-display--right" aria-label="${label}" data-nosnippet>
       <p class="ad-adsterra-display__label" data-nosnippet>${label}</p>
@@ -280,7 +346,8 @@ const buildRightAdsterraDisplayMarkup = () => {
 const buildAdsLabelHeadMarkup = (position = 'right') => {
   const config = position === 'bottom' ? BOTTOM_REFERRAL_BANNER_CONFIG : RIGHT_REFERRAL_BANNER_CONFIG;
   const url = String(config?.URL || '').trim();
-  const hasLink = config?.ENABLED && /^https?:\/\//i.test(url);
+  const clickable = Boolean(config?.CLICKABLE);
+  const hasLink = config?.ENABLED && clickable && /^https?:\/\//i.test(url);
   if (!hasLink) {
     return '<div class="ad-rail__label-head" data-nosnippet><span data-nosnippet>ANNUNCI</span></div>';
   }
@@ -293,15 +360,49 @@ const buildAdsLabelHeadMarkup = (position = 'right') => {
 };
 
 const buildBottomAdsterraDisplayMarkup = () => {
-  if (!BOTTOM_ADSTERRA_DISPLAY_CONFIG.ENABLED) return '';
   const containerId = String(BOTTOM_ADSTERRA_DISPLAY_CONFIG.CONTAINER_ID || '').trim();
   const label = String(BOTTOM_ADSTERRA_DISPLAY_CONFIG.LABEL || 'Partner Ad');
-  if (!containerId) return '';
+  const fallbackSrcRaw = String(BOTTOM_REFERRAL_BANNER_CONFIG.IMAGE_SRC || '').trim();
+  const fallbackSrc = /^https?:\/\//i.test(fallbackSrcRaw) ? fallbackSrcRaw : resolveAssetHref(fallbackSrcRaw);
+  if (!containerId || !/^https?:\/\//i.test(fallbackSrc)) return '';
+  if (!BOTTOM_ADSTERRA_DISPLAY_CONFIG.ENABLED) {
+    return `
+      <section class="ad-adsterra-display ad-adsterra-display--bottom" aria-label="${label}" data-nosnippet>
+        <div class="ad-adsterra-display__host" id="${containerId}">
+          <img alt="Partner Ad" src="${fallbackSrc}" width="320" height="50" loading="lazy" decoding="async">
+        </div>
+      </section>
+    `;
+  }
   return `
     <section class="ad-adsterra-display ad-adsterra-display--bottom" aria-label="${label}" data-nosnippet>
       <div class="ad-adsterra-display__host" id="${containerId}"></div>
     </section>
   `;
+};
+
+const resolveAdsterraFrameSrc = (position = 'right') => {
+  const file = position === 'bottom' ? 'adsterra-bottom.html' : 'adsterra-right.html';
+  return resolveAssetHref(`assets/ads/${file}`);
+};
+
+const mountAdsterraSandboxFrame = (container, frameSrc) => {
+  if (!(container instanceof HTMLElement)) return null;
+  if (!/^https?:\/\//i.test(String(frameSrc || '').trim())) return null;
+  container.textContent = '';
+  const frame = document.createElement('iframe');
+  frame.title = 'Partner Ad';
+  frame.loading = 'lazy';
+  frame.referrerPolicy = 'no-referrer';
+  frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+  frame.setAttribute('scrolling', 'no');
+  frame.style.width = '100%';
+  frame.style.height = '100%';
+  frame.style.border = '0';
+  frame.style.overflow = 'hidden';
+  frame.src = frameSrc;
+  container.appendChild(frame);
+  return frame;
 };
 
 const ensureRightAdsterraDisplayLoader = () => {
@@ -313,7 +414,8 @@ const ensureRightAdsterraDisplayLoader = () => {
   const format = String(RIGHT_ADSTERRA_DISPLAY_CONFIG.FORMAT || 'iframe').trim();
   const width = Number.parseInt(String(RIGHT_ADSTERRA_DISPLAY_CONFIG.WIDTH || ''), 10);
   const height = Number.parseInt(String(RIGHT_ADSTERRA_DISPLAY_CONFIG.HEIGHT || ''), 10);
-  if (!containerId || !/^https?:\/\//i.test(scriptSrc)) return;
+  if (!containerId) return;
+  if (!/^https?:\/\//i.test(scriptSrc)) return;
   const container = document.getElementById(containerId);
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
@@ -321,29 +423,17 @@ const ensureRightAdsterraDisplayLoader = () => {
     rightAdsterraDisplayLoaded = true;
     return;
   }
-  container.textContent = '';
-  window.atOptions = {
-    key,
-    format,
-    height,
-    width,
-    params: {}
-  };
-  const script = document.createElement('script');
-  script.async = false;
-  script.src = scriptSrc;
-  script.setAttribute('data-cfasync', 'false');
-  script.dataset.ccAdsterraRightDisplay = 'true';
-  script.onload = () => {
+  const frame = mountAdsterraSandboxFrame(container, resolveAdsterraFrameSrc('right'));
+  if (!frame) return;
+  frame.onload = () => {
     rightAdsterraDisplayLoaded = true;
     container.dataset.adsterraLoaded = '1';
     window.requestAnimationFrame(fitRightAdsterraDisplay);
   };
-  script.onerror = () => {
+  frame.onerror = () => {
     rightAdsterraDisplayLoaded = false;
     container.dataset.adsterraLoaded = '0';
   };
-  container.appendChild(script);
 };
 
 const ensureBottomAdsterraDisplayLoader = () => {
@@ -355,7 +445,8 @@ const ensureBottomAdsterraDisplayLoader = () => {
   const format = String(BOTTOM_ADSTERRA_DISPLAY_CONFIG.FORMAT || 'iframe').trim();
   const width = Number.parseInt(String(BOTTOM_ADSTERRA_DISPLAY_CONFIG.WIDTH || ''), 10);
   const height = Number.parseInt(String(BOTTOM_ADSTERRA_DISPLAY_CONFIG.HEIGHT || ''), 10);
-  if (!containerId || !/^https?:\/\//i.test(scriptSrc)) return;
+  if (!containerId) return;
+  if (!/^https?:\/\//i.test(scriptSrc)) return;
   const container = document.getElementById(containerId);
   if (!container) return;
   if (!key || !Number.isFinite(width) || !Number.isFinite(height)) return;
@@ -363,23 +454,17 @@ const ensureBottomAdsterraDisplayLoader = () => {
     bottomAdsterraDisplayLoaded = true;
     return;
   }
-  container.textContent = '';
-  window.atOptions = { key, format, height, width, params: {} };
-  const script = document.createElement('script');
-  script.async = false;
-  script.src = scriptSrc;
-  script.setAttribute('data-cfasync', 'false');
-  script.dataset.ccAdsterraBottomDisplay = 'true';
-  script.onload = () => {
+  const frame = mountAdsterraSandboxFrame(container, resolveAdsterraFrameSrc('bottom'));
+  if (!frame) return;
+  frame.onload = () => {
     bottomAdsterraDisplayLoaded = true;
     container.dataset.adsterraLoaded = '1';
     window.requestAnimationFrame(fitBottomAdsterraDisplay);
   };
-  script.onerror = () => {
+  frame.onerror = () => {
     bottomAdsterraDisplayLoaded = false;
     container.dataset.adsterraLoaded = '0';
   };
-  container.appendChild(script);
 };
 
 const fitRightAdsterraDisplay = () => {
@@ -396,14 +481,15 @@ const fitRightAdsterraDisplay = () => {
 
   const hostRect = host.getBoundingClientRect();
   const childRect = child.getBoundingClientRect();
-  if (!hostRect.width || !hostRect.height || !childRect.width || !childRect.height) return;
+  if (!hostRect.width || !childRect.width || !childRect.height) return;
 
-  const scaleX = hostRect.width / childRect.width;
-  const scaleY = hostRect.height / childRect.height;
-  const scale = Math.min(1, scaleX, scaleY);
-  if (scale < 0.999) {
-    child.style.transform = `scale(${scale})`;
-  }
+  const scale = Math.min(1, hostRect.width / childRect.width);
+  if (scale < 0.999) child.style.transform = `scale(${scale})`;
+
+  const fittedHeight = Math.max(1, Math.ceil(childRect.height * scale));
+  host.style.height = `${fittedHeight}px`;
+  host.style.minHeight = `${fittedHeight}px`;
+  host.style.maxHeight = `${fittedHeight}px`;
 };
 
 const ensureRightAdsterraDisplayFitObserver = () => {
@@ -785,13 +871,7 @@ const markSmartlinkOpened = () => {
 };
 
 const canOpenSmartlink = () => {
-  if (!SMARTLINK_CONFIG.ENABLED) return false;
-  const target = String(SMARTLINK_CONFIG.URL || '').trim();
-  if (!/^https?:\/\//i.test(target)) return false;
-  if (isAdsDisabledByPage()) return false;
-  if (hasOpenedSmartlinkThisSession()) return false;
-  const consent = getStoredConsent();
-  return Boolean(consent && consent.ads === 'granted');
+  return false;
 };
 
 const tryOpenSmartlink = () => {
@@ -1157,6 +1237,8 @@ const waitForInitialAdsWarmup = () => new Promise((resolve) => {
 const ensureAds = () => {
   if (adsInitialized) return;
   adsInitialized = true;
+  installAdPopupGuard();
+  purgeUnsafeAdResidues();
   ensureAdsStylesheet();
 
   const root = document.documentElement;
@@ -1233,7 +1315,6 @@ const ensureAds = () => {
         applyConsentMode(consent);
         toggleConsentBanner(!consent);
       }
-      armSmartlink();
     };
 
     startPolicyOnly();
@@ -1319,7 +1400,6 @@ const ensureAds = () => {
       toggleConsentBanner(!consent);
     }
     await ensureAutoAds();
-    armSmartlink();
     updateAdLayout();
   };
 
@@ -1341,7 +1421,6 @@ const ensureAds = () => {
   }, { passive: true });
   window.addEventListener(CONSENT_EVENT_NAME, () => {
     ensureAutoAds();
-    armSmartlink();
     rerenderCurrentAd();
   });
 };
