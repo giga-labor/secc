@@ -140,6 +140,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
     const particles = [];
     const count = 1800;
     let raf = 0, t0 = performance.now();
+    let firstTextDelayTimer = 0;
     const reset = p => { p.r=0.12+Math.random()*1.1; p.a=Math.random()*TAU; p.z=Math.random(); p.s=0.24+Math.random()*1.9; };
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -165,7 +166,29 @@ if (!(canvas instanceof HTMLCanvasElement)) {
       raf=requestAnimationFrame(draw);
     };
     resize();window.addEventListener('resize',resize,{passive:true});raf=requestAnimationFrame(draw);
-    document.addEventListener('visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;}else if(!raf){t0=performance.now();raf=requestAnimationFrame(draw);}});
+    if (!textAnimationsStarted) {
+      firstTextDelayTimer = window.setTimeout(() => {
+        startTextAnimations();
+        firstTextDelayTimer = 0;
+      }, FIRST_TEXT_DELAY_MS);
+    }
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden){
+        if(raf)cancelAnimationFrame(raf);raf=0;
+        if (firstTextDelayTimer) {
+          window.clearTimeout(firstTextDelayTimer);
+          firstTextDelayTimer = 0;
+        }
+      }else if(!raf){
+        t0=performance.now();raf=requestAnimationFrame(draw);
+        if (!textAnimationsStarted && !firstTextDelayTimer) {
+          firstTextDelayTimer = window.setTimeout(() => {
+            startTextAnimations();
+            firstTextDelayTimer = 0;
+          }, FIRST_TEXT_DELAY_MS);
+        }
+      }
+    });
   };
 
   // â”€â”€ THREE.JS â€“ WORMHOLE FOTOGRAFICO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
