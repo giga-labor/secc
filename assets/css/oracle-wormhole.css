@@ -1,0 +1,357 @@
+﻿.oracle-wormhole-main {
+  box-sizing: border-box;
+  width: calc(100vw - var(--ad-reserve-left, 0px) - var(--ad-reserve-right, 0px));
+  margin-left: var(--ad-reserve-left, 0px);
+  margin-right: var(--ad-reserve-right, 0px);
+  padding-bottom: calc(var(--ad-reserve-bottom, 0px) + env(safe-area-inset-bottom, 0px));
+}
+
+.oracle-wormhole {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  height: clamp(280px, 62vh, calc(100dvh - var(--ad-reserve-bottom, 0px) - 1rem));
+  min-height: 220px;
+  margin: 0 auto;
+  border-radius: 0;
+  overflow: hidden;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  -webkit-mask-image: radial-gradient(
+    ellipse 110% 98% at 50% 52%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 0.99) 34%,
+    rgba(0, 0, 0, 0.94) 48%,
+    rgba(0, 0, 0, 0.8) 60%,
+    rgba(0, 0, 0, 0.58) 72%,
+    rgba(0, 0, 0, 0.3) 84%,
+    rgba(0, 0, 0, 0.14) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 110% 98% at 50% 52%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 0.99) 34%,
+    rgba(0, 0, 0, 0.94) 48%,
+    rgba(0, 0, 0, 0.8) 60%,
+    rgba(0, 0, 0, 0.58) 72%,
+    rgba(0, 0, 0, 0.3) 84%,
+    rgba(0, 0, 0, 0.14) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.oracle-wormhole__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+}
+
+.oracle-wormhole__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 56%, rgba(126, 186, 255, 0.08) 0%, rgba(5, 10, 24, 0.14) 42%, rgba(1, 3, 8, 0.26) 64%, rgba(1, 3, 8, 0) 100%),
+    radial-gradient(ellipse 92% 84% at 50% 52%, rgba(0, 0, 0, 0) 36%, rgba(1, 2, 7, 0.16) 62%, rgba(1, 2, 7, 0.34) 80%, rgba(1, 2, 7, 0.55) 100%);
+}
+
+.oracle-wormhole__link {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: block;
+}
+
+.oracle-wormhole__text-stream {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.oracle-wormhole__word {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%) scale(0.03);
+  transform-origin: 50% 50%;
+  display: inline-flex;
+  white-space: pre;
+  align-items: center;
+  justify-content: center;
+  gap: 0.02em;
+  font-family: "Orbitron", "Fredoka", sans-serif !important;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: clamp(1.2rem, 3vw, 2.8rem);
+  color: rgba(242, 226, 196, 0.95);
+  text-shadow:
+    0 1px 0 rgba(255, 244, 226, 0.9),
+    0 2px 0 rgba(223, 199, 164, 0.9),
+    0 3px 0 rgba(176, 151, 121, 0.8),
+    0 4px 0 rgba(123, 100, 79, 0.7),
+    0 5px 0 rgba(87, 70, 56, 0.58),
+    0 12px 22px rgba(20, 14, 9, 0.55),
+    0 0 20px rgba(156, 196, 255, 0.28);
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  animation: wormhole-word-zoom 18s linear infinite, wormhole-word-arrival 2.2s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 900px;
+  -webkit-text-stroke: 0.3px rgba(255, 236, 206, 0.38);
+}
+
+.oracle-wormhole__word,
+.oracle-wormhole__word * {
+  font-family: "Orbitron", "Fredoka", sans-serif !important;
+}
+
+.oracle-wormhole__char {
+  position: relative;
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.oracle-wormhole__char-core {
+  display: block;
+  will-change: transform, opacity, filter;
+  transform: perspective(900px) rotateX(10deg) rotateY(-5deg) translateZ(0);
+  transform-origin: 50% 58%;
+  transition:
+    transform 980ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 820ms ease-out,
+    filter 820ms ease-out;
+}
+
+.oracle-wormhole__char-bit {
+  position: absolute;
+  left: var(--bl, 50%);
+  top: var(--bt, 50%);
+  width: var(--bsz, 2.4px);
+  height: var(--bsz, 2.4px);
+  border-radius: 50%;
+  display: block;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 241, 214, 0.95) 0%, rgba(218, 193, 150, 0.8) 45%, rgba(122, 111, 95, 0.45) 100%);
+  mix-blend-mode: screen;
+  text-shadow:
+    0 0 8px rgba(255, 220, 170, 0.62),
+    0 0 18px rgba(146, 188, 255, 0.38);
+  will-change: transform, opacity, filter;
+  transform: translate(-50%, -50%) scale(0.45);
+  transition:
+    transform 1160ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 980ms ease-out,
+    filter 980ms ease-out;
+}
+
+.oracle-wormhole__word.is-disintegrating .oracle-wormhole__char-core {
+  transition-delay: var(--dis-delay, 0ms);
+  opacity: 0.01;
+  transform: none;
+  filter: blur(2.6px);
+}
+
+.oracle-wormhole__word.is-disintegrating .oracle-wormhole__char-bit {
+  transition-delay: calc(var(--dis-delay, 0ms) + var(--bit-delay, 0ms));
+  opacity: var(--bo, 0.92);
+  transform:
+    translate(
+      calc(-50% + var(--bdx, 0px)),
+      calc(-50% + var(--bdy, -8px))
+    )
+    rotate(var(--brot, 0deg))
+    scale(var(--bsc, 0.62));
+  filter: blur(var(--bbl, 2.8px)) saturate(1.25) brightness(1.22);
+}
+
+.oracle-wormhole__word::after {
+  content: none !important;
+}
+
+.oracle-wormhole__word::before {
+  content: none !important;
+}
+
+/* legacy overlays disabled */
+.oracle-wormhole__word[data-word]::before,
+.oracle-wormhole__word[data-word]::after {
+  content: none !important;
+  animation: none !important;
+  opacity: 0 !important;
+}
+
+@keyframes wormhole-word-zoom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.03);
+    filter: blur(1.8px);
+  }
+  11.2222% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.03);
+    filter: blur(1.8px);
+  }
+  11.2232% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.03);
+    filter: blur(1.3px);
+  }
+  27.2222% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.96);
+    filter: blur(0);
+  }
+  38.3333% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+    filter: blur(0);
+  }
+  46.1111% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2.3);
+    filter: blur(0.5px);
+  }
+  56.3889% {
+    opacity: 0.38;
+    transform: translate(-50%, -50%) scale(4.1);
+    filter: blur(1.8px);
+  }
+  62.8889% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5.4);
+    filter: blur(3.1px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5.8);
+    filter: blur(2.2px);
+  }
+}
+
+@keyframes wormhole-word-dust {
+  0%,
+  56.8% {
+    opacity: 0;
+    transform: scale(1);
+    filter: blur(0);
+    letter-spacing: 0.12em;
+  }
+  57.3% {
+    opacity: 0.42;
+    transform: scale(2.2) translateY(-1px);
+    filter: blur(1.6px);
+    letter-spacing: 0.26em;
+  }
+  59.2% {
+    opacity: 0.28;
+    transform: scale(3.5) translateY(-2px);
+    filter: blur(2.8px);
+    letter-spacing: 0.34em;
+  }
+  60.6% {
+    opacity: 0;
+    transform: scale(5.6) translateY(-3px);
+    filter: blur(4px);
+    letter-spacing: 0.42em;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(5.6) translateY(-3px);
+    filter: blur(4px);
+    letter-spacing: 0.42em;
+  }
+}
+
+@keyframes wormhole-word-snap {
+  0%,
+  56.8% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+  57.1% {
+    opacity: 0.95;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+  58.2% {
+    opacity: 0.82;
+    transform: translate3d(10px, -3px, 0) scale(1.02);
+    filter: blur(0.7px);
+    clip-path: inset(0 0 0 12%);
+  }
+  59.4% {
+    opacity: 0.42;
+    transform: translate3d(24px, -8px, 0) scale(1.06);
+    filter: blur(1.6px);
+    clip-path: inset(0 0 0 34%);
+  }
+  60.6% {
+    opacity: 0;
+    transform: translate3d(40px, -14px, 0) scale(1.12);
+    filter: blur(3px);
+    clip-path: inset(0 0 0 68%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(40px, -14px, 0) scale(1.12);
+    filter: blur(3px);
+    clip-path: inset(0 0 0 68%);
+  }
+}
+
+@keyframes wormhole-word-arrival {
+  0% {
+    text-shadow:
+      0 0 8px rgba(242, 190, 126, 0.26),
+      0 0 16px rgba(112, 146, 214, 0.16);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(242, 190, 126, 0.42),
+      0 0 28px rgba(112, 146, 214, 0.24);
+  }
+  100% {
+    text-shadow:
+      0 0 8px rgba(242, 190, 126, 0.26),
+      0 0 16px rgba(112, 146, 214, 0.16);
+  }
+}
+
+.oracle-wormhole::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  border: 0;
+  box-shadow:
+    inset 0 0 120px 42px rgba(2, 4, 10, 0.36),
+    inset 0 0 240px 110px rgba(2, 4, 10, 0.3);
+  opacity: 0.94;
+}
+
+@media (max-width: 768px) {
+  .oracle-wormhole-main {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .oracle-wormhole {
+    width: 100%;
+    height: clamp(220px, 54vh, 480px);
+    border-radius: 0;
+  }
+}
+
