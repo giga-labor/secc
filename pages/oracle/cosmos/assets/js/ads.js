@@ -469,11 +469,10 @@ const ensureRightAdsterraDisplayLoader = () => {
     clearAdsterraScripts(container);
     window.atOptions = { key, format, height, width, params: {} };
     const script = document.createElement('script');
-    script.async = false;
-    script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
-    script.setAttribute('data-cfasync', 'false');
-    script.dataset.ccAdsterraRightDisplay = 'true';
-    script.onerror = () => {
+    let settled = false;
+    const failAttempt = () => {
+      if (settled) return;
+      settled = true;
       if (attemptNo < maxAttempts) {
         window.setTimeout(() => runAttempt(attemptNo + 1), 260);
         return;
@@ -485,27 +484,27 @@ const ensureRightAdsterraDisplayLoader = () => {
         renderRightAdsterraFallback(container);
       }
     };
+    script.async = false;
+    script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
+    script.setAttribute('data-cfasync', 'false');
+    script.dataset.ccAdsterraRightDisplay = 'true';
+    script.onerror = () => failAttempt();
     script.onload = () => {
+      if (settled) return;
       window.setTimeout(() => {
+        if (settled) return;
         if (hasAdsterraCreative(container)) {
+          settled = true;
           rightAdsterraDisplayLoaded = true;
           container.dataset.adsterraLoading = '0';
           container.dataset.adsterraLoaded = '1';
           window.requestAnimationFrame(fitRightAdsterraDisplay);
           return;
         }
-        if (attemptNo < maxAttempts) {
-          runAttempt(attemptNo + 1);
-          return;
-        }
-        container.dataset.adsterraLoading = '0';
-        container.dataset.adsterraLoaded = '0';
-        rightAdsterraDisplayLoaded = false;
-        if (!renderInternalSiteAdFallback(container, 'right')) {
-          renderRightAdsterraFallback(container);
-        }
+        failAttempt();
       }, 1200);
     };
+    window.setTimeout(() => failAttempt(), 4500);
     container.appendChild(script);
   };
   runAttempt(1);
@@ -541,11 +540,10 @@ const ensureBottomAdsterraDisplayLoader = () => {
     clearAdsterraScripts(container);
     window.atOptions = { key, format, height, width, params: {} };
     const script = document.createElement('script');
-    script.async = false;
-    script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
-    script.setAttribute('data-cfasync', 'false');
-    script.dataset.ccAdsterraBottomDisplay = 'true';
-    script.onerror = () => {
+    let settled = false;
+    const failAttempt = () => {
+      if (settled) return;
+      settled = true;
       if (attemptNo < maxAttempts) {
         window.setTimeout(() => runAttempt(attemptNo + 1), 260);
         return;
@@ -557,27 +555,27 @@ const ensureBottomAdsterraDisplayLoader = () => {
         renderBottomAdsterraFallback(container);
       }
     };
+    script.async = false;
+    script.src = attemptNo > 1 ? `${scriptSrc}?cb=${Date.now()}` : scriptSrc;
+    script.setAttribute('data-cfasync', 'false');
+    script.dataset.ccAdsterraBottomDisplay = 'true';
+    script.onerror = () => failAttempt();
     script.onload = () => {
+      if (settled) return;
       window.setTimeout(() => {
+        if (settled) return;
         if (hasAdsterraCreative(container)) {
+          settled = true;
           bottomAdsterraDisplayLoaded = true;
           container.dataset.adsterraLoading = '0';
           container.dataset.adsterraLoaded = '1';
           window.requestAnimationFrame(fitBottomAdsterraDisplay);
           return;
         }
-        if (attemptNo < maxAttempts) {
-          runAttempt(attemptNo + 1);
-          return;
-        }
-        container.dataset.adsterraLoading = '0';
-        container.dataset.adsterraLoaded = '0';
-        bottomAdsterraDisplayLoaded = false;
-        if (!renderInternalSiteAdFallback(container, 'bottom')) {
-          renderBottomAdsterraFallback(container);
-        }
+        failAttempt();
       }, 1200);
     };
+    window.setTimeout(() => failAttempt(), 4500);
     container.appendChild(script);
   };
   runAttempt(1);
