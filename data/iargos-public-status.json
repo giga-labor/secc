@@ -301,7 +301,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro.",
       "live_system": {
-        "updated_at": "2026-04-05 23:39:59",
+        "updated_at": "2026-04-05 23:44:56",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -358,8 +358,8 @@
           "blocked_actions": [],
           "action_effectiveness": {
             "publish": {
-              "attempts": 4,
-              "resolves": 2,
+              "attempts": 6,
+              "resolves": 3,
               "effectiveness_pct": 50.0
             }
           }
@@ -386,7 +386,7 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-05 23:39:57",
+            "last_reload": "2026-04-05 23:44:45",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
@@ -400,14 +400,14 @@
               },
               "check_draws_online": {
                 "score_global": 0.102,
-                "total_obs_weighted": 120.56,
+                "total_obs_weighted": 120.52,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "deploy_mirror_local": {
                 "score_global": 0.253,
-                "total_obs_weighted": 28.48,
+                "total_obs_weighted": 28.47,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -427,14 +427,14 @@
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.262,
-                "total_obs_weighted": 96.34,
+                "score_global": 0.265,
+                "total_obs_weighted": 98.31,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 270.9
+            "total_observations_weighted": 272.81
           }
         }
       },
@@ -464,7 +464,7 @@
           "check_draws_online",
           "mirror_rebuild"
         ],
-        "ts": "2026-04-05 23:39:59"
+        "ts": "2026-04-05 23:44:56"
       }
     },
     "catalog_stale": false,
@@ -492,7 +492,7 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-05 23:39:55",
+    "last_push_at": "2026-04-05 23:44:32",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-04T21:47:55",
