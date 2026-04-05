@@ -355,7 +355,10 @@ async function loadLaboratorioIargosStatus() {
     }
 
     const runtime = data.runtime && typeof data.runtime === 'object' ? data.runtime : {};
+    // Priorità: ultima modifica editoriale al mirror (file HTML/CSS/JS/img),
+    // poi ultima pubblicazione su GitHub, poi sync iARGOS generico.
     const updatedAt = formatStatusTs(
+      runtime.mirror_last_modified_at ||
       runtime.release_at ||
       runtime.last_push_at ||
       runtime.last_sync_at ||
