@@ -351,6 +351,12 @@
   pointer-events: none;
 }
 
+.ad-slot.is-transparent-empty:empty::before {
+  content: "";
+  border-color: transparent;
+  background: transparent;
+}
+
 .bottom-ad {
   position: fixed;
   left: 0;

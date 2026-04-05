@@ -85,6 +85,7 @@ const CONSENT_EVENT_NAME = 'cc:consent-updated';
 const FOOTER_DRAW_CACHE_KEY = 'cc-footer-latest-draw-cache';
 const SMARTLINK_SESSION_KEY = 'cc_smartlink_1_opened_v1';
 const FOOTER_VERSION_BADGE_ENABLED = false;
+const SHOW_BLOCKED_ADS_NOTICE = false;
 
 let adsenseLoaderPromise = null;
 let fundingChoicesPromise = null;
@@ -1005,6 +1006,18 @@ const createBlockedNotice = (title = 'Annunci sospesi', text = 'Apri "Gestisci c
   return notice;
 };
 
+const renderBlockedSlotState = (slotNode, mode, title = 'Annunci sospesi', text = 'Apri "Gestisci cookie" per attivare AdSense.') => {
+  if (!(slotNode instanceof HTMLElement)) return;
+  slotNode.textContent = '';
+  if (SHOW_BLOCKED_ADS_NOTICE) {
+    slotNode.appendChild(createBlockedNotice(title, text));
+    slotNode.classList.remove('is-transparent-empty');
+  } else {
+    slotNode.classList.add('is-transparent-empty');
+  }
+  slotNode.dataset.ccAdMode = mode;
+};
+
 const isValidSlotId = (value) => /^\d{8,}$/.test(String(value || '').trim());
 
 const getSlotForPosition = (position) => {
@@ -1036,6 +1049,7 @@ const renderAdsSlot = async (slotNode, position) => {
   if (typeof window.CC_RENDER_AD_SLOT === 'function') {
     try {
       slotNode.textContent = '';
+      slotNode.classList.remove('is-transparent-empty');
       window.CC_RENDER_AD_SLOT(slotNode);
       slotNode.dataset.ccAdMode = 'custom';
       return;
@@ -1046,31 +1060,26 @@ const renderAdsSlot = async (slotNode, position) => {
 
   const consent = getStoredConsent();
   if (!consent || consent.ads !== 'granted') {
-    slotNode.textContent = '';
-    slotNode.appendChild(createBlockedNotice());
-    slotNode.dataset.ccAdMode = 'blocked';
+    renderBlockedSlotState(slotNode, 'blocked');
     return;
   }
 
   const slotId = getSlotForPosition(position);
   if (!isValidSlotId(slotId)) {
-    slotNode.textContent = '';
-    slotNode.appendChild(createBlockedNotice('Slot non configurato', 'Imposta SLOT_RIGHT e SLOT_BOTTOM con ID AdSense reali.'));
-    slotNode.dataset.ccAdMode = 'slot-missing';
+    renderBlockedSlotState(slotNode, 'slot-missing', 'Slot non configurato', 'Imposta SLOT_RIGHT e SLOT_BOTTOM con ID AdSense reali.');
     return;
   }
 
   try {
     await ensureAdsenseLoader();
     slotNode.textContent = '';
+    slotNode.classList.remove('is-transparent-empty');
     const ins = createAdsenseNode(position);
     slotNode.appendChild(ins);
     (window.adsbygoogle = window.adsbygoogle || []).push({});
     slotNode.dataset.ccAdMode = 'adsense';
   } catch (error) {
-    slotNode.textContent = '';
-    slotNode.appendChild(createBlockedNotice());
-    slotNode.dataset.ccAdMode = 'loader-error';
+    renderBlockedSlotState(slotNode, 'loader-error');
   }
 
   bindAdTelemetry(slotNode, position);
