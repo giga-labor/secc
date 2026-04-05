@@ -53,6 +53,21 @@ const BOTTOM_REFERRAL_BANNER_CONFIG = Object.freeze({
   LOCAL_IMAGE_SRC: 'pages/oracle/cosmos/assets/img/adsterra/referral-80x30.png',
   LABEL: 'Partner'
 });
+const INTERNAL_SITE_ADS = Object.freeze({
+  RIGHT: Object.freeze({
+    ENABLED: true,
+    URL: 'https://www.superenalottocc.it/pages/algoritmi/',
+    KICKER: 'SuperEnalottoCC',
+    TITLE: 'Scopri gli algoritmi',
+    CTA: 'Apri ora'
+  }),
+  BOTTOM: Object.freeze({
+    ENABLED: true,
+    URL: 'https://www.superenalottocc.it/pages/analisi-statistiche/',
+    TITLE: 'Analisi statistiche live',
+    CTA: 'Entra'
+  })
+});
 
 const isLocalDevHost = () => {
   try {
@@ -356,6 +371,39 @@ const renderBottomAdsterraFallback = (container) => {
   container.dataset.adsterraLoaded = 'fallback';
 };
 
+const renderInternalSiteAdFallback = (container, position) => {
+  if (!(container instanceof HTMLElement)) return false;
+  const cfg = position === 'right' ? INTERNAL_SITE_ADS.RIGHT : INTERNAL_SITE_ADS.BOTTOM;
+  if (!cfg || !cfg.ENABLED) return false;
+  const url = String(cfg.URL || '').trim();
+  if (!/^https?:\/\//i.test(url)) return false;
+
+  if (position === 'right') {
+    const kicker = String(cfg.KICKER || 'SuperEnalottoCC');
+    const title = String(cfg.TITLE || 'Scopri di piu');
+    const cta = String(cfg.CTA || 'Apri');
+    container.innerHTML = `
+      <a class="ad-internal-fallback ad-internal-fallback--right" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
+        <span class="ad-internal-fallback__kicker">${kicker}</span>
+        <strong class="ad-internal-fallback__title">${title}</strong>
+        <span class="ad-internal-fallback__cta">${cta}</span>
+      </a>
+    `;
+  } else {
+    const title = String(cfg.TITLE || 'Scopri di piu');
+    const cta = String(cfg.CTA || 'Apri');
+    container.innerHTML = `
+      <a class="ad-internal-fallback ad-internal-fallback--bottom" href="${url}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${title}">
+        <strong class="ad-internal-fallback__title">${title}</strong>
+        <span class="ad-internal-fallback__cta">${cta}</span>
+      </a>
+    `;
+  }
+
+  container.dataset.adsterraLoaded = 'fallback-internal';
+  return true;
+};
+
 const hasAdsterraCreative = (container) => {
   if (!(container instanceof HTMLElement)) return false;
   const iframe = container.querySelector('iframe');
@@ -417,7 +465,9 @@ const ensureRightAdsterraDisplayLoader = () => {
       container.dataset.adsterraLoading = '0';
       container.dataset.adsterraLoaded = '0';
       rightAdsterraDisplayLoaded = false;
-      renderRightAdsterraFallback(container);
+      if (!renderInternalSiteAdFallback(container, 'right')) {
+        renderRightAdsterraFallback(container);
+      }
     };
     script.onload = () => {
       window.setTimeout(() => {
@@ -435,7 +485,9 @@ const ensureRightAdsterraDisplayLoader = () => {
         container.dataset.adsterraLoading = '0';
         container.dataset.adsterraLoaded = '0';
         rightAdsterraDisplayLoaded = false;
-        renderRightAdsterraFallback(container);
+        if (!renderInternalSiteAdFallback(container, 'right')) {
+          renderRightAdsterraFallback(container);
+        }
       }, 1200);
     };
     container.appendChild(script);
@@ -482,7 +534,9 @@ const ensureBottomAdsterraDisplayLoader = () => {
       container.dataset.adsterraLoading = '0';
       container.dataset.adsterraLoaded = '0';
       bottomAdsterraDisplayLoaded = false;
-      renderBottomAdsterraFallback(container);
+      if (!renderInternalSiteAdFallback(container, 'bottom')) {
+        renderBottomAdsterraFallback(container);
+      }
     };
     script.onload = () => {
       window.setTimeout(() => {
@@ -500,7 +554,9 @@ const ensureBottomAdsterraDisplayLoader = () => {
         container.dataset.adsterraLoading = '0';
         container.dataset.adsterraLoaded = '0';
         bottomAdsterraDisplayLoaded = false;
-        renderBottomAdsterraFallback(container);
+        if (!renderInternalSiteAdFallback(container, 'bottom')) {
+          renderBottomAdsterraFallback(container);
+        }
       }, 1200);
     };
     container.appendChild(script);

@@ -641,6 +641,83 @@
   justify-self: center;
 }
 
+.ad-internal-fallback {
+  display: grid;
+  text-decoration: none;
+  color: #eef4ff;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(163, 203, 255, 0.45);
+  background:
+    radial-gradient(circle at 18% 14%, rgba(79, 156, 255, 0.36), rgba(79, 156, 255, 0) 48%),
+    radial-gradient(circle at 84% 82%, rgba(245, 197, 108, 0.24), rgba(245, 197, 108, 0) 42%),
+    linear-gradient(165deg, rgba(10, 20, 46, 0.96), rgba(5, 11, 26, 0.96));
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.ad-internal-fallback:hover,
+.ad-internal-fallback:focus-visible {
+  border-color: rgba(255, 221, 152, 0.75);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), 0 0 22px rgba(124, 188, 255, 0.26);
+}
+
+.ad-internal-fallback__kicker {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.86;
+}
+
+.ad-internal-fallback__title {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.12;
+}
+
+.ad-internal-fallback__cta {
+  justify-self: start;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 228, 166, 0.62);
+  background: rgba(255, 213, 126, 0.12);
+  border-radius: 999px;
+  padding: 0.28rem 0.58rem;
+}
+
+.ad-internal-fallback--right {
+  width: 160px;
+  min-height: 300px;
+  max-height: 300px;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+  gap: 0.44rem;
+  padding: 0.62rem 0.56rem;
+}
+
+.ad-internal-fallback--right .ad-internal-fallback__title {
+  align-self: center;
+  font-size: 1.07rem;
+}
+
+.ad-internal-fallback--bottom {
+  width: 320px;
+  min-height: 50px;
+  max-height: 50px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.56rem;
+  padding: 0.3rem 0.5rem;
+}
+
+.ad-internal-fallback--bottom .ad-internal-fallback__title {
+  font-size: 0.85rem;
+}
+
+.ad-internal-fallback--bottom .ad-internal-fallback__cta {
+  justify-self: end;
+}
+
 .ad-rail--right .ad-adsterra-display--right {
   align-self: start;
 }
