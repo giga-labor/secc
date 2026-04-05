@@ -603,8 +603,8 @@
   gap: 0.35rem;
   padding: 0.55rem;
   border-radius: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 .ad-adsterra-display__label {
@@ -625,7 +625,7 @@
   justify-content: center;
   overflow: hidden;
   border-radius: 0.45rem;
-  background: rgba(8, 11, 22, 0.18);
+  background: transparent;
   position: relative;
 }
 
@@ -748,11 +748,12 @@
 }
 
 .ad-adsterra-display__host:empty::before {
-  content: "Caricamento partner ad";
-  font-size: 0.62rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(231, 236, 255, 0.5);
+  content: "";
+}
+
+.ad-adsterra-display:has(.ad-adsterra-display__host:empty) {
+  border-color: transparent;
+  background: transparent;
 }
 
 .bottom-ad .ad-adsterra-display--right { display: none; }
