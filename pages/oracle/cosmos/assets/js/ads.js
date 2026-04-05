@@ -381,18 +381,18 @@ const isVisibleAdElement = (el) => {
 const hasAdsterraCreative = (container) => {
   if (!(container instanceof HTMLElement)) return false;
   const iframe = container.querySelector('iframe:not([data-cc-internal-underlay="1"])');
-  if (iframe && isVisibleAdElement(iframe)) return true;
+  if (iframe && isVisibleAdElement(iframe)) {
+    const src = String(iframe.getAttribute('src') || '').trim();
+    if (src && src !== 'about:blank') return true;
+  }
   const img = container.querySelector('img:not([data-cc-internal-underlay="1"])');
-  if (img && isVisibleAdElement(img)) return true;
-  const rich = Array.from(container.children).some((el) => {
-    const tag = String(el.tagName || '').toUpperCase();
-    if (tag === 'SCRIPT') return false;
-    if (el.getAttribute('data-cc-internal-underlay') === '1') return false;
-    if (!isVisibleAdElement(el)) return false;
-    if (tag === 'IFRAME' || tag === 'IMG' || tag === 'OBJECT' || tag === 'EMBED' || tag === 'A') return true;
-    return el.childElementCount > 0 || String(el.textContent || '').trim().length > 0;
-  });
-  return rich;
+  if (img && isVisibleAdElement(img) && Number(img.naturalWidth || 0) > 8) return true;
+  const anchor = container.querySelector('a:not([data-cc-internal-underlay="1"])');
+  if (anchor && isVisibleAdElement(anchor)) return true;
+  const objectLike = container.querySelector('object,embed');
+  if (objectLike && isVisibleAdElement(objectLike)) return true;
+  // Non considerare <div> generici: spesso vengono iniettati vuoti.
+  return false;
 };
 
 const clearAdsterraScripts = (container) => {
