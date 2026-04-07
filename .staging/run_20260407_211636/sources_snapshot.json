@@ -1,0 +1,15 @@
+{
+  "policy_version": "1.0.0",
+  "quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180,
+    "max_block_minutes": 15,
+    "fallback_latest_source": true
+  },
+  "confirmations": 1,
+  "best_date": "07/04/2026",
+  "latest_external_contest_id": 56,
+  "raw": "CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)\nLocale corrente: seq=4174 data=04/04/2026\n\n[superenalotto.it] ALLINEATO\n  locale: seq=4174 data=04/04/2026 sestina=08 21 29 46 60 81\n  online: seq=55 data=04/04/2026 sestina=08 21 29 46 60 81\n  ref: https://www.superenalotto.it/archivio-estrazioni/concorso-55/04-aprile-2026\n\n[superenalotto.com] ONLINE PIU AGGIORNATO\n  locale: seq=4174 data=04/04/2026 sestina=08 21 29 46 60 81\n  online: seq=56 data=07/04/2026 sestina=10 16 18 47 50 59\n  nuova_sestina_online: 10 16 18 47 50 59\n  ref: https://www.superenalotto.com/risultati/estrazione-07-04-2026",
+  "status": "degraded"
+}
