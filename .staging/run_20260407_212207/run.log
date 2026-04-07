@@ -1,3 +1,7 @@
 [21:25:25] AI nulla osta OK su verify_draws_stage
 [21:26:01] Avvio fase: verify_draws_stage
 [21:26:51] VERIFY_DRAWS_STAGE: draws stage rigenerato da admin locale
+[21:27:53] Fase OK: verify_draws_stage
+[21:29:46] AI nulla osta OK su apply_draws_local_atomic
+[21:31:10] Avvio fase: apply_draws_local_atomic
+[21:32:29] Fase OK: apply_draws_local_atomic
