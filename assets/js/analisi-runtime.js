@@ -348,6 +348,7 @@ async function loadLaboratorioIargosStatus() {
   };
 
   try {
+    const timestampData = await fetchJsonFirstOk('data/iargos-timestamp.json');
     const data = await fetchJsonFirstOk('data/iargos-public-status.json');
     if (!data || typeof data !== 'object') {
       fallback();
@@ -355,9 +356,10 @@ async function loadLaboratorioIargosStatus() {
     }
 
     const runtime = data.runtime && typeof data.runtime === 'object' ? data.runtime : {};
-    // Priorità: ultima modifica editoriale al mirror (file HTML/CSS/JS/img),
-    // poi ultima pubblicazione su GitHub, poi sync iARGOS generico.
+    // Priorità: timestamp rigido da file dedicato (evita loop),
+    // altrimenti fallback su logica dinamica preesistente.
     const updatedAt = formatStatusTs(
+      (timestampData && timestampData.last_mirror_update) ||
       runtime.mirror_last_modified_at ||
       runtime.release_at ||
       runtime.last_push_at ||
