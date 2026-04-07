@@ -1,2 +1,7 @@
 [21:22:06] Run avviato: mode=single, action=run_all
 [21:22:07] Fase OK: lock_acquire
+[21:22:40] AI nulla osta OK su check_sources_quorum
+[21:22:58] Avvio fase: check_sources_quorum
+[21:23:24] Fase OK: check_sources_quorum
+[21:23:51] AI nulla osta OK su update_local_draws_stage
+[21:24:24] Avvio fase: update_local_draws_stage
