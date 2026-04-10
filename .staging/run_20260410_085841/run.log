@@ -1,7 +1,4 @@
-[08:58:41] Fase OK: lock_acquire
-[08:59:58] AI nulla osta OK su check_sources_quorum
-[09:01:16] Avvio fase: check_sources_quorum
-[09:02:50] Fase OK: check_sources_quorum
-[09:04:40] AI nulla osta OK su update_local_draws_stage
-[09:06:47] Avvio fase: update_local_draws_stage
-[09:09:19] Fase OK: update_local_draws_stage
+[09:16:09] Fase OK: verify_draws_stage
+[09:19:05] AI nulla osta OK su apply_draws_local_atomic
+[09:22:09] Avvio fase: apply_draws_local_atomic
+[09:24:18] Fase KO: apply_draws_local_atomic -> draws staged assente
