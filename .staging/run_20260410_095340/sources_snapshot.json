@@ -1,0 +1,15 @@
+{
+  "policy_version": "1.0.0",
+  "quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180,
+    "max_block_minutes": 15,
+    "fallback_latest_source": true
+  },
+  "confirmations": 2,
+  "best_date": "09/04/2026",
+  "latest_external_contest_id": 57,
+  "raw": "CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)\nLocale corrente: seq=4176 data=09/04/2026\n\n[superenalotto.it] ALLINEATO\n  locale: seq=4176 data=09/04/2026 sestina=02 30 38 63 74 84\n  online: seq=57 data=09/04/2026 sestina=02 30 38 63 74 84\n  ref: https://www.superenalotto.it/archivio-estrazioni/concorso-57/09-aprile-2026\n\n[superenalotto.com] ALLINEATO\n  locale: seq=4176 data=09/04/2026 sestina=02 30 38 63 74 84\n  online: seq=57 data=09/04/2026 sestina=02 30 38 63 74 84\n  ref: https://www.superenalotto.com/risultati/estrazione-09-04-2026",
+  "status": "healthy"
+}
