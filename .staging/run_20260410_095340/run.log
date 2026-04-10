@@ -3,3 +3,5 @@
 [09:54:49] Avvio fase: check_sources_quorum
 [09:55:43] Fase OK: check_sources_quorum
 [09:56:16] AI nulla osta OK su update_local_draws_stage
+[09:56:35] Avvio fase: update_local_draws_stage
+[09:56:56] Fase OK: update_local_draws_stage
