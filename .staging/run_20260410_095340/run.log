@@ -1,2 +1,7 @@
-[11:18:57] TRAIN progress: 14/15 (93%) -> paradox-logiche-decisionali-metriche OK
-[11:19:22] TRAIN progress: 14/15 (93%) -> avvio super6NN
+[11:23:44] Fase OK: train_incremental_stage_all_active
+[11:24:19] AI nulla osta OK su verify_train_outputs_stage
+[11:24:47] Avvio fase: verify_train_outputs_stage
+[11:25:10] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=60)
+[11:25:28] Fase OK: verify_train_outputs_stage
+[11:25:48] AI nulla osta OK su update_cards_stage
+[11:26:04] Avvio fase: update_cards_stage

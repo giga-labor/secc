@@ -1,0 +1,21 @@
+{
+  "id": "classic-ritardi",
+  "title": "classic-ritardi",
+  "subtitle": "Analisi dei numeri in ritardo (overdue)",
+  "image": "img.webp",
+  "lastUpdated": "09/02/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Scheda tecnica",
+  "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
+  "page": "pages/algoritmi/algs/classic-ritardi/",
+  "macroGroup": "statistica",
+  "isActive": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "view": true,
+  "hits": {
+    "enabled": false,
+    "count": 1
+  }
+}
