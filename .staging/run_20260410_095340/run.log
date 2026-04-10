@@ -12,3 +12,6 @@
 [09:59:22] Avvio fase: apply_draws_local_atomic
 [09:59:41] Fase OK: apply_draws_local_atomic
 [10:00:01] AI nulla osta OK su train_incremental_stage_all_active
+[10:00:18] Avvio fase: train_incremental_stage_all_active
+[10:00:36] TRAIN start: target_seq=4176 | algoritmi_attivi=15
+[10:00:56] TRAIN progress: 0/15 (0%) -> avvio arc90-logico-algoritmica
