@@ -1,18 +1,1 @@
-[08:28:17] Fase OK: lock_acquire
-[08:28:16] Run avviato: mode=single, action=run_all
-[08:28:18] AI nulla osta OK su check_sources_quorum
-[08:28:44] Avvio fase: check_sources_quorum
-[08:28:59] Fase OK: check_sources_quorum
-[08:29:18] AI nulla osta OK su update_local_draws_stage
-[08:29:42] Avvio fase: update_local_draws_stage
-[08:29:57] Fase OK: update_local_draws_stage
-[08:30:13] AI nulla osta OK su verify_draws_stage
-[08:30:26] Avvio fase: verify_draws_stage
-[08:30:41] Fase OK: verify_draws_stage
-[08:30:55] AI nulla osta OK su apply_draws_local_atomic
-[08:31:09] Avvio fase: apply_draws_local_atomic
-[08:31:25] Fase OK: apply_draws_local_atomic
-[08:31:52] AI nulla osta OK su train_incremental_stage_all_active
-[08:32:19] Avvio fase: train_incremental_stage_all_active
-[08:32:46] TRAIN start: target_seq=4177 | algoritmi_attivi=15
-[08:33:01] TRAIN progress: 0/15 (0%) -> avvio arc90-logico-algoritmica
+[08:42:47] TRAIN progress: 13/15 (86%) -> avvio paradox-logiche-decisionali-metriche
