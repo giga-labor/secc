@@ -1,7 +1,0 @@
-CHIAVE,VALORE
-INTRO,Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.
-SCOPO,Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.
-INPUT,draws.csv storico | Replay incrementale | Conteggi osservati per numero e per classi aggregate
-METODO,Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso
-OUTPUT,historical-db.csv con hit incrementali | metrics-db.csv con scarti osservato-atteso e test descrittivi | algorithm-sheet.csv | analysis.txt
-LIMITI,Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva

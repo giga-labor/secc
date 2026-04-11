@@ -14,7 +14,7 @@
   "view": true,
   "accessTier": "free",
   "hits": {
-    "enabled": false,
-    "count": 1
+    "enabled": true,
+    "count": 2
   }
 }

@@ -1,6 +1,7 @@
-[08:47:52] TRAIN progress: 15/15 (100%) -> super6NN OK
-[08:48:11] Fase OK: train_incremental_stage_all_active
-[08:48:40] AI nulla osta OK su verify_train_outputs_stage
-[08:49:08] Avvio fase: verify_train_outputs_stage
-[08:49:28] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=60)
-[08:49:42] Fase OK: verify_train_outputs_stage
+[08:50:39] AI nulla osta OK su verify_cards_stage
+[08:50:54] Avvio fase: verify_cards_stage
+[08:51:06] Fase OK: verify_cards_stage
+[08:51:21] AI nulla osta OK su build_manifest_stage
+[08:51:35] Avvio fase: build_manifest_stage
+[08:51:48] Fase OK: build_manifest_stage
+[08:52:04] AI nulla osta OK su verify_bundle_stage
