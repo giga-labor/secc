@@ -4,14 +4,14 @@
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "info",
+  "severity": "warning",
   "summary": "Rilevati 1 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
-  "task_precedence": "FLASH",
+  "task_precedence": "PRIORITY",
   "alignment_priority": {
-    "p0_new_contest_found": true,
+    "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": false,
+    "p2_flow_guard": true,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
@@ -24,7 +24,7 @@
   "alignment": {
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
+    "flow_guard_ok": false,
     "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
@@ -38,13 +38,13 @@
     "updated_at": "2026-04-01 21:02:54"
   },
   "queue": {
-    "total": 10,
+    "total": 11,
     "pending": 1,
     "running": 0,
-    "done": 6,
+    "done": 7,
     "failed": 0,
     "by_type": {
-      "send_alert_email": 7,
+      "send_alert_email": 8,
       "heal": 3
     }
   },
@@ -53,65 +53,68 @@
   },
   "operational_snapshot": {
     "state": "degraded",
-    "cause": "p0_new_contest_found",
+    "cause": "tutor_stabilization_mode",
     "state_at": "",
-    "severity": "info",
-    "task_precedence": "FLASH",
+    "severity": "warning",
+    "task_precedence": "PRIORITY",
     "circuit_state": "CLOSED",
     "active_priorities": [
-      "p0_new_contest_found"
+      "p2_flow_guard"
     ],
     "active_priorities_count": 1,
-    "consecutive_crisis_cycles": 1,
+    "consecutive_crisis_cycles": 0,
     "human_escalation_requested": false,
     "novelty_detected": true,
-    "novelty_streak": 1,
-    "novelty_last_reason": "unknown_final_outcome; unclassified_non_improving_case",
-    "stabilization_mode_active": false,
-    "stabilization_mode_reason": "",
-    "stabilization_mode_since": "",
+    "novelty_streak": 2,
+    "novelty_last_reason": "unknown_final_outcome",
+    "stabilization_mode_active": true,
+    "stabilization_mode_reason": "unknown_final_outcome",
+    "stabilization_mode_since": "2026-04-11 08:23:55",
     "recovery_mode_active": false,
     "recovery_mode_stable_cycles": 0,
     "recovery_mode_threshold": 2,
     "recovery_guidance": {
       "ready_to_exit": false,
       "stable_cycles": 0,
-      "novelty_streak": 1,
-      "crisis_cycles": 1,
+      "novelty_streak": 2,
+      "crisis_cycles": 0,
       "human_escalation_requested": false,
-      "stabilization_mode_active": false,
+      "stabilization_mode_active": true,
       "post_intervention_active": false,
       "playbook": {
-        "id": "playbook_recovery_generic",
-        "trigger": "generic",
-        "goal": "contenimento e rientro graduale",
+        "id": "playbook_publish_recovery",
+        "trigger": "p6_local_publish",
+        "goal": "riprendere publish in modo sicuro",
         "allowed_actions": [
-          "mirror_auto_fix_map",
-          "updates_stop",
-          "check_draws_online"
+          "updates_start(single,resume_pending_publish)",
+          "mirror_step3_publish",
+          "mirror_deploy_local"
         ],
         "preferred_sequence": [
-          "mirror_auto_fix_map",
-          "check_draws_online",
-          "updates_stop"
+          "updates_start(single,resume_pending_publish)",
+          "mirror_step3_publish",
+          "mirror_deploy_local"
         ],
         "avoid_actions": [
           "mirror_step3_publish_force",
           "publish_force"
         ],
         "signals": [
-          "recovery",
-          "generic"
+          "pending_publish",
+          "flow_guard",
+          "publish"
         ],
-        "description": "Playbook di recupero generico per condizioni non classificate."
+        "description": "Playbook per ripartenza publish e recupero pending_publish."
       },
       "preferred_sequence": [
-        "mirror_auto_fix_map",
-        "updates_stop"
+        "updates_start(single,resume_pending_publish)",
+        "mirror_step3_publish",
+        "mirror_deploy_local"
       ],
       "allowed_actions": [
-        "mirror_auto_fix_map",
-        "updates_stop"
+        "updates_start(single,resume_pending_publish)",
+        "mirror_step3_publish",
+        "mirror_deploy_local"
       ],
       "avoid_actions": [
         "mirror_step3_publish_force",
@@ -300,9 +303,9 @@
         "fermare subito se compare worsened o uncertain ripetuto",
         "non sbloccare Zona B/C finché non ci sono 2 cicli puliti consecutivi"
       ],
-      "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: contenimento e rientro graduale.",
+      "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro.",
       "live_system": {
-        "updated_at": "2026-04-11 08:20:52",
+        "updated_at": "2026-04-11 08:23:55",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -359,9 +362,14 @@
           "blocked_actions": [],
           "action_effectiveness": {
             "check_draws_online": {
-              "attempts": 2,
+              "attempts": 3,
               "resolves": 0,
               "effectiveness_pct": 0.0
+            },
+            "publish": {
+              "attempts": 1,
+              "resolves": 1,
+              "effectiveness_pct": 100.0
             },
             "updates_run_all": {
               "attempts": 1,
@@ -392,21 +400,21 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-11 08:20:49",
+            "last_reload": "2026-04-11 08:23:48",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
             "actions": {
               "backup_prune_mirror_keep5": {
                 "score_global": 0.341,
-                "total_obs_weighted": 8.81,
+                "total_obs_weighted": 8.8,
                 "fail_streak_current": 0,
                 "data_quality": "sparse",
                 "verdict": "problematico"
               },
               "check_draws_online": {
                 "score_global": 0.104,
-                "total_obs_weighted": 147.93,
+                "total_obs_weighted": 148.9,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -433,8 +441,8 @@
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.285,
-                "total_obs_weighted": 103.12,
+                "score_global": 0.287,
+                "total_obs_weighted": 104.1,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -447,7 +455,7 @@
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 324.72
+            "total_observations_weighted": 326.66
           }
         }
       },
@@ -456,16 +464,18 @@
       ],
       "active_corrections": {
         "enabled": true,
-        "playbook": "playbook_recovery_generic",
+        "playbook": "playbook_publish_recovery",
         "active_flags": [
-          "p0_new_contest_found"
+          "p0_new_contest_found",
+          "p6_local_publish"
         ],
         "mismatch_detected": false,
         "mismatch_count": 0,
         "recommendations": [],
         "preferred_sequence": [
-          "mirror_auto_fix_map",
-          "updates_stop"
+          "updates_start(single,resume_pending_publish)",
+          "mirror_step3_publish",
+          "mirror_deploy_local"
         ],
         "avoid_actions": [
           "mirror_step3_publish_force",
@@ -477,7 +487,7 @@
           "updates_run_all",
           "deploy_mirror_local"
         ],
-        "ts": "2026-04-11 08:20:52"
+        "ts": "2026-04-11 08:23:55"
       }
     },
     "catalog_stale": false,
@@ -492,20 +502,20 @@
     "standby_prewake_in_sec": 0
   },
   "tutor_stabilization": {
-    "triggered": false,
+    "triggered": true,
     "novelty_detected": true,
-    "novelty_streak": 1,
+    "novelty_streak": 2,
     "threshold": 2,
-    "reason": "unknown_final_outcome; unclassified_non_improving_case",
-    "active": false,
-    "since": ""
+    "reason": "unknown_final_outcome",
+    "active": true,
+    "since": "2026-04-11 08:23:55"
   },
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
     "is_operational": true,
-    "archive_synced": true,
-    "last_push_at": "2026-04-10 11:31:41",
+    "archive_synced": false,
+    "last_push_at": "2026-04-11 08:23:44",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-11T08:19:33",
