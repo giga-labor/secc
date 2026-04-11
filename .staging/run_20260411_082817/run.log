@@ -5,3 +5,7 @@
 [08:51:35] Avvio fase: build_manifest_stage
 [08:51:48] Fase OK: build_manifest_stage
 [08:52:04] AI nulla osta OK su verify_bundle_stage
+[08:52:17] Avvio fase: verify_bundle_stage
+[08:52:32] Fase KO: verify_bundle_stage -> Manifest assente o vuoto
+[08:52:47] Email cumulativa inviata su stop anticipato (verify_bundle_stage): Email inviata
+[08:53:01] Manifest assente o vuoto
