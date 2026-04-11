@@ -1,0 +1,7 @@
+[08:21:15] Fase OK: lock_acquire
+[08:21:53] AI nulla osta OK su check_sources_quorum
+[08:22:18] Avvio fase: check_sources_quorum
+[08:22:38] Fase OK: check_sources_quorum
+[08:22:54] AI nulla osta OK su update_local_draws_stage
+[08:23:08] Avvio fase: update_local_draws_stage
+[08:23:23] Fase OK: update_local_draws_stage
