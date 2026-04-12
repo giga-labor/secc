@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Super6NN e un modello neurale GRU multi-label su 90 numeri con lettura sequenziale dello storico estrazioni.
+SCOPO,Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi.
+INPUT,Unico draws.csv admin aggiornato | Ordinamento progressivo NR. SEQUENZIALE | Numeri validi 1..90 senza duplicati.
+METODO,Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.
+OUTPUT,historical-db con hit marcati per concorso | metrics-db con copertura e stabilita | analysis tecnica | sestina proposta prossimo concorso.
+LIMITI,Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window.

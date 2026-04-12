@@ -1,0 +1,5 @@
+[10:03:13] Fase OK: train_incremental_stage_all_active
+[10:03:42] AI nulla osta OK su verify_train_outputs_stage
+[10:04:06] Avvio fase: verify_train_outputs_stage
+[10:04:33] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=60)
+[10:04:48] Fase OK: verify_train_outputs_stage

@@ -1,0 +1,1 @@
+HiSPA incrementale: storico aggiornato fino al concorso 4178 su 4178 estrazioni. Per ogni target t usa la sestina reale t-1 come query, ricerca pattern su 1..t-2, propaga score dai concorsi successivi e produce proposta top-6 con pipeline SECC out/*. Architettura separata: run.py interfaccia, logica in core/.

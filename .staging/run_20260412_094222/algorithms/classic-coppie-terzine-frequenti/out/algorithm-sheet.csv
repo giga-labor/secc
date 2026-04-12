@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.
+SCOPO,Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.
+INPUT,draws.csv storico completo | Replay incrementale | Combinazioni 2 e 3 generate da ciascuna sestina estratta
+METODO,Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale
+OUTPUT,historical-db.csv con hit progressivi | metrics-db.csv con top pattern e densita | algorithm-sheet.csv | analysis.txt
+LIMITI,Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti
