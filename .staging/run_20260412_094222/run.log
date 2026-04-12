@@ -1,11 +1,3 @@
-[09:44:28] AI nulla osta OK su verify_draws_stage
-[09:44:53] Avvio fase: verify_draws_stage
-[09:45:10] VERIFY_DRAWS_STAGE: draws stage rigenerato da admin locale
-[09:45:36] Fase OK: verify_draws_stage
-[09:45:51] AI nulla osta OK su apply_draws_local_atomic
-[09:46:05] Avvio fase: apply_draws_local_atomic
-[09:46:19] Fase OK: apply_draws_local_atomic
-[09:46:34] AI nulla osta OK su train_incremental_stage_all_active
-[09:46:48] Avvio fase: train_incremental_stage_all_active
-[09:47:02] TRAIN start: target_seq=4178 | algoritmi_attivi=15
-[09:47:16] TRAIN progress: 0/15 (0%) -> avvio arc90-logico-algoritmica
+[09:55:27] TRAIN progress: 11/15 (73%) -> classic-tavole-probabilita-teorica-test-uniformita OK
+[09:55:58] TRAIN progress: 11/15 (73%) -> avvio genetic
+[09:56:47] TRAIN progress: 12/15 (80%) -> genetic OK
