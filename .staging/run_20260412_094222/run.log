@@ -1,5 +1,6 @@
-[10:03:13] Fase OK: train_incremental_stage_all_active
-[10:03:42] AI nulla osta OK su verify_train_outputs_stage
-[10:04:06] Avvio fase: verify_train_outputs_stage
-[10:04:33] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=60)
-[10:04:48] Fase OK: verify_train_outputs_stage
+[10:06:00] Avvio fase: verify_cards_stage
+[10:06:15] Fase OK: verify_cards_stage
+[10:06:42] AI nulla osta OK su build_manifest_stage
+[10:07:09] Avvio fase: build_manifest_stage
+[10:07:24] Fase OK: build_manifest_stage
+[10:07:39] AI nulla osta OK su verify_bundle_stage
