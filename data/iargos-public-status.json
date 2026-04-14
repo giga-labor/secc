@@ -18,14 +18,14 @@
     "p5_archive_stale": false,
     "p6_local_publish": true,
     "p7_remote_force_align": false,
-    "p8_backup_over_limit": true,
+    "p8_backup_over_limit": false,
     "p9_smtp_broken": false
   },
   "alignment": {
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": true,
+    "git_dirty": false,
     "remote_ahead": 1,
     "remote_behind": 0,
     "alignment_diff_count": 0
@@ -38,13 +38,13 @@
     "updated_at": "2026-04-01 21:02:54"
   },
   "queue": {
-    "total": 13,
-    "pending": 1,
+    "total": 14,
+    "pending": 0,
     "running": 0,
-    "done": 9,
+    "done": 11,
     "failed": 0,
     "by_type": {
-      "send_alert_email": 10,
+      "send_alert_email": 11,
       "heal": 3
     }
   },
@@ -60,14 +60,13 @@
     "circuit_state": "CLOSED",
     "active_priorities": [
       "p5_training_gap",
-      "p6_local_publish",
-      "p8_backup_over_limit"
+      "p6_local_publish"
     ],
-    "active_priorities_count": 3,
+    "active_priorities_count": 2,
     "consecutive_crisis_cycles": 0,
-    "human_escalation_requested": false,
+    "human_escalation_requested": true,
     "novelty_detected": true,
-    "novelty_streak": 17,
+    "novelty_streak": 19,
     "novelty_last_reason": "unknown_final_outcome",
     "stabilization_mode_active": true,
     "stabilization_mode_reason": "unknown_final_outcome",
@@ -78,9 +77,9 @@
     "recovery_guidance": {
       "ready_to_exit": false,
       "stable_cycles": 1,
-      "novelty_streak": 17,
+      "novelty_streak": 19,
       "crisis_cycles": 0,
-      "human_escalation_requested": false,
+      "human_escalation_requested": true,
       "stabilization_mode_active": true,
       "post_intervention_active": true,
       "playbook": {
@@ -295,7 +294,8 @@
         "novelty_streak == 0",
         "stabilization_mode_active == False",
         "post_intervention_active == False",
-        "human_escalation_requested == False"
+        "human_escalation_requested == False",
+        "human_escalation_requested rientrata dopo stabilizzazione"
       ],
       "next_actions": [
         "confermare solo trial Zona A a rischio minimo",
@@ -305,7 +305,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: chiudere gap algoritmi e ripulire lo stato di training.",
       "live_system": {
-        "updated_at": "2026-04-15 00:47:38",
+        "updated_at": "2026-04-15 00:50:13",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -367,9 +367,9 @@
               "effectiveness_pct": 100.0
             },
             "publish": {
-              "attempts": 1,
-              "resolves": 1,
-              "effectiveness_pct": 100.0
+              "attempts": 3,
+              "resolves": 2,
+              "effectiveness_pct": 66.7
             },
             "updates_run_all": {
               "attempts": 1,
@@ -400,7 +400,7 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-15 00:47:37",
+            "last_reload": "2026-04-15 00:50:11",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
@@ -414,14 +414,14 @@
               },
               "check_draws_online": {
                 "score_global": 0.104,
-                "total_obs_weighted": 115.07,
+                "total_obs_weighted": 115.05,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "deploy_mirror_local": {
                 "score_global": 0.348,
-                "total_obs_weighted": 60.19,
+                "total_obs_weighted": 60.18,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -441,8 +441,8 @@
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.29,
-                "total_obs_weighted": 99.3,
+                "score_global": 0.293,
+                "total_obs_weighted": 101.28,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -455,7 +455,7 @@
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 318.34
+            "total_observations_weighted": 320.28
           }
         }
       },
@@ -467,8 +467,7 @@
         "playbook": "playbook_training_gap_recovery",
         "active_flags": [
           "p5_training_gap",
-          "p6_local_publish",
-          "p8_backup_over_limit"
+          "p6_local_publish"
         ],
         "mismatch_detected": false,
         "mismatch_count": 0,
@@ -487,12 +486,12 @@
           "deploy_mirror_local",
           "publish"
         ],
-        "ts": "2026-04-15 00:47:38"
+        "ts": "2026-04-15 00:50:13"
       }
     },
     "catalog_stale": false,
     "catalog_age_sec": 0,
-    "queue_pending": 1,
+    "queue_pending": 0,
     "queue_running": 0,
     "queue_ready": 0,
     "standby_active": false,
@@ -504,7 +503,7 @@
   "tutor_stabilization": {
     "triggered": true,
     "novelty_detected": true,
-    "novelty_streak": 17,
+    "novelty_streak": 19,
     "threshold": 2,
     "reason": "unknown_final_outcome",
     "active": true,
@@ -515,7 +514,7 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-15 00:47:23",
+    "last_push_at": "2026-04-15 00:50:09",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-15T00:45:22",
@@ -524,7 +523,7 @@
     "mirror_last_modified_at": "2026-04-15 00:39:57",
     "algorithms_total_count": 15,
     "algorithms_aligned_count": 12,
-    "queue_pending": 1,
+    "queue_pending": 0,
     "queue_running": 0,
     "circuit_state": "CLOSED",
     "mirror_update_started_at": "2026-04-15T00:45:22"
