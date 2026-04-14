@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4178,Conteggio archivio fino al concorso 4178
+Concorsi analizzati,4179,Conteggio archivio fino al concorso 4179
 Media hit/sestina,0.38,Media numeri corretti per concorso
 Hit rate >= 2,4.7%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2781,Numero concorsi con esattamente 0 hit
+Con 0 hit,2782,Numero concorsi con esattamente 0 hit
 Con 1 hit,1200,Numero concorsi con esattamente 1 hit
 Con 2 hit,191,Numero concorsi con esattamente 2 hit
 Con 3 hit,5,Numero concorsi con esattamente 3 hit
@@ -11,12 +11,12 @@ Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
 Media hit ultimi 100,0.33,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4178,Data estrazione: 11/04/2026
-Concorso successivo stimato,4179,Sestina proposta: 48 86 87 13 18 51
+Ultimo concorso calcolato,4179,Data estrazione: 14/04/2026
+Concorso successivo stimato,4180,Sestina proposta: 48 86 87 13 18 51
 Sestina proposta (prossimo concorso),48 86 87 13 18 51,Pronostico prodotto con addestramento incrementale
 Top coppia frequente,48-87,Occorrenze: 32
 Top terzina frequente,48-86-87,Occorrenze: 6
 Densita coppie sestina proposta,251,Somma frequenze storiche delle 15 coppie interne
 Densita terzine sestina proposta,25,Somma frequenze storiche delle 20 terzine interne
 Coppie distinte osservate,4005,Numero coppie comparse almeno una volta
-Terzine distinte osservate,59638,Numero terzine comparse almeno una volta
+Terzine distinte osservate,59652,Numero terzine comparse almeno una volta

@@ -1,5 +1,5 @@
 Contesto e definizioni
-Ho analizzato 4,178 concorsi disponibili, con validazione storica progressiva fino al concorso 4178.
+Ho analizzato 4,179 concorsi disponibili, con validazione storica progressiva fino al concorso 4179.
 In ogni passo il modello propone una sestina costruita solo con informazioni disponibili prima dell'estrazione target.
 
 Che cosa misura davvero la co-occorrenza
