@@ -1,9 +1,8 @@
-[01:03:37] TRAIN progress: 15/15 (100%) -> super6NN OK
-[01:03:54] Fase OK: train_incremental_stage_all_active
-[01:04:08] AI nulla osta OK su verify_train_outputs_stage
-[01:04:22] Avvio fase: verify_train_outputs_stage
-[01:04:37] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=12)
-[01:04:51] Fase OK: verify_train_outputs_stage
-[01:05:07] AI nulla osta OK su update_cards_stage
-[01:05:22] Avvio fase: update_cards_stage
-[01:05:37] Fase OK: update_cards_stage
+[01:06:37] AI nulla osta OK su build_manifest_stage
+[01:06:52] Avvio fase: build_manifest_stage
+[01:07:18] Fase OK: build_manifest_stage
+[01:07:49] AI nulla osta OK su verify_bundle_stage
+[01:08:03] Avvio fase: verify_bundle_stage
+[01:08:18] Fase KO: verify_bundle_stage -> Manifest assente o vuoto
+[01:08:34] Email cumulativa inviata su stop anticipato (verify_bundle_stage): Email inviata
+[01:08:49] Manifest assente o vuoto

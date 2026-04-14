@@ -16,7 +16,7 @@
   "type": "ALGORITMI",
   "view": true,
   "hits": {
-    "enabled": true,
-    "count": 2
+    "enabled": false,
+    "count": 0
   }
 }
