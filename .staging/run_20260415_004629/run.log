@@ -18,3 +18,6 @@
 [00:51:46] TRAIN progress: 1/15 (6%) -> arc90-logico-algoritmica gia allineato
 [00:52:00] TRAIN progress: 1/15 (6%) -> avvio classic-analisi-anomalie-pattern
 [00:52:15] TRAIN progress: 2/15 (13%) -> classic-analisi-anomalie-pattern gia allineato
+[00:52:29] TRAIN progress: 2/15 (13%) -> avvio classic-co-occorrenze
+[00:52:44] TRAIN progress: 3/15 (20%) -> classic-co-occorrenze gia allineato
+[00:52:58] TRAIN progress: 3/15 (20%) -> avvio classic-coppie-terni-consecutivi
