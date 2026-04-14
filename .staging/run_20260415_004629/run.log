@@ -28,3 +28,6 @@
 [00:54:11] TRAIN progress: 6/15 (40%) -> classic-distribuzioni-modelli-raggruppamento gia allineato
 [00:54:26] TRAIN progress: 6/15 (40%) -> avvio classic-frequency
 [00:54:40] TRAIN progress: 7/15 (46%) -> classic-frequency gia allineato
+[00:54:54] TRAIN progress: 7/15 (46%) -> avvio classic-ritardi
+[00:55:08] TRAIN progress: 8/15 (53%) -> classic-ritardi gia allineato
+[00:55:23] TRAIN progress: 8/15 (53%) -> avvio classic-ritardi-combinazioni
