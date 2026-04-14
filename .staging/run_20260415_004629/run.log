@@ -8,3 +8,6 @@
 [00:48:24] AI nulla osta OK su verify_draws_stage
 [00:48:38] Avvio fase: verify_draws_stage
 [00:48:53] Fase OK: verify_draws_stage
+[00:49:09] AI nulla osta OK su apply_draws_local_atomic
+[00:49:24] Avvio fase: apply_draws_local_atomic
+[00:49:51] Fase OK: apply_draws_local_atomic
