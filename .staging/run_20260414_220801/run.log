@@ -1,6 +1,4 @@
-[22:08:01] Fase OK: lock_acquire
-[22:08:29] AI nulla osta OK su check_sources_quorum
-[22:08:46] Avvio fase: check_sources_quorum
-[22:09:51] Fase OK: check_sources_quorum
-[22:10:47] AI nulla osta OK su update_local_draws_stage
-[22:11:36] Avvio fase: update_local_draws_stage
+[22:14:10] AI nulla osta OK su verify_draws_stage
+[22:15:46] Avvio fase: verify_draws_stage
+[22:17:31] VERIFY_DRAWS_STAGE: draws stage rigenerato da admin locale
+[22:19:24] Fase OK: verify_draws_stage
