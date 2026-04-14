@@ -2,3 +2,8 @@
 [22:15:46] Avvio fase: verify_draws_stage
 [22:17:31] VERIFY_DRAWS_STAGE: draws stage rigenerato da admin locale
 [22:19:24] Fase OK: verify_draws_stage
+[22:21:50] AI nulla osta OK su apply_draws_local_atomic
+[22:24:46] Avvio fase: apply_draws_local_atomic
+[22:28:29] Fase OK: apply_draws_local_atomic
+[22:37:12] AI nulla osta OK su train_incremental_stage_all_active
+[22:41:37] Avvio fase: train_incremental_stage_all_active
