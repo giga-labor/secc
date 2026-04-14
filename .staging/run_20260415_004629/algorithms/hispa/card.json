@@ -1,0 +1,22 @@
+{
+  "id": "hispa",
+  "title": "HiSPA",
+  "subtitle": "Historical Pattern Scoring Algorithm progressivo",
+  "image": "img.webp",
+  "lastUpdated": "15/03/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Scheda tecnica",
+  "narrativeSummary": "Algoritmo statistico progressivo basato su pattern dell'ultima sestina reale e scoring condizionato dei concorsi successivi storici.",
+  "page": "pages/algoritmi/algs/hispa/",
+  "macroGroup": "statistica",
+  "isActive": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "type": "ALGORITMI",
+  "view": true,
+  "hits": {
+    "enabled": false,
+    "count": 0
+  }
+}

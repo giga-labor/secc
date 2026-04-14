@@ -1,1 +1,9 @@
-[00:59:35] TRAIN progress: 14/15 (93%) -> avvio super6NN
+[01:03:37] TRAIN progress: 15/15 (100%) -> super6NN OK
+[01:03:54] Fase OK: train_incremental_stage_all_active
+[01:04:08] AI nulla osta OK su verify_train_outputs_stage
+[01:04:22] Avvio fase: verify_train_outputs_stage
+[01:04:37] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=12)
+[01:04:51] Fase OK: verify_train_outputs_stage
+[01:05:07] AI nulla osta OK su update_cards_stage
+[01:05:22] Avvio fase: update_cards_stage
+[01:05:37] Fase OK: update_cards_stage

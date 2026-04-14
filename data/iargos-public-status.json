@@ -5,7 +5,7 @@
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Publish locale pendente: git_dirty=True, remote_ahead=1, remote_behind=0.",
+  "summary": "Rilevati 1 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "FLASH",
   "alignment_priority": {
@@ -64,9 +64,9 @@
     ],
     "active_priorities_count": 2,
     "consecutive_crisis_cycles": 0,
-    "human_escalation_requested": true,
+    "human_escalation_requested": false,
     "novelty_detected": true,
-    "novelty_streak": 23,
+    "novelty_streak": 28,
     "novelty_last_reason": "unknown_final_outcome",
     "stabilization_mode_active": true,
     "stabilization_mode_reason": "unknown_final_outcome",
@@ -77,9 +77,9 @@
     "recovery_guidance": {
       "ready_to_exit": false,
       "stable_cycles": 1,
-      "novelty_streak": 23,
+      "novelty_streak": 28,
       "crisis_cycles": 0,
-      "human_escalation_requested": true,
+      "human_escalation_requested": false,
       "stabilization_mode_active": true,
       "post_intervention_active": true,
       "playbook": {
@@ -294,8 +294,7 @@
         "novelty_streak == 0",
         "stabilization_mode_active == False",
         "post_intervention_active == False",
-        "human_escalation_requested == False",
-        "human_escalation_requested rientrata dopo stabilizzazione"
+        "human_escalation_requested == False"
       ],
       "next_actions": [
         "confermare solo trial Zona A a rischio minimo",
@@ -305,7 +304,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: chiudere gap algoritmi e ripulire lo stato di training.",
       "live_system": {
-        "updated_at": "2026-04-15 00:55:54",
+        "updated_at": "2026-04-15 01:00:54",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -366,10 +365,15 @@
               "resolves": 1,
               "effectiveness_pct": 100.0
             },
+            "deploy_mirror_local": {
+              "attempts": 2,
+              "resolves": 2,
+              "effectiveness_pct": 100.0
+            },
             "publish": {
-              "attempts": 7,
-              "resolves": 3,
-              "effectiveness_pct": 42.9
+              "attempts": 10,
+              "resolves": 5,
+              "effectiveness_pct": 50.0
             },
             "updates_run_all": {
               "attempts": 1,
@@ -400,7 +404,7 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-15 00:55:10",
+            "last_reload": "2026-04-15 01:00:53",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
@@ -414,14 +418,14 @@
               },
               "check_draws_online": {
                 "score_global": 0.104,
-                "total_obs_weighted": 115.01,
+                "total_obs_weighted": 114.97,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "deploy_mirror_local": {
-                "score_global": 0.348,
-                "total_obs_weighted": 60.16,
+                "score_global": 0.353,
+                "total_obs_weighted": 62.14,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -435,14 +439,14 @@
               },
               "mirror_rebuild": {
                 "score_global": 0.136,
-                "total_obs_weighted": 25.57,
+                "total_obs_weighted": 25.56,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.287,
-                "total_obs_weighted": 104.25,
+                "score_global": 0.296,
+                "total_obs_weighted": 108.2,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
@@ -455,7 +459,7 @@
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 323.17
+            "total_observations_weighted": 329.04
           }
         }
       },
@@ -486,7 +490,7 @@
           "deploy_mirror_local",
           "publish"
         ],
-        "ts": "2026-04-15 00:55:54"
+        "ts": "2026-04-15 01:00:54"
       }
     },
     "catalog_stale": false,
@@ -503,7 +507,7 @@
   "tutor_stabilization": {
     "triggered": true,
     "novelty_detected": true,
-    "novelty_streak": 23,
+    "novelty_streak": 28,
     "threshold": 2,
     "reason": "unknown_final_outcome",
     "active": true,
@@ -514,15 +518,15 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-15 00:55:43",
+    "last_push_at": "2026-04-15 01:00:50",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-15T00:45:22",
     "last_training_at": "2026-04-15 00:55:42",
-    "last_deploy_at": "2026-04-15 00:42:12",
+    "last_deploy_at": "2026-04-15 00:59:55",
     "mirror_last_modified_at": "2026-04-15 00:39:57",
     "algorithms_total_count": 15,
-    "algorithms_aligned_count": 12,
+    "algorithms_aligned_count": 14,
     "queue_pending": 0,
     "queue_running": 0,
     "circuit_state": "CLOSED",
