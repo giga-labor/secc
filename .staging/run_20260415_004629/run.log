@@ -31,3 +31,12 @@
 [00:54:54] TRAIN progress: 7/15 (46%) -> avvio classic-ritardi
 [00:55:08] TRAIN progress: 8/15 (53%) -> classic-ritardi gia allineato
 [00:55:23] TRAIN progress: 8/15 (53%) -> avvio classic-ritardi-combinazioni
+[00:55:37] TRAIN progress: 9/15 (60%) -> classic-ritardi-combinazioni gia allineato
+[00:55:53] TRAIN progress: 9/15 (60%) -> avvio classic-statistiche-combinate-finestre-mobili
+[00:56:07] TRAIN progress: 10/15 (66%) -> classic-statistiche-combinate-finestre-mobili gia allineato
+[00:56:22] TRAIN progress: 10/15 (66%) -> avvio classic-tavole-probabilita-teorica-test-uniformita
+[00:56:49] TRAIN progress: 11/15 (73%) -> classic-tavole-probabilita-teorica-test-uniformita gia allineato
+[00:57:15] TRAIN progress: 11/15 (73%) -> avvio genetic
+[00:57:30] TRAIN progress: 12/15 (80%) -> genetic gia allineato
+[00:57:44] TRAIN progress: 12/15 (80%) -> avvio hispa
+[00:57:59] TRAIN progress: 13/15 (86%) -> hispa OK
