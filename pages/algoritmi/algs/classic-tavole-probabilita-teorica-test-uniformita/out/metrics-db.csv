@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4178,Conteggio archivio fino al concorso 4178
+Concorsi analizzati,4179,Conteggio archivio fino al concorso 4179
 Media hit/sestina,0.40,Media numeri corretti per concorso
 Hit rate >= 2,4.8%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2735,Numero concorsi con esattamente 0 hit
+Con 0 hit,2736,Numero concorsi con esattamente 0 hit
 Con 1 hit,1240,Numero concorsi con esattamente 1 hit
 Con 2 hit,190,Numero concorsi con esattamente 2 hit
 Con 3 hit,12,Numero concorsi con esattamente 3 hit
@@ -11,11 +11,11 @@ Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
 Media hit ultimi 100,0.47,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4178,Data estrazione: 11/04/2026
-Concorso successivo stimato,4179,Sestina proposta: 50 36 53 18 24 60
+Ultimo concorso calcolato,4179,Data estrazione: 14/04/2026
+Concorso successivo stimato,4180,Sestina proposta: 50 36 53 18 24 60
 Sestina proposta (prossimo concorso),50 36 53 18 24 60,Pronostico prodotto con addestramento incrementale
-Atteso per numero,278.53,Valore teorico uniforme: draws * 6/90
-Chi quadro numeri (90 classi),96.21,Statistica descrittiva senza p-value
-Chi quadro decadi (9 classi),21.11,Confronto osservato/atteso sulle 9 decadi
-Chi quadro pari-dispari,2.07,Uniformita su due classi aggregate
-Massima deviazione numero,85,Scarto osservato-atteso: +42.47
+Atteso per numero,278.60,Valore teorico uniforme: draws * 6/90
+Chi quadro numeri (90 classi),95.92,Statistica descrittiva senza p-value
+Chi quadro decadi (9 classi),20.90,Confronto osservato/atteso sulle 9 decadi
+Chi quadro pari-dispari,2.11,Uniformita su due classi aggregate
+Massima deviazione numero,85,Scarto osservato-atteso: +42.40
