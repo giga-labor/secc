@@ -102,6 +102,13 @@
         <h2 class="text-white text-xl font-semibold">Sestine proposte ordinate per classifica degli algoritmi</h2>
         <p class="text-ash">Elenco aggiornato delle proposte generate dagli algoritmi attivi.</p>
       </header>
+      <section class="mt-4" aria-label="Prossima estrazione" id="next-draw-proposals-banner" style="display:none">
+        <div class="rounded-xl border border-sky-500/40 bg-sky-950/60 px-4 py-3 flex flex-wrap items-center gap-3">
+          <span class="text-xs uppercase tracking-[0.2em] text-sky-400">Prossima estrazione</span>
+          <span class="font-bold text-white" id="next-draw-proposals-label">-</span>
+          <span class="text-xs text-ash">data presunta da storico locale</span>
+        </div>
+      </section>
 
       <section class="rounded-3xl bg-transparent p-0 mt-6 space-y-3">
         <div class="max-h-[34rem] overflow-auto pr-1 space-y-2 text-center" data-proposals-list>
@@ -144,6 +151,37 @@
         if (n <= 60) return 'cc-ball-tone--emerald';
         if (n <= 75) return 'cc-ball-tone--violet';
         return 'cc-ball-tone--rose';
+      };
+
+      const renderNextDrawBanner = async () => {
+        const banner = document.getElementById('next-draw-proposals-banner');
+        const label = document.getElementById('next-draw-proposals-label');
+        if (!banner || !label) return;
+        try {
+          const res = await fetch('../../archives/draws/draws.csv', { cache: 'no-store' });
+          if (!res.ok) return;
+          const csv = await res.text();
+          const lines = csv.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+          if (lines.length < 2) return;
+          const last = lines[lines.length - 1].split(',').map((x) => x.trim());
+          const seq = parseInt(last[0], 10);
+          const m = String(last[1] || '').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+          if (!Number.isFinite(seq) || !m) return;
+
+          const base = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
+          const drawDays = new Set([2, 4, 5, 6]); // mar, gio, ven, sab
+          const next = new Date(base);
+          for (let i = 0; i < 7; i += 1) {
+            next.setDate(next.getDate() + 1);
+            if (drawDays.has(next.getDay())) break;
+          }
+          const weekdays = ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'];
+          const dd = String(next.getDate()).padStart(2, '0');
+          const mm = String(next.getMonth() + 1).padStart(2, '0');
+          const yyyy = next.getFullYear();
+          label.textContent = `#${seq + 1} - ${weekdays[next.getDay()]} ${dd}/${mm}/${yyyy} ore 20:00`;
+          banner.style.display = '';
+        } catch (_) {}
       };
 
       const loadManifestCards = async () => {
@@ -252,7 +290,10 @@
       };
 
       window.addEventListener('load', () => {
-        window.setTimeout(() => { render().catch(() => {}); }, 60);
+        window.setTimeout(() => {
+          render().catch(() => {});
+          renderNextDrawBanner().catch(() => {});
+        }, 60);
       });
     })();
   </script>
