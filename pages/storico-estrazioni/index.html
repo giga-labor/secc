@@ -153,37 +153,37 @@
       var label = document.getElementById('next-draw-label');
       var src = document.getElementById('next-draw-source-tag');
       if (!banner || !label) return;
+      fetch('../../archives/draws/draws.csv', { cache: 'no-store' })
+        .then(function (res) { return res.ok ? res.text() : ''; })
+        .then(function (csv) {
+          var lines = String(csv || '').split(/\r?\n/).map(function (l) { return l.trim(); }).filter(Boolean);
+          if (lines.length < 2) return;
+          var last = lines[lines.length - 1].split(',').map(function (x) { return String(x || '').trim(); });
+          var seq = parseInt(last[0], 10);
+          var m = String(last[1] || '').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+          if (!Number.isFinite(seq) || !m) return;
 
-      var row = document.querySelector('[data-draws-body] tr');
-      if (!row) return;
-      var cells = row.querySelectorAll('td');
-      if (cells.length < 2) return;
+          var base = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
+          var drawDays = new Set([2, 4, 5, 6]); // mar, gio, ven, sab (JS: dom=0)
+          var next = new Date(base);
+          for (var i = 0; i < 7; i += 1) {
+            next.setDate(next.getDate() + 1);
+            if (drawDays.has(next.getDay())) break;
+          }
 
-      var dateText = (cells[0].textContent || '').trim();
-      var seqText = (cells[1].textContent || '').trim();
-      var m = dateText.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-      var seq = parseInt(seqText, 10);
-      if (!m || !Number.isFinite(seq)) return;
+          var weekdays = ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'];
+          var dd = String(next.getDate()).padStart(2, '0');
+          var mm = String(next.getMonth() + 1).padStart(2, '0');
+          var yyyy = next.getFullYear();
 
-      var last = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
-      var drawDays = new Set([2, 4, 5, 6]); // mar, gio, ven, sab (JS: dom=0)
-      var next = new Date(last);
-      for (var i = 0; i < 7; i += 1) {
-        next.setDate(next.getDate() + 1);
-        if (drawDays.has(next.getDay())) break;
-      }
-
-      var weekdays = ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'];
-      var dd = String(next.getDate()).padStart(2, '0');
-      var mm = String(next.getMonth() + 1).padStart(2, '0');
-      var yyyy = next.getFullYear();
-
-      label.textContent = '#' + (seq + 1) + ' - ' + weekdays[next.getDay()] + ' ' + dd + '/' + mm + '/' + yyyy + ' ore 20:00';
-      if (src) {
-        src.textContent = 'data presunta da storico locale';
-        src.style.color = '#aaa';
-      }
-      banner.style.display = '';
+          label.textContent = '#' + (seq + 1) + ' - ' + weekdays[next.getDay()] + ' ' + dd + '/' + mm + '/' + yyyy + ' ore 20:00';
+          if (src) {
+            src.textContent = 'numero da draws.csv locale';
+            src.style.color = '#aaa';
+          }
+          banner.style.display = '';
+        })
+        .catch(function () {});
     })();
   </script>
   <script src="../../assets/js/ads.js" defer></script>
