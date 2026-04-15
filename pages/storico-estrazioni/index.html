@@ -87,7 +87,15 @@
       <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Archivio storico</span>
     </header>
 
-<section class="mt-10 space-y-4" aria-label="Archivio storico estrazioni">
+<section class="mt-6" aria-label="Prossima estrazione" id="next-draw-banner" style="display:none">
+  <div class="rounded-xl border border-sky-500/40 bg-sky-950/60 px-5 py-4 flex flex-wrap items-center gap-3">
+    <span class="text-xs uppercase tracking-[0.2em] text-sky-400">Prossima estrazione</span>
+    <span class="font-bold text-white" id="next-draw-label">—</span>
+    <span class="text-xs text-ash" id="next-draw-source-tag"></span>
+  </div>
+</section>
+
+<section class="mt-6 space-y-4" aria-label="Archivio storico estrazioni">
       <div class="flex flex-wrap items-center justify-between gap-4">
         <span class="rounded-full border border-emerald-400 bg-midnight/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-300" data-draws-status-tag>Archivio attivo</span>
         <label class="sr-only" for="draws-search-input">Cerca per data, numero concorso o combinazione</label>
@@ -139,6 +147,26 @@
   <script src="../../assets/js/directors/storico.director.js" defer></script>
   <script src="../../assets/js/runtime-bootstrap.js" defer></script>
   <script src="../../assets/js/draws.js" defer></script>
+  <script>
+    (function () {
+      var banner = document.getElementById('next-draw-banner');
+      var label = document.getElementById('next-draw-label');
+      var src = document.getElementById('next-draw-source-tag');
+      if (!banner || !label) return;
+      fetch('/data/next-draw.json', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d || !d.next_seq) return;
+          label.textContent = '#' + d.next_seq + ' — ' + (d.next_weekday || '') + ' ' + (d.next_date || '') + ' ore ' + (d.next_time || '20:00');
+          if (src) {
+            src.textContent = d.source === 'online' ? '✓ data confermata da internet' : '(da archivio locale)';
+            src.style.color = d.source === 'online' ? '#67e8a5' : '#aaa';
+          }
+          banner.style.display = '';
+        })
+        .catch(function () {});
+    })();
+  </script>
   <script src="../../assets/js/ads.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
