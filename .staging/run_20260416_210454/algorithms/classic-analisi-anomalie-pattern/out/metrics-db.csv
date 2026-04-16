@@ -1,0 +1,21 @@
+METRICA,VALORE,NOTE
+Concorsi analizzati,4180,Conteggio archivio fino al concorso 4180
+Media hit/sestina,0.40,Media numeri corretti per concorso
+Hit rate >= 2,5.6%,Percentuale concorsi con almeno 2 hit
+Con 0 hit,2750,Numero concorsi con esattamente 0 hit
+Con 1 hit,1194,Numero concorsi con esattamente 1 hit
+Con 2 hit,217,Numero concorsi con esattamente 2 hit
+Con 3 hit,17,Numero concorsi con esattamente 3 hit
+Con 4 hit,1,Numero concorsi con esattamente 4 hit
+Con 5 hit,0,Numero concorsi con esattamente 5 hit
+Con 6 hit,0,Numero concorsi con esattamente 6 hit
+Best streak,7,Massima sequenza di concorsi con almeno 1 hit
+Media hit ultimi 100,0.45,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4180,Data estrazione: 16/04/2026
+Concorso successivo stimato,4181,Sestina proposta: 82 70 73 65 86 75
+Sestina proposta (prossimo concorso),82 70 73 65 86 75,Pronostico prodotto con addestramento incrementale
+Pattern anomali (score>=3),39.8%,Quota concorsi con pattern strutturali anomali
+Concorsi con consecutivi,29.4%,Almeno una coppia consecutiva
+Concorsi con terminali ripetuti,83.5%,Almeno due numeri con stessa cifra finale
+Anomaly score medio,2.26,Indice sintetico interno del modulo
+Anomaly score massimo,10,Massimo score osservato su singolo concorso

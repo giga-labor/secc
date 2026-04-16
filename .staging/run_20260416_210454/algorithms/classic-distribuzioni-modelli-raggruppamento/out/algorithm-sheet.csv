@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione."
+SCOPO,"Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione."
+INPUT,draws.csv storico | Replay incrementale | Calcolo di shape e aggregati strutturali per ogni concorso
+METODO,Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape
+OUTPUT,historical-db.csv con hit progressivi | metrics-db.csv con shape modali e statistiche strutturali | algorithm-sheet.csv | analysis.txt
+LIMITI,Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina
