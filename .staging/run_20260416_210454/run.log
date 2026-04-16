@@ -1,5 +1,9 @@
-[21:04:54] Fase OK: lock_acquire
-[21:05:21] AI nulla osta OK su check_sources_quorum
-[21:05:36] Avvio fase: check_sources_quorum
-[21:05:59] Fase OK: check_sources_quorum
-[21:06:17] AI nulla osta OK su update_local_draws_stage
+[21:07:39] Avvio fase: verify_draws_stage
+[21:07:57] VERIFY_DRAWS_STAGE: draws stage rigenerato da admin locale
+[21:08:11] Fase OK: verify_draws_stage
+[21:08:29] AI nulla osta OK su apply_draws_local_atomic
+[21:08:45] Avvio fase: apply_draws_local_atomic
+[21:09:02] Fase OK: apply_draws_local_atomic
+[21:09:20] AI nulla osta OK su train_incremental_stage_all_active
+[21:09:36] Avvio fase: train_incremental_stage_all_active
+[21:09:53] TRAIN start: target_seq=4180 | algoritmi_attivi=15
