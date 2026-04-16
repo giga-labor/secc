@@ -1,0 +1,9 @@
+[20:51:46] Fase OK: lock_acquire
+[20:52:05] AI nulla osta OK su check_sources_quorum
+[20:52:35] Avvio fase: check_sources_quorum
+[20:53:00] Fase KO: check_sources_quorum -> Quorum insufficiente (1/2)
+[20:53:19] Email cumulativa inviata su stop anticipato (check_sources_quorum): Email inviata
+[20:53:38] AI nulla osta OK su lock_release
+[20:53:54] Avvio fase: lock_release
+[20:54:12] Fase OK: lock_release
+[20:54:29] Quorum insufficiente (1/2)
