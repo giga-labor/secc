@@ -1,7 +1,0 @@
-CHIAVE,VALORE
-INTRO,"Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi)."
-SCOPO,Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.
-INPUT,draws.csv storico | Replay incrementale | Finestre mobili 50/100/200 aggiornate concorso per concorso
-METODO,"Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top"
-OUTPUT,historical-db.csv con hit incrementali | metrics-db.csv con top list per finestra e overlap | algorithm-sheet.csv | analysis.txt
-LIMITI,Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro
