@@ -1,102 +1,5 @@
 [
   {
-    "id": "sestine-proposte-info",
-    "title": "Sestine Proposte",
-    "subtitle": "Apri subito le proposte ordinate",
-    "statusTag": "Proposte",
-    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
-    "macroGroup": "info",
-    "page": "pages/sestine-proposte/index.html",
-    "image": "img/statistic.webp",
-    "lastUpdated": "15/03/2026",
-    "hasNews": true,
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "free",
-    "type": "INFO",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/sestine-proposte/"
-  },
-  {
-    "id": "laboratorio-tecnico",
-    "title": "Laboratorio Tecnico",
-    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
-    "statusTag": "Lab",
-    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
-    "macroGroup": "statistica",
-    "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/laboratorio-tecnico/",
-    "image": "img.webp",
-    "lastUpdated": "",
-    "hasNews": true,
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    }
-  },
-  {
-    "macroGroup": "storico",
-    "id": "storico-estrazioni",
-    "title": "Estrazione del:",
-    "subtitle": "$D",
-    "showSubtitle": true,
-    "image": "img.webp",
-    "mediaScale": 1.08,
-    "lastUpdated": "02/02/2026",
-    "hasNews": true,
-    "statusTag": "Archivio",
-    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
-    "page": "pages/storico-estrazioni/index.html",
-    "type": "ARCHIVI",
-    "features": [
-      "draws-latest"
-    ],
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "off",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/storico-estrazioni/",
-    "imageVersion": 1771969284
-  },
-  {
-    "id": "arc90-logico-algoritmica",
-    "title": "ARC90",
-    "subtitle": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie",
-    "image": "img.webp",
-    "lastUpdated": "07/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie.",
-    "page": "pages/algoritmi/algs/arc90-logico-algoritmica/",
-    "macroGroup": "ibrido",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "type": "ALGORITMI",
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/algoritmi/algs/arc90-logico-algoritmica/"
-  },
-  {
     "id": "classic-analisi-anomalie-pattern",
     "title": "classic-analisi-anomalie-pattern",
     "subtitle": "Analisi di anomalie e pattern",
@@ -119,29 +22,6 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/"
-  },
-  {
-    "id": "classic-co-occorrenze",
-    "title": "classic  co-occorrenze",
-    "subtitle": "Analisi relazionale su coppie e co-presenze storiche",
-    "image": "img.webp",
-    "lastUpdated": "10/02/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Modello statistico relazionale che seleziona sestine con alta coesione storica, valorizzando le co-occorrenze tra numeri e la densita della rete di coppie.",
-    "page": "pages/algoritmi/algs/classic-co-occorrenze/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "view": true,
-    "type": "ALGORITMI",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/"
   },
   {
     "id": "classic-coppie-terni-consecutivi",
@@ -207,52 +87,6 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-frequency",
-    "title": "classic-frequency",
-    "subtitle": "Analisi frequenziale su storico estrazioni",
-    "image": "img.webp",
-    "lastUpdated": "07/02/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Modello statistico basato su frequenze assolute e relative dei numeri nel tempo.",
-    "page": "pages/algoritmi/algs/classic-frequency/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-ritardi",
-    "title": "classic-ritardi",
-    "subtitle": "Analisi dei numeri in ritardo (overdue)",
-    "image": "img.webp",
-    "lastUpdated": "09/02/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
-    "page": "pages/algoritmi/algs/classic-ritardi/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
     "type": "ALGORITMI"
   },
   {
@@ -322,6 +156,123 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/"
+  },
+  {
+    "id": "arc90-logico-algoritmica",
+    "title": "ARC90",
+    "subtitle": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie",
+    "image": "img.webp",
+    "lastUpdated": "07/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie.",
+    "page": "pages/algoritmi/algs/arc90-logico-algoritmica/",
+    "macroGroup": "ibrido",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "type": "ALGORITMI",
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/algoritmi/algs/arc90-logico-algoritmica/"
+  },
+  {
+    "id": "astra-moon",
+    "title": "ASTRA Moon",
+    "subtitle": "Ranking numerico da effemeridi lunari con riferimento fisso 20:30",
+    "image": "img.webp",
+    "lastUpdated": "17/04/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Algoritmo astro-statistico dedicato alla Luna: calcola feature effemeridi per ogni concorso (20:30 Europe/Rome) e produce classifica numeri e sestina proposta.",
+    "page": "pages/algoritmi/algs/astra-moon/",
+    "macroGroup": "ibrido",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "type": "ALGORITMI",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/astra-moon/",
+    "imageVersion": 1773599476
+  },
+  {
+    "id": "classic-co-occorrenze",
+    "title": "classic  co-occorrenze",
+    "subtitle": "Analisi relazionale su coppie e co-presenze storiche",
+    "image": "img.webp",
+    "lastUpdated": "10/02/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Modello statistico relazionale che seleziona sestine con alta coesione storica, valorizzando le co-occorrenze tra numeri e la densita della rete di coppie.",
+    "page": "pages/algoritmi/algs/classic-co-occorrenze/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "view": true,
+    "type": "ALGORITMI",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/"
+  },
+  {
+    "id": "classic-frequency",
+    "title": "classic-frequency",
+    "subtitle": "Analisi frequenziale su storico estrazioni",
+    "image": "img.webp",
+    "lastUpdated": "07/02/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Modello statistico basato su frequenze assolute e relative dei numeri nel tempo.",
+    "page": "pages/algoritmi/algs/classic-frequency/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-frequency/",
+    "type": "ALGORITMI"
+  },
+  {
+    "id": "classic-ritardi",
+    "title": "classic-ritardi",
+    "subtitle": "Analisi dei numeri in ritardo (overdue)",
+    "image": "img.webp",
+    "lastUpdated": "09/02/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
+    "page": "pages/algoritmi/algs/classic-ritardi/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
+    "type": "ALGORITMI"
   },
   {
     "id": "genetic-algorithm-evolutionary",
@@ -416,5 +367,78 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/super6NN/"
+  },
+  {
+    "id": "laboratorio-tecnico",
+    "title": "Laboratorio Tecnico",
+    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
+    "statusTag": "Lab",
+    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/laboratorio-tecnico/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    }
+  },
+  {
+    "id": "sestine-proposte-info",
+    "title": "Sestine Proposte",
+    "subtitle": "Apri subito le proposte ordinate",
+    "statusTag": "Proposte",
+    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
+    "macroGroup": "info",
+    "page": "pages/sestine-proposte/index.html",
+    "image": "img/statistic.webp",
+    "lastUpdated": "15/03/2026",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "type": "INFO",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/sestine-proposte/"
+  },
+  {
+    "macroGroup": "storico",
+    "id": "storico-estrazioni",
+    "title": "Estrazione del:",
+    "subtitle": "$D",
+    "showSubtitle": true,
+    "image": "img.webp",
+    "mediaScale": 1.08,
+    "lastUpdated": "02/02/2026",
+    "hasNews": true,
+    "statusTag": "Archivio",
+    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
+    "page": "pages/storico-estrazioni/index.html",
+    "type": "ARCHIVI",
+    "features": [
+      "draws-latest"
+    ],
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/storico-estrazioni/",
+    "imageVersion": 1771969284
   }
 ]

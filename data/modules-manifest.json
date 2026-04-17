@@ -1,6 +1,7 @@
 [
   "pages/algoritmi/algs/6d/card.json",
   "pages/algoritmi/algs/arc90-logico-algoritmica/card.json",
+  "pages/algoritmi/algs/astra-moon/card.json",
   "pages/algoritmi/algs/classic-analisi-anomalie-pattern/card.json",
   "pages/algoritmi/algs/classic-co-occorrenze/card.json",
   "pages/algoritmi/algs/classic-coppie-terni-consecutivi/card.json",
@@ -15,6 +16,7 @@
   "pages/algoritmi/algs/geneticSurvival/card.json",
   "pages/algoritmi/algs/geneticThree/card.json",
   "pages/algoritmi/algs/helix-6-feature-generazione-valutazione/card.json",
+  "pages/algoritmi/algs/hispa/card.json",
   "pages/algoritmi/algs/ipx/card.json",
   "pages/algoritmi/algs/kairos/card.json",
   "pages/algoritmi/algs/lightgbm/card.json",
@@ -29,8 +31,7 @@
   "pages/algoritmi/algs/sequenceLab/card.json",
   "pages/algoritmi/algs/super6NN/card.json",
   "pages/algoritmi/algs/superenalottoAI/card.json",
-  "pages/algoritmi/algs/hispa/card.json",
-  "pages/sestine-proposte/card.json",
   "pages/laboratorio-tecnico/card.json",
+  "pages/sestine-proposte/card.json",
   "pages/storico-estrazioni/card.json"
 ]
