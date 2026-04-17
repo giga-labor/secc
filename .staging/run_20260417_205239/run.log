@@ -4,3 +4,5 @@
 [20:57:59] Fase KO: check_sources_quorum -> Quorum insufficiente (1/2)
 [20:59:28] Email cumulativa inviata su stop anticipato (check_sources_quorum): Email inviata
 [21:00:57] AI nulla osta OK su lock_release
+[21:02:44] Avvio fase: lock_release
+[21:04:29] Fase OK: lock_release
