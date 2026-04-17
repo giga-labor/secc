@@ -1,0 +1,15 @@
+{
+  "policy_version": "1.0.0",
+  "quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180,
+    "max_block_minutes": 15,
+    "fallback_latest_source": true
+  },
+  "confirmations": 1,
+  "best_date": "17/04/2026",
+  "latest_external_contest_id": 62,
+  "raw": "CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)\nLocale corrente: seq=4180 data=16/04/2026\n\n[superenalotto.it] ONLINE PIU AGGIORNATO\n  locale: seq=4180 data=16/04/2026 sestina=09 11 12 38 44 54\n  online: seq=62 data=17/04/2026 sestina=13 27 45 53 57 84\n  nuova_sestina_online: 13 27 45 53 57 84\n  ref: https://www.superenalotto.it/archivio-estrazioni/concorso-62/17-aprile-2026\n\n[superenalotto.com] ALLINEATO\n  locale: seq=4180 data=16/04/2026 sestina=09 11 12 38 44 54\n  online: seq=61 data=16/04/2026 sestina=09 11 12 38 44 54\n  ref: https://www.superenalotto.com/risultati/estrazione-16-04-2026",
+  "status": "degraded"
+}

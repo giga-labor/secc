@@ -27,5 +27,5 @@
     "max_block_minutes": 15,
     "fallback_latest_source": true
   },
-  "quorum_degraded_since": ""
+  "quorum_degraded_since": "2026-04-17T20:57:59"
 }
