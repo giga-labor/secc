@@ -7,16 +7,16 @@
   "severity": "warning",
   "summary": "Rilevati 1 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
-  "task_precedence": "FLASH",
+  "task_precedence": "PRIORITY",
   "alignment_priority": {
-    "p0_new_contest_found": true,
+    "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": false,
+    "p2_flow_guard": true,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": true,
+    "p6_local_publish": false,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -24,9 +24,9 @@
   "alignment": {
     "archive_update_state": "N/D",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
+    "flow_guard_ok": false,
     "git_dirty": true,
-    "remote_ahead": 0,
+    "remote_ahead": 1,
     "remote_behind": 0,
     "alignment_diff_count": 0
   },
@@ -56,29 +56,28 @@
     "cause": "tutor_stabilization_mode",
     "state_at": "",
     "severity": "warning",
-    "task_precedence": "FLASH",
+    "task_precedence": "PRIORITY",
     "circuit_state": "CLOSED",
     "active_priorities": [
-      "p0_new_contest_found",
-      "p6_local_publish"
+      "p2_flow_guard"
     ],
-    "active_priorities_count": 2,
-    "consecutive_crisis_cycles": 1,
+    "active_priorities_count": 1,
+    "consecutive_crisis_cycles": 0,
     "human_escalation_requested": false,
     "novelty_detected": true,
-    "novelty_streak": 6,
-    "novelty_last_reason": "unknown_final_outcome; unclassified_non_improving_case",
+    "novelty_streak": 7,
+    "novelty_last_reason": "unknown_final_outcome",
     "stabilization_mode_active": true,
-    "stabilization_mode_reason": "unknown_final_outcome; unclassified_non_improving_case",
+    "stabilization_mode_reason": "unknown_final_outcome",
     "stabilization_mode_since": "2026-04-17 20:56:49",
     "recovery_mode_active": false,
-    "recovery_mode_stable_cycles": 0,
+    "recovery_mode_stable_cycles": 1,
     "recovery_mode_threshold": 2,
     "recovery_guidance": {
       "ready_to_exit": false,
-      "stable_cycles": 0,
-      "novelty_streak": 6,
-      "crisis_cycles": 1,
+      "stable_cycles": 1,
+      "novelty_streak": 7,
+      "crisis_cycles": 0,
       "human_escalation_requested": false,
       "stabilization_mode_active": true,
       "post_intervention_active": true,
@@ -307,7 +306,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro.",
       "live_system": {
-        "updated_at": "2026-04-17 21:13:59",
+        "updated_at": "2026-04-17 21:15:41",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -369,7 +368,7 @@
               "effectiveness_pct": 100.0
             },
             "check_draws_online": {
-              "attempts": 59,
+              "attempts": 60,
               "resolves": 0,
               "effectiveness_pct": 0.0
             },
@@ -379,9 +378,9 @@
               "effectiveness_pct": 100.0
             },
             "publish": {
-              "attempts": 9,
-              "resolves": 4,
-              "effectiveness_pct": 44.4
+              "attempts": 10,
+              "resolves": 5,
+              "effectiveness_pct": 50.0
             },
             "updates_run_all": {
               "attempts": 2,
@@ -499,7 +498,7 @@
           "updates_run_all",
           "backup_prune_mirror_keep5"
         ],
-        "ts": "2026-04-17 21:13:59"
+        "ts": "2026-04-17 21:15:41"
       }
     },
     "catalog_stale": false,
@@ -516,9 +515,9 @@
   "tutor_stabilization": {
     "triggered": true,
     "novelty_detected": true,
-    "novelty_streak": 6,
+    "novelty_streak": 7,
     "threshold": 2,
-    "reason": "unknown_final_outcome; unclassified_non_improving_case",
+    "reason": "unknown_final_outcome",
     "active": true,
     "since": "2026-04-17 20:56:49"
   },
@@ -526,8 +525,8 @@
     "state_level": "ok",
     "state_label": "operativo",
     "is_operational": true,
-    "archive_synced": true,
-    "last_push_at": "2026-04-17 21:07:13",
+    "archive_synced": false,
+    "last_push_at": "2026-04-17 21:15:29",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-17T21:12:04",
