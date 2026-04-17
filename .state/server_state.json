@@ -1,5 +1,5 @@
 {
-  "latest_local_contest_id": 4180,
+  "latest_local_contest_id": 4181,
   "last_published_commit": "",
   "per_algo_last_trained_contest_id": {},
   "last_card_hits_build_at": "",
@@ -35,5 +35,5 @@
     "max_block_minutes": 15,
     "fallback_latest_source": true
   },
-  "quorum_degraded_since": "2026-04-17T20:57:59"
+  "quorum_degraded_since": ""
 }
