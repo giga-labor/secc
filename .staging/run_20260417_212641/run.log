@@ -1,15 +1,7 @@
-[21:26:41] Fase OK: lock_acquire
-[21:28:53] AI nulla osta OK su check_sources_quorum
-[21:30:51] Avvio fase: check_sources_quorum
-[21:33:03] Fase OK: check_sources_quorum
-[21:34:59] AI nulla osta OK su update_local_draws_stage
-[21:36:37] Avvio fase: update_local_draws_stage
-[21:38:15] Fase OK: update_local_draws_stage
-[21:39:55] AI nulla osta OK su verify_draws_stage
-[21:41:25] Avvio fase: verify_draws_stage
-[21:42:53] Fase OK: verify_draws_stage
-[21:44:33] AI nulla osta OK su apply_draws_local_atomic
-[21:46:43] Avvio fase: apply_draws_local_atomic
-[21:48:30] Fase OK: apply_draws_local_atomic
-[21:50:50] AI nulla osta OK su train_incremental_stage_all_active
-[21:52:47] Avvio fase: train_incremental_stage_all_active
+[23:30:46] AI nulla osta OK su verify_train_outputs_stage
+[23:41:38] Avvio fase: verify_train_outputs_stage
+[23:43:04] VERIFY_TRAIN_OUTPUTS_STAGE: output stage rigenerato (files=64)
+[23:43:22] Fase OK: verify_train_outputs_stage
+[23:43:43] AI nulla osta OK su update_cards_stage
+[23:44:01] Avvio fase: update_cards_stage
+[23:44:19] Fase OK: update_cards_stage

@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico.
+SCOPO,Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie.
+INPUT,draws.csv storico | Replay incrementale | Aggiornamento online di ritardi su coppie e terzine osservate
+METODO,Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay
+OUTPUT,historical-db.csv con hit incrementali | metrics-db.csv con ritardi combinazionali | algorithm-sheet.csv | analysis.txt
+LIMITI,I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva
