@@ -1,0 +1,54 @@
+{
+  "latest_local_contest_id": 4182,
+  "last_published_commit": "572c909982b51f33ad4763311519e485911e4eca",
+  "per_algo_last_trained_contest_id": {
+    "arc90-logico-algoritmica": 4182,
+    "astra-moon": 4182,
+    "classic-analisi-anomalie-pattern": 4182,
+    "classic-co-occorrenze": 4182,
+    "classic-coppie-terni-consecutivi": 4182,
+    "classic-coppie-terzine-frequenti": 4182,
+    "classic-distribuzioni-modelli-raggruppamento": 4182,
+    "classic-frequency": 4182,
+    "classic-ritardi": 4182,
+    "classic-ritardi-combinazioni": 4182,
+    "classic-statistiche-combinate-finestre-mobili": 4182,
+    "classic-tavole-probabilita-teorica-test-uniformita": 4182,
+    "genetic": 4182,
+    "hispa": 4182,
+    "paradox-logiche-decisionali-metriche": 4182,
+    "super6NN": 4182
+  },
+  "last_card_hits_build_at": "2026-04-18T22:09:41",
+  "last_card_hits_changed_cards": 6,
+  "last_successful_run_id": "20260418_213712",
+  "last_email_status": "Email inviata",
+  "pending_publish": {},
+  "consecutive_failures": 0,
+  "last_failure_at": "",
+  "last_failure_reason": "",
+  "run_journal": [
+    {
+      "ts": "2026-04-18T21:37:12",
+      "event": "lock_acquired",
+      "run_id": "20260418_213712",
+      "payload": {
+        "lease_until": "2026-04-18T21:39:12"
+      }
+    },
+    {
+      "ts": "2026-04-18T22:20:33",
+      "event": "lock_released",
+      "run_id": "20260418_213712",
+      "payload": {}
+    }
+  ],
+  "last_quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180,
+    "max_block_minutes": 15,
+    "fallback_latest_source": true
+  },
+  "quorum_degraded_since": ""
+}
