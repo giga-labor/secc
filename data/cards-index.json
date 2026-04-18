@@ -1,163 +1,5 @@
 [
   {
-    "id": "classic-analisi-anomalie-pattern",
-    "title": "classic-analisi-anomalie-pattern",
-    "subtitle": "Analisi di anomalie e pattern",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Ricerca di fenomeni ricorrenti, sincronie di ritardo e stringhe particolari.",
-    "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "type": "ALGORITMI",
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/"
-  },
-  {
-    "id": "classic-coppie-terni-consecutivi",
-    "title": "classic-coppie-terni-consecutivi",
-    "subtitle": "Analisi di coppie e terni consecutivi",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Monitoraggio della presenza di numeri consecutivi nelle sestine estratte.",
-    "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-coppie-terzine-frequenti",
-    "title": "classic-coppie-terzine-frequenti",
-    "subtitle": "Pattern frequenti di coppie e terzine",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Classificazione di combinazioni di 2 o 3 numeri per frequenza di co-occorrenza.",
-    "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-distribuzioni-modelli-raggruppamento",
-    "title": "classic-distribuzioni-modelli-raggruppamento",
-    "subtitle": "Distribuzioni e modelli di raggruppamento",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Studio di fasce numeriche, pari/dispari, somme e bilanciamento della sestina.",
-    "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-ritardi-combinazioni",
-    "title": "classic-ritardi-combinazioni",
-    "subtitle": "Ritardi su combinazioni multiple",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Ritardi di gruppi di numeri (terni, quaterne e oltre) su base storica.",
-    "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 1
-    },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-statistiche-combinate-finestre-mobili",
-    "title": "classic-statistiche-combinate-finestre-mobili",
-    "subtitle": "Statistiche combinate su finestre mobili",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Indicatori frequenza/ritardo su ultime 50, 100 e 200 estrazioni.",
-    "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "type": "ALGORITMI"
-  },
-  {
-    "id": "classic-tavole-probabilita-teorica-test-uniformita",
-    "title": "classic-tavole-probabilita-teorica-test-uniformita",
-    "subtitle": "Probabilità teorica e test di uniformità",
-    "image": "img.webp",
-    "lastUpdated": "23/02/2026",
-    "hasNews": false,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Confronto tra frequenze osservate e attese tramite modelli probabilistici.",
-    "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "view": true,
-    "accessTier": "free",
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "type": "ALGORITMI",
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/"
-  },
-  {
     "id": "arc90-logico-algoritmica",
     "title": "ARC90",
     "subtitle": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie",
@@ -202,8 +44,31 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/astra-moon/",
-    "imageVersion": 1773599476
+    "cardBase": "pages/algoritmi/algs/astra-moon/"
+  },
+  {
+    "id": "classic-analisi-anomalie-pattern",
+    "title": "classic-analisi-anomalie-pattern",
+    "subtitle": "Analisi di anomalie e pattern",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Ricerca di fenomeni ricorrenti, sincronie di ritardo e stringhe particolari.",
+    "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "type": "ALGORITMI",
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/"
   },
   {
     "id": "classic-co-occorrenze",
@@ -229,6 +94,69 @@
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/"
   },
   {
+    "id": "classic-coppie-terni-consecutivi",
+    "title": "classic-coppie-terni-consecutivi",
+    "subtitle": "Analisi di coppie e terni consecutivi",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Monitoraggio della presenza di numeri consecutivi nelle sestine estratte.",
+    "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/"
+  },
+  {
+    "id": "classic-coppie-terzine-frequenti",
+    "title": "classic-coppie-terzine-frequenti",
+    "subtitle": "Pattern frequenti di coppie e terzine",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Classificazione di combinazioni di 2 o 3 numeri per frequenza di co-occorrenza.",
+    "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/"
+  },
+  {
+    "id": "classic-distribuzioni-modelli-raggruppamento",
+    "title": "classic-distribuzioni-modelli-raggruppamento",
+    "subtitle": "Distribuzioni e modelli di raggruppamento",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Studio di fasce numeriche, pari/dispari, somme e bilanciamento della sestina.",
+    "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/"
+  },
+  {
     "id": "classic-frequency",
     "title": "classic-frequency",
     "subtitle": "Analisi frequenziale su storico estrazioni",
@@ -248,8 +176,28 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-frequency/"
+  },
+  {
+    "id": "classic-ritardi-combinazioni",
+    "title": "classic-ritardi-combinazioni",
+    "subtitle": "Ritardi su combinazioni multiple",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Ritardi di gruppi di numeri (terni, quaterne e oltre) su base storica.",
+    "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/"
   },
   {
     "id": "classic-ritardi",
@@ -271,8 +219,52 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "type": "ALGORITMI"
+    "cardBase": "pages/algoritmi/algs/classic-ritardi/"
+  },
+  {
+    "id": "classic-statistiche-combinate-finestre-mobili",
+    "title": "classic-statistiche-combinate-finestre-mobili",
+    "subtitle": "Statistiche combinate su finestre mobili",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Indicatori frequenza/ritardo su ultime 50, 100 e 200 estrazioni.",
+    "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 1
+    },
+    "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/"
+  },
+  {
+    "id": "classic-tavole-probabilita-teorica-test-uniformita",
+    "title": "classic-tavole-probabilita-teorica-test-uniformita",
+    "subtitle": "Probabilità teorica e test di uniformità",
+    "image": "img.webp",
+    "lastUpdated": "23/02/2026",
+    "hasNews": false,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Confronto tra frequenze osservate e attese tramite modelli probabilistici.",
+    "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "view": true,
+    "accessTier": "free",
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "type": "ALGORITMI",
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/"
   },
   {
     "id": "genetic-algorithm-evolutionary",
@@ -315,8 +307,8 @@
     "type": "ALGORITMI",
     "view": true,
     "hits": {
-      "enabled": false,
-      "count": 0
+      "enabled": true,
+      "count": 2
     },
     "cardBase": "pages/algoritmi/algs/hispa/"
   },

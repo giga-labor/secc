@@ -9,19 +9,19 @@ Il modello e adattivo e apprende in modo progressivo, quindi e spesso percepito 
 Tecnicamente pero non e una rete neurale classica supervisionata con layer e backpropagation: e un ottimizzatore genetico su feature statistiche.
 
 Risultati osservati sullo storico
-Concorsi valutati: 4.180
+Concorsi valutati: 4.181
 - Media hit/sestina: 0.39
-- Hit >=1: 1440 su 4180 (34.4%)
-- Hit >=2: 193 su 4180 (4.6%)
-- Hit >=3: 15 su 4180 (0.4%)
-- Hit >=4: 1 su 4180 (0.0%)
-- Hit >=5: 0 su 4180 (0.0%)
-- Hit =6: 0 su 4180 (0.0%)
+- Hit >=1: 1440 su 4181 (34.4%)
+- Hit >=2: 193 su 4181 (4.6%)
+- Hit >=3: 15 su 4181 (0.4%)
+- Hit >=4: 1 su 4181 (0.0%)
+- Hit >=5: 0 su 4181 (0.0%)
+- Hit =6: 0 su 4181 (0.0%)
 - Best streak hit>=1: 7
-- Distribuzione esatta hit: 0:2740 1:1247 2:178 3:14 4:1 5:0 6:0
+- Distribuzione esatta hit: 0:2741 1:1247 2:178 3:14 4:1 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
-- Media hit attesa random: 0.4000 | osservata: 0.3945
+- Media hit attesa random: 0.4000 | osservata: 0.3944
 - Hit>=2 atteso random: 4.96% | osservato: 4.62% | z-score: -1.03
 - Hit>=3 atteso random: 0.315% | osservato: 0.359%
 - Hit>=4 atteso random: 0.0085% | osservato: 0.0239%
@@ -29,17 +29,17 @@ Confronto con baseline casuale (6 su 90)
 - Hit=6 atteso random: 0.00000016% | osservato: 0.00000000%
 
 Stabilita temporale e drift
-- Media ultimi 200 concorsi: 0.4200 (delta vs storico: +0.0255)
+- Media ultimi 200 concorsi: 0.4200 (delta vs storico: +0.0256)
 - Hit>=2 ultimi 200: 14/200 (7.00%)
-- Deviazione standard hit: 0.5891
-- Intervallo 95% media hit: [0.3766, 0.4124]
+- Deviazione standard hit: 0.5890
+- Intervallo 95% media hit: [0.3765, 0.4123]
 
 Configurazione operativa
 - Fonte: training_history progressivo GeneticSE
 - Popolazione: 48 organismi
 - Finestra recente: 90 concorsi
-- Ultimo concorso: 4181 (17/04/2026)
-- Prossimo concorso stimato: 4182
+- Ultimo concorso: 4182 (18/04/2026)
+- Prossimo concorso stimato: 4183
 - Sestina proposta: 65 70 73 75 82 86
 
 Lettura e limiti
