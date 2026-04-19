@@ -106,7 +106,6 @@
         <div class="rounded-xl border border-sky-500/40 bg-sky-950/60 px-4 py-3 flex flex-wrap items-center gap-3">
           <span class="text-xs uppercase tracking-[0.2em] text-sky-400">Prossima estrazione</span>
           <span class="font-bold text-white" id="next-draw-proposals-label">-</span>
-          <span class="text-xs text-ash">numero da draws.csv locale, data presunta da calendario</span>
         </div>
       </section>
 
@@ -234,10 +233,7 @@
           : null;
 
         const rows = await Promise.all(activeAlgorithms.map(async (card) => {
-          let ranking = Number.isFinite(card?.rankingValue) ? Number(card.rankingValue) : Number.NaN;
-          if (!Number.isFinite(ranking) && typeof cardsApi.computeRankingForAlgorithm === 'function') {
-            ranking = await cardsApi.computeRankingForAlgorithm(card);
-          }
+          const ranking = Number.isFinite(card?.rankingValue) ? Number(card.rankingValue) : Number.NaN;
 
           let proposal = [];
           if (typeof cardsApi.resolveMetricsUrl === 'function'

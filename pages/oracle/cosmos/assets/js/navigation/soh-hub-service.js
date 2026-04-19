@@ -247,7 +247,7 @@
         key:'lab-ranking',
         tag:'LAB',
         time:'metrica',
-        title:'Ranking Tecnico',
+        title:'Classifica Tecnica',
         body:'Lettura metrica e confronto moduli attivi.',
         href:'pages/ranking/',
         cta:'Apri articolo'

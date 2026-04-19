@@ -784,7 +784,8 @@
           if (key.includes('sestina proposta')) {
             extractedProposal = parseNextContestProposal(value);
           }
-          return `<tr><td class="px-4 py-3 text-ash">${escapeHtml(metric)}</td><td class="px-4 py-3 text-white">${escapeHtml(value) || '--'}</td><td class="px-4 py-3 text-ash">${escapeHtml(note) || '-'}</td></tr>`;
+          const displayMetric = key === 'ranking' ? 'Classifica' : metric;
+          return `<tr><td class="px-4 py-3 text-ash">${escapeHtml(displayMetric)}</td><td class="px-4 py-3 text-white">${escapeHtml(value) || '--'}</td><td class="px-4 py-3 text-ash">${escapeHtml(note) || '-'}</td></tr>`;
         }).join('');
 
         const hasRankingRow = rows.some((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');

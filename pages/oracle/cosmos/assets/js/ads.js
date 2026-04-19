@@ -123,7 +123,7 @@ const INTERNAL_SLOT_ADS = Object.freeze({
     Object.freeze({
       URL: 'https://www.superenalottocc.it/pages/community/',
       TITLE: 'Community VIP',
-      SUB: 'Trend e ranking',
+      SUB: 'Trend e classifica',
       CTA: 'Accedi',
       THEME: 'theme-plasma'
     })

@@ -92,7 +92,7 @@
 </script>
   <link rel="stylesheet" href="/assets/css/lab-referral.css">
 </head>
-<body class="bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="home" data-hero-preload="true" data-style-lock="final">
+<body class="bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="home" data-hero-preload="true" data-style-lock="final" data-home-cta-mode="single">
 <main class="content-fade home-main mx-auto flex max-w-5xl content-width flex-col px-6 py-2" data-tab-panel-label="off">
     <div class="content-box">
       <span id="home" aria-hidden="true"></span>
@@ -105,18 +105,35 @@
                   <span class="cc-title-mainline">ControlChaos</span><br>
                   <span class="superenalotto-mark superenalotto-mark--small superenalotto-mark--joined" aria-label="Super-Enalotto"><span class="super-word">S<span class="super-u">u</span>per</span><span class="super-dash">-</span><span class="enalotto-word">Enalotto</span></span>
                 </span>
-                <video class="cc-title-video" muted loop playsinline preload="none" data-deferred-autoplay="true" aria-hidden="true">
-                  <source src="assets/video/logo_header.webm" type="video/webm">
-                </video>
               </span>
             </h1>
-            <p class="mt-2 text-ash" data-reveal="fade-in">Innovazione e algoritmi all'ennesima potenza.</p>
-            <p class="mt-1 text-sm text-ash" data-reveal="fade-in"><a class="cc-alg-link font-semibold text-white" href="pages/laboratorio-tecnico/?tab=lab-iargos">iARGOS</a> analizza, aggiorna e mantiene coerenza tra i moduli backend: controlli operativi, sincronizzazioni e priorita di ripristino.</p>
+            <div class="cc-abovefold-video-center" data-reveal="fade-in" aria-hidden="true">
+              <video class="cc-title-video" muted loop playsinline preload="none" data-deferred-autoplay="true">
+                <source src="assets/video/logo_header.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="cc-abovefold-intro" data-reveal="fade-in">
+              <p class="mt-2 text-ash">Analisi statistiche sul SuperEnalotto con dati storici verificabili.</p>
+              <p class="mt-1 text-sm text-ash">Nessuna promessa di vincita: metodo trasparente, limiti espliciti e confronti tra algoritmi.</p>
+            </div>
             <div class="cc-abovefold-focus" data-reveal="fade-up">
               <div class="cc-home-live" data-home-live-status aria-live="polite">
-                <span class="cc-home-live__item">Sincronizzazione dati in corso...</span>
+                <div class="cc-home-live__stack cc-home-live__stack--human cc-home-live__stack--alert">
+                  <div class="cc-home-live__topline">
+                    <span class="cc-home-live__kicker">Notizia in evidenza</span>
+                    <span class="cc-home-live__stamp">Aggiornamento continuo</span>
+                  </div>
+                  <p class="cc-home-live__headline">Amministratore + iARGOS: controllo giornaliero su dati e pubblicazioni.</p>
+                  <div class="cc-home-live__ai-banner">
+                    <span class="cc-home-live__ai-pill">
+                      <span class="cc-home-live__ai-icon" aria-hidden="true"></span>
+                      Supporto AI attivo
+                    </span>
+                    <a class="cc-home-live__link" href="pages/laboratorio-tecnico/?tab=lab-iargos">Scopri come lavoriamo</a>
+                  </div>
+                </div>
               </div>
-              <a class="cc-abovefold-focus__cta rounded-full border border-neon/70 bg-neon/10 px-6 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/sestine-proposte/" data-magnetic="true">Inizia da Sestine</a>
+              <a class="cc-abovefold-focus__cta cc-home-hero-cta rounded-full border border-neon/70 bg-neon/10 px-6 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="pages/sestine-proposte/" data-magnetic="true" data-home-primary-cta="true">Vedi Sestine di oggi</a>
             </div>
           </div>
           <figure class="cc-abovefold-featured" aria-label="Contenuto in evidenza">
@@ -139,6 +156,31 @@
               </div>
             </a>
           </figure>
+        </div>
+      </section>
+      <section class="cc-home-block cc-home-spotlight-band mt-4" data-reveal="fade-up" data-section-id="home_quick_path">
+        <header class="cc-home-block__head">
+          <div class="cc-home-block__titles">
+            <p class="text-xs uppercase tracking-[0.2em] text-ash">Percorso consigliato</p>
+            <h2 class="text-white">Inizia in 3 passi</h2>
+          </div>
+        </header>
+        <div class="cc-home-block__body grid gap-3 sm:grid-cols-3">
+          <a class="rounded-xl border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-white transition hover:border-neon/70 hover:text-neon" href="pages/storico-estrazioni/">
+            <span class="block text-xs uppercase tracking-[0.14em] text-ash">Passo 1</span>
+            <span class="mt-1 block font-semibold">Controlla lo Storico</span>
+            <span class="mt-1 block text-ash">Dati estrazioni e ricerca rapida.</span>
+          </a>
+          <a class="rounded-xl border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-white transition hover:border-neon/70 hover:text-neon" href="pages/ranking/">
+            <span class="block text-xs uppercase tracking-[0.14em] text-ash">Passo 2</span>
+            <span class="mt-1 block font-semibold">Confronta la Classifica</span>
+            <span class="mt-1 block text-ash">Leggi i moduli attivi e la loro coerenza.</span>
+          </a>
+          <a class="rounded-xl border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-white transition hover:border-neon/70 hover:text-neon" href="pages/sestine-proposte/">
+            <span class="block text-xs uppercase tracking-[0.14em] text-ash">Passo 3</span>
+            <span class="mt-1 block font-semibold">Apri le Sestine</span>
+            <span class="mt-1 block text-ash">Valuta le proposte per il prossimo concorso.</span>
+          </a>
         </div>
       </section>
 
@@ -211,9 +253,9 @@
         <header class="cc-home-block__head">
           <div class="cc-home-block__titles">
             <p class="text-xs uppercase tracking-[0.2em] text-ash">Algoritmi attivi</p>
-            <h2 class="text-white">Moduli operativi con ranking live</h2>
+            <h2 class="text-white">Moduli operativi con classifica live</h2>
           </div>
-          <a class="cc-home-block__action" href="pages/ranking/">Confronta tutti gli algoritmi</a>
+          <a class="cc-home-block__action" href="pages/ranking/">Apri la classifica completa</a>
         </header>
         <div class="cc-home-block__body" data-home-active-algorithms>
           <div class="cc-home-empty">Caricamento algoritmi in corso...</div>

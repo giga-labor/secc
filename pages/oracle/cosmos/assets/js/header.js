@@ -525,7 +525,7 @@ const getPageKickerLabel = () => {
   if (path === '/' || path.endsWith('/index.html') && !path.includes('/pages/')) return 'HOME';
   if (path.includes('/pages/storico-estrazioni')) return 'ARCHIVIO STORICO';
   if (path.includes('/pages/analisi-statistiche')) return 'ANALISI STATISTICHE';
-  if (path.includes('/pages/ranking')) return 'RANKING';
+  if (path.includes('/pages/ranking')) return 'CLASSIFICA';
   if (path.includes('/pages/algoritmi/spotlight/statistici')) return 'SPOTLIGHT STATISTICI';
   if (path.includes('/pages/algoritmi/spotlight/neurali')) return 'SPOTLIGHT NEURALI';
   if (path.includes('/pages/algoritmi/spotlight/ibridi')) return 'SPOTLIGHT IBRIDI';
@@ -674,7 +674,7 @@ if (header) {
         <a class="cc-nav-link" href="${homeHref}">Home</a>
         <a class="cc-nav-link" href="${algorithmsHref}">Algorithms</a>
         <a class="cc-nav-link" href="${dashboardHref}">Dashboard</a>
-        <a class="cc-nav-link" href="${rankingHref}">Ranking</a>
+        <a class="cc-nav-link" href="${rankingHref}">Classifica</a>
         <a class="cc-nav-link" href="${oracleHref}">Oracle</a>
       `;
     }

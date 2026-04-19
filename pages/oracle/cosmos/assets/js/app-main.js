@@ -1407,7 +1407,7 @@ function mountWebglFallback(reason){
             <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/oracle/">Oracle</a>
             <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/algoritmi/">Algoritmi</a>
             <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/storico-estrazioni/">Storico estrazioni</a>
-            <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/ranking/">Ranking</a>
+            <a style="color:#e8c87a;text-decoration:none;border:1px solid rgba(232,200,122,.34);border-radius:12px;padding:10px 12px;background:rgba(232,200,122,.08)" href="pages/ranking/">Classifica</a>
           </div>
         </nav>
       </section>

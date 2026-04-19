@@ -379,59 +379,64 @@ async function loadLaboratorioTechnicalCatalog() {
   if (!host) return;
   host.innerHTML = '<span class="cc-skeleton cc-skeleton--block block h-4 w-full" aria-hidden="true"></span>';
   try {
-    const manifestRes = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
-    if (!manifestRes.ok) throw new Error(`status ${manifestRes.status}`);
-    const manifest = await manifestRes.json();
-    const cardPaths = (Array.isArray(manifest) ? manifest : [])
-      .map((p) => String(p || '').trim())
-      .filter((p) => p.includes('pages/algoritmi/algs/') && p.endsWith('/card.json'));
+    const precomputed = await fetchJsonFirstOk('data/precomputed/laboratorio-tecnico.json');
+    let validEntries = Array.isArray(precomputed?.entries) ? precomputed.entries.filter(Boolean) : [];
 
-    const cards = (await Promise.all(cardPaths.map(async (path) => {
-      try {
-        const res = await fetch(resolveWithBase(path), { cache: 'no-store' });
-        if (!res.ok) return null;
-        return await res.json();
-      } catch (_) {
-        return null;
+    if (!validEntries.length) {
+      const manifestRes = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
+      if (!manifestRes.ok) throw new Error(`status ${manifestRes.status}`);
+      const manifest = await manifestRes.json();
+      const cardPaths = (Array.isArray(manifest) ? manifest : [])
+        .map((p) => String(p || '').trim())
+        .filter((p) => p.includes('pages/algoritmi/algs/') && p.endsWith('/card.json'));
+
+      const cards = (await Promise.all(cardPaths.map(async (path) => {
+        try {
+          const res = await fetch(resolveWithBase(path), { cache: 'no-store' });
+          if (!res.ok) return null;
+          return await res.json();
+        } catch (_) {
+          return null;
+        }
+      }))).filter(Boolean).filter((card) => card?.isActive !== false);
+
+      if (!cards.length) {
+        host.innerHTML = 'Nessun modulo tecnico attivo trovato.';
+        return;
       }
-    }))).filter(Boolean).filter((card) => card?.isActive !== false);
 
-    if (!cards.length) {
-      host.innerHTML = 'Nessun modulo tecnico attivo trovato.';
-      return;
+      cards.sort((a, b) => String(a.title || a.id || '').localeCompare(String(b.title || b.id || '')));
+      const entries = await Promise.all(cards.map(async (card) => {
+        const pageDir = normalizePageDir(card.page);
+        if (!pageDir) return null;
+        const sheetUrl = resolveWithBase(`${pageDir}out/algorithm-sheet.csv`);
+        const analysisUrl = resolveWithBase(`${pageDir}out/analysis.txt`);
+        const [sheetText, analysisText] = await Promise.all([
+          fetch(sheetUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => ''),
+          fetch(analysisUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => '')
+        ]);
+        const rows = parseCsvRows(sheetText);
+        const map = new Map(rows.map((row) => [String(row.CHIAVE || '').trim().toUpperCase(), String(row.VALORE || '').trim()]));
+        const facts = rows
+          .map((row) => ({
+            key: String(row.CHIAVE || '').trim(),
+            value: String(row.VALORE || '').trim()
+          }))
+          .filter((row) => row.key && row.value);
+        return {
+          title: String(card.title || card.id || 'Modulo'),
+          page: pageDir,
+          intro: String(map.get('INTRO') || card.subtitle || '').trim(),
+          scope: String(map.get('SCOPO') || '').trim(),
+          method: String(map.get('METODO') || '').trim(),
+          limits: String(map.get('LIMITI') || '').trim(),
+          analysis: String(analysisText || '').trim(),
+          facts
+        };
+      }));
+      validEntries = entries.filter(Boolean);
     }
 
-    cards.sort((a, b) => String(a.title || a.id || '').localeCompare(String(b.title || b.id || '')));
-    const entries = await Promise.all(cards.map(async (card) => {
-      const pageDir = normalizePageDir(card.page);
-      if (!pageDir) return null;
-      const sheetUrl = resolveWithBase(`${pageDir}out/algorithm-sheet.csv`);
-      const analysisUrl = resolveWithBase(`${pageDir}out/analysis.txt`);
-      const [sheetText, analysisText] = await Promise.all([
-        fetch(sheetUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => ''),
-        fetch(analysisUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => '')
-      ]);
-      const rows = parseCsvRows(sheetText);
-      const map = new Map(rows.map((row) => [String(row.CHIAVE || '').trim().toUpperCase(), String(row.VALORE || '').trim()]));
-      const facts = rows
-        .map((row) => ({
-          key: String(row.CHIAVE || '').trim(),
-          value: String(row.VALORE || '').trim()
-        }))
-        .filter((row) => row.key && row.value);
-      return {
-        title: String(card.title || card.id || 'Modulo'),
-        page: pageDir,
-        intro: String(map.get('INTRO') || card.subtitle || '').trim(),
-        scope: String(map.get('SCOPO') || '').trim(),
-        method: String(map.get('METODO') || '').trim(),
-        limits: String(map.get('LIMITI') || '').trim(),
-        analysis: String(analysisText || '').trim(),
-        facts
-      };
-    }));
-
-    const validEntries = entries.filter(Boolean);
     if (!validEntries.length) {
       host.innerHTML = 'Nessun dettaglio tecnico disponibile per i moduli attivi.';
       return;
@@ -511,20 +516,52 @@ async function loadAnalisiRanking() {
   const cardsHost = document.querySelector('[data-ranking-cards]');
   if (!tbody && !cardsHost) return;
   try {
-    const manifest = await fetchJsonFirstOk('data/modules-manifest.json');
-    if (!manifest) throw new Error('manifest_unavailable');
-    const cardPaths = Array.isArray(manifest) ? manifest.filter((x) => typeof x === 'string') : [];
-    const cards = (await Promise.all(cardPaths.map(async (path) => {
-      return await fetchJsonFirstOk(path);
-    }))).filter(Boolean);
-    const algs = cards.filter((x) => x?.isActive !== false && String(x?.page || '').includes('/algoritmi/algs/'));
-    const rankedRaw = (await Promise.all(algs.map(fetchAlgorithmRanking))).filter(Boolean);
-    const ranked = rankedRaw
-      .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
-      .sort((a, b) => b._rank - a._rank);
+    let ranked = [];
+    const precomputed = await fetchJsonFirstOk('data/precomputed/ranking.json');
+    const preRows = Array.isArray(precomputed?.rows) ? precomputed.rows : [];
+    if (preRows.length) {
+      ranked = preRows
+        .map((row) => {
+          const hitsRaw = row && typeof row === 'object' ? row.hits : null;
+          const hits = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+          if (hitsRaw && typeof hitsRaw === 'object') {
+            for (let i = 0; i <= 6; i += 1) {
+              const v = Number.parseInt(String(hitsRaw[i] ?? hitsRaw[String(i)] ?? 0), 10);
+              hits[i] = Number.isFinite(v) ? Math.max(0, v) : 0;
+            }
+          }
+          const ranking = Number.parseFloat(String(row?.ranking ?? Number.NaN));
+          return {
+            title: String(row?.title || 'Algoritmo'),
+            page: String(row?.page || ''),
+            ranking: Number.isFinite(ranking) ? ranking : Number.NaN,
+            hits,
+            family: String(row?.family || ''),
+            card: {
+              image: String(row?.image || ''),
+              page: String(row?.page || '')
+            }
+          };
+        })
+        .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
+        .sort((a, b) => b._rank - a._rank);
+    } else {
+      const manifest = await fetchJsonFirstOk('data/modules-manifest.json');
+      if (!manifest) throw new Error('manifest_unavailable');
+      const cardPaths = Array.isArray(manifest) ? manifest.filter((x) => typeof x === 'string') : [];
+      const cards = (await Promise.all(cardPaths.map(async (path) => {
+        return await fetchJsonFirstOk(path);
+      }))).filter(Boolean);
+      const algs = cards.filter((x) => x?.isActive !== false && String(x?.page || '').includes('/algoritmi/algs/'));
+      const rankedRaw = (await Promise.all(algs.map(fetchAlgorithmRanking))).filter(Boolean);
+      ranked = rankedRaw
+        .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
+        .sort((a, b) => b._rank - a._rank);
+    }
+
     if (!ranked.length) {
-      if (cardsHost) cardsHost.innerHTML = '<div class="cc-home-empty">Nessun algoritmo attivo con ranking disponibile.</div>';
-      if (tbody) tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con ranking disponibile.</td></tr>';
+      if (cardsHost) cardsHost.innerHTML = '<div class="cc-home-empty">Nessun algoritmo attivo con classifica disponibile.</div>';
+      if (tbody) tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con classifica disponibile.</td></tr>';
       return;
     }
 
@@ -617,10 +654,10 @@ async function loadAnalisiRanking() {
     if (cardsHost) {
       const hasFallbackCard = Boolean(cardsHost.querySelector('.algorithm-card'));
       if (!hasFallbackCard) {
-        cardsHost.innerHTML = '<div class="cc-home-empty">Impossibile caricare il ranking algoritmi.</div>';
+        cardsHost.innerHTML = '<div class="cc-home-empty">Impossibile caricare la classifica algoritmi.</div>';
       }
     }
-    if (tbody) tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare il ranking algoritmi.</td></tr>';
+    if (tbody) tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare la classifica algoritmi.</td></tr>';
   }
 }
 

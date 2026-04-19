@@ -584,7 +584,7 @@
       </div>
     `;
     const footerHtml = `
-      ${showRanking ? `<span class="cc-ranking-strip" aria-label="Ranking algoritmo"><span class="cc-ranking-strip__text">${rankingText}</span></span>` : ''}
+      ${showRanking ? `<span class="cc-ranking-strip" aria-label="Classifica algoritmo"><span class="cc-ranking-strip__text">${rankingText}</span></span>` : ''}
       <div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] whitespace-nowrap overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)] ${proposalClass}${hideNoDataProposal ? ' hidden' : ''}" style="font-size:clamp(0.42rem,0.68vw,0.64rem);text-align:center;" data-proposal-box>${hideNoDataProposal ? '' : proposalText}</div>
     `;
 
@@ -1222,20 +1222,9 @@
     if (!page) return NaN;
     const key = page.toLowerCase();
     if (this._rankingCache.has(key)) return this._rankingCache.get(key);
-    try {
-      const metricsUrl = this.resolveMetricsUrl(algorithm);
-      const historicalUrl = this.resolveHistoricalUrl(algorithm);
-      const [metricsRows, historicalRows] = await Promise.all([
-        this.readCsvRows(metricsUrl),
-        this.readCsvRows(historicalUrl)
-      ]);
-      const score = this.computeRankingValue(metricsRows || [], historicalRows || []);
-      this._rankingCache.set(key, score);
-      return score;
-    } catch (_) {
-      this._rankingCache.set(key, NaN);
-      return NaN;
-    }
+    const precomputed = Number.isFinite(algorithm?.rankingValue) ? Number(algorithm.rankingValue) : NaN;
+    this._rankingCache.set(key, precomputed);
+    return precomputed;
   },
 
   extractExactHitCounts(metricsRows, historicalRows) {

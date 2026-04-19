@@ -202,26 +202,59 @@ async function loadAnalisiRanking() {
   const tbody = document.querySelector('[data-ranking-body]');
   if (!tbody) return;
   try {
-    const res = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
-    if (!res.ok) throw new Error(`status ${res.status}`);
-    const manifest = await res.json();
-    const cardPaths = Array.isArray(manifest) ? manifest.filter((x) => typeof x === 'string') : [];
-    const cards = (await Promise.all(cardPaths.map(async (path) => {
-      try {
-        const cardRes = await fetch(resolveWithBase(path), { cache: 'no-store' });
-        if (!cardRes.ok) return null;
-        return await cardRes.json();
-      } catch (_) {
-        return null;
+    let ranked = [];
+    try {
+      const preRes = await fetch(resolveWithBase('data/precomputed/ranking.json'), { cache: 'no-store' });
+      if (preRes.ok) {
+        const payload = await preRes.json();
+        const rows = Array.isArray(payload?.rows) ? payload.rows : [];
+        ranked = rows
+          .map((row) => {
+            const hitsRaw = row && typeof row === 'object' ? row.hits : null;
+            const hits = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+            if (hitsRaw && typeof hitsRaw === 'object') {
+              for (let i = 0; i <= 6; i += 1) {
+                const v = Number.parseInt(String(hitsRaw[i] ?? hitsRaw[String(i)] ?? 0), 10);
+                hits[i] = Number.isFinite(v) ? Math.max(0, v) : 0;
+              }
+            }
+            const ranking = Number.parseFloat(String(row?.ranking ?? Number.NaN));
+            return {
+              title: String(row?.title || 'Algoritmo'),
+              ranking: Number.isFinite(ranking) ? ranking : Number.NaN,
+              hits
+            };
+          })
+          .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
+          .sort((a, b) => b._rank - a._rank);
       }
-    }))).filter(Boolean);
-    const algs = cards.filter((x) => x?.isActive !== false && String(x?.page || '').includes('/algoritmi/algs/'));
-    const rankedRaw = (await Promise.all(algs.map(fetchAlgorithmRanking))).filter(Boolean);
-    const ranked = rankedRaw
-      .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
-      .sort((a, b) => b._rank - a._rank);
+    } catch (_) {
+      ranked = [];
+    }
+
     if (!ranked.length) {
-      tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con ranking disponibile.</td></tr>';
+      const res = await fetch(resolveWithBase('data/modules-manifest.json'), { cache: 'no-store' });
+      if (!res.ok) throw new Error(`status ${res.status}`);
+      const manifest = await res.json();
+      const cardPaths = Array.isArray(manifest) ? manifest.filter((x) => typeof x === 'string') : [];
+      const cards = (await Promise.all(cardPaths.map(async (path) => {
+        try {
+          const cardRes = await fetch(resolveWithBase(path), { cache: 'no-store' });
+          if (!cardRes.ok) return null;
+          return await cardRes.json();
+        } catch (_) {
+          return null;
+        }
+      }))).filter(Boolean);
+      const algs = cards.filter((x) => x?.isActive !== false && String(x?.page || '').includes('/algoritmi/algs/'));
+      const rankedRaw = (await Promise.all(algs.map(fetchAlgorithmRanking))).filter(Boolean);
+      ranked = rankedRaw
+        .map((row) => ({ ...row, _rank: Number.isFinite(row.ranking) ? row.ranking : Number.NEGATIVE_INFINITY }))
+        .sort((a, b) => b._rank - a._rank);
+    }
+
+    if (!ranked.length) {
+      tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun algoritmo attivo con classifica disponibile.</td></tr>';
       return;
     }
     tbody.innerHTML = ranked.map((row, idx) => {
@@ -231,7 +264,7 @@ async function loadAnalisiRanking() {
       return `<tr><td class="px-4 py-3 text-ash">${idx + 1}</td><td class="px-4 py-3 text-white">${row.title}</td><td class="px-4 py-3 text-white">${rankingLabel}</td><td class="px-4 py-3 text-ash">${detail}</td></tr>`;
     }).join('');
   } catch (_) {
-    tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare il ranking algoritmi.</td></tr>';
+    tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Impossibile caricare la classifica algoritmi.</td></tr>';
   }
 }
 

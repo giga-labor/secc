@@ -101,6 +101,8 @@
         });
       }
 
+      this.applyHomePrimaryCtaVariant();
+
       if (motion) {
         const main = document.querySelector('main') || document;
         motion.initHomeReveals(main);
@@ -126,6 +128,44 @@
           });
         }, 2800);
       }
+    },
+
+    applyHomePrimaryCtaVariant() {
+      const cta = document.querySelector('[data-home-primary-cta="true"]');
+      if (!cta) return;
+
+      const mode = String(document.body?.dataset?.homeCtaMode || 'single').toLowerCase();
+      if (mode !== 'ab') {
+        cta.textContent = 'Vedi Sestine di oggi';
+        cta.setAttribute('href', ctx.resolveWithBase('pages/sestine-proposte/'));
+        cta.setAttribute('aria-label', 'Apri le sestine del giorno');
+        return;
+      }
+
+      const variants = [
+        { key: 'sestine', label: 'Vedi Sestine di oggi', href: 'pages/sestine-proposte/', aria: 'Apri le sestine del giorno' },
+        { key: 'ranking', label: 'Apri Classifica algoritmi', href: 'pages/ranking/', aria: 'Apri la classifica degli algoritmi attivi' }
+      ];
+      const storageKey = 'cc-home-cta-variant-v1';
+      let variantKey = '';
+      try {
+        variantKey = String(window.sessionStorage.getItem(storageKey) || '').trim();
+      } catch (_) {
+        variantKey = '';
+      }
+      if (!variantKey || !variants.some((v) => v.key === variantKey)) {
+        const picked = variants[Math.floor(Math.random() * variants.length)] || variants[0];
+        variantKey = picked.key;
+        try {
+          window.sessionStorage.setItem(storageKey, variantKey);
+        } catch (_) {}
+      }
+
+      const variant = variants.find((v) => v.key === variantKey) || variants[0];
+      cta.textContent = variant.label;
+      cta.setAttribute('href', ctx.resolveWithBase(variant.href));
+      cta.setAttribute('aria-label', variant.aria);
+      cta.dataset.homeCtaVariant = variant.key;
     },
 
     forceNewsDepthRebind(newsHost) {
@@ -714,41 +754,22 @@
 
     renderHeroStatus(host, data) {
       if (!host) return;
-      const modules = Array.isArray(data?.modules) ? data.modules : [];
-      const activeAlgorithms = modules.filter((card) => {
-        if (!card || card.isActive === false) return false;
-        const page = String(card.page || '').toLowerCase();
-        return page.includes('/algoritmi/algs/');
-      }).length;
-
-      const draws = Array.isArray(data?.draws_rows) ? data.draws_rows : [];
-      const latestRow = draws.length ? draws[draws.length - 1] : null;
-      const latestSeq = latestRow ? String(latestRow['NR. SEQUENZIALE'] || '--').trim() : '--';
-      const latestDate = latestRow ? String(latestRow.Data || latestRow.DATA || '--').trim() : '--';
-
-      const chaosIndex = this.computeChaosIndex(draws);
-      const signal = this.computeHeroSignal(draws);
-      const iargosLabHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-iargos'));
-      const chaosGuideHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-statistiche'));
-      const chaosNote = 'Indice di Caos (0-100): misura la volatilita complessiva del dataset recente.';
-      const signalVsChaos = 'Segnale del Giorno = pattern qualitativo dominante. Indice di Caos = metrica quantitativa di instabilita.';
-      const signalHtml = signal
-        ? `<div class="cc-home-signal"><span class="cc-home-signal__label">Segnale del Giorno</span><span class="cc-home-signal__text">${escapeHtml(signal)}</span></div>`
-        : '';
-      const statusHtml = `
-        <div class="cc-home-iargos-status">
-          <p class="cc-home-iargos-status__title">iARGOS AI</p>
-          <span class="cc-home-live__item">Supervisore AI del backend attivo</span>
-          <a class="cc-home-live__link" href="${iargosLabHref}">Apri approfondimento tecnico</a>
-        </div>
-      `;
-
+      const methodHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-iargos'));
       host.innerHTML = `
-        ${signalHtml}
-        ${statusHtml}
-        <span class="cc-home-live__item cc-home-live__item--chaos">Indice di Caos: ${escapeHtml(String(chaosIndex))}/100</span>
-        <p class="cc-home-live__note">${escapeHtml(chaosNote)} <a class="cc-home-live__inline-link" href="${chaosGuideHref}">Scopri come viene calcolato</a></p>
-        <p class="cc-home-live__note">${escapeHtml(signalVsChaos)}</p>
+        <div class="cc-home-live__stack cc-home-live__stack--human cc-home-live__stack--alert">
+          <div class="cc-home-live__topline">
+            <span class="cc-home-live__kicker">Notizia in evidenza</span>
+            <span class="cc-home-live__stamp">Aggiornamento continuo</span>
+          </div>
+          <p class="cc-home-live__headline">Amministratore + iARGOS: controllo giornaliero su dati e pubblicazioni.</p>
+          <div class="cc-home-live__ai-banner">
+            <span class="cc-home-live__ai-pill">
+              <span class="cc-home-live__ai-icon" aria-hidden="true"></span>
+              Supporto AI attivo
+            </span>
+            <a class="cc-home-live__link" href="${methodHref}">Scopri come lavoriamo</a>
+          </div>
+        </div>
       `;
 
     },
@@ -1023,7 +1044,7 @@
           <div class="cc-proposals-table-head">
             <span class="cc-proposals-col cc-proposals-col--alg">Algoritmo</span>
             <span class="cc-proposals-col cc-proposals-col--balls">6 numeri proposti</span>
-            <span class="cc-proposals-col cc-proposals-col--rank">Ranking</span>
+            <span class="cc-proposals-col cc-proposals-col--rank">Classifica</span>
           </div>
           <div class="cc-proposals-table-body">${tableRows}</div>
         </div>

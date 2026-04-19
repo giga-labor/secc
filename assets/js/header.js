@@ -811,7 +811,7 @@ const NAV_STRUCTURE = [
 const NAV_ITEMS = {
   home: { label: 'Home', href: 'index.html#home' },
   sestine: { label: 'Sestine', href: 'pages/sestine-proposte/index.html' },
-  ranking: { label: 'Ranking', href: 'pages/ranking/index.html' },
+  ranking: { label: 'Classifica', href: 'pages/ranking/index.html' },
   laboratorio: { label: 'Laboratorio', href: 'pages/laboratorio-tecnico/index.html' },
   algoritmi: { label: 'Algoritmi', href: 'pages/algoritmi/index.html' },
   storico: { label: 'Storico', href: 'pages/storico-estrazioni/index.html' },
@@ -974,7 +974,7 @@ const getPageKickerLabel = () => {
   if (path === '/' || path.endsWith('/index.html') && !path.includes('/pages/')) return 'HOME';
   if (path.includes('/pages/storico-estrazioni')) return 'ARCHIVIO STORICO';
   if (path.includes('/pages/laboratorio-tecnico')) return 'LABORATORIO TECNICO';
-  if (path.includes('/pages/ranking')) return 'RANKING';
+  if (path.includes('/pages/ranking')) return 'CLASSIFICA';
   if (path.includes('/pages/community')) return 'COMMUNITY';
   if (path.includes('/pages/algoritmi/spotlight/statistici')) return 'SPOTLIGHT STATISTICI';
   if (path.includes('/pages/algoritmi/spotlight/neurali')) return 'SPOTLIGHT NEURALI';

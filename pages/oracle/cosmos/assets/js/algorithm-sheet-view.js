@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hasRankingRow = rows.some((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
         let rankingValue = computeRanking(rows || []);
         if (!hasRankingRow) {
-          html += `<tr><td class="px-4 py-3 text-ash">Ranking</td><td class="px-4 py-3 text-white">${formatRanking(rankingValue)}</td><td class="px-4 py-3 text-ash">Punteggio cumulato con tabella premi da hit esatti (0..6)</td></tr>`;
+          html += `<tr><td class="px-4 py-3 text-ash">Classifica</td><td class="px-4 py-3 text-white">${formatRanking(rankingValue)}</td><td class="px-4 py-3 text-ash">Punteggio cumulato con tabella premi da hit esatti (0..6)</td></tr>`;
         } else {
           const rankingRow = rows.find((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
           const rawValue = String((rankingRow && rankingRow[1]) || '').replace(/\./g, '').replace(',', '.');

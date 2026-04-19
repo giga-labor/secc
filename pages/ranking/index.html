@@ -288,6 +288,27 @@
       }
 
       async function buildRows() {
+        var precomputed = await fetchFirstOk('data/precomputed/ranking.json', false);
+        if (precomputed && Array.isArray(precomputed.rows) && precomputed.rows.length) {
+          return precomputed.rows.map(function (row) {
+            var srcHits = row && row.hits && typeof row.hits === 'object' ? row.hits : {};
+            var hits = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+            for (var i = 0; i <= 6; i += 1) {
+              var raw = srcHits[i];
+              if (raw == null) raw = srcHits[String(i)];
+              var val = parseInt(String(raw == null ? 0 : raw), 10);
+              hits[i] = Number.isFinite(val) ? Math.max(0, val) : 0;
+            }
+            return {
+              title: String(row.title || 'Algoritmo'),
+              page: String(row.page || '').replace(/^\/+/, ''),
+              ranking: Number.isFinite(Number(row.ranking)) ? Number(row.ranking) : 0,
+              hits: hits,
+              card: { image: String(row.image || ''), page: String(row.page || '') }
+            };
+          }).sort(function (a, b) { return b.ranking - a.ranking; });
+        }
+
         var manifest = await fetchFirstOk('data/modules-manifest.json', false);
         if (!Array.isArray(manifest)) return [];
         var cards = await Promise.all(manifest.map(async function (p) {
