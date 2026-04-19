@@ -5,7 +5,7 @@
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Publish locale pendente: git_dirty=False, remote_ahead=1, remote_behind=0.",
+  "summary": "Rilevati 25 warning non bloccanti (monitoraggio consigliato).",
   "overview_green": false,
   "task_precedence": "IMMEDIATE",
   "alignment_priority": {
@@ -38,13 +38,13 @@
     "updated_at": "2026-04-01 21:02:54"
   },
   "queue": {
-    "total": 15,
+    "total": 11,
     "pending": 0,
     "running": 0,
-    "done": 12,
+    "done": 8,
     "failed": 0,
     "by_type": {
-      "send_alert_email": 12,
+      "send_alert_email": 8,
       "heal": 3
     }
   },
@@ -119,13 +119,13 @@
       "avoid_actions": [
         "mirror_step3_publish_force",
         "publish_force",
-        "mirror_auto_fix_map",
         "backup_prune_mirror_keep5",
-        "updates_run_all",
         "deploy_mirror_local",
-        "publish",
         "mirror_rebuild",
-        "check_draws_online"
+        "check_draws_online",
+        "updates_run_all",
+        "publish",
+        "mirror_auto_fix_map"
       ],
       "tool_guides": [
         {
@@ -200,6 +200,19 @@
             "manual attention",
             "human escalation",
             "recovery not ready"
+          ]
+        },
+        {
+          "family": "system_control",
+          "purpose": "gestione hardware remota (estrema cautela)",
+          "tools": [
+            "system_restart",
+            "system_shutdown"
+          ],
+          "when": [
+            "manual emergency",
+            "system freeze",
+            "maintenance"
           ]
         }
       ],
@@ -306,7 +319,7 @@
       ],
       "message": "Rientro controllato: mantenere Solo Zona A, verificare stabilita' e uscire dalla crisi solo dopo cicli puliti consecutivi. Playbook attivo: riprendere publish in modo sicuro.",
       "live_system": {
-        "updated_at": "2026-04-19 00:36:36",
+        "updated_at": "2026-04-19 15:00:09",
         "engine": {
           "priority_order": [
             "p1_mirror_map",
@@ -362,11 +375,6 @@
           "blocked_probe_interval_sec": 90,
           "blocked_actions": [],
           "action_effectiveness": {
-            "deploy_mirror_local": {
-              "attempts": 1,
-              "resolves": 1,
-              "effectiveness_pct": 100.0
-            },
             "publish": {
               "attempts": 2,
               "resolves": 0,
@@ -396,62 +404,62 @@
         "brain": {
           "snapshot": {
             "ready": true,
-            "last_reload": "2026-04-19 00:36:10",
+            "last_reload": "2026-04-19 14:59:32",
             "reload_interval_sec": 300.0,
             "min_samples": 3.0,
             "recency_half_life_days": 7.0,
             "actions": {
               "backup_prune_mirror_keep5": {
                 "score_global": 0.29,
-                "total_obs_weighted": 12.89,
+                "total_obs_weighted": 12.15,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "check_draws_online": {
-                "score_global": 0.104,
-                "total_obs_weighted": 294.53,
-                "fail_streak_current": 0,
+                "score_global": 0.083,
+                "total_obs_weighted": 303.47,
+                "fail_streak_current": 26,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "deploy_mirror_local": {
-                "score_global": 0.356,
-                "total_obs_weighted": 75.74,
+                "score_global": 0.256,
+                "total_obs_weighted": 120.17,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "mirror_auto_fix_map": {
-                "score_global": 0.269,
-                "total_obs_weighted": 4.3,
+                "score_global": 0.242,
+                "total_obs_weighted": 5.04,
                 "fail_streak_current": 0,
                 "data_quality": "sparse",
                 "verdict": "problematico"
               },
               "mirror_rebuild": {
-                "score_global": 0.146,
-                "total_obs_weighted": 29.81,
-                "fail_streak_current": 0,
+                "score_global": 0.098,
+                "total_obs_weighted": 73.89,
+                "fail_streak_current": 46,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "publish": {
-                "score_global": 0.31,
-                "total_obs_weighted": 125.06,
+                "score_global": 0.284,
+                "total_obs_weighted": 134.78,
                 "fail_streak_current": 0,
                 "data_quality": "good",
                 "verdict": "problematico"
               },
               "updates_run_all": {
-                "score_global": 0.109,
-                "total_obs_weighted": 12.44,
+                "score_global": 0.11,
+                "total_obs_weighted": 11.72,
                 "fail_streak_current": 0,
-                "data_quality": "good",
+                "data_quality": "sparse",
                 "verdict": "problematico"
               }
             },
-            "total_observations_weighted": 554.77
+            "total_observations_weighted": 661.22
           }
         }
       },
@@ -475,15 +483,45 @@
         "avoid_actions": [
           "mirror_step3_publish_force",
           "publish_force",
-          "mirror_auto_fix_map",
           "backup_prune_mirror_keep5",
-          "updates_run_all",
           "deploy_mirror_local",
-          "publish",
-          "mirror_rebuild"
+          "mirror_rebuild",
+          "check_draws_online",
+          "updates_run_all",
+          "publish"
         ],
-        "ts": "2026-04-19 00:36:36"
-      }
+        "ts": "2026-04-19 15:00:09"
+      },
+      "avoid_actions_meta": {
+        "mirror_step3_publish_force": {
+          "blocker_type": "execution_fail"
+        },
+        "publish_force": {
+          "blocker_type": "execution_fail"
+        },
+        "backup_prune_mirror_keep5": {
+          "blocker_type": "execution_fail"
+        },
+        "deploy_mirror_local": {
+          "blocker_type": "execution_fail"
+        },
+        "mirror_rebuild": {
+          "blocker_type": "execution_fail"
+        },
+        "check_draws_online": {
+          "blocker_type": "execution_fail"
+        },
+        "updates_run_all": {
+          "blocker_type": "execution_fail"
+        },
+        "publish": {
+          "blocker_type": "execution_fail"
+        },
+        "mirror_auto_fix_map": {
+          "blocker_type": "execution_fail"
+        }
+      },
+      "deadlock_detected": false
     },
     "catalog_stale": false,
     "catalog_age_sec": 0,
@@ -510,12 +548,12 @@
     "state_label": "operativo",
     "is_operational": true,
     "archive_synced": true,
-    "last_push_at": "2026-04-19 00:36:34",
+    "last_push_at": "2026-04-19 15:00:07",
     "release_id": "overview-resolved-20260401020218-026ab2fab0",
     "release_at": "2026-04-01 02:02:18",
     "last_sync_at": "2026-04-18T21:37:12",
-    "last_training_at": "2026-04-17 23:04:29",
-    "last_deploy_at": "2026-04-19 00:32:36",
+    "last_training_at": "2026-04-19 14:48:16",
+    "last_deploy_at": "2026-04-19 14:39:22",
     "mirror_last_modified_at": "2026-04-17 23:44:19",
     "algorithms_total_count": 16,
     "algorithms_aligned_count": 16,
@@ -526,56 +564,56 @@
   },
   "activity_log": [
     {
-      "ts": "2026-04-19 00:34:17",
+      "ts": "2026-04-19 14:58:37",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-19 00:31:51",
-      "event": "Eseguito task version_bump",
-      "status": "OK",
-      "source": "cart",
-      "action": "task:version_bump"
-    },
-    {
-      "ts": "2026-04-19 00:28:41",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-19 00:23:14",
-      "event": "Eseguito task version_set",
-      "status": "OK",
-      "source": "cart",
-      "action": "task:version_set"
-    },
-    {
-      "ts": "2026-04-19 00:20:58",
-      "event": "Audit allineamento: ok",
-      "status": "OK",
-      "source": "iargos",
-      "action": "iargos-alignment-audit"
-    },
-    {
-      "ts": "2026-04-19 00:18:12",
+      "ts": "2026-04-19 14:58:21",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-19 00:12:18",
+      "ts": "2026-04-19 14:57:33",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",
       "action": "iargos-alignment-audit"
     },
     {
-      "ts": "2026-04-19 00:06:52",
+      "ts": "2026-04-19 14:54:39",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-19 14:49:32",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-19 14:44:32",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-19 14:39:11",
+      "event": "Audit allineamento: drift rilevato",
+      "status": "WARN",
+      "source": "iargos",
+      "action": "iargos-alignment-audit"
+    },
+    {
+      "ts": "2026-04-19 14:36:09",
       "event": "Audit allineamento: drift rilevato",
       "status": "WARN",
       "source": "iargos",

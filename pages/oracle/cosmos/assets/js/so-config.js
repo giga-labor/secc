@@ -98,7 +98,6 @@ function buildFallbackMenuDefs(){
       { title:'Classic Frequency', page:'pages/algoritmi/algs/classic-frequency/', cardBase:'pages/algoritmi/algs/classic-frequency/' }
     ],
     alg_ibridi:[
-      { title:'ARC90', page:'pages/algoritmi/algs/arc90-logico-algoritmica/', cardBase:'pages/algoritmi/algs/arc90-logico-algoritmica/' }
     ],
     alg_neurali:[
       { title:'Super6NN', page:'pages/algoritmi/algs/super6NN/', cardBase:'pages/algoritmi/algs/super6NN/' }
