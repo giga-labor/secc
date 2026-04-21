@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "astra-moon",
   "title": "ASTRA Moon",
   "subtitle": "Ranking numerico da effemeridi lunari con riferimento fisso 20:30",
@@ -17,6 +17,6 @@
   "view": true,
   "hits": {
     "enabled": false,
-    "count": 0
+    "count": 1
   }
 }
