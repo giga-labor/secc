@@ -1,44 +1,28 @@
 {
-  "latest_local_contest_id": 4183,
-  "last_published_commit": "2d5430a14564fe413e5ba2db3a55484b7737ff81",
-  "per_algo_last_trained_contest_id": {
-    "astra-moon": 4183,
-    "classic-analisi-anomalie-pattern": 4183,
-    "classic-co-occorrenze": 4183,
-    "classic-coppie-terni-consecutivi": 4183,
-    "classic-coppie-terzine-frequenti": 4183,
-    "classic-distribuzioni-modelli-raggruppamento": 4183,
-    "classic-frequency": 4183,
-    "classic-ritardi": 4183,
-    "classic-ritardi-combinazioni": 4183,
-    "classic-statistiche-combinate-finestre-mobili": 4183,
-    "classic-tavole-probabilita-teorica-test-uniformita": 4183,
-    "genetic": 4183,
-    "hispa": 4183,
-    "paradox-logiche-decisionali-metriche": 4183,
-    "super6NN": 4183
-  },
-  "last_card_hits_build_at": "2026-04-21T22:38:31",
-  "last_card_hits_changed_cards": 9,
-  "last_successful_run_id": "20260421_215910",
-  "last_email_status": "Email inviata",
+  "latest_local_contest_id": 4184,
+  "last_published_commit": "",
+  "per_algo_last_trained_contest_id": {},
+  "last_card_hits_build_at": "",
+  "last_card_hits_changed_cards": 0,
+  "last_successful_run_id": "",
+  "last_email_status": "",
   "pending_publish": {},
-  "consecutive_failures": 0,
-  "last_failure_at": "",
-  "last_failure_reason": "",
+  "consecutive_failures": 1,
+  "last_failure_at": "2026-04-23T21:52:48",
+  "last_failure_reason": "Working tree non pulita (gate strict)\n M archives/draws/draws.csv\n M pages/algoritmi/algs/astra-moon/card.json\n M pages/algoritmi/algs/astra-moon/out/analysis.txt\n M pages/algoritmi/algs/astra-moon/out/historical-db.csv\n M pages/algoritmi/algs/astra-moon/out/metrics-db.csv\n M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/analysis.txt\n M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/historical-db.csv\n M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/metrics-db.csv\n M pages/algoritmi/algs/classic-co-occorrenze/out/analysis.txt\n M pages/algoritmi/algs/classic-co-occorrenze/out/historical-db.csv\n M pages/algoritmi/algs/classic-co-occorrenze/out/metrics-db.csv\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/card.json\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/analysis.txt\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/historical-db.csv\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/metrics-db.csv\n M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/analysis.txt\n M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/historical-db.csv\n M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/metrics-db.csv\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/analysis.txt\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/historical-db.csv\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/metrics-db.csv\n M pages/algoritmi/algs/classic-frequency/out/analysis.txt\n M pages/algoritmi/algs/classic-frequency/out/historical-db.csv\n M pages/algoritmi/algs/classic-frequency/out/metrics-db.csv\n M pages/algoritmi/algs/classic-ritardi-combinazioni/out/analysis.txt\n... +23 file",
   "run_journal": [
     {
-      "ts": "2026-04-21T21:59:10",
+      "ts": "2026-04-23T21:48:55",
       "event": "lock_acquired",
-      "run_id": "20260421_215910",
+      "run_id": "20260423_214855",
       "payload": {
-        "lease_until": "2026-04-21T22:01:10"
+        "lease_until": "2026-04-23T21:50:55"
       }
     },
     {
-      "ts": "2026-04-21T22:47:13",
+      "ts": "2026-04-23T21:52:10",
       "event": "lock_released",
-      "run_id": "20260421_215910",
+      "run_id": "20260423_214855",
       "payload": {}
     }
   ],

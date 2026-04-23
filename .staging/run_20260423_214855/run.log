@@ -1,0 +1,60 @@
+[21:48:55] Fase OK: lock_acquire
+[21:49:46] AI nulla osta OK su apply_stage_to_repo
+[21:50:25] Avvio fase: apply_stage_to_repo
+[21:51:09] Fase KO: apply_stage_to_repo -> Working tree non pulita (gate strict)
+ M archives/draws/draws.csv
+ M pages/algoritmi/algs/astra-moon/card.json
+ M pages/algoritmi/algs/astra-moon/out/analysis.txt
+ M pages/algoritmi/algs/astra-moon/out/historical-db.csv
+ M pages/algoritmi/algs/astra-moon/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/analysis.txt
+ M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/historical-db.csv
+ M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-co-occorrenze/out/analysis.txt
+ M pages/algoritmi/algs/classic-co-occorrenze/out/historical-db.csv
+ M pages/algoritmi/algs/classic-co-occorrenze/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/card.json
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/analysis.txt
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/historical-db.csv
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/analysis.txt
+ M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/historical-db.csv
+ M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/analysis.txt
+ M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/historical-db.csv
+ M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-frequency/out/analysis.txt
+ M pages/algoritmi/algs/classic-frequency/out/historical-db.csv
+ M pages/algoritmi/algs/classic-frequency/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-ritardi-combinazioni/out/analysis.txt
+... +23 file
+[21:51:39] AI nulla osta OK su lock_release
+[21:51:53] Avvio fase: lock_release
+[21:52:10] Fase OK: lock_release
+[21:52:48] Working tree non pulita (gate strict)
+ M archives/draws/draws.csv
+ M pages/algoritmi/algs/astra-moon/card.json
+ M pages/algoritmi/algs/astra-moon/out/analysis.txt
+ M pages/algoritmi/algs/astra-moon/out/historical-db.csv
+ M pages/algoritmi/algs/astra-moon/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/analysis.txt
+ M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/historical-db.csv
+ M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-co-occorrenze/out/analysis.txt
+ M pages/algoritmi/algs/classic-co-occorrenze/out/historical-db.csv
+ M pages/algoritmi/algs/classic-co-occorrenze/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/card.json
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/analysis.txt
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/historical-db.csv
+ M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/analysis.txt
+ M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/historical-db.csv
+ M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/analysis.txt
+ M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/historical-db.csv
+ M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-frequency/out/analysis.txt
+ M pages/algoritmi/algs/classic-frequency/out/historical-db.csv
+ M pages/algoritmi/algs/classic-frequency/out/metrics-db.csv
+ M pages/algoritmi/algs/classic-ritardi-combinazioni/out/analysis.txt
+... +23 file
