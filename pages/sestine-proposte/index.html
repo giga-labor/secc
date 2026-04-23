@@ -183,9 +183,54 @@
         } catch (_) {}
       };
 
+      const normalizePathKey = (value) => String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/\\/g, '/')
+        .replace(/^https?:\/\/[^/]+/i, '')
+        .replace(/\/index\.html?$/i, '/')
+        .replace(/\/+$/g, '/')
+        .replace(/^\/+/, '');
+
+      const rankingKeysForCard = (card) => {
+        const keys = [];
+        const id = String(card?.id || '').trim().toLowerCase();
+        const page = normalizePathKey(card?.page || '');
+        if (id) keys.push(`id:${id}`);
+        if (page) keys.push(`page:${page}`);
+        return keys;
+      };
+
+      const loadCardsIndexRankingMap = async () => {
+        try {
+          const res = await fetch('../../data/cards-index.json', { cache: 'no-store' });
+          if (!res.ok) return new Map();
+          const rows = await res.json();
+          if (!Array.isArray(rows)) return new Map();
+          const out = new Map();
+          rows.forEach((row) => {
+            const rankingValue = Number(row?.rankingValue);
+            const rankingPosition = Number(row?.rankingPosition);
+            if (!Number.isFinite(rankingValue) && !Number.isFinite(rankingPosition)) return;
+            rankingKeysForCard(row).forEach((key) => {
+              if (!out.has(key)) {
+                out.set(key, {
+                  rankingValue: Number.isFinite(rankingValue) ? rankingValue : Number.NaN,
+                  rankingPosition: Number.isFinite(rankingPosition) ? rankingPosition : Number.POSITIVE_INFINITY,
+                });
+              }
+            });
+          });
+          return out;
+        } catch (_) {
+          return new Map();
+        }
+      };
+
       const loadManifestCards = async () => {
-        if (window.CC_REPO && typeof window.CC_REPO.loadCardsByManifest === 'function') {
-          return window.CC_REPO.loadCardsByManifest('../../data/modules-manifest.json');
+        const repo = window.CC_DATA_REPOSITORY || window.CC_REPO;
+        if (repo && typeof repo.loadCardsByManifest === 'function') {
+          return repo.loadCardsByManifest('../../data/modules-manifest.json');
         }
         const res = await fetch('../../data/modules-manifest.json', { cache: 'no-store' });
         if (!res.ok) return [];
@@ -231,9 +276,20 @@
         const latestArchiveSeq = (typeof cardsApi.getLatestArchiveSeq === 'function')
           ? await cardsApi.getLatestArchiveSeq()
           : null;
+        const rankingMap = await loadCardsIndexRankingMap();
 
         const rows = await Promise.all(activeAlgorithms.map(async (card) => {
-          const ranking = Number.isFinite(card?.rankingValue) ? Number(card.rankingValue) : Number.NaN;
+          let ranking = Number.NaN;
+          let rankingPosition = Number.POSITIVE_INFINITY;
+          const enriched = rankingKeysForCard(card).reduce((acc, key) => acc || rankingMap.get(key), null);
+          const rawRanking = (enriched && Number.isFinite(enriched.rankingValue))
+            ? enriched.rankingValue
+            : Number(card?.rankingValue);
+          const rawPosition = (enriched && Number.isFinite(enriched.rankingPosition))
+            ? enriched.rankingPosition
+            : Number(card?.rankingPosition);
+          if (Number.isFinite(rawRanking)) ranking = rawRanking;
+          if (Number.isFinite(rawPosition)) rankingPosition = rawPosition;
 
           let proposal = [];
           if (typeof cardsApi.resolveMetricsUrl === 'function'
@@ -250,7 +306,7 @@
               : [];
           }
 
-          return { card, ranking, proposal };
+          return { card, ranking, rankingPosition, proposal };
         }));
 
         const rowsWithProposal = rows
@@ -258,7 +314,13 @@
           .sort((a, b) => {
             const ra = Number.isFinite(a.ranking) ? a.ranking : Number.NEGATIVE_INFINITY;
             const rb = Number.isFinite(b.ranking) ? b.ranking : Number.NEGATIVE_INFINITY;
-            return rb - ra;
+            if (rb !== ra) return rb - ra;
+            const pa = Number.isFinite(a.rankingPosition) ? a.rankingPosition : Number.POSITIVE_INFINITY;
+            const pb = Number.isFinite(b.rankingPosition) ? b.rankingPosition : Number.POSITIVE_INFINITY;
+            if (pa !== pb) return pa - pb;
+            const ta = String(a.card?.title || a.card?.id || '').toLowerCase();
+            const tb = String(b.card?.title || b.card?.id || '').toLowerCase();
+            return ta.localeCompare(tb);
           });
 
         if (!rowsWithProposal.length) {
