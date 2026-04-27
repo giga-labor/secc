@@ -4,23 +4,23 @@ Ogni concorso viene codificato in multi-hot e letto in sequenza temporale per es
 La stima per ogni step usa solo lo storico precedente al concorso target, in ottica walk-forward.
 
 Impostazione di questo export SICC
-Analisi eseguita su 4184 concorsi del draws admin, con 4183 step di validazione storica.
+Analisi eseguita su 4185 concorsi del draws admin, con 4184 step di validazione storica.
 Per ogni step viene proposta una sestina deterministica dai 6 logit piu alti del modello.
 Ogni proposta e generata dallo stato appreso fino a quel passo, poi verificata sul concorso successivo.
 
 Risultati osservati sullo storico
-- Media hit/sestina: 0.3897
-- Hit >=1: 1425/4183 (34.07%)
-- Hit >=2: 193/4183 (4.61%)
-- Hit >=3: 12/4183 (0.29%)
-- Hit >=4: 0/4183 (0.00%)
-- Hit >=5: 0/4183 (0.0000%)
-- Hit =6: 0/4183 (0.000000%)
-- Distribuzione hit esatta: 0:2758 1:1232 2:181 3:12 4:0 5:0 6:0
+- Media hit/sestina: 0.3896
+- Hit >=1: 1425/4184 (34.06%)
+- Hit >=2: 193/4184 (4.61%)
+- Hit >=3: 12/4184 (0.29%)
+- Hit >=4: 0/4184 (0.00%)
+- Hit >=5: 0/4184 (0.0000%)
+- Hit =6: 0/4184 (0.000000%)
+- Distribuzione hit esatta: 0:2759 1:1232 2:181 3:12 4:0 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
-- Media hit attesa random: 0.4000 | osservata: 0.3897
-- Hit>=2 atteso random: 4.963% | osservato: 4.614% | z-score: -1.04
+- Media hit attesa random: 0.4000 | osservata: 0.3896
+- Hit>=2 atteso random: 4.963% | osservato: 4.613% | z-score: -1.04
 - Hit>=3 atteso random: 0.315%
 - Hit>=4 atteso random: 0.00848%
 
@@ -29,9 +29,9 @@ Stabilita temporale
 - Deviazione standard hit: 0.5844
 
 Configurazione operativa
-- Ultimo concorso disponibile: 4184 (23/04/2026)
-- Prossimo concorso stimato: 4185
-- Sestina proposta: 06 15 20 48 53 67
+- Ultimo concorso disponibile: 4185 (24/04/2026)
+- Prossimo concorso stimato: 4186
+- Sestina proposta: 09 15 20 48 53 67
 
 Lettura e limiti
 Le metriche descrivono comportamento storico del modello ma non costituiscono garanzia predittiva futura.
