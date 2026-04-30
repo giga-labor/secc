@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4187,Conteggio archivio fino al concorso 4187
+Concorsi analizzati,4188,Conteggio archivio fino al concorso 4188
 Media hit/sestina,0.41,Media numeri corretti per concorso
 Hit rate >= 2,5.1%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2710,Numero concorsi con esattamente 0 hit
+Con 0 hit,2711,Numero concorsi con esattamente 0 hit
 Con 1 hit,1261,Numero concorsi con esattamente 1 hit
 Con 2 hit,202,Numero concorsi con esattamente 2 hit
 Con 3 hit,13,Numero concorsi con esattamente 3 hit
@@ -10,14 +10,14 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Media hit ultimi 100,0.46,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4187,Data estrazione: 28/04/2026
-Concorso successivo stimato,4188,Sestina proposta: 03 86 85 90 79 12
+Media hit ultimi 100,0.45,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4188,Data estrazione: 30/04/2026
+Concorso successivo stimato,4189,Sestina proposta: 03 86 85 90 79 12
 Sestina proposta (prossimo concorso),03 86 85 90 79 12,Pronostico prodotto con addestramento incrementale
 Coppie osservate,4005,Numero coppie distinte viste almeno una volta
-Terzine osservate,59735,Numero terzine distinte viste almeno una volta
+Terzine osservate,59749,Numero terzine distinte viste almeno una volta
 Ritardo massimo coppia,3122,Massimo ritardo storico registrato su una coppia
 Ritardo massimo terzina,4171,Massimo ritardo storico registrato su una terzina
-Coppia piu ritardataria,11-60,Ritardo corrente: 2973
-Terzina piu ritardataria,20-36-41,Ritardo corrente: 4186
-Score ritardi combo sestina,24357661,Indice sintetico interno basato su ritardi coppie/terzine
+Coppia piu ritardataria,11-60,Ritardo corrente: 2974
+Terzina piu ritardataria,20-36-41,Ritardo corrente: 4187
+Score ritardi combo sestina,24372689,Indice sintetico interno basato su ritardi coppie/terzine

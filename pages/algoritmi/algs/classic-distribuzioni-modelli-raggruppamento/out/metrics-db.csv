@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4187,Conteggio archivio fino al concorso 4187
+Concorsi analizzati,4188,Conteggio archivio fino al concorso 4188
 Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,4.8%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2764,Numero concorsi con esattamente 0 hit
+Con 0 hit,2765,Numero concorsi con esattamente 0 hit
 Con 1 hit,1223,Numero concorsi con esattamente 1 hit
 Con 2 hit,183,Numero concorsi con esattamente 2 hit
 Con 3 hit,16,Numero concorsi con esattamente 3 hit
@@ -11,8 +11,8 @@ Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
 Media hit ultimi 100,0.29,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4187,Data estrazione: 28/04/2026
-Concorso successivo stimato,4188,Sestina proposta: 86 79 49 65 83 85
+Ultimo concorso calcolato,4188,Data estrazione: 30/04/2026
+Concorso successivo stimato,4189,Sestina proposta: 86 79 49 65 83 85
 Sestina proposta (prossimo concorso),86 79 49 65 83 85,Pronostico prodotto con addestramento incrementale
 Split pari/dispari modale,3/3,Frequenza storica piu comune
 Split bassi/alti modale,3/3,Bassi=1..45 | Alti=46..90
