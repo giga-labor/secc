@@ -1,19 +1,19 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4190,Conteggio archivio fino al concorso 4190
+Concorsi analizzati,4191,Conteggio archivio fino al concorso 4191
 Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,4.8%,Percentuale concorsi con almeno 2 hit
 Con 0 hit,2766,Numero concorsi con esattamente 0 hit
-Con 1 hit,1223,Numero concorsi con esattamente 1 hit
+Con 1 hit,1224,Numero concorsi con esattamente 1 hit
 Con 2 hit,184,Numero concorsi con esattamente 2 hit
 Con 3 hit,16,Numero concorsi con esattamente 3 hit
 Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
-Media hit ultimi 100,0.31,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4190,Data estrazione: 04/05/2026
-Concorso successivo stimato,4191,Sestina proposta: 83 75 49 65 85 55
-Sestina proposta (prossimo concorso),83 75 49 65 85 55,Pronostico prodotto con addestramento incrementale
+Media hit ultimi 100,0.32,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4191,Data estrazione: 05/05/2026
+Concorso successivo stimato,4192,Sestina proposta: 83 75 49 65 85 80
+Sestina proposta (prossimo concorso),83 75 49 65 85 80,Pronostico prodotto con addestramento incrementale
 Split pari/dispari modale,3/3,Frequenza storica piu comune
 Split bassi/alti modale,3/3,Bassi=1..45 | Alti=46..90
 Profilo raggruppamento modale,2-1-1-1-1,Occupazioni per decade ordinate in modo decrescente
