@@ -4,34 +4,34 @@ Ogni concorso viene codificato in multi-hot e letto in sequenza temporale per es
 La stima per ogni step usa solo lo storico precedente al concorso target, in ottica walk-forward.
 
 Impostazione di questo export SICC
-Analisi eseguita su 4191 concorsi del draws admin, con 4190 step di validazione storica.
+Analisi eseguita su 4192 concorsi del draws admin, con 4191 step di validazione storica.
 Per ogni step viene proposta una sestina deterministica dai 6 logit piu alti del modello.
 Ogni proposta e generata dallo stato appreso fino a quel passo, poi verificata sul concorso successivo.
 
 Risultati osservati sullo storico
-- Media hit/sestina: 0.3895
-- Hit >=1: 1427/4190 (34.06%)
-- Hit >=2: 193/4190 (4.61%)
-- Hit >=3: 12/4190 (0.29%)
-- Hit >=4: 0/4190 (0.00%)
-- Hit >=5: 0/4190 (0.0000%)
-- Hit =6: 0/4190 (0.000000%)
-- Distribuzione hit esatta: 0:2763 1:1234 2:181 3:12 4:0 5:0 6:0
+- Media hit/sestina: 0.3894
+- Hit >=1: 1427/4191 (34.05%)
+- Hit >=2: 193/4191 (4.61%)
+- Hit >=3: 12/4191 (0.29%)
+- Hit >=4: 0/4191 (0.00%)
+- Hit >=5: 0/4191 (0.0000%)
+- Hit =6: 0/4191 (0.000000%)
+- Distribuzione hit esatta: 0:2764 1:1234 2:181 3:12 4:0 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
-- Media hit attesa random: 0.4000 | osservata: 0.3895
-- Hit>=2 atteso random: 4.963% | osservato: 4.606% | z-score: -1.06
+- Media hit attesa random: 0.4000 | osservata: 0.3894
+- Hit>=2 atteso random: 4.963% | osservato: 4.605% | z-score: -1.07
 - Hit>=3 atteso random: 0.315%
 - Hit>=4 atteso random: 0.00848%
 
 Stabilita temporale
 - Media ultimi 200 step: 0.3750
-- Deviazione standard hit: 0.5843
+- Deviazione standard hit: 0.5842
 
 Configurazione operativa
-- Ultimo concorso disponibile: 4191 (05/05/2026)
-- Prossimo concorso stimato: 4192
-- Sestina proposta: 08 49 53 70 82 83
+- Ultimo concorso disponibile: 4192 (07/05/2026)
+- Prossimo concorso stimato: 4193
+- Sestina proposta: 08 36 49 53 82 83
 
 Lettura e limiti
 Le metriche descrivono comportamento storico del modello ma non costituiscono garanzia predittiva futura.
