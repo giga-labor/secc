@@ -21,10 +21,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/astra-moon/",
-    "rankingValue": 17034.51,
+    "rankingValue": 17036.04,
     "rankingPosition": 9,
     "exactHits": {
-      "0": 2687,
+      "0": 2688,
       "1": 1271,
       "2": 220,
       "3": 12,
@@ -56,11 +56,11 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-    "rankingValue": 30372.35,
+    "rankingValue": 30375.71,
     "rankingPosition": 1,
     "exactHits": {
       "0": 2757,
-      "1": 1198,
+      "1": 1199,
       "2": 217,
       "3": 17,
       "4": 1,
@@ -90,10 +90,10 @@
       "count": 2
     },
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
-    "rankingValue": 28750.38,
+    "rankingValue": 28751.91,
     "rankingPosition": 4,
     "exactHits": {
-      "0": 2758,
+      "0": 2759,
       "1": 1219,
       "2": 199,
       "3": 13,
@@ -122,10 +122,10 @@
       "count": 2
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "rankingValue": 17931.73,
+    "rankingValue": 17933.26,
     "rankingPosition": 6,
     "exactHits": {
-      "0": 2743,
+      "0": 2744,
       "1": 1244,
       "2": 186,
       "3": 17,
@@ -154,11 +154,11 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "rankingValue": 14061.64,
+    "rankingValue": 14065.0,
     "rankingPosition": 15,
     "exactHits": {
       "0": 2787,
-      "1": 1207,
+      "1": 1208,
       "2": 191,
       "3": 5,
       "4": 0,
@@ -186,10 +186,10 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "rankingValue": 17529.98,
+    "rankingValue": 17531.51,
     "rankingPosition": 8,
     "exactHits": {
-      "0": 2766,
+      "0": 2767,
       "1": 1224,
       "2": 184,
       "3": 16,
@@ -219,10 +219,10 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "rankingValue": 16528.77,
+    "rankingValue": 16530.3,
     "rankingPosition": 11,
     "exactHits": {
-      "0": 2765,
+      "0": 2766,
       "1": 1213,
       "2": 200,
       "3": 12,
@@ -251,10 +251,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "rankingValue": 17003.57,
+    "rankingValue": 17005.1,
     "rankingPosition": 10,
     "exactHits": {
-      "0": 2712,
+      "0": 2713,
       "1": 1262,
       "2": 203,
       "3": 13,
@@ -284,11 +284,11 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "rankingValue": 29749.59,
+    "rankingValue": 29752.95,
     "rankingPosition": 2,
     "exactHits": {
       "0": 2752,
-      "1": 1221,
+      "1": 1222,
       "2": 200,
       "3": 16,
       "4": 1,
@@ -316,10 +316,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "rankingValue": 15863.62,
+    "rankingValue": 15865.15,
     "rankingPosition": 14,
     "exactHits": {
-      "0": 2803,
+      "0": 2804,
       "1": 1191,
       "2": 185,
       "3": 11,
@@ -351,10 +351,10 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-    "rankingValue": 16407.51,
+    "rankingValue": 16409.04,
     "rankingPosition": 12,
     "exactHits": {
-      "0": 2742,
+      "0": 2743,
       "1": 1245,
       "2": 191,
       "3": 12,
@@ -385,10 +385,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/genetic/",
-    "rankingValue": 28714.55,
+    "rankingValue": 28716.08,
     "rankingPosition": 5,
     "exactHits": {
-      "0": 2746,
+      "0": 2747,
       "1": 1251,
       "2": 178,
       "3": 14,
@@ -419,10 +419,10 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/hispa/",
-    "rankingValue": 17790.0,
+    "rankingValue": 17791.53,
     "rankingPosition": 7,
     "exactHits": {
-      "0": 2715,
+      "0": 2716,
       "1": 1249,
       "2": 211,
       "3": 15,
@@ -455,11 +455,11 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
-    "rankingValue": 29640.39,
+    "rankingValue": 29640.09,
     "rankingPosition": 3,
     "exactHits": {
-      "0": 2772,
-      "1": 1205,
+      "0": 2774,
+      "1": 1204,
       "2": 196,
       "3": 16,
       "4": 1,
@@ -489,10 +489,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/super6NN/",
-    "rankingValue": 16187.58,
+    "rankingValue": 16189.11,
     "rankingPosition": 13,
     "exactHits": {
-      "0": 2763,
+      "0": 2764,
       "1": 1234,
       "2": 181,
       "3": 12,
