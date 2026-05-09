@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4193,Conteggio archivio fino al concorso 4193
+Concorsi analizzati,4194,Conteggio archivio fino al concorso 4194
 Media hit/sestina,0.41,Media numeri corretti per concorso
 Hit rate >= 2,5.2%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2713,Numero concorsi con esattamente 0 hit
+Con 0 hit,2714,Numero concorsi con esattamente 0 hit
 Con 1 hit,1263,Numero concorsi con esattamente 1 hit
 Con 2 hit,203,Numero concorsi con esattamente 2 hit
 Con 3 hit,13,Numero concorsi con esattamente 3 hit
@@ -11,13 +11,13 @@ Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
 Media hit ultimi 100,0.44,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4193,Data estrazione: 08/05/2026
-Concorso successivo stimato,4194,Sestina proposta: 01 17 03 86 85 90
+Ultimo concorso calcolato,4194,Data estrazione: 09/05/2026
+Concorso successivo stimato,4195,Sestina proposta: 01 17 03 86 85 90
 Sestina proposta (prossimo concorso),01 17 03 86 85 90,Pronostico prodotto con addestramento incrementale
 Coppie osservate,4005,Numero coppie distinte viste almeno una volta
-Terzine osservate,59796,Numero terzine distinte viste almeno una volta
+Terzine osservate,59808,Numero terzine distinte viste almeno una volta
 Ritardo massimo coppia,3122,Massimo ritardo storico registrato su una coppia
 Ritardo massimo terzina,4171,Massimo ritardo storico registrato su una terzina
-Coppia piu ritardataria,11-60,Ritardo corrente: 2979
-Terzina piu ritardataria,20-36-41,Ritardo corrente: 4192
-Score ritardi combo sestina,24472083,Indice sintetico interno basato su ritardi coppie/terzine
+Coppia piu ritardataria,11-60,Ritardo corrente: 2980
+Terzina piu ritardataria,20-36-41,Ritardo corrente: 4193
+Score ritardi combo sestina,24487177,Indice sintetico interno basato su ritardi coppie/terzine
