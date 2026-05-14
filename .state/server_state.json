@@ -1,5 +1,5 @@
 {
-  "latest_local_contest_id": 4195,
+  "latest_local_contest_id": 4196,
   "last_published_commit": "",
   "per_algo_last_trained_contest_id": {},
   "last_card_hits_build_at": "",
@@ -7,17 +7,23 @@
   "last_successful_run_id": "",
   "last_email_status": "",
   "pending_publish": {},
-  "consecutive_failures": 0,
-  "last_failure_at": "",
-  "last_failure_reason": "",
+  "consecutive_failures": 1,
+  "last_failure_at": "2026-05-15T00:39:32",
+  "last_failure_reason": "Working tree non pulita (gate strict)\n M archives/draws/draws.csv\n M data/cards-index.json\n M pages/algoritmi/algs/astra-moon/out/analysis.txt\n M pages/algoritmi/algs/astra-moon/out/historical-db.csv\n M pages/algoritmi/algs/astra-moon/out/metrics-db.csv\n M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/analysis.txt\n M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/historical-db.csv\n M pages/algoritmi/algs/classic-analisi-anomalie-pattern/out/metrics-db.csv\n M pages/algoritmi/algs/classic-co-occorrenze/card.json\n M pages/algoritmi/algs/classic-co-occorrenze/out/analysis.txt\n M pages/algoritmi/algs/classic-co-occorrenze/out/historical-db.csv\n M pages/algoritmi/algs/classic-co-occorrenze/out/metrics-db.csv\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/analysis.txt\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/historical-db.csv\n M pages/algoritmi/algs/classic-coppie-terni-consecutivi/out/metrics-db.csv\n M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/analysis.txt\n M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/historical-db.csv\n M pages/algoritmi/algs/classic-coppie-terzine-frequenti/out/metrics-db.csv\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/card.json\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/analysis.txt\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/historical-db.csv\n M pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/out/metrics-db.csv\n M pages/algoritmi/algs/classic-frequency/card.json\n M pages/algoritmi/algs/classic-frequency/out/analysis.txt\n M pages/algoritmi/algs/classic-frequency/out/historical-db.csv\n... +28 file",
   "run_journal": [
     {
-      "ts": "2026-05-12T22:19:50",
+      "ts": "2026-05-15T00:36:09",
       "event": "lock_acquired",
-      "run_id": "20260512_221950",
+      "run_id": "20260515_003609",
       "payload": {
-        "lease_until": "2026-05-12T22:21:50"
+        "lease_until": "2026-05-15T00:38:09"
       }
+    },
+    {
+      "ts": "2026-05-15T00:39:15",
+      "event": "lock_released",
+      "run_id": "20260515_003609",
+      "payload": {}
     }
   ],
   "last_quorum_policy": {
@@ -25,7 +31,12 @@
     "gold_weight": 2,
     "max_skew_minutes": 180,
     "max_block_minutes": 15,
-    "fallback_latest_source": true
+    "fallback_latest_source": true,
+    "phase1_min_sources": 1,
+    "phase2_min_sources": 2,
+    "phase2_retry_wait_sec": 600,
+    "phase2_allow_forced_publish": true,
+    "phase2_email_alert_on_forced": true
   },
   "quorum_degraded_since": ""
 }
