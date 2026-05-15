@@ -1,0 +1,9 @@
+{
+  "confirmations": 1,
+  "required": 1,
+  "best_date": "15/05/2026",
+  "latest_external_contest_id": 78,
+  "raw": "CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)\nLocale corrente: seq=4197 data=15/05/2026\n\n[superenalotto.it] ALLINEATO\n  locale: seq=4197 data=15/05/2026 sestina=05 13 17 28 47 68\n  online: seq=78 data=15/05/2026 sestina=05 13 17 28 47 68\n  ref: https://www.superenalotto.it/archivio-estrazioni/concorso-78/15-maggio-2026\n\n\nERRORI FONTI:\n- [parse_superenalotto_com] errore: Nessuna estrazione trovata su superenalotto.com",
+  "status": "healthy",
+  "step_title": "CHECK_SOURCES_QUORUM_PHASE1"
+}
