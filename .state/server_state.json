@@ -1,27 +1,27 @@
 {
-  "latest_local_contest_id": 4199,
-  "last_published_commit": "7bd3ce461b7aa18d9d0d13a43ca597707c5d7291",
+  "latest_local_contest_id": 4200,
+  "last_published_commit": "126af6e0ec547c7730eba6e488529989a3ffaf51",
   "per_algo_last_trained_contest_id": {
-    "astra-moon": 4199,
-    "classic-analisi-anomalie-pattern": 4199,
-    "classic-co-occorrenze": 4199,
-    "classic-coppie-terni-consecutivi": 4199,
-    "classic-coppie-terzine-frequenti": 4199,
-    "classic-distribuzioni-modelli-raggruppamento": 4199,
-    "classic-frequency": 4199,
-    "classic-ritardi": 4199,
-    "classic-ritardi-combinazioni": 4199,
-    "classic-statistiche-combinate-finestre-mobili": 4199,
-    "classic-tavole-probabilita-teorica-test-uniformita": 4199,
-    "genetic": 4199,
-    "hispa": 4199,
-    "paradox-logiche-decisionali-metriche": 4199,
-    "super6NN": 4199
+    "astra-moon": 4200,
+    "classic-analisi-anomalie-pattern": 4200,
+    "classic-co-occorrenze": 4200,
+    "classic-coppie-terni-consecutivi": 4200,
+    "classic-coppie-terzine-frequenti": 4200,
+    "classic-distribuzioni-modelli-raggruppamento": 4200,
+    "classic-frequency": 4200,
+    "classic-ritardi": 4200,
+    "classic-ritardi-combinazioni": 4200,
+    "classic-statistiche-combinate-finestre-mobili": 4200,
+    "classic-tavole-probabilita-teorica-test-uniformita": 4200,
+    "genetic": 4200,
+    "hispa": 4200,
+    "paradox-logiche-decisionali-metriche": 4200,
+    "super6NN": 4200
   },
-  "last_card_hits_build_at": "2026-05-20T20:43:07",
-  "last_card_hits_changed_cards": 6,
-  "last_successful_run_id": "20260516_214923",
-  "last_email_status": "Invio email fallito: [Errno 11001] getaddrinfo failed",
+  "last_card_hits_build_at": "2026-05-22T19:02:00",
+  "last_card_hits_changed_cards": 9,
+  "last_successful_run_id": "20260522_181801",
+  "last_email_status": "Email inviata",
   "pending_publish": {},
   "consecutive_failures": 0,
   "last_failure_at": "",
@@ -82,6 +82,20 @@
       "payload": {
         "lease_until": "2026-05-20T20:22:07"
       }
+    },
+    {
+      "ts": "2026-05-22T18:18:01",
+      "event": "lock_acquired",
+      "run_id": "20260522_181801",
+      "payload": {
+        "lease_until": "2026-05-22T18:20:01"
+      }
+    },
+    {
+      "ts": "2026-05-22T20:02:31",
+      "event": "lock_released",
+      "run_id": "20260522_181801",
+      "payload": {}
     }
   ],
   "last_quorum_policy": {
