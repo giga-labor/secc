@@ -21,11 +21,11 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/astra-moon/",
-    "rankingValue": 17055.6,
+    "rankingValue": 17058.96,
     "rankingPosition": 10,
     "exactHits": {
       "0": 2692,
-      "1": 1275,
+      "1": 1276,
       "2": 220,
       "3": 12,
       "4": 0,
@@ -56,10 +56,10 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-    "rankingValue": 30387.95,
+    "rankingValue": 30389.48,
     "rankingPosition": 1,
     "exactHits": {
-      "0": 2765,
+      "0": 2766,
       "1": 1199,
       "2": 217,
       "3": 17,
@@ -90,10 +90,10 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
-    "rankingValue": 28769.64,
+    "rankingValue": 28771.17,
     "rankingPosition": 4,
     "exactHits": {
-      "0": 2764,
+      "0": 2765,
       "1": 1222,
       "2": 199,
       "3": 13,
@@ -122,11 +122,11 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "rankingValue": 17954.65,
+    "rankingValue": 17958.01,
     "rankingPosition": 6,
     "exactHits": {
       "0": 2747,
-      "1": 1249,
+      "1": 1250,
       "2": 186,
       "3": 17,
       "4": 0,
@@ -154,10 +154,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "rankingValue": 14082.73,
+    "rankingValue": 14084.26,
     "rankingPosition": 15,
     "exactHits": {
-      "0": 2792,
+      "0": 2793,
       "1": 1211,
       "2": 191,
       "3": 5,
@@ -186,10 +186,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "rankingValue": 17547.41,
+    "rankingValue": 17548.94,
     "rankingPosition": 8,
     "exactHits": {
-      "0": 2773,
+      "0": 2774,
       "1": 1226,
       "2": 184,
       "3": 16,
@@ -219,10 +219,10 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "rankingValue": 16871.39,
+    "rankingValue": 16872.92,
     "rankingPosition": 11,
     "exactHits": {
-      "0": 2771,
+      "0": 2772,
       "1": 1215,
       "2": 200,
       "3": 13,
@@ -284,10 +284,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "rankingValue": 29765.19,
+    "rankingValue": 29766.72,
     "rankingPosition": 2,
     "exactHits": {
-      "0": 2760,
+      "0": 2761,
       "1": 1222,
       "2": 200,
       "3": 16,
