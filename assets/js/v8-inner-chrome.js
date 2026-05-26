@@ -33,7 +33,7 @@
     '</style>',
     '<a href="/" class="v8i-logo">Control<b>Chaos</b></a>',
     '<div class="v8i-sep"></div>',
-    '<a href="javascript:history.back()">? Indietro</a>'
+    '<a href="javascript:history.back()">\u2190 Indietro</a>'
   ].join('');
 
   if (document.body) {
