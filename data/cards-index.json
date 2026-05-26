@@ -18,13 +18,13 @@
     "view": true,
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/astra-moon/",
-    "rankingValue": 17058.96,
+    "rankingValue": 17060.49,
     "rankingPosition": 10,
     "exactHits": {
-      "0": 2692,
+      "0": 2693,
       "1": 1276,
       "2": 220,
       "3": 12,
@@ -56,10 +56,10 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-    "rankingValue": 30389.48,
+    "rankingValue": 30391.01,
     "rankingPosition": 1,
     "exactHits": {
-      "0": 2766,
+      "0": 2767,
       "1": 1199,
       "2": 217,
       "3": 17,
@@ -87,13 +87,13 @@
     "type": "ALGORITMI",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
-    "rankingValue": 28771.17,
+    "rankingValue": 28772.7,
     "rankingPosition": 4,
     "exactHits": {
-      "0": 2765,
+      "0": 2766,
       "1": 1222,
       "2": 199,
       "3": 13,
@@ -122,11 +122,11 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "rankingValue": 17958.01,
+    "rankingValue": 17961.37,
     "rankingPosition": 6,
     "exactHits": {
       "0": 2747,
-      "1": 1250,
+      "1": 1251,
       "2": 186,
       "3": 17,
       "4": 0,
@@ -154,10 +154,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "rankingValue": 14084.26,
+    "rankingValue": 14085.79,
     "rankingPosition": 15,
     "exactHits": {
-      "0": 2793,
+      "0": 2794,
       "1": 1211,
       "2": 191,
       "3": 5,
@@ -186,10 +186,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "rankingValue": 17548.94,
+    "rankingValue": 17550.47,
     "rankingPosition": 8,
     "exactHits": {
-      "0": 2774,
+      "0": 2775,
       "1": 1226,
       "2": 184,
       "3": 16,
@@ -216,13 +216,13 @@
     "view": true,
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "rankingValue": 16872.92,
+    "rankingValue": 16874.45,
     "rankingPosition": 11,
     "exactHits": {
-      "0": 2772,
+      "0": 2773,
       "1": 1215,
       "2": 200,
       "3": 13,
@@ -251,10 +251,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "rankingValue": 17064.32,
+    "rankingValue": 17065.85,
     "rankingPosition": 9,
     "exactHits": {
-      "0": 2717,
+      "0": 2718,
       "1": 1265,
       "2": 205,
       "3": 13,
@@ -284,10 +284,10 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "rankingValue": 29766.72,
+    "rankingValue": 29768.25,
     "rankingPosition": 2,
     "exactHits": {
-      "0": 2761,
+      "0": 2762,
       "1": 1222,
       "2": 200,
       "3": 16,
@@ -313,14 +313,14 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "rankingValue": 15878.92,
+    "rankingValue": 15882.28,
     "rankingPosition": 14,
     "exactHits": {
       "0": 2813,
-      "1": 1191,
+      "1": 1192,
       "2": 185,
       "3": 11,
       "4": 0,
@@ -351,10 +351,10 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-    "rankingValue": 16424.64,
+    "rankingValue": 16426.17,
     "rankingPosition": 12,
     "exactHits": {
-      "0": 2751,
+      "0": 2752,
       "1": 1246,
       "2": 191,
       "3": 12,
@@ -382,13 +382,13 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/genetic/",
-    "rankingValue": 28737.17,
+    "rankingValue": 28738.7,
     "rankingPosition": 5,
     "exactHits": {
-      "0": 2752,
+      "0": 2753,
       "1": 1255,
       "2": 178,
       "3": 14,
@@ -416,13 +416,13 @@
     "view": true,
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/hispa/",
-    "rankingValue": 17828.94,
+    "rankingValue": 17830.47,
     "rankingPosition": 7,
     "exactHits": {
-      "0": 2722,
+      "0": 2723,
       "1": 1251,
       "2": 212,
       "3": 15,
@@ -455,10 +455,10 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
-    "rankingValue": 29657.52,
+    "rankingValue": 29659.05,
     "rankingPosition": 3,
     "exactHits": {
-      "0": 2781,
+      "0": 2782,
       "1": 1206,
       "2": 196,
       "3": 16,
@@ -486,13 +486,13 @@
     "type": "ALGORITMI",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "cardBase": "pages/algoritmi/algs/super6NN/",
-    "rankingValue": 16206.54,
+    "rankingValue": 16208.07,
     "rankingPosition": 13,
     "exactHits": {
-      "0": 2771,
+      "0": 2772,
       "1": 1236,
       "2": 181,
       "3": 12,

@@ -4,34 +4,34 @@ Ogni concorso viene codificato in multi-hot e letto in sequenza temporale per es
 La stima per ogni step usa solo lo storico precedente al concorso target, in ottica walk-forward.
 
 Impostazione di questo export SICC
-Analisi eseguita su 4201 concorsi del draws admin, con 4200 step di validazione storica.
+Analisi eseguita su 4202 concorsi del draws admin, con 4201 step di validazione storica.
 Per ogni step viene proposta una sestina deterministica dai 6 logit piu alti del modello.
 Ogni proposta e generata dallo stato appreso fino a quel passo, poi verificata sul concorso successivo.
 
 Risultati osservati sullo storico
 - Media hit/sestina: 0.3890
-- Hit >=1: 1429/4200 (34.02%)
-- Hit >=2: 193/4200 (4.60%)
-- Hit >=3: 12/4200 (0.29%)
-- Hit >=4: 0/4200 (0.00%)
-- Hit >=5: 0/4200 (0.0000%)
-- Hit =6: 0/4200 (0.000000%)
-- Distribuzione hit esatta: 0:2771 1:1236 2:181 3:12 4:0 5:0 6:0
+- Hit >=1: 1429/4201 (34.02%)
+- Hit >=2: 193/4201 (4.59%)
+- Hit >=3: 12/4201 (0.29%)
+- Hit >=4: 0/4201 (0.00%)
+- Hit >=5: 0/4201 (0.0000%)
+- Hit =6: 0/4201 (0.000000%)
+- Distribuzione hit esatta: 0:2772 1:1236 2:181 3:12 4:0 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
 - Media hit attesa random: 0.4000 | osservata: 0.3890
-- Hit>=2 atteso random: 4.963% | osservato: 4.595% | z-score: -1.10
+- Hit>=2 atteso random: 4.963% | osservato: 4.594% | z-score: -1.10
 - Hit>=3 atteso random: 0.315%
 - Hit>=4 atteso random: 0.00848%
 
 Stabilita temporale
-- Media ultimi 200 step: 0.3700
-- Deviazione standard hit: 0.5840
+- Media ultimi 200 step: 0.3650
+- Deviazione standard hit: 0.5839
 
 Configurazione operativa
-- Ultimo concorso disponibile: 4201 (23/05/2026)
-- Prossimo concorso stimato: 4202
-- Sestina proposta: 06 27 52 63 71 83
+- Ultimo concorso disponibile: 4202 (26/05/2026)
+- Prossimo concorso stimato: 4203
+- Sestina proposta: 06 08 27 52 63 71
 
 Lettura e limiti
 Le metriche descrivono comportamento storico del modello ma non costituiscono garanzia predittiva futura.
