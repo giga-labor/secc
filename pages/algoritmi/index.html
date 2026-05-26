@@ -6,6 +6,12 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="google-adsense-account" content="ca-pub-4257836243471373">
   <script>
+    // In modalità v8 la lista algoritmi è nel panel della home
+    if (new URLSearchParams(window.location.search).get('ui') === 'v8') {
+      window.location.replace('/?ui=v8');
+    }
+  </script>
+  <script>
     (function () {
       var root = document.documentElement;
       var w = window.innerWidth || document.documentElement.clientWidth || 0;
