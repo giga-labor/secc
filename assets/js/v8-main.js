@@ -328,18 +328,67 @@ function buildCCEngine(cvs, opts){
 }
 
 // ─── COUNTDOWN
-function upCd(){
+let _nextDrawAt=null;
+let _nextDrawLoading=false;
+
+function fallbackNextDrawDate(){
   const now=new Date(),t=new Date();t.setHours(20,0,0,0);
   const d=(6-t.getDay()+7)%7||7;t.setDate(t.getDate()+(t.getDay()===6&&now<t?0:d));
-  let diff=Math.max(0,t-now);
+  return t;
+}
+
+function parseNextDrawDate(payload){
+  if(!payload||typeof payload!=='object') return null;
+
+  if(typeof payload.next_datetime_iso==='string'&&payload.next_datetime_iso.trim()){
+    const dt=new Date(payload.next_datetime_iso.trim());
+    if(!Number.isNaN(dt.getTime())) return dt;
+  }
+
+  if(typeof payload.next_date_iso==='string'&&payload.next_date_iso.trim()){
+    const raw=(typeof payload.next_time==='string'&&payload.next_time.trim())?payload.next_time.trim():'20:00';
+    const hhmm=/^\d{2}:\d{2}$/.test(raw)?raw:'20:00';
+    const dt=new Date(`${payload.next_date_iso.trim()}T${hhmm}:00`);
+    if(!Number.isNaN(dt.getTime())) return dt;
+  }
+
+  return null;
+}
+
+function fetchNextDrawDate(){
+  if(_nextDrawLoading) return;
+  _nextDrawLoading=true;
+
+  const repo=window.CC_DATA_REPOSITORY;
+  const req=(repo&&typeof repo.fetchJson==='function')
+    ? repo.fetchJson('data/next-draw.json')
+    : fetch('data/next-draw.json').then(function(r){return r.ok?r.json():null;});
+
+  Promise.resolve(req)
+    .then(function(payload){
+      const parsed=parseNextDrawDate(payload);
+      if(parsed) _nextDrawAt=parsed;
+    })
+    .catch(function(){})
+    .finally(function(){_nextDrawLoading=false;});
+}
+
+function upCd(){
+  const now=new Date();
+  const target=_nextDrawAt||fallbackNextDrawDate();
+  let diff=Math.max(0,target-now);
   const h=Math.floor(diff/3600000);diff%=3600000;
   const m=Math.floor(diff/60000);diff%=60000;
   const s=Math.floor(diff/1000);
   const f=n=>String(n).padStart(2,'0');
   const el=document.getElementById('cd');
   if(el) el.textContent=`${f(h)}:${f(m)}:${f(s)}`;
+
+  if(diff===0) fetchNextDrawDate();
 }
 setInterval(upCd,1000);upCd();
+fetchNextDrawDate();
+setInterval(fetchNextDrawDate,300000);
 
 // ─── PANELS
 const PANELS={
@@ -553,5 +602,6 @@ v8WaitAndInit(function(bundle){
   document.addEventListener('click',launch);
   document.addEventListener('keydown',launch);
 });
+
 
 
