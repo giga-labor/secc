@@ -43,4 +43,37 @@
       document.body.prepend(bar);
     });
   }
+
+  // Nasconde #site-header sia se già presente sia se inserito dinamicamente da header.js
+  function _v8HideOldHeader() {
+    var h = document.getElementById('site-header')
+      || document.querySelector('header[class*="sticky"], header[id]');
+    if (h) {
+      h.style.cssText = 'display:none!important';
+      h.setAttribute('aria-hidden', 'true');
+      return true;
+    }
+    return false;
+  }
+
+  if (!_v8HideOldHeader()) {
+    // header.js non ha ancora iniettato il nodo — osserva e intercetta
+    var _v8Obs = new MutationObserver(function (mutations) {
+      for (var mi = 0; mi < mutations.length; mi++) {
+        var nodes = mutations[mi].addedNodes;
+        for (var ni = 0; ni < nodes.length; ni++) {
+          var node = nodes[ni];
+          if (node.nodeType !== 1) continue;
+          if (node.id === 'site-header' || node.tagName === 'HEADER') {
+            node.style.cssText = 'display:none!important';
+            node.setAttribute('aria-hidden', 'true');
+            _v8Obs.disconnect();
+            return;
+          }
+        }
+      }
+    });
+    var _v8ObsTarget = document.body || document.documentElement;
+    _v8Obs.observe(_v8ObsTarget, { childList: true });
+  }
 })();
