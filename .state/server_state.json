@@ -1,11 +1,27 @@
 {
-  "latest_local_contest_id": 4203,
-  "last_published_commit": "",
-  "per_algo_last_trained_contest_id": {},
-  "last_card_hits_build_at": "",
-  "last_card_hits_changed_cards": 0,
-  "last_successful_run_id": "",
-  "last_email_status": "",
+  "latest_local_contest_id": 4204,
+  "last_published_commit": "bc0280dbb047110d8c39f6ac145801daf3f5b301",
+  "per_algo_last_trained_contest_id": {
+    "astra-moon": 4204,
+    "classic-analisi-anomalie-pattern": 4204,
+    "classic-co-occorrenze": 4204,
+    "classic-coppie-terni-consecutivi": 4204,
+    "classic-coppie-terzine-frequenti": 4204,
+    "classic-distribuzioni-modelli-raggruppamento": 4204,
+    "classic-frequency": 4204,
+    "classic-ritardi": 4204,
+    "classic-ritardi-combinazioni": 4204,
+    "classic-statistiche-combinate-finestre-mobili": 4204,
+    "classic-tavole-probabilita-teorica-test-uniformita": 4204,
+    "genetic": 4204,
+    "hispa": 4204,
+    "paradox-logiche-decisionali-metriche": 4204,
+    "super6NN": 4204
+  },
+  "last_card_hits_build_at": "2026-05-29T20:58:26",
+  "last_card_hits_changed_cards": 10,
+  "last_successful_run_id": "20260529_205305",
+  "last_email_status": "Email inviata",
   "pending_publish": {},
   "consecutive_failures": 1,
   "last_failure_at": "2026-05-29T18:09:13",
@@ -23,6 +39,20 @@
       "ts": "2026-05-29T18:09:13",
       "event": "lock_released",
       "run_id": "20260529_180913",
+      "payload": {}
+    },
+    {
+      "ts": "2026-05-29T20:53:06",
+      "event": "lock_acquired",
+      "run_id": "20260529_205305",
+      "payload": {
+        "lease_until": "2026-05-29T20:55:05"
+      }
+    },
+    {
+      "ts": "2026-05-29T20:59:05",
+      "event": "lock_released",
+      "run_id": "20260529_205305",
       "payload": {}
     }
   ],
