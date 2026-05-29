@@ -384,3 +384,74 @@ body::after { display: none; }
   right: var(--ad-reserve-right, 0px);
   bottom: var(--ad-reserve-bottom, 0px);
 }
+
+/* ══════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+══════════════════════════════ */
+@media(max-width:1024px){
+  #panel{width:340px;}
+  .tb-logo-text{font-size:1.8rem;}
+  .tb-jk{font-size:1.44rem;}
+}
+
+/* ══════════════════════════════
+   RESPONSIVE — MOBILE (≤640px)
+══════════════════════════════ */
+@media(max-width:640px){
+  /* Cursore personalizzato disattivato su touch */
+  body{cursor:auto;}
+  #cur,#cur-r{display:none;}
+
+  /* Topbar compatta */
+  #tb{
+    height:56px;padding:0 1rem;gap:.8rem;
+  }
+  .tb-logo-icon{width:34px;height:34px;}
+  .tb-logo-text{font-size:1.5rem;}
+  .tb-sep{display:none;}
+  .tb-live{display:none;}
+  .tb-concorso{display:none;}
+  .tb-jk{font-size:1.3rem;}
+  .tb-cd{display:none;}
+  #v8-alg-count{display:none;}
+
+  /* Sidenav → tab bar orizzontale in basso */
+  #side{
+    top:auto;
+    left:0;right:var(--ad-reserve-right,0px);
+    bottom:var(--ad-reserve-bottom,0px);
+    width:auto;height:56px;
+    flex-direction:row;justify-content:space-around;
+    border-right:none;
+    border-top:1px solid rgba(237,232,223,.06);
+  }
+  .si{width:auto;height:100%;flex:1;border:none;border-radius:0;}
+  .si.on::before{top:0;bottom:auto;left:0;right:0;width:100%;height:2px;}
+  .si-tooltip{display:none;}
+  .si svg{width:36px;height:36px;}
+
+  /* Bottombar nascosta (sostituita dalla sidenav in basso) */
+  #bb{display:none;}
+
+  /* Panel full-width */
+  #panel{
+    width:100%;left:0;right:0;
+    top:56px;bottom:56px;
+    transform:translateY(110%);
+  }
+  #panel.open{transform:translateY(0);}
+
+  /* Aggiusta il top degli elementi ancorati alla topbar */
+  #side{top:auto;}
+
+  /* Intro adattata */
+  .i-eyebrow{font-size:1.1rem;letter-spacing:.2em;}
+  .i-tagline{font-size:1rem;letter-spacing:.12em;padding:0 1.5rem;}
+  .i-hint{font-size:1rem;}
+
+  /* Oracle overlay: stack verticale su schermi stretti */
+  .ov-metrics{flex-wrap:wrap;gap:1.2rem;justify-content:center;padding:0 1rem;}
+  .ov-rings{width:160px;height:160px;}
+  .o1{} .o2{} .o3{}
+  .ov-disclaimer{font-size:.8rem;padding:0 1.5rem;}
+}

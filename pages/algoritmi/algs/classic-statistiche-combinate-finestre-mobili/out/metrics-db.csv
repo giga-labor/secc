@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4202,Conteggio archivio fino al concorso 4202
+Concorsi analizzati,4203,Conteggio archivio fino al concorso 4203
 Media hit/sestina,0.38,Media numeri corretti per concorso
 Hit rate >= 2,4.7%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2813,Numero concorsi con esattamente 0 hit
+Con 0 hit,2814,Numero concorsi con esattamente 0 hit
 Con 1 hit,1192,Numero concorsi con esattamente 1 hit
 Con 2 hit,185,Numero concorsi con esattamente 2 hit
 Con 3 hit,11,Numero concorsi con esattamente 3 hit
@@ -10,12 +10,12 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Media hit ultimi 100,0.39,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4202,Data estrazione: 26/05/2026
-Concorso successivo stimato,4203,Sestina proposta: 06 07 18 28 56 57
-Sestina proposta (prossimo concorso),06 07 18 28 56 57,Pronostico prodotto con addestramento incrementale
+Media hit ultimi 100,0.38,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4203,Data estrazione: 28/05/2026
+Concorso successivo stimato,4204,Sestina proposta: 06 07 18 28 33 56
+Sestina proposta (prossimo concorso),06 07 18 28 33 56,Pronostico prodotto con addestramento incrementale
 Top6 finestra 50,03 45 57 58 63 64,Numeri piu frequenti nelle ultime 50
-Top6 finestra 100,07 16 52 60 02 08,Numeri piu frequenti nelle ultime 100
+Top6 finestra 100,07 52 60 02 16 24,Numeri piu frequenti nelle ultime 100
 Top6 finestra 200,08 58 11 52 56 07,Numeri piu frequenti nelle ultime 200
 Overlap Top6 (50/100/200),0,Numeri presenti in tutte e tre le top6
-Volatilita finestre,14,Dispersione tra top list delle finestre
+Volatilita finestre,15,Dispersione tra top list delle finestre
