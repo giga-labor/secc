@@ -1,9 +1,9 @@
 PARADOX - Analisi tecnica run
 
-Concorsi disponibili nel draws condiviso: 4203
+Concorsi disponibili nel draws condiviso: 4204
 Algoritmi attivi con output validi: 14
 Campioni meta-neurali usati: 12000
-Stato modello neurale: D:\PROGETTI\SuperEnalotto\01 Superenalotto ControlChaos\iARGOS_evol\secc-mirror\pages\algoritmi\algs\paradox-logiche-decisionali-metriche\paradox_engine\models\meta_mlp.json
+Stato modello neurale: D:\PROGETTI\SuperEnalotto\01 Superenalotto ControlChaos\iARGOS_iARGOS2\secc-mirror\pages\algoritmi\algs\paradox-logiche-decisionali-metriche\paradox_engine\models\meta_mlp.json
 
 Pesi finali algoritmo (normalizzati):
 - astra-moon: 0.0714
@@ -21,7 +21,7 @@ Pesi finali algoritmo (normalizzati):
 - hispa: 0.0714
 - super6NN: 0.0714
 
-Sestina Paradox proposta per prossimo concorso: 65 70 71 75 76 85
+Sestina Paradox proposta per prossimo concorso: 65 06 70 75 76 86
 
 Note metodologia:
 - Discovery automatica tramite card.json (isActive=true), senza lista manuale.
