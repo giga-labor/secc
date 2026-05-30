@@ -1,35 +1,23 @@
 {
-  "updated_at": "2026-05-29 20:59:43",
-  "version": "02.04.007",
+  "updated_at": "2026-05-30 21:03:52",
+  "version": "v02.00.00",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "severity": "info",
+  "summary": "Errore snapshot: read_activity_history() got an unexpected keyword argument 'limit'",
   "overview_green": false,
-  "alignment_priority": {
-    "p0_new_contest_found": false,
-    "p1_mirror_map": false,
-    "p2_flow_guard": false,
-    "p3_pending_publish": false,
-    "p4_alignment_diff": false,
-    "p5_training_gap": false,
-    "p5_archive_stale": false,
-    "p6_local_publish": true,
-    "p7_remote_force_align": false,
-    "p8_backup_over_limit": false,
-    "p9_smtp_broken": false
-  },
+  "alignment_priority": {},
   "alignment": {
-    "archive_update_state": "green",
+    "archive_update_state": "",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": true,
+    "git_dirty": false,
     "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0,
-    "active_algorithms_count": 15,
-    "active_algorithms_aligned_count": 15
+    "active_algorithms_count": 0,
+    "active_algorithms_aligned_count": 0
   },
   "circuit": {
     "state": "CLOSED",
@@ -38,9 +26,9 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-05-29 20:59:01",
+    "last_push_at": "2026-05-30 21:03:43",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1780080077
+    "boot_ts": 1780162098
   }
 }
