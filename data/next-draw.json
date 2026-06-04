@@ -7,9 +7,9 @@
   "last_seq": 4206,
   "last_date": "04/06/2026",
   "source": "locale",
-  "jackpot_str": null,
-  "jackpot_eur": null,
-  "jackpot_raw": null,
-  "jackpot_source": "unavailable",
-  "updated_at": "2026-06-04 23:51:54"
+  "jackpot_str": "174.100.000",
+  "jackpot_eur": "€ 174.100.000",
+  "jackpot_raw": 174100000,
+  "jackpot_source": "superenalotto_com",
+  "updated_at": "2026-06-05 00:02:29"
 }
