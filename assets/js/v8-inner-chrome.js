@@ -2,6 +2,7 @@
   'use strict';
   if (document.getElementById('v8-inner-topbar')) return;
 
+  // ── TOPBAR ──
   var bar = document.createElement('div');
   bar.id = 'v8-inner-topbar';
   bar.innerHTML = [
@@ -31,29 +32,9 @@
     '#v8-inner-topbar .v8i-sep{width:1px;height:18px;background:rgba(237,232,223,.08);}',
     'body{padding-top:64px!important;}',
     '</style>',
-    /* ── V8 BODY OVERRIDE: rimuove gradiente neo, sfondo immagine, font legacy ── */
-    '<style id="v8-body-override">',
-    'body{',
-      'background:#030109!important;',
-      'background-image:none!important;',
-      'background-attachment:initial!important;',
-      'font-family:"DM Mono",monospace!important;',
-      'color:#EDE8DF!important;',
-    '}',
-    /* Rimuove la griglia ::before di redesign-neo */
-    'body.cc-neo::before,body.cc-redesign::before{display:none!important;}',
-    /* Grain overlay sottile, identico alla home */
-    'body::after{',
-      'content:"";position:fixed;inset:0;',
-      'right:var(--ad-reserve-right,0px);bottom:var(--ad-reserve-bottom,0px);',
-      'z-index:997;pointer-events:none;opacity:.018;',
-      'background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'300\' height=\'300\' filter=\'url(%23n)\'/%3E%3C/svg%3E");',
-      'background-size:180px;',
-    '}',
-    '</style>',
     '<a href="/" class="v8i-logo">Control<b>Chaos</b></a>',
     '<div class="v8i-sep"></div>',
-    '<a href="javascript:history.back()">\u2190 Indietro</a>'
+    '<a href="javascript:history.back()">← Indietro</a>'
   ].join('');
 
   if (document.body) {
@@ -64,7 +45,39 @@
     });
   }
 
-  // Nasconde #site-header sia se già presente sia se inserito dinamicamente da header.js
+  // ── BODY OVERRIDE: allinea al design V8 home ──
+  // Rimuove gradiente redesign-neo, sfondo-immagine, font Space Grotesk
+  var override = document.createElement('style');
+  override.id = 'v8-body-override';
+  override.textContent =
+    'body{' +
+      'background:#030109!important;' +
+      'background-image:none!important;' +
+      'background-attachment:initial!important;' +
+      'font-family:"DM Mono",monospace!important;' +
+      'color:#EDE8DF!important;' +
+    '}' +
+    // Rimuove griglia ::before di redesign-neo.css
+    'body.cc-neo::before,body.cc-redesign::before{display:none!important;}' +
+    // Grain overlay sottile identico alla home
+    'body::after{' +
+      'content:"";position:fixed;inset:0;' +
+      'right:var(--ad-reserve-right,0px);bottom:var(--ad-reserve-bottom,0px);' +
+      'z-index:997;pointer-events:none;opacity:.018;' +
+      'background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'300\' height=\'300\' filter=\'url(%23n)\'/%3E%3C/svg%3E");' +
+      'background-size:180px;' +
+    '}';
+
+  // Inietta in <head> appena possibile
+  if (document.head) {
+    document.head.appendChild(override);
+  } else {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.head.appendChild(override);
+    });
+  }
+
+  // ── NASCONDI VECCHIO HEADER ──
   function _v8HideOldHeader() {
     var h = document.getElementById('site-header')
       || document.querySelector('header[class*="sticky"], header[id]');
@@ -77,7 +90,6 @@
   }
 
   if (!_v8HideOldHeader()) {
-    // header.js non ha ancora iniettato il nodo — osserva e intercetta
     var _v8Obs = new MutationObserver(function (mutations) {
       for (var mi = 0; mi < mutations.length; mi++) {
         var nodes = mutations[mi].addedNodes;
