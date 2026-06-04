@@ -54,6 +54,45 @@
   <link rel="stylesheet" href="../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
   <style>
+    .cc-proposal-row {
+      display: grid;
+      grid-template-columns: minmax(9.5rem, 12rem) minmax(0, 1fr) minmax(5.2rem, 6.8rem);
+      align-items: center;
+      gap: 0.6rem;
+      width: 100%;
+      padding: 0.3rem 0.35rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.85rem;
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02) 55%, rgba(6, 11, 22, 0.3));
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+    }
+    .cc-proposal-row:hover,
+    .cc-proposal-row:focus-visible {
+      border-color: rgba(255, 217, 102, 0.44);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03) 55%, rgba(6, 11, 22, 0.34));
+      transform: translateY(-1px);
+    }
+    .cc-proposal-alg {
+      min-width: 0;
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cc-proposal-balls {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+    .cc-proposal-rank {
+      text-align: center;
+      white-space: nowrap;
+    }
     @media (max-width: 768px) {
       .cc-proposal-row {
         min-width: 0 !important;
@@ -355,5 +394,4 @@
   </script>
 </body>
 </html>
-
 
