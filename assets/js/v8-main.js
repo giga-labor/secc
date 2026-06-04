@@ -190,23 +190,76 @@ function draw(){
     }
   });
 
-  // Tooltip
+  // ─── HOVER DELAY + TOOLTIP DIREZIONALE
+  const now=performance.now();
+
   if(hovCell){
-    const c=hovCell;
-    const inLast=LAST.includes(c.n)||(JOLLY!==null&&c.n===JOLLY);
-    ttB.textContent=inLast?`Estratto · Concorso #${String(DRAW_ID).padStart(3,'0')}`:'Campo numerico';
-    ttN.textContent=`N° ${c.n}`;
-    const freq=c.isHot?`Alta frequenza · <b>nelle ultime 30 estrazioni</b>`
-      :c.isCold?`Ritardo prolungato · <b>assente nelle ultime 50 estrazioni</b>`
-      :c.isJolly?`Jolly · Concorso #${String(DRAW_ID).padStart(3,'0')}`
-      :`Frequenza nella media`;
-    ttI.innerHTML=freq;
-    const tx=Math.min(c.px+18,W-195),ty=Math.max(c.py-95,58);
-    tt.style.left=tx+'px';tt.style.top=ty+'px';
-    tt.classList.add('on');
-    bbMsg.textContent=`N° ${c.n} · ${c.isHot?'caldo':c.isCold?'freddo':c.isJolly?'jolly':'nella media'}`;
     curR.classList.add('xl');
+    bbMsg.textContent=`N° ${hovCell.n} · ${hovCell.isHot?'caldo':hovCell.isCold?'freddo':hovCell.isJolly?'jolly':hovCell.isLast?'estratto':'nella media'}`;
+
+    // Reset timer se la cella è cambiata
+    if(hovCell!==_hovPrev){
+      _hovPrev=hovCell;_hovStart=now;_richOn=false;tt.classList.remove('on');
+    }
+
+    // Dopo 650ms mostra il tooltip ricco
+    if(!_richOn&&now-_hovStart>650){
+      _richOn=true;
+      const c=hovCell;
+      const s=NUM_STATS[c.n]||{};
+
+      // Badge categoria
+      const badge=c.isLast&&LAST.includes(c.n)?`Estratto · #${String(DRAW_ID).padStart(3,'0')}`
+        :c.isJolly?`Jolly · #${String(DRAW_ID).padStart(3,'0')}`
+        :c.isHot?'Numero caldo'
+        :c.isCold?'Ritardo prolungato'
+        :'Campo numerico';
+      ttB.textContent=badge;
+      ttN.textContent=`N° ${c.n}`;
+
+      // Contenuto ricco
+      const catColor=c.isLast||c.isJolly?'#F59E0B':c.isHot?'#C8391A':c.isCold?'#8B5CF6':'rgba(237,232,223,.55)';
+      const catLabel=c.isLast?'Ultima estrazione':c.isJolly?'Jolly':c.isHot?'Alta frequenza (ult. 30)':c.isCold?'Assente (ult. 50)':'Frequenza nella media';
+      ttI.innerHTML=
+        `<b style="color:${catColor}">${catLabel}</b><br>`+
+        `Ritardo: <b>${s.delay!==undefined?s.delay:'--'}</b> estrazioni<br>`+
+        `Ultime 90: <b>${s.f90!==undefined?s.f90:'--'}</b> uscite`+
+        (s.f180!==undefined?` · 180: <b>${s.f180}</b>`:'')+`<br>`+
+        `Ultima: <b>${s.lastDate||'--'}</b>`+
+        (s.lastId&&s.lastId!=='--'?` · #${s.lastId}`:'')+`<br>`+
+        `Media: ogni ~<b>${s.avgEvery||'--'}</b> estrazioni`;
+
+      // Posizionamento direzionale: tooltip punta verso il centro schermo
+      const TW=238,TH=156;
+      const cx=W/2,cy=H/2;
+      const dx=c.px-cx,dy=c.py-cy;
+      let tx,ty;
+      if(Math.abs(dx)>=Math.abs(dy)){
+        // Asse orizzontale dominante
+        tx=dx>0?Math.min(c.px+22,W-TW-8):Math.max(c.px-TW-22,8);
+        ty=Math.max(68,Math.min(c.py-TH/2,H-TH-8));
+      } else {
+        // Asse verticale dominante
+        tx=Math.max(8,Math.min(c.px-TW/2,W-TW-8));
+        ty=dy>0?Math.min(c.py+22,H-TH-8):Math.max(68,c.py-TH-22);
+      }
+      tt.style.left=tx+'px';tt.style.top=ty+'px';
+      tt.classList.add('on');
+
+      // Linea sottile dal tooltip verso la bolla (canvas)
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(c.px,c.py);
+      // punto di aggancio lato tooltip più vicino alla bolla
+      const tlx=dx>0?tx:tx+TW;
+      const tly=Math.max(68,Math.min(c.py,ty+TH));
+      ctx.lineTo(tlx,tly);
+      ctx.strokeStyle=`rgba(${c.cr},${c.cg},${c.cb},.18)`;
+      ctx.lineWidth=.8;ctx.setLineDash([3,4]);ctx.stroke();
+      ctx.setLineDash([]);ctx.restore();
+    }
   } else {
+    if(_hovPrev){_hovPrev=null;_richOn=false;}
     tt.classList.remove('on');
     bbMsg.textContent='Esplora il campo numerico';
     curR.classList.remove('xl');
@@ -589,8 +642,9 @@ v8WaitAndInit(function(bundle){
   var algCount=document.getElementById('v8-alg-count');
   if(algCount) algCount.textContent=ALGOS.length+' Algoritmi';
 
-  // Costruisce il campo numerico con dati reali
+  // Costruisce il campo numerico con dati reali e pre-calcola statistiche
   buildCells();
+  NUM_STATS=computeNumStats(bundle.draws||[]);
 
   window.V8_BRIDGE.loadSestine(bundle.cards || [])
     .then(function(ses){ _sestine = ses; })
