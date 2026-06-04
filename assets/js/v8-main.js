@@ -500,6 +500,11 @@ setInterval(upCd,1000);upCd();
 fetchNextDrawDate();
 setInterval(fetchNextDrawDate,300000);
 
+function nextDrawDayLabel(){
+  const target=_nextDrawAt||fallbackNextDrawDate();
+  return target.toLocaleDateString('it-IT',{weekday:'long'});
+}
+
 // ─── PANELS
 const PANELS={
   est:{
@@ -541,7 +546,7 @@ const PANELS={
   },
   ses:{
     kicker:'Sestine proposte',
-    title:'Proposte<br>per sabato',
+    title:()=>`Proposte<br>per ${nextDrawDayLabel()}`,
     sub:'Una per ogni algoritmo attivo',
     body:()=> _sestine.length ? `
       <div class="p-sec">Sestine per il prossimo concorso</div>
@@ -593,7 +598,7 @@ const pCls=document.getElementById('p-cls');
 function openPanel(id){
   const p=PANELS[id];if(!p)return;
   pKick.textContent=p.kicker;
-  pTitle.innerHTML=p.title;
+  pTitle.innerHTML=typeof p.title==='function'?p.title():p.title;
   pSub.textContent=p.sub;
   pBody.innerHTML=p.body();
   panel.classList.add('open');
