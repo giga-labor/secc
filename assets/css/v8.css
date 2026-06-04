@@ -148,11 +148,11 @@ background-size:180px;}
 
 /* â”€â”€â”€ DETAIL PANEL â”€â”€â”€ */
 #panel{
-  position:absolute;right:0;top:88px;bottom:62px;width:460px;
+  position:absolute;left:92px;top:88px;bottom:62px;width:460px;
   background:rgba(5,2,18,.95);
-  border-left:1px solid rgba(237,232,223,.06);
+  border-right:1px solid rgba(237,232,223,.06);
   backdrop-filter:blur(28px);
-  transform:translateX(110%);
+  transform:translateX(-110%);
   transition:transform .55s cubic-bezier(.23,1,.32,1);
   display:flex;flex-direction:column;
 }
@@ -167,7 +167,7 @@ background-size:180px;}
 }
 .p-head::after{
   content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,#8B5CF6,#C8391A,transparent 70%);
+  background:linear-gradient(90deg,transparent 0%,#8B5CF6 30%,#C8391A);
   opacity:.5;
 }
 .p-symbol{position:absolute;top:1.5rem;right:3rem;opacity:.08;width:36px;height:36px;}
@@ -389,7 +389,7 @@ body::after { display: none; }
    RESPONSIVE — TABLET (≤1024px)
 ══════════════════════════════ */
 @media(max-width:1024px){
-  #panel{width:340px;}
+  #panel{width:320px;}
   .tb-logo-text{font-size:1.8rem;}
   .tb-jk{font-size:1.44rem;}
 }
