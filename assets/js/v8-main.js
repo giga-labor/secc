@@ -230,7 +230,12 @@ function draw(){
         `Media: ogni ~<b>${s.avgEvery||'--'}</b> estrazioni`;
 
       // Posizionamento direzionale: tooltip punta verso il centro schermo
-      const TW=238,TH=156;
+      // Prima rendi visibile fuori schermo per misurare le dimensioni reali
+      tt.style.left='-9999px';tt.style.top='-9999px';
+      tt.classList.add('on');
+      const TW=tt.offsetWidth||180;
+      const TH=tt.offsetHeight||100;
+
       const cx=W/2,cy=H/2;
       const dx=c.px-cx,dy=c.py-cy;
       let tx,ty;
@@ -244,7 +249,6 @@ function draw(){
         ty=dy>0?Math.min(c.py+22,H-TH-8):Math.max(68,c.py-TH-22);
       }
       tt.style.left=tx+'px';tt.style.top=ty+'px';
-      tt.classList.add('on');
 
       // Linea sottile dal tooltip verso la bolla (canvas)
       ctx.save();
@@ -253,7 +257,6 @@ function draw(){
       // punto di aggancio lato tooltip più vicino alla bolla
       const tlx=dx>0?tx:tx+TW;
       const tly=Math.max(68,Math.min(c.py,ty+TH));
-      ctx.lineTo(tlx,tly);
       ctx.strokeStyle=`rgba(${c.cr},${c.cg},${c.cb},.18)`;
       ctx.lineWidth=.8;ctx.setLineDash([3,4]);ctx.stroke();
       ctx.setLineDash([]);ctx.restore();
