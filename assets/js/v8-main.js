@@ -668,8 +668,6 @@ v8WaitAndInit(function(bundle){
   PANELS.alg.sub    = `${ALGOS.length} algoritmi attivi`;
 
   // Aggiorna topbar
-  var tbConcorso=document.querySelector('.tb-concorso');
-  if(tbConcorso) tbConcorso.textContent=`Concorso #${String(DRAW_ID).padStart(3,'0')} · ${DRAW_DATE} · 20:00`;
   var algCount=document.getElementById('v8-alg-count');
   if(algCount) algCount.textContent=ALGOS.length+' Algoritmi';
 
@@ -720,4 +718,3 @@ v8WaitAndInit(function(bundle){
   document.addEventListener('click',launch);
   document.addEventListener('keydown',launch);
 });
-
