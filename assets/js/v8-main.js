@@ -102,6 +102,18 @@ const tt=document.getElementById('tt');
 const ttB=document.getElementById('tt-b'),ttN=document.getElementById('tt-n'),ttI=document.getElementById('tt-i');
 const bbMsg=document.getElementById('bb-msg');
 
+function isNumberHoverBlocked(){
+  const panelEl=document.getElementById('panel');
+  const sideEl=document.getElementById('side');
+  const blockers=[];
+  if(panelEl&&panelEl.classList.contains('open'))blockers.push(panelEl);
+  if(sideEl)blockers.push(sideEl);
+  return blockers.some(el=>{
+    const r=el.getBoundingClientRect();
+    return pmx>=r.left&&pmx<=r.right&&pmy>=r.top&&pmy<=r.bottom;
+  });
+}
+
 // ─── DRAW LOOP (parte subito — canvas nero finché i dati non arrivano)
 function draw(){
   ctx.clearRect(0,0,W,H);
@@ -129,6 +141,7 @@ function draw(){
 
   // Cells
   hovCell=null;let cDist=Infinity;
+  const hoverBlocked=isNumberHoverBlocked();
 
   cells.forEach(c=>{
     if(alive && c.t<1){
@@ -146,8 +159,10 @@ function draw(){
 
     if(!alive)return;
 
-    const dh=Math.sqrt((c.px-pmx)**2+(c.py-pmy)**2);
-    if(dh<c.size+16&&dh<cDist){cDist=dh;hovCell=c;}
+    if(!hoverBlocked){
+      const dh=Math.sqrt((c.px-pmx)**2+(c.py-pmy)**2);
+      if(dh<c.size+16&&dh<cDist){cDist=dh;hovCell=c;}
+    }
     // energia: sale rapida all'hover, scende lenta all'uscita
     const targetE=(hovCell===c)?1:0;
     c.energy+=(targetE-c.energy)*(hovCell===c?.16:.05);
@@ -705,6 +720,4 @@ v8WaitAndInit(function(bundle){
   document.addEventListener('click',launch);
   document.addEventListener('keydown',launch);
 });
-
-
 
