@@ -434,6 +434,18 @@ function parseNextDrawDate(payload){
   return null;
 }
 
+function _applyJackpot(payload){
+  if(!payload||typeof payload!=='object') return;
+  var jkEl=document.getElementById('v8-jackpot');
+  if(!jkEl) return;
+  var jk=payload.jackpot_eur||payload.jackpot_str||null;
+  if(jk){
+    jkEl.textContent='Jackpot '+jk;
+  } else {
+    // jackpot non nel payload — lascia il testo invariato
+  }
+}
+
 function fetchNextDrawDate(){
   if(_nextDrawLoading) return;
   _nextDrawLoading=true;
@@ -447,6 +459,7 @@ function fetchNextDrawDate(){
     .then(function(payload){
       const parsed=parseNextDrawDate(payload);
       if(parsed) _nextDrawAt=parsed;
+      _applyJackpot(payload);
     })
     .catch(function(){})
     .finally(function(){_nextDrawLoading=false;});
@@ -642,9 +655,16 @@ v8WaitAndInit(function(bundle){
   var algCount=document.getElementById('v8-alg-count');
   if(algCount) algCount.textContent=ALGOS.length+' Algoritmi';
 
-  // Costruisce il campo numerico con dati reali e pre-calcola statistiche
+  // Costruisce il campo numerico con dati reali
   buildCells();
-  NUM_STATS=computeNumStats(bundle.draws||[]);
+  // Usa numStats pre-calcolato dal backend se disponibile (fast path),
+  // altrimenti calcola dal CSV completo (fallback)
+  if(bundle.numStats && Object.keys(bundle.numStats).length===90){
+    NUM_STATS=bundle.numStats;
+  } else {
+    NUM_STATS=computeNumStats(bundle.draws||[]);
+  }
+  DRAWS_COUNT=bundle.totalDraws||bundle.draws.length||DRAWS_COUNT;
 
   window.V8_BRIDGE.loadSestine(bundle.cards || [])
     .then(function(ses){ _sestine = ses; })

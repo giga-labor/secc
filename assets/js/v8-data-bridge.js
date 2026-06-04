@@ -123,44 +123,72 @@
       return _bundle;
     }
 
-    const csvPath = 'archives/draws/draws.csv';
     const manifestPath = 'data/modules-manifest.json';
-    const csvUrl = repo.resolveWithBase(csvPath);
     const manifestUrl = repo.resolveWithBase(manifestPath);
 
-    const [csvResult, cardsResult] = await Promise.all([
-      fetch(csvUrl)
-        .then((res) => {
-          if (!res.ok) throw new Error(`csv_fetch_failed:${res.status}`);
-          return res.text();
-        })
-        .then((raw) => ({ ok: true, value: parseCsv(raw) }))
-        .catch(() => ({ ok: false, value: [] })),
-      repo.loadCardsByManifest(manifestUrl)
-        .then((cards) => ({ ok: true, value: Array.isArray(cards) ? cards : [] }))
-        .catch(() => ({ ok: false, value: [] }))
-    ]);
+    // ── FAST PATH: numeri-stats.json pre-calcolato dal backend iARGOS ──
+    // Evita di scaricare e parsare il CSV completo (4000+ righe)
+    const statsUrl = repo.resolveWithBase('data/numeri-stats.json');
+    let preStats = null;
+    try {
+      const sr = await fetch(statsUrl);
+      if (sr.ok) {
+        const j = await sr.json();
+        if (j && j.stats && Number.isFinite(j.total_draws) && j.total_draws > 0) {
+          preStats = j;
+        }
+      }
+    } catch (_) {}
 
-    const draws = csvResult.ok ? csvResult.value : [];
+    // Cards sempre necessarie per il panel algoritmi
+    const cardsResult = await repo.loadCardsByManifest(manifestUrl)
+      .then((cards) => ({ ok: true, value: Array.isArray(cards) ? cards : [] }))
+      .catch(() => ({ ok: false, value: [] }));
+
     const cards = cardsResult.ok
       ? cardsResult.value.filter((card) => card && card.isActive === true)
       : [];
 
+    if (preStats) {
+      // Usa i dati pre-calcolati — nessun CSV scaricato
+      const ld = preStats.last_draw || null;
+      _bundle = {
+        lastDraw: ld ? { id: ld.seq, date: ld.date, nums: ld.nums, jolly: null } : null,
+        hotNums: preStats.hot_nums || [],
+        coldNums: preStats.cold_nums || [],
+        draws: [],          // non necessario: stats già pre-calcolate
+        cards,
+        numStats: preStats.stats || {},       // per tooltip bolle
+        totalDraws: preStats.total_draws || 0,
+        statsUpdatedAt: preStats.updated_at || '',
+      };
+      return _bundle;
+    }
+
+    // ── FALLBACK: CSV completo (se numeri-stats.json non ancora disponibile) ──
+    const csvUrl = repo.resolveWithBase('archives/draws/draws.csv');
+    const csvResult = await fetch(csvUrl)
+      .then((res) => {
+        if (!res.ok) throw new Error(`csv_fetch_failed:${res.status}`);
+        return res.text();
+      })
+      .then((raw) => ({ ok: true, value: parseCsv(raw) }))
+      .catch(() => ({ ok: false, value: [] }));
+
+    const draws = csvResult.ok ? csvResult.value : [];
     const lastRow = draws.length ? draws[draws.length - 1] : null;
 
     _bundle = {
       lastDraw: lastRow
-        ? {
-            id: lastRow.id,
-            date: lastRow.date,
-            nums: lastRow.nums,
-            jolly: null
-          }
+        ? { id: lastRow.id, date: lastRow.date, nums: lastRow.nums, jolly: null }
         : null,
       hotNums: computeHot(draws),
       coldNums: computeCold(draws),
       draws,
-      cards
+      cards,
+      numStats: {},
+      totalDraws: draws.length,
+      statsUpdatedAt: '',
     };
 
     return _bundle;
