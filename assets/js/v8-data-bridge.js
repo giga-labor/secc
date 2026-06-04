@@ -108,6 +108,24 @@
     return cold.concat(extras);
   }
 
+  function normalizePrecomputedStats(stats) {
+    const src = stats && typeof stats === 'object' ? stats : {};
+    const out = {};
+    for (const [key, value] of Object.entries(src)) {
+      const s = value && typeof value === 'object' ? value : {};
+      out[key] = {
+        delay: s.delay,
+        f90: s.f90,
+        f180: s.f180,
+        fFull: s.fFull ?? s.f_full,
+        lastDate: s.lastDate ?? s.last_date,
+        lastId: s.lastId ?? s.last_seq,
+        avgEvery: s.avgEvery ?? s.avg_every,
+      };
+    }
+    return out;
+  }
+
   async function load() {
     if (_bundle) return _bundle;
 
@@ -158,7 +176,7 @@
         coldNums: preStats.cold_nums || [],
         draws: [],          // non necessario: stats già pre-calcolate
         cards,
-        numStats: preStats.stats || {},       // per tooltip bolle
+        numStats: normalizePrecomputedStats(preStats.stats),       // per tooltip bolle
         totalDraws: preStats.total_draws || 0,
         statsUpdatedAt: preStats.updated_at || '',
       };

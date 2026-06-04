@@ -1,11 +1,15 @@
 {
-  "next_seq": 60,
-  "next_date": "15/04/2026",
-  "next_date_iso": "2026-04-15",
-  "next_weekday": "Mercoledì",
+  "next_seq": 4207,
+  "next_date": "05/06/2026",
+  "next_date_iso": "2026-06-05",
+  "next_weekday": "VenerdÃƒÂ¬",
   "next_time": "20:00",
-  "last_seq": 60,
-  "last_date": "14/04/2026",
-  "source": "online_cal",
-  "updated_at": "2026-04-15 23:25:19"
+  "last_seq": 4206,
+  "last_date": "04/06/2026",
+  "source": "locale",
+  "jackpot_str": null,
+  "jackpot_eur": null,
+  "jackpot_raw": null,
+  "jackpot_source": "unavailable",
+  "updated_at": "2026-06-04 23:51:54"
 }
