@@ -18,6 +18,10 @@ resize();
 let LAST=[],HOT=[],COLD=[],JOLLY=null,ALGOS=[],DRAW_ID='--',DRAW_DATE='--',DRAWS_COUNT=0;
 let _iargosStatus=null;
 let _sestine=[];
+let NUM_STATS={};          // statistiche per numero, popolate dopo caricamento draws
+let _hovPrev=null;         // cella in hover al frame precedente
+let _hovStart=0;           // timestamp inizio hover corrente
+let _richOn=false;         // tooltip ricco visibile
 
 // ─── CELLS
 const cells=[];
@@ -54,6 +58,28 @@ function buildCells(){
   }
 }
 // buildCells() non viene chiamata qui — viene chiamata dopo il caricamento dati
+
+// ─── STATISTICHE PER NUMERO (calcolate su tutti i draws)
+function computeNumStats(draws){
+  const out={};
+  const n=draws.length;
+  for(let num=1;num<=90;num++){
+    let lastIdx=-1,lastDate='--',lastId='--';
+    let f90=0,f180=0,fFull=0;
+    for(let i=0;i<n;i++){
+      const d=draws[i];
+      if(Array.isArray(d.nums)&&d.nums.includes(num)){
+        fFull++;lastIdx=i;lastDate=d.date||'--';lastId=d.id||'--';
+        if(i>=n-90)f90++;
+        if(i>=n-180)f180++;
+      }
+    }
+    const delay=lastIdx>=0?n-1-lastIdx:n;
+    const avgEvery=fFull>0?Math.round(n/fFull):n;
+    out[num]={delay,f90,f180,fFull,lastDate,lastId,avgEvery};
+  }
+  return out;
+}
 
 // Resize: ricostruisce celle solo se i dati sono già disponibili
 window.addEventListener('resize',()=>{resize();if(LAST.length||alive)buildCells();});
@@ -115,16 +141,16 @@ function draw(){
       c.wave+=c.wSpd;
       let ex=c.tx+Math.cos(c.wave)*c.wAmp;
       let ey=c.ty+Math.sin(c.wave*1.3)*c.wAmp;
-      const dm=Math.sqrt((ex-pmx)**2+(ey-pmy)**2);
-      if(dm<100){const rp=1-dm/100;ex+=(ex-pmx)/dm*rp*22;ey+=(ey-pmy)/dm*rp*22;}
       c.px=ex;c.py=ey;
     } else {c.px=c.x;c.py=c.y;}
 
     if(!alive)return;
 
     const dh=Math.sqrt((c.px-pmx)**2+(c.py-pmy)**2);
-    if(dh<c.size+8&&dh<cDist){cDist=dh;hovCell=c;}
-    c.energy+=(((hovCell===c)?1:0)-c.energy)*.09;
+    if(dh<c.size+16&&dh<cDist){cDist=dh;hovCell=c;}
+    // energia: sale rapida all'hover, scende lenta all'uscita
+    const targetE=(hovCell===c)?1:0;
+    c.energy+=(targetE-c.energy)*(hovCell===c?.16:.05);
 
     const {cr,cg,cb}=c;
     const baseA=c.isLast?.88:c.isHot||c.isCold?.6:.28;
