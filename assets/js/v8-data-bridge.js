@@ -200,7 +200,14 @@
 
     const results = await Promise.all(
       list.map(async (card) => {
-        const base = card.page || (`pages/algoritmi/algs/${card.id}/`);
+        // Costruisce il base path assicurandosi che sia una directory (trailing slash)
+        // e che punti a una pagina algoritmo (contiene 'algs/')
+        let base = card.page || (`pages/algoritmi/algs/${card.id}/`);
+        // Se page punta a un file .html, risali alla directory
+        base = base.replace(/[^/]+\.html?$/i, '');
+        if (!base.endsWith('/')) base += '/';
+        // Salta card non-algoritmo (non hanno out/historical-db.csv)
+        if (!base.includes('algs/') && !base.includes('algoritmi/algs')) return null;
         const url = window.CC_DATA_REPOSITORY.resolveWithBase(`${base}out/historical-db.csv`);
         try {
           const res = await fetch(url);

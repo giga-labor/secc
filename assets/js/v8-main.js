@@ -438,15 +438,14 @@ function parseNextDrawDate(payload){
 }
 
 function _applyJackpot(payload){
-  if(!payload||typeof payload!=='object') return;
   var jkEl=document.getElementById('v8-jackpot');
   if(!jkEl) return;
-  var jk=payload.jackpot_eur||payload.jackpot_str||null;
-  if(jk){
-    jkEl.textContent='Jackpot '+jk;
-  } else {
-    // jackpot non nel payload — lascia il testo invariato
+  if(!payload||typeof payload!=='object'){
+    jkEl.textContent='Jackpot N/D';
+    return;
   }
+  var jk=payload.jackpot_eur||payload.jackpot_str||null;
+  jkEl.textContent=jk?'Jackpot '+jk:'Jackpot N/D';
 }
 
 function fetchNextDrawDate(){
@@ -461,7 +460,8 @@ function fetchNextDrawDate(){
   Promise.resolve(req)
     .then(function(payload){
       const parsed=parseNextDrawDate(payload);
-      if(parsed) _nextDrawAt=parsed;
+      // Usa la data solo se è nel futuro — se passata usa il fallback calendario
+      if(parsed && parsed>new Date()) _nextDrawAt=parsed;
       _applyJackpot(payload);
     })
     .catch(function(){})
