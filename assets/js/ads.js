@@ -394,7 +394,7 @@ const mountAdsterraSandboxFrame = (container, frameSrc) => {
   frame.title = 'Partner Ad';
   frame.loading = 'lazy';
   frame.referrerPolicy = 'no-referrer';
-  frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+  frame.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
   frame.setAttribute('scrolling', 'no');
   frame.style.width = '100%';
   frame.style.height = '100%';

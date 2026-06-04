@@ -25,7 +25,7 @@
     return basePrefix + safe.replace(/^\.\//, "");
   }
 
-  function loadScript(src) {
+  function loadScript(src, fallbackSrc = "") {
     return new Promise((resolve) => {
       if (!src || loaded.has(src)) {
         resolve();
@@ -45,7 +45,14 @@
         loaded.add(src);
         resolve();
       };
-      script.onerror = () => resolve();
+      script.onerror = () => {
+        if (fallbackSrc && fallbackSrc !== src) {
+          script.remove();
+          loadScript(fallbackSrc).then(resolve);
+          return;
+        }
+        resolve();
+      };
       document.head.appendChild(script);
     });
   }
@@ -59,7 +66,8 @@
     const basePrefix = getBasePrefix();
     for (const moduleName of modules) {
       const path = resolveModulePath(moduleName, basePrefix);
-      await loadScript(path);
+      const fallbackPath = `./assets/js/${String(moduleName || "").replace(/^\.\//, "")}`;
+      await loadScript(path, fallbackPath);
     }
   }
 
