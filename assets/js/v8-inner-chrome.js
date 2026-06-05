@@ -77,6 +77,27 @@
     });
   }
 
+  // ── AD RAIL ALIGN ──
+  // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
+  // Aggiungiamo padding-top pari alla topbar (64px) perché il contenuto
+  // del pannello ads parta alla stessa quota del contenuto pagina,
+  // come avviene sulla homepage V8 dove la topbar non esiste.
+  if (!document.getElementById('v8-ad-rail-align')) {
+    var _adAlignStyle = document.createElement('style');
+    _adAlignStyle.id = 'v8-ad-rail-align';
+    _adAlignStyle.textContent =
+      '.ad-rail--right .ad-rail__panel{' +
+        'padding-top:calc(64px + 0.75rem)!important;' +
+      '}';
+    if (document.head) {
+      document.head.appendChild(_adAlignStyle);
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        document.head.appendChild(_adAlignStyle);
+      });
+    }
+  }
+
   // ── NASCONDI VECCHIO HEADER ──
   // Usiamo una regola CSS (non inline style) perché header.js chiama
   // node.style.removeProperty('display') che rimuoverebbe un display:none inline.

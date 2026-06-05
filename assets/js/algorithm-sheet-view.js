@@ -41,45 +41,6 @@
         if (key.includes('ibrid') || key.includes('hybrid') || key.includes('custom')) return 'ibridi';
         return 'statistici';
       };
-      const injectSheetNavCards = (groupKey) => {
-        if (document.querySelector('[data-sheet-nav-cards="1"]')) return;
-        const meta = GROUP_META[groupKey] || GROUP_META.statistici;
-        const host = document.createElement('div');
-        host.dataset.sheetNavCards = '1';
-        host.className = 'ml-auto flex flex-nowrap items-start justify-end gap-2';
-        host.style.position = 'fixed';
-        host.style.top = 'calc(var(--fixed-header-offset, 88px) + 42px)';
-        host.style.right = 'calc(var(--ad-reserve-right, 0px) + 8px)';
-        host.style.zIndex = '2147481000';
-        host.style.display = 'flex';
-        host.style.flexWrap = 'nowrap';
-        host.style.gap = '8px';
-        host.style.pointerEvents = 'none';
-        host.innerHTML = `
-          <a class="cc-card cc-card3d card-3d cc-card-action cc-card-tone-menu group relative flex flex-col overflow-hidden rounded-2xl border border-white/15 transition hover:-translate-y-0.5 shrink-0" style="min-height:72px;width:114px;" href="../../" onclick="if (window.history.length > 1) { window.history.back(); return false; } return true;" aria-label="Torna indietro">
-            <div class="cc-card-media cc-card-media-frame relative overflow-hidden" style="width:100%;aspect-ratio:15/8;min-height:0;max-height:none;">
-              <img src="/img/algoritm.webp" alt="Navigazione algoritmi" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="cc-card-body flex flex-1 flex-col items-center justify-center px-2 py-1.5 text-center">
-              <span class="text-[10px] uppercase tracking-[0.16em] text-ash/90">Navigazione</span>
-              <span class="mt-0.5 text-[10px] font-semibold text-white group-hover:text-neon">Torna indietro</span>
-            </div>
-          </a>
-          <a class="cc-card cc-card3d card-3d cc-card-action ${meta.toneClass} group relative flex flex-col overflow-hidden rounded-2xl border ${meta.borderClass} transition hover:-translate-y-0.5 shrink-0" style="min-height:72px;width:114px;" href="${meta.href}" aria-label="Vai al gruppo ${meta.label.toLowerCase()}">
-            <div class="cc-card-media cc-card-media-frame relative overflow-hidden" style="width:100%;aspect-ratio:15/8;min-height:0;max-height:none;">
-              <img src="${meta.image}" alt="Algoritmi ${meta.label.toLowerCase()}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="cc-card-body flex flex-1 flex-col items-center justify-center px-2 py-1.5 text-center">
-              <span class="text-[10px] uppercase tracking-[0.16em] ${meta.titleClass}">${meta.label}</span>
-              <span class="mt-0.5 text-[10px] font-semibold ${meta.ctaClass}">Vai al gruppo</span>
-            </div>
-          </a>
-        `;
-        document.body.appendChild(host);
-        if (window.CARDS && typeof window.CARDS.enableDepth === 'function') {
-          window.CARDS.enableDepth(host);
-        }
-      };
       const ensureFixedSheetTitle = () => {
         const fixed = document.querySelector('[data-sheet-fixed-title="1"]');
         if (fixed) fixed.remove();
@@ -88,12 +49,10 @@
       fetch('card.json', { cache: 'no-store' })
         .then((res) => (res.ok ? res.json() : null))
         .then((card) => {
-          injectSheetNavCards(resolveGroupKey(card?.macroGroup));
           ensureFixedSheetTitle();
           injectAlgoTabKpiBar(card || {});
         })
         .catch(() => {
-          injectSheetNavCards('statistici');
           ensureFixedSheetTitle();
           injectAlgoTabKpiBar({});
         });
@@ -121,32 +80,6 @@
           }
         `;
         document.head.appendChild(proposalStyle);
-      }
-      if (!document.getElementById('cc-sheet-nav-style')) {
-        const navStyle = document.createElement('style');
-        navStyle.id = 'cc-sheet-nav-style';
-        navStyle.textContent = `
-          [data-sheet-nav-cards="1"] {
-            position: fixed;
-            top: calc(var(--fixed-header-offset, 88px) + 42px);
-            right: calc(var(--ad-reserve-right, 0px) + 8px);
-            z-index: 2147481000;
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 8px;
-            pointer-events: none;
-          }
-          [data-sheet-nav-cards="1"] > a {
-            pointer-events: auto;
-          }
-          @media (max-width: 1023px) {
-            [data-sheet-nav-cards="1"] {
-              right: 8px;
-              top: calc(var(--fixed-header-offset, 84px) + 34px);
-            }
-          }
-        `;
-        document.head.appendChild(navStyle);
       }
       if (!document.getElementById('cc-sheet-title-pin-style')) {
         const titleStyle = document.createElement('style');
