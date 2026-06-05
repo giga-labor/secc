@@ -1334,12 +1334,29 @@ const ensureAds = () => {
     currentPosition = position;
   };
 
+  // Calcola la larghezza attesa del rail destra in base al viewport (corrisponde ai breakpoint in ads.css)
+  const expectedRightRailWidth = () => {
+    const vw = Math.max(0, window.innerWidth || document.documentElement.clientWidth || 0);
+    if (vw < 1024) return 0;
+    if (vw >= 1600) return 350;
+    if (vw >= 1400) return 320;
+    if (vw >= 1200) return 300;
+    return 260;
+  };
+
   const updateLayoutReserve = () => {
     const rightVisible = !rightRail.hidden;
     const bottomVisible = !bottomAd.hidden;
-    const reserveRight = rightVisible
-      ? Math.ceil((rightRail.getBoundingClientRect().width || 0) + 16)
-      : 0;
+
+    let measuredRight = rightVisible ? (rightRail.getBoundingClientRect().width || 0) : 0;
+    // Fallback: se la misurazione è anomala (< 100px ma viewport desktop), usa il valore atteso
+    // Questo previene la riduzione del reserve quando il rail non è ancora renderizzato a piena larghezza
+    const expected = expectedRightRailWidth();
+    if (rightVisible && measuredRight < Math.max(100, expected * 0.7) && expected > 0) {
+      measuredRight = expected;
+    }
+
+    const reserveRight = rightVisible ? Math.ceil(measuredRight + 16) : 0;
     const reserveBottom = bottomVisible
       ? Math.ceil((bottomAd.getBoundingClientRect().height || 0) + 8)
       : 0;
@@ -1348,6 +1365,17 @@ const ensureAds = () => {
     root.style.setProperty('--ad-reserve-left', '0px');
     root.style.setProperty('--ad-reserve-right', `${reserveRight}px`);
     root.style.setProperty('--ad-rail-bottom', `${reserveBottom}px`);
+
+    // Re-check dopo 300ms per confermare la larghezza reale (gestisce layout asincroni)
+    if (rightVisible && measuredRight === expected) {
+      window.setTimeout(() => {
+        const recheck = rightRail.getBoundingClientRect().width || 0;
+        if (recheck > 0 && recheck !== measuredRight) {
+          const newReserve = Math.ceil(recheck + 16);
+          root.style.setProperty('--ad-reserve-right', `${newReserve}px`);
+        }
+      }, 320);
+    }
   };
 
   const rerenderCurrentAd = () => {

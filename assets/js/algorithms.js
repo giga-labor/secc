@@ -111,6 +111,7 @@ async function renderAlgorithms(area, algorithms, spotlightCards = []) {
   });
 
   const tabDefs = [
+    { key: 'tutti', label: 'Tutti' },
     { key: 'tipologie', label: 'Tipologie' },
     { key: 'statistici', label: 'Statistici' },
     { key: 'neurali', label: 'Neurali' },
@@ -131,7 +132,44 @@ async function renderAlgorithms(area, algorithms, spotlightCards = []) {
     panel.dataset.tabPanel = tabDef.key;
     panel.id = `group-${tabDef.key}`;
 
-    if (tabDef.key === 'tipologie') {
+    if (tabDef.key === 'tutti') {
+      // Tab "Tutti": mostra tutti gli algoritmi in un'unica griglia ordinati per categoria
+      const allSorted = Object.values(buckets).flat().sort(sortByTitle);
+      if (!allSorted.length) {
+        panel.innerHTML = '<div class="rounded-2xl border border-dashed border-white/15 bg-midnight/70 p-5 text-sm text-ash">Nessun algoritmo disponibile.</div>';
+      } else {
+        const intro = document.createElement('div');
+        intro.className = 'flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-midnight/60 px-4 py-3';
+        const activeCount = allSorted.filter((item) => item?.isActive !== false).length;
+        intro.innerHTML = `<p class="text-xs uppercase tracking-[0.2em] text-ash">Totale: ${allSorted.length} · Attivi: ${activeCount}</p>
+          <div class="flex flex-wrap gap-1 ml-auto">
+            ${['statistici','neurali','ibridi'].map(k=>`<span class="rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[0.68rem] tracking-[0.12em] text-ash cursor-pointer hover:border-neon/60 hover:text-neon transition" data-alg-macro-pill="${k}">${k.charAt(0).toUpperCase()+k.slice(1)}</span>`).join('')}
+          </div>`;
+        panel.appendChild(intro);
+        const grid = document.createElement('div');
+        grid.className = 'mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4';
+        grid.dataset.groupGrid = '';
+        grid.dataset.tuttiGrid = '';
+        const cards = await Promise.all(allSorted.map((algorithm) => createAlgorithmCard(algorithm, { forceActive: false })));
+        cards.filter(Boolean).forEach((card) => grid.appendChild(card));
+        panel.appendChild(grid);
+        bindAlgorithmGridLayout(grid, gridObservers);
+        // Micro-filter per macroGroup dentro il tab Tutti
+        intro.querySelectorAll('[data-alg-macro-pill]').forEach(pill => {
+          pill.addEventListener('click', () => {
+            const key = pill.dataset.algMacroPill;
+            const active = pill.classList.toggle('cc-pill-active');
+            pill.classList.toggle('border-neon/60', active);
+            pill.classList.toggle('text-neon', active);
+            const activePills = Array.from(intro.querySelectorAll('[data-alg-macro-pill].cc-pill-active')).map(p => p.dataset.algMacroPill);
+            grid.querySelectorAll('[data-algorithm-category]').forEach(card => {
+              const cat = (card.dataset.algorithmCategory || '').toLowerCase();
+              card.style.display = (!activePills.length || activePills.includes(cat)) ? '' : 'none';
+            });
+          });
+        });
+      }
+    } else if (tabDef.key === 'tipologie') {
       const spotlight = pickSpotlightByCategory(spotlightCards);
       if (!spotlight.length) {
         panel.innerHTML = '<div class="rounded-2xl border border-dashed border-white/15 bg-midnight/70 p-5 text-sm text-ash">Nessuna tipologia disponibile.</div>';
@@ -180,6 +218,16 @@ async function renderAlgorithms(area, algorithms, spotlightCards = []) {
   initTabsRootLocal(tabsRoot);
   enableCardDepthForAll();
   scrollToGroupHash();
+
+  // Scrivi hash URL al cambio tab (deep link)
+  tabsRoot.querySelectorAll('[data-tab-target]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const key = btn.dataset.tabTarget;
+      if (key) {
+        try { history.replaceState(null, '', '#group-' + key); } catch(e) {}
+      }
+    });
+  });
 }
 
 async function renderSpotlightCards(area, cards) {
@@ -567,7 +615,10 @@ function resolveGroupTargetKey(rawGroupId) {
   if (['tipologie', 'tipologia'].includes(cleaned)) {
     return 'tipologie';
   }
-  return cleaned || 'tipologie';
+  if (['tutti', 'all', 'tutto'].includes(cleaned)) {
+    return 'tutti';
+  }
+  return cleaned || 'tutti';
 }
 
 function activateTabByGroupKey(groupKey) {

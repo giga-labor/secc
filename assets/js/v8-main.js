@@ -525,6 +525,7 @@ const PANELS={
       <div class="p-sec">Archivio</div>
       <div class="sr"><span class="sr-k">Estrazioni totali</span><span class="sr-v">${DRAWS_COUNT.toLocaleString('it-IT')}</span></div>
       <div class="sr"><span class="sr-k">Archivio dal</span><span class="sr-v">1997</span></div>
+      <a href="pages/storico-estrazioni/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(110,231,255,.55);text-decoration:none;letter-spacing:.1em">Apri archivio storico →</a>
     `
   },
   alg:{
@@ -532,16 +533,18 @@ const PANELS={
     title:'Algoritmi<br>in gara',
     sub:'',
     body:()=>`
-      <div class="p-sec">Algoritmi attivi</div>
+      <div class="p-sec">Algoritmi attivi · ${ALGOS.length}</div>
       ${ALGOS.map(a=>`
         <div class="ar" onclick="window.location='${a.page||'pages/algoritmi/algs/'+a.id+'/'}'" style="cursor:pointer">
           <div class="ar-top">
             <span class="ar-rk">${String(a.r).padStart(2,'0')}</span>
             <span class="ar-nm">${a.n}</span>
-            <span class="ar-sc" style="font-size:1.1rem;color:rgba(237,232,223,.35);font-family:'DM Mono',monospace">${a.group||''}</span>
+            <span class="ar-sc" style="font-size:.9rem;color:rgba(237,232,223,.28);font-family:'DM Mono',monospace;letter-spacing:.08em;flex-shrink:0">${a.group||''}</span>
           </div>
           <div class="ar-bar"><div class="ar-fill" data-w="${a.w}%" style="width:0"></div></div>
         </div>`).join('')}
+      <a href="pages/algoritmi/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Catalogo completo →</a>
+      <a href="pages/ranking/" style="display:block;margin-top:.4rem;text-align:center;font-size:1.1rem;color:rgba(245,158,11,.45);text-decoration:none;letter-spacing:.1em">Classifica →</a>
     `
   },
   ses:{
@@ -551,14 +554,21 @@ const PANELS={
     body:()=> _sestine.length ? `
       <div class="p-sec">Sestine per il prossimo concorso</div>
       ${_sestine.map(s=>`
-        <div class="lf" onclick="window.location='${'pages/algoritmi/algs/'+s.id+'/'}'" style="cursor:pointer">
-          <span class="lf-n">${s.id.slice(0,6).toUpperCase()}</span>
-          <span class="lf-t">${s.nums.join(' · ')}</span>
-          <span class="lf-a" style="color:rgba(237,232,223,.3);font-size:1.1rem">${s.group}</span>
+        <div class="sc" onclick="window.location='${'pages/algoritmi/algs/'+s.id+'/'}'" style="cursor:pointer">
+          <div class="sc-top">
+            <span class="sc-algo">${s.id.replace(/^classic-|^arc90-|^super/i,'').slice(0,14).toUpperCase()}</span>
+            <span class="sc-conf" style="font-size:1rem;color:rgba(237,232,223,.25)">${s.group||''}</span>
+          </div>
+          <div class="sc-nums">
+            ${s.nums.map(n=>`<div class="scn">${n}</div>`).join('')}
+          </div>
         </div>`).join('')}
-      <div style="margin-top:1.6rem;font-size:1.1rem;color:rgba(237,232,223,.15);letter-spacing:.08em">
+      <div style="margin-top:1.4rem;font-size:1rem;color:rgba(237,232,223,.12);letter-spacing:.08em;text-align:center">
         Proposta algoritmica · Non una previsione · Il gioco comporta rischi
       </div>
+      <a href="pages/sestine-proposte/" style="display:block;margin-top:.8rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">
+        Tutte le sestine →
+      </a>
     ` : `
       <div class="p-sec" style="color:rgba(237,232,223,.3)">Caricamento sestine...</div>
       <div style="padding:1.5rem 0;font-size:1.44rem;color:rgba(237,232,223,.25)">
@@ -583,6 +593,7 @@ const PANELS={
       <div class="sr"><span class="sr-k">Stato</span><span class="sr-v ${_iargosStatus?(_iargosStatus.overview_green?'g':'r'):''}">${_iargosStatus?(_iargosStatus.overview_green?'Operativo':(_iargosStatus.severity||'warning')):'--'}</span></div>
       <div class="sr"><span class="sr-k">Algoritmi allineati</span><span class="sr-v">${_iargosStatus?.runtime?(_iargosStatus.runtime.algorithms_aligned_count||'--')+' / '+(_iargosStatus.runtime.algorithms_total_count||'--'):'--'}</span></div>
       <div class="sr"><span class="sr-k">Estrazioni archiviate</span><span class="sr-v">${DRAWS_COUNT||'--'}</span></div>
+      <a href="pages/laboratorio-tecnico/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Apri Laboratorio tecnico →</a>
     `
   }
 };
@@ -708,18 +719,32 @@ v8WaitAndInit(function(bundle){
   var intro=document.getElementById('intro');
   var ui=document.getElementById('ui');
 
+  var CC_INTRO_KEY='cc-intro-seen';
+  var _introSeen=false;
+  try{ _introSeen=!!sessionStorage.getItem(CC_INTRO_KEY); }catch(e){}
+
   function launch(){
     if(alive)return;
+    // Memorizza che l'utente ha già visto l'intro in questa sessione
+    try{ sessionStorage.setItem(CC_INTRO_KEY,'1'); }catch(e){}
     intro.classList.add('out');
+    var delay=_introSeen?80:1600; // utente di ritorno: skip quasi istantaneo
     setTimeout(()=>{
       intro.style.display='none';
       ui.classList.add('on');
       alive=true;
       cells.forEach(c=>{c.t=0;});
       openPanel('est');
-    },1600);
+    },delay);
   }
-  setTimeout(launch,3500);
-  document.addEventListener('click',launch);
-  document.addEventListener('keydown',launch);
+
+  if(_introSeen){
+    // Utente di ritorno: salta intro dopo un tick per permettere al canvas di renderizzarsi
+    setTimeout(launch,120);
+  } else {
+    // Prima visita: auto-launch dopo 3.5s o click/tasto
+    setTimeout(launch,3500);
+    document.addEventListener('click',launch);
+    document.addEventListener('keydown',launch);
+  }
 });

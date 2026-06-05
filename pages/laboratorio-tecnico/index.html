@@ -43,6 +43,8 @@
   <link rel="stylesheet" href="../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <link rel="stylesheet" href="../../assets/css/lab-referral.css">
 
   <meta property="og:locale" content="it_IT">
   <meta property="og:type" content="website">
@@ -73,7 +75,7 @@
 <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <script src="../../assets/js/v8-inner-chrome.js" defer></script>
 </head>
-<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" data-page-id="laboratorio-tecnico" data-style-lock="final">
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="laboratorio-tecnico" data-style-lock="final">
 <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
   <h1 class="sr-only">Laboratorio Tecnico</h1>
   <div class="content-box">
@@ -92,7 +94,7 @@
           <span class="cc-lab-kpi-label">Storico analizzato</span>
         </div>
         <div class="cc-lab-kpi-item">
-          <span class="cc-lab-kpi-value">5</span>
+          <span class="cc-lab-kpi-value">6</span>
           <span class="cc-lab-kpi-label">Sezioni tecniche</span>
         </div>
         <div class="cc-lab-kpi-item">
@@ -111,7 +113,28 @@
       </aside>
     </header>
 
-    <section class="tabs-shell mt-6" data-tabs-root data-tab-panel-label="off">
+    <!-- Anchor TOC per link diretti alle sezioni -->
+    <nav class="mt-5 flex flex-wrap gap-2 text-xs" aria-label="Sezioni laboratorio" id="lab-toc">
+      <a href="#lab-statistiche" class="rounded-full border border-white/10 bg-midnight/60 px-2.5 py-1 text-ash hover:border-neon/50 hover:text-neon transition" data-lab-toc-link="lab-statistiche">→ Statistiche</a>
+      <a href="#lab-algoritmi"   class="rounded-full border border-white/10 bg-midnight/60 px-2.5 py-1 text-ash hover:border-neon/50 hover:text-neon transition" data-lab-toc-link="lab-algoritmi">→ Algoritmi</a>
+      <a href="#lab-metriche"    class="rounded-full border border-white/10 bg-midnight/60 px-2.5 py-1 text-ash hover:border-neon/50 hover:text-neon transition" data-lab-toc-link="lab-metriche">→ Metriche</a>
+      <a href="#lab-limiti"      class="rounded-full border border-white/10 bg-midnight/60 px-2.5 py-1 text-ash hover:border-neon/50 hover:text-neon transition" data-lab-toc-link="lab-limiti">→ Limiti e bias</a>
+      <a href="#lab-metodo"      class="rounded-full border border-white/10 bg-midnight/60 px-2.5 py-1 text-ash hover:border-neon/50 hover:text-neon transition" data-lab-toc-link="lab-metodo">→ Metodo operativo</a>
+      <a href="#lab-iargos"      class="rounded-full border border-white/10 bg-midnight/60 px-2.5 py-1 text-ash hover:border-neon/50 hover:text-neon transition" data-lab-toc-link="lab-iargos">→ iARGOS</a>
+    </nav>
+    <script>
+      // TOC: click attiva il tab corrispondente invece di fare scroll classico
+      document.getElementById('lab-toc').addEventListener('click', function(e) {
+        var link = e.target.closest('[data-lab-toc-link]');
+        if (!link) return;
+        e.preventDefault();
+        var key = link.dataset.labTocLink;
+        var btn = document.querySelector('[data-tab-target="' + key + '"]');
+        if (btn) { btn.click(); window.scrollTo({ top: btn.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }
+      });
+    </script>
+
+    <section class="tabs-shell mt-4" data-tabs-root data-tab-panel-label="off">
       <div class="folder-tabs">
         <button class="tab-btn is-active" type="button" data-tab-target="lab-statistiche">Statistiche</button>
         <button class="tab-btn" type="button" data-tab-target="lab-algoritmi">Algoritmi</button>
@@ -531,6 +554,7 @@ dove freq_relativa(k) = n_estrazioni_con_k_hit / n_totale</code>
 <script src="../../assets/js/runtime-bootstrap.js" defer></script>
 <script src="../../assets/js/ads.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+  <script src="../../assets/js/tab-hash.js" defer></script>
 </body>
 </html>
 

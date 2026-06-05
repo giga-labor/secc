@@ -42,6 +42,8 @@
   <link rel="stylesheet" href="../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <link rel="stylesheet" href="../../assets/css/lab-referral.css">
   <meta property="og:locale" content="it_IT">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SuperEnalotto Control Chaos">
@@ -77,25 +79,26 @@
 <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <script src="../../assets/js/v8-inner-chrome.js" defer></script>
 </head>
-<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="community" data-style-lock="final">
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" id="top" data-page-id="community" data-style-lock="final">
   <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
     <h1 class="sr-only">Community</h1>
     <div class="content-box">
       <header class="mt-6 space-y-3" data-page-kicker-wrap>
         <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Community</span>
-        <h2 class="text-white text-xl font-semibold">Leaderboard e attivita operative</h2>
-        <p class="text-ash">Sezione community in continuita con sestine, ranking, laboratorio e feedback utenti.</p>
+        <h2 class="text-white text-xl font-semibold">Attività del progetto</h2>
+        <p class="text-ash">Feed operativo del progetto SECC: algoritmi attivi, leaderboard e stato dei moduli.</p>
+        <p class="text-xs text-ash/60" id="community-ts" style="display:none">Dati aggiornati il <strong id="community-ts-value"></strong></p>
       </header>
 
       <section class="cc-home-block mt-6" data-reveal="fade-up">
         <header class="cc-home-block__head">
-          <p class="text-xs uppercase tracking-[0.2em] text-ash">Pulse community</p>
-          <h3 class="text-white">Stato live</h3>
+          <p class="text-xs uppercase tracking-[0.2em] text-ash">Pulse operativo</p>
+          <h3 class="text-white">Stato progetto</h3>
         </header>
         <div class="cc-home-block__body">
           <div class="grid gap-3 sm:grid-cols-3">
             <article class="rounded-xl border border-white/10 bg-midnight/70 px-4 py-3 text-sm">
-              <p class="text-ash">Utenti online</p>
+              <p class="text-ash">Sessioni registrate</p>
               <p class="mt-1 text-xl font-semibold text-white" data-community-online>--</p>
             </article>
             <article class="rounded-xl border border-white/10 bg-midnight/70 px-4 py-3 text-sm">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -52,6 +52,9 @@
   <link rel="stylesheet" href="../../../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/lab-referral.css">
+  <link rel="stylesheet" href="/assets/css/alg-sheet.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">
@@ -70,181 +73,10 @@
 }
 </script>
 
-<style>
-    .spotlight-hero-card--static {
-      cursor: default !important;
-      pointer-events: none !important;
-      transform: none !important;
-    }
-    .spotlight-hero-card--static:hover,
-    .spotlight-hero-card--static.is-hovered,
-    .spotlight-hero-card--static:focus-visible,
-    .spotlight-hero-card--static.is-selected {
-      transform: none !important;
-      filter: brightness(1.08) saturate(1.12) !important;
-      border-color: rgba(255, 217, 102, 0.55) !important;
-    }
-    .historical-pick {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 2rem;
-      height: 2rem;
-      padding: 0 0.35rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(15, 18, 32, 0.9);
-      color: #cfd8ef;
-      font-weight: 700;
-      font-size: 0.78rem;
-      line-height: 1;
-    }
-    .historical-pick.is-hit {
-      position: relative;
-      border-color: rgba(255, 245, 206, 0.9);
-      background:
-        radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.95) 0 20%, rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0) 54%),
-        radial-gradient(circle at 52% 68%, rgba(255, 248, 196, 0.55) 0 34%, rgba(255, 221, 122, 0.28) 56%, rgba(16, 23, 40, 0.98) 100%);
-      color: #050505;
-      -webkit-text-stroke: 0.55px rgba(255, 243, 191, 0.96);
-      text-shadow:
-        0 0 1px rgba(255, 243, 191, 0.96),
-        0 0 7px rgba(255, 230, 144, 0.78);
-      box-shadow:
-        inset 0 2px 2px rgba(255, 255, 255, 0.72),
-        inset 0 -8px 14px rgba(8, 12, 22, 0.62),
-        inset 0 0 12px rgba(255, 241, 196, 0.24),
-        0 3px 8px rgba(4, 8, 18, 0.58),
-        0 0 12px rgba(255, 226, 142, 0.78),
-        0 0 26px rgba(255, 226, 142, 0.42);
-      min-width: 2.18rem;
-      height: 2.18rem;
-      font-size: 0.9rem;
-      transform: translateY(-1px) scale(1.09);
-    }
-    .tabs-shell {
-      margin-top: 0.8rem;
-      --active-notch-left: 0px;
-      --active-notch-width: 0px;
-    }
-    .folder-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      padding-left: 0.65rem;
-      margin-bottom: -1px;
-      position: relative;
-      overflow: visible;
-    }
-    .tab-btn {
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-bottom: none;
-      background:
-        linear-gradient(175deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 56%, rgba(10, 14, 26, 0.7)),
-        linear-gradient(145deg, rgba(28, 36, 70, 0.5), rgba(10, 14, 26, 0.44));
-      color: #cfd8ef;
-      border-radius: 0.6rem 0.6rem 0 0;
-      padding: 0.36rem 0.86rem 0.42rem;
-      font-size: 0.66rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 700;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.28),
-        inset 0 -8px 14px rgba(7, 10, 20, 0.22);
-      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-      position: relative;
-      z-index: 2;
-    }
-    .tab-btn.is-active {
-      border-color: rgba(255, 217, 102, 0.88);
-      background:
-        linear-gradient(180deg, rgba(255, 232, 173, 0.36), rgba(255, 217, 102, 0.16)),
-        linear-gradient(145deg, rgba(28, 36, 70, 0.54), rgba(10, 14, 26, 0.46));
-      color: #ffe8a0;
-      border-bottom-color: transparent;
-      box-shadow: 0 0 14px rgba(255, 217, 102, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.44);
-      transform: translateY(1px);
-      z-index: 4;
-    }
-    .tab-btn.is-active::after {
-      content: "";
-      position: absolute;
-      left: -10%;
-      right: -10%;
-      top: 100%;
-      height: 18px;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 217, 102, 0.42) 0%,
-        rgba(255, 217, 102, 0.2) 46%,
-        rgba(255, 217, 102, 0) 100%
-      );
-      filter: blur(1.5px);
-    }
-    .tab-btn:not(.is-active) {
-      transform: translateY(2px);
-      opacity: 0.92;
-      z-index: 1;
-    }
-    .tabs-sheet {
-      margin-top: 0;
-      border: 1px solid rgba(255, 217, 102, 0.52);
-      border-top-color: rgba(255, 217, 102, 0.34);
-      border-radius: 0.8rem 1rem 1rem 1rem;
-      background:
-        linear-gradient(165deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04) 54%, rgba(10, 14, 26, 0.66)),
-        linear-gradient(145deg, rgba(28, 36, 70, 0.46), rgba(10, 14, 26, 0.4));
-      box-shadow:
-        inset 0 1px 0 rgba(255, 241, 204, 0.22),
-        inset 0 0 14px rgba(255, 217, 102, 0.1),
-        inset 0 -12px 18px rgba(7, 10, 20, 0.22),
-        0 0 16px rgba(255, 217, 102, 0.22),
-        0 0 34px rgba(255, 217, 102, 0.12);
-      padding: 1rem 1rem 1.1rem;
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-    }
-    .tabs-sheet::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -1px;
-      height: 1px;
-      background: rgba(255, 217, 102, 0.88);
-      pointer-events: none;
-      z-index: 3;
-      border-top-left-radius: 0.8rem;
-      border-top-right-radius: 1rem;
-      mask-image:
-        linear-gradient(
-          90deg,
-          #000 0 calc(var(--active-notch-left) - 0px),
-          transparent calc(var(--active-notch-left) - 0px) calc(var(--active-notch-left) + var(--active-notch-width)),
-          #000 calc(var(--active-notch-left) + var(--active-notch-width)) 100%
-        );
-      -webkit-mask-image:
-        linear-gradient(
-          90deg,
-          #000 0 calc(var(--active-notch-left) - 0px),
-          transparent calc(var(--active-notch-left) - 0px) calc(var(--active-notch-left) + var(--active-notch-width)),
-          #000 calc(var(--active-notch-left) + var(--active-notch-width)) 100%
-        );
-    }
-    .tab-panel {
-      display: none;
-    }
-    .tab-panel.is-active {
-      display: block;
-    }
-  </style>
 <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <script src="../../../../assets/js/v8-inner-chrome.js" defer></script>
 </head>
-<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" data-page-id="algsheet" id="top" data-style-lock="final">
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="algsheet" id="top" data-style-lock="final">
 <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
 
       <h1 class="sr-only">Classic Analisi Anomalie Pattern</h1>
@@ -354,6 +186,7 @@
 <script src="../../../../assets/js/component-builder.js" defer></script>
 <script src="../../../../assets/js/ads.js" defer></script>
   <script src="../../../../assets/js/lazy-bootstrap.js" defer></script>
+  <script src="../../../../assets/js/tab-hash.js" defer></script>
 </body>
 </html>
 

@@ -382,6 +382,17 @@
       const response = await fetch(resolveWithBase(FEED_PATH), { cache: 'no-store' });
       if (!response.ok) throw new Error(`status ${response.status}`);
       const feed = await response.json();
+      // Mostra timestamp aggiornamento dati
+      if (feed && feed.updated_at) {
+        var tsEl = document.getElementById('community-ts');
+        var tsVal = document.getElementById('community-ts-value');
+        if (tsEl && tsVal) {
+          var rawTs = String(feed.updated_at || '');
+          var mTs = rawTs.match(/^(\d{4})-(\d{2})-(\d{2})[\sT](\d{2}):(\d{2})/);
+          tsVal.textContent = mTs ? mTs[3]+'/'+mTs[2]+'/'+mTs[1]+' alle '+mTs[4]+':'+mTs[5] : rawTs;
+          tsEl.style.display = '';
+        }
+      }
       mountHighlights(feed);
       mountLeaderboard(feed);
       mountActivities(feed);

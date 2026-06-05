@@ -23,6 +23,7 @@ let filtered = [];
 let headers = [];
 let dateIndex = -1;
 let drawNumberIndexes = [];
+let numeriColIndex = -1; // indice colonna "Numeri" dopo merge N1-N6
 let currentPage = 1;
 let searchTimer = null;
 let syncingScroll = false;
@@ -72,6 +73,7 @@ async function loadDraws() {
     headers = parsed.headers;
     dateIndex = findDateIndex(headers);
     drawNumberIndexes = findDrawNumberIndexes(headers);
+    preprocessDrawData(); // merge N1-N6 in unica colonna "Numeri"
     sortRowsByDateDesc();
     renderHeader(headers);
     applyFilter('');
@@ -129,11 +131,57 @@ function findDrawNumberIndexes(headersList) {
   const indexes = [];
   headersList.forEach((header, index) => {
     const normalized = String(header || '').trim().toLowerCase();
-    if (/^n\d+$/.test(normalized) || normalized.includes('jolly') || normalized.includes('superstar')) {
+    if (/^n\d+$/.test(normalized) || normalized.includes('jolly') || normalized.includes('superstar') || normalized === 'numeri') {
       indexes.push(index);
     }
   });
   return indexes;
+}
+
+// Unisce le colonne N1..N6 in un'unica colonna "Numeri" per visualizzazione a balls
+function preprocessDrawData() {
+  const n6Indexes = [];
+  headers.forEach(function(h, i) {
+    const norm = String(h || '').trim().toLowerCase();
+    if (/^n\d+$/.test(norm)) n6Indexes.push(i);
+  });
+  if (n6Indexes.length < 2) return; // struttura non riconosciuta, lascia invariata
+
+  const firstIdx = n6Indexes[0];
+  const removeSet = new Set(n6Indexes.slice(1));
+
+  // Trasforma headers: rinomina N1 → "Numeri", rimuove N2..N6
+  headers = headers
+    .map((h, i) => i === firstIdx ? 'Numeri' : h)
+    .filter((_, i) => !removeSet.has(i));
+
+  // Trasforma rows: merge valori N1..N6 nella prima colonna, rimuovi le altre
+  rows = rows.map(row => {
+    const nums = n6Indexes.map(i => String(row[i] || '').trim()).filter(Boolean);
+    const merged = nums.join(' ');
+    const newRow = [];
+    row.forEach((cell, i) => {
+      if (removeSet.has(i)) return;
+      newRow.push(i === firstIdx ? merged : cell);
+    });
+    return newRow;
+  });
+
+  // Ricalcola indici dopo il reshape
+  dateIndex = findDateIndex(headers);
+  numeriColIndex = headers.findIndex(h => String(h).toLowerCase() === 'numeri');
+  drawNumberIndexes = findDrawNumberIndexes(headers);
+}
+
+// Restituisce l'HTML di una cella con le balls dei numeri estratti
+function renderNumeriCell(cellValue) {
+  const nums = String(cellValue || '').split(/\s+/).filter(Boolean);
+  if (!nums.length) return `<td class="px-3 py-2 text-ash">—</td>`;
+  const balls = nums.map(n => {
+    const safe = escapeHtml(n);
+    return `<span class="cc-ball cc-ball--draw" style="--cc-ball-size:1.48rem;font-size:.69rem">${safe}</span>`;
+  }).join('');
+  return `<td class="px-3 py-2"><div class="cc-ball-row" style="gap:.18rem;flex-wrap:nowrap">${balls}</div></td>`;
 }
 
 function sortRowsByDateDesc() {
@@ -211,7 +259,17 @@ function renderTable() {
     elements.body.innerHTML = `<tr><td class="px-4 py-6 text-ash" colspan="${elements.header.children.length || 4}">Nessun record trovato.</td></tr>`;
   } else {
     elements.body.innerHTML = pageRows
-      .map((row) => `<tr>${row.map((cell) => `<td class="px-4 py-3 text-ash">${escapeHtml(cell)}</td>`).join('')}</tr>`)
+      .map((row, rowIdx) => {
+        const isLatest = rowIdx === 0 && currentPage === 1 && rows.length > 0 && row === rows[0];
+        const rowClass = isLatest ? ' class="draws-row--latest"' : '';
+        const cells = row.map((cell, colIdx) => {
+          if (colIdx === numeriColIndex && numeriColIndex >= 0) {
+            return renderNumeriCell(cell);
+          }
+          return `<td class="px-4 py-3 text-ash">${escapeHtml(cell)}</td>`;
+        }).join('');
+        return `<tr${rowClass}>${cells}</tr>`;
+      })
       .join('');
   }
   updatePagination();

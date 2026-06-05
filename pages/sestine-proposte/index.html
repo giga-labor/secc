@@ -28,6 +28,7 @@
       root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
     })();
   </script>
+  <meta name="view-transition" content="same-origin">
   <title>Sestine Proposte - SuperEnalotto Control Chaos</title>
   <meta name="description" content="Sestine proposte ordinate per classifica degli algoritmi attivi.">
   <link rel="canonical" href="https://www.superenalottocc.it/pages/sestine-proposte/">
@@ -53,65 +54,9 @@
   <link rel="stylesheet" href="../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../assets/css/user-first.css">
   <link rel="stylesheet" href="/assets/css/balls-standard.css">
-  <style>
-    .cc-proposal-row {
-      display: grid;
-      grid-template-columns: minmax(9.5rem, 12rem) minmax(0, 1fr) minmax(5.2rem, 6.8rem);
-      align-items: center;
-      gap: 0.6rem;
-      width: 100%;
-      padding: 0.3rem 0.35rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 0.85rem;
-      background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02) 55%, rgba(6, 11, 22, 0.3));
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
-    }
-    .cc-proposal-row:hover,
-    .cc-proposal-row:focus-visible {
-      border-color: rgba(255, 217, 102, 0.44);
-      background: linear-gradient(165deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03) 55%, rgba(6, 11, 22, 0.34));
-      transform: translateY(-1px);
-    }
-    .cc-proposal-alg {
-      min-width: 0;
-      overflow: hidden;
-      text-align: left;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .cc-proposal-balls {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      min-width: 0;
-    }
-    .cc-proposal-rank {
-      text-align: center;
-      white-space: nowrap;
-    }
-    @media (max-width: 768px) {
-      .cc-proposal-row {
-        min-width: 0 !important;
-        grid-template-columns: 1fr !important;
-        gap: 0.45rem !important;
-        align-items: start !important;
-      }
-      .cc-proposal-balls {
-        display: grid !important;
-        grid-template-columns: repeat(3, minmax(2.15rem, max-content));
-        justify-content: start !important;
-        gap: 0.42rem 0.52rem !important;
-        white-space: normal !important;
-      }
-      .cc-proposal-rank {
-        text-align: left !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <link rel="stylesheet" href="../../assets/css/lab-referral.css">
+  <link rel="stylesheet" href="../../assets/css/proposals.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -130,7 +75,7 @@
 <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <script src="../../assets/js/v8-inner-chrome.js" defer></script>
 </head>
-<body class="min-h-screen bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="proposte" data-style-lock="final" data-auto-tabs="off">
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" id="top" data-page-id="proposte" data-style-lock="final" data-auto-tabs="off">
   <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
     <h1 class="sr-only">Sestine Proposte</h1>
     <div class="content-box">
@@ -146,13 +91,42 @@
         </div>
       </section>
 
-      <section class="rounded-3xl bg-transparent p-0 mt-6 space-y-3">
-        <div class="max-h-[34rem] overflow-auto pr-1 space-y-2 text-center" data-proposals-list>
-          <div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">
-            Caricamento proposte in corso...
-          </div>
+      <!-- Filtro macroGroup -->
+      <div class="flex flex-wrap gap-2 mt-6" id="proposals-filter-bar">
+        <button type="button" class="cc-prop-pill cc-prop-pill--active" data-filter-group="tutti">Tutti</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="statistici">Statistici</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="neurali">Neurali</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="ibridi">Ibridi</button>
+      </div>
+
+      <section class="bg-transparent p-0 mt-4 space-y-2" data-proposals-list>
+        <div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">
+          Caricamento proposte in corso...
         </div>
       </section>
+
+      <style>
+        .cc-prop-pill {
+          padding: .35rem .9rem;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,.15);
+          background: rgba(255,255,255,.04);
+          color: rgba(197,216,255,.55);
+          font-size: .72rem;
+          letter-spacing: .14em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: color .18s, border-color .18s, background .18s;
+        }
+        .cc-prop-pill:hover,
+        .cc-prop-pill--active {
+          border-color: rgba(110,231,255,.55);
+          color: #6ee7ff;
+          background: rgba(110,231,255,.08);
+        }
+        /* Rimuove lo scroll interno: la lista si estende normalmente */
+        [data-proposals-list] { overflow: visible !important; max-height: none !important; }
+      </style>
 
     </div>
   </main>
@@ -366,22 +340,60 @@
         }
 
         const rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        host.innerHTML = rowsWithProposal.map((row) => {
-          const title = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
-          const href = escapeHtml(toHref(row.card.page || '#'));
-          const rank = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
-          const balls = row.proposal.map((value) => {
+
+        const resolveMacroKey = (raw) => {
+          const k = String(raw || '').trim().toLowerCase();
+          if (k.includes('neur')) return 'neurali';
+          if (k.includes('ibrid') || k.includes('hybrid') || k.includes('custom')) return 'ibridi';
+          return 'statistici';
+        };
+        const MACRO_BADGE = {
+          statistici: 'border-[#8fceec]/60 text-[#8fceec]',
+          neurali:    'border-[#b7a2f4]/60 text-[#b7a2f4]',
+          ibridi:     'border-[#7ecba5]/60 text-[#7ecba5]'
+        };
+
+        host.innerHTML = rowsWithProposal.map((row, idx) => {
+          const title  = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
+          const href   = escapeHtml(toHref(row.card.page || '#'));
+          const rank   = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
+          const mKey   = resolveMacroKey(row.card.macroGroup);
+          const mCls   = MACRO_BADGE[mKey] || 'border-white/20 text-ash';
+          const rankPos = Number.isFinite(row.rankingPosition) ? `#${row.rankingPosition}` : `#${idx + 1}`;
+          const balls  = row.proposal.map((value) => {
             const tone = getBallTone(parseInt(value, 10));
             return `<span class="cc-proposal-ball${tone ? ` ${tone}` : ''}">${escapeHtml(value)}</span>`;
           }).join('');
           return `
-            <a href="${href}" class="cc-proposal-row" title="${title}">
-              <span class="cc-proposal-alg cc-alg-link">${title}</span>
+            <a href="${href}" class="cc-proposal-row" title="${title}" data-proposal-group="${mKey}">
+              <span class="cc-proposal-alg-wrap" style="display:flex;flex-direction:column;gap:.2rem">
+                <span class="cc-proposal-alg cc-alg-link">${title}</span>
+                <span style="display:flex;gap:.3rem;align-items:center">
+                  <span class="rounded-full border ${mCls} px-1.5 py-0 text-[.62rem] uppercase tracking-[.12em]">${mKey}</span>
+                  <span style="font-size:.65rem;color:rgba(197,216,255,.4)">${rankPos}</span>
+                </span>
+              </span>
               <span class="cc-proposal-balls">${balls}</span>
               <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
             </a>
           `;
         }).join('');
+
+        // Attiva logica filtro pills
+        initFilterPills();
+      };
+
+      const initFilterPills = () => {
+        document.querySelectorAll('[data-filter-group]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('[data-filter-group]').forEach(b => b.classList.remove('cc-prop-pill--active'));
+            btn.classList.add('cc-prop-pill--active');
+            const group = btn.dataset.filterGroup;
+            document.querySelectorAll('[data-proposal-group]').forEach(row => {
+              row.style.display = (group === 'tutti' || row.dataset.proposalGroup === group) ? '' : 'none';
+            });
+          });
+        });
       };
 
       window.addEventListener('load', () => {

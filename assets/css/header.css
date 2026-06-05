@@ -56,8 +56,23 @@
     :root {
       --vt-exit: 760ms;
       --vt-enter: 980ms;
+      --vt-header-exit: 700ms;
+      --vt-header-enter: 1040ms;
       --vt-ease-exit: cubic-bezier(0.22, 0.61, 0.36, 1);
       --vt-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Transizioni più leggere per subpagine — evitano la stanchezza da navigazione */
+    body.motion-balanced {
+      --vt-exit: 420ms;
+      --vt-enter: 560ms;
+      --vt-header-exit: 380ms;
+      --vt-header-enter: 580ms;
+    }
+    body.motion-soft {
+      --vt-exit: 280ms;
+      --vt-enter: 360ms;
+      --vt-header-exit: 260ms;
+      --vt-header-enter: 380ms;
     }
     ::view-transition-old(page-main),
     ::view-transition-old(page-footer) {
@@ -75,10 +90,10 @@
       view-transition-name: page-header;
     }
     ::view-transition-old(page-header) {
-      animation: header-exit-cinematic 700ms var(--vt-ease-exit) both;
+      animation: header-exit-cinematic var(--vt-header-exit) var(--vt-ease-exit) both;
     }
     ::view-transition-new(page-header) {
-      animation: header-enter-cinematic 1040ms var(--vt-ease-enter) var(--vt-exit) both;
+      animation: header-enter-cinematic var(--vt-header-enter) var(--vt-ease-enter) var(--vt-exit) both;
     }
     .ad-rail,
     .bottom-ad {

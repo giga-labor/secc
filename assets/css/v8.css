@@ -475,3 +475,126 @@ body::after { display: none; }
   .o1{} .o2{} .o3{}
   .ov-disclaimer{font-size:.8rem;padding:0 1.5rem;}
 }
+
+/* ══════════════════════════════════════════════════════════════
+   PANEL RESPONSIVE — fluid sizing bilanciato per tutti i layout
+   Principio: i font dei panel scalano con la larghezza disponibile
+   in modo che il contenuto resti leggibile senza overflow.
+══════════════════════════════════════════════════════════════ */
+
+/* ── Variabili panel adattive (default: desktop largo) ─────── */
+#panel {
+  --pf-title:  2.5rem;
+  --pf-sub:    1.44rem;
+  --pf-sec:    .8rem;
+  --pf-body:   1.64rem;
+  --pf-nm:     1.68rem;
+  --pf-sc:     2.5rem;
+  --pf-lf:     1.72rem;
+  --pball-sz:  68px;
+  --pball-fs:  2.1rem;
+  --pad-h:     2.5rem;
+}
+
+/* ── 641–1024 px: panel 320 px, testo più compatto ─────────── */
+@media (max-width:1024px) and (min-width:641px) {
+  #panel {
+    --pf-title:  1.9rem;
+    --pf-sub:    1.2rem;
+    --pf-sec:    .75rem;
+    --pf-body:   1.44rem;
+    --pf-nm:     1.4rem;
+    --pf-sc:     1.8rem;
+    --pf-lf:     1.44rem;
+    --pball-sz:  54px;
+    --pball-fs:  1.72rem;
+    --pad-h:     1.8rem;
+  }
+  .p-head { padding: 1.8rem var(--pad-h) 1.5rem; }
+  .p-body { padding: 1.5rem var(--pad-h); }
+}
+
+/* ── ≤640 px: panel full-width, testo fluido ───────────────── */
+@media (max-width:640px) {
+  #panel {
+    --pf-title:  clamp(1.5rem, 6vw, 2.1rem);
+    --pf-sub:    clamp(1rem, 3vw, 1.28rem);
+    --pf-sec:    .7rem;
+    --pf-body:   clamp(1.2rem, 3.5vw, 1.5rem);
+    --pf-nm:     clamp(1.1rem, 3.2vw, 1.4rem);
+    --pf-sc:     clamp(1.4rem, 4vw, 1.9rem);
+    --pf-lf:     clamp(1.2rem, 3.5vw, 1.5rem);
+    --pball-sz:  clamp(40px, 11vw, 56px);
+    --pball-fs:  clamp(1.2rem, 3.5vw, 1.8rem);
+    --pad-h:     1.4rem;
+  }
+  .p-head { padding: 1.4rem var(--pad-h) 1.2rem; }
+  .p-body { padding: 1.2rem var(--pad-h); }
+  .p-close { width:38px; height:38px; font-size:1.4rem; top:1rem; right:1rem; }
+}
+
+/* ── Applica le variabili agli elementi panel ──────────────── */
+.p-title      { font-size: var(--pf-title); }
+.p-subtitle   { font-size: var(--pf-sub); }
+
+.p-sec {
+  font-size: var(--pf-sec);
+  letter-spacing: .22em;
+}
+
+.sr { font-size: var(--pf-body); }
+
+/* Balls estrazione: fluid */
+.pball {
+  width:  var(--pball-sz);
+  height: var(--pball-sz);
+  font-size: var(--pball-fs);
+}
+
+/* Algoritmi: evita overflow del score su panel stretto */
+.ar-nm  { font-size: var(--pf-nm);  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ar-sc  { font-size: var(--pf-sc); }
+.ar-top { flex-wrap: nowrap; overflow: hidden; }
+
+/* Sestine / lab features */
+.lf     { font-size: var(--pf-lf); }
+.lf-n   { font-size: var(--pf-lf); }
+.lf-t   { font-size: var(--pf-lf); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lf-a   { font-size: var(--pf-lf); flex-shrink:0; }
+
+/* Ball-row: usa gap fluido */
+.ball-row {
+  gap: clamp(.3rem, 1.5vw, .55rem);
+}
+
+/* Nasconde il watermark canvas quando il panel è stretto (< 641px) */
+@media (max-width:640px) {
+  #panel canvas { display: none; }
+}
+
+/* Panel head: previene overflow del titolo su qualsiasi width */
+.p-title, .p-subtitle {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Scroll-bar sottile su tutti i breakpoint */
+.p-body { scrollbar-width: thin; }
+
+/* ── Fluid sc-nums ball size ────────────────────────────────── */
+.scn {
+  width:  clamp(36px, 8vw, 52px);
+  height: clamp(36px, 8vw, 52px);
+  font-size: clamp(1rem, 2.8vw, 1.44rem);
+}
+
+/* Panel: larghezza massima su schermi ultra-wide (evita panel troppo largo) */
+@media (min-width: 1600px) {
+  #panel { width: 520px; }
+}
+
+/* Scroll-snap nel p-body per algoritmi e sestine (migliora UX mobile) */
+@media (max-width: 640px) {
+  .sc { border-radius: .5rem; }
+  .ar { padding: .7rem 0; }
+}

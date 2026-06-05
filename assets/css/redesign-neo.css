@@ -439,6 +439,64 @@ body.cc-redesign[data-page-id="community"] {
     linear-gradient(165deg, #08101d 0%, #111b2c 44%, #0a1220 100%) !important;
 }
 
+body.cc-neo[data-page-id="laboratorio-tecnico"],
+body.cc-redesign[data-page-id="laboratorio-tecnico"] {
+  background:
+    radial-gradient(60% 46% at 6% 4%, rgba(99, 220, 255, 0.18), rgba(99, 220, 255, 0) 72%),
+    radial-gradient(48% 40% at 94% 10%, rgba(147, 255, 177, 0.12), rgba(147, 255, 177, 0) 72%),
+    linear-gradient(166deg, #050e1a 0%, #0a1a2e 44%, #071322 100%) !important;
+}
+
+body.cc-neo[data-page-id="oracle"],
+body.cc-redesign[data-page-id="oracle"] {
+  background:
+    radial-gradient(64% 50% at 5% 3%, rgba(189, 148, 255, 0.22), rgba(189, 148, 255, 0) 72%),
+    radial-gradient(52% 44% at 94% 8%, rgba(99, 220, 255, 0.16), rgba(99, 220, 255, 0) 72%),
+    linear-gradient(168deg, #0a0618 0%, #140d2a 44%, #0c0f22 100%) !important;
+}
+
+body.cc-neo[data-page-id="proposte"],
+body.cc-redesign[data-page-id="proposte"] {
+  background:
+    radial-gradient(66% 52% at 4% 2%, rgba(255, 203, 129, 0.22), rgba(255, 203, 129, 0) 72%),
+    radial-gradient(52% 44% at 94% 8%, rgba(189, 165, 255, 0.14), rgba(189, 165, 255, 0) 72%),
+    linear-gradient(165deg, #090d16 0%, #17132a 44%, #0c101e 100%) !important;
+}
+
+body.cc-neo[data-page-id="algspotlight"],
+body.cc-redesign[data-page-id="algspotlight"] {
+  background:
+    radial-gradient(64% 52% at 6% 3%, rgba(189, 148, 255, 0.18), rgba(189, 148, 255, 0) 72%),
+    radial-gradient(50% 44% at 94% 8%, rgba(121, 255, 215, 0.12), rgba(121, 255, 215, 0) 72%),
+    linear-gradient(168deg, #0a0a18 0%, #15122a 44%, #0b0f1e 100%) !important;
+}
+
+body.cc-neo[data-page-id="algsheet"],
+body.cc-redesign[data-page-id="algsheet"] {
+  background:
+    radial-gradient(60% 48% at 6% 3%, rgba(118, 209, 255, 0.18), rgba(118, 209, 255, 0) 72%),
+    radial-gradient(48% 40% at 94% 8%, rgba(255, 204, 124, 0.12), rgba(255, 204, 124, 0) 72%),
+    linear-gradient(165deg, #060d18 0%, #0e1a30 44%, #081320 100%) !important;
+}
+
+/* Pagine legali — atmosfera muted, non distrae dalla lettura */
+body.cc-neo[data-page-id="cookie-policy"],
+body.cc-neo[data-page-id="privacy-policy"],
+body.cc-neo[data-page-id="disclaimer"],
+body.cc-neo[data-page-id="contatti-chi-siamo"],
+body.cc-neo[data-page-id="termini-servizio"],
+body.cc-neo[data-page-id="policy-consenso"],
+body.cc-redesign[data-page-id="cookie-policy"],
+body.cc-redesign[data-page-id="privacy-policy"],
+body.cc-redesign[data-page-id="disclaimer"],
+body.cc-redesign[data-page-id="contatti-chi-siamo"],
+body.cc-redesign[data-page-id="termini-servizio"],
+body.cc-redesign[data-page-id="policy-consenso"] {
+  background:
+    radial-gradient(50% 38% at 4% 3%, rgba(193, 216, 255, 0.10), rgba(193, 216, 255, 0) 72%),
+    linear-gradient(168deg, #060910 0%, #0c1220 44%, #07101a 100%) !important;
+}
+
 @media (max-width: 1023px) {
   body.cc-neo main.content-width,
   body.cc-redesign main.content-width,

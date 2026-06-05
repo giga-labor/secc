@@ -90,10 +90,12 @@
         .then((card) => {
           injectSheetNavCards(resolveGroupKey(card?.macroGroup));
           ensureFixedSheetTitle();
+          injectAlgoTabKpiBar(card || {});
         })
         .catch(() => {
           injectSheetNavCards('statistici');
           ensureFixedSheetTitle();
+          injectAlgoTabKpiBar({});
         });
 
       if (!document.getElementById('cc-proposal-style')) {
@@ -206,6 +208,85 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+
+      // ─── Tab Algoritmo: KPI bar da card.json ────────────────────────────────
+      const MACRO_CLASSES = {
+        statistici: 'border-[#8fceec]/60 text-[#8fceec] bg-[#8fceec]/8',
+        neurali:    'border-[#b7a2f4]/60 text-[#b7a2f4] bg-[#b7a2f4]/8',
+        ibridi:     'border-[#7ecba5]/60 text-[#7ecba5] bg-[#7ecba5]/8'
+      };
+      const injectAlgoTabKpiBar = (card) => {
+        const panel = document.querySelector('[data-tab-panel="algoritmo"]');
+        if (!panel || panel.querySelector('[data-algo-kpi-bar]')) return;
+        const box = panel.querySelector('section[data-adsense-quality]');
+        if (!box) return;
+
+        const macroGroup = String(card?.macroGroup || '').trim();
+        const accessTier = String(card?.accessTier || '').trim();
+        const isActive   = card?.isActive !== false;
+        const updated    = String(card?.updated || card?.lastUpdated || '').trim();
+        const mKey = resolveGroupKey(macroGroup);
+        const mCls = MACRO_CLASSES[mKey] || 'border-white/20 text-ash bg-white/5';
+
+        const kpiBar = document.createElement('div');
+        kpiBar.dataset.algoKpiBar = '1';
+        kpiBar.className = 'flex flex-wrap items-center gap-2 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 mb-4 text-xs';
+        kpiBar.innerHTML = `
+          ${macroGroup ? `<span class="rounded-full border ${mCls} px-2 py-0.5 uppercase tracking-[0.14em]">${escapeHtml(macroGroup)}</span>` : ''}
+          ${isActive
+            ? `<span class="rounded-full border border-emerald-500/50 bg-emerald-950/40 px-2 py-0.5 uppercase tracking-[0.14em] text-emerald-400">Attivo</span>`
+            : `<span class="rounded-full border border-white/15 bg-white/5 px-2 py-0.5 uppercase tracking-[0.14em] text-ash">Non attivo</span>`
+          }
+          <span class="rounded-full border border-white/10 bg-midnight/60 px-2 py-0.5 text-ash" data-ranking-kpi-value>Punteggio: —</span>
+          <span class="rounded-full border border-white/10 bg-midnight/60 px-2 py-0.5 text-ash" data-ranking-kpi-pos>Posizione: —</span>
+          ${accessTier ? `<span class="ml-auto uppercase tracking-[0.1em] text-ash">${escapeHtml(accessTier)}</span>` : ''}
+          ${updated    ? `<span class="text-ash">· agg. ${escapeHtml(updated)}</span>` : ''}
+        `;
+        box.parentElement.insertBefore(kpiBar, box);
+
+        // Placeholder sestina proposta (verrà riempita quando le metriche saranno caricate)
+        const sesSect = document.createElement('div');
+        sesSect.dataset.algoSestinaSection = '1';
+        sesSect.className = 'rounded-xl border border-neon/25 bg-neon/5 px-4 py-3 mb-4';
+        sesSect.innerHTML = `
+          <p class="text-[0.68rem] uppercase tracking-[0.2em] text-ash mb-2">Proposta prossimo concorso</p>
+          <div class="cc-ball-row" data-algo-sestina-balls style="gap:.28rem">
+            ${[1,2,3,4,5,6].map(() => `<span class="cc-ball cc-skeleton" style="--cc-ball-size:1.9rem">&nbsp;</span>`).join('')}
+          </div>
+          <p class="mt-2 text-[0.65rem] text-ash/60 italic">Caricamento in corso...</p>
+        `;
+        box.parentElement.insertBefore(sesSect, box);
+      };
+
+      // Aggiorna le balls nel tab Algoritmo quando la sestina è disponibile
+      const refreshAlgoTabProposal = (proposal) => {
+        const ballsHost = document.querySelector('[data-algo-sestina-balls]');
+        const sect = document.querySelector('[data-algo-sestina-section]');
+        if (!ballsHost) return;
+        if (!Array.isArray(proposal) || proposal.length === 0) {
+          if (sect) sect.style.display = 'none';
+          return;
+        }
+        ballsHost.innerHTML = proposal.map(v =>
+          `<span class="cc-ball" style="--cc-ball-size:1.9rem;font-size:.8rem">${escapeHtml(String(v ?? ''))}</span>`
+        ).join('');
+        const note = sect ? sect.querySelector('p.italic') : null;
+        if (note) note.remove();
+      };
+
+      // Aggiorna KPI ranking nel tab Algoritmo
+      const refreshAlgoTabRanking = (score, position) => {
+        const kv = document.querySelector('[data-ranking-kpi-value]');
+        const kp = document.querySelector('[data-ranking-kpi-pos]');
+        if (kv && score !== null && score !== undefined) {
+          kv.textContent = `Punteggio: ${typeof score === 'number' && Number.isFinite(score)
+            ? new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(score)
+            : '—'}`;
+        }
+        if (kp && position) kp.textContent = `Posizione: ${position}`;
+      };
+      // ────────────────────────────────────────────────────────────────────────
+
       const roots = Array.from(document.querySelectorAll('[data-tabs-root]'));
       roots.forEach((root) => {
         const shell = root.classList.contains('tabs-shell') ? root : root.closest('.tabs-shell');
@@ -336,11 +417,21 @@
           root._tabsResizeObserver = observer;
         }
         ensurePanelLabels();
-        const initialTarget =
-          buttons.find((btn) => btn.dataset.tabTarget === 'storica')?.dataset.tabTarget ||
-          (buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0])?.dataset.tabTarget;
+        // Rispetta URL hash se corrisponde a un tab esistente, altrimenti usa 'storica'
+        const hashTarget = String(window.location.hash || '').replace('#', '').trim();
+        const hashBtn = hashTarget ? buttons.find((btn) => btn.dataset.tabTarget === hashTarget) : null;
+        const initialTarget = hashBtn
+          ? hashTarget
+          : (buttons.find((btn) => btn.dataset.tabTarget === 'storica')?.dataset.tabTarget ||
+             (buttons.find((btn) => btn.classList.contains('is-active')) || buttons[0])?.dataset.tabTarget);
         if (initialTarget) activate(initialTarget);
         else refreshTabsLayout();
+        // Scrivi hash URL al cambio tab (deep link)
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', function () {
+            try { history.replaceState(null, '', '#' + btn.dataset.tabTarget); } catch(e) {}
+          });
+        });
         window.setTimeout(refreshTabsLayout, 80);
         window.setTimeout(refreshTabsLayout, 220);
       });
@@ -708,6 +799,7 @@
               const idx = ranked.findIndex((entry) => entry.id === currentId);
               if (idx >= 0) {
                 setSummaryPosition(`${idx + 1}/${totalActive}`);
+                refreshAlgoTabRanking(null, `${idx + 1}/${totalActive}`);
               } else {
                 setSummaryPosition(`--/${totalActive}`);
               }
@@ -717,6 +809,65 @@
             setSummaryPosition('--');
           });
       };
+
+      // ─── Navigazione Prev/Next tra schede algoritmo ─────────────────────────
+      const injectPrevNextNav = () => {
+        const currentId = resolveCurrentAlgorithmId();
+        if (!currentId) return;
+        fetch('../../../../data/modules-manifest.json', { cache: 'no-store' })
+          .then(res => res.ok ? res.json() : null)
+          .then(manifest => {
+            const paths = (Array.isArray(manifest) ? manifest : [])
+              .map(p => String(p || '').trim())
+              .filter(p => p.includes('pages/algoritmi/algs/') && p.endsWith('/card.json'));
+            // Ordina per slug alfanumerico (stesso ordine del catalogo)
+            const ids = paths.map(p => {
+              const m = p.match(/\/algs\/([^/]+)\/card\.json$/);
+              return m ? m[1] : null;
+            }).filter(Boolean);
+            const idx = ids.indexOf(currentId);
+            if (idx < 0 || ids.length < 2) return;
+            const prevId = idx > 0 ? ids[idx - 1] : null;
+            const nextId = idx < ids.length - 1 ? ids[idx + 1] : null;
+            const prevHref = prevId ? `../${prevId}/` : null;
+            const nextHref = nextId ? `../${nextId}/` : null;
+            // Fetch titoli per prev/next
+            const fetches = [
+              prevHref ? fetch(`../../../../pages/algoritmi/algs/${prevId}/card.json`, { cache: 'no-store' }).then(r => r.ok ? r.json() : null).catch(() => null) : Promise.resolve(null),
+              nextHref ? fetch(`../../../../pages/algoritmi/algs/${nextId}/card.json`, { cache: 'no-store' }).then(r => r.ok ? r.json() : null).catch(() => null) : Promise.resolve(null)
+            ];
+            Promise.all(fetches).then(([prevCard, nextCard]) => {
+              const prevTitle = prevCard?.title || prevId || '←';
+              const nextTitle = nextCard?.title || nextId || '→';
+              const nav = document.createElement('nav');
+              nav.dataset.algPrevNext = '1';
+              nav.setAttribute('aria-label', 'Navigazione algoritmi');
+              nav.className = 'flex items-stretch justify-between gap-3 mt-8 pt-5 border-t border-white/10';
+              nav.innerHTML = `
+                ${prevHref
+                  ? `<a href="${prevHref}" class="flex-1 flex items-center gap-2 rounded-xl border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-ash hover:border-neon/50 hover:text-neon transition group" aria-label="Algoritmo precedente: ${prevTitle}">
+                      <span class="text-lg leading-none group-hover:text-neon transition">←</span>
+                      <span class="flex flex-col min-w-0"><span class="text-[.65rem] uppercase tracking-[.14em] text-ash/60 mb-0.5">Precedente</span><span class="truncate font-medium">${prevTitle}</span></span>
+                     </a>`
+                  : `<span class="flex-1"></span>`
+                }
+                <a href="../../" class="flex items-center gap-1 rounded-xl border border-white/8 bg-midnight/40 px-3 py-2 text-xs uppercase tracking-[.14em] text-ash/50 hover:text-neon hover:border-neon/40 transition">Catalogo</a>
+                ${nextHref
+                  ? `<a href="${nextHref}" class="flex-1 flex items-center justify-end gap-2 rounded-xl border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-ash hover:border-neon/50 hover:text-neon transition group text-right" aria-label="Algoritmo successivo: ${nextTitle}">
+                      <span class="flex flex-col min-w-0 items-end"><span class="text-[.65rem] uppercase tracking-[.14em] text-ash/60 mb-0.5">Successivo</span><span class="truncate font-medium">${nextTitle}</span></span>
+                      <span class="text-lg leading-none group-hover:text-neon transition">→</span>
+                     </a>`
+                  : `<span class="flex-1"></span>`
+                }
+              `;
+              const main = document.querySelector('main .content-box') || document.querySelector('main');
+              if (main) main.appendChild(nav);
+            }).catch(() => {});
+          })
+          .catch(() => {});
+      };
+      injectPrevNextNav();
+      // ────────────────────────────────────────────────────────────────────────
 
       const applyAlgorithmSheet = (rows) => {
         const map = new Map(rows.map((r) => [String(r[0] || '').trim().toUpperCase(), String(r[1] || '').trim()]));
@@ -800,10 +951,12 @@
         }
         tbody.innerHTML = html;
         nextContestProposal = extractedProposal;
+        refreshAlgoTabProposal(nextContestProposal); // aggiorna tab Algoritmo
         if (historicalState.rows.length) {
           renderHistoricalRows();
         }
         setSummaryRanking(rankingValue);
+        refreshAlgoTabRanking(rankingValue, null); // aggiorna KPI nel tab Algoritmo
       };
 
       const applyAnalysisText = (rawText) => {

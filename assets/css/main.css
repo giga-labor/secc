@@ -3261,3 +3261,13 @@ html.cc-perf-lite * {
 body.cc-iargos-video-modal-open {
   overflow: hidden;
 }
+
+
+/* ─── Storico estrazioni: riga più recente */
+.draws-row--latest td {
+  background: rgba(110, 231, 255, 0.04);
+}
+.draws-row--latest td:first-child {
+  border-left: 2px solid rgba(110, 231, 255, 0.5);
+  padding-left: calc(1rem - 2px);
+}
