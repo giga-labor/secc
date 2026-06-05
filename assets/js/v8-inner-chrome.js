@@ -78,34 +78,22 @@
   }
 
   // ── NASCONDI VECCHIO HEADER ──
-  function _v8HideOldHeader() {
-    var h = document.getElementById('site-header')
-      || document.querySelector('header[class*="sticky"], header[id]');
-    if (h) {
-      h.style.cssText = 'display:none!important';
-      h.setAttribute('aria-hidden', 'true');
-      return true;
+  // Usiamo una regola CSS (non inline style) perché header.js chiama
+  // node.style.removeProperty('display') che rimuoverebbe un display:none inline.
+  // Una regola in <style> con !important sopravvive a removeProperty().
+  if (!document.getElementById('v8-hide-header-rule')) {
+    var _v8HideStyle = document.createElement('style');
+    _v8HideStyle.id = 'v8-hide-header-rule';
+    _v8HideStyle.textContent =
+      '#site-header, header[class*="sticky"], header[data-page-kicker-wrap] { display: none !important; }' +
+      // Previene anche che header.js rimuova aria-hidden (MutationObserver separato gestirà l\'attributo)
+      'body { padding-top: 64px !important; }';
+    if (document.head) {
+      document.head.appendChild(_v8HideStyle);
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        document.head.appendChild(_v8HideStyle);
+      });
     }
-    return false;
-  }
-
-  if (!_v8HideOldHeader()) {
-    var _v8Obs = new MutationObserver(function (mutations) {
-      for (var mi = 0; mi < mutations.length; mi++) {
-        var nodes = mutations[mi].addedNodes;
-        for (var ni = 0; ni < nodes.length; ni++) {
-          var node = nodes[ni];
-          if (node.nodeType !== 1) continue;
-          if (node.id === 'site-header' || node.tagName === 'HEADER') {
-            node.style.cssText = 'display:none!important';
-            node.setAttribute('aria-hidden', 'true');
-            _v8Obs.disconnect();
-            return;
-          }
-        }
-      }
-    });
-    var _v8ObsTarget = document.body || document.documentElement;
-    _v8Obs.observe(_v8ObsTarget, { childList: true });
   }
 })();
