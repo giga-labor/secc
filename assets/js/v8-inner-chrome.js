@@ -84,17 +84,16 @@
   if (!document.getElementById('v8-hide-header-rule')) {
     var _v8HideStyle = document.createElement('style');
     _v8HideStyle.id = 'v8-hide-header-rule';
+    // Nasconde solo il site-header globale (navbar), non gli header di sezione (data-page-kicker-wrap)
     _v8HideStyle.textContent =
-      '#site-header,' +
-      'header[class*="sticky"],' +
-      'header[data-page-kicker-wrap],' +
-      '.cc-nav-minimal,' +
-      '.header--top {' +
+      '#site-header {' +
         'display: none !important;' +
         'visibility: hidden !important;' +
         'pointer-events: none !important;' +
         'height: 0 !important;' +
         'overflow: hidden !important;' +
+        'margin: 0 !important;' +
+        'padding: 0 !important;' +
       '}';
     if (document.head) {
       document.head.appendChild(_v8HideStyle);
