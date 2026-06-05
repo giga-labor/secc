@@ -85,9 +85,17 @@
     var _v8HideStyle = document.createElement('style');
     _v8HideStyle.id = 'v8-hide-header-rule';
     _v8HideStyle.textContent =
-      '#site-header, header[class*="sticky"], header[data-page-kicker-wrap] { display: none !important; }' +
-      // Previene anche che header.js rimuova aria-hidden (MutationObserver separato gestirà l\'attributo)
-      'body { padding-top: 64px !important; }';
+      '#site-header,' +
+      'header[class*="sticky"],' +
+      'header[data-page-kicker-wrap],' +
+      '.cc-nav-minimal,' +
+      '.header--top {' +
+        'display: none !important;' +
+        'visibility: hidden !important;' +
+        'pointer-events: none !important;' +
+        'height: 0 !important;' +
+        'overflow: hidden !important;' +
+      '}';
     if (document.head) {
       document.head.appendChild(_v8HideStyle);
     } else {
