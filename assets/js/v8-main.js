@@ -479,6 +479,8 @@ function buildCCEngine(cvs, opts){
 // ─── COUNTDOWN
 let _nextDrawAt=null;
 let _nextDrawLoading=false;
+let _waitingDots=0;
+let _waitingLastFetch=0;
 
 function fallbackNextDrawDate(){
   const now=new Date();
@@ -548,14 +550,20 @@ function upCd(){
   const now=new Date();
   const target=_nextDrawAt||fallbackNextDrawDate();
   let diff=Math.max(0,target-now);
-  const h=Math.floor(diff/3600000);diff%=3600000;
-  const m=Math.floor(diff/60000);diff%=60000;
-  const s=Math.floor(diff/1000);
-  const f=n=>String(n).padStart(2,'0');
   const el=document.getElementById('cd');
-  if(el) el.textContent=`${f(h)}:${f(m)}:${f(s)}`;
-
-  if(diff===0) fetchNextDrawDate();
+  if(diff===0){
+    _waitingDots=(_waitingDots+1)%4;
+    if(el) el.textContent='Risultati in arrivo'+'.'.repeat(_waitingDots);
+    // Poll ogni 30s finché non arriva la nuova data
+    if(now-_waitingLastFetch>30000){ _waitingLastFetch=now; fetchNextDrawDate(); }
+  } else {
+    _waitingDots=0; _waitingLastFetch=0;
+    const h=Math.floor(diff/3600000);diff%=3600000;
+    const m=Math.floor(diff/60000);diff%=60000;
+    const s=Math.floor(diff/1000);
+    const f=n=>String(n).padStart(2,'0');
+    if(el) el.textContent=`${f(h)}:${f(m)}:${f(s)}`;
+  }
 }
 setInterval(upCd,1000);upCd();
 fetchNextDrawDate();
