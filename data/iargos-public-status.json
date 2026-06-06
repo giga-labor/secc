@@ -1,42 +1,54 @@
 {
-  "updated_at": "2026-06-06 21:30:04",
+  "updated_at": "2026-06-06 22:16:37",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "info",
-  "summary": "Errore snapshot: read_activity_history() got an unexpected keyword argument 'limit'",
+  "severity": "critical",
+  "summary": "Problemi attivi: p2_flow_guard",
   "overview_green": false,
-  "alignment_priority": {},
+  "alignment_priority": {
+    "p0_new_contest_found": false,
+    "p1_mirror_map": false,
+    "p2_flow_guard": true,
+    "p3_pending_publish": false,
+    "p4_alignment_diff": false,
+    "p5_training_gap": false,
+    "p5_archive_stale": false,
+    "p6_local_publish": false,
+    "p7_remote_force_align": false,
+    "p8_backup_over_limit": false,
+    "p9_smtp_broken": false
+  },
   "alignment": {
-    "archive_update_state": "",
+    "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
-    "git_dirty": false,
+    "flow_guard_ok": false,
+    "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0,
-    "active_algorithms_count": 0,
-    "active_algorithms_aligned_count": 0
+    "active_algorithms_count": 15,
+    "active_algorithms_aligned_count": 15
   },
   "circuit": {
     "state": "CLOSED",
     "consecutive_failures": 0
   },
   "runtime": {
-    "state_level": "ok",
-    "state_label": "operativo",
-    "last_push_at": "2026-06-06 21:29:27",
+    "state_level": "warn",
+    "state_label": "monitoraggio",
+    "last_push_at": "2026-06-06 21:35:13",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1780770438
+    "boot_ts": 1780776715
   },
   "feed": [
     {
       "type": "draw",
       "ts": "2026-06-06T21:11:18",
       "message": "Nuova estrazione importata e analizzata",
-      "detail": "[AUTONOMOUS] 'check_draws_online' OK (trigger: p0_new_contest_found) - fase unica: 4 eventi ravvicinati",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
     },
@@ -44,7 +56,7 @@
       "type": "alert",
       "ts": "2026-06-06T21:09:26",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "Fase KO: apply_stage_to_repo -> Working tree non pulita (gate strict) - fase unica: 2 eventi ravvicinati",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "updates"
     },
@@ -52,7 +64,7 @@
       "type": "training",
       "ts": "2026-06-06T21:02:32",
       "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "TRAIN start: target_seq=4208 | algoritmi_attivi=15",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
     },
@@ -60,7 +72,7 @@
       "type": "draw",
       "ts": "2026-06-05T21:07:17",
       "message": "Nuova estrazione importata e analizzata",
-      "detail": "[AUTONOMOUS] 'check_draws_online' OK (trigger: p0_new_contest_found) - fase unica: 3 eventi ravvicinati",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
     },
@@ -68,7 +80,7 @@
       "type": "alert",
       "ts": "2026-06-05T21:06:08",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "Quorum fase2 KO: attesa 20s prima del ricontrollo.",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "updates"
     },
@@ -76,7 +88,7 @@
       "type": "training",
       "ts": "2026-06-05T20:59:59",
       "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "TRAIN start: target_seq=4207 | algoritmi_attivi=15",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
     },
@@ -84,7 +96,7 @@
       "type": "alert",
       "ts": "2026-06-05T19:37:12",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "Email incidente flat connettivita assente (opened): Invio email fallito: Connection unexpectedly closed: timed out",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": true,
       "source": "iargos"
     },
@@ -92,7 +104,7 @@
       "type": "versioning",
       "ts": "2026-06-05T19:36:11",
       "message": "Nuova versione del sito pubblicata (00.14.000 -> 00.15.000)",
-      "detail": "640 file sincronizzati - backup mirror-00.15.000",
+      "detail": "640 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -100,7 +112,7 @@
       "type": "versioning",
       "ts": "2026-06-04T22:15:01",
       "message": "Nuova versione del sito pubblicata (00.13.000 -> 00.14.000)",
-      "detail": "632 file sincronizzati - backup mirror-00.14.000",
+      "detail": "632 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -108,7 +120,7 @@
       "type": "draw",
       "ts": "2026-06-04T21:11:27",
       "message": "Nuova estrazione importata e analizzata",
-      "detail": "[AUTONOMOUS] 'check_draws_online' OK (trigger: p0_new_contest_found) - fase unica: 3 eventi ravvicinati",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
     },
@@ -116,7 +128,7 @@
       "type": "alert",
       "ts": "2026-06-04T21:09:49",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "Quorum fase2 KO: attesa 20s prima del ricontrollo.",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "updates"
     },
@@ -124,7 +136,7 @@
       "type": "training",
       "ts": "2026-06-04T21:03:52",
       "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "TRAIN start: target_seq=4206 | algoritmi_attivi=15",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
     },
@@ -132,7 +144,7 @@
       "type": "draw",
       "ts": "2026-05-30T21:03:48",
       "message": "Nuova estrazione importata e analizzata",
-      "detail": "[AUTONOMOUS] 'check_draws_online' OK (trigger: p0_new_contest_found) - fase unica: 2 eventi ravvicinati",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
     },
@@ -140,7 +152,7 @@
       "type": "alert",
       "ts": "2026-05-30T21:03:12",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "Quorum fase2 KO: attesa 20s prima del ricontrollo.",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "updates"
     },
@@ -148,7 +160,7 @@
       "type": "training",
       "ts": "2026-05-30T20:58:19",
       "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "TRAIN start: target_seq=4205 | algoritmi_attivi=15",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
     },
@@ -156,7 +168,7 @@
       "type": "draw",
       "ts": "2026-05-29T20:59:20",
       "message": "Nuova estrazione importata e analizzata",
-      "detail": "[AUTONOMOUS] 'check_draws_online' OK (trigger: p0_new_contest_found) - fase unica: 2 eventi ravvicinati",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
     },
@@ -164,7 +176,7 @@
       "type": "alert",
       "ts": "2026-05-29T20:58:30",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "Quorum fase2 KO: attesa 20s prima del ricontrollo.",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "updates"
     },
@@ -172,7 +184,7 @@
       "type": "training",
       "ts": "2026-05-29T20:53:11",
       "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "TRAIN start: target_seq=4204 | algoritmi_attivi=15",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
     },
@@ -180,7 +192,7 @@
       "type": "alert",
       "ts": "2026-05-29T19:58:45",
       "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "flat guardian error: name '_non_actio' is not defined - fase unica: 3 eventi ravvicinati",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "iargos"
     },
@@ -188,7 +200,7 @@
       "type": "versioning",
       "ts": "2026-05-26T17:44:41",
       "message": "Nuova versione del sito pubblicata (00.12.000 -> 00.13.000)",
-      "detail": "632 file sincronizzati - backup mirror-00.13.000",
+      "detail": "632 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -196,7 +208,7 @@
       "type": "versioning",
       "ts": "2026-05-26T17:43:14",
       "message": "Nuova versione del sito pubblicata (00.11.003 -> 00.12.000)",
-      "detail": "632 file sincronizzati - backup mirror-00.12.000",
+      "detail": "632 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -204,7 +216,7 @@
       "type": "versioning",
       "ts": "2026-04-19T00:23:14",
       "message": "Versione del sito aggiornata (00.11.000 -> 00.11.002)",
-      "detail": "617 file sincronizzati - backup mirror-00.11.002",
+      "detail": "617 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -212,7 +224,7 @@
       "type": "versioning",
       "ts": "2026-04-19T00:06:35",
       "message": "Versione precedente ripristinata (00.11.001 -> 00.11.000)",
-      "detail": "617 file sincronizzati - backup mirror-00.11.000-20260419_000613",
+      "detail": "617 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -220,7 +232,7 @@
       "type": "versioning",
       "ts": "2026-04-17T19:46:22",
       "message": "Nuova versione del sito pubblicata (00.10.033 -> 00.11.000)",
-      "detail": "617 file sincronizzati - backup mirror-00.11.000",
+      "detail": "617 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -228,7 +240,7 @@
       "type": "versioning",
       "ts": "2026-03-25T12:56:04",
       "message": "Nuova versione del sito pubblicata (00.09.022 -> 00.10.000)",
-      "detail": "501 file sincronizzati - backup mirror-00.10.000",
+      "detail": "501 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -236,7 +248,7 @@
       "type": "versioning",
       "ts": "2026-03-14T23:02:33",
       "message": "Versione del sito aggiornata (00.09.010 -> 00.09.012)",
-      "detail": "481 file sincronizzati - backup mirror-00.09.012",
+      "detail": "481 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -244,7 +256,7 @@
       "type": "versioning",
       "ts": "2026-03-14T23:01:41",
       "message": "Versione precedente ripristinata (00.09.011 -> 00.09.010)",
-      "detail": "481 file sincronizzati - backup mirror-00.09.010-20260314_230139",
+      "detail": "481 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -252,7 +264,7 @@
       "type": "versioning",
       "ts": "2026-03-10T23:31:55",
       "message": "Nuova versione del sito pubblicata (00.08.002 -> 00.09.000)",
-      "detail": "480 file sincronizzati - backup mirror-00.09.000",
+      "detail": "480 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -260,7 +272,7 @@
       "type": "versioning",
       "ts": "2026-03-10T00:51:56",
       "message": "Nuova versione del sito pubblicata (00.07.006 -> 00.08.000)",
-      "detail": "469 file sincronizzati - backup mirror-00.08.000",
+      "detail": "469 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     },
@@ -268,7 +280,7 @@
       "type": "versioning",
       "ts": "2026-02-25T03:26:52",
       "message": "Nuova versione del sito pubblicata (00.06.028 -> 00.07.000)",
-      "detail": "504 file sincronizzati - backup mirror-00.07.000",
+      "detail": "504 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     }
