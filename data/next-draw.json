@@ -3,7 +3,7 @@
   "next_date": "08/06/2026",
   "next_date_iso": "2026-06-08",
   "next_datetime_iso": "2026-06-08T20:00:00",
-  "next_weekday": "LunedÃƒÂ¬",
+  "next_weekday": "Lunedì",
   "next_time": "20:00",
   "last_seq": 4207,
   "last_date": "05/06/2026",
@@ -12,5 +12,5 @@
   "jackpot_eur": "€ 175.100.000",
   "jackpot_raw": 175100000,
   "jackpot_source": "superenalotto_com",
-  "updated_at": "2026-06-06 20:23:29"
+  "updated_at": "2026-06-06 20:26:26"
 }
