@@ -1,0 +1,29 @@
+{
+  "slug": "genetic",
+  "title": "GeneticSE",
+  "family": "neurale",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    65,
+    70,
+    76,
+    83,
+    4,
+    88
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.39,
+    "hit_rate_gte_2": 4.6,
+    "hit_rate_gte_3": 0.4,
+    "best_streak": 7
+  },
+  "explanation": [
+    "GeneticSE e un algoritmo evolutivo adattivo a popolazione. Simula una forma di apprendimento progressivo su storico con selezione, crossover e mutazione dei pesi interni.",
+    "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi.",
+    "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
+    "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "classic-coppie-terni-consecutivi",
+  "title": "classic-coppie-terni-consecutivi",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    43,
+    44,
+    45,
+    55,
+    56,
+    57
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.4,
+    "hit_rate_gte_2": 4.9,
+    "best_streak": 8
+  },
+  "explanation": [
+    "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte.",
+    "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.",
+    "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti",
+    "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
+  ]
+}

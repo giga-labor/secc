@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Concorso · SuperEnalotto ControlChaos</title>
+  <meta name="description" content="Matchup tra previsioni degli algoritmi e numeri estratti nell'ultimo concorso SuperEnalotto. Verifica in tempo reale quanti numeri ogni modello ha indovinato.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/concorso/">
+  <script src="../../assets/js/ga4.js" defer></script>
+  <script src="../../assets/js/version.js" defer></script>
+  <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/tailwind-config.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    /* ── Pagina Concorso ────────────────────────────────── */
+    .cc-concorso-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+    .cc-concorso-badge {
+      display: inline-block;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--color-ash, rgba(237,232,223,.5));
+      margin-bottom: .75rem;
+    }
+    .cc-concorso-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 .4rem;
+    }
+    .cc-concorso-date {
+      font-size: .88rem;
+      color: var(--color-ash, rgba(237,232,223,.5));
+      margin-bottom: 1.5rem;
+    }
+
+    /* Balls estratti */
+    .cc-draw-balls {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .cc-draw-ball {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.05rem;
+      background: linear-gradient(135deg, rgba(255,217,102,.18) 0%, rgba(255,217,102,.06) 100%);
+      border: 1.5px solid rgba(255,217,102,.5);
+      color: #FFD966;
+      box-shadow: 0 0 14px rgba(255,217,102,.15);
+    }
+
+    /* Nota metodologica */
+    .cc-concorso-note {
+      background: rgba(237,232,223,.04);
+      border: 1px solid rgba(237,232,223,.1);
+      border-radius: .75rem;
+      padding: .9rem 1.2rem;
+      font-size: .78rem;
+      color: var(--color-ash, rgba(237,232,223,.5));
+      margin-bottom: 2rem;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .cc-concorso-note strong {
+      color: rgba(237,232,223,.75);
+    }
+
+    /* Tabella matchup */
+    .cc-matchup-wrap {
+      overflow-x: auto;
+      border-radius: .75rem;
+      border: 1px solid rgba(237,232,223,.1);
+      background: rgba(16,18,28,.6);
+      margin-bottom: 2rem;
+    }
+    .cc-matchup-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+    }
+    .cc-matchup-table th {
+      padding: .65rem 1rem;
+      text-align: left;
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-ash, rgba(237,232,223,.45));
+      border-bottom: 1px solid rgba(237,232,223,.08);
+      white-space: nowrap;
+    }
+    .cc-matchup-table td {
+      padding: .7rem 1rem;
+      border-bottom: 1px solid rgba(237,232,223,.05);
+      vertical-align: middle;
+      color: rgba(237,232,223,.85);
+    }
+    .cc-matchup-table tr:last-child td { border-bottom: none; }
+    .cc-matchup-table tr:hover td { background: rgba(255,255,255,.025); }
+
+    /* Hit badge */
+    .cc-hit-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .cc-hit-badge--0 { background: rgba(237,232,223,.07); color: rgba(237,232,223,.3); }
+    .cc-hit-badge--1 { background: rgba(99,210,150,.15); color: #63D296; border: 1px solid rgba(99,210,150,.3); }
+    .cc-hit-badge--2 { background: rgba(99,210,150,.25); color: #63D296; border: 1px solid rgba(99,210,150,.5); }
+    .cc-hit-badge--3 { background: rgba(99,210,150,.4); color: #1a5c38; border: 1px solid #63D296; }
+    .cc-hit-badge--4,
+    .cc-hit-badge--5,
+    .cc-hit-badge--6 { background: #FFD966; color: #1a1200; border: 1px solid #FFD966; }
+
+    /* Mini balls proposta */
+    .cc-mini-balls {
+      display: flex;
+      gap: .3rem;
+      flex-wrap: wrap;
+    }
+    .cc-mini-ball {
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 600;
+      background: rgba(237,232,223,.07);
+      color: rgba(237,232,223,.6);
+      border: 1px solid rgba(237,232,223,.12);
+    }
+    .cc-mini-ball--hit {
+      background: rgba(255,217,102,.18);
+      color: #FFD966;
+      border-color: rgba(255,217,102,.4);
+    }
+
+    /* Family chip */
+    .cc-family-chip {
+      display: inline-block;
+      padding: .15rem .55rem;
+      border-radius: 999px;
+      font-size: .65rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .cc-family-chip--statistica  { background: rgba(99,169,210,.12); color: #63A9D2; border: 1px solid rgba(99,169,210,.25); }
+    .cc-family-chip--neurale     { background: rgba(139,92,246,.12); color: #8B5CF6; border: 1px solid rgba(139,92,246,.25); }
+    .cc-family-chip--ibrido      { background: rgba(251,146,60,.12); color: #FB923C; border: 1px solid rgba(251,146,60,.25); }
+    .cc-family-chip--             { background: rgba(237,232,223,.07); color: rgba(237,232,223,.4); }
+
+    /* Pos rank */
+    .cc-pos { font-size: .75rem; color: rgba(237,232,223,.3); width: 1.8rem; }
+
+    /* Loading */
+    .cc-concorso-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--color-ash, rgba(237,232,223,.4));
+      font-size: .9rem;
+    }
+
+    /* Summary KPI */
+    .cc-concorso-kpis {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .cc-concorso-kpi {
+      background: rgba(237,232,223,.04);
+      border: 1px solid rgba(237,232,223,.1);
+      border-radius: .75rem;
+      padding: .75rem 1.25rem;
+      text-align: center;
+      min-width: 130px;
+    }
+    .cc-concorso-kpi__value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .cc-concorso-kpi__label {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-ash, rgba(237,232,223,.4));
+      margin-top: .2rem;
+    }
+  </style>
+</head>
+<body class="bg-midnight text-white" data-page-id="concorso">
+
+  <div id="cc-header-root"></div>
+
+  <main class="cc-page-wrap cc-page-wrap--wide" style="max-width:900px;margin:0 auto;padding:0 1.5rem 4rem;">
+
+    <!-- Hero -->
+    <div class="cc-concorso-hero" id="concorso-hero">
+      <span class="cc-concorso-badge">Ultimo concorso</span>
+      <h1 class="cc-concorso-title" id="concorso-title">Caricamento…</h1>
+      <p class="cc-concorso-date" id="concorso-date"></p>
+      <div class="cc-draw-balls" id="concorso-balls" aria-label="Numeri estratti"></div>
+    </div>
+
+    <!-- KPI summary -->
+    <div class="cc-concorso-kpis" id="concorso-kpis" hidden>
+      <div class="cc-concorso-kpi">
+        <div class="cc-concorso-kpi__value" id="kpi-algoritmi">--</div>
+        <div class="cc-concorso-kpi__label">Algoritmi attivi</div>
+      </div>
+      <div class="cc-concorso-kpi">
+        <div class="cc-concorso-kpi__value" id="kpi-hit-totali">--</div>
+        <div class="cc-concorso-kpi__label">Hit totali</div>
+      </div>
+      <div class="cc-concorso-kpi">
+        <div class="cc-concorso-kpi__value" id="kpi-best-hit">--</div>
+        <div class="cc-concorso-kpi__label">Best hit singolo</div>
+      </div>
+      <div class="cc-concorso-kpi">
+        <div class="cc-concorso-kpi__value" id="kpi-pct">--%</div>
+        <div class="cc-concorso-kpi__label">Hit rate ≥ 1</div>
+      </div>
+    </div>
+
+    <!-- Nota metodologica -->
+    <div class="cc-concorso-note">
+      <strong>Come si legge questa pagina.</strong>
+      Per ogni algoritmo attivo vengono confrontati i 6 numeri proposti per questo concorso con i 6 numeri effettivamente estratti.
+      Un "hit" è un numero proposto che coincide con un numero estratto.
+      SuperEnalotto ha probabilità di 6/90 per numero: <strong>0–1 hit per concorso è l'esito statisticamente normale</strong>.
+      Questi dati non costituiscono previsione e non garantiscono vincite future.
+    </div>
+
+    <!-- Caricamento -->
+    <div id="concorso-loading" class="cc-concorso-loading">
+      Caricamento dati in corso…
+    </div>
+
+    <!-- Tabella matchup -->
+    <div id="concorso-matchup" hidden>
+      <h2 class="text-white mb-4" style="font-size:1.1rem;font-weight:600;">Matchup previsioni vs estrazione</h2>
+      <div class="cc-matchup-wrap">
+        <table class="cc-matchup-table">
+          <thead>
+            <tr>
+              <th style="width:2.5rem">#</th>
+              <th>Algoritmo</th>
+              <th>Famiglia</th>
+              <th>Proposta</th>
+              <th style="text-align:center">Hit</th>
+            </tr>
+          </thead>
+          <tbody id="matchup-tbody"></tbody>
+        </table>
+      </div>
+      <p style="font-size:.75rem;color:rgba(237,232,223,.3);text-align:right;margin-top:.5rem" id="concorso-generated"></p>
+    </div>
+
+    <!-- Link rapidi -->
+    <nav class="cc-page-hub" style="margin-top:3rem;" aria-label="Navigazione rapida">
+      <a class="cc-page-hub__item" href="../sestine-proposte/">
+        <span class="cc-page-hub__label">Sestine proposte</span>
+        <span class="cc-page-hub__arrow">→</span>
+      </a>
+      <a class="cc-page-hub__item" href="../ranking/">
+        <span class="cc-page-hub__label">Classifica algoritmi</span>
+        <span class="cc-page-hub__arrow">→</span>
+      </a>
+      <a class="cc-page-hub__item" href="../consenso/">
+        <span class="cc-page-hub__label">Consenso numerico</span>
+        <span class="cc-page-hub__arrow">→</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function padNum(n) { return String(n).padStart(2, '0'); }
+
+    function familyChip(family) {
+      var f = String(family || '').toLowerCase();
+      var cls = 'cc-family-chip cc-family-chip--' + (f || '');
+      var label = f === 'statistica' ? 'Statistica'
+                : f === 'neurale'   ? 'Neurale'
+                : f === 'ibrido'    ? 'Ibrido'
+                : f || '—';
+      return '<span class="' + cls + '">' + esc(label) + '</span>';
+    }
+
+    function hitBadge(n) {
+      var cls = 'cc-hit-badge cc-hit-badge--' + Math.min(n, 6);
+      return '<span class="' + cls + '">' + n + '</span>';
+    }
+
+    function miniBalls(nums, hitSet) {
+      return nums.map(function (n) {
+        var isHit = hitSet.has(n);
+        var cls = 'cc-mini-ball' + (isHit ? ' cc-mini-ball--hit' : '');
+        return '<span class="' + cls + '" title="' + n + (isHit ? ' ✓ HIT' : '') + '">' + padNum(n) + '</span>';
+      }).join('');
+    }
+
+    async function loadJson(url) {
+      var res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + url);
+      return res.json();
+    }
+
+    function resolveBase() {
+      // Dalla posizione pages/concorso/ → root è ../../
+      var base = '../../';
+      // Se caricato localmente o da subpath diverso, adatta
+      try {
+        var path = window.location.pathname;
+        var parts = path.replace(/\\/g, '/').split('/').filter(Boolean);
+        var idx = parts.lastIndexOf('concorso');
+        if (idx >= 0) {
+          var depth = parts.length - idx - 1;
+          base = Array(idx + 1).fill('..').join('/') + '/';
+        }
+      } catch (_) {}
+      return base;
+    }
+
+    async function init() {
+      var base = resolveBase();
+      var summaryUrl = base + 'data/precomputed/home-summary.json';
+      var algorithmsUrl = base + 'data/precomputed/algorithms-data.json';
+
+      var summary, algorithmsData;
+      try {
+        [summary, algorithmsData] = await Promise.all([
+          loadJson(summaryUrl),
+          loadJson(algorithmsUrl)
+        ]);
+      } catch (err) {
+        document.getElementById('concorso-loading').textContent = 'Errore caricamento dati: ' + err.message;
+        return;
+      }
+
+      // ── Ultimo concorso ──
+      var draw = (summary && summary.latest_draw) || null;
+      var drawSeq  = draw ? draw.seq  : '—';
+      var drawDate = draw ? draw.date  : '—';
+      var drawNums = (draw && Array.isArray(draw.nums) && draw.nums.length === 6) ? draw.nums : [];
+      var drawnSet = new Set(drawNums);
+
+      document.getElementById('concorso-title').textContent = 'Concorso #' + drawSeq;
+      document.getElementById('concorso-date').textContent = drawDate;
+      document.title = 'Concorso #' + drawSeq + ' · SuperEnalotto ControlChaos';
+
+      // Balls estratti
+      var ballsEl = document.getElementById('concorso-balls');
+      if (drawNums.length) {
+        ballsEl.innerHTML = drawNums.map(function (n) {
+          return '<span class="cc-draw-ball" aria-label="numero ' + n + '">' + padNum(n) + '</span>';
+        }).join('');
+      } else {
+        ballsEl.innerHTML = '<span style="color:rgba(237,232,223,.4)">Dati non disponibili</span>';
+      }
+
+      // ── Matchup algoritmi ──
+      var algorithms = (algorithmsData && Array.isArray(algorithmsData.algorithms)) ? algorithmsData.algorithms : [];
+      var generatedAt = algorithmsData && algorithmsData.generated_at ? algorithmsData.generated_at : '';
+
+      var rows = algorithms.map(function (alg) {
+        var nums = Array.isArray(alg.proposal) ? alg.proposal : [];
+        var hits = nums.filter(function (n) { return drawnSet.has(n); });
+        return {
+          slug: alg.slug || '',
+          title: alg.title || alg.slug || '—',
+          family: alg.family || '',
+          nums: nums,
+          hits: hits,
+          hitCount: hits.length
+        };
+      });
+
+      // Ordina: più hit prima, poi per titolo
+      rows.sort(function (a, b) {
+        return (b.hitCount - a.hitCount) || a.title.localeCompare(b.title);
+      });
+
+      // KPI
+      var totalHits = rows.reduce(function (s, r) { return s + r.hitCount; }, 0);
+      var bestHit = rows.length ? rows[0].hitCount : 0;
+      var withHit = rows.filter(function (r) { return r.hitCount >= 1; }).length;
+      var hitPct = rows.length ? Math.round((withHit / rows.length) * 100) : 0;
+
+      document.getElementById('kpi-algoritmi').textContent = rows.length;
+      document.getElementById('kpi-hit-totali').textContent = totalHits;
+      document.getElementById('kpi-best-hit').textContent = bestHit;
+      document.getElementById('kpi-pct').textContent = hitPct + '%';
+      document.getElementById('concorso-kpis').removeAttribute('hidden');
+
+      // Tbody
+      var tbody = document.getElementById('matchup-tbody');
+      tbody.innerHTML = rows.map(function (row, idx) {
+        var pos = idx + 1;
+        var hitSet = new Set(row.hits);
+        var algHref = base + 'pages/algoritmi/algs/' + esc(row.slug) + '/';
+        var numsHtml = row.nums.length
+          ? '<div class="cc-mini-balls">' + miniBalls(row.nums, hitSet) + '</div>'
+          : '<span style="color:rgba(237,232,223,.3)">N/D</span>';
+        return '<tr>' +
+          '<td class="cc-pos">' + pos + '</td>' +
+          '<td><a href="' + esc(algHref) + '" class="cc-alg-link">' + esc(row.title) + '</a></td>' +
+          '<td>' + familyChip(row.family) + '</td>' +
+          '<td>' + numsHtml + '</td>' +
+          '<td style="text-align:center">' + hitBadge(row.hitCount) + '</td>' +
+          '</tr>';
+      }).join('');
+
+      if (generatedAt) {
+        document.getElementById('concorso-generated').textContent =
+          'Dati generati: ' + generatedAt.replace('T', ' ').slice(0, 16);
+      }
+
+      document.getElementById('concorso-loading').hidden = true;
+      document.getElementById('concorso-matchup').removeAttribute('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      init().catch(function (err) {
+        document.getElementById('concorso-loading').textContent = 'Errore: ' + err.message;
+      });
+    });
+  })();
+  </script>
+
+  <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+</body>
+</html>

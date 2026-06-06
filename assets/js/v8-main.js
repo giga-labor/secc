@@ -62,12 +62,13 @@ function buildCells(){
 // ─── STATISTICHE PER NUMERO (calcolate su tutti i draws)
 function computeNumStats(draws){
   const out={};
-  const n=draws.length;
+  const list=Array.isArray(draws)?draws:[];
+  const n=list.length;
   for(let num=1;num<=90;num++){
     let lastIdx=-1,lastDate='--',lastId='--';
     let f90=0,f180=0,fFull=0;
     for(let i=0;i<n;i++){
-      const d=draws[i];
+      const d=list[i];
       if(Array.isArray(d.nums)&&d.nums.includes(num)){
         fFull++;lastIdx=i;lastDate=d.date||'--';lastId=d.id||'--';
         if(i>=n-90)f90++;
@@ -79,6 +80,34 @@ function computeNumStats(draws){
     out[num]={delay,f90,f180,fFull,lastDate,lastId,avgEvery};
   }
   return out;
+}
+
+function normalizeNumberStats(stats, draws){
+  const computed=computeNumStats(draws||[]);
+  const src=stats&&typeof stats==='object'?stats:{};
+  const out={};
+  for(let num=1;num<=90;num++){
+    const raw=src[num]||src[String(num)]||{};
+    const fallback=computed[num]||{};
+    out[num]={
+      delay:raw.delay??fallback.delay,
+      f90:raw.f90??fallback.f90,
+      f180:raw.f180??fallback.f180,
+      fFull:raw.fFull??fallback.fFull,
+      lastDate:raw.lastDate??fallback.lastDate,
+      lastId:raw.lastId??fallback.lastId,
+      avgEvery:raw.avgEvery??fallback.avgEvery,
+    };
+  }
+  return out;
+}
+
+function hasStatValue(value){
+  return value!==undefined&&value!==null&&value!=='';
+}
+
+function formatStatValue(value, fallback){
+  return hasStatValue(value)?value:(fallback||'N/D');
 }
 
 // Resize: ricostruisce celle solo se i dati sono già disponibili
@@ -100,7 +129,6 @@ document.addEventListener('mousemove',e=>{pmx=e.clientX;pmy=e.clientY;});
 
 const tt=document.getElementById('tt');
 const ttB=document.getElementById('tt-b'),ttN=document.getElementById('tt-n'),ttI=document.getElementById('tt-i');
-const bbMsg=document.getElementById('bb-msg');
 
 function isNumberHoverBlocked(){
   const panelEl=document.getElementById('panel');
@@ -210,7 +238,6 @@ function draw(){
 
   if(hovCell){
     curR.classList.add('xl');
-    bbMsg.textContent=`N° ${hovCell.n} · ${hovCell.isHot?'caldo':hovCell.isCold?'freddo':hovCell.isJolly?'jolly':hovCell.isLast?'estratto':'nella media'}`;
 
     // Reset timer se la cella è cambiata
     if(hovCell!==_hovPrev){
@@ -235,6 +262,12 @@ function draw(){
       // Contenuto ricco
       const catColor=c.isLast||c.isJolly?'#F59E0B':c.isHot?'#C8391A':c.isCold?'#8B5CF6':'rgba(237,232,223,.55)';
       const catLabel=c.isLast?'Ultima estrazione':c.isJolly?'Jolly':c.isHot?'Alta frequenza (ult. 30)':c.isCold?'Assente (ult. 50)':'Frequenza nella media';
+      const delay=formatStatValue(s.delay);
+      const f90=formatStatValue(s.f90);
+      const f180=formatStatValue(s.f180);
+      const lastDate=formatStatValue(s.lastDate);
+      const avgEvery=formatStatValue(s.avgEvery);
+      const lastId=hasStatValue(s.lastId)&&s.lastId!=='--'?` Â· #${s.lastId}`:'';
       ttI.innerHTML=
         `<b style="color:${catColor}">${catLabel}</b><br>`+
         `Ritardo: <b>${s.delay!==undefined?s.delay:'--'}</b> estrazioni<br>`+
@@ -243,6 +276,13 @@ function draw(){
         `Ultima: <b>${s.lastDate||'--'}</b>`+
         (s.lastId&&s.lastId!=='--'?` · #${s.lastId}`:'')+`<br>`+
         `Media: ogni ~<b>${s.avgEvery||'--'}</b> estrazioni`;
+      const lastSeq=hasStatValue(s.lastId)&&s.lastId!=='--'?` - #${s.lastId}`:'';
+      ttI.innerHTML=
+        `<b style="color:${catColor}">${catLabel}</b><br>`+
+        `Ritardo: <b>${delay}</b> estrazioni<br>`+
+        `Ultime 90: <b>${f90}</b> uscite - 180: <b>${f180}</b><br>`+
+        `Ultima: <b>${lastDate}</b>${lastSeq}<br>`+
+        `Media: ogni ~<b>${avgEvery}</b> estrazioni`;
 
       // Posizionamento direzionale: tooltip punta verso il centro schermo
       // Prima rendi visibile fuori schermo per misurare le dimensioni reali
@@ -250,19 +290,31 @@ function draw(){
       tt.classList.add('on');
       const TW=tt.offsetWidth||180;
       const TH=tt.offsetHeight||100;
+      const reserveRight=Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-reserve-right'))||0;
+      const reserveBottom=Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-reserve-bottom'))||0;
+      const minX=8;
+      const minY=68;
+      const maxX=Math.max(minX,W-reserveRight-TW-8);
+      const maxY=Math.max(minY,H-reserveBottom-TH-8);
 
-      const cx=W/2,cy=H/2;
-      const dx=c.px-cx,dy=c.py-cy;
-      let tx,ty;
-      if(Math.abs(dx)>=Math.abs(dy)){
-        // Asse orizzontale dominante
-        tx=dx>0?Math.min(c.px+22,W-TW-8):Math.max(c.px-TW-22,8);
-        ty=Math.max(68,Math.min(c.py-TH/2,H-TH-8));
+      const viewW=W-reserveRight;
+      const viewH=H-reserveBottom;
+      const cx=viewW/2,cy=Math.max(minY,viewH/2);
+      const toCenterX=cx-c.px;
+      const toCenterY=cy-c.py;
+      const dist=Math.max(1,Math.hypot(toCenterX,toCenterY));
+      const nx=toCenterX/dist;
+      const ny=toCenterY/dist;
+      const gap=24;
+      let tx=c.px+(nx*gap)-(TW/2);
+      let ty=c.py+(ny*gap)-(TH/2);
+      if(Math.abs(nx)>=Math.abs(ny)){
+        tx=nx>0?c.px+gap:c.px-TW-gap;
       } else {
-        // Asse verticale dominante
-        tx=Math.max(8,Math.min(c.px-TW/2,W-TW-8));
-        ty=dy>0?Math.min(c.py+22,H-TH-8):Math.max(68,c.py-TH-22);
+        ty=ny>0?c.py+gap:c.py-TH-gap;
       }
+      tx=Math.max(minX,Math.min(tx,maxX));
+      ty=Math.max(minY,Math.min(ty,maxY));
       tt.style.left=tx+'px';tt.style.top=ty+'px';
 
       // Linea sottile dal tooltip verso la bolla (canvas)
@@ -270,8 +322,9 @@ function draw(){
       ctx.beginPath();
       ctx.moveTo(c.px,c.py);
       // punto di aggancio lato tooltip più vicino alla bolla
-      const tlx=dx>0?tx:tx+TW;
-      const tly=Math.max(68,Math.min(c.py,ty+TH));
+      const tlx=Math.max(tx,Math.min(c.px,tx+TW));
+      const tly=Math.max(ty,Math.min(c.py,ty+TH));
+      ctx.lineTo(tlx,tly);
       ctx.strokeStyle=`rgba(${c.cr},${c.cg},${c.cb},.18)`;
       ctx.lineWidth=.8;ctx.setLineDash([3,4]);ctx.stroke();
       ctx.setLineDash([]);ctx.restore();
@@ -279,7 +332,6 @@ function draw(){
   } else {
     if(_hovPrev){_hovPrev=null;_richOn=false;}
     tt.classList.remove('on');
-    bbMsg.textContent='Esplora il campo numerico';
     curR.classList.remove('xl');
   }
 
@@ -584,7 +636,7 @@ const PANELS={
     sub:'Strumenti avanzati di analisi statistica',
     body:()=>`
       <div class="p-sec">Accesso ai dati</div>
-      <div class="lf" onclick="window.location='pages/laboratorio-tecnico/'" style="cursor:pointer"><span class="lf-n">F·01</span><span class="lf-t">Paper tecnici degli algoritmi</span><span class="lf-a">→</span></div>
+      <div class="lf" onclick="window.location='pages/laboratorio-tecnico/'" style="cursor:pointer"><span class="lf-n">F·01</span><span class="lf-t">Laboratorio tecnico</span><span class="lf-a">→</span></div>
       <div class="lf" onclick="window.location='pages/storico-estrazioni/'" style="cursor:pointer"><span class="lf-n">F·02</span><span class="lf-t">Archivio storico estrazioni</span><span class="lf-a">→</span></div>
       <div class="lf" onclick="window.location='pages/ranking/'" style="cursor:pointer"><span class="lf-n">F·03</span><span class="lf-t">Classifica algoritmi</span><span class="lf-a">→</span></div>
       <div class="lf" onclick="window.location='pages/analisi-statistiche/'" style="cursor:pointer"><span class="lf-n">F·04</span><span class="lf-t">Analisi statistiche</span><span class="lf-a">→</span></div>
@@ -606,13 +658,49 @@ const pSub=document.getElementById('p-subtitle');
 const pBody=document.getElementById('p-body');
 const pCls=document.getElementById('p-cls');
 
-function openPanel(id){
+function panelIdFromHash(){
+  const raw=String(window.location.hash||'').replace(/^#/,'');
+  if(raw.startsWith('panel-')) return raw.slice(6);
+  return '';
+}
+
+function rememberPanel(id){
+  try{ sessionStorage.setItem('cc-v8-panel',id); }catch(e){}
+}
+
+function updatePanelHash(id){
+  if(!id)return;
+  const next='#panel-'+id;
+  if(window.location.hash===next)return;
+  try{ history.replaceState(history.state,'',next); }catch(e){ window.location.hash=next; }
+}
+
+function initialPanelId(){
+  const fromHash=panelIdFromHash();
+  if(PANELS[fromHash])return fromHash;
+  try{
+    const stored=sessionStorage.getItem('cc-v8-panel');
+    if(PANELS[stored])return stored;
+  }catch(e){}
+  return 'est';
+}
+
+function setSideActive(id){
+  document.querySelectorAll('.si').forEach(i=>i.classList.remove('on'));
+  const current=document.querySelector(`.si[data-p="${id}"]`);
+  if(current)current.classList.add('on');
+}
+
+function openPanel(id,opts){
   const p=PANELS[id];if(!p)return;
   pKick.textContent=p.kicker;
   pTitle.innerHTML=typeof p.title==='function'?p.title():p.title;
   pSub.textContent=p.sub;
   pBody.innerHTML=p.body();
   panel.classList.add('open');
+  rememberPanel(id);
+  setSideActive(id);
+  if(!opts||opts.updateHash!==false)updatePanelHash(id);
   setTimeout(()=>{
     pBody.querySelectorAll('[data-w]').forEach(b=>{b.style.width=b.dataset.w;});
   },80);
@@ -625,9 +713,14 @@ if(pCls) pCls.addEventListener('click',()=>{
 
 document.querySelectorAll('.si[data-p]').forEach(s=>{
   s.addEventListener('click',()=>{
-    document.querySelectorAll('.si').forEach(i=>i.classList.remove('on'));
-    s.classList.add('on');openPanel(s.dataset.p);
+    openPanel(s.dataset.p);
   });
+});
+
+window.addEventListener('hashchange',()=>{
+  if(!alive)return;
+  const id=panelIdFromHash();
+  if(PANELS[id])openPanel(id,{updateHash:false});
 });
 
 const oraBtn=document.getElementById('ora-btn');
@@ -689,13 +782,9 @@ v8WaitAndInit(function(bundle){
 
   // Costruisce il campo numerico con dati reali
   buildCells();
-  // Usa numStats pre-calcolato dal backend se disponibile (fast path),
-  // altrimenti calcola dal CSV completo (fallback)
-  if(bundle.numStats && Object.keys(bundle.numStats).length===90){
-    NUM_STATS=bundle.numStats;
-  } else {
-    NUM_STATS=computeNumStats(bundle.draws||[]);
-  }
+  // Usa numStats pre-calcolato dal backend se disponibile e completa i vuoti
+  // con il CSV fallback quando presente.
+  NUM_STATS=normalizeNumberStats(bundle.numStats,bundle.draws||[]);
   DRAWS_COUNT=bundle.totalDraws||bundle.draws.length||DRAWS_COUNT;
 
   window.V8_BRIDGE.loadSestine(bundle.cards || [])
@@ -722,6 +811,14 @@ v8WaitAndInit(function(bundle){
   var CC_INTRO_KEY='cc-intro-seen';
   var _introSeen=false;
   try{ _introSeen=!!sessionStorage.getItem(CC_INTRO_KEY); }catch(e){}
+  const fromInternalPage=(()=>{
+    try{
+      const ref=new URL(document.referrer||'',window.location.href);
+      return ref.origin===window.location.origin&&ref.pathname.includes('/pages/');
+    }catch(e){return false;}
+  })();
+  if(PANELS[panelIdFromHash()])_introSeen=true;
+  if(fromInternalPage)_introSeen=true;
 
   function launch(){
     if(alive)return;
@@ -734,7 +831,7 @@ v8WaitAndInit(function(bundle){
       ui.classList.add('on');
       alive=true;
       cells.forEach(c=>{c.t=0;});
-      openPanel('est');
+      openPanel(initialPanelId(),{updateHash:!PANELS[panelIdFromHash()]});
     },delay);
   }
 

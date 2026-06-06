@@ -161,6 +161,20 @@
         </div>
       </section>
 
+      <!-- Diario operativo iARGOS: feed attività sistema -->
+      <section class="cc-home-block mt-6" data-reveal="fade-up" id="diario-iargos">
+        <header class="cc-home-block__head">
+          <p class="text-xs uppercase tracking-[0.2em] text-ash">Diario operativo</p>
+          <h3 class="text-white">Attività iARGOS</h3>
+        </header>
+        <div class="cc-home-block__body">
+          <ul class="space-y-2" id="diario-list">
+            <li class="text-ash text-sm">Caricamento diario...</li>
+          </ul>
+          <p class="mt-3 text-[0.65rem] text-ash/40 italic">Log operativo automatico: mostra solo interventi iARGOS rilevanti.</p>
+        </div>
+      </section>
+
       <section id="community_feedback_form" class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="community_feedback_form" data-tab-label="Scrivi all'amministratore">
         <div class="cc-home-block__body">
           <form class="mt-3 grid gap-3" data-community-form>
@@ -200,6 +214,111 @@
   <script src="../../assets/js/community.js" defer></script>
   <script src="../../assets/js/ads.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+  <script>
+  (function () {
+    // Diario operativo: legge iargos-public-status.json e lo presenta come feed
+    function escapeHtml(v) {
+      return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+    function buildCandidates(path) {
+      var t = path.replace(/^\/+/,'');
+      var out = [];
+      if (window.CC_BASE && window.CC_BASE.url) { try { out.push(new URL(t, window.CC_BASE.url).toString()); } catch(_){} }
+      out.push('/'+t); out.push('../../'+t);
+      return out;
+    }
+    async function fetchJson(path) {
+      for (var c of buildCandidates(path)) {
+        try { var r = await fetch(c, {cache:'no-store'}); if (r.ok) return await r.json(); } catch(_){}
+      }
+      return null;
+    }
+    function relTime(ts) {
+      if (!ts) return '';
+      var d = new Date(ts);
+      if (isNaN(d.getTime())) return String(ts).slice(0,16);
+      var diff = Math.floor((Date.now() - d.getTime()) / 1000);
+      if (diff < 60) return 'adesso';
+      if (diff < 3600) return Math.floor(diff/60) + ' min fa';
+      if (diff < 86400) return Math.floor(diff/3600) + ' ore fa';
+      return d.toLocaleDateString('it-IT');
+    }
+    function renderEntry(entry, idx) {
+      var icon = entry.ok === false ? '⚠' : (entry.type === 'draw' ? '📥' : entry.type === 'snapshot' ? '📊' : entry.type === 'deploy' ? '🚀' : '🤖');
+      var color = entry.ok === false ? 'text-amber-400' : 'text-neon/70';
+      return '<li class="flex items-start gap-3 rounded-xl border border-white/8 bg-midnight/50 px-3 py-2">'
+        + '<span class="' + color + ' text-base leading-none mt-0.5">' + icon + '</span>'
+        + '<div class="min-w-0 flex-1">'
+        + '<p class="text-sm text-white leading-snug">' + escapeHtml(entry.message || entry.title || 'Evento sistema') + '</p>'
+        + (entry.detail ? '<p class="text-[0.68rem] text-ash/70 mt-0.5 truncate">' + escapeHtml(entry.detail) + '</p>' : '')
+        + '</div>'
+        + '<time class="text-[0.62rem] text-ash/40 shrink-0 mt-0.5">' + relTime(entry.ts || entry.timestamp || '') + '</time>'
+        + '</li>';
+    }
+    async function loadDiario() {
+      var list = document.getElementById('diario-list');
+      if (!list) return;
+      // Prova prima iargos-public-status.json, poi community-feed.json
+      var status = await fetchJson('data/iargos-public-status.json');
+      var entries = [];
+      if (status) {
+        if (Array.isArray(status.feed)) {
+          status.feed.slice(0,30).forEach(function(e) {
+            entries.push({
+              type: e.type || 'iargos',
+              message: e.message || e.msg || 'Evento iARGOS',
+              detail: e.detail || e.source || '',
+              ts: e.ts || e.timestamp || status.updated_at || status.generated_at,
+              ok: e.ok !== false
+            });
+          });
+        }
+        // Costruisci entries dallo stato iARGOS
+        if (!entries.length && status.last_run_at) entries.push({ type: 'snapshot', message: 'Pipeline completata', detail: 'Tutti gli snapshot algoritmi aggiornati', ts: status.last_run_at, ok: true });
+        if (status.last_draw_imported) entries.push({ type: 'draw', message: 'Nuova estrazione importata', detail: 'Concorso #' + (status.last_draw_seq || '?') + ' · ' + (status.last_draw_date || ''), ts: status.last_run_at, ok: true });
+        if (!entries.length && Array.isArray(status.recent_tasks)) {
+          status.recent_tasks.slice(0,6).forEach(function(t) {
+            entries.push({ type: t.type || 'task', message: t.title || t.type, detail: t.details || '', ts: t.ts || t.created_at, ok: t.ok !== false });
+          });
+        }
+        if (!entries.length && Array.isArray(status.alerts)) {
+          status.alerts.slice(0,3).forEach(function(a) {
+            entries.push({ type: 'alert', message: a.message || a.title || 'Allerta', detail: a.detail || '', ts: a.ts, ok: false });
+          });
+        }
+        // Aggiorna KPI community dal status
+        var onlineEl = document.querySelector('[data-community-online]');
+        var actionsEl = document.querySelector('[data-community-actions]');
+        if (onlineEl && status.active_algorithms != null) onlineEl.textContent = status.active_algorithms + ' algoritmi attivi';
+        if (actionsEl && status.pipeline_runs_today != null) actionsEl.textContent = status.pipeline_runs_today + ' pipeline oggi';
+        // Timestamp
+        var tsEl = document.getElementById('community-ts');
+        var tsVal = document.getElementById('community-ts-value');
+        if (tsEl && tsVal && status.generated_at) { tsVal.textContent = String(status.generated_at).slice(0,16).replace('T',' '); tsEl.style.display=''; }
+      }
+      // Fallback: community-feed activities
+      if (!entries.length) {
+        var feed = await fetchJson('data/community-feed.json');
+        if (feed && Array.isArray(feed.activities)) {
+          feed.activities.slice(0,6).forEach(function(a) {
+            entries.push({ type: 'activity', message: (a.alias||'Utente') + ' ' + (a.action||''), detail: a.payload||'', ts: a.ts, ok: true });
+          });
+        }
+        if (feed && Array.isArray(feed.highlights)) {
+          feed.highlights.slice(0,3).forEach(function(h) {
+            entries.push({ type: 'highlight', message: String(h), ts: null, ok: true });
+          });
+        }
+      }
+      if (!entries.length) {
+        list.innerHTML = '<li class="text-ash text-sm">Nessun evento registrato.</li>';
+        return;
+      }
+      list.innerHTML = entries.slice(0,30).map(renderEntry).join('');
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', loadDiario); }
+    else { loadDiario(); }
+  })();
+  </script>
 </body>
 </html>
-

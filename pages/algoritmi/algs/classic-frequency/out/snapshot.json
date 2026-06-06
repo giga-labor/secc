@@ -1,0 +1,28 @@
+{
+  "slug": "classic-frequency",
+  "title": "classic-frequency",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    85,
+    6,
+    86,
+    49,
+    79,
+    81
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.39,
+    "hit_rate_gte_2": 5.1,
+    "best_streak": 7
+  },
+  "explanation": [
+    "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti.",
+    "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.",
+    "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.",
+    "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+  ]
+}

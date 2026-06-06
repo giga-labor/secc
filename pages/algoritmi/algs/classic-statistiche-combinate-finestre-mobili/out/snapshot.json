@@ -1,0 +1,28 @@
+{
+  "slug": "classic-statistiche-combinate-finestre-mobili",
+  "title": "classic-statistiche-combinate-finestre-mobili",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    6,
+    8,
+    18,
+    28,
+    33,
+    58
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.38,
+    "hit_rate_gte_2": 4.7,
+    "best_streak": 7
+  },
+  "explanation": [
+    "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi).",
+    "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.",
+    "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top",
+    "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "generated_at": "2026-06-06 18:20:54",
+  "active_algorithms_count": 15,
+  "rows": [
+    {
+      "title": "classic-analisi-anomalie-pattern",
+      "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
+      "family": "statistica",
+      "ranking": 30402.32,
+      "hits": {
+        "0": 2770,
+        "1": 1201,
+        "2": 217,
+        "3": 17,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-ritardi",
+      "page": "pages/algoritmi/algs/classic-ritardi/",
+      "family": "statistica",
+      "ranking": 29779.56,
+      "hits": {
+        "0": 2765,
+        "1": 1224,
+        "2": 200,
+        "3": 16,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "Paradox Logiche Decisionali Metriche",
+      "page": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
+      "family": "ibrido",
+      "ranking": 29670.36,
+      "hits": {
+        "0": 2785,
+        "1": 1208,
+        "2": 196,
+        "3": 16,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic  co-occorrenze",
+      "page": "pages/algoritmi/algs/classic-co-occorrenze/",
+      "family": "statistica",
+      "ranking": 28784.01,
+      "hits": {
+        "0": 2769,
+        "1": 1224,
+        "2": 199,
+        "3": 13,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "GeneticSE",
+      "page": "pages/algoritmi/algs/genetic/",
+      "family": "neurale",
+      "ranking": 28746.35,
+      "hits": {
+        "0": 2758,
+        "1": 1255,
+        "2": 178,
+        "3": 14,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-coppie-terni-consecutivi",
+      "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
+      "family": "statistica",
+      "ranking": 17990.83,
+      "hits": {
+        "0": 2750,
+        "1": 1252,
+        "2": 187,
+        "3": 17,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "HiSPA",
+      "page": "pages/algoritmi/algs/hispa/",
+      "family": "statistica",
+      "ranking": 17841.78,
+      "hits": {
+        "0": 2726,
+        "1": 1253,
+        "2": 212,
+        "3": 15,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
+      "family": "statistica",
+      "ranking": 17561.78,
+      "hits": {
+        "0": 2778,
+        "1": 1228,
+        "2": 184,
+        "3": 16,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-ritardi-combinazioni",
+      "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
+      "family": "statistica",
+      "ranking": 17115.29,
+      "hits": {
+        "0": 2720,
+        "1": 1266,
+        "2": 207,
+        "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "ASTRA Moon",
+      "page": "pages/algoritmi/algs/astra-moon/",
+      "family": "ibrido",
+      "ranking": 17071.8,
+      "hits": {
+        "0": 2696,
+        "1": 1278,
+        "2": 220,
+        "3": 12,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-frequency",
+      "page": "pages/algoritmi/algs/classic-frequency/",
+      "family": "statistica",
+      "ranking": 16885.76,
+      "hits": {
+        "0": 2776,
+        "1": 1217,
+        "2": 200,
+        "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
+      "family": "statistica",
+      "ranking": 16435.65,
+      "hits": {
+        "0": 2756,
+        "1": 1247,
+        "2": 191,
+        "3": 12,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "Super6 NN",
+      "page": "pages/algoritmi/algs/super6NN/",
+      "family": "neurale",
+      "ranking": 16237.53,
+      "hits": {
+        "0": 2775,
+        "1": 1237,
+        "2": 182,
+        "3": 12,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-statistiche-combinate-finestre-mobili",
+      "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
+      "family": "statistica",
+      "ranking": 15891.76,
+      "hits": {
+        "0": 2817,
+        "1": 1193,
+        "2": 185,
+        "3": 11,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-coppie-terzine-frequenti",
+      "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
+      "family": "statistica",
+      "ranking": 14098.93,
+      "hits": {
+        "0": 2796,
+        "1": 1214,
+        "2": 191,
+        "3": 5,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    }
+  ]
+}

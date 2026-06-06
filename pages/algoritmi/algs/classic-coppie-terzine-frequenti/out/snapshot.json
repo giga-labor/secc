@@ -1,0 +1,28 @@
+{
+  "slug": "classic-coppie-terzine-frequenti",
+  "title": "classic-coppie-terzine-frequenti",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    48,
+    86,
+    87,
+    13,
+    18,
+    51
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.38,
+    "hit_rate_gte_2": 4.7,
+    "best_streak": 6
+  },
+  "explanation": [
+    "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.",
+    "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.",
+    "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale",
+    "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
+  ]
+}

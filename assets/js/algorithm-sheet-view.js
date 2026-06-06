@@ -50,6 +50,7 @@
         .then((res) => (res.ok ? res.json() : null))
         .then((card) => {
           ensureFixedSheetTitle();
+          applyAlgoFamilyAtmosphere(card || {});
           injectAlgoTabKpiBar(card || {});
         })
         .catch(() => {
@@ -141,6 +142,79 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+
+      // ─── Atmosfera visiva per famiglia algoritmo ────────────────────────────
+      // Applica data-algo-family al body e inietta CSS per l'identità della famiglia.
+      // Ogni famiglia ha: colore accent, glow sottile, pattern decorativo SVG.
+      const FAMILY_ATMOSPHERES = {
+        statistici: {
+          accent: '#8fceec',
+          glow: 'rgba(143,206,236,0.07)',
+          desc: 'Analisi statistica classica — frequenze, distribuzioni, ritardi',
+        },
+        neurali: {
+          accent: '#b7a2f4',
+          glow: 'rgba(183,162,244,0.08)',
+          desc: 'Modelli neurali — reti, pattern adattativi, apprendimento',
+        },
+        ibridi: {
+          accent: '#7ecba5',
+          glow: 'rgba(126,203,165,0.07)',
+          desc: 'Approcci ibridi — combinazione di metodi statistici e ML',
+        },
+      };
+
+      const applyAlgoFamilyAtmosphere = (card) => {
+        const raw = String(card?.macroGroup || '').trim();
+        const familyKey = resolveGroupKey(raw);
+        const atm = FAMILY_ATMOSPHERES[familyKey] || FAMILY_ATMOSPHERES.statistici;
+
+        // Marca il body per eventuali CSS esterni
+        if (document.body) document.body.dataset.algoFamily = familyKey;
+
+        // Inietta stile dinamico: custom property --algo-accent e glow
+        if (!document.getElementById('cc-family-atm-style')) {
+          const st = document.createElement('style');
+          st.id = 'cc-family-atm-style';
+          st.textContent = `
+            :root {
+              --algo-accent: ${atm.accent};
+              --algo-glow: ${atm.glow};
+            }
+            /* Accent su elementi chiave della pagina algoritmo */
+            [data-algo-family="statistici"] .cc-algo-accent { color: #8fceec; }
+            [data-algo-family="neurali"]    .cc-algo-accent { color: #b7a2f4; }
+            [data-algo-family="ibridi"]     .cc-algo-accent { color: #7ecba5; }
+
+            /* Glow sottile sul pannello principale */
+            [data-algo-family="statistici"] [data-tab-panel="algoritmo"] {
+              box-shadow: inset 0 0 60px rgba(143,206,236,0.04);
+            }
+            [data-algo-family="neurali"] [data-tab-panel="algoritmo"] {
+              box-shadow: inset 0 0 60px rgba(183,162,244,0.05);
+            }
+            [data-algo-family="ibridi"] [data-tab-panel="algoritmo"] {
+              box-shadow: inset 0 0 60px rgba(126,203,165,0.04);
+            }
+
+            /* Accent sulla barra dei numeri proposta */
+            [data-algo-family="neurali"] .historical-pick.is-proposal {
+              border-color: rgba(183,162,244,0.85);
+              box-shadow: 0 0 8px rgba(183,162,244,0.25);
+            }
+            [data-algo-family="ibridi"] .historical-pick.is-proposal {
+              border-color: rgba(126,203,165,0.85);
+              box-shadow: 0 0 8px rgba(126,203,165,0.25);
+            }
+
+            /* Heading tab con colore famiglia */
+            [data-algo-family] [data-tab-button].is-active::after {
+              background: var(--algo-accent, #8fceec);
+            }
+          `;
+          document.head.appendChild(st);
+        }
+      };
 
       // ─── Tab Algoritmo: KPI bar da card.json ────────────────────────────────
       const MACRO_CLASSES = {
@@ -686,57 +760,35 @@
         if (!page.endsWith('/')) page = `${page}/`;
         return page;
       };
+      // computeGlobalRankingPosition — usa ranking.json precomputato invece di
+      // caricare tutti i card.json + historical-db.csv a runtime (N fetch → 1 fetch).
       const computeGlobalRankingPosition = () => {
         const currentId = resolveCurrentAlgorithmId();
         if (!currentId) {
           setSummaryPosition('--');
           return;
         }
-        fetch('../../../../data/modules-manifest.json', { cache: 'no-store' })
+        fetch('../../../../data/precomputed/ranking.json', { cache: 'no-store' })
           .then((res) => {
             if (!res.ok) throw new Error(`status ${res.status}`);
             return res.json();
           })
-          .then((manifest) => {
-            const cardPaths = (Array.isArray(manifest) ? manifest : [])
-              .map((path) => String(path || '').trim())
-              .filter((path) => path.includes('pages/algoritmi/algs/') && path.endsWith('/card.json'));
-            return Promise.all(cardPaths.map((path) => {
-              const relative = path.startsWith('/') ? path.slice(1) : path;
-              return fetch(`../../../../${relative}`, { cache: 'no-store' })
-                .then((res) => (res.ok ? res.json() : null))
-                .catch(() => null);
-            }));
-          })
-          .then((cards) => {
-            const activeCards = (cards || []).filter((card) => card && card.isActive === true && String(card.page || '').includes('pages/algoritmi/algs/'));
-            const totalActive = activeCards.length;
-            if (!totalActive) {
-              setSummaryPosition('--');
-              return;
-            }
-            return Promise.all(activeCards.map((card) => {
-              const pagePath = normalizePagePath(card.page);
-              if (!pagePath) return Promise.resolve({ id: String(card.id || ''), score: NaN });
-              return fetch(`${pagePath}out/historical-db.csv`, { cache: 'no-store' })
-                .then((res) => (res.ok ? res.text() : ''))
-                .then((text) => ({ id: String(card.id || ''), score: computeRankingFromHistoricalRows(parseArchive(text)) }))
-                .catch(() => ({ id: String(card.id || ''), score: NaN }));
-            })).then((scores) => {
-              const ranked = scores
-                .filter((entry) => Number.isFinite(entry.score))
-                .sort((a, b) => {
-                  if (b.score !== a.score) return b.score - a.score;
-                  return String(a.id).localeCompare(String(b.id));
-                });
-              const idx = ranked.findIndex((entry) => entry.id === currentId);
-              if (idx >= 0) {
-                setSummaryPosition(`${idx + 1}/${totalActive}`);
-                refreshAlgoTabRanking(null, `${idx + 1}/${totalActive}`);
-              } else {
-                setSummaryPosition(`--/${totalActive}`);
-              }
+          .then((data) => {
+            const rows = Array.isArray(data?.rows) ? data.rows : [];
+            const totalActive = rows.length;
+            if (!totalActive) { setSummaryPosition('--'); return; }
+            const idx = rows.findIndex((row) => {
+              const seg = String(row?.page || '').replace(/\\/g, '/').replace(/\/$/, '').split('/').pop();
+              return seg === currentId;
             });
+            if (idx >= 0) {
+              const score = typeof rows[idx].ranking === 'number' ? rows[idx].ranking : NaN;
+              setSummaryPosition(`${idx + 1}/${totalActive}`);
+              refreshAlgoTabRanking(score, `${idx + 1}/${totalActive}`);
+              if (Number.isFinite(score)) setSummaryRanking(score);
+            } else {
+              setSummaryPosition(`--/${totalActive}`);
+            }
           })
           .catch(() => {
             setSummaryPosition('--');
@@ -906,6 +958,95 @@
         ensureLabCta(textEl.closest('.rounded-2xl') || textEl.parentElement);
       };
 
+      // ─── Pre-carica snapshot.json: idrata KPI immediatamente, evita i valori "--" ─
+      const applySnapshot = (snap) => {
+        if (!snap || typeof snap !== 'object') return;
+
+        // Sestina proposta dal snapshot
+        const snapProposal = Array.isArray(snap.proposal) ? snap.proposal.map(Number).filter(n => n >= 1 && n <= 90) : [];
+        if (snapProposal.length > 0) {
+          nextContestProposal = snapProposal.map(v => String(v).padStart(2, '0'));
+          refreshAlgoTabProposal(nextContestProposal);
+        }
+
+        // Metrica: ultimo concorso calcolato
+        const lastSeq = snap.last_seq;
+        const lastDate = snap.last_date || '';
+        const lastTrainedEl = document.querySelector('[data-last-trained]');
+        if (lastTrainedEl && lastSeq) {
+          lastTrainedEl.textContent = lastDate ? `${lastSeq} (${lastDate})` : String(lastSeq);
+        }
+
+        // Metriche come data-metric-card
+        const m = snap.metrics || {};
+        const metricMap = {
+          'concorsi analizzati': m.draws_covered != null ? String(m.draws_covered) : null,
+          'media hit/sestina': m.avg_hits != null ? m.avg_hits.toFixed(2) : null,
+          'hit rate >= 2': m.hit_rate_gte_2 != null ? (m.hit_rate_gte_2 * 100).toFixed(1) + '%' : null,
+          'hit rate >= 3': m.hit_rate_gte_3 != null ? (m.hit_rate_gte_3 * 100).toFixed(1) + '%' : null,
+          'best streak': m.best_streak != null ? String(m.best_streak) : null,
+        };
+        document.querySelectorAll('[data-metric-card]').forEach((el) => {
+          const key = String(el.getAttribute('data-metric-card') || '').trim().toLowerCase();
+          if (metricMap[key] != null) el.textContent = metricMap[key];
+        });
+
+        // Metrics table: popola se il tbody è ancora vuoto / ha scheletro
+        const tbody = document.querySelector('[data-metrics-body]');
+        if (tbody && !latestMetricsRows) {
+          const rows = [];
+          if (lastSeq) rows.push({ label: 'Ultimo concorso calcolato', value: lastDate ? `${lastSeq} (${lastDate})` : String(lastSeq) });
+          if (m.draws_covered != null) rows.push({ label: 'Concorsi analizzati', value: String(m.draws_covered) });
+          if (m.avg_hits != null) rows.push({ label: 'Media hit/sestina', value: m.avg_hits.toFixed(2) });
+          if (m.hit_rate_gte_2 != null) rows.push({ label: 'Hit rate ≥ 2', value: (m.hit_rate_gte_2 * 100).toFixed(1) + '%' });
+          if (m.hit_rate_gte_3 != null) rows.push({ label: 'Hit rate ≥ 3', value: (m.hit_rate_gte_3 * 100).toFixed(1) + '%' });
+          if (m.best_streak != null) rows.push({ label: 'Best streak', value: String(m.best_streak) });
+          // Finestre
+          if (snap.windows) {
+            Object.entries(snap.windows).sort((a,b) => Number(a[0])-Number(b[0])).forEach(([w, wv]) => {
+              if (wv.avg_hits != null) rows.push({ label: `Media hit ultimi ${w}`, value: Number(wv.avg_hits).toFixed(2) });
+            });
+          }
+          if (rows.length > 0) {
+            tbody.innerHTML = rows.map(r =>
+              `<tr><td class="px-4 py-3 text-ash">${escapeHtml(r.label)}</td><td class="px-4 py-3 text-white">${escapeHtml(r.value)}</td><td class="px-4 py-3 text-ash">da snapshot</td></tr>`
+            ).join('');
+          }
+        }
+
+        // Explanation: "Perché questi numeri?"
+        const explanation = Array.isArray(snap.explanation) ? snap.explanation.filter(Boolean) : [];
+        if (explanation.length > 0) {
+          const existingExpl = document.querySelector('[data-snap-explanation]');
+          if (!existingExpl) {
+            const algPanel = document.querySelector('[data-tab-panel="algoritmo"]');
+            if (algPanel) {
+              const explDiv = document.createElement('div');
+              explDiv.dataset.snapExplanation = '1';
+              explDiv.className = 'rounded-xl border border-white/10 bg-midnight/50 px-4 py-3 mt-4';
+              explDiv.innerHTML = `<h4 class="text-xs uppercase tracking-[0.18em] text-ash/70 mb-2">Perché questi numeri?</h4>
+                <ul class="space-y-1 text-sm text-ash/90">${explanation.map(e => `<li class="flex gap-2"><span class="text-neon/60">·</span> ${escapeHtml(e)}</li>`).join('')}</ul>`;
+              algPanel.appendChild(explDiv);
+            }
+          }
+        }
+
+        // Badge stato snapshot (generato il / stale)
+        const genAt = snap.generated_at || '';
+        const snapSect = document.querySelector('[data-algo-sestina-section]');
+        if (snapSect && genAt) {
+          const note = snapSect.querySelector('p.italic') || snapSect.querySelector('p:last-child');
+          if (note) note.textContent = `Snapshot: ${genAt.slice(0, 16).replace('T', ' ')}`;
+        }
+      };
+
+      // Carica snapshot.json PRIMA dei CSV per pre-popolare senza "--"
+      fetch('out/snapshot.json', { cache: 'no-store' })
+        .then((res) => res.ok ? res.json() : null)
+        .then((snap) => { if (snap) applySnapshot(snap); })
+        .catch(() => {});
+
+      // CSV: sovrascrivono il snapshot con dati più completi se disponibili
       fetch('out/algorithm-sheet.csv', { cache: 'no-store' })
         .then((res) => {
           if (!res.ok) throw new Error(`status ${res.status}`);
@@ -917,7 +1058,7 @@
         })
         .catch(() => {
           const introEl = document.querySelector('[data-algo-intro]');
-          if (introEl) introEl.textContent = 'Scheda algoritmo non disponibile.';
+          if (introEl && introEl.textContent === '--') introEl.textContent = 'Scheda algoritmo non disponibile.';
           renderOperationalAlgorithmPanel();
         });
 
@@ -932,9 +1073,10 @@
           applyMetricsSheet(parsed.rows);
         })
         .catch(() => {
+          // Il snapshot ha già popolato i valori — non mostrare errore se abbiamo dati
           const tbody = document.querySelector('[data-metrics-body]');
-          if (tbody) {
-            tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Metriche non disponibili.</td></tr>';
+          if (tbody && !tbody.querySelector('tr td:not(.text-ash)')) {
+            tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Metriche CSV non disponibili.</td></tr>';
           }
           setSummaryRanking(computeRanking([]));
         });
@@ -949,9 +1091,7 @@
         })
         .catch(() => {
           const textEl = document.querySelector('[data-analysis-text]');
-          if (textEl) {
-            textEl.textContent = 'Analisi non disponibile.';
-          }
+          if (textEl) textEl.textContent = 'Analisi non disponibile.';
         });
 
       computeGlobalRankingPosition();

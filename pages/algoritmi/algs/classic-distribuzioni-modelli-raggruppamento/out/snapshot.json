@@ -1,0 +1,28 @@
+{
+  "slug": "classic-distribuzioni-modelli-raggruppamento",
+  "title": "classic-distribuzioni-modelli-raggruppamento",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    83,
+    80,
+    49,
+    65,
+    6,
+    88
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.39,
+    "hit_rate_gte_2": 4.8,
+    "best_streak": 6
+  },
+  "explanation": [
+    "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione.",
+    "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione.",
+    "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape",
+    "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
+  ]
+}

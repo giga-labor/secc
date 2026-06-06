@@ -1,0 +1,29 @@
+{
+  "slug": "paradox-logiche-decisionali-metriche",
+  "title": "Paradox Logiche Decisionali Metriche",
+  "family": "ibrido",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    6,
+    65,
+    76,
+    83,
+    4,
+    16
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.39,
+    "hit_rate_gte_2": 5.1,
+    "hit_rate_gte_3": 0.4,
+    "best_streak": 6
+  },
+  "explanation": [
+    "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
+    "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
+    "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
+    "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "astra-moon",
+  "title": "ASTRA Moon",
+  "family": "ibrido",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    15,
+    14,
+    16,
+    13,
+    17,
+    11
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.42,
+    "hit_rate_gte_2": 5.5,
+    "best_streak": 8
+  },
+  "explanation": [
+    "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome.",
+    "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.",
+    "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri.",
+    "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
+  ]
+}

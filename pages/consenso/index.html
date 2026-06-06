@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = 276;
+      if (w >= 1600) { desktopReserve = 366; }
+      else if (w >= 1400) { desktopReserve = 336; }
+      else if (w >= 1200) { desktopReserve = 316; }
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+      root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
+    })();
+  </script>
+  <title>Consenso Numerico - SuperEnalotto Control Chaos</title>
+  <meta name="description" content="Griglia di consenso numerico SECC: scopri quali numeri 1-90 sono proposti da più algoritmi attivi per il prossimo concorso SuperEnalotto.">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/consenso/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="view-transition" content="same-origin">
+  <script src="../../assets/js/ga4.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/site-guide.css">
+  <link rel="stylesheet" href="../../assets/css/user-first.css">
+  <link rel="stylesheet" href="/assets/css/balls-standard.css">
+  <link rel="stylesheet" href="../../assets/css/header.css">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SuperEnalotto Control Chaos">
+  <meta property="og:title" content="Consenso Numerico - SuperEnalotto Control Chaos">
+  <meta property="og:description" content="Quali numeri 1-90 propongono di più gli algoritmi SECC? La griglia di consenso aggiornata ad ogni concorso.">
+  <meta property="og:url" content="https://www.superenalottocc.it/pages/consenso/">
+  <meta property="og:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Consenso Numerico - SuperEnalotto Control Chaos">
+  <meta name="twitter:description" content="Griglia 1-90: scopri il grado di consenso algoritmi per il prossimo concorso.">
+  <meta name="twitter:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
+  <link rel="alternate" hreflang="it-IT" href="https://www.superenalottocc.it/pages/consenso/">
+  <link rel="alternate" hreflang="x-default" href="https://www.superenalottocc.it/pages/consenso/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Consenso Numerico - SuperEnalotto Control Chaos",
+    "url": "https://www.superenalottocc.it/pages/consenso/",
+    "description": "Griglia di consenso numerico: quanti algoritmi SECC propongono ciascun numero 1-90 per il prossimo concorso SuperEnalotto.",
+    "isPartOf": { "@type": "WebSite", "url": "https://www.superenalottocc.it/" }
+  }
+  </script>
+  <style>
+    .cc-consensus-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 0.35rem;
+    }
+    @media (max-width: 480px) {
+      .cc-consensus-grid { grid-template-columns: repeat(6, 1fr); gap: 0.28rem; }
+    }
+    .cc-consensus-ball {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      position: relative;
+      user-select: none;
+    }
+    .cc-consensus-ball:hover { transform: scale(1.12); z-index: 2; }
+    .cc-consensus-ball[data-support="0"] {
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.06);
+    }
+    .cc-consensus-ball[data-support="1"] {
+      background: rgba(56,189,248,0.12);
+      color: rgba(186,230,253,0.8);
+      border-color: rgba(56,189,248,0.2);
+    }
+    .cc-consensus-ball[data-support="2"] {
+      background: rgba(56,189,248,0.22);
+      color: #bae6fd;
+      border-color: rgba(56,189,248,0.35);
+    }
+    .cc-consensus-ball[data-support="3"] {
+      background: rgba(56,189,248,0.36);
+      color: #e0f4ff;
+      border-color: rgba(56,189,248,0.55);
+      box-shadow: 0 0 8px rgba(56,189,248,0.25);
+    }
+    .cc-consensus-ball[data-support="4"] {
+      background: rgba(167,139,250,0.32);
+      color: #e9d5ff;
+      border-color: rgba(167,139,250,0.55);
+      box-shadow: 0 0 10px rgba(167,139,250,0.3);
+    }
+    .cc-consensus-ball[data-support="5"],
+    .cc-consensus-ball[data-support="6"],
+    .cc-consensus-ball[data-support="7"],
+    .cc-consensus-ball[data-support="8"],
+    .cc-consensus-ball[data-support="9"],
+    .cc-consensus-ball[data-support="10"] {
+      background: linear-gradient(135deg, rgba(167,139,250,0.55) 0%, rgba(56,189,248,0.45) 100%);
+      color: #fff;
+      border-color: rgba(200,180,255,0.7);
+      box-shadow: 0 0 14px rgba(167,139,250,0.45);
+    }
+    .cc-consensus-ball.is-selected {
+      border-color: #7dd3fc !important;
+      box-shadow: 0 0 0 2px rgba(125,211,252,0.45) !important;
+    }
+    .cc-consensus-sup {
+      position: absolute;
+      top: -4px; right: -4px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: rgba(125,211,252,0.85);
+      color: #000;
+      font-size: 0.52rem;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .cc-consensus-detail {
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cc-consensus-detail.is-hidden {
+      opacity: 0;
+      transform: translateY(4px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<script src="../../assets/js/v8-inner-chrome.js" defer></script>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" id="top" data-page-id="consenso" data-style-lock="final">
+
+  <main class="content-box mx-auto max-w-4xl px-4 py-10" style="padding-top: calc(var(--fixed-header-offset, 88px) + 2rem)">
+
+    <!-- Intro -->
+    <header class="mb-8">
+      <p class="text-[0.68rem] uppercase tracking-[0.22em] text-neon/80 mb-2">Strumento analitico</p>
+      <h1 class="text-3xl font-bold tracking-tight mb-3">Consenso Numerico</h1>
+      <p class="text-ash text-sm leading-relaxed max-w-xl">
+        Quanti algoritmi attivi propongono lo stesso numero per il prossimo concorso? La luminosità del numero riflette il grado di accordo. Clicca per vedere quali moduli lo supportano.
+      </p>
+      <p class="text-[0.65rem] text-ash/50 mt-3" id="consenso-ts" style="display:none">
+        Aggiornato il <span id="consenso-ts-value"></span> · <span id="consenso-total-alg"></span> algoritmi attivi
+      </p>
+    </header>
+
+    <!-- Legenda -->
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-6 text-[0.65rem] text-ash/70">
+      <span class="font-semibold text-ash/90 uppercase tracking-[0.14em]">Consenso:</span>
+      <span><span class="inline-block w-3 h-3 rounded-full bg-white/5 border border-white/10 mr-1 align-middle"></span>Nessuno</span>
+      <span><span class="inline-block w-3 h-3 rounded-full bg-sky-500/20 border border-sky-400/30 mr-1 align-middle"></span>1 algoritmo</span>
+      <span><span class="inline-block w-3 h-3 rounded-full bg-sky-400/35 border border-sky-300/5 mr-1 align-middle"></span>2–3</span>
+      <span><span class="inline-block w-3 h-3 rounded-full bg-violet-400/35 border border-violet-300/55 mr-1 align-middle"></span>4+</span>
+    </div>
+
+    <!-- Griglia 1-90 -->
+    <div class="cc-consensus-grid mb-6" id="consenso-grid" role="list" aria-label="Griglia numeri 1-90">
+      <!-- Popolata via JS -->
+      <div class="col-span-10 text-center text-ash py-8 text-sm" id="consenso-loading">Caricamento consenso...</div>
+    </div>
+
+    <!-- Dettaglio numero selezionato -->
+    <div class="cc-consensus-detail is-hidden rounded-2xl border border-white/10 bg-midnight/70 px-5 py-4" id="consenso-detail">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-[0.65rem] uppercase tracking-[0.2em] text-ash/60 mb-1">Numero selezionato</p>
+          <p class="text-4xl font-black text-neon" id="detail-number">—</p>
+        </div>
+        <div class="text-right">
+          <p class="text-[0.65rem] uppercase tracking-[0.2em] text-ash/60 mb-1">Algoritmi concordi</p>
+          <p class="text-2xl font-bold text-white" id="detail-support">—</p>
+        </div>
+      </div>
+      <div class="mt-4" id="detail-algs-wrap" style="display:none">
+        <p class="text-[0.65rem] uppercase tracking-[0.14em] text-ash/60 mb-2">Proposto da</p>
+        <div class="flex flex-wrap gap-2" id="detail-algs"></div>
+      </div>
+      <div class="mt-3 text-[0.65rem] text-ash/40 italic" id="detail-none-note" style="display:none">
+        Nessun algoritmo propone questo numero per il prossimo concorso.
+      </div>
+    </div>
+
+    <!-- Top 15 numerico -->
+    <section class="mt-10">
+      <h2 class="text-[0.68rem] uppercase tracking-[0.22em] text-ash/70 mb-4">Numeri con più consenso</h2>
+      <div class="overflow-x-auto rounded-xl border border-white/10">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="px-4 py-2 text-left text-ash/70 font-medium text-[0.72rem] uppercase tracking-[0.14em]">#</th>
+              <th class="px-4 py-2 text-left text-ash/70 font-medium text-[0.72rem] uppercase tracking-[0.14em]">Numero</th>
+              <th class="px-4 py-2 text-left text-ash/70 font-medium text-[0.72rem] uppercase tracking-[0.14em]">Algoritmi</th>
+              <th class="px-4 py-2 text-left text-ash/70 font-medium text-[0.72rem] uppercase tracking-[0.14em]">Modelli</th>
+            </tr>
+          </thead>
+          <tbody id="consenso-top-body">
+            <tr><td colspan="4" class="px-4 py-4 text-ash text-center text-sm">Caricamento...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Nota metodologica -->
+    <section class="mt-10 rounded-xl border border-white/8 bg-white/3 px-5 py-4">
+      <h2 class="text-[0.68rem] uppercase tracking-[0.2em] text-ash/60 mb-2">Come funziona</h2>
+      <p class="text-ash text-[0.78rem] leading-relaxed">
+        Ogni algoritmo attivo produce una sestina di numeri (proposta per il concorso successivo). Il consenso conta quanti algoritmi distinti includono un dato numero nella propria sestina. Il dato viene ricalcolato automaticamente dopo ogni estrazione. Non è una previsione garantita: è un indicatore di convergenza statistica tra modelli indipendenti.
+      </p>
+    </section>
+
+  </main>
+
+  <script src="../../assets/js/version.js" defer></script>
+  <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/runtime-bootstrap.js" defer></script>
+  <script src="../../assets/js/ads.js" defer></script>
+  <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+
+  <script>
+  (function () {
+    var selectedNum = null;
+
+    function escapeHtml(v) {
+      return String(v || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+
+    function buildFetchCandidates(path) {
+      var trimmed = String(path || '').replace(/^\/+/, '');
+      var out = [];
+      if (window.CC_BASE && window.CC_BASE.url) {
+        try { out.push(new URL(trimmed, window.CC_BASE.url).toString()); } catch (_) {}
+      }
+      out.push('/' + trimmed);
+      out.push('../../' + trimmed);
+      return out.filter(Boolean);
+    }
+
+    async function fetchJson(path) {
+      var candidates = buildFetchCandidates(path);
+      for (var i = 0; i < candidates.length; i++) {
+        try {
+          var res = await fetch(candidates[i], { cache: 'no-store' });
+          if (res.ok) return await res.json();
+        } catch (_) {}
+      }
+      return null;
+    }
+
+    function slugToTitle(slug) {
+      return String(slug || '').replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    }
+
+    function showDetail(num, numData, allData) {
+      var detail = document.getElementById('consenso-detail');
+      var numEl = document.getElementById('detail-number');
+      var supEl = document.getElementById('detail-support');
+      var algsEl = document.getElementById('detail-algs');
+      var algsWrap = document.getElementById('detail-algs-wrap');
+      var noneNote = document.getElementById('detail-none-note');
+
+      if (!detail) return;
+      numEl.textContent = String(num).padStart(2, '0');
+      var support = numData ? (numData.support || 0) : 0;
+      supEl.textContent = support;
+
+      var algs = numData ? (numData.algorithms || []) : [];
+      if (algs.length > 0) {
+        algsEl.innerHTML = algs.map(function (slug) {
+          var snap = allData && allData.algorithms ? allData.algorithms.find(function (a) { return a.slug === slug; }) : null;
+          var title = snap ? snap.title : slugToTitle(slug);
+          var page = snap ? '' : '';
+          // Try to build a link to the algorithm page
+          var href = '/pages/algoritmi/algs/' + escapeHtml(slug) + '/';
+          return '<a href="' + href + '" class="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[0.68rem] text-ash hover:border-neon/50 hover:text-neon transition">' + escapeHtml(title) + '</a>';
+        }).join('');
+        algsWrap.style.display = '';
+        noneNote.style.display = 'none';
+      } else {
+        algsEl.innerHTML = '';
+        algsWrap.style.display = 'none';
+        noneNote.style.display = '';
+      }
+
+      detail.classList.remove('is-hidden');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function buildGrid(consensusData, algData) {
+      var grid = document.getElementById('consenso-grid');
+      var loading = document.getElementById('consenso-loading');
+      if (loading) loading.remove();
+      if (!grid) return;
+
+      var numbers = (consensusData && consensusData.numbers) ? consensusData.numbers : {};
+      var maxSupport = 0;
+      for (var n = 1; n <= 90; n++) {
+        var s = numbers[String(n)] ? (numbers[String(n)].support || 0) : 0;
+        if (s > maxSupport) maxSupport = s;
+      }
+
+      var fragment = document.createDocumentFragment();
+      for (var n = 1; n <= 90; n++) {
+        var numData = numbers[String(n)] || { support: 0, algorithms: [] };
+        var support = numData.support || 0;
+        var capSupport = Math.min(support, 10);
+
+        var ball = document.createElement('button');
+        ball.type = 'button';
+        ball.className = 'cc-consensus-ball';
+        ball.setAttribute('data-support', String(capSupport));
+        ball.setAttribute('data-num', String(n));
+        ball.setAttribute('role', 'listitem');
+        ball.setAttribute('aria-label', 'Numero ' + n + ': ' + support + ' algoritmi');
+        ball.setAttribute('title', n + ' — ' + support + (support === 1 ? ' algoritmo' : ' algoritmi'));
+        ball.textContent = n < 10 ? '0' + n : String(n);
+
+        if (support > 0) {
+          var sup = document.createElement('span');
+          sup.className = 'cc-consensus-sup';
+          sup.textContent = String(support);
+          ball.appendChild(sup);
+        }
+
+        (function (num, nd) {
+          ball.addEventListener('click', function () {
+            // Toggle selezione
+            if (selectedNum === num) {
+              selectedNum = null;
+              document.querySelectorAll('.cc-consensus-ball.is-selected').forEach(function (b) { b.classList.remove('is-selected'); });
+              var detail = document.getElementById('consenso-detail');
+              if (detail) detail.classList.add('is-hidden');
+            } else {
+              selectedNum = num;
+              document.querySelectorAll('.cc-consensus-ball.is-selected').forEach(function (b) { b.classList.remove('is-selected'); });
+              ball.classList.add('is-selected');
+              showDetail(num, nd, algData);
+            }
+          });
+        })(n, numData);
+
+        fragment.appendChild(ball);
+      }
+      grid.appendChild(fragment);
+    }
+
+    function buildTopTable(consensusData) {
+      var tbody = document.getElementById('consenso-top-body');
+      if (!tbody) return;
+      var top = (consensusData && consensusData.top) ? consensusData.top : [];
+      if (!top.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="px-4 py-4 text-ash text-center text-sm">Nessun dato disponibile.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = top.slice(0, 15).map(function (item, idx) {
+        var algs = Array.isArray(item.algorithms) ? item.algorithms : [];
+        var num = parseInt(item.number, 10);
+        var numStr = num < 10 ? '0' + num : String(num);
+        return '<tr class="border-b border-white/5 hover:bg-white/3 transition">'
+          + '<td class="px-4 py-2.5 text-ash/60 text-[0.72rem]">' + (idx + 1) + '</td>'
+          + '<td class="px-4 py-2.5"><span class="cc-ball" style="--cc-ball-size:1.8rem;font-size:.75rem">' + escapeHtml(numStr) + '</span></td>'
+          + '<td class="px-4 py-2.5 text-white font-semibold">' + escapeHtml(String(item.support || 0)) + '</td>'
+          + '<td class="px-4 py-2.5 text-ash text-[0.72rem]">' + escapeHtml(algs.slice(0, 4).map(function(s){ return s.replace(/-/g,' '); }).join(', ') + (algs.length > 4 ? ' +' + (algs.length-4) : '')) + '</td>'
+          + '</tr>';
+      }).join('');
+    }
+
+    function updateTimestamp(consensusData) {
+      var tsEl = document.getElementById('consenso-ts');
+      var tsVal = document.getElementById('consenso-ts-value');
+      var totalEl = document.getElementById('consenso-total-alg');
+      if (!consensusData) return;
+      if (tsEl && tsVal && consensusData.generated_at) {
+        var raw = String(consensusData.generated_at || '');
+        var m = raw.match(/^(\d{4})-(\d{2})-(\d{2})[T\s](\d{2}):(\d{2})/);
+        tsVal.textContent = m ? m[3]+'/'+m[2]+'/'+m[1]+' '+m[4]+':'+m[5] : raw;
+        tsEl.style.display = '';
+      }
+      if (totalEl && consensusData.total_algorithms) {
+        totalEl.textContent = consensusData.total_algorithms;
+      }
+    }
+
+    async function init() {
+      var consensusData = await fetchJson('data/precomputed/consensus.json');
+      var algData = await fetchJson('data/precomputed/algorithms-data.json');
+      if (!consensusData) {
+        var grid = document.getElementById('consenso-grid');
+        if (grid) grid.innerHTML = '<div class="col-span-10 text-center text-ash py-8 text-sm">Dati non disponibili. Torna dopo la prossima estrazione.</div>';
+        return;
+      }
+      updateTimestamp(consensusData);
+      buildGrid(consensusData, algData);
+      buildTopTable(consensusData);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>

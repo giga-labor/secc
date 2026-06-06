@@ -1,0 +1,27 @@
+{
+  "slug": "classic-ritardi",
+  "title": "classic-ritardi",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    70,
+    65,
+    76,
+    23,
+    4,
+    83
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.4,
+    "hit_rate_gte_2": 5.2
+  },
+  "explanation": [
+    "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
+    "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
+    "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
+    "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+  ]
+}

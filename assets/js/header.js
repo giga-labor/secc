@@ -803,7 +803,7 @@ const resolveWithBaseHref = (href, baseUrl = BASE.url) => {
 const NAV_STRUCTURE = [
   { id: 'hub', label: 'Hub', items: ['home'] },
   { id: 'operativo', label: 'Operativo', items: ['sestine', 'ranking', 'laboratorio'] },
-  { id: 'analisi', label: 'Analisi', items: ['algoritmi', 'storico'] },
+  { id: 'analisi', label: 'Analisi', items: ['algoritmi', 'storico', 'consenso', 'concorso'] },
   { id: 'community', label: 'Community', items: ['community', 'oracle'] },
   { id: 'policy', label: 'Policy', items: ['policy_consenso'] }
 ];
@@ -817,6 +817,8 @@ const NAV_ITEMS = {
   storico: { label: 'Storico', href: 'pages/storico-estrazioni/index.html' },
   community: { label: 'Community', href: 'pages/community/index.html' },
   oracle: { label: 'Oracle', href: 'pages/oracle/index.html' },
+  consenso: { label: 'Consenso', href: 'pages/consenso/index.html' },
+  concorso: { label: 'Concorso', href: 'pages/concorso/index.html' },
   policy_consenso: { label: 'Policy e Consenso', href: 'pages/policy-consenso/index.html' }
 };
 
@@ -830,6 +832,8 @@ const isNavKeyActive = (key) => {
   if (key === 'storico') return path.includes('/pages/storico-estrazioni/');
   if (key === 'community') return path.includes('/pages/community/');
   if (key === 'oracle') return path.includes('/pages/oracle/');
+  if (key === 'consenso') return path.includes('/pages/consenso/');
+  if (key === 'concorso') return path.includes('/pages/concorso/');
   if (key === 'policy_consenso') {
     return path.includes('/pages/policy-consenso/')
       || path.includes('/pages/privacy-policy/')
@@ -975,6 +979,8 @@ const getPageKickerLabel = () => {
   if (path.includes('/pages/storico-estrazioni')) return 'ARCHIVIO STORICO';
   if (path.includes('/pages/laboratorio-tecnico')) return 'LABORATORIO TECNICO';
   if (path.includes('/pages/ranking')) return 'CLASSIFICA';
+  if (path.includes('/pages/consenso')) return 'CONSENSO NUMERICO';
+  if (path.includes('/pages/concorso')) return 'CONCORSO';
   if (path.includes('/pages/community')) return 'COMMUNITY';
   if (path.includes('/pages/algoritmi/spotlight/statistici')) return 'SPOTLIGHT STATISTICI';
   if (path.includes('/pages/algoritmi/spotlight/neurali')) return 'SPOTLIGHT NEURALI';

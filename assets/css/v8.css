@@ -77,6 +77,7 @@ background-size:180px;}
 /* â”€â”€â”€ TOPBAR â”€â”€â”€ */
 #tb{
   position:absolute;top:0;left:0;right:0;height:88px;
+  z-index:240;
   display:flex;align-items:center;padding:0 2rem;gap:1.8rem;
   background:linear-gradient(180deg,rgba(3,1,9,.92) 60%,transparent);
   backdrop-filter:blur(12px);
@@ -92,21 +93,124 @@ background-size:180px;}
 .tb-sep{width:1px;height:20px;background:rgba(237,232,223,.07);flex-shrink:0;}
 
 .tb-github{
+  position:relative;
   display:flex;align-items:center;gap:.5rem;
   min-height:32px;padding:.35rem .72rem;
   color:#EDE8DF;text-decoration:none;
-  background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(245,158,11,.12));
-  border:1px solid rgba(245,158,11,.28);
+  background:linear-gradient(135deg,rgba(255,176,0,.16),rgba(255,102,0,.1));
+  border:1px solid rgba(255,176,0,.3);
   border-radius:999px;
-  box-shadow:0 0 18px rgba(139,92,246,.12), inset 0 0 0 1px rgba(237,232,223,.04);
+  box-shadow:0 0 18px rgba(255,176,0,.1), inset 0 0 0 1px rgba(237,232,223,.04);
   transition:color .2s,border-color .2s,background .2s,box-shadow .2s,transform .2s;
 }
 .tb-github:hover{
   color:#fff;
-  background:linear-gradient(135deg,rgba(139,92,246,.28),rgba(245,158,11,.18));
-  border-color:rgba(245,158,11,.55);
-  box-shadow:0 0 24px rgba(245,158,11,.18),0 0 18px rgba(139,92,246,.16),inset 0 0 0 1px rgba(237,232,223,.08);
+  background:linear-gradient(135deg,rgba(255,176,0,.24),rgba(255,102,0,.16));
+  border-color:rgba(255,176,0,.62);
+  box-shadow:0 0 24px rgba(255,176,0,.2),0 0 16px rgba(255,102,0,.12),inset 0 0 0 1px rgba(237,232,223,.08);
   transform:translateY(-1px);
+}
+.tb-github::before,
+.tb-github::after{
+  position:absolute;
+  left:50%;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .16s ease,visibility .16s ease,transform .16s ease;
+  z-index:241;
+}
+.tb-github::before{
+  content:"";
+  top:calc(100% + 6px);
+  width:10px;
+  height:10px;
+  background:#050505;
+  border-left:1px solid rgba(255,176,0,.38);
+  border-top:1px solid rgba(255,176,0,.38);
+  transform:translate(-50%,-4px) rotate(45deg);
+}
+.tb-github::after{
+  content:"";
+  top:calc(100% + 11px);
+  transform:translate(-50%,-4px);
+}
+.tb-gigalabor-tip{
+  position:absolute;
+  left:50%;
+  top:calc(100% + 11px);
+  width:min(34rem,calc(100vw - 2.4rem));
+  padding:.95rem 1rem 1rem;
+  display:grid;
+  gap:.28rem;
+  color:#fff;
+  background:
+    linear-gradient(160deg,rgba(255,176,0,.16),rgba(255,102,0,.08) 38%,rgba(5,5,5,.98) 68%),
+    #050505;
+  border:1px solid rgba(255,176,0,.38);
+  border-radius:8px;
+  box-shadow:0 18px 38px rgba(0,0,0,.42),0 0 24px rgba(255,176,0,.16),inset 0 0 0 1px rgba(255,176,0,.08);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translate(-50%,-4px);
+  transition:opacity .16s ease,visibility .16s ease,transform .16s ease;
+  z-index:242;
+  text-align:left;
+  white-space:normal;
+}
+.tb-gigalabor-kicker{
+  color:#ffb000;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.86rem;
+  line-height:1;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.tb-gigalabor-title{
+  color:#fff;
+  font-family:'BioRhyme',serif;
+  font-size:1.32rem;
+  line-height:1.18;
+  letter-spacing:0;
+  font-weight:800;
+}
+.tb-gigalabor-body{
+  color:#c0aa80;
+  font-size:1.08rem;
+  line-height:1.36;
+  letter-spacing:0;
+  text-transform:none;
+}
+.tb-gigalabor-note{
+  margin-top:.22rem;
+  padding-top:.42rem;
+  color:rgba(255,176,0,.72);
+  border-top:1px solid rgba(255,176,0,.16);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.96rem;
+  line-height:1.25;
+  letter-spacing:0;
+  text-transform:none;
+}
+.tb-github:hover::before,
+.tb-github:hover::after,
+.tb-github:focus-visible::before,
+.tb-github:focus-visible::after{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0) rotate(45deg);
+}
+.tb-github:hover::after,
+.tb-github:focus-visible::after{
+  transform:translate(-50%,0);
+}
+.tb-github:hover .tb-gigalabor-tip,
+.tb-github:focus-visible .tb-gigalabor-tip{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0);
 }
 .tb-github-icon{width:16px;height:16px;flex-shrink:0;}
 .tb-github-label{font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
@@ -119,15 +223,17 @@ background-size:180px;}
 /* â”€â”€â”€ BOTTOMBAR â”€â”€â”€ */
 #bb{
   position:absolute;bottom:0;left:0;right:0;height:62px;
-  display:flex;align-items:center;padding:0 2rem;gap:1.6rem;
+  display:grid;grid-template-columns:1fr;align-items:center;padding:0 2rem;
   background:linear-gradient(0deg,rgba(3,1,9,.9) 60%,transparent);
   backdrop-filter:blur(12px);
   border-top:1px solid rgba(237,232,223,.04);
   font-size:1.44rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,232,223,.22);
 }
-#bb-msg{color:rgba(237,232,223,.35);transition:color .3s;}
-.bb-sep{color:rgba(237,232,223,.07);}
-.bb-r{margin-left:auto;color:rgba(237,232,223,.09);}
+#bb > span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#bb > span:not(#bb-msg){display:none;}
+#bb-msg{color:rgba(237,232,223,.35);text-align:center;}
+.bb-sep{display:none;}
+.bb-r{display:none;}
 
 /* â”€â”€â”€ SIDENAV â”€â”€â”€ */
 #side{
@@ -362,17 +468,25 @@ background-size:180px;}
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #tt{
   position:fixed;pointer-events:none;z-index:30;
+  right:auto;
+  bottom:auto;
+  box-sizing:border-box;
+  width:clamp(220px, 24vw, 360px);
+  max-width:min(360px, calc(100vw - var(--ad-reserve-right, 0px) - 16px));
   background:rgba(5,2,18,.97);
   border:1px solid rgba(139,92,246,.2);
-  padding:.9rem 1.2rem;max-width:280px;white-space:normal;
+  padding:clamp(.75rem, 1.1vw, 1rem) clamp(.85rem, 1.35vw, 1.2rem);
+  white-space:normal;
   opacity:0;transition:opacity .15s;
   backdrop-filter:blur(20px);
+  border-radius:10px;
+  overflow-wrap:anywhere;
 }
 #tt::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#8B5CF6,#C8391A);}
 #tt.on{opacity:1;}
-.tt-badge{font-size:1rem;letter-spacing:.25em;text-transform:uppercase;background:linear-gradient(90deg,#8B5CF6,#C8391A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:.4rem;}
-.tt-num{font-family:'BioRhyme',serif;font-size:2.2rem;font-weight:800;color:#EDE8DF;line-height:1;margin-bottom:.35rem;}
-.tt-info{font-size:1.36rem;color:rgba(237,232,223,.4);line-height:1.8;}
+.tt-badge{font-size:clamp(.68rem, .78vw, .9rem);letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(90deg,#8B5CF6,#C8391A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:.4rem;}
+.tt-num{font-family:'BioRhyme',serif;font-size:clamp(1.45rem, 2vw, 2rem);font-weight:800;color:#EDE8DF;line-height:1;margin-bottom:.35rem;}
+.tt-info{font-size:clamp(.82rem, .98vw, 1rem);color:rgba(237,232,223,.62);line-height:1.55;}
 .tt-info b{color:rgba(237,232,223,.7);}
 
 
@@ -398,7 +512,6 @@ body::after { display: none; }
 #ui,
 #intro,
 #ov,
-#tt,
 #cur,
 #cur-r {
   right: var(--ad-reserve-right, 0px);
@@ -452,6 +565,10 @@ body::after { display: none; }
 
   /* Bottombar nascosta (sostituita dalla sidenav in basso) */
   #bb{display:none;}
+  #tt{
+    width:clamp(200px, 72vw, 320px);
+    max-width:calc(100vw - 16px);
+  }
 
   /* Panel full-width */
   #panel{

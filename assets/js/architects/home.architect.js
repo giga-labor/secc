@@ -5,12 +5,17 @@
   orchestrator.registerArchitect('home', (ctx) => ({
     async collectData(layout) {
       const sources = layout?.data_sources || {};
+      // home-summary.json è piccolo (~3 KB) e pre-calcolato da iARGOS: caricato per primo
+      const homeSummary = await this.loadHomeSummary(
+        sources.home_summary || 'data/precomputed/home-summary.json'
+      );
       const modules = await ctx.repo.loadCardsByManifest(sources.modules_manifest || 'data/modules-manifest.json');
       const communityFeed = await this.loadCommunityFeed(sources.community_feed || 'data/community-feed.json');
       const drawsRows = await this.loadDrawsRows(sources.draws_csv || 'archives/draws/draws.csv');
       const iargosStatus = await this.loadIargosStatus(sources.iargos_public_status || 'data/iargos-public-status.json');
       return {
         modules,
+        home_summary: homeSummary,
         community_feed: communityFeed,
         draws_rows: drawsRows,
         iargos_status: iargosStatus,
@@ -335,6 +340,17 @@
         return hits;
       } catch (_) {
         return NaN;
+      }
+    },
+
+    async loadHomeSummary(path) {
+      if (!ctx.repo || typeof ctx.repo.fetchJson !== 'function') return null;
+      try {
+        const payload = await ctx.repo.fetchJson(path, { cache: 'no-store' });
+        if (!payload || typeof payload !== 'object') return null;
+        return payload;
+      } catch (_) {
+        return null;
       }
     },
 
@@ -754,24 +770,65 @@
 
     renderHeroStatus(host, data) {
       if (!host) return;
+      const summary = data?.home_summary || null;
       const methodHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-iargos'));
+      const rankingHref = escapeHtml(ctx.resolveWithBase('pages/ranking/'));
+      const consensoHref = escapeHtml(ctx.resolveWithBase('pages/consenso/'));
+
+      // ── Ultimo concorso ──
+      const draw = summary?.latest_draw || null;
+      const drawSeq = draw?.seq ? `#${draw.seq}` : '';
+      const drawDate = draw?.date || '';
+      const drawNums = Array.isArray(draw?.nums) && draw.nums.length === 6 ? draw.nums : null;
+      const drawHtml = drawNums
+        ? `<span class="cc-home-live__kicker">${drawSeq} · ${drawDate}</span>
+           <span class="cc-home-live__balls" aria-label="Numeri estratti">${
+             drawNums.map((n) => `<span class="cc-home-live__ball">${String(n).padStart(2, '0')}</span>`).join('')
+           }</span>`
+        : `<span class="cc-home-live__kicker">Ultima estrazione</span>
+           <span class="cc-home-live__stamp">Sincronizzazione in corso…</span>`;
+
+      // ── Consenso top-3 ──
+      const consensusTop = Array.isArray(summary?.consensus_top) ? summary.consensus_top.slice(0, 3) : [];
+      const consensusHtml = consensusTop.length
+        ? `<div class="cc-home-live__consensus">
+             <span class="cc-home-live__label">Consenso:</span>
+             ${consensusTop.map((c) => {
+               const num = String(c.number).padStart(2, '0');
+               const sup = Number.isFinite(c.support) ? c.support : 0;
+               return `<span class="cc-home-live__ball cc-home-live__ball--consensus" title="${sup} algoritmi">${num}</span>`;
+             }).join('')}
+             <a class="cc-home-live__link" href="${consensoHref}">Vedi tutti</a>
+           </div>`
+        : '';
+
+      // ── Top algoritmo dal ranking ──
+      const rankTop = Array.isArray(summary?.ranking_top) && summary.ranking_top.length
+        ? summary.ranking_top[0]
+        : null;
+      const rankHtml = rankTop
+        ? `<span class="cc-home-live__ai-pill">
+             <span class="cc-home-live__ai-icon" aria-hidden="true">★</span>
+             ${escapeHtml(String(rankTop.title || rankTop.id || ''))}
+           </span>`
+        : `<span class="cc-home-live__ai-pill">
+             <span class="cc-home-live__ai-icon" aria-hidden="true"></span>
+             Supporto AI attivo
+           </span>`;
+
       host.innerHTML = `
-        <div class="cc-home-live__stack cc-home-live__stack--human cc-home-live__stack--alert">
+        <div class="cc-home-live__stack cc-home-live__stack--human">
           <div class="cc-home-live__topline">
-            <span class="cc-home-live__kicker">Notizia in evidenza</span>
-            <span class="cc-home-live__stamp">Aggiornamento continuo</span>
+            ${drawHtml}
           </div>
-          <p class="cc-home-live__headline">Amministratore + iARGOS: controllo giornaliero su dati e pubblicazioni.</p>
+          ${consensusHtml}
           <div class="cc-home-live__ai-banner">
-            <span class="cc-home-live__ai-pill">
-              <span class="cc-home-live__ai-icon" aria-hidden="true"></span>
-              Supporto AI attivo
-            </span>
-            <a class="cc-home-live__link" href="${methodHref}">Scopri come lavoriamo</a>
+            ${rankHtml}
+            <a class="cc-home-live__link" href="${rankingHref}">Classifica completa</a>
+            <a class="cc-home-live__link" href="${methodHref}">iARGOS</a>
           </div>
         </div>
       `;
-
     },
 
     computeHeroSignal(rows) {

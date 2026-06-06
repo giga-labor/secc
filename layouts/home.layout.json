@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "data_sources": {
     "modules_manifest": "data/modules-manifest.json",
+    "home_summary": "data/precomputed/home-summary.json",
     "community_feed": "data/community-feed.json",
     "draws_csv": "archives/draws/draws.csv",
     "iargos_public_status": "data/iargos-public-status.json"

@@ -6,10 +6,10 @@
   "next_time": "20:00",
   "last_seq": 4207,
   "last_date": "05/06/2026",
-  "source": "online",
-  "jackpot_str": "174.100.000",
-  "jackpot_eur": "€ 174.100.000",
-  "jackpot_raw": 174100000,
+  "source": "locale",
+  "jackpot_str": "175.100.000",
+  "jackpot_eur": "€ 175.100.000",
+  "jackpot_raw": 175100000,
   "jackpot_source": "superenalotto_com",
-  "updated_at": "2026-06-05 21:06:33"
+  "updated_at": "2026-06-06 15:08:08"
 }

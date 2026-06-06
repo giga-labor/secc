@@ -1,0 +1,427 @@
+{
+  "generated_at": "2026-06-06T18:20:54",
+  "count": 15,
+  "algorithms": [
+    {
+      "slug": "astra-moon",
+      "title": "ASTRA Moon",
+      "family": "ibrido",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        15,
+        14,
+        16,
+        13,
+        17,
+        11
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.42,
+        "hit_rate_gte_2": 5.5,
+        "best_streak": 8
+      },
+      "explanation": [
+        "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome.",
+        "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.",
+        "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri.",
+        "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
+      ]
+    },
+    {
+      "slug": "classic-analisi-anomalie-pattern",
+      "title": "classic-analisi-anomalie-pattern",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        70,
+        65,
+        76,
+        23,
+        4,
+        83
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.4,
+        "hit_rate_gte_2": 5.6,
+        "best_streak": 7
+      },
+      "explanation": [
+        "Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte.",
+        "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo.",
+        "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi",
+        "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti"
+      ]
+    },
+    {
+      "slug": "classic-co-occorrenze",
+      "title": "classic  co-occorrenze",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        85,
+        55,
+        81,
+        76,
+        62,
+        80
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.4,
+        "hit_rate_gte_2": 5.1
+      },
+      "explanation": [
+        "Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna.",
+        "Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo.",
+        "Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo",
+        "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa"
+      ]
+    },
+    {
+      "slug": "classic-coppie-terni-consecutivi",
+      "title": "classic-coppie-terni-consecutivi",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        43,
+        44,
+        45,
+        55,
+        56,
+        57
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.4,
+        "hit_rate_gte_2": 4.9,
+        "best_streak": 8
+      },
+      "explanation": [
+        "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte.",
+        "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.",
+        "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti",
+        "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
+      ]
+    },
+    {
+      "slug": "classic-coppie-terzine-frequenti",
+      "title": "classic-coppie-terzine-frequenti",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        48,
+        86,
+        87,
+        13,
+        18,
+        51
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.38,
+        "hit_rate_gte_2": 4.7,
+        "best_streak": 6
+      },
+      "explanation": [
+        "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.",
+        "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.",
+        "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale",
+        "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
+      ]
+    },
+    {
+      "slug": "classic-distribuzioni-modelli-raggruppamento",
+      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        83,
+        80,
+        49,
+        65,
+        6,
+        88
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.39,
+        "hit_rate_gte_2": 4.8,
+        "best_streak": 6
+      },
+      "explanation": [
+        "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione.",
+        "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione.",
+        "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape",
+        "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
+      ]
+    },
+    {
+      "slug": "classic-frequency",
+      "title": "classic-frequency",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        85,
+        6,
+        86,
+        49,
+        79,
+        81
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.39,
+        "hit_rate_gte_2": 5.1,
+        "best_streak": 7
+      },
+      "explanation": [
+        "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti.",
+        "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.",
+        "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.",
+        "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+      ]
+    },
+    {
+      "slug": "classic-ritardi",
+      "title": "classic-ritardi",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        70,
+        65,
+        76,
+        23,
+        4,
+        83
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.4,
+        "hit_rate_gte_2": 5.2
+      },
+      "explanation": [
+        "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
+        "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
+        "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
+        "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+      ]
+    },
+    {
+      "slug": "classic-ritardi-combinazioni",
+      "title": "classic-ritardi-combinazioni",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        3,
+        86,
+        72,
+        90,
+        35,
+        12
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.41,
+        "hit_rate_gte_2": 5.2,
+        "best_streak": 7
+      },
+      "explanation": [
+        "Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico.",
+        "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie.",
+        "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay",
+        "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva"
+      ]
+    },
+    {
+      "slug": "classic-statistiche-combinate-finestre-mobili",
+      "title": "classic-statistiche-combinate-finestre-mobili",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        6,
+        8,
+        18,
+        28,
+        33,
+        58
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.38,
+        "hit_rate_gte_2": 4.7,
+        "best_streak": 7
+      },
+      "explanation": [
+        "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi).",
+        "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.",
+        "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top",
+        "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
+      ]
+    },
+    {
+      "slug": "classic-tavole-probabilita-teorica-test-uniformita",
+      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        50,
+        36,
+        53,
+        18,
+        24,
+        60
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.4,
+        "hit_rate_gte_2": 4.8,
+        "best_streak": 7
+      },
+      "explanation": [
+        "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.",
+        "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
+        "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
+        "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
+      ]
+    },
+    {
+      "slug": "genetic",
+      "title": "GeneticSE",
+      "family": "neurale",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        65,
+        70,
+        76,
+        83,
+        4,
+        88
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.39,
+        "hit_rate_gte_2": 4.6,
+        "hit_rate_gte_3": 0.4,
+        "best_streak": 7
+      },
+      "explanation": [
+        "GeneticSE e un algoritmo evolutivo adattivo a popolazione. Simula una forma di apprendimento progressivo su storico con selezione, crossover e mutazione dei pesi interni.",
+        "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi.",
+        "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
+        "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
+      ]
+    },
+    {
+      "slug": "hispa",
+      "title": "HiSPA",
+      "family": "statistica",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        82,
+        42,
+        49,
+        6,
+        16,
+        59
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.41,
+        "hit_rate_gte_2": 5.4,
+        "best_streak": 9
+      },
+      "explanation": [
+        "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi.",
+        "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale.",
+        "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati",
+        "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura."
+      ]
+    },
+    {
+      "slug": "paradox-logiche-decisionali-metriche",
+      "title": "Paradox Logiche Decisionali Metriche",
+      "family": "ibrido",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        6,
+        65,
+        76,
+        83,
+        4,
+        16
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.39,
+        "hit_rate_gte_2": 5.1,
+        "hit_rate_gte_3": 0.4,
+        "best_streak": 6
+      },
+      "explanation": [
+        "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
+        "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
+        "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
+        "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
+      ]
+    },
+    {
+      "slug": "super6NN",
+      "title": "Super6 NN",
+      "family": "neurale",
+      "generated_at": "2026-06-06T18:20:54",
+      "last_seq": 4207,
+      "last_date": "",
+      "proposal": [
+        16,
+        35,
+        53,
+        57,
+        58,
+        60
+      ],
+      "metrics": {
+        "draws_covered": 4207,
+        "avg_hits": 0.39,
+        "hit_rate_gte_2": 4.6,
+        "hit_rate_gte_3": 0.3,
+        "best_streak": 6
+      },
+      "explanation": [
+        "Super6NN e un modello neurale GRU multi-label su 90 numeri con lettura sequenziale dello storico estrazioni.",
+        "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi.",
+        "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.",
+        "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
+      ]
+    }
+  ]
+}

@@ -144,19 +144,28 @@
     const manifestPath = 'data/modules-manifest.json';
     const manifestUrl = repo.resolveWithBase(manifestPath);
 
-    // ── FAST PATH: numeri-stats.json pre-calcolato dal backend iARGOS ──
+    // ── FAST PATH: numeri-stats.json + home-summary.json in parallelo ──
     // Evita di scaricare e parsare il CSV completo (4000+ righe)
     const statsUrl = repo.resolveWithBase('data/numeri-stats.json');
-    let preStats = null;
-    try {
-      const sr = await fetch(statsUrl);
-      if (sr.ok) {
-        const j = await sr.json();
-        if (j && j.stats && Number.isFinite(j.total_draws) && j.total_draws > 0) {
-          preStats = j;
-        }
-      }
-    } catch (_) {}
+    const summaryUrl = repo.resolveWithBase('data/precomputed/home-summary.json');
+
+    const [preStatsRaw, homeSummaryRaw] = await Promise.allSettled([
+      fetch(statsUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      fetch(summaryUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    ]);
+
+    const preStats = (preStatsRaw.status === 'fulfilled' &&
+      preStatsRaw.value?.stats &&
+      Number.isFinite(preStatsRaw.value?.total_draws) &&
+      preStatsRaw.value.total_draws > 0)
+      ? preStatsRaw.value
+      : null;
+
+    const homeSummary = (homeSummaryRaw.status === 'fulfilled' &&
+      homeSummaryRaw.value &&
+      typeof homeSummaryRaw.value === 'object')
+      ? homeSummaryRaw.value
+      : null;
 
     // Cards sempre necessarie per il panel algoritmi
     const cardsResult = await repo.loadCardsByManifest(manifestUrl)
@@ -179,6 +188,7 @@
         numStats: normalizePrecomputedStats(preStats.stats),       // per tooltip bolle
         totalDraws: preStats.total_draws || 0,
         statsUpdatedAt: preStats.updated_at || '',
+        homeSummary,        // consensus_top, ranking_top, oracle
       };
       return _bundle;
     }
@@ -207,6 +217,7 @@
       numStats: {},
       totalDraws: draws.length,
       statsUpdatedAt: '',
+      homeSummary,          // consensus_top, ranking_top, oracle
     };
 
     return _bundle;

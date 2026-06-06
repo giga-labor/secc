@@ -1,0 +1,242 @@
+{
+  "generated_at": "2026-06-06T18:20:54",
+  "stale": false,
+  "latest_draw": {
+    "seq": 4207,
+    "date": "05/06/2026",
+    "nums": [
+      9,
+      25,
+      51,
+      63,
+      73,
+      89
+    ]
+  },
+  "consensus_top": [
+    {
+      "number": 6,
+      "support": 5,
+      "algorithms": [
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-frequency",
+        "classic-statistiche-combinate-finestre-mobili",
+        "hispa",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 65,
+      "support": 5,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 76,
+      "support": 5,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-co-occorrenze",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 83,
+      "support": 5,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 4,
+      "support": 4,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 16,
+      "support": 4,
+      "algorithms": [
+        "astra-moon",
+        "hispa",
+        "paradox-logiche-decisionali-metriche",
+        "super6NN"
+      ]
+    },
+    {
+      "number": 18,
+      "support": 3,
+      "algorithms": [
+        "classic-coppie-terzine-frequenti",
+        "classic-statistiche-combinate-finestre-mobili",
+        "classic-tavole-probabilita-teorica-test-uniformita"
+      ]
+    },
+    {
+      "number": 49,
+      "support": 3,
+      "algorithms": [
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-frequency",
+        "hispa"
+      ]
+    },
+    {
+      "number": 70,
+      "support": 3,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic"
+      ]
+    },
+    {
+      "number": 86,
+      "support": 3,
+      "algorithms": [
+        "classic-coppie-terzine-frequenti",
+        "classic-frequency",
+        "classic-ritardi-combinazioni"
+      ]
+    }
+  ],
+  "ranking_top": [
+    {
+      "title": "classic-analisi-anomalie-pattern",
+      "family": "statistica",
+      "ranking": 30402.32,
+      "hits": {
+        "0": 2770,
+        "1": 1201,
+        "2": 217,
+        "3": 17,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "classic-ritardi",
+      "family": "statistica",
+      "ranking": 29779.56,
+      "hits": {
+        "0": 2765,
+        "1": 1224,
+        "2": 200,
+        "3": 16,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "Paradox Logiche Decisionali Metriche",
+      "family": "ibrido",
+      "ranking": 29670.36,
+      "hits": {
+        "0": 2785,
+        "1": 1208,
+        "2": 196,
+        "3": 16,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "classic  co-occorrenze",
+      "family": "statistica",
+      "ranking": 28784.01,
+      "hits": {
+        "0": 2769,
+        "1": 1224,
+        "2": 199,
+        "3": 13,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "GeneticSE",
+      "family": "neurale",
+      "ranking": 28746.35,
+      "hits": {
+        "0": 2758,
+        "1": 1255,
+        "2": 178,
+        "3": 14,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "classic-coppie-terni-consecutivi",
+      "family": "statistica",
+      "ranking": 17990.83,
+      "hits": {
+        "0": 2750,
+        "1": 1252,
+        "2": 187,
+        "3": 17,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "HiSPA",
+      "family": "statistica",
+      "ranking": 17841.78,
+      "hits": {
+        "0": 2726,
+        "1": 1253,
+        "2": 212,
+        "3": 15,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "family": "statistica",
+      "ranking": 17561.78,
+      "hits": {
+        "0": 2778,
+        "1": 1228,
+        "2": 184,
+        "3": 16,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    }
+  ],
+  "oracle": {
+    "entropy": null,
+    "coherence": null,
+    "delay_pressure": null,
+    "anomaly": null,
+    "pressure": null,
+    "calibrated": false,
+    "note": "In sviluppo"
+  },
+  "total_active_algorithms": 15
+}

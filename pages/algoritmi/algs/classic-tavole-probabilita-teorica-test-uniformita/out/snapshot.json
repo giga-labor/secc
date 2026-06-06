@@ -1,0 +1,28 @@
+{
+  "slug": "classic-tavole-probabilita-teorica-test-uniformita",
+  "title": "classic-tavole-probabilita-teorica-test-uniformita",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    50,
+    36,
+    53,
+    18,
+    24,
+    60
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.4,
+    "hit_rate_gte_2": 4.8,
+    "best_streak": 7
+  },
+  "explanation": [
+    "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.",
+    "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
+    "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
+    "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
+  ]
+}

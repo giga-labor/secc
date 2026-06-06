@@ -1,0 +1,28 @@
+{
+  "slug": "hispa",
+  "title": "HiSPA",
+  "family": "statistica",
+  "generated_at": "2026-06-06T18:20:54",
+  "last_seq": 4207,
+  "last_date": "",
+  "proposal": [
+    82,
+    42,
+    49,
+    6,
+    16,
+    59
+  ],
+  "metrics": {
+    "draws_covered": 4207,
+    "avg_hits": 0.41,
+    "hit_rate_gte_2": 5.4,
+    "best_streak": 9
+  },
+  "explanation": [
+    "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi.",
+    "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale.",
+    "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati",
+    "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura."
+  ]
+}

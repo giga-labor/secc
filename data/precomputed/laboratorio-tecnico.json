@@ -1,0 +1,546 @@
+{
+  "generated_at": "2026-06-06 18:20:54",
+  "active_algorithms_count": 15,
+  "kpi": {
+    "algoritmi_documentati": 15,
+    "storico_analizzato_anni": 30,
+    "sezioni_tecniche": 6,
+    "bias_documentati": 4,
+    "famiglie_modelli": 3
+  },
+  "entries": [
+    {
+      "title": "ASTRA Moon",
+      "page": "pages/algoritmi/algs/astra-moon/",
+      "intro": "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome.",
+      "scope": "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.",
+      "method": "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri.",
+      "limits": "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni.",
+      "analysis": "ASTRA Moon aggiornato fino al concorso 4207 su 4207 estrazioni. Il modello usa sempre il riferimento locale 20:30 Europe/Rome per ogni concorso, con conversione UTC coerente ai passaggi ora solare/legale. Prossimo riferimento: 06/06/2026 20:30 CEST (06/06/2026 18:30 UTC).",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv ufficiale | data concorso | riferimento locale fisso 20:30 Europe/Rome | conversione UTC per calcolo effemeridi"
+        },
+        {
+          "key": "METODO",
+          "value": "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri."
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv progressivo con hit marcati | metrics-db.csv con classi hit 0..6 e proposta prossimo concorso | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
+        },
+        {
+          "key": "PARAMETRI",
+          "value": "reference_time_local=20:30 Europe/Rome | timezone_output=UTC | walk_forward_incrementale=true"
+        }
+      ]
+    },
+    {
+      "title": "classic  co-occorrenze",
+      "page": "pages/algoritmi/algs/classic-co-occorrenze/",
+      "intro": "Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna.",
+      "scope": "Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo.",
+      "method": "Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo",
+      "limits": "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa",
+      "analysis": "Contesto e definizioni\nHo analizzato 4,207 concorsi disponibili, con validazione storica progressiva fino al concorso 4207.\nIn ogni passo il modello propone una sestina costruita solo con informazioni disponibili prima dell'estrazione target.\n\nChe cosa misura davvero la co-occorrenza\nLa logica non guarda solo ai numeri piu presenti singolarmente, ma alla loro capacita di muoversi insieme nel tempo.\nIn pratica, il modello favorisce sestine in cui i legami a coppie risultano densi, coerenti e ripetuti nello storico.\nQuesta scelta rende la proposta leggibile: non un elenco casuale di numeri forti isolati, ma un piccolo cluster con struttura interna.\n\nPerche questo approccio puo essere interessante da leggere\nQuando osservi la scheda, puoi seguire tre livelli: frequenza del singolo numero, forza della rete di coppie e tenuta metrica nel tempo.\nQuesta stratificazione allunga naturalmente il tempo di lettura perche ogni livello aggiunge un pezzo di senso: prima il dato, poi la relazione, poi la sintesi operativa.\nIl risultato e una narrazione tecnica piu ricca ma ancora concreta, adatta sia a chi vuole un colpo d'occhio sia a chi cerca approfondimento.\n\nLimiti e disciplina interpretativa\nAnche una rete di co-occorrenze molto ordinata non trasforma un processo aleatorio in un processo deterministico.\nLe metriche sono descrittive: aiutano a confrontare modelli, monitorare stabilita e capire quando una regola perde efficacia.\nUsa quindi il modello come strumento di analisi strutturale e supporto decisionale, mantenendo sempre controllo del rischio e aspettative realistiche.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo."
+        },
+        {
+          "key": "INPUT",
+          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo dell'archivio draws.csv"
+        },
+        {
+          "key": "METODO",
+          "value": "Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "Sestina co-occorrenziale proposta | Storico validato con evidenza hit | Metriche descrittive e note di interpretazione"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa"
+        }
+      ]
+    },
+    {
+      "title": "classic-analisi-anomalie-pattern",
+      "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
+      "intro": "Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte.",
+      "scope": "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo.",
+      "method": "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi",
+      "limits": "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti",
+      "analysis": "Classic Analisi Anomalie Pattern: replay incrementale su 4207 concorsi fino al concorso 4207. Per ogni target il pronostico viene calcolato solo con dati storici precedenti. Il modello combina ritardi, deviazioni recenti, terminali e concentrazioni per decadi per costruire una sestina descrittiva ad alta leggibilita strutturale. Le metriche misurano frequenza e intensita dei pattern anomali osservati, non una promessa di previsione.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo."
+        },
+        {
+          "key": "INPUT",
+          "value": "Storico draws.csv validato completo | Ordinamento cronologico corretto | Aggiornamento progressivo concorso per concorso"
+        },
+        {
+          "key": "METODO",
+          "value": "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit incrementali | metrics-db.csv con metriche anomalie e copertura | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti"
+        }
+      ]
+    },
+    {
+      "title": "classic-coppie-terni-consecutivi",
+      "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
+      "intro": "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte.",
+      "scope": "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.",
+      "method": "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti",
+      "limits": "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato",
+      "analysis": "Classic Coppie Terni Consecutivi: addestramento incrementale su 4207 concorsi fino al concorso 4207. Per ogni concorso target la sestina viene proposta usando solo segmenti consecutivi e statistiche disponibili prima dell estrazione. Il focus e sulla lettura delle run consecutive (coppie e terni) e sulla loro persistenza storica. Le metriche aiutano a capire quanto spesso il fenomeno compare e quanto il modello lo intercetta in backtest progressivo.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico completo | Replay incrementale concorso per concorso | Ordinamento cronologico corretto"
+        },
+        {
+          "key": "METODO",
+          "value": "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit incrementali | metrics-db.csv con statistiche sui consecutivi | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
+        }
+      ]
+    },
+    {
+      "title": "classic-coppie-terzine-frequenti",
+      "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
+      "intro": "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.",
+      "scope": "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.",
+      "method": "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale",
+      "limits": "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti",
+      "analysis": "Classic Coppie Terzine Frequenti: training incrementale fino al concorso 4207 su 4207 concorsi. Il modulo aggiorna coppie e terzine concorso per concorso e produce ogni pronostico solo sulla base dello storico precedente. La logica privilegia motivi ricorrenti e densita relazionale interna della sestina proposta. Le metriche mostrano sia i pattern dominanti sia la densita storica della sestina corrente.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico completo | Replay incrementale | Combinazioni 2 e 3 generate da ciascuna sestina estratta"
+        },
+        {
+          "key": "METODO",
+          "value": "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit progressivi | metrics-db.csv con top pattern e densita | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
+        }
+      ]
+    },
+    {
+      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
+      "intro": "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione.",
+      "scope": "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione.",
+      "method": "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape",
+      "limits": "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina",
+      "analysis": "Classic Distribuzioni Modelli Raggruppamento: replay incrementale fino al concorso 4207 su 4207 concorsi. Il modulo osserva la forma delle sestine (pari/dispari, bassi/alti, concentrazione per decadi, somme e ampiezza) e propone una sestina che rispetta i pattern modali storici. Ogni previsione e prodotta solo con i dati disponibili al passo precedente. Le metriche aiutano a leggere la struttura delle estrazioni piu che a formulare una promessa predittiva.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico | Replay incrementale | Calcolo di shape e aggregati strutturali per ogni concorso"
+        },
+        {
+          "key": "METODO",
+          "value": "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit progressivi | metrics-db.csv con shape modali e statistiche strutturali | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
+        }
+      ]
+    },
+    {
+      "title": "classic-frequency",
+      "page": "pages/algoritmi/algs/classic-frequency/",
+      "intro": "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti.",
+      "scope": "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.",
+      "method": "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.",
+      "limits": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico",
+      "analysis": "Classic Frequency incrementale: storico aggiornato fino al concorso 4207 su 4207 estrazioni. Proposta(t) verificata su concorso t in sequenza.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa."
+        },
+        {
+          "key": "INPUT",
+          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv"
+        },
+        {
+          "key": "METODO",
+          "value": "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente."
+        },
+        {
+          "key": "OUTPUT",
+          "value": "Sestina frequenziale proposta e metriche di hit su storico."
+        },
+        {
+          "key": "LIMITI",
+          "value": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+        }
+      ]
+    },
+    {
+      "title": "classic-ritardi",
+      "page": "pages/algoritmi/algs/classic-ritardi/",
+      "intro": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
+      "scope": "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
+      "method": "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
+      "limits": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico",
+      "analysis": "Classic Ritardi: analisi descrittiva dei ritardi storici. Nessuna garanzia predittiva.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa."
+        },
+        {
+          "key": "INPUT",
+          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv"
+        },
+        {
+          "key": "METODO",
+          "value": "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo."
+        },
+        {
+          "key": "OUTPUT",
+          "value": "Sestina ritardataria proposta e metriche di copertura hit su storico."
+        },
+        {
+          "key": "LIMITI",
+          "value": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+        }
+      ]
+    },
+    {
+      "title": "classic-ritardi-combinazioni",
+      "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
+      "intro": "Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico.",
+      "scope": "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie.",
+      "method": "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay",
+      "limits": "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva",
+      "analysis": "Classic Ritardi Combinazioni: replay incrementale concorso per concorso fino al concorso 4207 su 4207 concorsi. Il modulo aggiorna ritardi su coppie e terzine osservate e produce il pronostico del concorso successivo usando solo lo stato disponibile al passo corrente. La sestina viene favorita quando contiene numeri con elevata esposizione a combinazioni ritardatarie. Le metriche riportano copertura storica e ritardi massimi rilevati, con finalita descrittive e comparative.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico | Replay incrementale | Aggiornamento online di ritardi su coppie e terzine osservate"
+        },
+        {
+          "key": "METODO",
+          "value": "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit incrementali | metrics-db.csv con ritardi combinazionali | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva"
+        }
+      ]
+    },
+    {
+      "title": "classic-statistiche-combinate-finestre-mobili",
+      "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
+      "intro": "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi).",
+      "scope": "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.",
+      "method": "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top",
+      "limits": "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro",
+      "analysis": "Classic Statistiche Combinate Finestre Mobili: replay incrementale fino al concorso 4207 su 4207 concorsi. Il modulo aggiorna indicatori su finestre 50, 100 e 200 e produce il pronostico del concorso successivo usando solo i dati accumulati al passo corrente. La sestina privilegia numeri con supporto in piu finestre, bilanciando recency e stabilita. Le metriche mostrano top list e overlap per valutare convergenza o volatilita dei segnali.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi)."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico | Replay incrementale | Finestre mobili 50/100/200 aggiornate concorso per concorso"
+        },
+        {
+          "key": "METODO",
+          "value": "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit incrementali | metrics-db.csv con top list per finestra e overlap | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
+        }
+      ]
+    },
+    {
+      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
+      "intro": "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.",
+      "scope": "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
+      "method": "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
+      "limits": "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva",
+      "analysis": "Classic Tavole Probabilita Teorica Test Uniformita: replay incrementale fino al concorso 4207 su 4207 concorsi. Per ogni passo il modulo confronta frequenze osservate e attese teoriche (uniformi) sullo storico disponibile e propone una sestina di numeri sotto-attesi con vincoli di distribuzione per decadi. Le statistiche chi-quadro riportate sono descrittive e servono per confronto interno tra classi, non come certificazione predittiva.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico | Replay incrementale | Conteggi osservati per numero e per classi aggregate"
+        },
+        {
+          "key": "METODO",
+          "value": "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv con hit incrementali | metrics-db.csv con scarti osservato-atteso e test descrittivi | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
+        }
+      ]
+    },
+    {
+      "title": "GeneticSE",
+      "page": "pages/algoritmi/algs/genetic/",
+      "intro": "GeneticSE e un algoritmo evolutivo adattivo a popolazione. Simula una forma di apprendimento progressivo su storico con selezione, crossover e mutazione dei pesi interni.",
+      "scope": "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi.",
+      "method": "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
+      "limits": "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale",
+      "analysis": "Descrizione tecnica algoritmo\nGeneticSE usa un approccio evolutivo a popolazione (genomi di pesi) su feature storiche.\nOgni genoma pesa tre segnali: frequenza cumulata, ritardo relativo e frequenza recente su finestra mobile.\nAd ogni concorso storico, il sistema produce una sestina candidata, valuta la fitness sui match reali e aggiorna la popolazione con selezione delle elite, crossover e mutazione.\nIl flusso e walk-forward: per il concorso t usa solo informazione disponibile fino a t-1.\n\nInquadramento neurale\nIl modello e adattivo e apprende in modo progressivo, quindi e spesso percepito come neurale.\nTecnicamente pero non e una rete neurale classica supervisionata con layer e backpropagation: e un ottimizzatore genetico su feature statistiche.\n\nRisultati osservati sullo storico\nConcorsi valutati: 4.206\n- Media hit/sestina: 0.39\n- Hit >=1: 1448 su 4206 (34.4%)\n- Hit >=2: 193 su 4206 (4.6%)\n- Hit >=3: 15 su 4206 (0.4%)\n- Hit >=4: 1 su 4206 (0.0%)\n- Hit >=5: 0 su 4206 (0.0%)\n- Hit =6: 0 su 4206 (0.0%)\n- Best streak hit>=1: 7\n- Distribuzione esatta hit: 0:2758 1:1255 2:178 3:14 4:1 5:0 6:0\n\nConfronto con baseline casuale (6 su 90)\n- Media hit attesa random: 0.4000 | osservata: 0.3940\n- Hit>=2 atteso random: 4.96% | osservato: 4.59% | z-score: -1.12\n- Hit>=3 atteso random: 0.315% | osservato: 0.357%\n- Hit>=4 atteso random: 0.0085% | osservato: 0.0238%\n- Hit>=5 atteso random: 0.000081% | osservato: 0.000000%\n- Hit=6 atteso random: 0.00000016% | osservato: 0.00000000%\n\nStabilita temporale e drift\n- Media ultimi 200 concorsi: 0.3750 (delta vs storico: -0.0190)\n- Hit>=2 ultimi 200: 10/200 (5.00%)\n- Deviazione standard hit: 0.5884\n- Intervallo 95% media hit: [0.3762, 0.4117]\n\nConfigurazione operativa\n- Fonte: training_history progressivo GeneticSE\n- Popolazione: 48 organismi\n- Finestra recente: 90 concorsi\n- Ultimo concorso: 4207 (05/06/2026)\n- Prossimo concorso stimato: 4208\n- Sestina proposta: 65 70 76 83 04 88\n\nLettura e limiti\nLe metriche sono coerenti con un modello adattivo che segue pattern storici, ma non dimostrano vantaggio matematico stabile fuori campione.\nPer uso rigoroso e consigliato monitorare rolling window, confronto costante con baseline random e controllo drift dopo ogni nuovo concorso.\nIl sistema va quindi interpretato come strumento analitico-operativo e non come predittore certo.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "GeneticSE e un algoritmo evolutivo adattivo a popolazione. Simula una forma di apprendimento progressivo su storico con selezione, crossover e mutazione dei pesi interni."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi."
+        },
+        {
+          "key": "INPUT",
+          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv"
+        },
+        {
+          "key": "METODO",
+          "value": "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db con hit marcati concorso per concorso | metrics-db con copertura hit 2..6, media e streak | analisi testuale tecnica e operativa | sestina proposta per il prossimo concorso"
+        },
+        {
+          "key": "LIMITI",
+          "value": "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
+        }
+      ]
+    },
+    {
+      "title": "HiSPA",
+      "page": "pages/algoritmi/algs/hispa/",
+      "intro": "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi.",
+      "scope": "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale.",
+      "method": "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati",
+      "limits": "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura.",
+      "analysis": "HiSPA incrementale: storico aggiornato fino al concorso 4207 su 4207 estrazioni. Per ogni target t usa la sestina reale t-1 come query, ricerca pattern su 1..t-2, propaga score dai concorsi successivi e produce proposta top-6 con pipeline SECC out/*. Architettura separata: run.py interfaccia, logica in core/.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv ordinato per NR. SEQUENZIALE | query=N | ricerca pattern su 1..N-1 | verifica su N+1"
+        },
+        {
+          "key": "METODO",
+          "value": "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati"
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt"
+        },
+        {
+          "key": "LIMITI",
+          "value": "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura."
+        },
+        {
+          "key": "PARAMETRI",
+          "value": "alpha=0.50 | W1=1.00 | W2=1.80 | W3=3.20 | W4=5.00 | W5=4.20 | W6=3.00 | k1=20 | k2=10 | k3=6 | k4=4 | k5=3 | k6=2"
+        }
+      ]
+    },
+    {
+      "title": "Paradox Logiche Decisionali Metriche",
+      "page": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
+      "intro": "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
+      "scope": "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
+      "method": "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
+      "limits": "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi.",
+      "analysis": "PARADOX - Analisi tecnica run\n\nConcorsi disponibili nel draws condiviso: 4207\nAlgoritmi attivi con output validi: 14\nCampioni meta-neurali usati: 12000\nStato modello neurale: D:\\PROGETTI\\SuperEnalotto\\01 Superenalotto ControlChaos\\iARGOS_iARGOS2\\secc-mirror\\pages\\algoritmi\\algs\\paradox-logiche-decisionali-metriche\\paradox_engine\\models\\meta_mlp.json\n\nPesi finali algoritmo (normalizzati):\n- astra-moon: 0.0714\n- classic-analisi-anomalie-pattern: 0.0714\n- classic-co-occorrenze: 0.0714\n- classic-coppie-terni-consecutivi: 0.0714\n- classic-coppie-terzine-frequenti: 0.0714\n- classic-distribuzioni-modelli-raggruppamento: 0.0714\n- classic-frequency: 0.0714\n- classic-ritardi: 0.0714\n- classic-ritardi-combinazioni: 0.0714\n- classic-statistiche-combinate-finestre-mobili: 0.0714\n- classic-tavole-probabilita-teorica-test-uniformita: 0.0714\n- genetic-algorithm-evolutionary: 0.0714\n- hispa: 0.0714\n- super6NN: 0.0714\n\nSestina Paradox proposta per prossimo concorso: 06 65 76 83 04 16\n\nNote metodologia:\n- Discovery automatica tramite card.json (isActive=true), senza lista manuale.\n- Lettura black-box di out/historical-db.csv e out/metrics-db.csv.\n- Scoring con meta-feature (consenso, stabilita, anti-pattern) e mini rete neurale MLP.\n- Aggregazione finale a voto pesato per numero.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv condiviso di sistema | card.json algoritmi con isActive=true | out/historical-db.csv e out/metrics-db.csv dei moduli attivi."
+        },
+        {
+          "key": "METODO",
+          "value": "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero."
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv, metrics-db.csv, algorithm-sheet.csv, analysis.txt conformi standard secc-admin in cartella out/."
+        },
+        {
+          "key": "LIMITI",
+          "value": "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
+        }
+      ]
+    },
+    {
+      "title": "Super6 NN",
+      "page": "pages/algoritmi/algs/super6NN/",
+      "intro": "Super6NN e un modello neurale GRU multi-label su 90 numeri con lettura sequenziale dello storico estrazioni.",
+      "scope": "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi.",
+      "method": "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.",
+      "limits": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window.",
+      "analysis": "Descrizione tecnica algoritmo\nSuper6NN usa una rete GRU con output multi-label su 90 classi, una per ogni numero possibile.\nOgni concorso viene codificato in multi-hot e letto in sequenza temporale per estrarre struttura ricorrente.\nLa stima per ogni step usa solo lo storico precedente al concorso target, in ottica walk-forward.\n\nImpostazione di questo export SICC\nAnalisi eseguita su 4207 concorsi del draws admin, con 4206 step di validazione storica.\nPer ogni step viene proposta una sestina deterministica dai 6 logit piu alti del modello.\nOgni proposta e generata dallo stato appreso fino a quel passo, poi verificata sul concorso successivo.\n\nRisultati osservati sullo storico\n- Media hit/sestina: 0.3892\n- Hit >=1: 1431/4206 (34.02%)\n- Hit >=2: 194/4206 (4.61%)\n- Hit >=3: 12/4206 (0.29%)\n- Hit >=4: 0/4206 (0.00%)\n- Hit >=5: 0/4206 (0.0000%)\n- Hit =6: 0/4206 (0.000000%)\n- Distribuzione hit esatta: 0:2775 1:1237 2:182 3:12 4:0 5:0 6:0\n\nConfronto con baseline casuale (6 su 90)\n- Media hit attesa random: 0.4000 | osservata: 0.3892\n- Hit>=2 atteso random: 4.963% | osservato: 4.612% | z-score: -1.05\n- Hit>=3 atteso random: 0.315%\n- Hit>=4 atteso random: 0.00848%\n\nStabilita temporale\n- Media ultimi 200 step: 0.3750\n- Deviazione standard hit: 0.5843\n\nConfigurazione operativa\n- Ultimo concorso disponibile: 4207 (05/06/2026)\n- Prossimo concorso stimato: 4208\n- Sestina proposta: 16 35 53 57 58 60\n\nLettura e limiti\nLe metriche descrivono comportamento storico del modello ma non costituiscono garanzia predittiva futura.\nIl run va rieseguito a ogni aggiornamento draws per mantenere coerenza tra storico, metriche e proposta operativa.",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "Super6NN e un modello neurale GRU multi-label su 90 numeri con lettura sequenziale dello storico estrazioni."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi."
+        },
+        {
+          "key": "INPUT",
+          "value": "Unico draws.csv admin aggiornato | Ordinamento progressivo NR. SEQUENZIALE | Numeri validi 1..90 senza duplicati."
+        },
+        {
+          "key": "METODO",
+          "value": "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step."
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db con hit marcati per concorso | metrics-db con copertura e stabilita | analysis tecnica | sestina proposta prossimo concorso."
+        },
+        {
+          "key": "LIMITI",
+          "value": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
+        }
+      ]
+    }
+  ]
+}

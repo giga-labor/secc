@@ -105,7 +105,14 @@
           </div>
           <div class="tabs-sheet">
             <section class="tab-panel is-active space-y-4" data-tab-panel="ranking">
-              <div class="cc-ranking-cards-grid" data-ranking-cards data-seo-fallback="ranking">
+              <div class="flex flex-wrap items-center gap-2 mb-4" id="ranking-filters" role="group" aria-label="Filtra per famiglia">
+              <span class="text-[0.65rem] uppercase tracking-[0.18em] text-ash/60 mr-1">Famiglia:</span>
+              <button type="button" class="cc-rank-filter is-active rounded-full border border-neon/60 bg-neon/10 px-3 py-1 text-xs text-neon" data-family="">Tutti</button>
+              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-sky-400/50 hover:text-sky-300 transition" data-family="statistici">Statistici</button>
+              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-violet-400/50 hover:text-violet-300 transition" data-family="neurali">Neurali</button>
+              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-emerald-400/50 hover:text-emerald-300 transition" data-family="ibridi">Ibridi</button>
+            </div>
+            <div class="cc-ranking-cards-grid" data-ranking-cards data-seo-fallback="ranking">
                 <div class="cc-home-empty">Caricamento punteggio algoritmi...</div>
               </div>
             </section>
@@ -281,7 +288,7 @@
         var detail = 'Hit 0:' + row.hits[0] + ' 1:' + row.hits[1] + ' 2:' + row.hits[2] + ' 3:' + row.hits[3] + ' 4:' + row.hits[4] + ' 5:' + row.hits[5] + ' 6:' + row.hits[6];
         var podiumClass = podium ? (' cc-ranking-card--podium cc-ranking-card--podium-' + position) : '';
         return ''
-          + '<a href="' + escapeHtml(href) + '" class="cc-card cc-card3d card-3d algorithm-card cc-ranking-card' + podiumClass + ' group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-study is-active" aria-label="Apri ' + title + '">'
+          + '<a href="' + escapeHtml(href) + '" class="cc-card cc-card3d card-3d algorithm-card cc-ranking-card' + podiumClass + ' group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-study is-active" aria-label="Apri ' + title + '" data-rank-family="' + escapeHtml(String(row.family || '').toLowerCase()) + '">'
           + '<span class="cc-ranking-card__badge">#' + position + '</span>'
           + '<div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden" style="position:relative;width:100%;aspect-ratio:15/8;min-height:0;max-height:none;overflow:hidden;">'
           + '<img class="h-full w-full object-cover" src="' + escapeHtml(resolveImage(row.card, row.page)) + '" alt="Anteprima ' + title + '" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">'
@@ -384,6 +391,31 @@
           + '</div>';
         if (window.CARDS && typeof window.CARDS.enableDepth === 'function') window.CARDS.enableDepth(host);
       }
+
+      // --- Filtro per famiglia ---
+      var _rankingFilterActive = '';
+      document.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest('.cc-rank-filter');
+        if (!btn) return;
+        _rankingFilterActive = String(btn.getAttribute('data-family') || '').toLowerCase();
+        document.querySelectorAll('.cc-rank-filter').forEach(function (b) {
+          var isActive = String(b.getAttribute('data-family') || '').toLowerCase() === _rankingFilterActive;
+          b.classList.toggle('is-active', isActive);
+          b.classList.toggle('border-neon/60', isActive);
+          b.classList.toggle('bg-neon/10', isActive);
+          b.classList.toggle('text-neon', isActive);
+          b.classList.toggle('border-white/15', !isActive);
+          b.classList.toggle('bg-white/5', !isActive);
+          b.classList.toggle('text-ash', !isActive);
+        });
+        var host = document.querySelector('[data-ranking-cards]');
+        if (!host) return;
+        var cards = host.querySelectorAll('[data-rank-family]');
+        cards.forEach(function (card) {
+          var fam = String(card.getAttribute('data-rank-family') || '').toLowerCase();
+          card.style.display = (!_rankingFilterActive || fam === _rankingFilterActive) ? '' : 'none';
+        });
+      });
 
       window.addEventListener('load', function () {
         window.setTimeout(function () { ensureRankingCardsVisible().catch(function () {}); }, 1600);
