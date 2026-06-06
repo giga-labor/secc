@@ -481,8 +481,17 @@ let _nextDrawAt=null;
 let _nextDrawLoading=false;
 
 function fallbackNextDrawDate(){
-  const now=new Date(),t=new Date();t.setHours(20,0,0,0);
-  const d=(6-t.getDay()+7)%7||7;t.setDate(t.getDate()+(t.getDay()===6&&now<t?0:d));
+  const now=new Date();
+  const drawDays=[2,4,5,6]; // martedi, giovedi, venerdi, sabato
+  for(let offset=0;offset<=7;offset++){
+    const t=new Date(now);
+    t.setDate(now.getDate()+offset);
+    t.setHours(20,0,0,0);
+    if(drawDays.includes(t.getDay())&&t>now) return t;
+  }
+  const t=new Date(now);
+  t.setDate(now.getDate()+1);
+  t.setHours(20,0,0,0);
   return t;
 }
 
