@@ -304,7 +304,7 @@
         // Timestamp
         var tsEl = document.getElementById('community-ts');
         var tsVal = document.getElementById('community-ts-value');
-        var tsRaw = status.generated_at || status.updated_at || '';
+        var tsRaw = entries.length ? (entries[0].ts || entries[0].timestamp || '') : '';
         if (tsEl && tsVal && tsRaw) {
           var mTs = String(tsRaw).match(/^(\d{4})-(\d{2})-(\d{2})[\sT](\d{2}):(\d{2})/);
           tsVal.textContent = mTs ? mTs[3]+'/'+mTs[2]+'/'+mTs[1]+' alle '+mTs[4]+':'+mTs[5] : String(tsRaw).slice(0,16);
