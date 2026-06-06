@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-06 19:33:19",
+  "updated_at": "2026-06-06 19:34:08",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -26,7 +26,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-06 19:32:23",
+    "last_push_at": "2026-06-06 19:33:47",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1780762848
@@ -34,7 +34,7 @@
   "feed": [
     {
       "type": "deploy",
-      "ts": "2026-06-06T19:32:45",
+      "ts": "2026-06-06T19:34:04",
       "message": "iARGOSv2 ha ricostruito e riallineato il mirror",
       "detail": "[AUTONOMOUS] 'deploy_mirror_local' OK (trigger: p2_flow_guard) - fase unica: 50 eventi ravvicinati",
       "ok": true,
@@ -193,14 +193,6 @@
       "source": "iargos"
     },
     {
-      "type": "draw",
-      "ts": "2026-05-26T21:30:07",
-      "message": "iARGOSv2 ha gestito un aggiornamento concorso",
-      "detail": "[AUTONOMOUS] 'update_draws' OK (trigger: p5_archive_stale) - fase unica: 2 eventi ravvicinati",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
       "type": "versioning",
       "ts": "2026-05-26T17:44:41",
       "message": "iARGOSv2 ha consolidato una variante sostanziale (00.12.000 -> 00.13.000)",
@@ -269,6 +261,14 @@
       "ts": "2026-03-10T23:31:55",
       "message": "iARGOSv2 ha consolidato una variante sostanziale (00.08.002 -> 00.09.000)",
       "detail": "480 file sincronizzati - backup mirror-00.09.000",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-03-10T00:51:56",
+      "message": "iARGOSv2 ha consolidato una variante sostanziale (00.07.006 -> 00.08.000)",
+      "detail": "469 file sincronizzati - backup mirror-00.08.000",
       "ok": true,
       "source": "versioning-audit"
     }
