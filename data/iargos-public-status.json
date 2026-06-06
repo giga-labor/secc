@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-06 18:44:16",
+  "updated_at": "2026-06-06 18:45:28",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -26,7 +26,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-06 18:43:10",
+    "last_push_at": "2026-06-06 18:44:58",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1780762848
@@ -34,9 +34,9 @@
   "feed": [
     {
       "type": "deploy",
-      "ts": "2026-06-06T18:43:34",
+      "ts": "2026-06-06T18:45:24",
       "message": "iARGOSv2 ha ricostruito e riallineato il mirror",
-      "detail": "[AUTONOMOUS] 'deploy_mirror_local' OK (trigger: p2_flow_guard) - fase unica: 37 eventi ravvicinati",
+      "detail": "[AUTONOMOUS] 'deploy_mirror_local' OK (trigger: p2_flow_guard) - fase unica: 39 eventi ravvicinati",
       "ok": true,
       "source": "iargos"
     },
@@ -68,7 +68,7 @@
       "type": "deploy",
       "ts": "2026-06-05T20:47:51",
       "message": "iARGOSv2 ha ricostruito e riallineato il mirror",
-      "detail": "[AUTONOMOUS] 'deploy_mirror_local' OK (trigger: p2_flow_guard) - fase unica: 13 eventi ravvicinati",
+      "detail": "[AUTONOMOUS] 'deploy_mirror_local' OK (trigger: p2_flow_guard) - fase unica: 11 eventi ravvicinati",
       "ok": true,
       "source": "iargos"
     },
