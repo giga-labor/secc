@@ -2,8 +2,8 @@
   "slug": "classic-ritardi",
   "title": "classic-ritardi",
   "family": "statistica",
-  "generated_at": "2026-06-06T19:50:03",
-  "last_seq": 4207,
+  "generated_at": "2026-06-06T21:28:16",
+  "last_seq": 4208,
   "last_date": "",
   "proposal": [
     70,
@@ -14,7 +14,7 @@
     83
   ],
   "metrics": {
-    "draws_covered": 4207,
+    "draws_covered": 4208,
     "avg_hits": 0.4,
     "hit_rate_gte_2": 5.2
   },

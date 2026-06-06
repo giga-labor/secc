@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-06-06T19:50:03",
+  "generated_at": "2026-06-06T21:28:16",
   "stale": false,
   "latest_draw": {
-    "seq": 4207,
-    "date": "05/06/2026",
+    "seq": 4208,
+    "date": "06/06/2026",
     "nums": [
-      9,
-      25,
-      51,
-      63,
-      73,
+      2,
+      7,
+      29,
+      68,
+      72,
       89
     ]
   },
   "consensus_top": [
     {
-      "number": 6,
+      "number": 4,
       "support": 5,
       "algorithms": [
-        "classic-distribuzioni-modelli-raggruppamento",
-        "classic-frequency",
-        "classic-statistiche-combinate-finestre-mobili",
-        "hispa",
-        "paradox-logiche-decisionali-metriche"
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche",
+        "super6NN"
       ]
     },
     {
@@ -59,41 +59,43 @@
       ]
     },
     {
-      "number": 4,
-      "support": 4,
+      "number": 85,
+      "support": 5,
       "algorithms": [
-        "classic-analisi-anomalie-pattern",
-        "classic-ritardi",
-        "genetic",
+        "classic-co-occorrenze",
+        "classic-frequency",
+        "classic-ritardi-combinazioni",
+        "hispa",
         "paradox-logiche-decisionali-metriche"
       ]
     },
     {
-      "number": 16,
+      "number": 6,
       "support": 4,
       "algorithms": [
-        "astra-moon",
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-frequency",
+        "classic-statistiche-combinate-finestre-mobili",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 80,
+      "support": 4,
+      "algorithms": [
+        "classic-co-occorrenze",
+        "classic-distribuzioni-modelli-raggruppamento",
         "hispa",
-        "paradox-logiche-decisionali-metriche",
         "super6NN"
       ]
     },
     {
-      "number": 18,
+      "number": 55,
       "support": 3,
       "algorithms": [
-        "classic-coppie-terzine-frequenti",
-        "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita"
-      ]
-    },
-    {
-      "number": 49,
-      "support": 3,
-      "algorithms": [
-        "classic-distribuzioni-modelli-raggruppamento",
-        "classic-frequency",
-        "hispa"
+        "classic-co-occorrenze",
+        "classic-coppie-terni-consecutivi",
+        "super6NN"
       ]
     },
     {
@@ -119,9 +121,9 @@
     {
       "title": "classic-analisi-anomalie-pattern",
       "family": "statistica",
-      "ranking": 30402.32,
+      "ranking": 30403.85,
       "hits": {
-        "0": 2770,
+        "0": 2771,
         "1": 1201,
         "2": 217,
         "3": 17,
@@ -133,9 +135,9 @@
     {
       "title": "classic-ritardi",
       "family": "statistica",
-      "ranking": 29779.56,
+      "ranking": 29781.09,
       "hits": {
-        "0": 2765,
+        "0": 2766,
         "1": 1224,
         "2": 200,
         "3": 16,
@@ -147,9 +149,9 @@
     {
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "ranking": 29670.36,
+      "ranking": 29671.89,
       "hits": {
-        "0": 2785,
+        "0": 2786,
         "1": 1208,
         "2": 196,
         "3": 16,
@@ -161,9 +163,9 @@
     {
       "title": "classic  co-occorrenze",
       "family": "statistica",
-      "ranking": 28784.01,
+      "ranking": 28785.54,
       "hits": {
-        "0": 2769,
+        "0": 2770,
         "1": 1224,
         "2": 199,
         "3": 13,
@@ -175,9 +177,9 @@
     {
       "title": "GeneticSE",
       "family": "neurale",
-      "ranking": 28746.35,
+      "ranking": 28747.88,
       "hits": {
-        "0": 2758,
+        "0": 2759,
         "1": 1255,
         "2": 178,
         "3": 14,
@@ -189,9 +191,9 @@
     {
       "title": "classic-coppie-terni-consecutivi",
       "family": "statistica",
-      "ranking": 17990.83,
+      "ranking": 17992.36,
       "hits": {
-        "0": 2750,
+        "0": 2751,
         "1": 1252,
         "2": 187,
         "3": 17,
@@ -203,9 +205,9 @@
     {
       "title": "HiSPA",
       "family": "statistica",
-      "ranking": 17841.78,
+      "ranking": 17843.31,
       "hits": {
-        "0": 2726,
+        "0": 2727,
         "1": 1253,
         "2": 212,
         "3": 15,
@@ -217,9 +219,9 @@
     {
       "title": "classic-distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "ranking": 17561.78,
+      "ranking": 17563.31,
       "hits": {
-        "0": 2778,
+        "0": 2779,
         "1": 1228,
         "2": 184,
         "3": 16,

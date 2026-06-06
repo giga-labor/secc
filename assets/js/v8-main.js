@@ -477,10 +477,9 @@ function buildCCEngine(cvs, opts){
 }
 
 // ─── COUNTDOWN
-let _nextDrawAt=null;
+let _nextDrawAt=null;        // null = nessuna risposta ancora dal JSON
 let _nextDrawLoading=false;
-let _waitingDots=0;
-let _waitingLastFetch=0;
+let _nextDrawFetched=false;  // true dopo il primo fetch andato a buon fine
 
 function fallbackNextDrawDate(){
   const now=new Date();
@@ -538,8 +537,11 @@ function fetchNextDrawDate(){
   Promise.resolve(req)
     .then(function(payload){
       const parsed=parseNextDrawDate(payload);
-      // Usa la data solo se è nel futuro — se passata usa il fallback calendario
-      if(parsed && parsed>new Date()) _nextDrawAt=parsed;
+      // Accetta sempre la data dal JSON, futura o passata:
+      // - passata → siamo in attesa dei risultati (diff=0, waiting state)
+      // - futura  → concorso successivo, countdown normale
+      if(parsed) _nextDrawAt=parsed;
+      _nextDrawFetched=true;
       _applyJackpot(payload);
     })
     .catch(function(){})
@@ -548,26 +550,41 @@ function fetchNextDrawDate(){
 
 function upCd(){
   const now=new Date();
-  const target=_nextDrawAt||fallbackNextDrawDate();
-  let diff=Math.max(0,target-now);
+  // Fallback solo prima che il JSON risponda — dopo usiamo sempre _nextDrawAt
+  const target=(_nextDrawFetched&&_nextDrawAt)?_nextDrawAt:(_nextDrawAt||fallbackNextDrawDate());
+  const diff=Math.max(0,target-now);
   const el=document.getElementById('cd');
+  if(!el) return;
   if(diff===0){
-    _waitingDots=(_waitingDots+1)%4;
-    if(el) el.textContent='Risultati in arrivo'+'.'.repeat(_waitingDots);
-    // Poll ogni 30s finché non arriva la nuova data
-    if(now-_waitingLastFetch>30000){ _waitingLastFetch=now; fetchNextDrawDate(); }
+    // Data dal JSON è nel passato: siamo in attesa dei risultati
+    if(!el.dataset.waiting){
+      el.dataset.waiting='1';
+      el.textContent='Risultati in arrivo…';
+      el.style.animation='cc-waiting-pulse 1.6s ease-in-out infinite';
+    }
   } else {
-    _waitingDots=0; _waitingLastFetch=0;
-    const h=Math.floor(diff/3600000);diff%=3600000;
-    const m=Math.floor(diff/60000);diff%=60000;
-    const s=Math.floor(diff/1000);
+    delete el.dataset.waiting;
+    el.style.animation='';
+    const h=Math.floor(diff/3600000),r1=diff%3600000;
+    const m=Math.floor(r1/60000),r2=r1%60000;
+    const s=Math.floor(r2/1000);
     const f=n=>String(n).padStart(2,'0');
-    if(el) el.textContent=`${f(h)}:${f(m)}:${f(s)}`;
+    el.textContent=`${f(h)}:${f(m)}:${f(s)}`;
   }
 }
 setInterval(upCd,1000);upCd();
 fetchNextDrawDate();
-setInterval(fetchNextDrawDate,300000);
+// In attesa risultati: poll ogni 30s; normale: ogni 5min
+let _fetchTimer=setInterval(fetchNextDrawDate,300000);
+function _adaptFetchInterval(waiting){
+  clearInterval(_fetchTimer);
+  _fetchTimer=setInterval(fetchNextDrawDate,waiting?30000:300000);
+}
+// Controlla ogni 10s se il polling va adattato
+setInterval(function(){
+  const el=document.getElementById('cd');
+  _adaptFetchInterval(!!(el&&el.dataset.waiting));
+},10000);
 
 function nextDrawDayLabel(){
   const target=_nextDrawAt||fallbackNextDrawDate();

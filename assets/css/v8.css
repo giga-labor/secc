@@ -219,6 +219,7 @@ background-size:180px;}
 .tb-r{margin-left:auto;display:flex;gap:1.4rem;align-items:center;}
 .tb-jk{font-size:1.64rem;letter-spacing:.1em;color:#F59E0B;font-weight:500;}
 .tb-cd{font-size:1.44rem;letter-spacing:.08em;color:rgba(237,232,223,.7);font-weight:500;font-variant-numeric:tabular-nums;}
+@keyframes cc-waiting-pulse{0%,100%{opacity:.9}50%{opacity:.35}}
 
 /* â”€â”€â”€ BOTTOMBAR â”€â”€â”€ */
 #bb{
