@@ -175,7 +175,11 @@
         </div>
       </section>
 
-      <section id="community_feedback_form" class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="community_feedback_form" data-tab-label="Scrivi all'amministratore">
+      <section id="community_feedback_form" class="cc-home-block mt-6" data-reveal="fade-up" data-section-id="community_feedback_form">
+        <header class="cc-home-block__head">
+          <p class="text-xs uppercase tracking-[0.2em] text-ash">Contatto diretto</p>
+          <h3 class="text-white">Scrivi all'amministratore</h3>
+        </header>
         <div class="cc-home-block__body">
           <form class="mt-3 grid gap-3" data-community-form>
             <input type="hidden" name="section" value="community-admin">
@@ -243,14 +247,20 @@
       if (diff < 86400) return Math.floor(diff/3600) + ' ore fa';
       return d.toLocaleDateString('it-IT');
     }
+    function cleanDetail(d) {
+      if (!d) return '';
+      // Rimuovi prefissi tecnici come [AUTONOMOUS], [iARGOS], ecc.
+      return String(d).replace(/^\[AUTONOMOUS\]\s*/i,'').replace(/^\[iARGOS[^\]]*\]\s*/i,'').replace(/^'[a-z_]+'[\s:]+/i,'').slice(0,120).trim();
+    }
     function renderEntry(entry, idx) {
-      var icon = entry.ok === false ? '⚠' : (entry.type === 'draw' ? '📥' : entry.type === 'snapshot' ? '📊' : entry.type === 'deploy' ? '🚀' : '🤖');
+      var icon = entry.ok === false ? '⚠️' : (entry.type === 'draw' ? '📥' : entry.type === 'snapshot' ? '📊' : entry.type === 'deploy' ? '✅' : entry.type === 'training' ? '🧠' : entry.type === 'alert' ? '⚠️' : '🔄');
       var color = entry.ok === false ? 'text-amber-400' : 'text-neon/70';
+      var detail = cleanDetail(entry.detail || entry.source || '');
       return '<li class="flex items-start gap-3 rounded-xl border border-white/8 bg-midnight/50 px-3 py-2">'
         + '<span class="' + color + ' text-base leading-none mt-0.5">' + icon + '</span>'
         + '<div class="min-w-0 flex-1">'
-        + '<p class="text-sm text-white leading-snug">' + escapeHtml(entry.message || entry.title || 'Evento sistema') + '</p>'
-        + (entry.detail ? '<p class="text-[0.68rem] text-ash/70 mt-0.5 truncate">' + escapeHtml(entry.detail) + '</p>' : '')
+        + '<p class="text-sm text-white leading-snug">' + escapeHtml(entry.message || entry.title || 'Aggiornamento sistema') + '</p>'
+        + (detail ? '<p class="text-[0.68rem] text-ash/70 mt-0.5 truncate">' + escapeHtml(detail) + '</p>' : '')
         + '</div>'
         + '<time class="text-[0.62rem] text-ash/40 shrink-0 mt-0.5">' + relTime(entry.ts || entry.timestamp || '') + '</time>'
         + '</li>';
@@ -294,7 +304,12 @@
         // Timestamp
         var tsEl = document.getElementById('community-ts');
         var tsVal = document.getElementById('community-ts-value');
-        if (tsEl && tsVal && status.generated_at) { tsVal.textContent = String(status.generated_at).slice(0,16).replace('T',' '); tsEl.style.display=''; }
+        var tsRaw = status.generated_at || status.updated_at || '';
+        if (tsEl && tsVal && tsRaw) {
+          var mTs = String(tsRaw).match(/^(\d{4})-(\d{2})-(\d{2})[\sT](\d{2}):(\d{2})/);
+          tsVal.textContent = mTs ? mTs[3]+'/'+mTs[2]+'/'+mTs[1]+' alle '+mTs[4]+':'+mTs[5] : String(tsRaw).slice(0,16);
+          tsEl.style.display = '';
+        }
       }
       // Fallback: community-feed activities
       if (!entries.length) {
