@@ -134,7 +134,7 @@ const isAdsDisabledByPage = () => {
 
 const resolveSiteBase = () => {
   const script = document.querySelector('script[src*="assets/js/ads.js"]');
-  const rawSrc = script?.getAttribute('src') || '';
+  const rawSrc = script?.src || script?.getAttribute('src') || '';
   if (!rawSrc) return '/';
   const normalized = rawSrc.replace(/\\/g, '/');
   const idx = normalized.lastIndexOf('assets/js/ads.js');
