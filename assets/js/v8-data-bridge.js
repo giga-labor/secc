@@ -173,7 +173,7 @@
       .catch(() => ({ ok: false, value: [] }));
 
     const cards = cardsResult.ok
-      ? cardsResult.value.filter((card) => card && card.isActive === true)
+      ? cardsResult.value.filter((card) => card && card.isActive === true && String(card.page || '').includes('/algoritmi/algs/'))
       : [];
 
     if (preStats) {
