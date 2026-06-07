@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-06-06 19:00:00",
-  "contest_seq": "3224",
+  "contest_seq": "4208",
   "demo_mode": false,
   "pulse": {
     "online_users": 12,
@@ -8,14 +8,47 @@
     "signals_today": 9
   },
   "leaderboard": [
-    {"position": 1, "alias": "ChaosScout", "score": 128.4, "streak": "4/5", "favorite_algorithm": "super6NN"},
-    {"position": 2, "alias": "DataRitardista", "score": 114.2, "streak": "3/5", "favorite_algorithm": "classic-ritardi"},
-    {"position": 3, "alias": "ArcObserver", "score": 102.7, "streak": "2/5", "favorite_algorithm": "arc90-logico-algoritmica"}
+    {
+      "position": 1,
+      "alias": "ChaosScout",
+      "score": 128.4,
+      "streak": "4/5",
+      "favorite_algorithm": "super6NN"
+    },
+    {
+      "position": 2,
+      "alias": "DataRitardista",
+      "score": 114.2,
+      "streak": "3/5",
+      "favorite_algorithm": "classic-ritardi"
+    },
+    {
+      "position": 3,
+      "alias": "ArcObserver",
+      "score": 102.7,
+      "streak": "2/5",
+      "favorite_algorithm": "arc90-logico-algoritmica"
+    }
   ],
   "activities": [
-    {"ts": "2026-06-06T09:42:00Z", "alias": "ChaosScout", "action": "ha condiviso una sestina", "payload": "06 10 49 55 77 85"},
-    {"ts": "2026-06-06T09:57:00Z", "alias": "DataRitardista", "action": "ha commentato la classifica", "payload": "focus sui numeri con ritardi lunghi"},
-    {"ts": "2026-06-06T10:08:00Z", "alias": "ArcObserver", "action": "ha inviato un segnale", "payload": "possibile anomalia sui numeri alti"}
+    {
+      "ts": "2026-06-06T09:42:00Z",
+      "alias": "ChaosScout",
+      "action": "ha condiviso una sestina",
+      "payload": "06 10 49 55 77 85"
+    },
+    {
+      "ts": "2026-06-06T09:57:00Z",
+      "alias": "DataRitardista",
+      "action": "ha commentato la classifica",
+      "payload": "focus sui numeri con ritardi lunghi"
+    },
+    {
+      "ts": "2026-06-06T10:08:00Z",
+      "alias": "ArcObserver",
+      "action": "ha inviato un segnale",
+      "payload": "possibile anomalia sui numeri alti"
+    }
   ],
   "highlights": [
     "3 utenti hanno inviato segnali coerenti sul concorso 3224.",
