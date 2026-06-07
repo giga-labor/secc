@@ -801,7 +801,7 @@ v8WaitAndInit(function(bundle){
       id:c.id,
       page:c.page||('pages/algoritmi/algs/'+c.id+'/'),
       group:c.macroGroup||'',
-      w:60  // barra placeholder — metrica reale in fase successiva
+      w:60  // barra aggiornata dal ranking reale
     };
   });
 
@@ -821,8 +821,57 @@ v8WaitAndInit(function(bundle){
   NUM_STATS=normalizeNumberStats(bundle.numStats,bundle.draws||[]);
   DRAWS_COUNT=bundle.totalDraws||bundle.draws.length||DRAWS_COUNT;
 
+  // ─── RANKING REALE da precomputed/ranking.json
+  function _normPage(p){ return String(p||'').replace(/^\/+/,'').replace(/\/+$/,''); }
+
+  function _applyRankingOrder(rankRows){
+    if(!Array.isArray(rankRows)||!rankRows.length) return;
+    var maxScore=rankRows[0].ranking||1;
+    var rankMap={};
+    rankRows.forEach(function(row,i){
+      rankMap[_normPage(row.page)]={pos:i+1,score:row.ranking||0};
+    });
+    // Ordina ALGOS per posizione classifica (migliore prima)
+    ALGOS.sort(function(a,b){
+      var ra=rankMap[_normPage(a.page)];
+      var rb=rankMap[_normPage(b.page)];
+      return ((ra?ra.pos:9999)-(rb?rb.pos:9999));
+    });
+    // Aggiorna r (posizione) e w (barra proporzionale al punteggio)
+    ALGOS.forEach(function(a,i){
+      a.r=i+1;
+      var ri=rankMap[_normPage(a.page)];
+      a.w=ri?Math.round((ri.score/maxScore)*100):20;
+    });
+    // Riordina _sestine nello stesso ordine classifica
+    if(_sestine.length){
+      _sestine.sort(function(a,b){
+        var pa='pages/algoritmi/algs/'+a.id;
+        var pb='pages/algoritmi/algs/'+b.id;
+        var ra=rankMap[_normPage(pa)];
+        var rb=rankMap[_normPage(pb)];
+        return ((ra?ra.pos:9999)-(rb?rb.pos:9999));
+      });
+    }
+  }
+
+  var _rankRows=null;
+  if(window.CC_DATA_REPOSITORY){
+    window.CC_DATA_REPOSITORY.fetchJson('data/precomputed/ranking.json')
+      .then(function(rk){
+        if(rk&&Array.isArray(rk.rows)&&rk.rows.length){
+          _rankRows=rk.rows;
+          _applyRankingOrder(_rankRows);
+        }
+      })
+      .catch(function(){});
+  }
+
   window.V8_BRIDGE.loadSestine(bundle.cards || [])
-    .then(function(ses){ _sestine = ses; })
+    .then(function(ses){
+      _sestine=ses;
+      if(_rankRows) _applyRankingOrder(_rankRows);
+    })
     .catch(function(){});
 
   // Carica dati iARGOS (asincrono, non bloccante) — cachati in _iargosStatus
