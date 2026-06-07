@@ -829,7 +829,7 @@ v8WaitAndInit(function(bundle){
     var maxScore=rankRows[0].ranking||1;
     var rankMap={};
     rankRows.forEach(function(row,i){
-      rankMap[_normPage(row.page)]={pos:i+1,score:row.ranking||0};
+      rankMap[_normPage(row.page)]={pos:i+1,score:row.ranking||0,title:row.title||''};
     });
     // Ordina ALGOS per posizione classifica (migliore prima)
     ALGOS.sort(function(a,b){
@@ -837,11 +837,12 @@ v8WaitAndInit(function(bundle){
       var rb=rankMap[_normPage(b.page)];
       return ((ra?ra.pos:9999)-(rb?rb.pos:9999));
     });
-    // Aggiorna r (posizione) e w (barra proporzionale al punteggio)
+    // Aggiorna r (posizione), w (barra proporzionale al punteggio) e n (nome da ranking)
     ALGOS.forEach(function(a,i){
       a.r=i+1;
       var ri=rankMap[_normPage(a.page)];
       a.w=ri?Math.round((ri.score/maxScore)*100):20;
+      if(ri&&ri.title) a.n=ri.title;
     });
     // Riordina _sestine nello stesso ordine classifica
     if(_sestine.length){
