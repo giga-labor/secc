@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-07 14:13:55",
+  "updated_at": "2026-06-07 14:54:21",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -24,8 +24,8 @@
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": false,
-    "remote_ahead": 1,
+    "git_dirty": true,
+    "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0,
     "active_algorithms_count": 15,
@@ -38,10 +38,10 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-06 22:18:53",
+    "last_push_at": "2026-06-07 14:14:27",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1780834370
+    "boot_ts": 1780835530
   },
   "feed": [
     {
@@ -189,14 +189,6 @@
       "source": "updates"
     },
     {
-      "type": "alert",
-      "ts": "2026-05-29T19:58:45",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "iargos"
-    },
-    {
       "type": "versioning",
       "ts": "2026-05-26T17:44:41",
       "message": "Nuova versione del sito pubblicata (00.12.000 -> 00.13.000)",
@@ -281,6 +273,14 @@
       "ts": "2026-02-25T03:26:52",
       "message": "Nuova versione del sito pubblicata (00.06.028 -> 00.07.000)",
       "detail": "504 file sincronizzati tra mirror e sito pubblico",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-14T19:10:15",
+      "message": "Nuova versione del sito pubblicata (00.04.008 -> 00.05.000)",
+      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
     }
