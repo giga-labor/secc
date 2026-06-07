@@ -1,2 +1,2 @@
-window.CC_VERSION = window.CC_VERSION || '00.15.000';
+window.CC_VERSION = window.CC_VERSION || '01.00.000';
 
