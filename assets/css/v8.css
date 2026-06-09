@@ -218,6 +218,8 @@ background-size:180px;}
 .tb-concorso{font-size:1.36rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,232,223,.3);}
 .tb-r{margin-left:auto;display:flex;gap:1.4rem;align-items:center;}
 .tb-jk{font-size:1.64rem;letter-spacing:.1em;color:#F59E0B;font-weight:500;}
+.tb-cd-wrap{display:flex;flex-direction:column;align-items:center;gap:.08rem;line-height:1;}
+.tb-cd-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,232,223,.36);font-weight:500;}
 .tb-cd{font-size:1.44rem;letter-spacing:.08em;color:rgba(237,232,223,.7);font-weight:500;font-variant-numeric:tabular-nums;}
 @keyframes cc-waiting-pulse{0%,100%{opacity:.9}50%{opacity:.35}}
 
@@ -546,7 +548,7 @@ body::after { display: none; }
   .tb-github-label{display:none;}
   .tb-concorso{display:none;}
   .tb-jk{font-size:1.3rem;}
-  .tb-cd{display:none;}
+  .tb-cd-wrap{display:none;}
   #v8-alg-count{display:none;}
 
   /* Sidenav → tab bar orizzontale in basso */
