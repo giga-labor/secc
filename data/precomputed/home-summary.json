@@ -1,30 +1,19 @@
 {
-  "generated_at": "2026-06-06T21:33:47",
+  "generated_at": "2026-06-09T08:35:32",
   "stale": false,
   "latest_draw": {
-    "seq": 4208,
-    "date": "06/06/2026",
+    "seq": 4209,
+    "date": "08/06/2026",
     "nums": [
-      2,
-      7,
-      29,
-      68,
-      72,
-      89
+      28,
+      33,
+      51,
+      59,
+      82,
+      87
     ]
   },
   "consensus_top": [
-    {
-      "number": 4,
-      "support": 5,
-      "algorithms": [
-        "classic-analisi-anomalie-pattern",
-        "classic-ritardi",
-        "genetic",
-        "paradox-logiche-decisionali-metriche",
-        "super6NN"
-      ]
-    },
     {
       "number": 65,
       "support": 5,
@@ -59,13 +48,12 @@
       ]
     },
     {
-      "number": 85,
-      "support": 5,
+      "number": 4,
+      "support": 4,
       "algorithms": [
-        "classic-co-occorrenze",
-        "classic-frequency",
-        "classic-ritardi-combinazioni",
-        "hispa",
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic",
         "paradox-logiche-decisionali-metriche"
       ]
     },
@@ -75,18 +63,18 @@
       "algorithms": [
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
-        "classic-statistiche-combinate-finestre-mobili",
+        "hispa",
         "paradox-logiche-decisionali-metriche"
       ]
     },
     {
-      "number": 80,
+      "number": 23,
       "support": 4,
       "algorithms": [
-        "classic-co-occorrenze",
-        "classic-distribuzioni-modelli-raggruppamento",
-        "hispa",
-        "super6NN"
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     {
@@ -108,10 +96,19 @@
       ]
     },
     {
-      "number": 86,
+      "number": 80,
       "support": 3,
       "algorithms": [
-        "classic-coppie-terzine-frequenti",
+        "classic-co-occorrenze",
+        "classic-distribuzioni-modelli-raggruppamento",
+        "super6NN"
+      ]
+    },
+    {
+      "number": 85,
+      "support": 3,
+      "algorithms": [
+        "classic-co-occorrenze",
         "classic-frequency",
         "classic-ritardi-combinazioni"
       ]
@@ -121,9 +118,9 @@
     {
       "title": "classic-analisi-anomalie-pattern",
       "family": "statistica",
-      "ranking": 30403.85,
+      "ranking": 30405.38,
       "hits": {
-        "0": 2771,
+        "0": 2772,
         "1": 1201,
         "2": 217,
         "3": 17,
@@ -135,9 +132,9 @@
     {
       "title": "classic-ritardi",
       "family": "statistica",
-      "ranking": 29781.09,
+      "ranking": 29782.62,
       "hits": {
-        "0": 2766,
+        "0": 2767,
         "1": 1224,
         "2": 200,
         "3": 16,
@@ -149,9 +146,9 @@
     {
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "ranking": 29671.89,
+      "ranking": 29673.42,
       "hits": {
-        "0": 2786,
+        "0": 2787,
         "1": 1208,
         "2": 196,
         "3": 16,
@@ -163,9 +160,9 @@
     {
       "title": "classic  co-occorrenze",
       "family": "statistica",
-      "ranking": 28785.54,
+      "ranking": 28787.07,
       "hits": {
-        "0": 2770,
+        "0": 2771,
         "1": 1224,
         "2": 199,
         "3": 13,
@@ -177,10 +174,10 @@
     {
       "title": "GeneticSE",
       "family": "neurale",
-      "ranking": 28747.88,
+      "ranking": 28751.24,
       "hits": {
         "0": 2759,
-        "1": 1255,
+        "1": 1256,
         "2": 178,
         "3": 14,
         "4": 1,
@@ -191,9 +188,9 @@
     {
       "title": "classic-coppie-terni-consecutivi",
       "family": "statistica",
-      "ranking": 17992.36,
+      "ranking": 17993.89,
       "hits": {
-        "0": 2751,
+        "0": 2752,
         "1": 1252,
         "2": 187,
         "3": 17,
@@ -205,9 +202,9 @@
     {
       "title": "HiSPA",
       "family": "statistica",
-      "ranking": 17843.31,
+      "ranking": 17844.84,
       "hits": {
-        "0": 2727,
+        "0": 2728,
         "1": 1253,
         "2": 212,
         "3": 15,
@@ -219,9 +216,9 @@
     {
       "title": "classic-distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "ranking": 17563.31,
+      "ranking": 17564.84,
       "hits": {
-        "0": 2779,
+        "0": 2780,
         "1": 1228,
         "2": 184,
         "3": 16,
@@ -232,13 +229,14 @@
     }
   ],
   "oracle": {
-    "entropy": null,
-    "coherence": null,
-    "delay_pressure": null,
-    "anomaly": null,
-    "pressure": null,
+    "entropy": 72,
+    "coherence": 58,
+    "delay_pressure": 81,
+    "anomaly": 34,
+    "pressure": 63,
     "calibrated": false,
-    "note": "In sviluppo"
+    "note": "Valori estratti da HTML. In calibrazione — iARGOS aggiornerà questo file.",
+    "updated_at": "2026-06-07 12:04:50"
   },
   "total_active_algorithms": 15
 }
