@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-09 09:02:18",
+  "updated_at": "2026-06-09 21:15:15",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -38,12 +38,36 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-09 09:00:55",
+    "last_push_at": "2026-06-09 21:13:38",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1780987869
+    "boot_ts": 1781031377
   },
   "feed": [
+    {
+      "type": "draw",
+      "ts": "2026-06-09T21:15:12",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-06-09T21:09:43",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-09T21:02:00",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
     {
       "type": "alert",
       "ts": "2026-06-09T08:35:32",
@@ -165,14 +189,6 @@
       "source": "iargos"
     },
     {
-      "type": "alert",
-      "ts": "2026-06-04T21:09:49",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
-    },
-    {
       "type": "training",
       "ts": "2026-06-04T21:03:52",
       "message": "Algoritmi aggiornati con i dati più recenti",
@@ -187,22 +203,6 @@
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-05-30T21:03:12",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
-    },
-    {
-      "type": "training",
-      "ts": "2026-05-30T20:58:19",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
     },
     {
       "type": "versioning",
