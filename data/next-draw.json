@@ -1,16 +1,16 @@
 {
-  "next_seq": 4210,
+  "next_seq": 4211,
   "next_date": "11/06/2026",
   "next_date_iso": "2026-06-11",
   "next_datetime_iso": "2026-06-11T20:00:00",
   "next_weekday": "Giovedi",
   "next_time": "20:00",
-  "last_seq": 4209,
+  "last_seq": 4210,
   "last_date": "09/06/2026",
   "source": "online",
   "jackpot_str": "176.800.000",
   "jackpot_eur": "€ 176.800.000",
   "jackpot_raw": 176800000,
   "jackpot_source": "superenalotto_com",
-  "updated_at": "2026-06-09 21:00:08"
+  "updated_at": "2026-06-09 21:03:08"
 }

@@ -2,19 +2,19 @@
   "slug": "classic-distribuzioni-modelli-raggruppamento",
   "title": "classic-distribuzioni-modelli-raggruppamento",
   "family": "statistica",
-  "generated_at": "2026-06-09T08:35:32",
-  "last_seq": 4209,
+  "generated_at": "2026-06-09T21:13:17",
+  "last_seq": 4210,
   "last_date": "",
   "proposal": [
     83,
-    80,
+    77,
     49,
     65,
     6,
     88
   ],
   "metrics": {
-    "draws_covered": 4209,
+    "draws_covered": 4210,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 4.8,
     "best_streak": 6

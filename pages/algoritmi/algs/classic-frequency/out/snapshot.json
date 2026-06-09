@@ -2,8 +2,8 @@
   "slug": "classic-frequency",
   "title": "classic-frequency",
   "family": "statistica",
-  "generated_at": "2026-06-09T08:35:32",
-  "last_seq": 4209,
+  "generated_at": "2026-06-09T21:13:17",
+  "last_seq": 4210,
   "last_date": "",
   "proposal": [
     85,
@@ -11,10 +11,10 @@
     86,
     49,
     79,
-    81
+    55
   ],
   "metrics": {
-    "draws_covered": 4209,
+    "draws_covered": 4210,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 5.1,
     "best_streak": 7
