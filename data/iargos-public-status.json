@@ -1,31 +1,31 @@
 {
-  "updated_at": "2026-06-11 21:32:43",
+  "updated_at": "2026-06-11 21:34:00",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "critical",
-  "summary": "Problemi attivi: p0_new_contest_found, p5_archive_stale",
+  "severity": "warning",
+  "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
-    "p0_new_contest_found": true,
+    "p0_new_contest_found": false,
     "p1_mirror_map": false,
     "p2_flow_guard": false,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
-    "p5_archive_stale": true,
-    "p6_local_publish": false,
+    "p5_archive_stale": false,
+    "p6_local_publish": true,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
   },
   "alignment": {
-    "archive_update_state": "orange",
+    "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": true,
-    "remote_ahead": 0,
+    "git_dirty": false,
+    "remote_ahead": 1,
     "remote_behind": 0,
     "alignment_diff_count": 0,
     "active_algorithms_count": 15,
@@ -36,14 +36,22 @@
     "consecutive_failures": 0
   },
   "runtime": {
-    "state_level": "warn",
-    "state_label": "monitoraggio",
+    "state_level": "ok",
+    "state_label": "operativo",
     "last_push_at": "2026-06-11 21:32:33",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781205794
   },
   "feed": [
+    {
+      "type": "draw",
+      "ts": "2026-06-11T21:33:10",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
     {
       "type": "alert",
       "ts": "2026-06-11T21:32:42",
@@ -59,14 +67,6 @@
       "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-11T21:24:48",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
     },
     {
       "type": "draw",
