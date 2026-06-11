@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4210,Conteggio archivio fino al concorso 4210
+Concorsi analizzati,4211,Conteggio archivio fino al concorso 4211
 Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,4.8%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2780,Numero concorsi con esattamente 0 hit
+Con 0 hit,2781,Numero concorsi con esattamente 0 hit
 Con 1 hit,1229,Numero concorsi con esattamente 1 hit
 Con 2 hit,184,Numero concorsi con esattamente 2 hit
 Con 3 hit,16,Numero concorsi con esattamente 3 hit
@@ -11,12 +11,12 @@ Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
 Media hit ultimi 100,0.32,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4210,Data estrazione: 09/06/2026
-Concorso successivo stimato,4211,Sestina proposta: 83 77 49 65 06 88
+Ultimo concorso calcolato,4211,Data estrazione: 11/06/2026
+Concorso successivo stimato,4212,Sestina proposta: 83 77 49 65 06 88
 Sestina proposta (prossimo concorso),83 77 49 65 06 88,Pronostico prodotto con addestramento incrementale
 Split pari/dispari modale,3/3,Frequenza storica piu comune
 Split bassi/alti modale,3/3,Bassi=1..45 | Alti=46..90
 Profilo raggruppamento modale,2-1-1-1-1,Occupazioni per decade ordinate in modo decrescente
-Somma media sestina,276.7,Media storica della somma dei 6 numeri
+Somma media sestina,276.6,Media storica della somma dei 6 numeri
 Ampiezza media (max-min),65.2,Media storica della dispersione
 Fascia somma piu frequente,275-299,Banding somma con passo 25

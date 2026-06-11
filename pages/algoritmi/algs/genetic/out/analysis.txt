@@ -9,37 +9,37 @@ Il modello e adattivo e apprende in modo progressivo, quindi e spesso percepito 
 Tecnicamente pero non e una rete neurale classica supervisionata con layer e backpropagation: e un ottimizzatore genetico su feature statistiche.
 
 Risultati osservati sullo storico
-Concorsi valutati: 4.209
+Concorsi valutati: 4.210
 - Media hit/sestina: 0.39
-- Hit >=1: 1449 su 4209 (34.4%)
-- Hit >=2: 193 su 4209 (4.6%)
-- Hit >=3: 15 su 4209 (0.4%)
-- Hit >=4: 1 su 4209 (0.0%)
-- Hit >=5: 0 su 4209 (0.0%)
-- Hit =6: 0 su 4209 (0.0%)
+- Hit >=1: 1449 su 4210 (34.4%)
+- Hit >=2: 193 su 4210 (4.6%)
+- Hit >=3: 15 su 4210 (0.4%)
+- Hit >=4: 1 su 4210 (0.0%)
+- Hit >=5: 0 su 4210 (0.0%)
+- Hit =6: 0 su 4210 (0.0%)
 - Best streak hit>=1: 7
-- Distribuzione esatta hit: 0:2760 1:1256 2:178 3:14 4:1 5:0 6:0
+- Distribuzione esatta hit: 0:2761 1:1256 2:178 3:14 4:1 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
-- Media hit attesa random: 0.4000 | osservata: 0.3939
-- Hit>=2 atteso random: 4.96% | osservato: 4.59% | z-score: -1.13
+- Media hit attesa random: 0.4000 | osservata: 0.3938
+- Hit>=2 atteso random: 4.96% | osservato: 4.58% | z-score: -1.13
 - Hit>=3 atteso random: 0.315% | osservato: 0.356%
 - Hit>=4 atteso random: 0.0085% | osservato: 0.0238%
 - Hit>=5 atteso random: 0.000081% | osservato: 0.000000%
 - Hit=6 atteso random: 0.00000016% | osservato: 0.00000000%
 
 Stabilita temporale e drift
-- Media ultimi 200 concorsi: 0.3700 (delta vs storico: -0.0239)
+- Media ultimi 200 concorsi: 0.3700 (delta vs storico: -0.0238)
 - Hit>=2 ultimi 200: 10/200 (5.00%)
 - Deviazione standard hit: 0.5883
-- Intervallo 95% media hit: [0.3761, 0.4117]
+- Intervallo 95% media hit: [0.3761, 0.4116]
 
 Configurazione operativa
 - Fonte: training_history progressivo GeneticSE
 - Popolazione: 48 organismi
 - Finestra recente: 90 concorsi
-- Ultimo concorso: 4210 (09/06/2026)
-- Prossimo concorso stimato: 4211
+- Ultimo concorso: 4211 (11/06/2026)
+- Prossimo concorso stimato: 4212
 - Sestina proposta: 04 65 70 76 83 88
 
 Lettura e limiti

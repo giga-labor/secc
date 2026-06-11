@@ -2,19 +2,19 @@
   "slug": "astra-moon",
   "title": "ASTRA Moon",
   "family": "ibrido",
-  "generated_at": "2026-06-09T21:13:17",
-  "last_seq": 4210,
+  "generated_at": "2026-06-11T21:32:16",
+  "last_seq": 4211,
   "last_date": "",
   "proposal": [
-    6,
     4,
-    8,
-    7,
+    6,
     5,
-    9
+    7,
+    8,
+    3
   ],
   "metrics": {
-    "draws_covered": 4210,
+    "draws_covered": 4211,
     "avg_hits": 0.42,
     "hit_rate_gte_2": 5.5,
     "best_streak": 8
