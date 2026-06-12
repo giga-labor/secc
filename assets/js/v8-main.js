@@ -1,4 +1,4 @@
-// v8-main.js — Shell grafica v8
+// v8-main.js - Shell grafica v8
 // Dipende da: v8-data-bridge.js, core/cache-engine.js, core/data-repository.js, cards-index.js
 
 // ─── CURSOR
@@ -57,7 +57,7 @@ function buildCells(){
     });
   }
 }
-// buildCells() non viene chiamata qui — viene chiamata dopo il caricamento dati
+// buildCells() non viene chiamata qui - viene chiamata dopo il caricamento dati
 
 // ─── STATISTICHE PER NUMERO (calcolate su tutti i draws)
 function computeNumStats(draws){
@@ -142,7 +142,7 @@ function isNumberHoverBlocked(){
   });
 }
 
-// ─── DRAW LOOP (parte subito — canvas nero finché i dati non arrivano)
+// ─── DRAW LOOP (parte subito - canvas nero finché i dati non arrivano)
 function draw(){
   ctx.clearRect(0,0,W,H);
   frame++;
@@ -251,13 +251,13 @@ function draw(){
       const s=NUM_STATS[c.n]||{};
 
       // Badge categoria
-      const badge=c.isLast&&LAST.includes(c.n)?`Estratto · #${String(DRAW_ID).padStart(3,'0')}`
-        :c.isJolly?`Jolly · #${String(DRAW_ID).padStart(3,'0')}`
+      const badge=c.isLast&&LAST.includes(c.n)?`Estratto &middot; #${String(DRAW_ID).padStart(3,'0')}`
+        :c.isJolly?`Jolly &middot; #${String(DRAW_ID).padStart(3,'0')}`
         :c.isHot?'Numero caldo'
         :c.isCold?'Ritardo prolungato'
         :'Campo numerico';
       ttB.textContent=badge;
-      ttN.textContent=`N° ${c.n}`;
+      ttN.textContent=`N. ${c.n}`;
 
       // Contenuto ricco
       const catColor=c.isLast||c.isJolly?'#F59E0B':c.isHot?'#C8391A':c.isCold?'#8B5CF6':'rgba(237,232,223,.55)';
@@ -272,9 +272,9 @@ function draw(){
         `<b style="color:${catColor}">${catLabel}</b><br>`+
         `Ritardo: <b>${s.delay!==undefined?s.delay:'--'}</b> estrazioni<br>`+
         `Ultime 90: <b>${s.f90!==undefined?s.f90:'--'}</b> uscite`+
-        (s.f180!==undefined?` · 180: <b>${s.f180}</b>`:'')+`<br>`+
+        (s.f180!==undefined?` &middot; 180: <b>${s.f180}</b>`:'')+`<br>`+
         `Ultima: <b>${s.lastDate||'--'}</b>`+
-        (s.lastId&&s.lastId!=='--'?` · #${s.lastId}`:'')+`<br>`+
+        (s.lastId&&s.lastId!=='--'?` &middot; #${s.lastId}`:'')+`<br>`+
         `Media: ogni ~<b>${s.avgEvery||'--'}</b> estrazioni`;
       const lastSeq=hasStatValue(s.lastId)&&s.lastId!=='--'?` - #${s.lastId}`:'';
       ttI.innerHTML=
@@ -340,7 +340,7 @@ function draw(){
 draw();
 
 // ═══════════════════════════════════════════════════════
-// MOTORE MICCIA CC — usato da intro, topbar, panel watermark
+// MOTORE MICCIA CC - usato da intro, topbar, panel watermark
 // ═══════════════════════════════════════════════════════
 function buildCCEngine(cvs, opts){
   const c2=cvs.getContext('2d');
@@ -538,8 +538,8 @@ function fetchNextDrawDate(){
     .then(function(payload){
       const parsed=parseNextDrawDate(payload);
       // Accetta sempre la data dal JSON, futura o passata:
-      // - passata → siamo in attesa dei risultati (diff=0, waiting state)
-      // - futura  → concorso successivo, countdown normale
+      // - passata &rarr; siamo in attesa dei risultati (diff=0, waiting state)
+      // - futura  &rarr; concorso successivo, countdown normale
       if(parsed) _nextDrawAt=parsed;
       _nextDrawFetched=true;
       _applyJackpot(payload);
@@ -550,7 +550,7 @@ function fetchNextDrawDate(){
 
 function upCd(){
   const now=new Date();
-  // Fallback solo prima che il JSON risponda — dopo usiamo sempre _nextDrawAt
+  // Fallback solo prima che il JSON risponda - dopo usiamo sempre _nextDrawAt
   const target=(_nextDrawFetched&&_nextDrawAt)?_nextDrawAt:(_nextDrawAt||fallbackNextDrawDate());
   const diff=Math.max(0,target-now);
   const el=document.getElementById('cd');
@@ -559,7 +559,7 @@ function upCd(){
     // Data dal JSON è nel passato: siamo in attesa dei risultati
     if(!el.dataset.waiting){
       el.dataset.waiting='1';
-      el.textContent='Risultati in arrivo…';
+      el.textContent='Risultati in arrivo...';
       el.style.animation='cc-waiting-pulse 1.6s ease-in-out infinite';
     }
   } else {
@@ -601,17 +601,17 @@ const PANELS={
       <div class="p-sec">Numeri estratti</div>
       <div class="ball-row">
         ${LAST.map(n=>`<div class="pball ${HOT.includes(n)?'hot':COLD.includes(n)?'cold':''}">${n}</div>`).join('')}
-        ${JOLLY!==null?`<div class="pball jolly">★${JOLLY}</div>`:''}
+        ${JOLLY!==null?`<div class="pball jolly">&#9733;${JOLLY}</div>`:''}
       </div>
       <div class="p-sec">Info estrazione</div>
       <div class="sr"><span class="sr-k">Concorso</span><span class="sr-v">#${String(DRAW_ID).padStart(3,'0')}</span></div>
       <div class="sr"><span class="sr-k">Data</span><span class="sr-v">${DRAW_DATE}</span></div>
-      <div class="sr"><span class="sr-k">Numeri caldi estratti</span><span class="sr-v r">${LAST.filter(n=>HOT.includes(n)).join(' · ')||'--'}</span></div>
-      <div class="sr"><span class="sr-k">Numeri freddi estratti</span><span class="sr-v v">${LAST.filter(n=>COLD.includes(n)).join(' · ')||'--'}</span></div>
+      <div class="sr"><span class="sr-k">Numeri caldi estratti</span><span class="sr-v r">${LAST.filter(n=>HOT.includes(n)).join(' &middot; ')||'--'}</span></div>
+      <div class="sr"><span class="sr-k">Numeri freddi estratti</span><span class="sr-v v">${LAST.filter(n=>COLD.includes(n)).join(' &middot; ')||'--'}</span></div>
       <div class="p-sec">Archivio</div>
       <div class="sr"><span class="sr-k">Estrazioni totali</span><span class="sr-v">${DRAWS_COUNT.toLocaleString('it-IT')}</span></div>
       <div class="sr"><span class="sr-k">Archivio dal</span><span class="sr-v">1997</span></div>
-      <a href="pages/storico-estrazioni/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(110,231,255,.55);text-decoration:none;letter-spacing:.1em">Apri archivio storico →</a>
+      <a href="pages/storico-estrazioni/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(110,231,255,.55);text-decoration:none;letter-spacing:.1em">Apri archivio storico &rarr;</a>
     `
   },
   alg:{
@@ -619,7 +619,7 @@ const PANELS={
     title:'Algoritmi<br>in gara',
     sub:'',
     body:()=>`
-      <div class="p-sec">Algoritmi attivi · ${ALGOS.length}</div>
+      <div class="p-sec">Algoritmi attivi &middot; ${ALGOS.length}</div>
       ${ALGOS.map(a=>`
         <div class="ar" onclick="window.location='${a.page||'pages/algoritmi/algs/'+a.id+'/'}'" style="cursor:pointer">
           <div class="ar-top">
@@ -629,7 +629,7 @@ const PANELS={
           </div>
           <div class="ar-bar"><div class="ar-fill" data-w="${a.w}%" style="width:0"></div></div>
         </div>`).join('')}
-      <a href="pages/algoritmi/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Tutti gli algoritmi in ranking →</a>
+      <a href="pages/algoritmi/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Tutti gli algoritmi in ranking &rarr;</a>
     `
   },
   ses:{
@@ -649,16 +649,16 @@ const PANELS={
           </div>
         </div>`).join('')}
       <div style="margin-top:1.4rem;font-size:1rem;color:rgba(237,232,223,.12);letter-spacing:.08em;text-align:center">
-        Proposta algoritmica · Non una previsione · Il gioco comporta rischi
+        Proposta algoritmica &middot; Non una previsione &middot; Il gioco comporta rischi
       </div>
       <a href="pages/sestine-proposte/" style="display:block;margin-top:.8rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">
-        Tutte le sestine →
+        Tutte le sestine &rarr;
       </a>
     ` : `
       <div class="p-sec" style="color:rgba(237,232,223,.3)">Caricamento sestine...</div>
       <div style="padding:1.5rem 0;font-size:1.44rem;color:rgba(237,232,223,.25)">
         <a href="pages/sestine-proposte/" style="color:#8B5CF6;text-decoration:none">
-          Apri pagina sestine →
+          Apri pagina sestine &rarr;
         </a>
       </div>
     `
@@ -669,16 +669,16 @@ const PANELS={
     sub:'Strumenti avanzati di analisi statistica',
     body:()=>`
       <div class="p-sec">Accesso ai dati</div>
-      <div class="lf" onclick="window.location='pages/laboratorio-tecnico/'" style="cursor:pointer"><span class="lf-n">F·01</span><span class="lf-t">Laboratorio tecnico</span><span class="lf-a">→</span></div>
-      <div class="lf" onclick="window.location='pages/storico-estrazioni/'" style="cursor:pointer"><span class="lf-n">F·02</span><span class="lf-t">Archivio storico estrazioni</span><span class="lf-a">→</span></div>
-      <div class="lf" onclick="window.location='pages/algoritmi/'" style="cursor:pointer"><span class="lf-n">F·03</span><span class="lf-t">Algoritmi in ranking</span><span class="lf-a">→</span></div>
-      <div class="lf" onclick="window.location='pages/analisi-statistiche/'" style="cursor:pointer"><span class="lf-n">F·04</span><span class="lf-t">Analisi statistiche</span><span class="lf-a">→</span></div>
+      <div class="lf" onclick="window.location='pages/laboratorio-tecnico/'" style="cursor:pointer"><span class="lf-n">F&middot;01</span><span class="lf-t">Laboratorio tecnico</span><span class="lf-a">&rarr;</span></div>
+      <div class="lf" onclick="window.location='pages/storico-estrazioni/'" style="cursor:pointer"><span class="lf-n">F&middot;02</span><span class="lf-t">Archivio storico estrazioni</span><span class="lf-a">&rarr;</span></div>
+      <div class="lf" onclick="window.location='pages/algoritmi/'" style="cursor:pointer"><span class="lf-n">F&middot;03</span><span class="lf-t">Algoritmi in ranking</span><span class="lf-a">&rarr;</span></div>
+      <div class="lf" onclick="window.location='pages/analisi-statistiche/'" style="cursor:pointer"><span class="lf-n">F&middot;04</span><span class="lf-t">Analisi statistiche</span><span class="lf-a">&rarr;</span></div>
       <div class="p-sec">Sistema iARGOS</div>
       <div class="sr"><span class="sr-k">Versione</span><span class="sr-v v">${_iargosStatus?.version||'--'}</span></div>
       <div class="sr"><span class="sr-k">Stato</span><span class="sr-v ${_iargosStatus?(_iargosStatus.overview_green?'g':'r'):''}">${_iargosStatus?(_iargosStatus.overview_green?'Operativo':(_iargosStatus.severity||'warning')):'--'}</span></div>
       <div class="sr"><span class="sr-k">Algoritmi allineati</span><span class="sr-v">${_iargosStatus?.runtime?(_iargosStatus.runtime.algorithms_aligned_count||'--')+' / '+(_iargosStatus.runtime.algorithms_total_count||'--'):'--'}</span></div>
       <div class="sr"><span class="sr-k">Estrazioni archiviate</span><span class="sr-v">${DRAWS_COUNT||'--'}</span></div>
-      <a href="pages/laboratorio-tecnico/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Apri Laboratorio tecnico →</a>
+      <a href="pages/laboratorio-tecnico/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Apri Laboratorio tecnico &rarr;</a>
     `
   }
 };
@@ -765,7 +765,7 @@ if(oraBtn) oraBtn.addEventListener('click',()=>{
 });
 if(ovCls) ovCls.addEventListener('click',()=>{ov.classList.remove('on');oraBtn.classList.remove('on');});
 
-// ─── V8 DATA INIT — attende che tutti i moduli siano pronti
+// ─── V8 DATA INIT - attende che tutti i moduli siano pronti
 function v8WaitAndInit(cb, attempts){
   attempts=attempts||0;
   if(window.V8_BRIDGE && window.CC_DATA_REPOSITORY && window.CARDS_INDEX){
@@ -777,7 +777,7 @@ function v8WaitAndInit(cb, attempts){
   } else if(attempts<40){
     setTimeout(function(){v8WaitAndInit(cb,attempts+1);},100);
   } else {
-    console.warn('[v8-main] Timeout attesa moduli V8_BRIDGE — avvio con dati vuoti');
+    console.warn('[v8-main] Timeout attesa moduli V8_BRIDGE - avvio con dati vuoti');
     cb({lastDraw:null,hotNums:[],coldNums:[],draws:[],cards:[]});
   }
 }
@@ -805,7 +805,7 @@ v8WaitAndInit(function(bundle){
   });
 
   // Aggiorna PANELS.est e PANELS.alg kicker/sub con dati reali
-  PANELS.est.kicker = `Ultima estrazione · #${String(DRAW_ID).padStart(3,'0')}`;
+  PANELS.est.kicker = `Ultima estrazione &middot; #${String(DRAW_ID).padStart(3,'0')}`;
   PANELS.est.sub    = DRAW_DATE;
   PANELS.alg.sub    = `${ALGOS.length} algoritmi attivi`;
 
@@ -874,7 +874,7 @@ v8WaitAndInit(function(bundle){
     })
     .catch(function(){});
 
-  // Carica dati iARGOS (asincrono, non bloccante) — cachati in _iargosStatus
+  // Carica dati iARGOS (asincrono, non bloccante) - cachati in _iargosStatus
   // Il panel Lab li legge da _iargosStatus al momento del render
   if(window.CC_DATA_REPOSITORY){
     window.CC_DATA_REPOSITORY.fetchJson('data/iargos-public-status.json')
@@ -887,7 +887,7 @@ v8WaitAndInit(function(bundle){
   buildCCEngine(document.getElementById('cc-logo'), {speed:1.8,pause:60});
   buildCCEngine(document.getElementById('cc-panel'),{speed:1.4,pause:75});
 
-  // Intro → Launch
+  // Intro &rarr; Launch
   var intro=document.getElementById('intro');
   var ui=document.getElementById('ui');
 

@@ -1,9 +1,9 @@
 /* ════════════════════════════════════════════════════════════════
-   V8STORICO — Heatmap esplorativa dei 90 numeri (storico-estrazioni)
+   V8STORICO - Heatmap esplorativa dei 90 numeri (storico-estrazioni)
    Legge /archives/draws/draws.csv (reale) e renderizza:
-   · heatmap frequenza / ritardo commutabile
-   · focus sul singolo numero (uscite, ritardi, compagno frequente)
-   · top ritardi critici
+   &middot; heatmap frequenza / ritardo commutabile
+   &middot; focus sul singolo numero (uscite, ritardi, compagno frequente)
+   &middot; top ritardi critici
    ════════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
@@ -95,7 +95,7 @@
         mount.innerHTML =
           '<div class="v8x">' +
             '<div class="v8x-head">' +
-              '<span class="v8x-k">Mappa viva dei 90 numeri · ' + total.toLocaleString('it-IT') + ' estrazioni dal 1997</span>' +
+              '<span class="v8x-k">Mappa viva dei 90 numeri &middot; ' + total.toLocaleString('it-IT') + ' estrazioni dal 1997</span>' +
               '<div class="v8x-mode">' +
                 '<button class="on" id="v8x-mf" type="button">Frequenza</button>' +
                 '<button id="v8x-mr" type="button">Ritardo</button>' +
@@ -110,9 +110,9 @@
                 '<div class="v8x-focus" id="v8x-focus"></div>' +
                 '<div class="v8x-k" id="v8x-side-title" style="margin:1.3rem 0 .2rem">Numeri piu frequenti</div>' +
                 '<div class="v8x-rit" id="v8x-rit"></div>' +
-                '<div class="v8x-k" style="margin:1.3rem 0 .4rem">Ultima estrazione · ' + last.date + '</div>' +
-                '<div style="font-family:\'DM Mono\',monospace;font-size:.9rem;letter-spacing:.18em;color:#EDE8DF">' + last.nums.join(' · ') + '</div>' +
-                '<div style="font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,232,223,.3);margin-top:.5rem">Somma ' + sum + ' · Pari/Dispari ' + even + '/' + (6 - even) + '</div>' +
+                '<div class="v8x-k" style="margin:1.3rem 0 .4rem">Ultima estrazione &middot; ' + last.date + '</div>' +
+                '<div style="font-family:\'DM Mono\',monospace;font-size:.9rem;letter-spacing:.18em;color:#EDE8DF">' + last.nums.join(' &middot; ') + '</div>' +
+                '<div style="font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,232,223,.3);margin-top:.5rem">Somma ' + sum + ' &middot; Pari/Dispari ' + even + '/' + (6 - even) + '</div>' +
               '</div>' +
             '</div>' +
           '</div>';
@@ -215,7 +215,7 @@
             '<div class="v8x-frow"><span>Uscite totali</span><b class="cy">' + freq[sel] + '</b></div>' +
             '<div class="v8x-frow"><span>Ritardo attuale</span><b class="am">' + delay[sel] + ' concorsi</b></div>' +
             '<div class="v8x-frow"><span>Ritardo massimo storico</span><b>' + maxGap[sel] + '</b></div>' +
-            '<div class="v8x-frow"><span>Compagno più frequente</span><b class="hot">' + m.n + ' · ' + m.c + ' volte</b></div>' +
+            '<div class="v8x-frow"><span>Compagno piu frequente</span><b class="hot">' + m.n + ' &middot; ' + m.c + ' volte</b></div>' +
             trendSvg(sel);
           if (mode === 'F') {
             var latestYear = yk.length ? yk[yk.length - 1] : '';

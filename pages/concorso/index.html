@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Concorso · SuperEnalotto ControlChaos</title>
+  <title>Concorso &middot; SuperEnalotto ControlChaos</title>
   <meta name="description" content="Matchup tra previsioni degli algoritmi e numeri estratti nell'ultimo concorso SuperEnalotto. Verifica in tempo reale quanti numeri ogni modello ha indovinato.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.superenalottocc.it/pages/concorso/">
   <meta property="og:locale" content="it_IT">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SuperEnalotto Control Chaos">
-  <meta property="og:title" content="Concorso · SuperEnalotto ControlChaos">
+  <meta property="og:title" content="Concorso &middot; SuperEnalotto ControlChaos">
   <meta property="og:description" content="Matchup tra previsioni degli algoritmi e numeri estratti nell'ultimo concorso SuperEnalotto. Verifica in tempo reale quanti numeri ogni modello ha indovinato.">
   <meta property="og:url" content="https://www.superenalottocc.it/pages/concorso/">
   <meta property="og:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Concorso · SuperEnalotto ControlChaos">
+  <meta name="twitter:title" content="Concorso &middot; SuperEnalotto ControlChaos">
   <meta name="twitter:description" content="Matchup tra previsioni degli algoritmi e numeri estratti nell'ultimo concorso SuperEnalotto.">
   <meta name="twitter:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
   <meta name="author" content="SuperEnalotto Control Chaos">
@@ -26,7 +26,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Concorso · SuperEnalotto ControlChaos",
+    "name": "Concorso &middot; SuperEnalotto ControlChaos",
     "url": "https://www.superenalottocc.it/pages/concorso/",
     "description": "Matchup tra previsioni degli algoritmi e numeri estratti nell'ultimo concorso SuperEnalotto. Verifica in tempo reale quanti numeri ogni modello ha indovinato.",
     "inLanguage": "it-IT",
@@ -250,7 +250,7 @@
     <!-- Hero -->
     <div class="cc-concorso-hero" id="concorso-hero">
       <span class="cc-concorso-badge">Ultimo concorso</span>
-      <h1 class="cc-concorso-title" id="concorso-title">Caricamento…</h1>
+      <h1 class="cc-concorso-title" id="concorso-title">Caricamento...</h1>
       <p class="cc-concorso-date" id="concorso-date"></p>
       <div class="cc-draw-balls" id="concorso-balls" aria-label="Numeri estratti"></div>
     </div>
@@ -280,13 +280,13 @@
       <strong>Come si legge questa pagina.</strong>
       Per ogni algoritmo attivo vengono confrontati i 6 numeri proposti per questo concorso con i 6 numeri effettivamente estratti.
       Un "hit" è un numero proposto che coincide con un numero estratto.
-      SuperEnalotto ha probabilità di 6/90 per numero: <strong>0–1 hit per concorso è l'esito statisticamente normale</strong>.
+      SuperEnalotto ha probabilità di 6/90 per numero: <strong>0-1 hit per concorso è l'esito statisticamente normale</strong>.
       Questi dati non costituiscono previsione e non garantiscono vincite future.
     </div>
 
     <!-- Caricamento -->
     <div id="concorso-loading" class="cc-concorso-loading">
-      Caricamento dati in corso…
+      Caricamento dati in corso...
     </div>
 
     <!-- Tabella matchup -->
@@ -313,15 +313,15 @@
     <nav class="cc-page-hub" style="margin-top:3rem;" aria-label="Navigazione rapida">
       <a class="cc-page-hub__item" href="../sestine-proposte/">
         <span class="cc-page-hub__label">Sestine proposte</span>
-        <span class="cc-page-hub__arrow">→</span>
+        <span class="cc-page-hub__arrow">&rarr;</span>
       </a>
       <a class="cc-page-hub__item" href="../algoritmi/">
         <span class="cc-page-hub__label">Algoritmi in ranking</span>
-        <span class="cc-page-hub__arrow">→</span>
+        <span class="cc-page-hub__arrow">&rarr;</span>
       </a>
       <a class="cc-page-hub__item" href="../consenso/">
         <span class="cc-page-hub__label">Consenso numerico</span>
-        <span class="cc-page-hub__arrow">→</span>
+        <span class="cc-page-hub__arrow">&rarr;</span>
       </a>
     </nav>
 
@@ -345,7 +345,7 @@
       var label = f === 'statistica' ? 'Statistica'
                 : f === 'neurale'   ? 'Neurale'
                 : f === 'ibrido'    ? 'Ibrido'
-                : f || '—';
+                : f || '-';
       return '<span class="' + cls + '">' + esc(label) + '</span>';
     }
 
@@ -369,7 +369,7 @@
     }
 
     function resolveBase() {
-      // Dalla posizione pages/concorso/ → root è ../../
+      // Dalla posizione pages/concorso/ &rarr; root è ../../
       var base = '../../';
       // Se caricato localmente o da subpath diverso, adatta
       try {
@@ -402,14 +402,14 @@
 
       // ── Ultimo concorso ──
       var draw = (summary && summary.latest_draw) || null;
-      var drawSeq  = draw ? draw.seq  : '—';
-      var drawDate = draw ? draw.date  : '—';
+      var drawSeq  = draw ? draw.seq  : '-';
+      var drawDate = draw ? draw.date  : '-';
       var drawNums = (draw && Array.isArray(draw.nums) && draw.nums.length === 6) ? draw.nums : [];
       var drawnSet = new Set(drawNums);
 
       document.getElementById('concorso-title').textContent = 'Concorso #' + drawSeq;
       document.getElementById('concorso-date').textContent = drawDate;
-      document.title = 'Concorso #' + drawSeq + ' · SuperEnalotto ControlChaos';
+      document.title = 'Concorso #' + drawSeq + ' &middot; SuperEnalotto ControlChaos';
 
       // Balls estratti
       var ballsEl = document.getElementById('concorso-balls');
@@ -430,7 +430,7 @@
         var hits = nums.filter(function (n) { return drawnSet.has(n); });
         return {
           slug: alg.slug || '',
-          title: alg.title || alg.slug || '—',
+          title: alg.title || alg.slug || '-',
           family: alg.family || '',
           nums: nums,
           hits: hits,

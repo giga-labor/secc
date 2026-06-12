@@ -87,7 +87,7 @@
 <section class="mt-6" aria-label="Prossima estrazione" id="next-draw-banner" style="display:none">
   <div class="rounded-xl border border-sky-500/40 bg-sky-950/60 px-5 py-4 flex flex-wrap items-center gap-3">
     <span class="text-xs uppercase tracking-[0.2em] text-sky-400">Prossima estrazione</span>
-    <span class="font-bold text-white" id="next-draw-label">—</span>
+    <span class="font-bold text-white" id="next-draw-label">-</span>
     <span class="text-xs text-ash" id="next-draw-source-tag"></span>
   </div>
 </section>
@@ -98,7 +98,7 @@
 <!-- Frequenza storica numeri 1-90 -->
 <section class="mt-6" aria-label="Frequenza storica numeri 1-90">
   <div class="rounded-2xl border border-white/10 bg-midnight/60 px-4 py-4">
-    <p class="mb-1 text-xs uppercase tracking-widest text-ash">Frequenza storica numeri 1–90</p>
+    <p class="mb-1 text-xs uppercase tracking-widest text-ash">Frequenza storica numeri 1-90</p>
     <p class="mb-3 text-xs text-ash opacity-60" id="freq-meta">Caricamento&hellip;</p>
     <div id="chart-draws-freq" class="min-h-[80px] flex items-center justify-center">
       <span class="text-xs text-ash opacity-40">Caricamento grafico&hellip;</span>
@@ -183,7 +183,7 @@
         .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
         .then(function (data) {
           var meta = document.getElementById('freq-meta');
-          if (meta) meta.textContent = data.total_draws + ' estrazioni · aggiornato ' + (data.generated_at || '').slice(0, 10);
+          if (meta) meta.textContent = data.total_draws + ' estrazioni &middot; aggiornato ' + (data.generated_at || '').slice(0, 10);
           ChartRenderer.renderNumberFrequency(
             document.getElementById('chart-draws-freq'),
             { labels: data.labels, values: data.values }
