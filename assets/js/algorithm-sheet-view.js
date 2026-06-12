@@ -1,5 +1,89 @@
 ﻿(function () {
   document.addEventListener('DOMContentLoaded', () => {
+      const bootHistoricalTable = () => {
+        const body = document.querySelector('[data-historical-body]');
+        if (!body || body.dataset.historicalBootReady === '1') return;
+        body.dataset.historicalBootReady = '1';
+        const esc = (value) => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        const parsePicks = (tokens) => tokens.filter(Boolean).slice(0, 6).map((token) => {
+          const raw = String(token || '').trim();
+          const hit = raw.startsWith('[') && raw.endsWith(']');
+          const clean = raw.replace(/[\[\]]/g, '');
+          return { value: /^\d+$/.test(clean) ? clean.padStart(2, '0') : clean, hit };
+        });
+        const parseRows = (raw) => {
+          const lines = String(raw || '').split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith('#'));
+          if (!lines.length) return [];
+          const first = lines[0];
+          const delimiter = (first.match(/;/g) || []).length > (first.match(/,/g) || []).length ? ';' : ',';
+          return lines.map((line) => {
+            const cells = line.split(delimiter).map((cell) => String(cell || '').trim());
+            if (!cells.length) return null;
+            const draw = cells[0];
+            const picks = cells.length >= 8 ? parsePicks(cells.slice(2, 8)) : parsePicks(String(cells[1] || '').split(/\s+/));
+            return { draw, picks };
+          }).filter((row) => {
+            const draw = String(row?.draw || '').toLowerCase();
+            return row && row.picks.length && draw !== 'concorso' && !draw.includes('nr. sequenziale');
+          });
+        };
+        const ensureHead = () => {
+          const row = body.closest('table')?.querySelector('thead tr');
+          if (!row) return;
+          row.innerHTML = '<th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th><th class="px-2 py-3 pl-1">Previsione fatta</th><th class="px-2 py-3">Estratti reali</th><th class="w-[1%] whitespace-nowrap px-2 py-3 text-center">Hit</th>';
+        };
+        const pager = { page: 1, size: 100, rows: [], draws: {} };
+        const pageEl = document.querySelector('[data-historical-page]');
+        const prev = document.querySelector('[data-historical-prev]');
+        const next = document.querySelector('[data-historical-next]');
+        const render = () => {
+          ensureHead();
+          const total = Math.max(1, Math.ceil(pager.rows.length / pager.size));
+          pager.page = Math.max(1, Math.min(pager.page, total));
+          if (pageEl) pageEl.textContent = `Pagina ${pager.page} / ${total}`;
+          if (prev) prev.disabled = pager.page <= 1;
+          if (next) next.disabled = pager.page >= total;
+          if (!pager.rows.length) {
+            body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun dato storico disponibile.</td></tr>';
+            return;
+          }
+          const start = (pager.page - 1) * pager.size;
+          body.innerHTML = pager.rows.slice(start, start + pager.size).map((row) => {
+            const picks = row.picks.map((pick) => `<span class="historical-pick${pick.hit ? ' is-hit' : ''}">${esc(pick.value)}</span>`).join('');
+            const real = (pager.draws[String(row.draw)] || []).map((n) => `<span class="historical-pick is-drawn">${esc(String(n).padStart(2, '0'))}</span>`).join('');
+            const hits = row.picks.reduce((sum, pick) => sum + (pick.hit ? 1 : 0), 0);
+            return `<tr><td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${esc(row.draw)}</td><td class="px-2 py-3 pl-1"><div class="flex flex-wrap gap-2">${picks}</div></td><td class="px-2 py-3"><div class="flex flex-wrap gap-2">${real || '<span class="text-ash/60">--</span>'}</div></td><td class="w-[1%] whitespace-nowrap px-2 py-3 text-center"><span class="historical-hit-count">${hits}</span></td></tr>`;
+          }).join('');
+        };
+        if (prev && prev.dataset.historicalBootClick !== '1') {
+          prev.dataset.historicalBootClick = '1';
+          prev.addEventListener('click', () => { pager.page -= 1; render(); });
+        }
+        if (next && next.dataset.historicalBootClick !== '1') {
+          next.dataset.historicalBootClick = '1';
+          next.addEventListener('click', () => { pager.page += 1; render(); });
+        }
+        Promise.all([
+          fetch('out/historical-db.csv', { cache: 'no-store' }).then((res) => {
+            if (!res.ok) throw new Error(`historical ${res.status}`);
+            return res.text();
+          }),
+          fetch('../../../../archives/draws/draws.csv', { cache: 'no-store' }).then((res) => (res.ok ? res.text() : '')).catch(() => '')
+        ]).then(([historyText, drawsText]) => {
+          parseRows(drawsText).forEach((row) => { pager.draws[String(row.draw)] = row.picks.map((pick) => pick.value); });
+          pager.rows = parseRows(historyText).sort((a, b) => {
+            const an = Number.parseInt(String(a.draw), 10);
+            const bn = Number.parseInt(String(b.draw), 10);
+            if (Number.isFinite(an) && Number.isFinite(bn)) return bn - an;
+            return String(b.draw).localeCompare(String(a.draw));
+          });
+          render();
+        }).catch(() => {
+          ensureHead();
+          body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Archivio non disponibile o formato non valido.</td></tr>';
+        });
+      };
+      bootHistoricalTable();
       const LAB_TECH_URL = '../../../laboratorio-tecnico/';
       if (document.body) document.body.dataset.pageKicker = 'off';
       const main = document.querySelector('main');
