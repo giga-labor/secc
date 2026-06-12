@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12 20:23:38",
+  "generated_at": "2026-06-12 20:35:47",
   "count": 15,
   "sheets": {
     "astra-moon": {
@@ -12,7 +12,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "17/04/2026",
-      "proposal": [],
+      "proposal": [
+        4,
+        6,
+        5,
+        7,
+        8,
+        3
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -1300,11 +1307,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 40,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.42",
+        "hit_rate_gte_2": "5.5%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.3950",
+        "std_hit": "0.6039"
       },
       "method": {
         "intro": "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome.",
@@ -1326,7 +1333,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        70,
+        65,
+        76,
+        23,
+        4,
+        83
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -2614,11 +2628,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 96,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.40",
+        "hit_rate_gte_2": "5.6%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4250",
+        "std_hit": "0.6086"
       },
       "method": {
         "intro": "Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte.",
@@ -2640,7 +2654,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "10/02/2026",
-      "proposal": [],
+      "proposal": [
+        85,
+        55,
+        81,
+        76,
+        62,
+        80
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -3928,11 +3949,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 80,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.40",
+        "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4250",
+        "std_hit": "0.5963"
       },
       "method": {
         "intro": "Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna.",
@@ -3954,7 +3975,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        43,
+        44,
+        45,
+        55,
+        56,
+        57
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -5242,11 +5270,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 67,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.40",
+        "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4350",
+        "std_hit": "0.5940"
       },
       "method": {
         "intro": "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte.",
@@ -5268,7 +5296,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        48,
+        86,
+        87,
+        13,
+        18,
+        51
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -6556,11 +6591,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 10,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.38",
+        "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.3450",
+        "std_hit": "0.5786"
       },
       "method": {
         "intro": "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.",
@@ -6582,7 +6617,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        83,
+        77,
+        49,
+        65,
+        6,
+        88
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -7870,11 +7912,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 53,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.39",
+        "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.3650",
+        "std_hit": "0.5901"
       },
       "method": {
         "intro": "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione.",
@@ -7896,7 +7938,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "07/02/2026",
-      "proposal": [],
+      "proposal": [
+        85,
+        6,
+        86,
+        49,
+        79,
+        55
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -9184,11 +9233,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 33,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.39",
+        "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4050",
+        "std_hit": "0.5934"
       },
       "method": {
         "intro": "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti.",
@@ -9210,7 +9259,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        3,
+        86,
+        79,
+        12,
+        85,
+        37
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -10498,11 +10554,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 47,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.41",
+        "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4700",
+        "std_hit": "0.5988"
       },
       "method": {
         "intro": "Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico.",
@@ -10524,7 +10580,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "09/02/2026",
-      "proposal": [],
+      "proposal": [
+        70,
+        65,
+        76,
+        23,
+        4,
+        83
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -11812,11 +11875,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 93,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.40",
+        "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4050",
+        "std_hit": "0.6002"
       },
       "method": {
         "intro": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
@@ -11838,7 +11901,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        7,
+        18,
+        28,
+        33,
+        63,
+        2
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -13126,11 +13196,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 13,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.38",
+        "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.4150",
+        "std_hit": "0.5827"
       },
       "method": {
         "intro": "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi).",
@@ -13152,7 +13222,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
-      "proposal": [],
+      "proposal": [
+        50,
+        36,
+        53,
+        18,
+        24,
+        60
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -14440,11 +14517,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 27,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.40",
+        "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.3800",
+        "std_hit": "0.5895"
       },
       "method": {
         "intro": "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.",
@@ -15764,7 +15841,7 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.6%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "",
+        "last_200_avg": "0.3700",
         "std_hit": "0.5883"
       },
       "method": {
@@ -15787,7 +15864,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "15/03/2026",
-      "proposal": [],
+      "proposal": [
+        55,
+        84,
+        88,
+        18,
+        39,
+        85
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -17075,11 +17159,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 60,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
+        "avg_hits": "0.41",
+        "hit_rate_gte_2": "5.4%",
         "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "last_200_avg": "0.3650",
+        "std_hit": "0.6032"
       },
       "method": {
         "intro": "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi.",
@@ -17101,7 +17185,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "07/02/2026",
-      "proposal": [],
+      "proposal": [
+        55,
+        4,
+        6,
+        18,
+        65,
+        76
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
@@ -18389,11 +18480,11 @@
       },
       "metrics": {
         "ranking_stability_pct": 87,
-        "avg_hits": "",
-        "hit_rate_gte_2": "",
-        "hit_rate_gte_3": "",
-        "last_200_avg": "",
-        "std_hit": ""
+        "avg_hits": "0.39",
+        "hit_rate_gte_2": "5.1%",
+        "hit_rate_gte_3": "0.40%",
+        "last_200_avg": "0.4250",
+        "std_hit": "0.5977"
       },
       "method": {
         "intro": "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",

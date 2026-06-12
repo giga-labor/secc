@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-06-12 20:24:34",
+  "updated_at": "2026-06-12 20:35:53",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "summary": "Problemi attivi: p4_alignment_diff, p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
     "p2_flow_guard": false,
     "p3_pending_publish": false,
-    "p4_alignment_diff": false,
+    "p4_alignment_diff": true,
     "p5_training_gap": false,
     "p5_archive_stale": false,
     "p6_local_publish": true,
@@ -27,7 +27,7 @@
     "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
-    "alignment_diff_count": 0,
+    "alignment_diff_count": 22,
     "active_algorithms_count": 15,
     "active_algorithms_aligned_count": 15
   },
@@ -38,7 +38,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-12 20:23:48",
+    "last_push_at": "2026-06-12 20:25:26",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781279282
