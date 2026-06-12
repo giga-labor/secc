@@ -589,7 +589,7 @@
     var hero = document.createElement('section');
     hero.className = 'v8-page-hero';
     hero.innerHTML =
-      '<div class="v8ph-k">' + lab[0] + ' Â· SuperEnalotto Â· Control Chaos</div>' +
+      '<div class="v8ph-k">' + lab[0] + ' &middot; SuperEnalotto &middot; Control Chaos</div>' +
       '<div class="v8ph-title"><span>' + lab[1] + '</span></div>' +
       '<div class="v8ph-sub">' + lab[2] + '</div>' +
       '<div class="v8ph-line"></div>';
@@ -633,15 +633,15 @@
       var items = [];
       if (last) {
         items.push('Ultima estrazione <b class="o">' + last.date + '</b>');
-        items.push('Numeri <b>' + last.nums.join(' Â· ') + '</b>');
+        items.push('Numeri <b>' + last.nums.join(' &middot; ') + '</b>');
       }
       items.push('Archivio <b class="cy">' + draws.length.toLocaleString('it-IT') + '</b> estrazioni');
-      items.push('Ritardo critico <b class="r">' + worstN + '</b> Â· ' + worstD + ' concorsi');
+      items.push('Ritardo critico <b class="r">' + worstN + '</b> &middot; ' + worstD + ' concorsi');
       if (ranked[0]) items.push('Algoritmo in testa <b class="v">' + (ranked[0].title || ranked[0].id) + '</b>');
-      items.push('Gioca responsabilmente Â· nessuna promessa di vincita Â· 18+');
+      items.push('Gioca responsabilmente &middot; nessuna promessa di vincita &middot; 18+');
       var ticker = document.createElement('div');
       ticker.id = 'v8-global-ticker';
-      var sep = '<span class="sep">â—†</span>';
+      var sep = '<span class="sep">&#9670;</span>';
       var html = items.map(function (x) { return '<span>' + x + '</span>'; }).join(sep) + sep;
       ticker.innerHTML = '<div>' + html + html + '</div>';
       document.body.appendChild(ticker);
