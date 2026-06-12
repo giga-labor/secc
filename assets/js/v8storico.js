@@ -159,6 +159,45 @@
           }).join('');
         }
 
+        function trendSvg(num) {
+          var series = [];
+          var labels = [];
+          if (mode === 'F') {
+            var ys = years[num] || {};
+            labels = Object.keys(ys).sort();
+            series = labels.map(function (y) { return ys[y] || 0; });
+          } else {
+            var currentDelay = 0;
+            var lastYear = null;
+            draws.forEach(function (d) {
+              var y = yearOf(d.date);
+              if (lastYear !== null && y !== lastYear) {
+                labels.push(String(lastYear));
+                series.push(currentDelay);
+              }
+              currentDelay += 1;
+              if (d.nums.indexOf(num) !== -1) currentDelay = 0;
+              lastYear = y;
+            });
+            if (lastYear !== null) {
+              labels.push(String(lastYear));
+              series.push(currentDelay);
+            }
+          }
+          if (series.length < 2) return '';
+          var maxValue = Math.max.apply(null, series.concat([1]));
+          var points = series.map(function (value, i) {
+            var x = (i * (100 / Math.max(1, series.length - 1))).toFixed(1);
+            var y = (48 - (value / maxValue) * 42).toFixed(1);
+            return x + ',' + y;
+          }).join(' ');
+          var stroke = mode === 'F' ? '#6EE7FF' : '#C8391A';
+          var label = mode === 'F' ? 'Andamento frequenza annua' : 'Andamento ritardo annuo';
+          return '<div class="v8x-k" style="margin:.85rem 0 .25rem">' + label + '</div>' +
+            '<svg class="v8x-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
+            '<polyline points="' + points + '" fill="none" stroke="' + stroke + '" stroke-width="1.8" opacity=".86"/></svg>';
+        }
+
         function focus() {
           var m = mate(sel);
           var ys = years[sel] || {};
@@ -177,8 +216,7 @@
             '<div class="v8x-frow"><span>Ritardo attuale</span><b class="am">' + delay[sel] + ' concorsi</b></div>' +
             '<div class="v8x-frow"><span>Ritardo massimo storico</span><b>' + maxGap[sel] + '</b></div>' +
             '<div class="v8x-frow"><span>Compagno più frequente</span><b class="hot">' + m.n + ' · ' + m.c + ' volte</b></div>' +
-            (pts ? '<svg class="v8x-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
-              '<polyline points="' + pts + '" fill="none" stroke="#6EE7FF" stroke-width="1.6" opacity=".8"/></svg>' : '');
+            trendSvg(sel);
           if (mode === 'F') {
             var latestYear = yk.length ? yk[yk.length - 1] : '';
             var latestYearCount = latestYear ? (ys[latestYear] || 0) : 0;
@@ -190,8 +228,7 @@
               '<div class="v8x-frow"><span>Media annua</span><b class="am">' + avgYear + ' uscite</b></div>' +
               '<div class="v8x-frow"><span>Uscite ' + latestYear + '</span><b>' + latestYearCount + '</b></div>' +
               '<div class="v8x-frow"><span>Compagno piu frequente</span><b class="hot">' + m.n + ' - ' + m.c + ' volte</b></div>' +
-              (pts ? '<svg class="v8x-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
-                '<polyline points="' + pts + '" fill="none" stroke="#6EE7FF" stroke-width="1.6" opacity=".8"/></svg>' : '');
+              trendSvg(sel);
           }
         }
 
