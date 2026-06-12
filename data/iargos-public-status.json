@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-06-12 20:04:24",
+  "updated_at": "2026-06-12 20:24:10",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "summary": "Problemi attivi: p3_pending_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
     "p2_flow_guard": false,
-    "p3_pending_publish": false,
+    "p3_pending_publish": true,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": true,
+    "p6_local_publish": false,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -38,12 +38,28 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-12 19:56:06",
+    "last_push_at": "2026-06-12 20:23:48",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781279282
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-12T20:23:03",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-12T20:22:56",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
     {
       "type": "versioning",
       "ts": "2026-06-12T17:48:48",
@@ -149,14 +165,6 @@
       "source": "iargos"
     },
     {
-      "type": "alert",
-      "ts": "2026-06-06T21:09:26",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
-    },
-    {
       "type": "training",
       "ts": "2026-06-06T21:02:32",
       "message": "Algoritmi aggiornati con i dati più recenti",
@@ -171,14 +179,6 @@
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-05T20:59:59",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
     },
     {
       "type": "versioning",
