@@ -504,6 +504,10 @@ body[data-page-id="algsheet"] .tabs-shell{
 body[data-page-id="algsheet"] main .content-box > header[data-page-kicker-wrap]{
   display:none!important;
 }
+body[data-page-id="algsheet"] .sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
 #v8sheet-prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:10001;background:linear-gradient(90deg,var(--v8-violet),var(--v8-red),var(--v8-amber))}
 .v8sheet-body{
   max-width:min(1180px,calc(100vw - var(--ad-reserve-right,0px) - 48px));
