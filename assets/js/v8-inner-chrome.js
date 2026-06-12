@@ -774,7 +774,9 @@
           return (i * 25) + ',' + (46 - (v / sparkMax) * 40).toFixed(1);
         }).join(' ');
 
-        var R = 78, CIRC = 2 * Math.PI * R;
+        var R = 120, CIRC = 2 * Math.PI * R;
+        var score = Math.max(0, Math.min(10.5, pct * 10.5));
+        var scoreLabel = score.toFixed(1);
         var hero = document.createElement('section');
         hero.className = 'v8sh';
         hero.style.setProperty('--ac', g.ac);
@@ -789,28 +791,20 @@
               (card.lastUpdated ? '<span class="v8sh-b">Agg. ' + card.lastUpdated + '</span>' : '') +
               (sum ? '<span class="v8sh-b">' + sum.toLocaleString('it-IT') + ' concorsi valutati</span>' : '') +
             '</div>' +
-            '<div class="v8sh-balls" aria-label="Sestina visuale">' +
-              balls.map(function (n, i) { return '<span style="--d:' + (0.45 + i * 0.08) + 's">' + n + '</span>'; }).join('') +
-            '</div>' +
-            '<div class="v8sh-metrics">' +
-              '<div class="v8sh-m"><b>' + signal + '%</b><span>Segnale ranking</span><i style="--w:' + signal + '%"></i></div>' +
-              '<div class="v8sh-m"><b>' + coverage + '%</b><span>Copertura hit</span><i style="--w:' + coverage + '%"></i></div>' +
-              '<div class="v8sh-m"><b>' + stability + '%</b><span>Stabilita storica</span><i style="--w:' + stability + '%"></i></div>' +
-            '</div>' +
           '</div>' +
           '<div class="v8sh-side">' +
           '<div class="v8sh-ring">' +
-            '<svg width="190" height="190" viewBox="0 0 190 190">' +
+            '<svg width="300" height="300" viewBox="0 0 300 300">' +
               '<defs><linearGradient id="v8shg" x1="0" y1="0" x2="1" y2="1">' +
                 '<stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/>' +
               '</linearGradient></defs>' +
-              '<circle class="bgc" cx="95" cy="95" r="' + R + '" fill="none" stroke-width="8"/>' +
-              '<circle class="fgc" cx="95" cy="95" r="' + R + '" fill="none" stroke-width="8" ' +
+              '<circle class="bgc" cx="150" cy="150" r="' + R + '" fill="none" stroke-width="10"/>' +
+              '<circle class="fgc" cx="150" cy="150" r="' + R + '" fill="none" stroke-width="10" ' +
                 'stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + CIRC.toFixed(1) + '"/>' +
             '</svg>' +
             '<div class="v8sh-mid">' +
               '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : '—') + '</span>' +
-              '<span class="l">Posizione classifica</span>' +
+              '<span class="l">Score complessivo</span>' +
               (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi · ' + h3p + '× ≥3</span>' : '') +
             '</div>' +
           '</div>' +
@@ -825,13 +819,23 @@
         } else {
           anchor.insertAdjacentElement('afterend', hero);
         }
+        var scoreElInit = hero.querySelector('.v8sh-mid .v');
+        if (scoreElInit) {
+          scoreElInit.setAttribute('data-v8-score', scoreLabel);
+          scoreElInit.textContent = '0.0';
+        }
+        var ringMeta = hero.querySelector('.v8sh-mid .l + .l');
+        if (ringMeta) {
+          ringMeta.className = 'rk';
+          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (media ? ' · ' + media + ' hit medi' : '');
+        }
         placeSheetPrevNextAfterHero();
         if (!document.querySelector('.v8sheet-body')) {
           var sheet = document.createElement('div');
           sheet.className = 'v8sheet-body';
           sheet.innerHTML =
             '<nav class="v8sheet-subnav" aria-label="Navigazione scheda">' +
-              '<a href="#v8sheet-sestina">Sestina</a>' +
+              '<a href="#v8sheet-sestina" class="on">Sestina</a>' +
               '<a href="#v8sheet-perf">Performance</a>' +
               '<a href="#v8sheet-metriche">Metriche</a>' +
               '<a href="#v8sheet-metodo">Metodo</a>' +
@@ -841,7 +845,7 @@
               '<div class="v8sheet-sest" data-v8sheet-balls>' +
                 balls.map(function (n, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + n + '</span>'; }).join('') +
                 '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' +
-                '<p>Proposta visuale generata dalla firma del modulo. Non e una previsione, non garantisce esiti, 18+.</p>' +
+                '<p class="v8sheet-note">Proposta algoritmica · Non una previsione · Il gioco comporta rischi · 18+</p>' +
               '</div>' +
             '</section>' +
             '<section class="v8sheet-sec" id="v8sheet-perf">' +
@@ -880,12 +884,24 @@
             '</section>';
           hero.insertAdjacentElement('afterend', sheet);
           hydrateV8SheetData(sheet, card, balls, { signal: signal, coverage: coverage, stability: stability, media: media });
+          setupV8SheetInteractions(sheet);
         }
 
         // anima il ring
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             hero.querySelector('.fgc').style.strokeDashoffset = (CIRC * (1 - pct)).toFixed(1);
+            var scoreEl = hero.querySelector('[data-v8-score]');
+            if (scoreEl) {
+              var target = parseFloat(scoreEl.getAttribute('data-v8-score') || '0') || 0;
+              var current = 0;
+              var step = Math.max(0.08, target / 70);
+              (function up() {
+                current = Math.min(target, current + step);
+                scoreEl.textContent = current.toFixed(1);
+                if (current < target) requestAnimationFrame(up);
+              })();
+            }
           });
         });
       })
