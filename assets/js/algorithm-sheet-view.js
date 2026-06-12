@@ -1,12 +1,5 @@
 ﻿(function () {
   document.addEventListener('DOMContentLoaded', () => {
-      if (
-        document.body &&
-        document.body.getAttribute('data-page-id') === 'algsheet' &&
-        document.body.getAttribute('data-style-lock') === 'final'
-      ) {
-        return;
-      }
       const LAB_TECH_URL = '../../../laboratorio-tecnico/';
       if (document.body) document.body.dataset.pageKicker = 'off';
       const main = document.querySelector('main');
