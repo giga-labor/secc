@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -87,6 +87,7 @@
             <button class="tab-btn" type="button" data-tab-target="storica">Storica</button>
             <button class="tab-btn" type="button" data-tab-target="metriche">Metriche</button>
             <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
+            <button class="tab-btn" type="button" data-tab-target="grafici">Grafici</button>
           </div><div class="tabs-sheet">
           <section class="tab-panel is-active space-y-4" data-tab-panel="algoritmo">
             <section class="rounded-3xl border border-white/10 bg-transparent p-6" data-adsense-quality="1">
@@ -162,6 +163,30 @@
             <div class="rounded-2xl border border-white/10 bg-midnight/60 px-4 py-3">
               <p class="whitespace-pre-line break-words text-sm leading-relaxed text-white" data-analysis-text><span class="cc-skeleton cc-skeleton--block inline-block h-4 w-3/4" aria-hidden="true"></span></p>
             </div>
+          
+          <section class="tab-panel space-y-4" data-tab-panel="grafici">
+            <p class="text-sm text-ash">Statistiche visuali generate dai dati reali dell&apos;algoritmo.</p>
+            <div class="space-y-6">
+              <div>
+                <p class="mb-2 text-xs uppercase tracking-widest text-ash">Distribuzione hit per sestina</p>
+                <div id="chart-hit-dist" class="rounded-2xl border border-white/10 bg-midnight/60 px-3 py-3 min-h-[100px] flex items-center justify-center">
+                  <span class="text-xs text-ash opacity-50">Caricamento&hellip;</span>
+                </div>
+              </div>
+              <div>
+                <p class="mb-2 text-xs uppercase tracking-widest text-ash">Frequenza numeri 1-90 nelle proposte</p>
+                <div id="chart-num-freq" class="rounded-2xl border border-white/10 bg-midnight/60 px-3 py-3 min-h-[80px] flex items-center justify-center">
+                  <span class="text-xs text-ash opacity-50">Caricamento&hellip;</span>
+                </div>
+              </div>
+              <div>
+                <p class="mb-2 text-xs uppercase tracking-widest text-ash">Andamento hit nel tempo (finestre 100)</p>
+                <div id="chart-timeline" class="rounded-2xl border border-white/10 bg-midnight/60 px-3 py-3 min-h-[100px] flex items-center justify-center">
+                  <span class="text-xs text-ash opacity-50">Caricamento&hellip;</span>
+                </div>
+              </div>
+            </div>
+          </section>
           </section></div>
         </div>
       </section>
@@ -184,6 +209,17 @@
 <script src="../../../../assets/js/ads.js" defer></script>
   <script src="../../../../assets/js/lazy-bootstrap.js" defer></script>
   <script src="../../../../assets/js/tab-hash.js" defer></script>
+  <script src="../../../../assets/js/chart-renderer.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var slug = 'super6NN';
+      ChartRenderer.loadAndRender(slug, '../../../../', {
+        hitDist:  document.getElementById('chart-hit-dist'),
+        numFreq:  document.getElementById('chart-num-freq'),
+        timeline: document.getElementById('chart-timeline'),
+      });
+    });
+  </script>
 </body>
 </html>
 
