@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T20:37:14",
+  "generated_at": "2026-06-12T21:06:43",
   "total_algorithms": 15,
   "numbers": {
     "1": {
@@ -53,10 +53,8 @@
       ]
     },
     "8": {
-      "support": 1,
-      "algorithms": [
-        "astra-moon"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "9": {
       "support": 0,
@@ -77,10 +75,9 @@
       ]
     },
     "13": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "classic-coppie-terzine-frequenti",
-        "super6NN"
+        "classic-coppie-terzine-frequenti"
       ]
     },
     "14": {
@@ -100,13 +97,11 @@
       "algorithms": []
     },
     "18": {
-      "support": 5,
+      "support": 3,
       "algorithms": [
         "classic-coppie-terzine-frequenti",
         "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita",
-        "hispa",
-        "paradox-logiche-decisionali-metriche"
+        "classic-tavole-probabilita-teorica-test-uniformita"
       ]
     },
     "19": {
@@ -126,15 +121,17 @@
       "algorithms": []
     },
     "23": {
-      "support": 2,
+      "support": 3,
       "algorithms": [
         "classic-analisi-anomalie-pattern",
-        "classic-ritardi"
+        "classic-ritardi",
+        "genetic"
       ]
     },
     "24": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "classic-statistiche-combinate-finestre-mobili",
         "classic-tavole-probabilita-teorica-test-uniformita"
       ]
     },
@@ -151,9 +148,10 @@
       "algorithms": []
     },
     "28": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-statistiche-combinate-finestre-mobili"
+        "classic-statistiche-combinate-finestre-mobili",
+        "super6NN"
       ]
     },
     "29": {
@@ -179,14 +177,14 @@
       ]
     },
     "34": {
-      "support": 0,
-      "algorithms": []
-    },
-    "35": {
       "support": 1,
       "algorithms": [
         "super6NN"
       ]
+    },
+    "35": {
+      "support": 0,
+      "algorithms": []
     },
     "36": {
       "support": 1,
@@ -255,15 +253,17 @@
       ]
     },
     "49": {
-      "support": 2,
+      "support": 3,
       "algorithms": [
         "classic-distribuzioni-modelli-raggruppamento",
-        "classic-frequency"
+        "classic-frequency",
+        "hispa"
       ]
     },
     "50": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "astra-moon",
         "classic-tavole-probabilita-teorica-test-uniformita"
       ]
     },
@@ -284,18 +284,18 @@
       ]
     },
     "54": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "super6NN"
+      ]
     },
     "55": {
-      "support": 6,
+      "support": 4,
       "algorithms": [
         "classic-co-occorrenze",
         "classic-coppie-terni-consecutivi",
         "classic-frequency",
-        "hispa",
-        "paradox-logiche-decisionali-metriche",
-        "super6NN"
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     "56": {
@@ -338,7 +338,7 @@
     "63": {
       "support": 1,
       "algorithms": [
-        "classic-statistiche-combinate-finestre-mobili"
+        "hispa"
       ]
     },
     "64": {
@@ -368,8 +368,10 @@
       "algorithms": []
     },
     "69": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "hispa"
+      ]
     },
     "70": {
       "support": 3,
@@ -398,8 +400,10 @@
       "algorithms": []
     },
     "75": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "hispa"
+      ]
     },
     "76": {
       "support": 5,
@@ -412,9 +416,10 @@
       ]
     },
     "77": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-distribuzioni-modelli-raggruppamento"
+        "classic-distribuzioni-modelli-raggruppamento",
+        "hispa"
       ]
     },
     "78": {
@@ -445,27 +450,21 @@
       "algorithms": []
     },
     "83": {
-      "support": 4,
-      "algorithms": [
-        "classic-analisi-anomalie-pattern",
-        "classic-distribuzioni-modelli-raggruppamento",
-        "classic-ritardi",
-        "genetic"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "84": {
-      "support": 1,
-      "algorithms": [
-        "hispa"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "85": {
-      "support": 4,
+      "support": 5,
       "algorithms": [
         "classic-co-occorrenze",
+        "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
         "classic-ritardi-combinazioni",
-        "hispa"
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     "86": {
@@ -483,11 +482,12 @@
       ]
     },
     "88": {
-      "support": 3,
+      "support": 4,
       "algorithms": [
+        "classic-analisi-anomalie-pattern",
         "classic-distribuzioni-modelli-raggruppamento",
-        "genetic",
-        "hispa"
+        "classic-ritardi",
+        "genetic"
       ]
     },
     "89": {
@@ -500,18 +500,6 @@
     }
   },
   "top": [
-    {
-      "number": 55,
-      "support": 6,
-      "algorithms": [
-        "classic-co-occorrenze",
-        "classic-coppie-terni-consecutivi",
-        "classic-frequency",
-        "hispa",
-        "paradox-logiche-decisionali-metriche",
-        "super6NN"
-      ]
-    },
     {
       "number": 4,
       "support": 5,
@@ -532,17 +520,6 @@
         "classic-frequency",
         "paradox-logiche-decisionali-metriche",
         "super6NN"
-      ]
-    },
-    {
-      "number": 18,
-      "support": 5,
-      "algorithms": [
-        "classic-coppie-terzine-frequenti",
-        "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita",
-        "hispa",
-        "paradox-logiche-decisionali-metriche"
       ]
     },
     {
@@ -568,7 +545,28 @@
       ]
     },
     {
-      "number": 83,
+      "number": 85,
+      "support": 5,
+      "algorithms": [
+        "classic-co-occorrenze",
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-frequency",
+        "classic-ritardi-combinazioni",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 55,
+      "support": 4,
+      "algorithms": [
+        "classic-co-occorrenze",
+        "classic-coppie-terni-consecutivi",
+        "classic-frequency",
+        "paradox-logiche-decisionali-metriche"
+      ]
+    },
+    {
+      "number": 88,
       "support": 4,
       "algorithms": [
         "classic-analisi-anomalie-pattern",
@@ -578,12 +576,29 @@
       ]
     },
     {
-      "number": 85,
-      "support": 4,
+      "number": 18,
+      "support": 3,
       "algorithms": [
-        "classic-co-occorrenze",
+        "classic-coppie-terzine-frequenti",
+        "classic-statistiche-combinate-finestre-mobili",
+        "classic-tavole-probabilita-teorica-test-uniformita"
+      ]
+    },
+    {
+      "number": 23,
+      "support": 3,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic"
+      ]
+    },
+    {
+      "number": 49,
+      "support": 3,
+      "algorithms": [
+        "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
-        "classic-ritardi-combinazioni",
         "hispa"
       ]
     },
@@ -606,15 +621,6 @@
       ]
     },
     {
-      "number": 88,
-      "support": 3,
-      "algorithms": [
-        "classic-distribuzioni-modelli-raggruppamento",
-        "genetic",
-        "hispa"
-      ]
-    },
-    {
       "number": 3,
       "support": 2,
       "algorithms": [
@@ -631,19 +637,11 @@
       ]
     },
     {
-      "number": 13,
+      "number": 24,
       "support": 2,
       "algorithms": [
-        "classic-coppie-terzine-frequenti",
-        "super6NN"
-      ]
-    },
-    {
-      "number": 23,
-      "support": 2,
-      "algorithms": [
-        "classic-analisi-anomalie-pattern",
-        "classic-ritardi"
+        "classic-statistiche-combinate-finestre-mobili",
+        "classic-tavole-probabilita-teorica-test-uniformita"
       ]
     }
   ]

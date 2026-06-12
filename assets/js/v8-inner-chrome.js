@@ -22,8 +22,15 @@
     '}',
     '#v8-inner-topbar a:hover{color:#EDE8DF;}',
     '#v8-inner-topbar .v8i-logo{',
+      'display:flex;flex-direction:column;align-items:flex-start;gap:.1rem;',
       'font-family:"BioRhyme",serif;font-size:1.5rem;font-weight:800;',
-      'color:#EDE8DF;letter-spacing:-.02em;',
+      'color:#EDE8DF;letter-spacing:-.02em;line-height:1;',
+    '}',
+    '#v8-inner-topbar .v8i-logo-main{display:block;}',
+    '#v8-inner-topbar .v8i-version{',
+      'display:block;font-family:"DM Mono",monospace;font-size:.72rem;font-weight:700;',
+      'line-height:1;letter-spacing:.16em;color:rgba(237,232,223,.34);',
+      'text-transform:uppercase;text-shadow:none;-webkit-text-fill-color:currentColor;',
     '}',
     '#v8-inner-topbar .v8i-logo b{',
       'background:linear-gradient(90deg,#8B5CF6,#C8391A);',
@@ -32,7 +39,7 @@
     '#v8-inner-topbar .v8i-sep{width:1px;height:18px;background:rgba(237,232,223,.08);}',
     'body{padding-top:64px!important;}',
     '</style>',
-    '<a href="/" class="v8i-logo">Control<b>Chaos</b></a>',
+    '<a href="/" class="v8i-logo"><span class="v8i-logo-main">Control<b>Chaos</b></span><span class="v8i-version" data-v8-version>--</span></a>',
     '<div class="v8i-sep"></div>',
     '<a href="javascript:history.back()">← Indietro</a>'
   ].join('');
@@ -406,6 +413,14 @@
     return m ? m[1] : '';
   }
 
+  function setV8TopbarVersion(drawSeq) {
+    var el = document.querySelector('[data-v8-version]');
+    if (!el) return;
+    var base = String(window.CC_VERSION || '00.00.000').trim() || '00.00.000';
+    var seq = parseInt(String(drawSeq || ''), 10);
+    el.textContent = base + (Number.isFinite(seq) && seq > 0 ? '.' + String(seq).padStart(5, '0') : '');
+  }
+
   function v8BuildPerformanceSvg(rows) {
     var data = rows.slice(-40);
     if (!data.length) {
@@ -591,6 +606,7 @@
       var ranked = cards.filter(function (c) { return c && c.rankingPosition; });
       ranked.sort(function (a, b) { return a.rankingPosition - b.rankingPosition; });
       var last = draws.length ? draws[draws.length - 1] : null;
+      setV8TopbarVersion(last ? last.seq : '');
       var lastSeen = new Array(91).fill(-1);
       var worstN = 0, worstD = -1, hotN = 0, hotC = 0;
       draws.forEach(function (d, i) { d.nums.forEach(function (n) { lastSeen[n] = i; }); });

@@ -644,6 +644,11 @@ const syncPolicyBrandVersion = async (policyRow) => {
 };
 
 const ensureFooterVersionBadge = () => {
+  if (document.getElementById('v8-inner-topbar')) {
+    const existing = document.querySelector('[data-cc-footer-version="true"]');
+    if (existing instanceof HTMLElement) existing.remove();
+    return null;
+  }
   let host = document.querySelector('[data-cc-footer-version="true"]');
   if (host instanceof HTMLElement) return host;
   host = document.createElement('div');
