@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-12 21:21:47",
-  "ok": true,
+  "generated_at": "2026-06-12 21:07:39",
+  "ok": false,
   "active_algorithms": 15,
   "ranking_rows": 15,
-  "algorithm_snapshots": 15,
+  "algorithm_snapshots": 13,
   "algorithm_sheets": 15,
   "files": {
     "data/modules-manifest.json": {
@@ -34,41 +34,46 @@
     "data/iargos-public-status.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:21:19"
+      "generated_at": "2026-06-12 23:06:36"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:21:46"
+      "generated_at": "2026-06-12 21:07:37"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:21:47"
+      "generated_at": "2026-06-12 21:07:38"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:21:46"
+      "generated_at": "2026-06-12 21:07:37"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T21:21:47"
+      "generated_at": "2026-06-12T21:07:39"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T21:21:47"
+      "generated_at": "2026-06-12T21:07:39"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T21:21:47"
+      "generated_at": "2026-06-12T21:07:39"
     }
   },
-  "errors": [],
+  "errors": [
+    "snapshots_missing:2"
+  ],
   "warnings": [],
-  "missing_snapshots": [],
+  "missing_snapshots": [
+    "classic-tavole-probabilita-teorica-test-uniformita",
+    "paradox-logiche-decisionali-metriche"
+  ],
   "missing_algorithm_out_files": []
 }
