@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-12 22:17:44",
+  "updated_at": "2026-06-12 22:58:58",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
-  "developing_mode": false,
+  "developing_mode": true,
   "severity": "warning",
   "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
@@ -38,7 +38,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-12 21:55:56",
+    "last_push_at": "2026-06-12 22:18:37",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781279282

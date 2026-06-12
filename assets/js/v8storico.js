@@ -145,6 +145,24 @@
           document.getElementById('v8x-hi').textContent = mode === 'F' ? 'Frequente' : 'Ritardo critico';
         }
 
+        // Sincronizza la sezione "Frequenza/Ritardi storici numeri 1-90" col toggle
+        function syncHistoryChart() {
+          var section = document.getElementById('freq-section');
+          var title = document.getElementById('freq-title');
+          var chartEl = document.getElementById('chart-draws-freq');
+          if (!section || !title || !chartEl || typeof ChartRenderer === 'undefined') return;
+          var isF = mode === 'F';
+          var label = isF ? 'Frequenza storica numeri 1-90' : 'Ritardi storici numeri 1-90';
+          title.textContent = label;
+          section.setAttribute('aria-label', label);
+          var labels = [], values = [];
+          for (var i = 1; i <= 90; i++) {
+            labels.push(String(i));
+            values.push(isF ? freq[i] : delay[i]);
+          }
+          ChartRenderer.renderNumberFrequency(chartEl, { labels: labels, values: values });
+        }
+
         function renderSideSummary() {
           var top = [];
           for (var n = 1; n <= 90; n++) top.push([n, mode === 'F' ? freq[n] : delay[n]]);
@@ -241,12 +259,12 @@
         document.getElementById('v8x-mf').addEventListener('click', function () {
           mode = 'F'; this.classList.add('on');
           var r = document.getElementById('v8x-mr'); r.classList.remove('on', 'rit');
-          paint(); focus(); renderSideSummary();
+          paint(); focus(); renderSideSummary(); syncHistoryChart();
         });
         document.getElementById('v8x-mr').addEventListener('click', function () {
           mode = 'R'; this.classList.add('on', 'rit');
           document.getElementById('v8x-mf').classList.remove('on');
-          paint(); focus(); renderSideSummary();
+          paint(); focus(); renderSideSummary(); syncHistoryChart();
         });
 
         paint(); focus(); renderSideSummary();
