@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-12 21:07:39",
-  "ok": false,
+  "generated_at": "2026-06-13 01:23:24",
+  "ok": true,
   "active_algorithms": 15,
   "ranking_rows": 15,
-  "algorithm_snapshots": 13,
+  "algorithm_snapshots": 15,
   "algorithm_sheets": 15,
   "files": {
     "data/modules-manifest.json": {
@@ -24,7 +24,7 @@
     "data/next-draw.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:01:14"
+      "generated_at": "2026-06-13 00:19:11"
     },
     "data/numeri-stats.json": {
       "exists": true,
@@ -34,46 +34,41 @@
     "data/iargos-public-status.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 23:06:36"
+      "generated_at": "2026-06-13 01:05:57"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:07:37"
+      "generated_at": "2026-06-13 01:23:22"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:07:38"
+      "generated_at": "2026-06-13 01:23:24"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 21:07:37"
+      "generated_at": "2026-06-13 01:23:22"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T21:07:39"
+      "generated_at": "2026-06-13T01:23:24"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T21:07:39"
+      "generated_at": "2026-06-13T01:23:24"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T21:07:39"
+      "generated_at": "2026-06-13T01:23:24"
     }
   },
-  "errors": [
-    "snapshots_missing:2"
-  ],
+  "errors": [],
   "warnings": [],
-  "missing_snapshots": [
-    "classic-tavole-probabilita-teorica-test-uniformita",
-    "paradox-logiche-decisionali-metriche"
-  ],
+  "missing_snapshots": [],
   "missing_algorithm_out_files": []
 }

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-12T21:07:39",
-  "count": 13,
+  "generated_at": "2026-06-13T01:23:24",
+  "count": 15,
   "algorithms": [
     {
       "slug": "astra-moon",
       "title": "ASTRA Moon",
       "family": "ibrido",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -34,7 +34,7 @@
       "slug": "classic-analisi-anomalie-pattern",
       "title": "classic-analisi-anomalie-pattern",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -62,7 +62,7 @@
       "slug": "classic-co-occorrenze",
       "title": "classic  co-occorrenze",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -89,7 +89,7 @@
       "slug": "classic-coppie-terni-consecutivi",
       "title": "classic-coppie-terni-consecutivi",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -117,7 +117,7 @@
       "slug": "classic-coppie-terzine-frequenti",
       "title": "classic-coppie-terzine-frequenti",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -145,7 +145,7 @@
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "title": "classic-distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -173,7 +173,7 @@
       "slug": "classic-frequency",
       "title": "classic-frequency",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -201,7 +201,7 @@
       "slug": "classic-ritardi",
       "title": "classic-ritardi",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -228,7 +228,7 @@
       "slug": "classic-ritardi-combinazioni",
       "title": "classic-ritardi-combinazioni",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -256,7 +256,7 @@
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "title": "classic-statistiche-combinate-finestre-mobili",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -281,10 +281,38 @@
       ]
     },
     {
+      "slug": "classic-tavole-probabilita-teorica-test-uniformita",
+      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "family": "statistica",
+      "generated_at": "2026-06-13T01:23:24",
+      "last_seq": 4212,
+      "last_date": "",
+      "proposal": [
+        50,
+        36,
+        53,
+        18,
+        24,
+        60
+      ],
+      "metrics": {
+        "draws_covered": 4212,
+        "avg_hits": 0.4,
+        "hit_rate_gte_2": 4.9,
+        "best_streak": 7
+      },
+      "explanation": [
+        "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.",
+        "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
+        "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
+        "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
+      ]
+    },
+    {
       "slug": "genetic",
       "title": "GeneticSE",
       "family": "neurale",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -313,7 +341,7 @@
       "slug": "hispa",
       "title": "HiSPA",
       "family": "statistica",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
@@ -338,10 +366,39 @@
       ]
     },
     {
+      "slug": "paradox-logiche-decisionali-metriche",
+      "title": "Paradox Logiche Decisionali Metriche",
+      "family": "ibrido",
+      "generated_at": "2026-06-13T01:23:24",
+      "last_seq": 4212,
+      "last_date": "",
+      "proposal": [
+        4,
+        6,
+        55,
+        65,
+        76,
+        85
+      ],
+      "metrics": {
+        "draws_covered": 4212,
+        "avg_hits": 0.39,
+        "hit_rate_gte_2": 5.1,
+        "hit_rate_gte_3": 0.4,
+        "best_streak": 6
+      },
+      "explanation": [
+        "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
+        "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
+        "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
+        "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
+      ]
+    },
+    {
       "slug": "super6NN",
       "title": "Super6 NN",
       "family": "neurale",
-      "generated_at": "2026-06-12T21:07:39",
+      "generated_at": "2026-06-13T01:23:24",
       "last_seq": 4212,
       "last_date": "",
       "proposal": [
