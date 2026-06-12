@@ -160,8 +160,13 @@
     prog.setAttribute('aria-hidden', 'true');
     document.body.prepend(prog);
     var tick = function () {
-      var h = Math.max(1, document.body.scrollHeight - window.innerHeight);
-      prog.style.width = Math.max(0, Math.min(100, (window.scrollY / h) * 100)) + '%';
+      var sc = window.CC_SCROLLER;
+      var useC = sc && document.documentElement.dataset.adRail === 'right';
+      var h = useC
+        ? Math.max(1, sc.scrollHeight - sc.clientHeight)
+        : Math.max(1, document.body.scrollHeight - window.innerHeight);
+      var y = useC ? sc.scrollTop : window.scrollY;
+      prog.style.width = Math.max(0, Math.min(100, (y / h) * 100)) + '%';
     };
     window.addEventListener('scroll', tick, { passive: true });
     window.addEventListener('resize', tick, { passive: true });

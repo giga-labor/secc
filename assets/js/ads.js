@@ -1439,6 +1439,18 @@ const ensureAds = () => {
 
   start();
 
+  // Wide layout: <main> è il contenitore di scroll (vedi ads.css).
+  // Ponte: rilancia gli eventi scroll del main come eventi window,
+  // così i listener esistenti (header, progress bar, telemetria) continuano a funzionare.
+  const wireMainScrollBridge = () => {
+    const mainEl = document.querySelector('main.content-width, main.content-fade');
+    if (!mainEl || mainEl.dataset.ccScrollBridge) return;
+    mainEl.dataset.ccScrollBridge = '1';
+    window.CC_SCROLLER = mainEl;
+    mainEl.addEventListener('scroll', () => window.dispatchEvent(new Event('scroll')), { passive: true });
+  };
+  wireMainScrollBridge();
+
   let layoutRaf = 0;
   const scheduleAdLayout = () => {
     if (layoutRaf) return;

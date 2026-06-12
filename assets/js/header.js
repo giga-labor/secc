@@ -606,8 +606,14 @@ const initTelemetryBindings = () => {
   });
 
   const getDepth = () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
-    const docHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const sc = window.CC_SCROLLER;
+    const useContainer = sc && document.documentElement.dataset.adRail === 'right';
+    const scrollTop = useContainer
+      ? sc.scrollTop
+      : (window.scrollY || document.documentElement.scrollTop || 0);
+    const docHeight = useContainer
+      ? Math.max(sc.scrollHeight - sc.clientHeight, 1)
+      : Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
     return Math.max(0, Math.min(100, Math.round((scrollTop / docHeight) * 100)));
   };
 
@@ -1151,7 +1157,10 @@ if (header) {
     window.addEventListener('pageshow', markMinimalNavActive, { passive: true });
 
     const updateHeaderMode = () => {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const sc = window.CC_SCROLLER;
+      const y = (sc && document.documentElement.dataset.adRail === 'right')
+        ? sc.scrollTop
+        : (window.scrollY || document.documentElement.scrollTop || 0);
       header.classList.toggle('header--top', y < 80);
       header.classList.toggle('header--solid', y >= 80);
     };
