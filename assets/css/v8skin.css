@@ -937,3 +937,29 @@ body[data-page-id="community"] #community_feedback_form .flex{grid-column:1/-1}
   body[data-page-id="community"] #community_feedback_form form{grid-template-columns:1fr!important}
   body[data-page-id="community"] .cc-home-block{grid-column:1/-1!important}
 }
+
+/* ── Scheda algoritmo: storico concorso per concorso (hit evidenziati) ── */
+.v8hist{display:flex;flex-direction:column;gap:.3rem;margin-top:.6rem}
+.v8hist-row{
+  display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+  border:1px solid rgba(237,232,223,.07);border-radius:10px;
+  background:rgba(8,4,18,.4);padding:.42rem .7rem;
+  font-family:'DM Mono',monospace;font-size:.74rem;color:rgba(237,232,223,.6);
+}
+.v8hist-row.good{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.06)}
+.v8hist-seq{min-width:3.6rem;color:rgba(237,232,223,.35)}
+.v8hist-date{min-width:6.2rem}
+.v8hist-nums{display:flex;gap:.35rem;flex-wrap:wrap}
+.v8hist-n{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.7rem;height:1.7rem;border-radius:50%;
+  border:1px solid rgba(237,232,223,.12);color:rgba(237,232,223,.55);
+}
+.v8hist-n.hit{
+  border-color:var(--v8-amber,#F59E0B);color:#0b0614;font-weight:700;
+  background:var(--v8-amber,#F59E0B);box-shadow:0 0 10px rgba(245,158,11,.5);
+}
+.v8hist-hits{margin-left:auto;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,232,223,.35)}
+.v8hist-row.good .v8hist-hits{color:var(--v8-amber,#F59E0B)}
+.v8hist-foot{display:flex;align-items:center;gap:1rem;margin-top:.8rem}
+.v8hist-count{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,232,223,.35)}
