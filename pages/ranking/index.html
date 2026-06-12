@@ -368,5 +368,58 @@
   <script src="../../assets/js/runtime-bootstrap.js" defer></script>
   <script src="../../assets/js/ads.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+  <script src="../../assets/js/chart-renderer.js" defer></script>
+  <script>
+    /* Mini hit-distribution per ogni card di ranking.
+       Le card vengono create dinamicamente, usiamo MutationObserver. */
+    (function () {
+      var _cache = {};  // slug → charts-data.json promise
+
+      function _fetchChart(slug) {
+        if (_cache[slug]) return _cache[slug];
+        _cache[slug] = fetch('../../pages/algoritmi/algs/' + slug + '/out/charts-data.json')
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .catch(function () { return null; });
+        return _cache[slug];
+      }
+
+      function _injectMiniChart(card) {
+        if (card.dataset.chartInjected) return;
+        card.dataset.chartInjected = '1';
+        // slug ricavato dall'href della card (es. .../algs/classic-frequency/)
+        var href = card.getAttribute('href') || '';
+        var m = href.match(/\/algs\/([^/]+)\//);
+        if (!m) return;
+        var slug = m[1];
+
+        var wrap = document.createElement('div');
+        wrap.style.cssText = 'padding:4px 8px 6px;border-top:1px solid rgba(255,255,255,0.07)';
+        wrap.innerHTML = '<div id="mini-' + slug + '" style="min-height:40px"></div>';
+        card.appendChild(wrap);
+
+        _fetchChart(slug).then(function (data) {
+          if (!data || !data.hit_distribution) return;
+          var el = document.getElementById('mini-' + slug);
+          if (!el) return;
+          ChartRenderer.renderHitDistribution(el, data.hit_distribution);
+          // Ridimensiona SVG per spazio ridotto della card
+          var svg = el.querySelector('svg');
+          if (svg) svg.setAttribute('viewBox', '0 0 420 130');
+        });
+      }
+
+      function _scanCards() {
+        document.querySelectorAll('.v8rank-card:not([data-chart-injected])').forEach(_injectMiniChart);
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        _scanCards();
+        var host = document.querySelector('[data-ranking-cards]');
+        if (!host) return;
+        var obs = new MutationObserver(_scanCards);
+        obs.observe(host, { childList: true, subtree: true });
+      });
+    })();
+  </script>
 </body>
 </html>
