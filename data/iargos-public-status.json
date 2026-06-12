@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-12 23:08:52",
+  "updated_at": "2026-06-12 23:10:29",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -25,7 +25,7 @@
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
     "git_dirty": true,
-    "remote_ahead": 1,
+    "remote_ahead": 0,
     "remote_behind": 0,
     "alignment_diff_count": 0,
     "active_algorithms_count": 15,
@@ -38,7 +38,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-12 23:05:15",
+    "last_push_at": "2026-06-12 23:09:23",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781279282

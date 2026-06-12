@@ -526,6 +526,86 @@
     }).catch(function () { /* payload statico opzionale: fallback visuale gia' presente */ });
   }
 
+  /* ── Storico completo concorso per concorso con hit evidenziati (stile legacy) ── */
+  function hydrateV8SheetHistory(sheet) {
+    if (!sheet || sheet.querySelector('#v8sheet-storico')) return;
+    fetch('out/historical-db.csv', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.text() : null; })
+      .then(function (text) {
+        if (!text) return;
+        var lines = text.replace(/\r/g, '').split('\n');
+        var rows = [];
+        for (var i = 1; i < lines.length; i++) {
+          var p = lines[i].split(',');
+          if (p.length < 8) continue;
+          var nums = [];
+          var hitCount = 0;
+          for (var j = 2; j < 8; j++) {
+            var raw = String(p[j] || '').trim();
+            var isHit = raw.indexOf('[') !== -1;
+            var m = /\d+/.exec(raw);
+            if (!m) continue;
+            if (isHit) hitCount++;
+            nums.push({ n: +m[0], hit: isHit });
+          }
+          if (nums.length === 6) rows.push({ seq: p[0], date: p[1], nums: nums, hits: hitCount });
+        }
+        if (!rows.length) return;
+        rows.reverse(); // piu recenti in alto
+
+        var section = document.createElement('section');
+        section.className = 'v8sheet-sec';
+        section.id = 'v8sheet-storico';
+        section.innerHTML =
+          '<div class="v8sheet-k">Concorso per concorso &middot; ' + rows.length.toLocaleString('it-IT') + ' estrazioni &middot; numeri indovinati evidenziati</div>' +
+          '<div class="v8hist" data-v8hist-list></div>' +
+          '<div class="v8hist-foot">' +
+            '<button type="button" class="v8sheet-btn" data-v8hist-more>Mostra altri</button>' +
+            '<span class="v8hist-count" data-v8hist-count></span>' +
+          '</div>';
+        var actions = sheet.querySelector('.v8sheet-actions');
+        if (actions) sheet.insertBefore(section, actions);
+        else sheet.appendChild(section);
+
+        var nav = sheet.querySelector('.v8sheet-subnav');
+        if (nav) {
+          var link = document.createElement('a');
+          link.href = '#v8sheet-storico';
+          link.textContent = 'Concorsi';
+          nav.appendChild(link);
+        }
+
+        var list = section.querySelector('[data-v8hist-list]');
+        var moreBtn = section.querySelector('[data-v8hist-more]');
+        var countEl = section.querySelector('[data-v8hist-count]');
+        var PAGE = 100;
+        var shown = 0;
+
+        function rowHtml(r) {
+          return '<div class="v8hist-row' + (r.hits >= 2 ? ' good' : '') + '">' +
+            '<span class="v8hist-seq">#' + v8Escape(r.seq) + '</span>' +
+            '<span class="v8hist-date">' + v8Escape(r.date) + '</span>' +
+            '<span class="v8hist-nums">' + r.nums.map(function (x) {
+              return '<span class="v8hist-n' + (x.hit ? ' hit' : '') + '">' + String(x.n).padStart(2, '0') + '</span>';
+            }).join('') + '</span>' +
+            '<span class="v8hist-hits">' + (r.hits ? r.hits + ' hit' : '&ndash;') + '</span>' +
+          '</div>';
+        }
+
+        function renderMore() {
+          var next = rows.slice(shown, shown + PAGE);
+          shown += next.length;
+          list.insertAdjacentHTML('beforeend', next.map(rowHtml).join(''));
+          countEl.textContent = shown.toLocaleString('it-IT') + ' / ' + rows.length.toLocaleString('it-IT') + ' concorsi';
+          if (shown >= rows.length) moreBtn.style.display = 'none';
+        }
+
+        moreBtn.addEventListener('click', renderMore);
+        renderMore();
+      })
+      .catch(function () { /* storico opzionale */ });
+  }
+
   function mountV8SheetBodyOnly(card) {
     if (document.querySelector('.v8sheet-body')) return;
     var hero = document.querySelector('.v8sh');
@@ -581,6 +661,7 @@
     if (nav && nav.parentNode) nav.insertAdjacentElement('afterend', sheet);
     else hero.insertAdjacentElement('afterend', sheet);
     hydrateV8SheetData(sheet, card || { page: window.location.pathname }, fallbackBalls, { signal: 50, coverage: 50, media: null });
+    hydrateV8SheetHistory(sheet);
     setupV8SheetInteractions(sheet);
   }
 
@@ -906,6 +987,7 @@
             '</section>';
           hero.insertAdjacentElement('afterend', sheet);
           hydrateV8SheetData(sheet, card, balls, { signal: signal, coverage: coverage, stability: stability, media: media });
+          hydrateV8SheetHistory(sheet);
           setupV8SheetInteractions(sheet);
         }
 
