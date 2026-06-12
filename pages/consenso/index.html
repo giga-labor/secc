@@ -291,9 +291,8 @@
         algsEl.innerHTML = algs.map(function (slug) {
           var snap = allData && allData.algorithms ? allData.algorithms.find(function (a) { return a.slug === slug; }) : null;
           var title = snap ? snap.title : slugToTitle(slug);
-          var page = snap ? '' : '';
-          // Try to build a link to the algorithm page
-          var href = '/pages/algoritmi/algs/' + escapeHtml(slug) + '/';
+          var page = snap && snap.page ? String(snap.page) : '';
+          var href = page ? ('/' + page.replace(/^\/+/, '')) : '/pages/algoritmi/';
           return '<a href="' + href + '" class="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[0.68rem] text-ash hover:border-neon/50 hover:text-neon transition">' + escapeHtml(title) + '</a>';
         }).join('');
         algsWrap.style.display = '';

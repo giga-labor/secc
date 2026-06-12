@@ -105,9 +105,9 @@
               <div class="flex flex-wrap items-center gap-2 mb-4" id="ranking-filters" role="group" aria-label="Filtra per famiglia">
               <span class="text-[0.65rem] uppercase tracking-[0.18em] text-ash/60 mr-1">Famiglia:</span>
               <button type="button" class="cc-rank-filter is-active rounded-full border border-neon/60 bg-neon/10 px-3 py-1 text-xs text-neon" data-family="">Tutti</button>
-              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-sky-400/50 hover:text-sky-300 transition" data-family="statistici">Statistici</button>
-              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-violet-400/50 hover:text-violet-300 transition" data-family="neurali">Neurali</button>
-              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-emerald-400/50 hover:text-emerald-300 transition" data-family="ibridi">Ibridi</button>
+              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-sky-400/50 hover:text-sky-300 transition" data-family="statistica">Statistici</button>
+              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-violet-400/50 hover:text-violet-300 transition" data-family="neurale">Neurali</button>
+              <button type="button" class="cc-rank-filter rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash hover:border-emerald-400/50 hover:text-emerald-300 transition" data-family="ibrido">Ibridi</button>
             </div>
             <div class="cc-ranking-cards-grid" data-ranking-cards data-seo-fallback="ranking">
                 <div class="cc-home-empty">Caricamento punteggio algoritmi...</div>
@@ -136,38 +136,8 @@
   <script src="../../assets/js/core/page-orchestrator.js" defer></script>
   <script src="../../assets/js/motion.js" defer></script>
   <script src="../../assets/js/architects/base.architect.js" defer></script>
-  <script src="../../assets/js/analisi-runtime.js?v=20260324b" defer></script>
   <script>
     (function () {
-      function forceLoadRanking() {
-        var api = window.CC_ANALISI_RUNTIME;
-        if (!api || typeof api.loadRanking !== 'function') return false;
-        try {
-          api.loadRanking();
-          return true;
-        } catch (_) {
-          return false;
-        }
-      }
-
-      function runForce() {
-        if (forceLoadRanking()) return;
-        window.setTimeout(forceLoadRanking, 220);
-        window.setTimeout(forceLoadRanking, 800);
-      }
-
-      if (document.readyState === 'complete') {
-        runForce();
-      } else {
-        window.addEventListener('load', runForce, { once: true, passive: true });
-      }
-      window.addEventListener('pageshow', runForce, { passive: true });
-    })();
-  </script>
-  <script>
-    (function () {
-      var PAYOUTS = { 0: 1.53, 1: 3.36, 2: 21.51, 3: 326.72, 4: 11906.95, 5: 1235346.49, 6: 622614630.0 };
-
       function escapeHtml(value) {
         return String(value || '')
           .replace(/&/g, '&amp;')
@@ -181,21 +151,6 @@
         var n = Number(value);
         if (!Number.isFinite(n)) return '--';
         return new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
-      }
-
-      function parseCsvRows(raw) {
-        var text = String(raw || '');
-        var lines = text.split(/\r?\n/).map(function (line) { return line.trim(); }).filter(function (line) {
-          return line && !line.startsWith('#');
-        });
-        if (lines.length < 2) return [];
-        var header = lines[0].split(',').map(function (h) { return String(h || '').trim(); });
-        return lines.slice(1).map(function (line) {
-          var cells = line.split(',').map(function (c) { return String(c || '').trim(); });
-          var row = {};
-          header.forEach(function (h, i) { row[h] = cells[i] || ''; });
-          return row;
-        });
       }
 
       function buildFetchCandidates(path) {
@@ -225,51 +180,6 @@
         return asText ? '' : null;
       }
 
-      function countsFromMetrics(rows) {
-        var counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
-        var hasAny = false;
-        (rows || []).forEach(function (row) {
-          var metric = String(row['METRICA'] || '').trim().toLowerCase();
-          var m = metric.match(/^con\s+([0-6])\s+hit$/);
-          if (!m) return;
-          var k = Number.parseInt(m[1], 10);
-          var v = Number.parseInt(String(row['VALORE'] || '').replace(/[^\d-]/g, ''), 10);
-          if (!Number.isFinite(v)) return;
-          counts[k] = Math.max(0, v);
-          hasAny = true;
-        });
-        return hasAny ? counts : null;
-      }
-
-      function countsFromHistorical(rows) {
-        var counts = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
-        (rows || []).forEach(function (row) {
-          var h = 0;
-          for (var i = 1; i <= 6; i += 1) {
-            var value = String(row['N' + i] || '').trim();
-            if (value.startsWith('[') && value.endsWith(']')) h += 1;
-          }
-          if (h >= 0 && h <= 6) counts[h] += 1;
-        });
-        return counts;
-      }
-
-      function mergeCounts(metricsCounts, histCounts) {
-        if (metricsCounts) {
-          var out = Object.assign({}, metricsCounts);
-          out[0] = histCounts[0] || 0;
-          out[1] = histCounts[1] || 0;
-          return out;
-        }
-        return histCounts;
-      }
-
-      function computeScore(counts) {
-        var total = 0;
-        for (var k = 0; k <= 6; k += 1) total += (counts[k] || 0) * (PAYOUTS[k] || 0);
-        return total;
-      }
-
       function resolveImage(card, page) {
         var image = String(card && (card.image || card.img) || '').trim();
         if (image && (/^(https?:\/\/|\/)/i.test(image))) return image;
@@ -279,28 +189,73 @@
         return '/img/algoritm.webp';
       }
 
+      function normalizePageKey(value) {
+        return String(value || '').trim().replace(/^\/+/, '').replace(/index\.html?$/i, '').replace(/\/?$/, '/').toLowerCase();
+      }
+
+      function titleFromSlug(value) {
+        var raw = String(value || '').trim();
+        if (!raw) return 'Algoritmo';
+        if (!/[-_]/.test(raw)) return raw;
+        return raw
+          .replace(/[-_]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .replace(/\b([a-z])/g, function (m) { return m.toUpperCase(); });
+      }
+
+      function cleanTitle(rowTitle, card) {
+        var cardTitle = String(card && card.title || '').trim();
+        var rowRaw = String(rowTitle || '').trim();
+        var chosen = cardTitle || rowRaw || 'Algoritmo';
+        if (/[-_]/.test(chosen) && chosen.toLowerCase() === rowRaw.toLowerCase()) return titleFromSlug(chosen);
+        return chosen;
+      }
+
+      function familyLabel(value) {
+        var raw = String(value || '').toLowerCase();
+        if (raw.indexOf('neur') === 0) return 'Neurale';
+        if (raw.indexOf('ibr') === 0) return 'Ibrido';
+        if (raw.indexOf('stor') === 0) return 'Storico';
+        return 'Statistico';
+      }
+
       function cardHtml(row, position, podium) {
         var title = escapeHtml(row.title || 'Algoritmo');
+        var subtitle = escapeHtml(row.subtitle || '');
         var href = '/' + String(row.page || '').replace(/^\/+/, '');
-        var detail = 'Hit 0:' + row.hits[0] + ' 1:' + row.hits[1] + ' 2:' + row.hits[2] + ' 3:' + row.hits[3] + ' 4:' + row.hits[4] + ' 5:' + row.hits[5] + ' 6:' + row.hits[6];
-        var podiumClass = podium ? (' cc-ranking-card--podium cc-ranking-card--podium-' + position) : '';
+        var fam = String(row.family || '').toLowerCase();
+        var famLabel = familyLabel(fam);
+        var topHit = Math.max(row.hits[1] || 0, row.hits[2] || 0, row.hits[3] || 0, row.hits[4] || 0);
+        var bars = [1, 2, 3, 4].map(function (hit) {
+          var v = row.hits[hit] || 0;
+          var h = Math.max(4, Math.round(v / Math.max(1, topHit) * 34));
+          return '<span class="v8rank-bar" title="' + hit + '+ hit: ' + v + '"><i style="height:' + h + 'px"></i><b>' + hit + '+</b></span>';
+        }).join('');
+        var podiumClass = podium ? (' is-podium is-podium-' + position) : '';
         return ''
-          + '<a href="' + escapeHtml(href) + '" class="cc-card cc-card3d card-3d algorithm-card cc-ranking-card' + podiumClass + ' group relative flex min-h-[330px] flex-col overflow-hidden rounded-2xl border border-white/10 transition cc-card-tone-study is-active" aria-label="Apri ' + title + '" data-rank-family="' + escapeHtml(String(row.family || '').toLowerCase()) + '">'
-          + '<span class="cc-ranking-card__badge">#' + position + '</span>'
-          + '<div class="cc-card-media cc-card-media-frame algorithm-card__media algorithm-card__media--third relative overflow-hidden" style="position:relative;width:100%;aspect-ratio:15/8;min-height:0;max-height:none;overflow:hidden;">'
-          + '<img class="h-full w-full object-cover" src="' + escapeHtml(resolveImage(row.card, row.page)) + '" alt="Anteprima ' + title + '" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">'
-          + '</div>'
-          + '<div class="cc-card-body algorithm-card__body flex flex-1 flex-col gap-1.5 px-4 pt-2.5 pb-10">'
-          + '<span class="text-[10px] uppercase tracking-[0.22em] text-neon/90">ALGORITMO</span>'
-          + '<h3 class="text-[0.98rem] font-semibold leading-tight group-hover:text-neon">' + title + '</h3>'
-          + '<p class="algorithm-card__desc text-[0.74rem] leading-[1.25] text-ash">' + escapeHtml(detail) + '</p>'
-          + '</div>'
-          + '<div class="cc-card-proposal absolute bottom-2 left-3 right-3 w-auto rounded-full border border-neon/70 bg-neon/10 px-2 py-[0.24rem] text-[0.64rem] font-semibold tracking-[0.04em] text-neon overflow-hidden text-ellipsis shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_10px_rgba(0,0,0,0.35)]">Punteggio: ' + escapeHtml(formatScore(row.ranking)) + '</div>'
+          + '<a href="' + escapeHtml(href) + '" class="v8rank-card' + podiumClass + '" aria-label="Apri ' + title + '" data-rank-family="' + escapeHtml(fam) + '">'
+          + '<span class="v8rank-pos">#' + String(position).padStart(2, '0') + '</span>'
+          + '<span class="v8rank-family">' + escapeHtml(famLabel) + '</span>'
+          + '<div class="v8rank-title">' + title + '</div>'
+          + (subtitle ? '<p class="v8rank-subtitle">' + subtitle + '</p>' : '')
+          + '<div class="v8rank-score"><b>' + escapeHtml(formatScore(row.ranking)) + '</b><span>Punteggio storico</span></div>'
+          + '<div class="v8rank-bars" aria-label="Distribuzione hit">' + bars + '</div>'
+          + '<div class="v8rank-meta"><span>0 hit ' + (row.hits[0] || 0) + '</span><span>3+ hit ' + ((row.hits[3] || 0) + (row.hits[4] || 0) + (row.hits[5] || 0) + (row.hits[6] || 0)) + '</span></div>'
+          + '<span class="v8rank-go">Apri scheda &rarr;</span>'
           + '</a>';
       }
 
       async function buildRows() {
         var precomputed = await fetchFirstOk('data/precomputed/ranking.json', false);
+        var cardIndex = await fetchFirstOk('data/cards-index.json', false);
+        var cardsByPage = {};
+        if (Array.isArray(cardIndex)) {
+          cardIndex.forEach(function (card) {
+            var key = normalizePageKey(card && card.page);
+            if (key) cardsByPage[key] = card;
+          });
+        }
         // Mostra timestamp aggiornamento
         if (precomputed && precomputed.generated_at) {
           var tsEl = document.getElementById('ranking-timestamp');
@@ -313,62 +268,33 @@
             tsEl.style.display = '';
           }
         }
-        if (precomputed && Array.isArray(precomputed.rows) && precomputed.rows.length) {
-          return precomputed.rows.map(function (row) {
-            var srcHits = row && row.hits && typeof row.hits === 'object' ? row.hits : {};
-            var hits = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
-            for (var i = 0; i <= 6; i += 1) {
-              var raw = srcHits[i];
-              if (raw == null) raw = srcHits[String(i)];
-              var val = parseInt(String(raw == null ? 0 : raw), 10);
-              hits[i] = Number.isFinite(val) ? Math.max(0, val) : 0;
-            }
-            return {
-              title: String(row.title || 'Algoritmo'),
-              page: String(row.page || '').replace(/^\/+/, ''),
-              ranking: Number.isFinite(Number(row.ranking)) ? Number(row.ranking) : 0,
-              hits: hits,
-              card: { image: String(row.image || ''), page: String(row.page || '') }
-            };
-          }).sort(function (a, b) { return b.ranking - a.ranking; });
-        }
-
-        var manifest = await fetchFirstOk('data/modules-manifest.json', false);
-        if (!Array.isArray(manifest)) return [];
-        var cards = await Promise.all(manifest.map(async function (p) {
-          if (typeof p !== 'string') return null;
-          try {
-            return await fetchFirstOk(String(p || '').replace(/^\/+/, ''), false);
-          } catch (_) {
-            return null;
+        if (!precomputed || !Array.isArray(precomputed.rows) || !precomputed.rows.length) return [];
+        return precomputed.rows.map(function (row) {
+          var srcHits = row && row.hits && typeof row.hits === 'object' ? row.hits : {};
+          var hits = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+          for (var i = 0; i <= 6; i += 1) {
+            var raw = srcHits[i];
+            if (raw == null) raw = srcHits[String(i)];
+            var val = parseInt(String(raw == null ? 0 : raw), 10);
+            hits[i] = Number.isFinite(val) ? Math.max(0, val) : 0;
           }
-        }));
-        var algs = cards.filter(function (c) {
-          return c && c.isActive !== false && String(c.page || '').indexOf('/algoritmi/algs/') !== -1;
-        });
-        var rows = await Promise.all(algs.map(async function (card) {
-          var page = String(card.page || '').replace(/^\/+/, '');
-          var dir = page.endsWith('/') ? page : (page + '/');
-          var metricsText = await fetchFirstOk(dir + 'out/metrics-db.csv', true);
-          var historicalText = await fetchFirstOk(dir + 'out/historical-db.csv', true);
-          var metrics = parseCsvRows(metricsText);
-          var historical = parseCsvRows(historicalText);
-          var counts = mergeCounts(countsFromMetrics(metrics), countsFromHistorical(historical));
+          var card = cardsByPage[normalizePageKey(row.page)] || null;
           return {
-            title: String(card.title || card.id || 'Algoritmo'),
-            page: page,
-            ranking: computeScore(counts),
-            hits: counts,
-            card: card
+            title: cleanTitle(row.title, card),
+            subtitle: String(card && card.subtitle || ''),
+            page: String(row.page || '').replace(/^\/+/, ''),
+            family: String(row.family || (card && card.macroGroup) || ''),
+            ranking: Number.isFinite(Number(row.ranking)) ? Number(row.ranking) : 0,
+            hits: hits,
+            card: { image: String(row.image || ''), page: String(row.page || '') }
           };
-        }));
-        return rows.sort(function (a, b) { return b.ranking - a.ranking; });
+        }).sort(function (a, b) { return b.ranking - a.ranking; });
       }
 
       async function ensureRankingCardsVisible() {
         var host = document.querySelector('[data-ranking-cards]');
         if (!host) return;
-        if (host.querySelector('.cc-ranking-card')) return;
+        if (host.querySelector('.v8rank-card')) return;
         var rows = await buildRows();
         if (!rows.length) return;
         var podium = rows.slice(0, 3);
@@ -383,8 +309,8 @@
         host.classList.add('cc-ranking-cards-host');
         host.innerHTML = ''
           + '<div class="cc-ranking-layout">'
-          + '<section class="cc-ranking-podium-wrap"><h3 class="cc-ranking-section-title">Podio algoritmi</h3><div class="cc-ranking-podium">' + podiumHtml + '</div></section>'
-          + (others.length ? '<section class="cc-ranking-list-wrap"><h3 class="cc-ranking-section-title">Tutti gli altri algoritmi</h3><div class="cc-ranking-cards-grid">' + othersHtml + '</div></section>' : '')
+          + '<section class="v8rank-podium-wrap"><h3 class="v8rank-section-title">Podio algoritmi</h3><div class="v8rank-podium">' + podiumHtml + '</div></section>'
+          + (others.length ? '<section class="v8rank-list-wrap"><h3 class="v8rank-section-title">Tutti gli altri algoritmi</h3><div class="v8rank-grid">' + othersHtml + '</div></section>' : '')
           + '</div>';
         if (window.CARDS && typeof window.CARDS.enableDepth === 'function') window.CARDS.enableDepth(host);
       }
@@ -410,8 +336,25 @@
         var cards = host.querySelectorAll('[data-rank-family]');
         cards.forEach(function (card) {
           var fam = String(card.getAttribute('data-rank-family') || '').toLowerCase();
-          card.style.display = (!_rankingFilterActive || fam === _rankingFilterActive) ? '' : 'none';
+          var visible = !_rankingFilterActive || fam === _rankingFilterActive;
+          card.style.display = visible ? '' : 'none';
+          var slot = card.closest('.cc-ranking-podium__slot');
+          if (slot) slot.style.display = visible ? '' : 'none';
         });
+        var podiumWrap = host.querySelector('.v8rank-podium-wrap');
+        if (podiumWrap) {
+          var hasPodiumVisible = Array.from(podiumWrap.querySelectorAll('.v8rank-card')).some(function (card) {
+            return card.style.display !== 'none';
+          });
+          podiumWrap.style.display = hasPodiumVisible ? '' : 'none';
+        }
+        var listWrap = host.querySelector('.v8rank-list-wrap');
+        if (listWrap) {
+          var hasListVisible = Array.from(listWrap.querySelectorAll('.v8rank-card')).some(function (card) {
+            return card.style.display !== 'none';
+          });
+          listWrap.style.display = hasListVisible ? '' : 'none';
+        }
       });
 
       window.addEventListener('load', function () {
@@ -427,9 +370,3 @@
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-

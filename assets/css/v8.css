@@ -718,3 +718,117 @@ body::after { display: none; }
   .sc { border-radius: .5rem; }
   .ar { padding: .7rem 0; }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   V8+ ENHANCEMENTS — aurora, jackpot glow, ticker segnali
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── AURORA dietro al canvas ──
+   Il contenitore rispetta la riserva ads (destra desktop, basso mobile)
+   e clippa i blob oversized con overflow:hidden. */
+#v8-aurora{position:fixed;inset:0;right:var(--ad-reserve-right,0px);bottom:var(--ad-reserve-bottom,0px);
+  z-index:0;overflow:hidden;pointer-events:none;}
+#v8-aurora i{position:absolute;border-radius:50%;display:block;filter:blur(90px);opacity:.55;}
+#v8-aurora .au1{width:55vw;height:55vw;left:-14vw;top:-18vw;background:radial-gradient(circle,rgba(139,92,246,.18),transparent 65%);animation:v8au1 28s ease-in-out infinite alternate;}
+#v8-aurora .au2{width:48vw;height:48vw;right:-16vw;bottom:-18vw;background:radial-gradient(circle,rgba(200,57,26,.14),transparent 65%);animation:v8au2 33s ease-in-out infinite alternate;}
+#v8-aurora .au3{width:34vw;height:34vw;left:38vw;top:42vh;background:radial-gradient(circle,rgba(110,231,255,.07),transparent 65%);animation:v8au1 24s 4s ease-in-out infinite alternate-reverse;}
+@keyframes v8au1{to{transform:translate(8vw,6vh) scale(1.15);}}
+@keyframes v8au2{to{transform:translate(-7vw,-5vh) scale(1.1);}}
+@media (prefers-reduced-motion:reduce){#v8-aurora i{animation:none;}}
+#c{z-index:1;}
+
+/* ── JACKPOT glow ── */
+.tb-jk{text-shadow:0 0 22px rgba(245,158,11,.45);font-variant-numeric:tabular-nums;}
+
+/* ── COUNTDOWN: secondi accesi ── */
+.tb-cd b.v8s{color:#C8391A;text-shadow:0 0 14px rgba(200,57,26,.6);font-weight:500;}
+
+/* ── TICKER nel bottombar ── */
+#bb-msg.v8tk{overflow:hidden;position:relative;text-align:left;}
+#bb-msg.v8tk .v8tk-in{
+  display:inline-flex;gap:3.2rem;white-space:nowrap;will-change:transform;
+  animation:v8tk 46s linear infinite;padding-left:100%;
+}
+#bb-msg.v8tk:hover .v8tk-in{animation-play-state:paused;}
+#bb-msg.v8tk .v8tk-in span{color:rgba(237,232,223,.35);}
+#bb-msg.v8tk .v8tk-in b{font-weight:500;color:rgba(237,232,223,.7);}
+#bb-msg.v8tk .v8tk-in .r{color:#C8391A;}
+#bb-msg.v8tk .v8tk-in .v{color:#8B5CF6;}
+#bb-msg.v8tk .v8tk-in .o{color:#F59E0B;}
+#bb-msg.v8tk .v8tk-in .cy{color:#6EE7FF;}
+#bb-msg.v8tk .v8tk-in .sep{color:rgba(200,57,26,.5);}
+@keyframes v8tk{to{transform:translateX(-100%);}}
+@media (prefers-reduced-motion:reduce){#bb-msg.v8tk .v8tk-in{animation:none;padding-left:0;}}
+
+/* ── COUNTDOWN A SEGMENTI (v8plus-home) ── */
+.tb-cd-wrap.v8cd-on .tb-cd{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.tb-cd-wrap.v8cd-on .tb-cd-label{display:none;}
+#v8cd{display:none;gap:.4rem;align-items:center;}
+.tb-cd-wrap.v8cd-on{flex-direction:row;}
+.tb-cd-wrap.v8cd-on #v8cd{display:flex;}
+.v8cd-seg{
+  display:flex;flex-direction:column;align-items:center;gap:.1rem;
+  background:rgba(237,232,223,.05);border:1px solid rgba(237,232,223,.08);
+  border-radius:6px;padding:.28rem .5rem;min-width:42px;
+}
+.v8cd-seg b{font-size:1.3rem;font-weight:500;color:#EDE8DF;font-variant-numeric:tabular-nums;line-height:1;}
+.v8cd-seg i{font-style:normal;font-size:.56rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(237,232,223,.28);}
+.v8cd-seg.hot b{color:#C8391A;text-shadow:0 0 14px rgba(200,57,26,.6);}
+
+/* ── JACKPOT PULSE ── */
+@keyframes v8jk{0%{transform:scale(1);text-shadow:0 0 22px rgba(245,158,11,.45);}30%{transform:scale(1.12);text-shadow:0 0 36px rgba(245,158,11,.85);}100%{transform:scale(1);text-shadow:0 0 22px rgba(245,158,11,.45);}}
+.tb-jk.v8jk-pulse{display:inline-block;animation:v8jk .9s cubic-bezier(.23,1,.32,1);}
+
+/* ── CHIP STATISTICHE FLOTTANTI ── */
+#v8chips{position:fixed;inset:0;right:var(--ad-reserve-right,0px);bottom:var(--ad-reserve-bottom,0px);z-index:5;pointer-events:none;}
+#v8chips.hide .v8chip{opacity:0;}
+.v8chip{
+  position:absolute;display:flex;flex-direction:column;gap:.3rem;
+  padding:.85rem 1.05rem;border-radius:12px;min-width:150px;max-width:220px;
+  background:rgba(8,4,18,.55);border:1px solid rgba(237,232,223,.08);
+  backdrop-filter:blur(10px);
+  transition:opacity .5s, border-color .3s;
+  will-change:transform;
+}
+.v8chip .ck{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(237,232,223,.32);}
+.v8chip .cv{font-family:'BioRhyme',serif;font-weight:700;font-size:1.7rem;line-height:1;}
+.v8chip .cs{font-size:.66rem;color:rgba(237,232,223,.32);letter-spacing:.04em;}
+.v8chip.violet .cv{color:#8B5CF6;}
+.v8chip.amber .cv{color:#F59E0B;}
+.v8chip.red .cv{color:#C8391A;}
+.v8chip.cyan .cv{color:#6EE7FF;}
+.v8chip.p1{left:110px;top:120px;animation:v8float 7s ease-in-out infinite;}
+.v8chip.p2{right:46px;top:130px;animation:v8float 8s 1s ease-in-out infinite;}
+.v8chip.p3{left:120px;bottom:116px;animation:v8float 9s 2s ease-in-out infinite;}
+.v8chip.p4{right:54px;bottom:112px;animation:v8float 7.5s .5s ease-in-out infinite;}
+@keyframes v8float{0%,100%{margin-top:0}50%{margin-top:-12px}}
+@media (max-width:1180px){#v8chips{display:none;}}
+@media (prefers-reduced-motion:reduce){.v8chip{animation:none!important;}}
+
+/* ── HERO MOCKUP V8+ (intro persistente) ── */
+#intro{
+  background:radial-gradient(ellipse at 50% 60%, rgba(12,4,32,.55) 0%, rgba(3,1,9,.82) 70%);
+}
+#ihero{position:absolute;inset:0;width:100%;height:100%;z-index:-1;}
+.i-cta{
+  margin-top:2.6rem;
+  display:inline-flex;align-items:center;gap:.8rem;
+  padding:.95rem 2.1rem;border-radius:999px;
+  font-size:1.18rem;letter-spacing:.28em;text-transform:uppercase;color:#EDE8DF;
+  border:1px solid rgba(237,232,223,.16);background:rgba(8,4,18,.5);
+  backdrop-filter:blur(8px);cursor:pointer;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+  animation:fu .8s 1.4s both;
+}
+.i-cta:hover{border-color:rgba(200,57,26,.6);box-shadow:0 0 34px rgba(200,57,26,.25);transform:translateY(-2px);}
+.i-cta-dot{width:8px;height:8px;border-radius:50%;background:#C8391A;box-shadow:0 0 12px #C8391A;animation:pulse 2s 2s infinite both;}
+.i-note{
+  margin-top:1.4rem;font-size:.96rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(237,232,223,.14);animation:fu .8s 1.7s both;
+}
+@media (max-width:640px){
+  .i-cta{font-size:1rem;padding:.8rem 1.5rem;letter-spacing:.2em;}
+}
+
+/* ── CHIP visibili anche in hero (montate su #v8-root) ── */
+#v8chips{z-index:65;}

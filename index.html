@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <script>window.V8_MODE = true;</script>
   <script>
     (function () {
       var path = window.location.pathname || '';
@@ -45,63 +44,15 @@
   <link rel="amphtml" href="https://www.superenalottocc.it/amp/">
   <link rel="icon" type="image/png" href="img/favicon-192.png">
 
-  <!-- Font condizionali: v8 usa BioRhyme+DM Mono, legacy usa Baloo2+Fredoka -->
+  <!-- Font V8 (BioRhyme + DM Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script>
-    (function () {
-      var l = document.createElement('link');
-      l.rel = 'stylesheet';
-      l.href = window.V8_MODE
-        ? 'https://fonts.googleapis.com/css2?family=BioRhyme:wght@300;700;800&family=DM+Mono:wght@300;400;500&display=swap'
-        : 'https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Fredoka:wght@600;700&display=optional';
-      document.head.appendChild(l);
-    })();
-  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@300;700;800&family=DM+Mono:wght@300;400;500&display=swap">
 
   <script src="assets/js/ga4.js" defer></script>
 
-  <!-- CSS condizionali -->
-  <script>
-    (function () {
-      if (window.V8_MODE) {
-        var l = document.createElement('link');
-        l.rel = 'stylesheet'; l.href = 'assets/css/v8.css';
-        document.head.appendChild(l);
-      } else {
-        var legacy = [
-          'assets/css/tailwind.generated.css',
-          'assets/css/main.css',
-          'assets/css/header.css',
-          'assets/css/migration.css',
-          'assets/css/redesign-neo.css',
-          'assets/css/site-guide.css',
-          'assets/css/user-first.css',
-          '/assets/css/balls-standard.css',
-          '/assets/css/lab-referral.css'
-        ];
-        legacy.forEach(function (href) {
-          var l = document.createElement('link');
-          l.rel = 'stylesheet'; l.href = href;
-          document.head.appendChild(l);
-        });
-      }
-    })();
-  </script>
-
-  <!-- Preload immagini (solo legacy) -->
-  <script>
-    if (!window.V8_MODE) {
-      [
-        'assets/img/featured/featured-hero-lite.webp',
-        'pages/algoritmi/algs/super6NN/img.webp'
-      ].forEach(function (href) {
-        var l = document.createElement('link');
-        l.rel = 'preload'; l.as = 'image'; l.href = href;
-        document.head.appendChild(l);
-      });
-    }
-  </script>
+  <!-- CSS V8 -->
+  <link rel="stylesheet" href="assets/css/v8.css">
 
   <meta property="og:locale" content="it_IT">
   <meta property="og:type" content="website">
@@ -115,7 +66,7 @@
   <meta name="twitter:description" content="SuperEnalotto Control Chaos: archivio estrazioni, algoritmi di analisi e approfondimenti statistici sul dataset storico.">
   <meta name="twitter:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
   <meta name="author" content="SuperEnalotto Control Chaos">
-  <meta name="theme-color" content="#081322">
+  <meta name="theme-color" content="#030109">
   <meta name="format-detection" content="telephone=no">
   <meta name="view-transition" content="same-origin">
   <link rel="alternate" hreflang="it-IT" href="https://www.superenalottocc.it/">
@@ -136,19 +87,21 @@
 }
 </script>
 </head>
-<body class="bg-midnight text-white theme-cosmic motion-bold cc-final-look cc-redesign cc-neo" id="top" data-page-id="home" data-hero-preload="true" data-style-lock="final" data-home-cta-mode="single">
+<body id="top" data-page-id="home">
 
   <!-- ═══════════════════════════════════════════
-       SHELL V8 — visibile solo con ?ui=v8
+       SHELL V8 — unica shell della home
   ═══════════════════════════════════════════ -->
-  <div id="v8-root" style="display:none">
+  <div id="v8-root">
 
     <div id="cur"></div>
     <div id="cur-r"></div>
+    <div id="v8-aurora" aria-hidden="true"><i class="au1"></i><i class="au2"></i><i class="au3"></i></div>
     <canvas id="c"></canvas>
 
-    <!-- ══ INTRO ══ -->
+    <!-- ══ HERO (stile mockup V8+) ══ -->
     <div id="intro">
+      <canvas id="ihero" aria-hidden="true"></canvas>
       <canvas id="cc-intro" width="260" height="140" style="margin-bottom:2rem;animation:fu .7s .1s both;"></canvas>
       <div class="i-eyebrow">Osservatorio Statistico · SuperEnalotto · Est. 2024</div>
       <div class="i-title">
@@ -157,7 +110,8 @@
       </div>
       <div class="i-divider"></div>
       <div class="i-tagline">90 numeri · algoritmi statistici · il punto esatto in cui la geometria si rompe</div>
-      <div class="i-hint">Clicca o premi un tasto per entrare</div>
+      <div class="i-cta"><span class="i-cta-dot"></span>Entra nell'osservatorio</div>
+      <div class="i-note">Gioca responsabilmente · Nessuna promessa di vincita · 18+</div>
     </div>
 
     <!-- ══ UI ══ -->
@@ -313,71 +267,16 @@
   </div><!-- /v8-root -->
 
   <!-- ═══════════════════════════════════════════
-       SHELL LEGACY — invariata
-  ═══════════════════════════════════════════ -->
-  <div id="legacy-root" aria-hidden="true"></div>
-
-  <!-- ═══════════════════════════════════════════
-       SCRIPT LEGACY (sempre caricati)
+       SCRIPT — dipendenze dati + shell V8
+       (cards-index e data-repository servono a v8-data-bridge/v8-main)
   ═══════════════════════════════════════════ -->
   <script src="assets/js/version.js" defer></script>
-  <script>
-    (function () {
-      var start = function () {
-        var videos = document.querySelectorAll('video[data-deferred-autoplay="true"]');
-        for (var i = 0; i < videos.length; i += 1) {
-          var video = videos[i];
-          if (!video || typeof video.play !== 'function') continue;
-          video.autoplay = true;
-          var p = video.play();
-          if (p && typeof p.catch === 'function') p.catch(function () {});
-        }
-      };
-      var schedule = function () {
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(start, { timeout: 1500 });
-          return;
-        }
-        window.setTimeout(start, 700);
-      };
-      if (document.readyState === 'complete') {
-        schedule();
-      } else {
-        window.addEventListener('load', schedule, { once: true, passive: true });
-      }
-    })();
-  </script>
-  <script src="assets/js/core/cache-engine.js" defer></script>
   <script src="assets/js/core/data-repository.js" defer></script>
-  <script src="assets/js/core/page-orchestrator.js" defer></script>
-  <script src="assets/js/architects/base.architect.js" defer></script>
-  <script src="assets/js/runtime-bootstrap.js" defer></script>
-  <script src="assets/js/cards.js" defer></script>
   <script src="assets/js/cards-index.js" defer></script>
+  <script src="assets/js/v8-data-bridge.js" defer></script>
+  <script src="assets/js/v8-main.js" defer></script>
+  <script src="assets/js/v8plus-home.js" defer></script>
   <script src="assets/js/ads.js" defer></script>
-
-  <!-- ═══════════════════════════════════════════
-       SCRIPT V8 (solo con ?ui=v8)
-  ═══════════════════════════════════════════ -->
-  <script>
-    if (window.V8_MODE) {
-      ['assets/js/v8-data-bridge.js', 'assets/js/v8-main.js'].forEach(function (src) {
-        var s = document.createElement('script');
-        s.src = src;
-        s.defer = true;
-        document.head.appendChild(s);
-      });
-    }
-  </script>
-
-  <!-- Toggle visibilità shell -->
-  <script>
-    if (window.V8_MODE) {
-      document.getElementById('v8-root').style.display = '';
-      document.getElementById('legacy-root').style.display = 'none';
-      document.body.className = '';
-    }
-  </script>
 
 </body>
 </html>

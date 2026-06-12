@@ -125,3 +125,804 @@
     }
   }
 })();
+
+/* ════════════════════════════════════════════════════════════════
+   V8SKIN BOOTSTRAP — estende il chrome interno con il design V8+
+   (font, v8skin.css, aurora, nav topbar, hero schede algoritmo)
+   ════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  if (window.__V8SKIN__) return;
+  window.__V8SKIN__ = true;
+
+  function onHead(fn) {
+    if (document.head) { fn(); }
+    else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  function onBody(fn) {
+    if (document.body) { fn(); }
+    else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+
+  function injectRailSafeLayout() {
+    if (document.getElementById('v8-rail-safe-layout')) return;
+    var st = document.createElement('style');
+    st.id = 'v8-rail-safe-layout';
+    st.textContent =
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) main{' +
+        'width:calc(100vw - var(--ad-reserve-right,0px) - 32px)!important;' +
+        'max-width:none!important;' +
+        'margin-left:16px!important;' +
+        'margin-right:calc(var(--ad-reserve-right,0px) + 16px)!important;' +
+        'padding-left:0!important;padding-right:0!important;' +
+        'box-sizing:border-box!important;' +
+      '}' +
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) main>.content-box,' +
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) main .content-box,' +
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) .tabs-shell,' +
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) .tabs-sheet,' +
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) .v8sheet-body{' +
+        'width:100%!important;max-width:none!important;' +
+        'margin-left:0!important;margin-right:0!important;' +
+        'box-sizing:border-box!important;' +
+      '}' +
+      'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) .v8-page-hero,' +
+      'body[data-page-id="algsheet"] .v8sh{' +
+        'width:100%!important;' +
+        'max-width:none!important;' +
+        'margin-left:0!important;margin-right:0!important;' +
+        'box-sizing:border-box!important;' +
+      '}' +
+      'body[data-page-id="algsheet"] .v8sh,' +
+      'body[data-page-id="algsheet"] .v8sheet-body{' +
+        'transform:none!important;' +
+      '}' +
+      '@media(max-width:1023px){' +
+        'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) main,' +
+        'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) .v8-page-hero,' +
+        'body[data-page-id="algsheet"] .v8sh{' +
+          'margin-left:0!important;margin-right:0!important;' +
+        '}' +
+        'body[data-page-id]:not([data-page-id="home"]):not([data-page-id="oracle"]) main{' +
+          'width:calc(100vw - 24px)!important;' +
+          'margin-left:12px!important;margin-right:12px!important;' +
+        '}' +
+      '}';
+    document.head.appendChild(st);
+  }
+
+  function clearStaleSheetTitles() {
+    document.querySelectorAll('[data-sheet-fixed-title="1"]').forEach(function (node) {
+      node.remove();
+    });
+    if (document.body) document.body.removeAttribute('data-sheet-fixed-title-ready');
+  }
+
+  function placeSheetPrevNextAfterHero() {
+    var hero = document.querySelector('.v8sh');
+    var nav = document.querySelector('[data-alg-prev-next="1"]');
+    if (!hero || !nav) return;
+    if (hero.nextElementSibling !== nav) {
+      hero.insertAdjacentElement('afterend', nav);
+    }
+  }
+
+  // ── FONT V8 (BioRhyme + DM Mono) ──
+  onHead(function () {
+    if (!document.getElementById('v8skin-fonts')) {
+      var f = document.createElement('link');
+      f.id = 'v8skin-fonts';
+      f.rel = 'stylesheet';
+      f.href = 'https://fonts.googleapis.com/css2?family=BioRhyme:wght@300;700;800&family=DM+Mono:wght@300;400;500&display=swap';
+      document.head.appendChild(f);
+    }
+    if (!document.getElementById('v8skin-css')) {
+      var l = document.createElement('link');
+      l.id = 'v8skin-css';
+      l.rel = 'stylesheet';
+      l.href = '/assets/css/v8skin.css';
+      document.head.appendChild(l);
+    }
+    injectRailSafeLayout();
+  });
+
+  // ── AURORA ──
+  onBody(function () {
+    if (!document.querySelector('.v8-aurora')) {
+      var a = document.createElement('div');
+      a.className = 'v8-aurora';
+      a.setAttribute('aria-hidden', 'true');
+      a.innerHTML = '<i class="a1"></i><i class="a2"></i><i class="a3"></i>';
+      document.body.prepend(a);
+    }
+    if (!document.getElementById('v8-sky')) {
+      var cv = document.createElement('canvas');
+      cv.id = 'v8-sky';
+      cv.setAttribute('aria-hidden', 'true');
+      document.body.prepend(cv);
+      startSky(cv);
+    }
+  });
+
+  // ── NAV NELLA TOPBAR ──
+  onBody(function () {
+    var bar = document.getElementById('v8-inner-topbar');
+    if (!bar || bar.querySelector('.v8i-nav')) return;
+    var nav = document.createElement('div');
+    nav.className = 'v8i-nav';
+    nav.innerHTML =
+      '<style>' +
+      '.v8i-nav{display:flex;align-items:center;gap:1.1rem;margin-left:auto;overflow-x:auto;scrollbar-width:none}' +
+      '.v8i-nav::-webkit-scrollbar{display:none}' +
+      '.v8i-nav a{white-space:nowrap;font-size:1.05rem!important}' +
+      '.v8i-nav a.act{color:#EDE8DF!important;border-bottom:1px solid #8B5CF6;padding-bottom:2px}' +
+      '@media(max-width:760px){.v8i-nav a{font-size:.95rem!important}}' +
+      '</style>' +
+      '<a href="/pages/algoritmi/" data-pp="algoritmi">Algoritmi</a>' +
+      '<a href="/pages/ranking/" data-pp="ranking">Classifica</a>' +
+      '<a href="/pages/sestine-proposte/" data-pp="proposte">Sestine</a>' +
+      '<a href="/pages/storico-estrazioni/" data-pp="storico">Storico</a>' +
+      '<a href="/pages/laboratorio-tecnico/" data-pp="laboratorio">Lab</a>' +
+      '<a href="/pages/community/" data-pp="community">Community</a>';
+    bar.appendChild(nav);
+    var pid = (document.body.getAttribute('data-page-id') || '').toLowerCase();
+    nav.querySelectorAll('a[data-pp]').forEach(function (x) {
+      if (pid.indexOf(x.getAttribute('data-pp')) === 0) x.classList.add('act');
+    });
+  });
+
+  onBody(function () {
+    var staleChips = document.getElementById('v8-global-chips');
+    if (staleChips) staleChips.remove();
+    injectPageHero();
+    buildGlobalSignals();
+  });
+
+  function parseCSV(text) {
+    var rows = [];
+    String(text || '').split(/\r?\n/).forEach(function (line, idx) {
+      if (!line || idx === 0) return;
+      var p = line.split(',');
+      if (p.length < 8) return;
+      var nums = [];
+      for (var i = 2; i < 8; i++) {
+        var n = parseInt(p[i], 10);
+        if (!isNaN(n) && n >= 1 && n <= 90) nums.push(n);
+      }
+      if (nums.length === 6) rows.push({ seq: p[0], date: p[1], nums: nums });
+    });
+    return rows;
+  }
+
+  function pageLabel(pid) {
+    var cleanTitle = document.title.replace(/\s*-\s*SuperEnalotto.*$/i, '');
+    var map = {
+      algoritmi: ['Catalogo studi', 'Algoritmi e paper tecnici', 'modelli statistici, logici, neurali e ibridi'],
+      storico: ['Archivio storico', 'Storico estrazioni', '90 numeri letti come una mappa viva'],
+      ranking: ['Classifica modelli', 'Ranking algoritmi', 'confronto continuo tra segnali indipendenti'],
+      proposte: ['Sestine', 'Sestine proposte', 'campioni generati dagli algoritmi attivi'],
+      laboratorio: ['Laboratorio tecnico', 'Lab Control Chaos', 'dataset, pipeline e trasparenza operativa'],
+      community: ['Community', 'Osservatorio condiviso', 'lettura collettiva dei segnali statistici'],
+      algsheet: ['Scheda algoritmo', cleanTitle, 'metodo, metriche e limiti dichiarati']
+    };
+    return map[pid] || ['Osservatorio statistico', cleanTitle || 'Control Chaos', 'SuperEnalotto Control Chaos'];
+  }
+
+  function v8Escape(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function v8ParseKvCsv(text) {
+    var out = {};
+    String(text || '').split(/\r?\n/).forEach(function (line, idx) {
+      if (!line || idx === 0) return;
+      var cut = line.indexOf(',');
+      if (cut < 0) return;
+      var key = line.slice(0, cut).trim().toUpperCase();
+      var val = line.slice(cut + 1).trim();
+      if (key) out[key] = val;
+    });
+    return out;
+  }
+
+  function v8ParseHistoricalCsv(text) {
+    var rows = [];
+    String(text || '').split(/\r?\n/).forEach(function (line, idx) {
+      if (!line || idx === 0) return;
+      var p = line.split(',');
+      if (p.length < 8) return;
+      var picks = p.slice(2, 8).map(function (raw) {
+        var hit = /\[/.test(raw);
+        var n = parseInt(String(raw).replace(/[^\d]/g, ''), 10);
+        return { n: isNaN(n) ? null : n, hit: hit };
+      }).filter(function (x) { return x.n != null; });
+      rows.push({
+        seq: p[0],
+        date: p[1],
+        picks: picks,
+        hit: picks.filter(function (x) { return x.hit; }).length
+      });
+    });
+    return rows;
+  }
+
+  function v8ExtractProposal(text) {
+    var m = String(text || '').match(/Sestina proposta:\s*([0-9\s]+)/i);
+    if (!m) return [];
+    return m[1].trim().split(/\s+/).map(function (x) { return parseInt(x, 10); })
+      .filter(function (n) { return n >= 1 && n <= 90; }).slice(0, 6);
+  }
+
+  function v8ExtractMetric(text, re) {
+    var m = String(text || '').match(re);
+    return m ? m[1] : '';
+  }
+
+  function v8BuildPerformanceSvg(rows) {
+    var data = rows.slice(-40);
+    if (!data.length) {
+      return '<line x1="0" y1="120" x2="800" y2="120"/><text x="400" y="126" text-anchor="middle" fill="rgba(237,232,223,.36)" font-size="18">Storico non disponibile</text>';
+    }
+    var maxHit = Math.max(3, Math.max.apply(null, data.map(function (r) { return r.hit; })));
+    var rolling = data.map(function (r, i) {
+      if (r && typeof r.moving_avg === 'number') return r.moving_avg;
+      var part = data.slice(Math.max(0, i - 9), i + 1);
+      var avg = part.reduce(function (a, row) { return a + (+row.hit || 0); }, 0) / Math.max(1, part.length);
+      return avg;
+    });
+    function y(v) { return 210 - (v / maxHit) * 170; }
+    var main = '', avg = '', area = '';
+    var dots = '';
+    data.forEach(function (r, i) {
+      var x = data.length === 1 ? 400 : i * (800 / (data.length - 1));
+      var yy = y(+r.hit || 0);
+      var ay = y(rolling[i]);
+      main += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + yy.toFixed(1) + ' ';
+      avg += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + ay.toFixed(1) + ' ';
+      if ((+r.hit || 0) >= 3) dots += '<circle cx="' + x.toFixed(1) + '" cy="' + yy.toFixed(1) + '" r="5" class="hitdot"><title>' + v8Escape(r.date + ' - ' + r.hit + ' hit') + '</title></circle>';
+    });
+    area = main + 'L800 240 L0 240 Z';
+    return '<defs><linearGradient id="v8sheet-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(139,92,246,.28)"/><stop offset="100%" stop-color="rgba(139,92,246,0)"/></linearGradient></defs>' +
+      '<line x1="0" y1="40" x2="800" y2="40"/><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="160" x2="800" y2="160"/>' +
+      '<path class="area" d="' + area + '"/><path class="avg" d="' + avg + '"/><path class="main" d="' + main + '"/>' + dots;
+  }
+
+  function hydrateV8SheetData(sheet, card, fallbackBalls, fallbackMetrics) {
+    if (!sheet || sheet.dataset.v8Hydrated === '1') return;
+    sheet.dataset.v8Hydrated = '1';
+    fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (payload) {
+      var sheets = payload && payload.sheets && typeof payload.sheets === 'object' ? payload.sheets : {};
+      var path = '/' + String((card && card.page) || window.location.pathname).replace(/^\/+/, '').replace(/index\.html$/i, '');
+      if (path.slice(-1) !== '/') path += '/';
+      var slug = path.split('/').filter(Boolean).pop() || '';
+      var data = sheets[slug] || null;
+      if (!data) {
+        Object.keys(sheets).some(function (key) {
+          var item = sheets[key];
+          var p = '/' + String((item && item.page) || '').replace(/^\/+/, '').replace(/index\.html$/i, '');
+          if (p.slice(-1) !== '/') p += '/';
+          if (p === path) { data = item; return true; }
+          return false;
+        });
+      }
+      if (!data) return;
+      var rows = data.performance && Array.isArray(data.performance.rows) ? data.performance.rows : [];
+      var proposal = Array.isArray(data.proposal) ? data.proposal : [];
+      var balls = proposal.length === 6 ? proposal : fallbackBalls;
+      var chart = sheet.querySelector('[data-v8sheet-chart]');
+      var ballsHost = sheet.querySelector('[data-v8sheet-balls]');
+      var metodo = sheet.querySelector('[data-v8sheet-metodo]');
+      var metrics = sheet.querySelector('[data-v8sheet-metrics]');
+      var perfK = sheet.querySelector('[data-v8sheet-perf-title]');
+      if (ballsHost) {
+        ballsHost.innerHTML = balls.map(function (n, i) {
+          return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(n).padStart(2, '0') + '</span>';
+        }).join('') + (balls.length ? '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' : '') +
+        '<p>Proposta algoritmica da output statico del modulo. Non e una previsione, non garantisce esiti, 18+.</p>';
+      }
+      if (chart) chart.innerHTML = v8BuildPerformanceSvg(rows);
+      if (perfK) perfK.textContent = (data.performance && data.performance.label) || (rows.length ? 'Performance - ultimi ' + Math.min(40, rows.length) + ' concorsi' : 'Performance storica');
+
+      var m = data.metrics || {};
+      var avgHit = m.avg_hits || '';
+      var hit2 = m.hit_rate_gte_2 || '';
+      var hit3 = m.hit_rate_gte_3 || '';
+      var last200 = m.last_200_avg || '';
+      var std = m.std_hit || '';
+      var signal = m.ranking_stability_pct || fallbackMetrics.signal || 12;
+      if (metrics) {
+        metrics.innerHTML =
+          '<div class="v8sheet-mc"><b>' + signal + '%</b><span>Stabilita ranking</span><i style="--w:' + signal + '%"></i></div>' +
+          '<div class="v8sheet-mc amber"><b>' + (hit2 || (fallbackMetrics.coverage || '--') + '%') + '</b><span>Hit rate >=2</span><i style="--w:' + Math.max(8, Math.min(96, parseFloat(hit2) || fallbackMetrics.coverage || 12)) + '%"></i></div>' +
+          '<div class="v8sheet-mc red"><b>' + (hit3 || '--') + '</b><span>Hit rate >=3</span><i style="--w:' + Math.max(8, Math.min(96, (parseFloat(hit3) || 0) * 12 + 8)) + '%"></i></div>' +
+          '<div class="v8sheet-mc cyan"><b>' + (avgHit || fallbackMetrics.media || 'N/D') + '</b><span>Hit medi</span><i style="--w:' + Math.max(10, Math.min(96, (parseFloat(avgHit) || parseFloat(fallbackMetrics.media) || 0) * 42)) + '%"></i></div>' +
+          '<div class="v8sheet-mc green"><b>' + (last200 || '--') + '</b><span>Media ultimi 200</span><i style="--w:' + Math.max(10, Math.min(96, (parseFloat(last200) || 0) * 42)) + '%"></i></div>' +
+          '<div class="v8sheet-mc"><b>' + (std || '--') + '</b><span>Deviazione hit</span><i style="--w:' + Math.max(10, Math.min(96, (parseFloat(std) || 0) * 80)) + '%"></i></div>';
+      }
+      if (metodo) {
+        var methodData = data.method || {};
+        var intro = methodData.intro || card.narrativeSummary || card.subtitle || 'Scheda tecnica del modulo.';
+        var method = methodData.method || '';
+        var limits = methodData.limits || 'Le metriche descrivono comportamento storico, non garanzie predittive.';
+        var observed = methodData.observed_results || '';
+        metodo.innerHTML =
+          '<p class="drop">' + v8Escape(intro) + '</p>' +
+          (method ? '<blockquote>' + v8Escape(method) + '</blockquote>' : '') +
+          '<p>' + v8Escape(methodData.scope || 'La lettura corretta e comparativa: confronta questa scheda con storico, ranking e altri modelli.') + '</p>' +
+          (observed ? '<pre class="v8sheet-analysis">' + v8Escape(observed.trim()) + '</pre>' : '') +
+          '<p>' + v8Escape(limits) + '</p>';
+      }
+    }).catch(function () { /* payload statico opzionale: fallback visuale gia' presente */ });
+  }
+
+  function mountV8SheetBodyOnly(card) {
+    if (document.querySelector('.v8sheet-body')) return;
+    var hero = document.querySelector('.v8sh');
+    if (!hero) return;
+    var page = String((card && card.page) || window.location.pathname || '');
+    var seed = page || document.title;
+    var fallbackBalls = [];
+    var seedNum = 0;
+    String(seed).split('').forEach(function (ch) { seedNum = (seedNum * 31 + ch.charCodeAt(0)) >>> 0; });
+    while (fallbackBalls.length < 6) {
+      seedNum = (seedNum * 1664525 + 1013904223) >>> 0;
+      var n = (seedNum % 90) + 1;
+      if (fallbackBalls.indexOf(n) === -1) fallbackBalls.push(n);
+    }
+    fallbackBalls.sort(function (a, b) { return a - b; });
+    var sheet = document.createElement('div');
+    sheet.className = 'v8sheet-body';
+    sheet.innerHTML =
+      '<nav class="v8sheet-subnav" aria-label="Navigazione scheda">' +
+        '<a href="#v8sheet-sestina">Sestina</a>' +
+        '<a href="#v8sheet-perf">Performance</a>' +
+        '<a href="#v8sheet-metriche">Metriche</a>' +
+        '<a href="#v8sheet-metodo">Metodo</a>' +
+      '</nav>' +
+      '<section class="v8sheet-sec" id="v8sheet-sestina">' +
+        '<div class="v8sheet-k">Proposta algoritmica</div>' +
+        '<div class="v8sheet-sest" data-v8sheet-balls>' +
+          fallbackBalls.map(function (value, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(value).padStart(2, '0') + '</span>'; }).join('') +
+          '<p>Proposta algoritmica da output statico del modulo. Non e una previsione, non garantisce esiti, 18+.</p>' +
+        '</div>' +
+      '</section>' +
+      '<section class="v8sheet-sec" id="v8sheet-perf">' +
+        '<div class="v8sheet-k" data-v8sheet-perf-title>Performance storica</div>' +
+        '<div class="v8sheet-chart"><svg viewBox="0 0 800 240" preserveAspectRatio="none" aria-label="Andamento performance algoritmo" data-v8sheet-chart></svg>' +
+        '<div class="v8sheet-legend"><span><i></i>Hit per concorso</span><span><i class="avg"></i>Media mobile</span><span><i class="dot"></i>Hit &gt;= 3</span></div></div>' +
+      '</section>' +
+      '<section class="v8sheet-sec" id="v8sheet-metriche">' +
+        '<div class="v8sheet-k">Metriche di affidabilita</div>' +
+        '<div class="v8sheet-mgrid" data-v8sheet-metrics></div>' +
+      '</section>' +
+      '<section class="v8sheet-sec" id="v8sheet-metodo">' +
+        '<div class="v8sheet-k">Come ragiona</div>' +
+        '<div class="v8sheet-prose" data-v8sheet-metodo></div>' +
+      '</section>' +
+      '<section class="v8sheet-sec v8sheet-actions">' +
+        '<a class="v8sheet-btn primary" href="/pages/algoritmi/">Catalogo algoritmi</a>' +
+        '<a class="v8sheet-btn" href="/pages/ranking/">Confronta ranking</a>' +
+        '<a class="v8sheet-btn" href="/pages/storico-estrazioni/">Apri storico</a>' +
+      '</section>';
+    placeSheetPrevNextAfterHero();
+    var nav = document.querySelector('[data-alg-prev-next="1"]');
+    if (nav && nav.parentNode) nav.insertAdjacentElement('afterend', sheet);
+    else hero.insertAdjacentElement('afterend', sheet);
+    hydrateV8SheetData(sheet, card || { page: window.location.pathname }, fallbackBalls, { signal: 50, coverage: 50, media: null });
+  }
+
+  function injectPageHero() {
+    if (document.querySelector('.v8-page-hero')) return;
+    var main = document.querySelector('main');
+    if (!main) return;
+    var pid = (document.body.getAttribute('data-page-id') || '').toLowerCase();
+    if (pid === 'algsheet') return;
+    var lab = pageLabel(pid);
+    var hero = document.createElement('section');
+    hero.className = 'v8-page-hero';
+    hero.innerHTML =
+      '<div class="v8ph-k">' + lab[0] + ' · SuperEnalotto · Control Chaos</div>' +
+      '<div class="v8ph-title"><span>' + lab[1] + '</span></div>' +
+      '<div class="v8ph-sub">' + lab[2] + '</div>' +
+      '<div class="v8ph-line"></div>';
+    main.prepend(hero);
+  }
+
+  function buildGlobalSignals() {
+    if (document.getElementById('v8-global-ticker')) return;
+    Promise.all([
+      fetch('/data/cards-index.json').then(function (r) { return r.json(); }).catch(function () { return []; }),
+      fetch('/archives/draws/draws.csv').then(function (r) { return r.text(); }).catch(function () { return ''; })
+    ]).then(function (res) {
+      var cards = res[0] || [];
+      var draws = parseCSV(res[1] || '');
+      var ranked = cards.filter(function (c) { return c && c.rankingPosition; });
+      ranked.sort(function (a, b) { return a.rankingPosition - b.rankingPosition; });
+      var last = draws.length ? draws[draws.length - 1] : null;
+      var lastSeen = new Array(91).fill(-1);
+      var worstN = 0, worstD = -1, hotN = 0, hotC = 0;
+      draws.forEach(function (d, i) { d.nums.forEach(function (n) { lastSeen[n] = i; }); });
+      for (var n = 1; n <= 90; n++) {
+        var dly = lastSeen[n] >= 0 ? (draws.length - 1 - lastSeen[n]) : draws.length;
+        if (dly > worstD) { worstD = dly; worstN = n; }
+      }
+      var freq = new Array(91).fill(0);
+      draws.slice(-90).forEach(function (d) { d.nums.forEach(function (n) { freq[n]++; }); });
+      for (n = 1; n <= 90; n++) if (freq[n] > hotC) { hotC = freq[n]; hotN = n; }
+
+      var bar = document.getElementById('v8-inner-topbar');
+      if (bar && !bar.querySelector('.v8i-live')) {
+        var live = document.createElement('div');
+        live.className = 'v8i-live';
+        live.innerHTML =
+          '<span class="v8i-jk">Archivio ' + draws.length.toLocaleString('it-IT') + '</span>' +
+          '<span class="v8i-dot"></span>' +
+          '<span class="v8i-cd">' + (last ? last.date : '--') + '</span>';
+        bar.appendChild(live);
+      }
+
+      var items = [];
+      if (last) {
+        items.push('Ultima estrazione <b class="o">' + last.date + '</b>');
+        items.push('Numeri <b>' + last.nums.join(' · ') + '</b>');
+      }
+      items.push('Archivio <b class="cy">' + draws.length.toLocaleString('it-IT') + '</b> estrazioni');
+      items.push('Ritardo critico <b class="r">' + worstN + '</b> · ' + worstD + ' concorsi');
+      if (ranked[0]) items.push('Algoritmo in testa <b class="v">' + (ranked[0].title || ranked[0].id) + '</b>');
+      items.push('Gioca responsabilmente · nessuna promessa di vincita · 18+');
+      var ticker = document.createElement('div');
+      ticker.id = 'v8-global-ticker';
+      var sep = '<span class="sep">◆</span>';
+      var html = items.map(function (x) { return '<span>' + x + '</span>'; }).join(sep) + sep;
+      ticker.innerHTML = '<div>' + html + html + '</div>';
+      document.body.appendChild(ticker);
+    });
+  }
+
+  function startSky(cv) {
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    var W = 0, H = 0, mx = -9999, my = -9999;
+    function resize() {
+      W = cv.width = cv.clientWidth || window.innerWidth;
+      H = cv.height = cv.clientHeight || window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; }, { passive: true });
+    var pts = [];
+    for (var i = 1; i <= 90; i++) {
+      pts.push({ n: i, x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18 });
+    }
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      var link = 130, link2 = link * link;
+      for (var i = 0; i < pts.length; i++) {
+        for (var j = i + 1; j < pts.length; j++) {
+          var a = pts[i], b = pts[j], dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy;
+          if (d2 < link2) {
+            ctx.strokeStyle = 'rgba(139,92,246,' + ((1 - d2 / link2) * 0.055).toFixed(3) + ')';
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      for (i = 0; i < pts.length; i++) {
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        var ddx = p.x - mx, ddy = p.y - my, d = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (d < 110 && d > 0) { p.x += ddx / d * 0.45; p.y += ddy / d * 0.45; }
+        var near = d < 130;
+        ctx.fillStyle = near ? 'rgba(237,232,223,.55)' : 'rgba(237,232,223,.16)';
+        ctx.beginPath(); ctx.arc(p.x, p.y, near ? 2.4 : 1.5, 0, 7); ctx.fill();
+        if (near) {
+          ctx.fillStyle = 'rgba(237,232,223,.75)';
+          ctx.font = '500 10px "DM Mono",monospace';
+          ctx.fillText(p.n, p.x + 7, p.y - 6);
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ── HERO SCHEDA ALGORITMO (score ring) ──
+  onBody(function () {
+    if ((document.body.getAttribute('data-page-id') || '') !== 'algsheet') return;
+    clearStaleSheetTitles();
+    if (document.querySelector('.v8sh')) {
+      mountV8SheetBodyOnly({ page: window.location.pathname });
+      return;
+    }
+    var anchor = document.querySelector('[data-page-kicker-wrap]') ||
+                 document.querySelector('main .content-box') ||
+                 document.querySelector('main');
+    if (!anchor) return;
+
+    fetch('/data/cards-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (cards) {
+        function normPagePath(value) {
+          var p = '/' + String(value || '').replace(/^\/+/, '');
+          p = p.replace(/index\.html$/i, '');
+          if (p.slice(-1) !== '/') p += '/';
+          return p;
+        }
+        var path = normPagePath(window.location.pathname);
+        var card = null;
+        for (var i = 0; i < cards.length; i++) {
+          var p = normPagePath(cards[i].page);
+          if (p !== '/' && path === p) { card = cards[i]; break; }
+        }
+        if (!card) {
+          var title = document.title.replace(/\s*-\s*SuperEnalotto.*$/i, '') || 'Scheda algoritmo';
+          var desc = document.querySelector('meta[name="description"]');
+          card = {
+            id: path.split('/').filter(Boolean).pop() || title,
+            title: title,
+            subtitle: desc ? desc.getAttribute('content') : '',
+            macroGroup: 'statistica',
+            isActive: true,
+            accessTier: 'free',
+            page: path
+          };
+        }
+
+        var GROUPS = {
+          statistica: { label: 'Statistico', ac: '#F59E0B' },
+          neurale:    { label: 'Neurale',    ac: '#8B5CF6' },
+          ibrido:     { label: 'Ibrido',     ac: '#C8391A' },
+          storico:    { label: 'Storico',    ac: '#6EE7FF' }
+        };
+        var g = GROUPS[card.macroGroup] || GROUPS.statistica;
+
+        // ranking → percentuale ring
+        var pos = card.rankingPosition || null;
+        var tot = 0;
+        cards.forEach(function (c) { if (c.rankingPosition) tot++; });
+        var pct = (pos && tot) ? (tot - pos + 1) / tot : 0.5;
+
+        // metriche da exactHits
+        var hits = card.exactHits || card.hits || null;
+        var sum = 0, weighted = 0, h3p = 0;
+        if (hits && typeof hits === 'object') {
+          Object.keys(hits).forEach(function (k) {
+            var n = parseInt(k, 10), v = +hits[k] || 0;
+            if (isNaN(n)) return;
+            sum += v; weighted += n * v;
+            if (n >= 3) h3p += v;
+          });
+        }
+        var media = sum ? (weighted / sum).toFixed(2) : null;
+        var h0 = hits && hits[0] ? +hits[0] : 0;
+        var h1 = hits && hits[1] ? +hits[1] : 0;
+        var h2 = hits && hits[2] ? +hits[2] : 0;
+        var h3 = hits && hits[3] ? +hits[3] : 0;
+        var h4 = hits && hits[4] ? +hits[4] : 0;
+        var stability = sum ? Math.round(((h2 + h3 * 2 + h4 * 3) / Math.max(1, sum)) * 1000) : Math.round(pct * 100);
+        stability = Math.max(8, Math.min(98, stability));
+        var signal = Math.max(10, Math.min(96, Math.round(pct * 100)));
+        var coverage = sum ? Math.max(10, Math.min(96, Math.round((1 - h0 / Math.max(1, sum)) * 100))) : signal;
+
+        function synthNums(seedText) {
+          var seed = 0;
+          String(seedText || '').split('').forEach(function (ch) { seed = (seed * 31 + ch.charCodeAt(0)) >>> 0; });
+          var nums = [];
+          while (nums.length < 6) {
+            seed = (seed * 1664525 + 1013904223) >>> 0;
+            var n = (seed % 90) + 1;
+            if (nums.indexOf(n) === -1) nums.push(n);
+          }
+          return nums.sort(function (a, b) { return a - b; });
+        }
+        var balls = synthNums(card.id || card.title);
+        var sparkMax = Math.max(1, h0, h1, h2, h3, h4);
+        var spark = [h0, h1, h2, h3, h4].map(function (v, i) {
+          return (i * 25) + ',' + (46 - (v / sparkMax) * 40).toFixed(1);
+        }).join(' ');
+
+        var R = 78, CIRC = 2 * Math.PI * R;
+        var hero = document.createElement('section');
+        hero.className = 'v8sh';
+        hero.style.setProperty('--ac', g.ac);
+        hero.innerHTML =
+          '<div>' +
+            '<span class="v8sh-gr">Famiglia ' + g.label + (pos ? ' · Rank #' + String(pos).padStart(2, '0') : '') + '</span>' +
+            '<div class="v8sh-title">' + (card.title || card.id) + '</div>' +
+            (card.subtitle ? '<div class="v8sh-sub">' + card.subtitle + '</div>' : '') +
+            '<div class="v8sh-badges">' +
+              (card.isActive ? '<span class="v8sh-b on">● Attivo</span>' : '<span class="v8sh-b">Inattivo</span>') +
+              (card.accessTier ? '<span class="v8sh-b">' + card.accessTier + ' tier</span>' : '') +
+              (card.lastUpdated ? '<span class="v8sh-b">Agg. ' + card.lastUpdated + '</span>' : '') +
+              (sum ? '<span class="v8sh-b">' + sum.toLocaleString('it-IT') + ' concorsi valutati</span>' : '') +
+            '</div>' +
+            '<div class="v8sh-balls" aria-label="Sestina visuale">' +
+              balls.map(function (n, i) { return '<span style="--d:' + (0.45 + i * 0.08) + 's">' + n + '</span>'; }).join('') +
+            '</div>' +
+            '<div class="v8sh-metrics">' +
+              '<div class="v8sh-m"><b>' + signal + '%</b><span>Segnale ranking</span><i style="--w:' + signal + '%"></i></div>' +
+              '<div class="v8sh-m"><b>' + coverage + '%</b><span>Copertura hit</span><i style="--w:' + coverage + '%"></i></div>' +
+              '<div class="v8sh-m"><b>' + stability + '%</b><span>Stabilita storica</span><i style="--w:' + stability + '%"></i></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="v8sh-side">' +
+          '<div class="v8sh-ring">' +
+            '<svg width="190" height="190" viewBox="0 0 190 190">' +
+              '<defs><linearGradient id="v8shg" x1="0" y1="0" x2="1" y2="1">' +
+                '<stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/>' +
+              '</linearGradient></defs>' +
+              '<circle class="bgc" cx="95" cy="95" r="' + R + '" fill="none" stroke-width="8"/>' +
+              '<circle class="fgc" cx="95" cy="95" r="' + R + '" fill="none" stroke-width="8" ' +
+                'stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + CIRC.toFixed(1) + '"/>' +
+            '</svg>' +
+            '<div class="v8sh-mid">' +
+              '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : '—') + '</span>' +
+              '<span class="l">Posizione classifica</span>' +
+              (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi · ' + h3p + '× ≥3</span>' : '') +
+            '</div>' +
+          '</div>' +
+          '<svg class="v8sh-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
+            '<polyline points="' + spark + '" fill="none" stroke="var(--ac)" stroke-width="2" stroke-linejoin="round"/>' +
+            '<line x1="0" y1="46" x2="100" y2="46" stroke="rgba(237,232,223,.08)" />' +
+          '</svg>' +
+          '</div>';
+
+        if (anchor.matches && (anchor.matches('main .content-box') || anchor.matches('main'))) {
+          anchor.prepend(hero);
+        } else {
+          anchor.insertAdjacentElement('afterend', hero);
+        }
+        placeSheetPrevNextAfterHero();
+        if (!document.querySelector('.v8sheet-body')) {
+          var sheet = document.createElement('div');
+          sheet.className = 'v8sheet-body';
+          sheet.innerHTML =
+            '<nav class="v8sheet-subnav" aria-label="Navigazione scheda">' +
+              '<a href="#v8sheet-sestina">Sestina</a>' +
+              '<a href="#v8sheet-perf">Performance</a>' +
+              '<a href="#v8sheet-metriche">Metriche</a>' +
+              '<a href="#v8sheet-metodo">Metodo</a>' +
+            '</nav>' +
+            '<section class="v8sheet-sec" id="v8sheet-sestina">' +
+              '<div class="v8sheet-k">Proposta algoritmica</div>' +
+              '<div class="v8sheet-sest" data-v8sheet-balls>' +
+                balls.map(function (n, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + n + '</span>'; }).join('') +
+                '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' +
+                '<p>Proposta visuale generata dalla firma del modulo. Non e una previsione, non garantisce esiti, 18+.</p>' +
+              '</div>' +
+            '</section>' +
+            '<section class="v8sheet-sec" id="v8sheet-perf">' +
+              '<div class="v8sheet-k" data-v8sheet-perf-title>Performance storica</div>' +
+              '<div class="v8sheet-chart">' +
+                '<svg viewBox="0 0 800 240" preserveAspectRatio="none" aria-label="Andamento performance algoritmo" data-v8sheet-chart>' +
+                  '<line x1="0" y1="46" x2="800" y2="46"/><line x1="0" y1="118" x2="800" y2="118"/><line x1="0" y1="190" x2="800" y2="190"/>' +
+                  '<path class="area" d="M0 ' + (46 - h0 / sparkMax * 40).toFixed(1) + ' L200 ' + (46 - h1 / sparkMax * 40).toFixed(1) + ' L400 ' + (46 - h2 / sparkMax * 40).toFixed(1) + ' L600 ' + (46 - h3 / sparkMax * 40).toFixed(1) + ' L800 ' + (46 - h4 / sparkMax * 40).toFixed(1) + ' L800 240 L0 240 Z"/>' +
+                  '<polyline class="main" points="0,' + (46 - h0 / sparkMax * 40).toFixed(1) + ' 200,' + (46 - h1 / sparkMax * 40).toFixed(1) + ' 400,' + (46 - h2 / sparkMax * 40).toFixed(1) + ' 600,' + (46 - h3 / sparkMax * 40).toFixed(1) + ' 800,' + (46 - h4 / sparkMax * 40).toFixed(1) + '"/>' +
+                  '<polyline class="avg" points="0,142 200,132 400,146 600,126 800,136"/>' +
+                '</svg>' +
+                '<div class="v8sheet-legend"><span><i></i>Hit per concorso</span><span><i class="avg"></i>Media mobile</span><span><i class="dot"></i>Hit >= 3</span></div>' +
+              '</div>' +
+            '</section>' +
+            '<section class="v8sheet-sec" id="v8sheet-metriche">' +
+              '<div class="v8sheet-k">Metriche di affidabilita</div>' +
+              '<div class="v8sheet-mgrid" data-v8sheet-metrics>' +
+                '<div class="v8sheet-mc"><b>' + signal + '%</b><span>Stabilita ranking</span><i style="--w:' + signal + '%"></i></div>' +
+                '<div class="v8sheet-mc amber"><b>' + coverage + '%</b><span>Copertura storica</span><i style="--w:' + coverage + '%"></i></div>' +
+                '<div class="v8sheet-mc red"><b>' + stability + '%</b><span>Anti-rumore</span><i style="--w:' + stability + '%"></i></div>' +
+                '<div class="v8sheet-mc cyan"><b>' + (media || 'N/D') + '</b><span>Hit medi</span><i style="--w:' + Math.max(12, Math.min(96, Number(media || 0) * 42)) + '%"></i></div>' +
+              '</div>' +
+            '</section>' +
+            '<section class="v8sheet-sec" id="v8sheet-metodo">' +
+              '<div class="v8sheet-k">Come ragiona</div>' +
+              '<div class="v8sheet-prose" data-v8sheet-metodo>' +
+                '<p class="drop">' + (card.narrativeSummary || card.subtitle || 'Scheda tecnica del modulo: input, metriche, limiti e interpretazione statistica dello storico disponibile.') + '</p>' +
+                '<blockquote>Non dice cosa uscira sicuramente. Ordina scenari e segnali in base alla coerenza osservata sul dataset storico.</blockquote>' +
+                '<p>La lettura corretta e comparativa: confronta questa scheda con storico, ranking e altri modelli. Nessun sistema garantisce vincite e il gioco comporta rischi.</p>' +
+              '</div>' +
+            '</section>' +
+            '<section class="v8sheet-sec v8sheet-actions">' +
+              '<a class="v8sheet-btn primary" href="/pages/algoritmi/">Catalogo algoritmi</a>' +
+              '<a class="v8sheet-btn" href="/pages/ranking/">Confronta ranking</a>' +
+              '<a class="v8sheet-btn" href="/pages/storico-estrazioni/">Apri storico</a>' +
+            '</section>';
+          hero.insertAdjacentElement('afterend', sheet);
+          hydrateV8SheetData(sheet, card, balls, { signal: signal, coverage: coverage, stability: stability, media: media });
+        }
+
+        // anima il ring
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            hero.querySelector('.fgc').style.strokeDashoffset = (CIRC * (1 - pct)).toFixed(1);
+          });
+        });
+      })
+      .catch(function () { /* hero opzionale: nessun errore bloccante */ });
+  });
+
+  onBody(function () {
+    if ((document.body.getAttribute('data-page-id') || '') !== 'algsheet') return;
+    function mountLateSheetHero() {
+      clearStaleSheetTitles();
+      if (document.querySelector('.v8sh')) {
+        mountV8SheetBodyOnly({ page: window.location.pathname });
+        return;
+      }
+      var target = document.querySelector('main .content-box') || document.querySelector('main');
+      if (!target) return;
+      var title = document.title.replace(/\s*-\s*SuperEnalotto.*$/i, '') || 'Scheda algoritmo';
+      var desc = document.querySelector('meta[name="description"]');
+      var subtitle = desc ? desc.getAttribute('content') : 'Metodo, output e limiti operativi del modulo.';
+      var hero = document.createElement('section');
+      hero.className = 'v8sh';
+      hero.style.setProperty('--ac', '#F59E0B');
+      hero.innerHTML =
+        '<div>' +
+          '<span class="v8sh-gr">Scheda algoritmo</span>' +
+          '<div class="v8sh-title">' + title + '</div>' +
+          '<div class="v8sh-sub">' + subtitle + '</div>' +
+          '<div class="v8sh-badges"><span class="v8sh-b on">● Attivo</span><span class="v8sh-b">Free tier</span><span class="v8sh-b">Metodo documentato</span></div>' +
+        '</div>' +
+        '<div class="v8sh-side">' +
+          '<div class="v8sh-ring"><svg width="190" height="190" viewBox="0 0 190 190"><defs><linearGradient id="v8shg-late" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs><circle class="bgc" cx="95" cy="95" r="78" fill="none" stroke-width="8"/><circle class="fgc" cx="95" cy="95" r="78" fill="none" stroke-width="8" stroke-dasharray="490" stroke-dashoffset="172"/></svg><div class="v8sh-mid"><span class="v">V8+</span><span class="l">Scheda migrata</span></div></div>' +
+        '</div>';
+      target.prepend(hero);
+      (function enrichLateHero() {
+        var kpis = Array.prototype.slice.call(document.querySelectorAll('[data-metric-card]')).map(function (el) {
+          return (el.textContent || '').trim();
+        });
+        var gr = hero.querySelector('.v8sh-gr');
+        var midValue = hero.querySelector('.v8sh-mid .v');
+        var midLabel = hero.querySelector('.v8sh-mid .l');
+        if (gr) gr.setAttribute('data-v8sh-family', '1');
+        if (midValue) {
+          midValue.setAttribute('data-v8sh-rank', '1');
+          if (midValue.textContent === 'V8+') midValue.textContent = '--';
+        }
+        if (midLabel) midLabel.textContent = 'Rank catalogo';
+        if (!hero.querySelector('.v8sh-metrics')) {
+          var metrics = document.createElement('div');
+          metrics.className = 'v8sh-metrics';
+          metrics.innerHTML =
+            '<div class="v8sh-m"><b>' + (kpis[0] || '--') + '</b><span>Concorsi</span><i style="--w:82%"></i></div>' +
+            '<div class="v8sh-m"><b>' + (kpis[1] || '--') + '</b><span>Hit medi</span><i style="--w:52%"></i></div>' +
+            '<div class="v8sh-m"><b>' + (kpis[2] || '--') + '</b><span>Hit rate</span><i style="--w:44%"></i></div>';
+          var left = hero.firstElementChild;
+          if (left) left.appendChild(metrics);
+        }
+        fetch('/data/cards-index.json', { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : []; })
+          .then(function (cards) {
+            var path = window.location.pathname.replace(/index\.html$/i, '');
+            if (path.slice(-1) !== '/') path += '/';
+            var card = (cards || []).find(function (c) {
+              var p = '/' + String((c && c.page) || '').replace(/^\/+/, '').replace(/index\.html$/i, '');
+              if (p.slice(-1) !== '/') p += '/';
+              return p === path;
+            });
+            if (!card) return;
+            var rank = card.rankingPosition ? ('#' + String(card.rankingPosition).padStart(2, '0')) : '--';
+            var familyEl = hero.querySelector('[data-v8sh-family]');
+            var rankEl = hero.querySelector('[data-v8sh-rank]');
+            if (familyEl) familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' · Rank ' + rank : '');
+            if (rankEl) rankEl.textContent = rank;
+          })
+          .catch(function () {});
+      })();
+      placeSheetPrevNextAfterHero();
+    }
+    clearStaleSheetTitles();
+    setTimeout(mountLateSheetHero, 400);
+    setTimeout(mountLateSheetHero, 1400);
+    setTimeout(placeSheetPrevNextAfterHero, 1800);
+    setTimeout(placeSheetPrevNextAfterHero, 2600);
+    setTimeout(clearStaleSheetTitles, 2200);
+  });
+})();

@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-06-12 17:23:06",
+  "ok": true,
+  "active_algorithms": 15,
+  "ranking_rows": 15,
+  "algorithm_snapshots": 15,
+  "algorithm_sheets": 15,
+  "files": {
+    "data/modules-manifest.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": ""
+    },
+    "data/cards-index.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": ""
+    },
+    "data/jackpot.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-11 21:23:30"
+    },
+    "data/next-draw.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-11 21:25:34"
+    },
+    "data/numeri-stats.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-11 21:32:16"
+    },
+    "data/iargos-public-status.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-11 21:35:01"
+    },
+    "data/precomputed/ranking.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-12 17:23:05"
+    },
+    "data/precomputed/algorithm-sheets.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-12 17:23:06"
+    },
+    "data/precomputed/laboratorio-tecnico.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-12 17:23:05"
+    },
+    "data/precomputed/algorithms-data.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-12T17:23:06"
+    },
+    "data/precomputed/consensus.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-12T17:23:06"
+    },
+    "data/precomputed/home-summary.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-06-12T17:23:06"
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "missing_snapshots": [],
+  "missing_algorithm_out_files": []
+}

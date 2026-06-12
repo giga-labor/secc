@@ -6,12 +6,6 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="google-adsense-account" content="ca-pub-4257836243471373">
   <script>
-    // In modalità v8 la lista algoritmi è nel panel della home
-    if (new URLSearchParams(window.location.search).get('ui') === 'v8') {
-      window.location.replace('/?ui=v8');
-    }
-  </script>
-  <script>
     (function () {
       var root = document.documentElement;
       var w = window.innerWidth || document.documentElement.clientWidth || 0;
@@ -104,7 +98,8 @@
     
 
     <section class="mt-0 pt-0" id="catalogo">
-      <div class="mt-0 min-h-[65vh] space-y-10" data-algorithms-area data-reveal="stagger-children">
+      <div id="v8cat"></div>
+      <div class="mt-0 min-h-[65vh] space-y-10" data-v8cat-fallback>
         <ul class="grid gap-3 md:grid-cols-2" data-seo-fallback="alg-catalog"><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/astra-moon/">astra-moon</a><p class="mt-1 text-xs text-ash">Ranking numerico da effemeridi lunari con riferimento fisso 20:30</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-analisi-anomalie-pattern/">classic-analisi-anomalie-pattern</a><p class="mt-1 text-xs text-ash">Analisi di anomalie e pattern</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-co-occorrenze/">classic-co-occorrenze</a><p class="mt-1 text-xs text-ash">Analisi relazionale su coppie e co-presenze storiche</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-coppie-terni-consecutivi/">classic-coppie-terni-consecutivi</a><p class="mt-1 text-xs text-ash">Analisi di coppie e terni consecutivi</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-coppie-terzine-frequenti/">classic-coppie-terzine-frequenti</a><p class="mt-1 text-xs text-ash">Pattern frequenti di coppie e terzine</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/">classic-distribuzioni-modelli-raggruppamento</a><p class="mt-1 text-xs text-ash">Distribuzioni e modelli di raggruppamento</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-frequency/">classic-frequency</a><p class="mt-1 text-xs text-ash">Analisi frequenziale su storico estrazioni</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-ritardi/">classic-ritardi</a><p class="mt-1 text-xs text-ash">Analisi dei numeri in ritardo (overdue)</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-ritardi-combinazioni/">classic-ritardi-combinazioni</a><p class="mt-1 text-xs text-ash">Ritardi su combinazioni multiple</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/">classic-statistiche-combinate-finestre-mobili</a><p class="mt-1 text-xs text-ash">Statistiche combinate su finestre mobili</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/">classic-tavole-probabilita-teorica-test-uniformita</a><p class="mt-1 text-xs text-ash">Probabilità teorica e test di uniformità</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/genetic/">genetic-algorithm-evolutionary</a><p class="mt-1 text-xs text-ash">Multi-agent online learning con aggiornamenti continui</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/hispa/">hispa</a><p class="mt-1 text-xs text-ash">Historical Pattern Scoring Algorithm progressivo</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/paradox-logiche-decisionali-metriche/">paradox-logiche-decisionali-metriche</a><p class="mt-1 text-xs text-ash">Descrizione in arrivo</p></li><li class="rounded-lg border border-white/10 bg-midnight/40 px-3 py-2"><a class="cc-alg-link" href="/pages/algoritmi/algs/super6NN/">super6NN</a><p class="mt-1 text-xs text-ash">Walk-forward con training incrementale e sampling sestine</p></li></ul>
       </div>
     </section>
@@ -127,12 +122,8 @@
   <script src="../../assets/js/core/page-orchestrator.js" defer></script>
   <script src="../../assets/js/motion.js" defer></script>
   <script src="../../assets/js/architects/base.architect.js" defer></script>
-  <script src="../../assets/js/architects/algoritmi.architect.js" defer></script>
-  <script src="../../assets/js/directors/algoritmi.director.js" defer></script>
   <script src="../../assets/js/runtime-bootstrap.js" defer></script>
-  <script src="../../assets/js/cards.js" defer></script>
-<script src="../../assets/js/cards-index.js" defer></script>
-  <script src="../../assets/js/algorithms.js" defer></script>
+  <script src="../../assets/js/v8catalog.js" defer></script>
   <script src="../../assets/js/ads.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>

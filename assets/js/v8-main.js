@@ -923,8 +923,7 @@ v8WaitAndInit(function(bundle){
     // Utente di ritorno: salta intro dopo un tick per permettere al canvas di renderizzarsi
     setTimeout(launch,120);
   } else {
-    // Prima visita: auto-launch dopo 3.5s o click/tasto
-    setTimeout(launch,3500);
+    // Prima visita: la hero resta finché l'utente non interagisce (click/tasto)
     document.addEventListener('click',launch);
     document.addEventListener('keydown',launch);
   }

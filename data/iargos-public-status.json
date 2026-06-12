@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-06-11 21:35:01",
+  "updated_at": "2026-06-12 17:49:03",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "ok",
-  "summary": "Sistema allineato",
-  "overview_green": true,
+  "severity": "critical",
+  "summary": "Problemi attivi: p2_flow_guard",
+  "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": false,
+    "p2_flow_guard": true,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
@@ -23,11 +23,11 @@
   "alignment": {
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
-    "git_dirty": false,
-    "remote_ahead": 0,
+    "flow_guard_ok": false,
+    "git_dirty": true,
+    "remote_ahead": 1,
     "remote_behind": 0,
-    "alignment_diff_count": 0,
+    "alignment_diff_count": 1,
     "active_algorithms_count": 15,
     "active_algorithms_aligned_count": 15
   },
@@ -36,14 +36,22 @@
     "consecutive_failures": 0
   },
   "runtime": {
-    "state_level": "ok",
-    "state_label": "operativo",
+    "state_level": "warn",
+    "state_label": "monitoraggio",
     "last_push_at": "2026-06-11 21:34:49",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781205794
+    "boot_ts": 1781279282
   },
   "feed": [
+    {
+      "type": "versioning",
+      "ts": "2026-06-12T17:48:48",
+      "message": "Nuova versione del sito pubblicata (01.00.004 -> 01.01.000)",
+      "detail": "667 file sincronizzati tra mirror e sito pubblico",
+      "ok": true,
+      "source": "versioning-audit"
+    },
     {
       "type": "draw",
       "ts": "2026-06-11T21:33:10",
@@ -273,14 +281,6 @@
       "ts": "2026-03-10T23:31:55",
       "message": "Nuova versione del sito pubblicata (00.08.002 -> 00.09.000)",
       "detail": "480 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-10T00:51:56",
-      "message": "Nuova versione del sito pubblicata (00.07.006 -> 00.08.000)",
-      "detail": "469 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     }
