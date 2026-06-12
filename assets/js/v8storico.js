@@ -179,6 +179,20 @@
             '<div class="v8x-frow"><span>Compagno più frequente</span><b class="hot">' + m.n + ' · ' + m.c + ' volte</b></div>' +
             (pts ? '<svg class="v8x-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
               '<polyline points="' + pts + '" fill="none" stroke="#6EE7FF" stroke-width="1.6" opacity=".8"/></svg>' : '');
+          if (mode === 'F') {
+            var latestYear = yk.length ? yk[yk.length - 1] : '';
+            var latestYearCount = latestYear ? (ys[latestYear] || 0) : 0;
+            var avgYear = yk.length ? (freq[sel] / yk.length).toFixed(1) : '0.0';
+            document.getElementById('v8x-focus').innerHTML =
+              '<div class="v8x-k" style="margin-bottom:.4rem">Focus frequenza</div>' +
+              '<div class="big">' + sel + '</div>' +
+              '<div class="v8x-frow"><span>Uscite totali</span><b class="cy">' + freq[sel] + '</b></div>' +
+              '<div class="v8x-frow"><span>Media annua</span><b class="am">' + avgYear + ' uscite</b></div>' +
+              '<div class="v8x-frow"><span>Uscite ' + latestYear + '</span><b>' + latestYearCount + '</b></div>' +
+              '<div class="v8x-frow"><span>Compagno piu frequente</span><b class="hot">' + m.n + ' - ' + m.c + ' volte</b></div>' +
+              (pts ? '<svg class="v8x-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
+                '<polyline points="' + pts + '" fill="none" stroke="#6EE7FF" stroke-width="1.6" opacity=".8"/></svg>' : '');
+          }
         }
 
         grid.addEventListener('click', function (e) {
