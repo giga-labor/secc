@@ -88,7 +88,7 @@
 
   // â”€â”€ AD RAIL ALIGN â”€â”€
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
-  // Aggiungiamo padding-top pari alla topbar (64px) perchÃ© il contenuto
+  // Aggiungiamo padding-top pari alla topbar (64px) perche il contenuto
   // del pannello ads parta alla stessa quota del contenuto pagina,
   // come avviene sulla homepage V8 dove la topbar non esiste.
   if (!document.getElementById('v8-ad-rail-align')) {
@@ -108,7 +108,7 @@
   }
 
   // â”€â”€ NASCONDI VECCHIO HEADER â”€â”€
-  // Usiamo una regola CSS (non inline style) perchÃ© header.js chiama
+  // Usiamo una regola CSS (non inline style) perche header.js chiama
   // node.style.removeProperty('display') che rimuoverebbe un display:none inline.
   // Una regola in <style> con !important sopravvive a removeProperty().
   if (!document.getElementById('v8-hide-header-rule')) {
@@ -136,7 +136,7 @@
 })();
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   V8SKIN BOOTSTRAP â€” estende il chrome interno con il design V8+
+   V8SKIN BOOTSTRAP - estende il chrome interno con il design V8+
    (font, v8skin.css, aurora, nav topbar, hero schede algoritmo)
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 (function () {
@@ -484,7 +484,7 @@
         ballsHost.innerHTML = balls.map(function (n, i) {
           return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(n).padStart(2, '0') + '</span>';
         }).join('') + (balls.length ? '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' : '') +
-        '<p class="v8sheet-note">Proposta algoritmica Â· Non una previsione Â· Il gioco comporta rischi Â· 18+</p>';
+        '<p class="v8sheet-note">Proposta algoritmica &middot; Non una previsione &middot; Il gioco comporta rischi &middot; 18+</p>';
       }
       if (chart) chart.innerHTML = v8BuildPerformanceSvg(rows);
       if (perfK) perfK.textContent = (data.performance && data.performance.label) || (rows.length ? 'Performance - ultimi ' + Math.min(40, rows.length) + ' concorsi' : 'Performance storica');
@@ -550,7 +550,7 @@
         '<div class="v8sheet-sest" data-v8sheet-balls>' +
           fallbackBalls.map(function (value, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(value).padStart(2, '0') + '</span>'; }).join('') +
           '<span class="v8sheet-ball j" style="--d:.62s">' + (((fallbackBalls[5] || 1) * 7) % 90 + 1) + '</span>' +
-          '<p class="v8sheet-note">Proposta algoritmica Â· Non una previsione Â· Il gioco comporta rischi Â· 18+</p>' +
+          '<p class="v8sheet-note">Proposta algoritmica &middot; Non una previsione &middot; Il gioco comporta rischi &middot; 18+</p>' +
         '</div>' +
       '</section>' +
       '<section class="v8sheet-sec" id="v8sheet-perf">' +
@@ -746,7 +746,7 @@
         };
         var g = GROUPS[card.macroGroup] || GROUPS.statistica;
 
-        // ranking â†’ percentuale ring
+        // ranking &rarr; percentuale ring
         var pos = card.rankingPosition || null;
         var tot = 0;
         cards.forEach(function (c) { if (c.rankingPosition) tot++; });
@@ -799,7 +799,7 @@
         hero.style.setProperty('--ac', g.ac);
         hero.innerHTML =
           '<div>' +
-            '<span class="v8sh-gr">Famiglia ' + g.label + (pos ? ' Â· Rank #' + String(pos).padStart(2, '0') : '') + '</span>' +
+            '<span class="v8sh-gr">Famiglia ' + g.label + (pos ? ' &middot; Rank #' + String(pos).padStart(2, '0') : '') + '</span>' +
             '<div class="v8sh-title">' + (card.title || card.id) + '</div>' +
             (card.subtitle ? '<div class="v8sh-sub">' + card.subtitle + '</div>' : '') +
             '<div class="v8sh-badges">' +
@@ -820,9 +820,9 @@
                 'stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + CIRC.toFixed(1) + '"/>' +
             '</svg>' +
             '<div class="v8sh-mid">' +
-              '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : 'â€”') + '</span>' +
+              '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : '-') + '</span>' +
               '<span class="l">Score complessivo</span>' +
-              (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi Â· ' + h3p + 'Ã— â‰¥3</span>' : '') +
+              (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi &middot; ' + h3p + 'x &gt;=3</span>' : '') +
             '</div>' +
           '</div>' +
           '<svg class="v8sh-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
@@ -844,7 +844,7 @@
         var ringMeta = hero.querySelector('.v8sh-mid .l + .l');
         if (ringMeta) {
           ringMeta.className = 'rk';
-          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (media ? ' Â· ' + media + ' hit medi' : '');
+          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (media ? ' &middot; ' + media + ' hit medi' : '');
         }
         placeSheetPrevNextAfterHero();
         if (!document.querySelector('.v8sheet-body')) {
@@ -862,7 +862,7 @@
               '<div class="v8sheet-sest" data-v8sheet-balls>' +
                 balls.map(function (n, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + n + '</span>'; }).join('') +
                 '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' +
-                '<p class="v8sheet-note">Proposta algoritmica Â· Non una previsione Â· Il gioco comporta rischi Â· 18+</p>' +
+                '<p class="v8sheet-note">Proposta algoritmica &middot; Non una previsione &middot; Il gioco comporta rischi &middot; 18+</p>' +
               '</div>' +
             '</section>' +
             '<section class="v8sheet-sec" id="v8sheet-perf">' +
@@ -989,7 +989,7 @@
             var rank = card.rankingPosition ? ('#' + String(card.rankingPosition).padStart(2, '0')) : '--';
             var familyEl = hero.querySelector('[data-v8sh-family]');
             var rankEl = hero.querySelector('[data-v8sh-rank]');
-            if (familyEl) familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' Â· Rank ' + rank : '');
+            if (familyEl) familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' &middot; Rank ' + rank : '');
             if (rankEl) rankEl.textContent = rank;
           })
           .catch(function () {});

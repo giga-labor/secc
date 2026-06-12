@@ -267,7 +267,7 @@ function draw(){
       const f180=formatStatValue(s.f180);
       const lastDate=formatStatValue(s.lastDate);
       const avgEvery=formatStatValue(s.avgEvery);
-      const lastId=hasStatValue(s.lastId)&&s.lastId!=='--'?` Â· #${s.lastId}`:'';
+      const lastId=hasStatValue(s.lastId)&&s.lastId!=='--'?` &middot; #${s.lastId}`:'';
       ttI.innerHTML=
         `<b style="color:${catColor}">${catLabel}</b><br>`+
         `Ritardo: <b>${s.delay!==undefined?s.delay:'--'}</b> estrazioni<br>`+
