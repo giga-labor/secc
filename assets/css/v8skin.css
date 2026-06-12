@@ -33,8 +33,9 @@
 
 /* Mockup 01 global scene */
 #v8-sky{
-  position:fixed;inset:0;right:var(--ad-reserve-right,0px);bottom:var(--ad-reserve-bottom,0px);
-  width:auto;height:auto;z-index:0;pointer-events:none;opacity:.7;
+  position:fixed;top:0;left:0;
+  width:66.6667vw;height:40vh;
+  z-index:0;pointer-events:none;opacity:.7;
 }
 #v8-inner-topbar{
   background:linear-gradient(180deg,rgba(3,1,9,.94) 58%,rgba(3,1,9,.58))!important;
