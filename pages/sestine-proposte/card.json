@@ -1,0 +1,21 @@
+{
+  "id": "sestine-proposte-info",
+  "title": "Sestine Proposte",
+  "subtitle": "Apri subito le proposte ordinate",
+  "statusTag": "Proposte",
+  "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
+  "macroGroup": "info",
+  "page": "pages/sestine-proposte/index.html",
+  "image": "img/statistic.webp",
+  "lastUpdated": "15/03/2026",
+  "hasNews": true,
+  "isActive": true,
+  "no_data_show": false,
+  "accessTier": "free",
+  "type": "INFO",
+  "view": true,
+  "hits": {
+    "enabled": false,
+    "count": 0
+  }
+}

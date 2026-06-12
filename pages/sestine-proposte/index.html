@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = 276;
+      if (w >= 1600) {
+        desktopReserve = 366;
+      } else if (w >= 1400) {
+        desktopReserve = 336;
+      } else if (w >= 1200) {
+        desktopReserve = 316;
+      }
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+      root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
+    })();
+  </script>
+  <meta name="view-transition" content="same-origin">
+  <title>Sestine Proposte - SuperEnalotto Control Chaos</title>
+  <meta name="description" content="Sestine proposte ordinate per classifica degli algoritmi attivi.">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/sestine-proposte/">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SuperEnalotto Control Chaos">
+  <meta property="og:title" content="Sestine Proposte - SuperEnalotto Control Chaos">
+  <meta property="og:description" content="Sestine proposte ordinate per classifica degli algoritmi attivi.">
+  <meta property="og:url" content="https://www.superenalottocc.it/pages/sestine-proposte/">
+  <meta property="og:image" content="https://www.superenalottocc.it/img/play.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sestine Proposte - SuperEnalotto Control Chaos">
+  <meta name="twitter:description" content="Sestine proposte ordinate per classifica degli algoritmi attivi.">
+  <meta name="twitter:image" content="https://www.superenalottocc.it/img/play.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../../assets/js/ga4.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/site-guide.css">
+  <link rel="stylesheet" href="../../assets/css/user-first.css">
+  <link rel="stylesheet" href="/assets/css/balls-standard.css">  <link rel="stylesheet" href="../../assets/css/proposals.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sestine Proposte - SuperEnalotto Control Chaos",
+      "url": "https://www.superenalottocc.it/pages/sestine-proposte/",
+      "description": "Sestine proposte ordinate per classifica degli algoritmi attivi.",
+      "inLanguage": "it-IT",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "SuperEnalotto Control Chaos",
+        "url": "https://www.superenalottocc.it/"
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<script src="../../assets/js/v8-inner-chrome.js" defer></script>
+</head>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" id="top" data-page-id="proposte" data-style-lock="final" data-auto-tabs="off">
+  <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
+    <h1 class="sr-only">Sestine Proposte</h1>
+    <div class="content-box">
+      <header class="mt-6 space-y-3" data-page-kicker-wrap>
+        <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Proposte</span>
+        <h2 class="text-white text-xl font-semibold">Sestine proposte ordinate per classifica degli algoritmi</h2>
+        <p class="text-ash">Elenco aggiornato delle proposte generate dagli algoritmi attivi.</p>
+      </header>
+      <section class="mt-4" aria-label="Prossima estrazione" id="next-draw-proposals-banner" style="display:none">
+        <div class="rounded-xl border border-sky-500/40 bg-sky-950/60 px-4 py-3 flex flex-wrap items-center gap-3">
+          <span class="text-xs uppercase tracking-[0.2em] text-sky-400">Prossima estrazione</span>
+          <span class="font-bold text-white" id="next-draw-proposals-label">-</span>
+        </div>
+      </section>
+
+      <!-- Filtro macroGroup -->
+      <div class="flex flex-wrap gap-2 mt-6" id="proposals-filter-bar">
+        <button type="button" class="cc-prop-pill cc-prop-pill--active" data-filter-group="tutti">Tutti</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="statistici">Statistici</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="neurali">Neurali</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="ibridi">Ibridi</button>
+      </div>
+
+      <section class="bg-transparent p-0 mt-4 space-y-2" data-proposals-list>
+        <div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">
+          Caricamento proposte in corso...
+        </div>
+      </section>
+
+      <style>
+        .cc-prop-pill {
+          padding: .35rem .9rem;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,.15);
+          background: rgba(255,255,255,.04);
+          color: rgba(197,216,255,.55);
+          font-size: .72rem;
+          letter-spacing: .14em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: color .18s, border-color .18s, background .18s;
+        }
+        .cc-prop-pill:hover,
+        .cc-prop-pill--active {
+          border-color: rgba(110,231,255,.55);
+          color: #6ee7ff;
+          background: rgba(110,231,255,.08);
+        }
+        /* Rimuove lo scroll interno: la lista si estende normalmente */
+        [data-proposals-list] { overflow: visible !important; max-height: none !important; }
+      </style>
+
+    </div>
+  </main>
+
+  <script src="../../assets/js/version.js" defer></script>
+  <script src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/cards.js" defer></script>
+  <script src="../../assets/js/component-builder.js" defer></script>
+  <script src="../../assets/js/ads.js" defer></script>
+  <script src="../../assets/js/lazy-bootstrap.js" defer></script>
+  <script>
+    (function () {
+      const toHref = (path) => {
+        const p = String(path || '').trim();
+        if (!p) return '#';
+        if (/^https?:\/\//i.test(p) || p.startsWith('/')) return p;
+        return `../../${p.replace(/^\.?\/*/, '')}`;
+      };
+
+      const escapeHtml = (value) => String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+      const getBallTone = (n) => {
+        if (!Number.isFinite(n)) return '';
+        if (n <= 15) return 'cc-ball-tone--azure';
+        if (n <= 30) return 'cc-ball-tone--coral';
+        if (n <= 45) return 'cc-ball-tone--gold';
+        if (n <= 60) return 'cc-ball-tone--emerald';
+        if (n <= 75) return 'cc-ball-tone--violet';
+        return 'cc-ball-tone--rose';
+      };
+
+      const renderNextDrawBanner = async () => {
+        const banner = document.getElementById('next-draw-proposals-banner');
+        const label = document.getElementById('next-draw-proposals-label');
+        if (!banner || !label) return;
+        try {
+          const res = await fetch('../../data/next-draw.json', { cache: 'no-store' });
+          if (!res.ok) return;
+          const d = await res.json();
+          if (!d || !d.next_seq || !d.next_date || !d.next_weekday) return;
+          label.textContent = `#${d.next_seq} - ${d.next_weekday} ${d.next_date} ore ${d.next_time || '20:00'}`;
+          banner.style.display = '';
+        } catch (_) {}
+      };
+
+      const normalizePathKey = (value) => String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/\\/g, '/')
+        .replace(/^https?:\/\/[^/]+/i, '')
+        .replace(/\/index\.html?$/i, '/')
+        .replace(/\/+$/g, '/')
+        .replace(/^\/+/, '');
+
+      const rankingKeysForCard = (card) => {
+        const keys = [];
+        const id = String(card?.id || '').trim().toLowerCase();
+        const page = normalizePathKey(card?.page || '');
+        if (id) keys.push(`id:${id}`);
+        if (page) keys.push(`page:${page}`);
+        return keys;
+      };
+
+      const loadCardsIndexRankingMap = async () => {
+        try {
+          const res = await fetch('../../data/cards-index.json', { cache: 'no-store' });
+          if (!res.ok) return new Map();
+          const rows = await res.json();
+          if (!Array.isArray(rows)) return new Map();
+          const out = new Map();
+          rows.forEach((row) => {
+            const rankingValue = Number(row?.rankingValue);
+            const rankingPosition = Number(row?.rankingPosition);
+            if (!Number.isFinite(rankingValue) && !Number.isFinite(rankingPosition)) return;
+            rankingKeysForCard(row).forEach((key) => {
+              if (!out.has(key)) {
+                out.set(key, {
+                  rankingValue: Number.isFinite(rankingValue) ? rankingValue : Number.NaN,
+                  rankingPosition: Number.isFinite(rankingPosition) ? rankingPosition : Number.POSITIVE_INFINITY,
+                });
+              }
+            });
+          });
+          return out;
+        } catch (_) {
+          return new Map();
+        }
+      };
+
+      const loadManifestCards = async () => {
+        const repo = window.CC_DATA_REPOSITORY || window.CC_REPO;
+        if (repo && typeof repo.loadCardsByManifest === 'function') {
+          return repo.loadCardsByManifest('../../data/modules-manifest.json');
+        }
+        const res = await fetch('../../data/modules-manifest.json', { cache: 'no-store' });
+        if (!res.ok) return [];
+        const manifest = await res.json();
+        const entries = Array.isArray(manifest?.cards) ? manifest.cards : (Array.isArray(manifest) ? manifest : []);
+        if (!entries.length) return [];
+        if (entries.every((e) => typeof e === 'string')) {
+          const rows = await Promise.all(entries.map(async (entry) => {
+            try {
+              const r = await fetch(toHref(entry), { cache: 'no-store' });
+              if (!r.ok) return null;
+              return await r.json();
+            } catch (_) {
+              return null;
+            }
+          }));
+          return rows.filter(Boolean);
+        }
+        return entries.filter((e) => e && typeof e === 'object');
+      };
+
+      const render = async () => {
+        const host = document.querySelector('[data-proposals-list]');
+        if (!host) return;
+        const cardsApi = window.CARDS;
+        if (!cardsApi) {
+          host.innerHTML = '<div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">Motore card non disponibile.</div>';
+          return;
+        }
+
+        const modules = await loadManifestCards();
+        const activeAlgorithms = (Array.isArray(modules) ? modules : []).filter((card) => {
+          if (!card || card.isActive === false) return false;
+          const page = String(card.page || '').toLowerCase();
+          return page.includes('/algoritmi/algs/');
+        });
+
+        if (!activeAlgorithms.length) {
+          host.innerHTML = '<div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">Nessun algoritmo attivo disponibile.</div>';
+          return;
+        }
+
+        const latestArchiveSeq = (typeof cardsApi.getLatestArchiveSeq === 'function')
+          ? await cardsApi.getLatestArchiveSeq()
+          : null;
+        const rankingMap = await loadCardsIndexRankingMap();
+
+        const rows = await Promise.all(activeAlgorithms.map(async (card) => {
+          let ranking = Number.NaN;
+          let rankingPosition = Number.POSITIVE_INFINITY;
+          const enriched = rankingKeysForCard(card).reduce((acc, key) => acc || rankingMap.get(key), null);
+          const rawRanking = (enriched && Number.isFinite(enriched.rankingValue))
+            ? enriched.rankingValue
+            : Number(card?.rankingValue);
+          const rawPosition = (enriched && Number.isFinite(enriched.rankingPosition))
+            ? enriched.rankingPosition
+            : Number(card?.rankingPosition);
+          if (Number.isFinite(rawRanking)) ranking = rawRanking;
+          if (Number.isFinite(rawPosition)) rankingPosition = rawPosition;
+
+          let proposal = [];
+          if (typeof cardsApi.resolveMetricsUrl === 'function'
+            && typeof cardsApi.readCsvRows === 'function'
+            && typeof cardsApi.extractProposalInfo === 'function'
+            && typeof cardsApi.normalizeProposalNumbers === 'function') {
+            const metricsUrl = cardsApi.resolveMetricsUrl(card);
+            const metricsRows = await cardsApi.readCsvRows(metricsUrl);
+            const info = cardsApi.extractProposalInfo(metricsRows || []);
+            const nextSeq = Number.isFinite(info?.nextSeq) ? info.nextSeq : null;
+            const isUpdated = Number.isFinite(latestArchiveSeq) && Number.isFinite(nextSeq) && nextSeq > latestArchiveSeq;
+            proposal = isUpdated || !Number.isFinite(latestArchiveSeq)
+              ? cardsApi.normalizeProposalNumbers(info?.proposal)
+              : [];
+          }
+
+          return { card, ranking, rankingPosition, proposal };
+        }));
+
+        const rowsWithProposal = rows
+          .filter((row) => Array.isArray(row.proposal) && row.proposal.length === 6)
+          .sort((a, b) => {
+            const ra = Number.isFinite(a.ranking) ? a.ranking : Number.NEGATIVE_INFINITY;
+            const rb = Number.isFinite(b.ranking) ? b.ranking : Number.NEGATIVE_INFINITY;
+            if (rb !== ra) return rb - ra;
+            const pa = Number.isFinite(a.rankingPosition) ? a.rankingPosition : Number.POSITIVE_INFINITY;
+            const pb = Number.isFinite(b.rankingPosition) ? b.rankingPosition : Number.POSITIVE_INFINITY;
+            if (pa !== pb) return pa - pb;
+            const ta = String(a.card?.title || a.card?.id || '').toLowerCase();
+            const tb = String(b.card?.title || b.card?.id || '').toLowerCase();
+            return ta.localeCompare(tb);
+          });
+
+        if (!rowsWithProposal.length) {
+          host.innerHTML = '<div class="rounded-xl border border-white/10 bg-midnight/50 px-3 py-3 text-xs text-ash text-center">Nessuna proposta disponibile al momento.</div>';
+          return;
+        }
+
+        const rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        const resolveMacroKey = (raw) => {
+          const k = String(raw || '').trim().toLowerCase();
+          if (k.includes('neur')) return 'neurali';
+          if (k.includes('ibrid') || k.includes('hybrid') || k.includes('custom')) return 'ibridi';
+          return 'statistici';
+        };
+        const MACRO_BADGE = {
+          statistici: 'border-[#8fceec]/60 text-[#8fceec]',
+          neurali:    'border-[#b7a2f4]/60 text-[#b7a2f4]',
+          ibridi:     'border-[#7ecba5]/60 text-[#7ecba5]'
+        };
+
+        host.innerHTML = rowsWithProposal.map((row, idx) => {
+          const title  = escapeHtml(row.card.title || row.card.id || 'Algoritmo');
+          const href   = escapeHtml(toHref(row.card.page || '#'));
+          const rank   = Number.isFinite(row.ranking) ? rankingFmt.format(row.ranking) : '--';
+          const mKey   = resolveMacroKey(row.card.macroGroup);
+          const mCls   = MACRO_BADGE[mKey] || 'border-white/20 text-ash';
+          const rankPos = Number.isFinite(row.rankingPosition) ? `#${row.rankingPosition}` : `#${idx + 1}`;
+          const balls  = row.proposal.map((value) => {
+            const tone = getBallTone(parseInt(value, 10));
+            return `<span class="cc-proposal-ball${tone ? ` ${tone}` : ''}">${escapeHtml(value)}</span>`;
+          }).join('');
+          return `
+            <a href="${href}" class="cc-proposal-row" title="${title}" data-proposal-group="${mKey}">
+              <span class="cc-proposal-alg-wrap" style="display:flex;flex-direction:column;gap:.2rem">
+                <span class="cc-proposal-alg cc-alg-link">${title}</span>
+                <span style="display:flex;gap:.3rem;align-items:center">
+                  <span class="rounded-full border ${mCls} px-1.5 py-0 text-[.62rem] uppercase tracking-[.12em]">${mKey}</span>
+                  <span style="font-size:.65rem;color:rgba(197,216,255,.4)">${rankPos}</span>
+                </span>
+              </span>
+              <span class="cc-proposal-balls">${balls}</span>
+              <span class="cc-proposal-rank">${escapeHtml(rank)}</span>
+            </a>
+          `;
+        }).join('');
+
+        // Attiva logica filtro pills
+        initFilterPills();
+      };
+
+      const initFilterPills = () => {
+        document.querySelectorAll('[data-filter-group]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('[data-filter-group]').forEach(b => b.classList.remove('cc-prop-pill--active'));
+            btn.classList.add('cc-prop-pill--active');
+            const group = btn.dataset.filterGroup;
+            document.querySelectorAll('[data-proposal-group]').forEach(row => {
+              row.style.display = (group === 'tutti' || row.dataset.proposalGroup === group) ? '' : 'none';
+            });
+          });
+        });
+      };
+
+      window.addEventListener('load', () => {
+        window.setTimeout(() => {
+          render().catch(() => {});
+          renderNextDrawBanner().catch(() => {});
+        }, 60);
+      });
+    })();
+  </script>
+</body>
+</html>
+
