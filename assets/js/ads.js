@@ -93,7 +93,8 @@ const ADS_DISABLED_PATH_SEGMENTS = Object.freeze([
   '/pages/cookie-policy/',
   '/pages/termini-servizio/',
   '/pages/disclaimer/',
-  '/pages/contatti-chi-siamo/'
+  '/pages/contatti-chi-siamo/',
+  '/pages/sestine-proposte/' // zona grigia AdSense gambling-related content
 ]);
 
 const resolveAdsenseConfig = () => {
