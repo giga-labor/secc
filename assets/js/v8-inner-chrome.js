@@ -1,8 +1,8 @@
-(function () {
+﻿(function () {
   'use strict';
   if (document.getElementById('v8-inner-topbar')) return;
 
-  // ── TOPBAR ──
+  // â”€â”€ TOPBAR â”€â”€
   var bar = document.createElement('div');
   bar.id = 'v8-inner-topbar';
   bar.innerHTML = [
@@ -18,7 +18,7 @@
     '#v8-inner-topbar a{',
       'color:rgba(237,232,223,.6);text-decoration:none;',
       'font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;',
-      'transition:color .2s;',
+      'transition:color .2s;white-space:nowrap;',
     '}',
     '#v8-inner-topbar a:hover{color:#EDE8DF;}',
     '#v8-inner-topbar .v8i-logo{',
@@ -37,11 +37,13 @@
       '-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;',
     '}',
     '#v8-inner-topbar .v8i-sep{width:1px;height:18px;background:rgba(237,232,223,.08);}',
+    '#v8-inner-topbar .v8i-back{display:inline-flex;align-items:center;gap:.35rem;flex-shrink:0;}',
+    '#v8-inner-topbar .v8i-back .v8i-back-arrow{font-size:1rem;line-height:1;}',
     'body{padding-top:64px!important;}',
     '</style>',
     '<a href="/" class="v8i-logo"><span class="v8i-logo-main">Control<b>Chaos</b></span><span class="v8i-version" data-v8-version>--</span></a>',
     '<div class="v8i-sep"></div>',
-    '<a href="javascript:history.back()">← Indietro</a>'
+    '<a href="javascript:history.back()" class="v8i-back"><span class="v8i-back-arrow" aria-hidden="true">&larr;</span><span>Indietro</span></a>'
   ].join('');
 
   if (document.body) {
@@ -52,7 +54,7 @@
     });
   }
 
-  // ── BODY OVERRIDE: allinea al design V8 home ──
+  // â”€â”€ BODY OVERRIDE: allinea al design V8 home â”€â”€
   // Rimuove gradiente redesign-neo, sfondo-immagine, font Space Grotesk
   var override = document.createElement('style');
   override.id = 'v8-body-override';
@@ -84,9 +86,9 @@
     });
   }
 
-  // ── AD RAIL ALIGN ──
+  // â”€â”€ AD RAIL ALIGN â”€â”€
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
-  // Aggiungiamo padding-top pari alla topbar (64px) perché il contenuto
+  // Aggiungiamo padding-top pari alla topbar (64px) perchÃ© il contenuto
   // del pannello ads parta alla stessa quota del contenuto pagina,
   // come avviene sulla homepage V8 dove la topbar non esiste.
   if (!document.getElementById('v8-ad-rail-align')) {
@@ -105,8 +107,8 @@
     }
   }
 
-  // ── NASCONDI VECCHIO HEADER ──
-  // Usiamo una regola CSS (non inline style) perché header.js chiama
+  // â”€â”€ NASCONDI VECCHIO HEADER â”€â”€
+  // Usiamo una regola CSS (non inline style) perchÃ© header.js chiama
   // node.style.removeProperty('display') che rimuoverebbe un display:none inline.
   // Una regola in <style> con !important sopravvive a removeProperty().
   if (!document.getElementById('v8-hide-header-rule')) {
@@ -133,10 +135,10 @@
   }
 })();
 
-/* ════════════════════════════════════════════════════════════════
-   V8SKIN BOOTSTRAP — estende il chrome interno con il design V8+
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   V8SKIN BOOTSTRAP â€” estende il chrome interno con il design V8+
    (font, v8skin.css, aurora, nav topbar, hero schede algoritmo)
-   ════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 (function () {
   'use strict';
   if (window.__V8SKIN__) return;
@@ -257,7 +259,7 @@
     }
   }
 
-  // ── FONT V8 (BioRhyme + DM Mono) ──
+  // â”€â”€ FONT V8 (BioRhyme + DM Mono) â”€â”€
   onHead(function () {
     if (!document.getElementById('v8skin-fonts')) {
       var f = document.createElement('link');
@@ -276,7 +278,7 @@
     injectRailSafeLayout();
   });
 
-  // ── AURORA ──
+  // â”€â”€ AURORA â”€â”€
   onBody(function () {
     if (!document.querySelector('.v8-aurora')) {
       var a = document.createElement('div');
@@ -294,7 +296,7 @@
     }
   });
 
-  // ── NAV NELLA TOPBAR ──
+  // â”€â”€ NAV NELLA TOPBAR â”€â”€
   onBody(function () {
     var bar = document.getElementById('v8-inner-topbar');
     if (!bar || bar.querySelector('.v8i-nav')) return;
@@ -309,7 +311,6 @@
       '@media(max-width:760px){.v8i-nav a{font-size:.95rem!important}}' +
       '</style>' +
       '<a href="/pages/algoritmi/" data-pp="algoritmi">Algoritmi</a>' +
-      '<a href="/pages/ranking/" data-pp="ranking">Classifica</a>' +
       '<a href="/pages/sestine-proposte/" data-pp="proposte">Sestine</a>' +
       '<a href="/pages/storico-estrazioni/" data-pp="storico">Storico</a>' +
       '<a href="/pages/laboratorio-tecnico/" data-pp="laboratorio">Lab</a>' +
@@ -347,9 +348,9 @@
   function pageLabel(pid) {
     var cleanTitle = document.title.replace(/\s*-\s*SuperEnalotto.*$/i, '');
     var map = {
-      algoritmi: ['Catalogo studi', 'Algoritmi e paper tecnici', 'modelli statistici, logici, neurali e ibridi'],
+      algoritmi: ['Algoritmi', 'Algoritmi in ranking', 'modelli statistici, logici, neurali e ibridi ordinati per punteggio'],
       storico: ['Archivio storico', 'Storico estrazioni', '90 numeri letti come una mappa viva'],
-      ranking: ['Classifica modelli', 'Ranking algoritmi', 'confronto continuo tra segnali indipendenti'],
+      ranking: ['Algoritmi', 'Algoritmi in ranking', 'confronto continuo tra segnali indipendenti'],
       proposte: ['Sestine', 'Sestine proposte', 'campioni generati dagli algoritmi attivi'],
       laboratorio: ['Laboratorio tecnico', 'Lab Control Chaos', 'dataset, pipeline e trasparenza operativa'],
       community: ['Community', 'Osservatorio condiviso', 'lettura collettiva dei segnali statistici'],
@@ -483,7 +484,7 @@
         ballsHost.innerHTML = balls.map(function (n, i) {
           return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(n).padStart(2, '0') + '</span>';
         }).join('') + (balls.length ? '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' : '') +
-        '<p class="v8sheet-note">Proposta algoritmica · Non una previsione · Il gioco comporta rischi · 18+</p>';
+        '<p class="v8sheet-note">Proposta algoritmica Â· Non una previsione Â· Il gioco comporta rischi Â· 18+</p>';
       }
       if (chart) chart.innerHTML = v8BuildPerformanceSvg(rows);
       if (perfK) perfK.textContent = (data.performance && data.performance.label) || (rows.length ? 'Performance - ultimi ' + Math.min(40, rows.length) + ' concorsi' : 'Performance storica');
@@ -549,7 +550,7 @@
         '<div class="v8sheet-sest" data-v8sheet-balls>' +
           fallbackBalls.map(function (value, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(value).padStart(2, '0') + '</span>'; }).join('') +
           '<span class="v8sheet-ball j" style="--d:.62s">' + (((fallbackBalls[5] || 1) * 7) % 90 + 1) + '</span>' +
-          '<p class="v8sheet-note">Proposta algoritmica · Non una previsione · Il gioco comporta rischi · 18+</p>' +
+          '<p class="v8sheet-note">Proposta algoritmica Â· Non una previsione Â· Il gioco comporta rischi Â· 18+</p>' +
         '</div>' +
       '</section>' +
       '<section class="v8sheet-sec" id="v8sheet-perf">' +
@@ -566,8 +567,8 @@
         '<div class="v8sheet-prose" data-v8sheet-metodo></div>' +
       '</section>' +
       '<section class="v8sheet-sec v8sheet-actions">' +
-        '<a class="v8sheet-btn primary" href="/pages/algoritmi/">Catalogo algoritmi</a>' +
-        '<a class="v8sheet-btn" href="/pages/ranking/">Confronta ranking</a>' +
+        '<a class="v8sheet-btn primary" href="/pages/algoritmi/">Algoritmi in ranking</a>' +
+        '<a class="v8sheet-btn" href="/pages/algoritmi/">Tutti gli algoritmi</a>' +
         '<a class="v8sheet-btn" href="/pages/storico-estrazioni/">Apri storico</a>' +
       '</section>';
     placeSheetPrevNextAfterHero();
@@ -588,7 +589,7 @@
     var hero = document.createElement('section');
     hero.className = 'v8-page-hero';
     hero.innerHTML =
-      '<div class="v8ph-k">' + lab[0] + ' · SuperEnalotto · Control Chaos</div>' +
+      '<div class="v8ph-k">' + lab[0] + ' Â· SuperEnalotto Â· Control Chaos</div>' +
       '<div class="v8ph-title"><span>' + lab[1] + '</span></div>' +
       '<div class="v8ph-sub">' + lab[2] + '</div>' +
       '<div class="v8ph-line"></div>';
@@ -632,15 +633,15 @@
       var items = [];
       if (last) {
         items.push('Ultima estrazione <b class="o">' + last.date + '</b>');
-        items.push('Numeri <b>' + last.nums.join(' · ') + '</b>');
+        items.push('Numeri <b>' + last.nums.join(' Â· ') + '</b>');
       }
       items.push('Archivio <b class="cy">' + draws.length.toLocaleString('it-IT') + '</b> estrazioni');
-      items.push('Ritardo critico <b class="r">' + worstN + '</b> · ' + worstD + ' concorsi');
+      items.push('Ritardo critico <b class="r">' + worstN + '</b> Â· ' + worstD + ' concorsi');
       if (ranked[0]) items.push('Algoritmo in testa <b class="v">' + (ranked[0].title || ranked[0].id) + '</b>');
-      items.push('Gioca responsabilmente · nessuna promessa di vincita · 18+');
+      items.push('Gioca responsabilmente Â· nessuna promessa di vincita Â· 18+');
       var ticker = document.createElement('div');
       ticker.id = 'v8-global-ticker';
-      var sep = '<span class="sep">◆</span>';
+      var sep = '<span class="sep">â—†</span>';
       var html = items.map(function (x) { return '<span>' + x + '</span>'; }).join(sep) + sep;
       ticker.innerHTML = '<div>' + html + html + '</div>';
       document.body.appendChild(ticker);
@@ -695,7 +696,7 @@
     requestAnimationFrame(frame);
   }
 
-  // ── HERO SCHEDA ALGORITMO (score ring) ──
+  // â”€â”€ HERO SCHEDA ALGORITMO (score ring) â”€â”€
   onBody(function () {
     if ((document.body.getAttribute('data-page-id') || '') !== 'algsheet') return;
     clearStaleSheetTitles();
@@ -745,7 +746,7 @@
         };
         var g = GROUPS[card.macroGroup] || GROUPS.statistica;
 
-        // ranking → percentuale ring
+        // ranking â†’ percentuale ring
         var pos = card.rankingPosition || null;
         var tot = 0;
         cards.forEach(function (c) { if (c.rankingPosition) tot++; });
@@ -798,11 +799,11 @@
         hero.style.setProperty('--ac', g.ac);
         hero.innerHTML =
           '<div>' +
-            '<span class="v8sh-gr">Famiglia ' + g.label + (pos ? ' · Rank #' + String(pos).padStart(2, '0') : '') + '</span>' +
+            '<span class="v8sh-gr">Famiglia ' + g.label + (pos ? ' Â· Rank #' + String(pos).padStart(2, '0') : '') + '</span>' +
             '<div class="v8sh-title">' + (card.title || card.id) + '</div>' +
             (card.subtitle ? '<div class="v8sh-sub">' + card.subtitle + '</div>' : '') +
             '<div class="v8sh-badges">' +
-              (card.isActive ? '<span class="v8sh-b on">● Attivo</span>' : '<span class="v8sh-b">Inattivo</span>') +
+              (card.isActive ? '<span class="v8sh-b on">â— Attivo</span>' : '<span class="v8sh-b">Inattivo</span>') +
               (card.accessTier ? '<span class="v8sh-b">' + card.accessTier + ' tier</span>' : '') +
               (card.lastUpdated ? '<span class="v8sh-b">Agg. ' + card.lastUpdated + '</span>' : '') +
               (sum ? '<span class="v8sh-b">' + sum.toLocaleString('it-IT') + ' concorsi valutati</span>' : '') +
@@ -819,9 +820,9 @@
                 'stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + CIRC.toFixed(1) + '"/>' +
             '</svg>' +
             '<div class="v8sh-mid">' +
-              '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : '—') + '</span>' +
+              '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : 'â€”') + '</span>' +
               '<span class="l">Score complessivo</span>' +
-              (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi · ' + h3p + '× ≥3</span>' : '') +
+              (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi Â· ' + h3p + 'Ã— â‰¥3</span>' : '') +
             '</div>' +
           '</div>' +
           '<svg class="v8sh-spark" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">' +
@@ -843,7 +844,7 @@
         var ringMeta = hero.querySelector('.v8sh-mid .l + .l');
         if (ringMeta) {
           ringMeta.className = 'rk';
-          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (media ? ' · ' + media + ' hit medi' : '');
+          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (media ? ' Â· ' + media + ' hit medi' : '');
         }
         placeSheetPrevNextAfterHero();
         if (!document.querySelector('.v8sheet-body')) {
@@ -861,7 +862,7 @@
               '<div class="v8sheet-sest" data-v8sheet-balls>' +
                 balls.map(function (n, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + n + '</span>'; }).join('') +
                 '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' +
-                '<p class="v8sheet-note">Proposta algoritmica · Non una previsione · Il gioco comporta rischi · 18+</p>' +
+                '<p class="v8sheet-note">Proposta algoritmica Â· Non una previsione Â· Il gioco comporta rischi Â· 18+</p>' +
               '</div>' +
             '</section>' +
             '<section class="v8sheet-sec" id="v8sheet-perf">' +
@@ -894,8 +895,8 @@
               '</div>' +
             '</section>' +
             '<section class="v8sheet-sec v8sheet-actions">' +
-              '<a class="v8sheet-btn primary" href="/pages/algoritmi/">Catalogo algoritmi</a>' +
-              '<a class="v8sheet-btn" href="/pages/ranking/">Confronta ranking</a>' +
+              '<a class="v8sheet-btn primary" href="/pages/algoritmi/">Algoritmi in ranking</a>' +
+              '<a class="v8sheet-btn" href="/pages/algoritmi/">Tutti gli algoritmi</a>' +
               '<a class="v8sheet-btn" href="/pages/storico-estrazioni/">Apri storico</a>' +
             '</section>';
           hero.insertAdjacentElement('afterend', sheet);
@@ -945,7 +946,7 @@
           '<span class="v8sh-gr">Scheda algoritmo</span>' +
           '<div class="v8sh-title">' + title + '</div>' +
           '<div class="v8sh-sub">' + subtitle + '</div>' +
-          '<div class="v8sh-badges"><span class="v8sh-b on">● Attivo</span><span class="v8sh-b">Free tier</span><span class="v8sh-b">Metodo documentato</span></div>' +
+          '<div class="v8sh-badges"><span class="v8sh-b on">â— Attivo</span><span class="v8sh-b">Free tier</span><span class="v8sh-b">Metodo documentato</span></div>' +
         '</div>' +
         '<div class="v8sh-side">' +
           '<div class="v8sh-ring"><svg width="190" height="190" viewBox="0 0 190 190"><defs><linearGradient id="v8shg-late" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs><circle class="bgc" cx="95" cy="95" r="78" fill="none" stroke-width="8"/><circle class="fgc" cx="95" cy="95" r="78" fill="none" stroke-width="8" stroke-dasharray="490" stroke-dashoffset="172"/></svg><div class="v8sh-mid"><span class="v">V8+</span><span class="l">Scheda migrata</span></div></div>' +
@@ -988,7 +989,7 @@
             var rank = card.rankingPosition ? ('#' + String(card.rankingPosition).padStart(2, '0')) : '--';
             var familyEl = hero.querySelector('[data-v8sh-family]');
             var rankEl = hero.querySelector('[data-v8sh-rank]');
-            if (familyEl) familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' · Rank ' + rank : '');
+            if (familyEl) familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' Â· Rank ' + rank : '');
             if (rankEl) rankEl.textContent = rank;
           })
           .catch(function () {});

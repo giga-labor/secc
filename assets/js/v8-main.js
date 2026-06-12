@@ -629,8 +629,7 @@ const PANELS={
           </div>
           <div class="ar-bar"><div class="ar-fill" data-w="${a.w}%" style="width:0"></div></div>
         </div>`).join('')}
-      <a href="pages/algoritmi/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Catalogo completo →</a>
-      <a href="pages/ranking/" style="display:block;margin-top:.4rem;text-align:center;font-size:1.1rem;color:rgba(245,158,11,.45);text-decoration:none;letter-spacing:.1em">Classifica →</a>
+      <a href="pages/algoritmi/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Tutti gli algoritmi in ranking →</a>
     `
   },
   ses:{
@@ -672,7 +671,7 @@ const PANELS={
       <div class="p-sec">Accesso ai dati</div>
       <div class="lf" onclick="window.location='pages/laboratorio-tecnico/'" style="cursor:pointer"><span class="lf-n">F·01</span><span class="lf-t">Laboratorio tecnico</span><span class="lf-a">→</span></div>
       <div class="lf" onclick="window.location='pages/storico-estrazioni/'" style="cursor:pointer"><span class="lf-n">F·02</span><span class="lf-t">Archivio storico estrazioni</span><span class="lf-a">→</span></div>
-      <div class="lf" onclick="window.location='pages/ranking/'" style="cursor:pointer"><span class="lf-n">F·03</span><span class="lf-t">Classifica algoritmi</span><span class="lf-a">→</span></div>
+      <div class="lf" onclick="window.location='pages/algoritmi/'" style="cursor:pointer"><span class="lf-n">F·03</span><span class="lf-t">Algoritmi in ranking</span><span class="lf-a">→</span></div>
       <div class="lf" onclick="window.location='pages/analisi-statistiche/'" style="cursor:pointer"><span class="lf-n">F·04</span><span class="lf-t">Analisi statistiche</span><span class="lf-a">→</span></div>
       <div class="p-sec">Sistema iARGOS</div>
       <div class="sr"><span class="sr-k">Versione</span><span class="sr-v v">${_iargosStatus?.version||'--'}</span></div>

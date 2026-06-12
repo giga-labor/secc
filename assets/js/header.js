@@ -802,7 +802,7 @@ const resolveWithBaseHref = (href, baseUrl = BASE.url) => {
 
 const NAV_STRUCTURE = [
   { id: 'hub', label: 'Hub', items: ['home'] },
-  { id: 'operativo', label: 'Operativo', items: ['sestine', 'ranking', 'laboratorio'] },
+  { id: 'operativo', label: 'Operativo', items: ['sestine', 'laboratorio'] },
   { id: 'analisi', label: 'Analisi', items: ['algoritmi', 'storico', 'consenso', 'concorso'] },
   { id: 'community', label: 'Community', items: ['community', 'oracle'] },
   { id: 'policy', label: 'Policy', items: ['policy_consenso'] }
@@ -811,7 +811,7 @@ const NAV_STRUCTURE = [
 const NAV_ITEMS = {
   home: { label: 'Home', href: 'index.html#home' },
   sestine: { label: 'Sestine', href: 'pages/sestine-proposte/index.html' },
-  ranking: { label: 'Classifica', href: 'pages/ranking/index.html' },
+  ranking: { label: 'Algoritmi', href: 'pages/algoritmi/index.html' },
   laboratorio: { label: 'Laboratorio', href: 'pages/laboratorio-tecnico/index.html' },
   algoritmi: { label: 'Algoritmi', href: 'pages/algoritmi/index.html' },
   storico: { label: 'Storico', href: 'pages/storico-estrazioni/index.html' },
@@ -826,7 +826,7 @@ const isNavKeyActive = (key) => {
   const path = (window.location.pathname || '').replace(/\\/g, '/').replace(/\/index\.html$/, '/').toLowerCase();
   if (key === 'home') return path === '/' || (path.endsWith('/index.html') && !path.includes('/pages/'));
   if (key === 'sestine') return path.includes('/pages/sestine-proposte/');
-  if (key === 'ranking') return path.includes('/pages/ranking/');
+  if (key === 'ranking') return path.includes('/pages/algoritmi/') || path.includes('/pages/ranking/');
   if (key === 'laboratorio') return path.includes('/pages/laboratorio-tecnico/');
   if (key === 'algoritmi') return path.includes('/pages/algoritmi/');
   if (key === 'storico') return path.includes('/pages/storico-estrazioni/');
@@ -978,7 +978,7 @@ const getPageKickerLabel = () => {
   if (path === '/' || path.endsWith('/index.html') && !path.includes('/pages/')) return 'HOME';
   if (path.includes('/pages/storico-estrazioni')) return 'ARCHIVIO STORICO';
   if (path.includes('/pages/laboratorio-tecnico')) return 'LABORATORIO TECNICO';
-  if (path.includes('/pages/ranking')) return 'CLASSIFICA';
+  if (path.includes('/pages/ranking')) return 'ALGORITMI';
   if (path.includes('/pages/consenso')) return 'CONSENSO NUMERICO';
   if (path.includes('/pages/concorso')) return 'CONCORSO';
   if (path.includes('/pages/community')) return 'COMMUNITY';
@@ -2282,7 +2282,6 @@ document.addEventListener('click', (event) => {
   if (supportsCrossDocumentTransitions()) return;
   markPageNavigating();
 });
-
 
 
 

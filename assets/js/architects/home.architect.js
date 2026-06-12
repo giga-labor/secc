@@ -772,7 +772,7 @@
       if (!host) return;
       const summary = data?.home_summary || null;
       const methodHref = escapeHtml(ctx.resolveWithBase('pages/laboratorio-tecnico/?tab=lab-iargos'));
-      const rankingHref = escapeHtml(ctx.resolveWithBase('pages/ranking/'));
+      const rankingHref = escapeHtml(ctx.resolveWithBase('pages/algoritmi/'));
       const consensoHref = escapeHtml(ctx.resolveWithBase('pages/consenso/'));
 
       // ── Ultimo concorso ──
@@ -824,7 +824,7 @@
           ${consensusHtml}
           <div class="cc-home-live__ai-banner">
             ${rankHtml}
-            <a class="cc-home-live__link" href="${rankingHref}">Classifica completa</a>
+            <a class="cc-home-live__link" href="${rankingHref}">Algoritmi in ranking</a>
             <a class="cc-home-live__link" href="${methodHref}">iARGOS</a>
           </div>
         </div>
