@@ -35,8 +35,8 @@
 
 html[data-ad-rail="right"] .ad-rail--right::before {
   content: "";
-  position: fixed;
-  left: calc(100vw - var(--ad-reserve-right, 0px));
+  position: absolute;
+  left: 0;
   top: 0;
   bottom: 0;
   width: 14px;
@@ -54,8 +54,8 @@ html[data-ad-rail="right"] .ad-rail--right::before {
 
 html[data-ad-rail="right"] .ad-rail--right::after {
   content: "";
-  position: fixed;
-  left: calc(100vw - var(--ad-reserve-right, 0px));
+  position: absolute;
+  left: 0;
   top: clamp(96px, 18vh, 180px);
   width: 4px;
   height: clamp(72px, 18vh, 160px);
