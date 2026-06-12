@@ -277,7 +277,7 @@
       var l = document.createElement('link');
       l.id = 'v8skin-css';
       l.rel = 'stylesheet';
-      l.href = '/assets/css/v8skin.css';
+      l.href = '/assets/css/v8skin.css?v=20260613-0138';
       document.head.appendChild(l);
     }
     injectRailSafeLayout();

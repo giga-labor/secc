@@ -152,7 +152,8 @@
   }
 }
 @media(prefers-reduced-motion:reduce){
-  #v8-global-ticker>div,.v8g-chip{animation:none}
+  #v8-global-ticker>div{animation:v8ticker 120s linear infinite}
+  .v8g-chip{animation:none}
   #v8-sky{display:none}
 }
 

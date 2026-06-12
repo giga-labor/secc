@@ -758,7 +758,7 @@ body::after { display: none; }
 #bb-msg.v8tk .v8tk-in .cy{color:#6EE7FF;}
 #bb-msg.v8tk .v8tk-in .sep{color:rgba(200,57,26,.5);}
 @keyframes v8tk{to{transform:translateX(-100%);}}
-@media (prefers-reduced-motion:reduce){#bb-msg.v8tk .v8tk-in{animation:none;padding-left:0;}}
+@media (prefers-reduced-motion:reduce){#bb-msg.v8tk .v8tk-in{animation:v8tk 120s linear infinite;padding-left:100%;}}
 
 /* ── COUNTDOWN A SEGMENTI (v8plus-home) ── */
 .tb-cd-wrap.v8cd-on .tb-cd{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
