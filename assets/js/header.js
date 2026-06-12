@@ -2227,8 +2227,14 @@ if (document.readyState === 'loading') {
   applyStructuredPageHubNavigation();
 }
 
+const getMainScroller = () => {
+  const sc = window.CC_SCROLLER;
+  return (sc && document.documentElement.dataset.adRail === 'right') ? sc : null;
+};
+
 const smoothScrollToTop = (duration = 600) => {
-  const start = window.scrollY || window.pageYOffset;
+  const scroller = getMainScroller();
+  const start = scroller ? scroller.scrollTop : (window.scrollY || window.pageYOffset);
   if (start <= 0) return;
   const startTime = performance.now();
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
@@ -2237,13 +2243,47 @@ const smoothScrollToTop = (duration = 600) => {
     const t = Math.min(elapsed / duration, 1);
     const eased = easeOutCubic(t);
     const nextY = Math.round(start * (1 - eased));
-    window.scrollTo(0, nextY);
+    if (scroller) scroller.scrollTop = nextY;
+    else window.scrollTo(0, nextY);
     if (t < 1) {
       window.requestAnimationFrame(step);
     }
   };
   window.requestAnimationFrame(step);
 };
+
+/* Pulsante flottante "torna su": appare su qualunque pagina/elenco lungo */
+const ensureBackToTopButton = () => {
+  if (document.getElementById('cc-back-top')) return;
+  const btn = document.createElement('button');
+  btn.id = 'cc-back-top';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Torna in cima');
+  btn.innerHTML = '&#8593;';
+  btn.style.cssText =
+    'position:fixed;bottom:calc(1.2rem + var(--ad-reserve-bottom,0px));' +
+    'right:calc(1.2rem + var(--ad-reserve-right,0px));z-index:10010;' +
+    'width:44px;height:44px;border-radius:50%;border:1px solid rgba(237,232,223,.25);' +
+    'background:rgba(8,4,18,.85);color:#EDE8DF;font-size:1.15rem;cursor:pointer;' +
+    'opacity:0;visibility:hidden;transform:translateY(8px);' +
+    'transition:opacity .25s,visibility .25s,transform .25s;backdrop-filter:blur(6px);';
+  btn.addEventListener('click', () => smoothScrollToTop());
+  document.body.appendChild(btn);
+
+  const update = () => {
+    const scroller = getMainScroller();
+    const y = scroller ? scroller.scrollTop : (window.scrollY || document.documentElement.scrollTop || 0);
+    const show = y > 600;
+    btn.style.opacity = show ? '1' : '0';
+    btn.style.visibility = show ? 'visible' : 'hidden';
+    btn.style.transform = show ? 'translateY(0)' : 'translateY(8px)';
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+};
+if (document.body) ensureBackToTopButton();
+else document.addEventListener('DOMContentLoaded', ensureBackToTopButton);
 
 document.querySelectorAll('[data-scroll-top]').forEach((button) => {
   button.addEventListener('click', (event) => {
