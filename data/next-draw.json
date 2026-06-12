@@ -1,16 +1,16 @@
 {
   "next_seq": 4212,
-  "next_date": "12/06/2026",
-  "next_date_iso": "2026-06-12",
-  "next_datetime_iso": "2026-06-12T20:00:00",
-  "next_weekday": "Venerdi",
+  "next_date": "13/06/2026",
+  "next_date_iso": "2026-06-13",
+  "next_datetime_iso": "2026-06-13T20:00:00",
+  "next_weekday": "Sabato",
   "next_time": "20:00",
   "last_seq": 4211,
-  "last_date": "11/06/2026",
+  "last_date": "12/06/2026",
   "source": "online",
   "jackpot_str": "178.100.000",
   "jackpot_eur": "€ 178.100.000",
   "jackpot_raw": 178100000,
   "jackpot_source": "superenalotto_com",
-  "updated_at": "2026-06-12 20:00:04"
+  "updated_at": "2026-06-12 20:58:24"
 }
