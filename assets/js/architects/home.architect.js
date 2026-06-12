@@ -149,7 +149,7 @@
 
       const variants = [
         { key: 'sestine', label: 'Vedi Sestine di oggi', href: 'pages/sestine-proposte/', aria: 'Apri le sestine del giorno' },
-        { key: 'ranking', label: 'Apri Classifica algoritmi', href: 'pages/ranking/', aria: 'Apri la classifica degli algoritmi attivi' }
+        { key: 'ranking', label: 'Apri Algoritmi in ranking', href: 'pages/algoritmi/', aria: 'Apri gli algoritmi ordinati per ranking' }
       ];
       const storageKey = 'cc-home-cta-variant-v1';
       let variantKey = '';
