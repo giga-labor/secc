@@ -108,7 +108,7 @@
               '</div>' +
               '<div>' +
                 '<div class="v8x-focus" id="v8x-focus"></div>' +
-                '<div class="v8x-k" style="margin:1.3rem 0 .2rem">Ritardi critici</div>' +
+                '<div class="v8x-k" id="v8x-side-title" style="margin:1.3rem 0 .2rem">Numeri piu frequenti</div>' +
                 '<div class="v8x-rit" id="v8x-rit"></div>' +
                 '<div class="v8x-k" style="margin:1.3rem 0 .4rem">Ultima estrazione · ' + last.date + '</div>' +
                 '<div style="font-family:\'DM Mono\',monospace;font-size:.9rem;letter-spacing:.18em;color:#EDE8DF">' + last.nums.join(' · ') + '</div>' +
@@ -145,6 +145,20 @@
           document.getElementById('v8x-hi').textContent = mode === 'F' ? 'Frequente' : 'Ritardo critico';
         }
 
+        function renderSideSummary() {
+          var top = [];
+          for (var n = 1; n <= 90; n++) top.push([n, mode === 'F' ? freq[n] : delay[n]]);
+          top.sort(function (a, b) { return b[1] - a[1]; });
+          var maxValue = Math.max(1, top[0] ? top[0][1] : 1);
+          var title = document.getElementById('v8x-side-title');
+          if (title) title.textContent = mode === 'F' ? 'Numeri piu frequenti' : 'Ritardi critici';
+          document.getElementById('v8x-rit').innerHTML = top.slice(0, 5).map(function (x) {
+            return '<div class="v8x-rr"><span class="nn">' + x[0] + '</span>' +
+              '<div class="bar"><i style="--w:' + Math.round(x[1] / maxValue * 100) + '%"></i></div>' +
+              '<b>' + (mode === 'F' ? x[1] + ' uscite' : x[1] + ' conc.') + '</b></div>';
+          }).join('');
+        }
+
         function focus() {
           var m = mate(sel);
           var ys = years[sel] || {};
@@ -171,30 +185,20 @@
           var t = e.target.closest('.v8x-n');
           if (!t) return;
           sel = +t.getAttribute('data-n');
-          focus(); paint();
+          focus(); paint(); renderSideSummary();
         });
         document.getElementById('v8x-mf').addEventListener('click', function () {
           mode = 'F'; this.classList.add('on');
           var r = document.getElementById('v8x-mr'); r.classList.remove('on', 'rit');
-          paint();
+          paint(); focus(); renderSideSummary();
         });
         document.getElementById('v8x-mr').addEventListener('click', function () {
           mode = 'R'; this.classList.add('on', 'rit');
           document.getElementById('v8x-mf').classList.remove('on');
-          paint();
+          paint(); focus(); renderSideSummary();
         });
 
-        // top 5 ritardi
-        var top = [];
-        for (n = 1; n <= 90; n++) top.push([n, delay[n]]);
-        top.sort(function (a, b) { return b[1] - a[1]; });
-        document.getElementById('v8x-rit').innerHTML = top.slice(0, 5).map(function (x) {
-          return '<div class="v8x-rr"><span class="nn">' + x[0] + '</span>' +
-            '<div class="bar"><i style="--w:' + Math.round(x[1] / top[0][1] * 100) + '%"></i></div>' +
-            '<b>' + x[1] + ' conc.</b></div>';
-        }).join('');
-
-        paint(); focus();
+        paint(); focus(); renderSideSummary();
       })
       .catch(function () { /* explorer opzionale */ });
   }
