@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12 17:23:06",
+  "generated_at": "2026-06-12 20:23:38",
   "ok": true,
   "active_algorithms": 15,
   "ranking_rows": 15,
@@ -19,12 +19,12 @@
     "data/jackpot.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-11 21:23:30"
+      "generated_at": "2026-06-12 17:48:09"
     },
     "data/next-draw.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-11 21:25:34"
+      "generated_at": "2026-06-12 20:00:04"
     },
     "data/numeri-stats.json": {
       "exists": true,
@@ -34,37 +34,37 @@
     "data/iargos-public-status.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-11 21:35:01"
+      "generated_at": "2026-06-12 20:23:17"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 17:23:05"
+      "generated_at": "2026-06-12 20:23:37"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 17:23:06"
+      "generated_at": "2026-06-12 20:23:38"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12 17:23:05"
+      "generated_at": "2026-06-12 20:23:37"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T17:23:06"
+      "generated_at": "2026-06-12T20:23:38"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T17:23:06"
+      "generated_at": "2026-06-12T20:23:38"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-12T17:23:06"
+      "generated_at": "2026-06-12T20:23:38"
     }
   },
   "errors": [],

@@ -523,33 +523,25 @@
     }
   },
   {
-    "macroGroup": "storico",
-    "id": "storico-estrazioni",
-    "title": "Estrazione del:",
-    "subtitle": "$D",
-    "showSubtitle": true,
-    "image": "img.webp",
-    "mediaScale": 1.08,
-    "lastUpdated": "02/02/2026",
+    "id": "sestine-proposte-info",
+    "title": "Sestine Proposte",
+    "subtitle": "Apri subito le proposte ordinate",
+    "statusTag": "Proposte",
+    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
+    "macroGroup": "info",
+    "page": "pages/sestine-proposte/index.html",
+    "image": "img/statistic.webp",
+    "lastUpdated": "15/03/2026",
     "hasNews": true,
-    "statusTag": "Archivio",
-    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
-    "page": "pages/storico-estrazioni/index.html",
-    "type": "ARCHIVI",
-    "features": [
-      "draws-latest"
-    ],
     "isActive": true,
     "no_data_show": false,
-    "accessTier": "off",
+    "accessTier": "free",
+    "type": "INFO",
     "view": true,
     "hits": {
       "enabled": false,
       "count": 0
     },
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/storico-estrazioni/",
-    "imageVersion": 1771969284
+    "cardBase": "pages/sestine-proposte/"
   }
 ]
