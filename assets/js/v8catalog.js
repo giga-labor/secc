@@ -32,22 +32,19 @@
     return { media: sum ? (weighted / sum) : null, h3p: h3p, sum: sum };
   }
 
-  /* mini bar-chart della distribuzione hit 1..4 */
-  function hitBars(card) {
+  /* conteggi reali della distribuzione hit: concorsi con almeno k numeri indovinati */
+  function hitCounts(card) {
     var hits = card.exactHits || {};
-    var ks = [1, 2, 3, 4];
-    var max = 1;
-    ks.forEach(function (k) { max = Math.max(max, +hits[k] || 0); });
-    var bars = ks.map(function (k, i) {
-      var v = +hits[k] || 0;
-      var h = Math.max(2, Math.round(v / max * 34));
-      return '<rect x="' + (i * 26 + 4) + '" y="' + (38 - h) + '" width="16" height="' + h +
-        '" rx="2" fill="var(--ac)" opacity="' + (0.35 + i * 0.18) + '"/>' +
-        '<text x="' + (i * 26 + 12) + '" y="48" text-anchor="middle" font-size="7" ' +
-        'fill="rgba(237,232,223,.3)" font-family="DM Mono,monospace">' + k + '+</text>';
+    var cum = [0, 0, 0, 0, 0]; // indice = soglia k (1..4)
+    Object.keys(hits).forEach(function (key) {
+      var n = parseInt(key, 10), v = +hits[key] || 0;
+      if (isNaN(n)) return;
+      for (var k = 1; k <= 4; k++) if (n >= k) cum[k] += v;
+    });
+    var cells = [1, 2, 3, 4].map(function (k) {
+      return '<div class="m"><b>' + cum[k].toLocaleString('it-IT') + '</b><span>' + k + '+ hit</span></div>';
     }).join('');
-    return '<svg viewBox="0 0 108 50" style="width:100%;height:46px;margin:.8rem 0 .1rem" ' +
-      'preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + bars + '</svg>';
+    return '<div class="meta v8card-hits" style="margin:.8rem 0 .1rem">' + cells + '</div>';
   }
 
   function init() {
@@ -115,7 +112,7 @@
               '<span class="gr">' + (GROUPS[grp] ? GROUPS[grp].one : grp) + '</span>' +
               '<div class="tt">' + (a.title || a.id) + '</div>' +
               '<div class="sb">' + (a.subtitle || '') + '</div>' +
-              hitBars(a) +
+              hitCounts(a) +
               '<div class="meta">' +
                 '<div class="m"><b>' + fmtValue(a.rankingValue) + '</b><span>Score</span></div>' +
                 '<div class="m"><b>' + (st.media != null ? st.media.toFixed(2) : '—') + '</b><span>Hit medi</span></div>' +
