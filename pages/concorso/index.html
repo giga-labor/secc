@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -43,7 +43,7 @@
   <script src="../../assets/js/tailwind-config.js" defer></script>
   <link rel="stylesheet" href="../../assets/css/main.css">
   <style>
-    /* ── Pagina Concorso ────────────────────────────────── */
+    /* â”€â”€ Pagina Concorso â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .cc-concorso-hero {
       padding: 2.5rem 0 1.5rem;
       text-align: center;
@@ -239,7 +239,7 @@
       margin-top: .2rem;
     }
   </style>
-  <script src="../../assets/js/v8-inner-chrome.js" defer></script>
+  <script src="../../assets/js/v8-inner-chrome.js?v=20260613-0138" defer></script>
 </head>
 <body class="bg-midnight text-white" data-page-id="concorso">
 
@@ -271,7 +271,7 @@
       </div>
       <div class="cc-concorso-kpi">
         <div class="cc-concorso-kpi__value" id="kpi-pct">--%</div>
-        <div class="cc-concorso-kpi__label">Hit rate ≥ 1</div>
+        <div class="cc-concorso-kpi__label">Hit rate â‰¥ 1</div>
       </div>
     </div>
 
@@ -279,8 +279,8 @@
     <div class="cc-concorso-note">
       <strong>Come si legge questa pagina.</strong>
       Per ogni algoritmo attivo vengono confrontati i 6 numeri proposti per questo concorso con i 6 numeri effettivamente estratti.
-      Un "hit" è un numero proposto che coincide con un numero estratto.
-      SuperEnalotto ha probabilità di 6/90 per numero: <strong>0-1 hit per concorso è l'esito statisticamente normale</strong>.
+      Un "hit" Ã¨ un numero proposto che coincide con un numero estratto.
+      SuperEnalotto ha probabilitÃ  di 6/90 per numero: <strong>0-1 hit per concorso Ã¨ l'esito statisticamente normale</strong>.
       Questi dati non costituiscono previsione e non garantiscono vincite future.
     </div>
 
@@ -358,7 +358,7 @@
       return nums.map(function (n) {
         var isHit = hitSet.has(n);
         var cls = 'cc-mini-ball' + (isHit ? ' cc-mini-ball--hit' : '');
-        return '<span class="' + cls + '" title="' + n + (isHit ? ' ✓ HIT' : '') + '">' + padNum(n) + '</span>';
+        return '<span class="' + cls + '" title="' + n + (isHit ? ' âœ“ HIT' : '') + '">' + padNum(n) + '</span>';
       }).join('');
     }
 
@@ -369,7 +369,7 @@
     }
 
     function resolveBase() {
-      // Dalla posizione pages/concorso/ &rarr; root è ../../
+      // Dalla posizione pages/concorso/ &rarr; root Ã¨ ../../
       var base = '../../';
       // Se caricato localmente o da subpath diverso, adatta
       try {
@@ -400,7 +400,7 @@
         return;
       }
 
-      // ── Ultimo concorso ──
+      // â”€â”€ Ultimo concorso â”€â”€
       var draw = (summary && summary.latest_draw) || null;
       var drawSeq  = draw ? draw.seq  : '-';
       var drawDate = draw ? draw.date  : '-';
@@ -421,7 +421,7 @@
         ballsEl.innerHTML = '<span style="color:rgba(237,232,223,.4)">Dati non disponibili</span>';
       }
 
-      // ── Matchup algoritmi ──
+      // â”€â”€ Matchup algoritmi â”€â”€
       var algorithms = (algorithmsData && Array.isArray(algorithmsData.algorithms)) ? algorithmsData.algorithms : [];
       var generatedAt = algorithmsData && algorithmsData.generated_at ? algorithmsData.generated_at : '';
 
@@ -438,7 +438,7 @@
         };
       });
 
-      // Ordina: più hit prima, poi per titolo
+      // Ordina: piÃ¹ hit prima, poi per titolo
       rows.sort(function (a, b) {
         return (b.hitCount - a.hitCount) || a.title.localeCompare(b.title);
       });

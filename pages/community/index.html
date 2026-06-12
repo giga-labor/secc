@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -74,7 +74,7 @@
   }
   </script>
 <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
-<script src="../../assets/js/v8-inner-chrome.js" defer></script>
+<script src="../../assets/js/v8-inner-chrome.js?v=20260613-0138" defer></script>
 </head>
 <body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" id="top" data-page-id="community" data-style-lock="final">
   <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
@@ -82,7 +82,7 @@
     <div class="content-box">
       <header class="mt-6 space-y-3" data-page-kicker-wrap>
         <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Community</span>
-        <h2 class="text-white text-xl font-semibold">Attività del progetto</h2>
+        <h2 class="text-white text-xl font-semibold">AttivitÃ  del progetto</h2>
         <p class="text-ash">Feed operativo del progetto SECC: algoritmi attivi, leaderboard e stato dei moduli.</p>
         <p class="text-xs text-ash/60" id="community-ts" style="display:none">Dati aggiornati il <strong id="community-ts-value"></strong></p>
       </header>
@@ -158,11 +158,11 @@
         </div>
       </section>
 
-      <!-- Diario operativo iARGOS: feed attività sistema -->
+      <!-- Diario operativo iARGOS: feed attivitÃ  sistema -->
       <section class="cc-home-block mt-6" data-reveal="fade-up" id="diario-iargos">
         <header class="cc-home-block__head">
           <p class="text-xs uppercase tracking-[0.2em] text-ash">Diario operativo</p>
-          <h3 class="text-white">Attività iARGOS</h3>
+          <h3 class="text-white">AttivitÃ  iARGOS</h3>
         </header>
         <div class="cc-home-block__body">
           <ul class="space-y-2" id="diario-list">
@@ -250,7 +250,7 @@
       return String(d).replace(/^\[AUTONOMOUS\]\s*/i,'').replace(/^\[iARGOS[^\]]*\]\s*/i,'').replace(/^'[a-z_]+'[\s:]+/i,'').slice(0,120).trim();
     }
     function renderEntry(entry, idx) {
-      var icon = entry.ok === false ? '⚠️' : (entry.type === 'draw' ? '📥' : entry.type === 'snapshot' ? '📊' : entry.type === 'deploy' ? '✅' : entry.type === 'training' ? '🧠' : entry.type === 'alert' ? '⚠️' : '🔄');
+      var icon = entry.ok === false ? 'âš ï¸' : (entry.type === 'draw' ? 'ðŸ“¥' : entry.type === 'snapshot' ? 'ðŸ“Š' : entry.type === 'deploy' ? 'âœ…' : entry.type === 'training' ? 'ðŸ§ ' : entry.type === 'alert' ? 'âš ï¸' : 'ðŸ”„');
       var color = entry.ok === false ? 'text-amber-400' : 'text-neon/70';
       var detail = cleanDetail(entry.detail || entry.source || '');
       return '<li class="flex items-start gap-3 rounded-xl border border-white/8 bg-midnight/50 px-3 py-2">'
@@ -282,7 +282,7 @@
         }
         // Costruisci entries dallo stato iARGOS
         if (!entries.length && status.last_run_at) entries.push({ type: 'snapshot', message: 'Pipeline completata', detail: 'Tutti gli snapshot algoritmi aggiornati', ts: status.last_run_at, ok: true });
-        if (status.last_draw_imported) entries.push({ type: 'draw', message: 'Nuova estrazione importata', detail: 'Concorso #' + (status.last_draw_seq || '?') + ' · ' + (status.last_draw_date || ''), ts: status.last_run_at, ok: true });
+        if (status.last_draw_imported) entries.push({ type: 'draw', message: 'Nuova estrazione importata', detail: 'Concorso #' + (status.last_draw_seq || '?') + ' Â· ' + (status.last_draw_date || ''), ts: status.last_run_at, ok: true });
         if (!entries.length && Array.isArray(status.recent_tasks)) {
           status.recent_tasks.slice(0,6).forEach(function(t) {
             entries.push({ type: t.type || 'task', message: t.title || t.type, detail: t.details || '', ts: t.ts || t.created_at, ok: t.ok !== false });
