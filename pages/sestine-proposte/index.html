@@ -397,28 +397,4 @@
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
 </body>
 </html>
-          btn.addEventListener('click', () => {
-            document.querySelectorAll('[data-filter-group]').forEach(b => b.classList.remove('cc-prop-pill--active'));
-            btn.classList.add('cc-prop-pill--active');
-            const group = btn.dataset.filterGroup;
-            document.querySelectorAll('[data-proposal-group]').forEach(row => {
-              row.style.display = (group === 'tutti' || row.dataset.proposalGroup === group) ? '' : 'none';
-            });
-          });
-        });
-      };
-
-      window.addEventListener('load', () => {
-        window.setTimeout(() => {
-          render().catch(() => {});
-          renderNextDrawBanner().catch(() => {});
-        }, 60);
-      });
-    })();
-  </script>
-  <script src="../../assets/js/runtime-bootstrap.js" defer></script>
-  <script src="../../assets/js/ads.js" defer></script>
-  <script src="../../assets/js/lazy-bootstrap.js" defer></script>
-</body>
-</html>
 
