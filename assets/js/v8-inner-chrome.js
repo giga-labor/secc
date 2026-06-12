@@ -144,6 +144,49 @@
     else { document.addEventListener('DOMContentLoaded', fn); }
   }
 
+  function ensureV8SheetProgress() {
+    if (document.getElementById('v8sheet-prog')) return;
+    var prog = document.createElement('div');
+    prog.id = 'v8sheet-prog';
+    prog.setAttribute('aria-hidden', 'true');
+    document.body.prepend(prog);
+    var tick = function () {
+      var h = Math.max(1, document.body.scrollHeight - window.innerHeight);
+      prog.style.width = Math.max(0, Math.min(100, (window.scrollY / h) * 100)) + '%';
+    };
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick, { passive: true });
+    tick();
+  }
+
+  function setupV8SheetInteractions(root) {
+    ensureV8SheetProgress();
+    var scope = root || document;
+    var sections = Array.prototype.slice.call(scope.querySelectorAll('.v8sheet-sec'));
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach(function (section) { section.classList.add('vis'); });
+      return;
+    }
+    var reveal = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) entry.target.classList.add('vis');
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(function (section) { reveal.observe(section); });
+    var links = Array.prototype.slice.call(document.querySelectorAll('.v8sheet-subnav a'));
+    var active = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          link.classList.toggle('on', link.hash === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(function (section) {
+      if (section.id) active.observe(section);
+    });
+  }
+
   function injectRailSafeLayout() {
     if (document.getElementById('v8-rail-safe-layout')) return;
     var st = document.createElement('style');
@@ -425,7 +468,7 @@
         ballsHost.innerHTML = balls.map(function (n, i) {
           return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(n).padStart(2, '0') + '</span>';
         }).join('') + (balls.length ? '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' : '') +
-        '<p>Proposta algoritmica da output statico del modulo. Non e una previsione, non garantisce esiti, 18+.</p>';
+        '<p class="v8sheet-note">Proposta algoritmica · Non una previsione · Il gioco comporta rischi · 18+</p>';
       }
       if (chart) chart.innerHTML = v8BuildPerformanceSvg(rows);
       if (perfK) perfK.textContent = (data.performance && data.performance.label) || (rows.length ? 'Performance - ultimi ' + Math.min(40, rows.length) + ' concorsi' : 'Performance storica');
@@ -481,7 +524,7 @@
     sheet.className = 'v8sheet-body';
     sheet.innerHTML =
       '<nav class="v8sheet-subnav" aria-label="Navigazione scheda">' +
-        '<a href="#v8sheet-sestina">Sestina</a>' +
+        '<a href="#v8sheet-sestina" class="on">Sestina</a>' +
         '<a href="#v8sheet-perf">Performance</a>' +
         '<a href="#v8sheet-metriche">Metriche</a>' +
         '<a href="#v8sheet-metodo">Metodo</a>' +
@@ -490,7 +533,8 @@
         '<div class="v8sheet-k">Proposta algoritmica</div>' +
         '<div class="v8sheet-sest" data-v8sheet-balls>' +
           fallbackBalls.map(function (value, i) { return '<span class="v8sheet-ball" style="--d:' + (0.08 + i * 0.08) + 's">' + String(value).padStart(2, '0') + '</span>'; }).join('') +
-          '<p>Proposta algoritmica da output statico del modulo. Non e una previsione, non garantisce esiti, 18+.</p>' +
+          '<span class="v8sheet-ball j" style="--d:.62s">' + (((fallbackBalls[5] || 1) * 7) % 90 + 1) + '</span>' +
+          '<p class="v8sheet-note">Proposta algoritmica · Non una previsione · Il gioco comporta rischi · 18+</p>' +
         '</div>' +
       '</section>' +
       '<section class="v8sheet-sec" id="v8sheet-perf">' +
@@ -516,6 +560,7 @@
     if (nav && nav.parentNode) nav.insertAdjacentElement('afterend', sheet);
     else hero.insertAdjacentElement('afterend', sheet);
     hydrateV8SheetData(sheet, card || { page: window.location.pathname }, fallbackBalls, { signal: 50, coverage: 50, media: null });
+    setupV8SheetInteractions(sheet);
   }
 
   function injectPageHero() {
