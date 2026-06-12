@@ -529,7 +529,9 @@
   /* ── Storico completo concorso per concorso con hit evidenziati (stile legacy) ── */
   function hydrateV8SheetHistory(sheet) {
     if (!sheet || sheet.querySelector('#v8sheet-storico')) return;
-    fetch('out/historical-db.csv', { cache: 'no-store' })
+    var base = String(window.location.pathname || '').replace(/index\.html$/i, '');
+    if (base.slice(-1) !== '/') base += '/';
+    fetch(base + 'out/historical-db.csv', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.text() : null; })
       .then(function (text) {
         if (!text) return;
