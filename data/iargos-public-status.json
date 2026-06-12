@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-12 20:35:53",
+  "updated_at": "2026-06-12 20:36:57",
   "version": "02.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -24,8 +24,8 @@
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": true,
-    "remote_ahead": 0,
+    "git_dirty": false,
+    "remote_ahead": 1,
     "remote_behind": 0,
     "alignment_diff_count": 22,
     "active_algorithms_count": 15,
@@ -197,14 +197,6 @@
       "source": "versioning-audit"
     },
     {
-      "type": "draw",
-      "ts": "2026-06-04T21:11:27",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
       "type": "versioning",
       "ts": "2026-05-26T17:44:41",
       "message": "Nuova versione del sito pubblicata (00.12.000 -> 00.13.000)",
@@ -281,6 +273,14 @@
       "ts": "2026-03-10T00:51:56",
       "message": "Nuova versione del sito pubblicata (00.07.006 -> 00.08.000)",
       "detail": "469 file sincronizzati tra mirror e sito pubblico",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-25T03:26:52",
+      "message": "Nuova versione del sito pubblicata (00.06.028 -> 00.07.000)",
+      "detail": "504 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     }

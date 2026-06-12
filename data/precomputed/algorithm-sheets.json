@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12 20:35:47",
+  "generated_at": "2026-06-12 20:37:14",
   "count": 15,
   "sheets": {
     "astra-moon": {
@@ -1309,7 +1309,7 @@
         "ranking_stability_pct": 40,
         "avg_hits": "0.42",
         "hit_rate_gte_2": "5.5%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.3950",
         "std_hit": "0.6039"
       },
@@ -2630,7 +2630,7 @@
         "ranking_stability_pct": 96,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.6%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.4%",
         "last_200_avg": "0.4250",
         "std_hit": "0.6086"
       },
@@ -3951,7 +3951,7 @@
         "ranking_stability_pct": 80,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.1%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.4250",
         "std_hit": "0.5963"
       },
@@ -5272,7 +5272,7 @@
         "ranking_stability_pct": 67,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.8%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.4%",
         "last_200_avg": "0.4350",
         "std_hit": "0.5940"
       },
@@ -6593,7 +6593,7 @@
         "ranking_stability_pct": 10,
         "avg_hits": "0.38",
         "hit_rate_gte_2": "4.7%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.1%",
         "last_200_avg": "0.3450",
         "std_hit": "0.5786"
       },
@@ -7914,7 +7914,7 @@
         "ranking_stability_pct": 53,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.8%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.4%",
         "last_200_avg": "0.3650",
         "std_hit": "0.5901"
       },
@@ -9235,7 +9235,7 @@
         "ranking_stability_pct": 33,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "5.1%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.4050",
         "std_hit": "0.5934"
       },
@@ -10556,7 +10556,7 @@
         "ranking_stability_pct": 47,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.2%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.4700",
         "std_hit": "0.5988"
       },
@@ -11877,7 +11877,7 @@
         "ranking_stability_pct": 93,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.2%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.4%",
         "last_200_avg": "0.4050",
         "std_hit": "0.6002"
       },
@@ -13198,7 +13198,7 @@
         "ranking_stability_pct": 13,
         "avg_hits": "0.38",
         "hit_rate_gte_2": "4.7%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.4150",
         "std_hit": "0.5827"
       },
@@ -14519,7 +14519,7 @@
         "ranking_stability_pct": 27,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.8%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.3800",
         "std_hit": "0.5895"
       },
@@ -17161,7 +17161,7 @@
         "ranking_stability_pct": 60,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.4%",
-        "hit_rate_gte_3": "",
+        "hit_rate_gte_3": "0.4%",
         "last_200_avg": "0.3650",
         "std_hit": "0.6032"
       },
