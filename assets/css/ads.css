@@ -1200,3 +1200,24 @@ html[data-ad-rail="bottom"] .mx-auto.max-w-5xl {
     font-size: 0.62rem;
   }
 }
+
+/* ════════════════════════════════════════════════════════════
+   Wide layout: il contenuto scorre in un proprio contenitore.
+   La scrollbar verticale appare tra il contenuto e l'ad rail
+   e il contenuto non finisce mai sotto il banner ads.
+   ════════════════════════════════════════════════════════════ */
+html[data-ad-rail="right"],
+html[data-ad-rail="right"] body {
+  height: 100vh;
+  overflow: hidden !important;
+}
+
+html[data-ad-rail="right"] main.content-width,
+html[data-ad-rail="right"] main.content-fade {
+  height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  box-sizing: border-box !important;
+}
