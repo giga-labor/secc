@@ -177,6 +177,39 @@
   'use strict';
   if (window.__V8SKIN__) return;
   window.__V8SKIN__ = true;
+  var V8_SKIN_SCRIPT_URL = document.currentScript && document.currentScript.src ? document.currentScript.src : '';
+
+  function v8AssetUrl(path) {
+    var clean = String(path || '').replace(/^\/+/, '');
+    try {
+      if (V8_SKIN_SCRIPT_URL) return new URL('../../' + clean, V8_SKIN_SCRIPT_URL).toString();
+    } catch (e) {}
+    return '/' + clean;
+  }
+
+  function v8FetchText(path) {
+    var primary = v8AssetUrl(path);
+    var fallback = '/' + String(path || '').replace(/^\/+/, '');
+    return fetch(primary, { cache: 'no-store' }).then(function (r) {
+      if (r.ok) return r.text();
+      if (primary !== fallback) {
+        return fetch(fallback, { cache: 'no-store' }).then(function (r2) { return r2.ok ? r2.text() : ''; });
+      }
+      return '';
+    }).catch(function () {
+      if (primary !== fallback) {
+        return fetch(fallback, { cache: 'no-store' }).then(function (r2) { return r2.ok ? r2.text() : ''; }).catch(function () { return ''; });
+      }
+      return '';
+    });
+  }
+
+  function v8FetchJson(path, fallbackValue) {
+    return v8FetchText(path).then(function (text) {
+      if (!text) return fallbackValue;
+      try { return JSON.parse(text); } catch (e) { return fallbackValue; }
+    });
+  }
 
   function onHead(fn) {
     if (document.head) { fn(); }
@@ -311,7 +344,7 @@
       var l = document.createElement('link');
       l.id = 'v8skin-css';
       l.rel = 'stylesheet';
-      l.href = v8AssetUrl('assets/css/v8skin.css?v=20260613-0325');
+      l.href = v8AssetUrl('assets/css/v8skin.css?v=20260613-0335');
       document.head.appendChild(l);
     }
     injectRailSafeLayout();
