@@ -176,7 +176,24 @@
   function setupV8SheetInteractions(root) {
     ensureV8SheetProgress();
     var scope = root || document;
+    var nav = scope.querySelector ? scope.querySelector('.v8sheet-subnav') : document.querySelector('.v8sheet-subnav');
+    if (nav && !nav.querySelector('a[href="#v8sheet-metodo"]')) {
+      var metodoLink = document.createElement('a');
+      metodoLink.href = '#v8sheet-metodo';
+      metodoLink.textContent = 'Metodo';
+      nav.appendChild(metodoLink);
+    }
     var sections = Array.prototype.slice.call(scope.querySelectorAll('.v8sheet-sec'));
+    var scrollRoot = window.CC_SCROLLER && document.documentElement.dataset.adRail === 'right'
+      ? window.CC_SCROLLER
+      : null;
+    var markVisibleSections = function () {
+      var limit = (window.innerHeight || document.documentElement.clientHeight || 720) * 1.12;
+      sections.forEach(function (section) {
+        var box = section.getBoundingClientRect();
+        if (box.top < limit && box.bottom > -80) section.classList.add('vis');
+      });
+    };
     if (!('IntersectionObserver' in window)) {
       sections.forEach(function (section) { section.classList.add('vis'); });
       return;
@@ -185,8 +202,14 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) entry.target.classList.add('vis');
       });
-    }, { threshold: 0.15 });
+    }, { root: scrollRoot, threshold: 0.15 });
     sections.forEach(function (section) { reveal.observe(section); });
+    markVisibleSections();
+    window.addEventListener('scroll', markVisibleSections, { passive: true });
+    window.addEventListener('resize', markVisibleSections, { passive: true });
+    if (scrollRoot) scrollRoot.addEventListener('scroll', markVisibleSections, { passive: true });
+    setTimeout(markVisibleSections, 350);
+    setTimeout(markVisibleSections, 1200);
     var links = Array.prototype.slice.call(document.querySelectorAll('.v8sheet-subnav a'));
     var active = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -195,7 +218,7 @@
           link.classList.toggle('on', link.hash === '#' + entry.target.id);
         });
       });
-    }, { rootMargin: '-40% 0px -55% 0px' });
+    }, { root: scrollRoot, rootMargin: '-40% 0px -55% 0px' });
     sections.forEach(function (section) {
       if (section.id) active.observe(section);
     });
@@ -277,7 +300,7 @@
       var l = document.createElement('link');
       l.id = 'v8skin-css';
       l.rel = 'stylesheet';
-      l.href = '/assets/css/v8skin.css?v=20260613-0340';
+      l.href = '/assets/css/v8skin.css?v=20260613-performance-scale';
       document.head.appendChild(l);
     }
     injectRailSafeLayout();
@@ -296,6 +319,15 @@
       var cv = document.createElement('canvas');
       cv.id = 'v8-sky';
       cv.setAttribute('aria-hidden', 'true');
+      cv.style.display = 'block';
+      cv.style.position = 'fixed';
+      cv.style.top = '0';
+      cv.style.left = '0';
+      cv.style.width = '66.6667vw';
+      cv.style.height = '40vh';
+      cv.style.zIndex = '0';
+      cv.style.pointerEvents = 'none';
+      cv.style.opacity = '.7';
       document.body.prepend(cv);
       startSky(cv);
     }
@@ -428,15 +460,16 @@
   }
 
   function v8BuildPerformanceSvg(rows) {
-    var data = rows.slice(-40);
+    var data = (rows || []).slice();
     if (!data.length) {
       return '<line x1="0" y1="120" x2="800" y2="120"/><text x="400" y="126" text-anchor="middle" fill="rgba(237,232,223,.36)" font-size="18">Storico non disponibile</text>';
     }
-    var maxHit = Math.max(3, Math.max.apply(null, data.map(function (r) { return r.hit; })));
+    function rowHit(row) { return +row.hit || +row.hits || 0; }
+    var maxHit = 6;
     var rolling = data.map(function (r, i) {
       if (r && typeof r.moving_avg === 'number') return r.moving_avg;
       var part = data.slice(Math.max(0, i - 9), i + 1);
-      var avg = part.reduce(function (a, row) { return a + (+row.hit || 0); }, 0) / Math.max(1, part.length);
+      var avg = part.reduce(function (a, row) { return a + rowHit(row); }, 0) / Math.max(1, part.length);
       return avg;
     });
     function y(v) { return 210 - (v / maxHit) * 170; }
@@ -444,16 +477,129 @@
     var dots = '';
     data.forEach(function (r, i) {
       var x = data.length === 1 ? 400 : i * (800 / (data.length - 1));
-      var yy = y(+r.hit || 0);
+      var h = rowHit(r);
+      var yy = y(h);
       var ay = y(rolling[i]);
       main += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + yy.toFixed(1) + ' ';
       avg += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + ay.toFixed(1) + ' ';
-      if ((+r.hit || 0) >= 3) dots += '<circle cx="' + x.toFixed(1) + '" cy="' + yy.toFixed(1) + '" r="5" class="hitdot"><title>' + v8Escape(r.date + ' - ' + r.hit + ' hit') + '</title></circle>';
+      dots += '<circle cx="' + x.toFixed(1) + '" cy="' + yy.toFixed(1) + '" r="' + (h >= 3 ? '4.6' : (h > 0 ? '2.6' : '1.15')) + '" class="perfpoint h' + Math.max(0, Math.min(6, h)) + (h >= 3 ? ' hitdot' : '') + '"><title>' + v8Escape((r.date || '') + ' - ' + h + ' hit') + '</title></circle>';
     });
     area = main + 'L800 240 L0 240 Z';
     return '<defs><linearGradient id="v8sheet-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(139,92,246,.28)"/><stop offset="100%" stop-color="rgba(139,92,246,0)"/></linearGradient></defs>' +
-      '<line x1="0" y1="40" x2="800" y2="40"/><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="160" x2="800" y2="160"/>' +
-      '<path class="area" d="' + area + '"/><path class="avg" d="' + avg + '"/><path class="main" d="' + main + '"/>' + dots;
+      '<g class="v8perf-ygrid">' +
+        [0, 1, 2, 3, 4, 5, 6].map(function (n) {
+          var gy = y(n);
+          return '<line x1="0" y1="' + gy.toFixed(1) + '" x2="800" y2="' + gy.toFixed(1) + '"/><text x="8" y="' + (gy - 4).toFixed(1) + '">' + n + '</text>';
+        }).join('') +
+      '</g>' +
+      '<rect data-v8perf-window x="0" y="18" width="0" height="204" rx="8"/>' +
+      '<path class="area" data-v8perf-full-area d="' + area + '"/><path class="avg" data-v8perf-full-avg d="' + avg + '"/><path class="main" data-v8perf-full-line d="' + main + '"/>' + dots +
+      '<line data-v8perf-cross x1="0" y1="24" x2="0" y2="222"/><circle data-v8perf-dot cx="0" cy="0" r="0"/>';
+  }
+
+  function v8RenderPerformanceChart(chart, rows) {
+    if (!chart) return;
+    var data = (rows || []).filter(function (r) { return r && typeof r === 'object'; });
+    chart.setAttribute('viewBox', '0 0 800 240');
+    chart.innerHTML = v8BuildPerformanceSvg(data);
+    v8AttachPerformanceHover(chart, data);
+  }
+
+  function v8AttachPerformanceHover(chart, rows) {
+    if (!chart || !rows || !rows.length) return;
+    var box = chart.closest ? chart.closest('.v8sheet-chart') : null;
+    if (!box) return;
+    var tip = box.querySelector('[data-v8perf-tip]');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'v8perf-tip';
+      tip.setAttribute('data-v8perf-tip', '1');
+      box.appendChild(tip);
+    }
+    var legend = box.querySelector('.v8sheet-legend');
+    var zoomBox = legend ? legend.querySelector('[data-v8perf-zoom-box]') : null;
+    if (legend && !zoomBox) {
+      zoomBox = document.createElement('div');
+      zoomBox.className = 'v8perf-zoom-box';
+      zoomBox.setAttribute('data-v8perf-zoom-box', '1');
+      zoomBox.innerHTML =
+        '<span data-v8perf-zoom-label>Zoom 40 concorsi</span>' +
+        '<svg viewBox="0 0 260 54" preserveAspectRatio="none" aria-hidden="true">' +
+          '<path data-v8perf-zoom-path d=""></path>' +
+          '<circle data-v8perf-zoom-dot cx="0" cy="0" r="0"></circle>' +
+        '</svg>';
+      legend.appendChild(zoomBox);
+    }
+    var cross = chart.querySelector('[data-v8perf-cross]');
+    var dot = chart.querySelector('[data-v8perf-dot]');
+    var win = chart.querySelector('[data-v8perf-window]');
+    var zoomPath = zoomBox ? zoomBox.querySelector('[data-v8perf-zoom-path]') : null;
+    var zoomDot = zoomBox ? zoomBox.querySelector('[data-v8perf-zoom-dot]') : null;
+    var zoomLabel = zoomBox ? zoomBox.querySelector('[data-v8perf-zoom-label]') : null;
+    var maxHit = Math.max(3, Math.max.apply(null, rows.map(function (r) { return +r.hit || +r.hits || 0; })));
+    function hit(row) { return +row.hit || +row.hits || 0; }
+    function y(v) { return 210 - (v / maxHit) * 170; }
+    function picks(row) {
+      var list = Array.isArray(row.picks) ? row.picks : (Array.isArray(row.nums) ? row.nums : []);
+      return list.map(function (x) {
+        var n = x.number != null ? x.number : x.n;
+        return '<span class="v8perf-n' + (x.hit ? ' hit' : '') + '">' + String(n || '').padStart(2, '0') + '</span>';
+      }).join('');
+    }
+    function zoomFor(center) {
+      var len = rows.length;
+      var start = Math.max(0, Math.min(len - 40, center - 20));
+      var end = Math.min(len, start + 40);
+      var part = rows.slice(start, end);
+      var path = '';
+      part.forEach(function (row, i) {
+        var x = part.length === 1 ? 130 : i * (260 / (part.length - 1));
+        var yy = 48 - (hit(row) / maxHit) * 42;
+        path += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + yy.toFixed(1) + ' ';
+      });
+      if (win) {
+        var wx = len === 1 ? 0 : start * (800 / (len - 1));
+        var ww = len === 1 ? 800 : Math.max(8, (end - start - 1) * (800 / (len - 1)));
+        win.setAttribute('x', wx.toFixed(1));
+        win.setAttribute('width', ww.toFixed(1));
+      }
+      if (zoomPath) zoomPath.setAttribute('d', path);
+      if (zoomLabel) zoomLabel.textContent = 'Zoom 40 concorsi #' + v8Escape(rows[start].seq) + '-' + v8Escape(rows[end - 1].seq);
+    }
+    function move(evt) {
+      var rect = chart.getBoundingClientRect();
+      var rel = Math.max(0, Math.min(1, (evt.clientX - rect.left) / Math.max(1, rect.width)));
+      var idx = Math.max(0, Math.min(rows.length - 1, Math.round(rel * (rows.length - 1))));
+      var row = rows[idx];
+      var x = rows.length === 1 ? 400 : idx * (800 / (rows.length - 1));
+      var yy = y(hit(row));
+      if (cross) { cross.setAttribute('x1', x.toFixed(1)); cross.setAttribute('x2', x.toFixed(1)); }
+      if (dot) { dot.setAttribute('cx', x.toFixed(1)); dot.setAttribute('cy', yy.toFixed(1)); dot.setAttribute('r', '6'); }
+      if (zoomDot) {
+        var local = Math.max(0, Math.min(39, idx - Math.max(0, Math.min(rows.length - 40, idx - 20))));
+        zoomDot.setAttribute('cx', (local * (260 / 39)).toFixed(1));
+        zoomDot.setAttribute('cy', (48 - (hit(row) / maxHit) * 42).toFixed(1));
+        zoomDot.setAttribute('r', '4.5');
+      }
+      zoomFor(idx);
+      tip.innerHTML =
+        '<b>Concorso #' + v8Escape(row.seq) + '</b>' +
+        '<span>' + v8Escape(row.date || '') + ' &middot; ' + hit(row) + ' hit</span>' +
+        '<div>' + picks(row) + '</div>';
+      var left = Math.min(rect.width - 220, Math.max(12, evt.clientX - rect.left + 16));
+      tip.style.left = left + 'px';
+      tip.style.top = Math.max(12, evt.clientY - rect.top - 18) + 'px';
+      tip.classList.add('on');
+      chart.classList.add('is-hovering');
+    }
+    chart.addEventListener('mousemove', move);
+    chart.addEventListener('mouseleave', function () {
+      tip.classList.remove('on');
+      chart.classList.remove('is-hovering');
+      if (dot) dot.setAttribute('r', '0');
+      if (zoomDot) zoomDot.setAttribute('r', '0');
+    });
+    zoomFor(Math.max(0, rows.length - 1));
   }
 
   function hydrateV8SheetData(sheet, card, fallbackBalls, fallbackMetrics) {
@@ -491,7 +637,7 @@
         }).join('') + (balls.length ? '<span class="v8sheet-ball j" style="--d:.62s">' + (((balls[5] || 1) * 7) % 90 + 1) + '</span>' : '') +
         '<p class="v8sheet-note">Proposta algoritmica &middot; Non una previsione &middot; Il gioco comporta rischi &middot; 18+</p>';
       }
-      if (chart) chart.innerHTML = v8BuildPerformanceSvg(rows);
+      v8RenderPerformanceChart(chart, rows);
       if (perfK) perfK.textContent = (data.performance && data.performance.label) || (rows.length ? 'Performance - ultimi ' + Math.min(40, rows.length) + ' concorsi' : 'Performance storica');
 
       var m = data.metrics || {};
@@ -553,29 +699,25 @@
           if (nums.length === 6) rows.push({ seq: p[0], date: p[1], nums: nums, hits: hitCount });
         }
         if (!rows.length) return;
+        var chart = sheet.querySelector('[data-v8sheet-chart]');
+        var perfK = sheet.querySelector('[data-v8sheet-perf-title]');
+        v8RenderPerformanceChart(chart, rows);
+        if (perfK) perfK.textContent = 'Performance - tutti i ' + rows.length.toLocaleString('it-IT') + ' concorsi';
         rows.reverse(); // piu recenti in alto
 
+        var methodSection = sheet.querySelector('#v8sheet-metodo');
         var section = document.createElement('section');
-        section.className = 'v8sheet-sec';
+        section.className = 'v8sheet-sec v8sheet-history-inline vis';
         section.id = 'v8sheet-storico';
         section.innerHTML =
-          '<div class="v8sheet-k">Concorso per concorso &middot; ' + rows.length.toLocaleString('it-IT') + ' estrazioni &middot; numeri indovinati evidenziati</div>' +
+          '<div class="v8sheet-k">Pronostici algoritmo &middot; ' + rows.length.toLocaleString('it-IT') + ' concorsi valutati &middot; numeri indovinati evidenziati</div>' +
           '<div class="v8hist" data-v8hist-list></div>' +
           '<div class="v8hist-foot">' +
             '<button type="button" class="v8sheet-btn" data-v8hist-more>Mostra altri</button>' +
             '<span class="v8hist-count" data-v8hist-count></span>' +
           '</div>';
-        var actions = sheet.querySelector('.v8sheet-actions');
-        if (actions) sheet.insertBefore(section, actions);
+        if (methodSection) methodSection.insertAdjacentElement('afterend', section);
         else sheet.appendChild(section);
-
-        var nav = sheet.querySelector('.v8sheet-subnav');
-        if (nav) {
-          var link = document.createElement('a');
-          link.href = '#v8sheet-storico';
-          link.textContent = 'Concorsi';
-          nav.appendChild(link);
-        }
 
         var list = section.querySelector('[data-v8hist-list]');
         var moreBtn = section.querySelector('[data-v8hist-more]');
@@ -643,7 +785,7 @@
       '<section class="v8sheet-sec" id="v8sheet-perf">' +
         '<div class="v8sheet-k" data-v8sheet-perf-title>Performance storica</div>' +
         '<div class="v8sheet-chart"><svg viewBox="0 0 800 240" preserveAspectRatio="none" aria-label="Andamento performance algoritmo" data-v8sheet-chart></svg>' +
-        '<div class="v8sheet-legend"><span><i></i>Hit per concorso</span><span><i class="avg"></i>Media mobile</span><span><i class="dot"></i>Hit &gt;= 3</span></div></div>' +
+        '<div class="v8sheet-legend"><div class="v8perf-scale" aria-label="Scala hit 0-6"><div class="v8perf-scale__ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div><i></i></div></div></div>' +
       '</section>' +
       '<section class="v8sheet-sec" id="v8sheet-metriche">' +
         '<div class="v8sheet-k">Metriche di affidabilita</div>' +
@@ -741,8 +883,8 @@
     var ctx = cv.getContext('2d');
     var W = 0, H = 0, mx = -9999, my = -9999;
     function resize() {
-      W = cv.width = cv.clientWidth || window.innerWidth;
-      H = cv.height = cv.clientHeight || window.innerHeight;
+      W = cv.width = Math.max(1, cv.clientWidth || Math.round(window.innerWidth * 0.666667));
+      H = cv.height = Math.max(1, cv.clientHeight || Math.round(window.innerHeight * 0.4));
     }
     resize();
     window.addEventListener('resize', resize, { passive: true });
@@ -962,7 +1104,7 @@
                   '<polyline class="main" points="0,' + (46 - h0 / sparkMax * 40).toFixed(1) + ' 200,' + (46 - h1 / sparkMax * 40).toFixed(1) + ' 400,' + (46 - h2 / sparkMax * 40).toFixed(1) + ' 600,' + (46 - h3 / sparkMax * 40).toFixed(1) + ' 800,' + (46 - h4 / sparkMax * 40).toFixed(1) + '"/>' +
                   '<polyline class="avg" points="0,142 200,132 400,146 600,126 800,136"/>' +
                 '</svg>' +
-                '<div class="v8sheet-legend"><span><i></i>Hit per concorso</span><span><i class="avg"></i>Media mobile</span><span><i class="dot"></i>Hit >= 3</span></div>' +
+                '<div class="v8sheet-legend"><div class="v8perf-scale" aria-label="Scala hit 0-6"><div class="v8perf-scale__ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div><i></i></div></div>' +
               '</div>' +
             '</section>' +
             '<section class="v8sheet-sec" id="v8sheet-metriche">' +

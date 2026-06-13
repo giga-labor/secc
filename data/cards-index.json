@@ -502,6 +502,40 @@
     }
   },
   {
+    "id": "xeno-qdna",
+    "title": "XENO-QDNA",
+    "subtitle": "G-Family — Generatore a collasso binario quantizzato",
+    "image": "img.webp",
+    "lastUpdated": "13/06/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Mirror lab",
+    "narrativeSummary": "Prima istanza della G-Family: algoritmo generativo a trasformazione di stato che codifica ogni sestina come DNA da 42 bit, calcola fratture XOR tra estrazioni consecutive e produce la sestina successiva tramite maschera di collasso, riflessione e tunneling. Nessuna frequenza, nessun peso da aggiornare, nessun consenso aggregato.",
+    "page": "pages/algoritmi/algs/xeno-qdna/",
+    "macroGroup": "generativi",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "type": "ALGORITMI",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/algoritmi/algs/xeno-qdna/",
+    "rankingValue": 1,
+    "rankingPosition": 16,
+    "exactHits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    }
+  },
+  {
     "id": "laboratorio-tecnico",
     "title": "Laboratorio Tecnico",
     "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
@@ -517,8 +551,10 @@
     "no_data_show": false,
     "accessTier": "free",
     "view": true,
-    "hits": {
-      "enabled": false,
+    "hits": { "enabled": false, "count": 0 }
+  }
+]
+
       "count": 0
     }
   },

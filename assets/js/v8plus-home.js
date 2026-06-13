@@ -173,6 +173,7 @@
       ranked.sort(function (a, b) { return a.rankingPosition - b.rankingPosition; });
       stats.algs = ranked.length;
       stats.topAlg = ranked.length ? (ranked[0].title || ranked[0].id) : null;
+      stats.families = new Set(ranked.map(function (c) { return (c.macroGroup || '').toLowerCase(); }).filter(Boolean)).size;
 
       if (draws.length) {
         stats.last = draws[draws.length - 1];
@@ -232,7 +233,7 @@
     chips.id = 'v8chips';
     chips.setAttribute('aria-hidden', 'true');
     chips.innerHTML =
-      '<div class="v8chip violet p1" data-px="14"><span class="ck">Algoritmi in gara</span><span class="cv">' + (st.algs || '—') + '</span><span class="cs">4 famiglie di modelli</span></div>' +
+      '<div class="v8chip violet p1" data-px="14"><span class="ck">Algoritmi in gara</span><span class="cv">' + (st.algs || '—') + '</span><span class="cs">' + (st.families || 4) + ' famiglie di modelli</span></div>' +
       '<div class="v8chip amber p2" data-px="-18"><span class="ck">Estrazioni in archivio</span><span class="cv">' + st.draws.toLocaleString('it-IT') + '</span><span class="cs">dal 1997 · aggiornato a ogni concorso</span></div>' +
       '<div class="v8chip red p3" data-px="-12"><span class="ck">Ritardo critico</span><span class="cv">' + st.worstN + '</span><span class="cs">assente da ' + st.worstD + ' concorsi</span></div>' +
       '<div class="v8chip cyan p4" data-px="16"><span class="ck">Più frequente · 90 conc.</span><span class="cv">' + st.hotN + '</span><span class="cs">' + st.hotC + ' uscite recenti</span></div>';

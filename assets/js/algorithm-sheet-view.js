@@ -1,5 +1,199 @@
 ﻿(function () {
   document.addEventListener('DOMContentLoaded', () => {
+      const initAlgorithmPredictionHistoryFooter = () => {
+        if (!document.body || document.body.getAttribute('data-page-id') !== 'algsheet') return;
+        const main = document.querySelector('main');
+        if (!main) return;
+
+        const esc = (value) => String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+
+        const parsePickTokens = (tokens) => tokens
+          .filter(Boolean)
+          .slice(0, 6)
+          .map((token) => {
+            const raw = String(token || '').trim();
+            const hit = raw.startsWith('[') && raw.endsWith(']');
+            const numeric = raw.replace(/[\[\]]/g, '');
+            const value = /^\d+$/.test(numeric) ? numeric.padStart(2, '0') : numeric;
+            return { value, hit };
+          });
+
+        const parseHistoryCsv = (raw) => {
+          const lines = String(raw || '')
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter((line) => line.length > 0 && !line.startsWith('#'));
+          if (!lines.length) return [];
+
+          const sample = lines[0];
+          const delimiter = (sample.match(/;/g) || []).length > (sample.match(/,/g) || []).length ? ';' : ',';
+          return lines.map((line) => {
+            const cells = line.split(delimiter).map((cell) => String(cell || '').trim());
+            const draw = cells[0];
+            let date = '';
+            let picks = [];
+
+            if (cells.length >= 8) {
+              date = cells[1] || '';
+              picks = parsePickTokens(cells.slice(2, 8));
+            } else if (cells.length >= 2) {
+              picks = parsePickTokens(cells[1].split(/\s+/).map((x) => x.trim()));
+            }
+
+            return { draw, date, picks };
+          }).filter((row) => {
+            const drawKey = String(row && row.draw || '').toLowerCase();
+            return row && row.draw && row.picks.length > 0 && !drawKey.includes('nr. sequenziale') && drawKey !== 'concorso';
+          }).sort((a, b) => {
+            const aNum = Number.parseInt(String(a.draw), 10);
+            const bNum = Number.parseInt(String(b.draw), 10);
+            if (Number.isFinite(aNum) && Number.isFinite(bNum)) return bNum - aNum;
+            return String(b.draw).localeCompare(String(a.draw));
+          });
+        };
+
+        const ensurePredictionHistorySection = () => {
+          let section = document.querySelector('[data-prediction-history-footer]');
+          if (section) return section;
+
+          section = document.createElement('section');
+          section.dataset.predictionHistoryFooter = '1';
+          section.className = 'mt-4 space-y-4';
+          section.innerHTML = `
+            <div class="flex items-end justify-between gap-3">
+              <div>
+                <h2 class="text-xl font-semibold text-white">Storico previsioni effettuate</h2>
+                <p class="mt-1 text-sm text-ash">I numeri evidenziati sono quelli indovinati nella relativa estrazione.</p>
+              </div>
+            </div>
+            <div class="overflow-x-auto rounded-2xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                  <tr>
+                    <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Estrazione</th>
+                    <th class="px-2 py-3 pl-1">Previsione</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5" data-prediction-history-footer-body>
+                  <tr><td class="px-2 py-3 text-ash" colspan="2">Caricamento storico previsioni...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 text-xs text-ash">
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-prediction-history-footer-prev>Prec</button>
+              <span data-prediction-history-footer-page>Pagina 1 / 1</span>
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-prediction-history-footer-next>Succ</button>
+            </div>
+          `;
+
+          const operationalBox = document.querySelector('[data-tab-panel="algoritmo"] section[data-adsense-quality]');
+          if (operationalBox) {
+            const labCta = operationalBox.querySelector('[data-lab-cta], a[href*="laboratorio-tecnico"]');
+            if (labCta) operationalBox.insertBefore(section, labCta);
+            else operationalBox.appendChild(section);
+          } else {
+            main.appendChild(section);
+          }
+          return section;
+        };
+
+        ensurePredictionHistorySection();
+
+        fetch('out/historical-db.csv', { cache: 'no-store' })
+          .then((res) => {
+            if (!res.ok) throw new Error(`status ${res.status}`);
+            return res.text();
+          })
+          .then((text) => {
+            const rows = parseHistoryCsv(text);
+            if (!rows.length) return;
+
+            const state = { page: 1, pageSize: 100 };
+            let section = document.querySelector('[data-prediction-history-footer]');
+            if (!section) {
+              section = document.createElement('section');
+              section.dataset.predictionHistoryFooter = '1';
+              section.className = 'mt-4 space-y-4';
+              section.innerHTML = `
+                <div class="flex items-end justify-between gap-3">
+                  <div>
+                    <h2 class="text-xl font-semibold text-white">Storico previsioni effettuate</h2>
+                    <p class="mt-1 text-sm text-ash">I numeri evidenziati sono quelli indovinati nella relativa estrazione.</p>
+                  </div>
+                </div>
+                <div class="overflow-x-auto rounded-2xl border border-white/10">
+                  <table class="min-w-full text-left text-sm">
+                    <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                      <tr>
+                        <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Estrazione</th>
+                        <th class="px-2 py-3 pl-1">Previsione</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5" data-prediction-history-footer-body></tbody>
+                  </table>
+                </div>
+                <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 text-xs text-ash">
+                  <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-prediction-history-footer-prev>Prec</button>
+                  <span data-prediction-history-footer-page>Pagina 1 / 1</span>
+                  <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-prediction-history-footer-next>Succ</button>
+                </div>
+              `;
+              const operationalBox = document.querySelector('[data-tab-panel="algoritmo"] section[data-adsense-quality]');
+              if (operationalBox) {
+                const labCta = operationalBox.querySelector('[data-lab-cta], a[href*="laboratorio-tecnico"]');
+                if (labCta) operationalBox.insertBefore(section, labCta);
+                else operationalBox.appendChild(section);
+              } else {
+                main.appendChild(section);
+              }
+            }
+
+            const body = section.querySelector('[data-prediction-history-footer-body]');
+            const prev = section.querySelector('[data-prediction-history-footer-prev]');
+            const next = section.querySelector('[data-prediction-history-footer-next]');
+            const page = section.querySelector('[data-prediction-history-footer-page]');
+            const render = () => {
+              const totalPages = Math.max(1, Math.ceil(rows.length / state.pageSize));
+              state.page = Math.min(Math.max(1, state.page), totalPages);
+              const start = (state.page - 1) * state.pageSize;
+              const pageRows = rows.slice(start, start + state.pageSize);
+              body.innerHTML = pageRows.map((row) => {
+                const picksHtml = row.picks.map((pick) => {
+                  const cls = pick.hit ? 'historical-pick is-hit' : 'historical-pick';
+                  return `<span class="${cls}">${esc(pick.value)}</span>`;
+                }).join('');
+                const label = row.date ? `#${esc(row.draw)}<span class="block text-[0.68rem] text-ash/70">${esc(row.date)}</span>` : `#${esc(row.draw)}`;
+                return `
+                  <tr>
+                    <td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">${label}</td>
+                    <td class="px-2 py-3 pl-1"><div class="flex flex-wrap gap-2">${picksHtml}</div></td>
+                  </tr>
+                `;
+              }).join('');
+              if (page) page.textContent = `Pagina ${state.page} / ${totalPages}`;
+              if (prev) prev.disabled = state.page <= 1;
+              if (next) next.disabled = state.page >= totalPages;
+            };
+
+            if (prev) prev.addEventListener('click', () => {
+              state.page -= 1;
+              render();
+            });
+            if (next) next.addEventListener('click', () => {
+              state.page += 1;
+              render();
+            });
+            render();
+          })
+          .catch(() => {});
+      };
+
+      initAlgorithmPredictionHistoryFooter();
       if (
         document.body &&
         document.body.getAttribute('data-page-id') === 'algsheet' &&

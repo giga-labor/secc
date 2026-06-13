@@ -99,23 +99,28 @@ async function renderAlgorithms(area, algorithms, spotlightCards = []) {
   const tabsSheet = document.createElement('div');
   tabsSheet.className = 'tabs-sheet';
 
-  const buckets = {
-    statistici: [],
-    neurali: [],
-    ibridi: []
+  const CATEGORY_LABELS = {
+    statistici: 'Statistici',
+    neurali: 'Neurali',
+    ibridi: 'Ibridi',
+    generativi: 'G-Family'
   };
+  const CATEGORY_ORDER = ['statistici', 'neurali', 'ibridi', 'generativi'];
 
+  const buckets = {};
   algorithms.forEach((algorithm) => {
     const category = classifyAlgorithmCategory(algorithm);
+    if (!buckets[category]) buckets[category] = [];
     buckets[category].push(algorithm);
   });
+
+  const presentCategories = CATEGORY_ORDER.filter((k) => buckets[k]?.length)
+    .concat(Object.keys(buckets).filter((k) => !CATEGORY_ORDER.includes(k) && buckets[k]?.length));
 
   const tabDefs = [
     { key: 'tutti', label: 'Tutti' },
     { key: 'tipologie', label: 'Tipologie' },
-    { key: 'statistici', label: 'Statistici' },
-    { key: 'neurali', label: 'Neurali' },
-    { key: 'ibridi', label: 'Ibridi' }
+    ...presentCategories.map((k) => ({ key: k, label: CATEGORY_LABELS[k] || (k.charAt(0).toUpperCase() + k.slice(1)) }))
   ];
 
   for (let index = 0; index < tabDefs.length; index += 1) {
@@ -143,7 +148,7 @@ async function renderAlgorithms(area, algorithms, spotlightCards = []) {
         const activeCount = allSorted.filter((item) => item?.isActive !== false).length;
         intro.innerHTML = `<p class="text-xs uppercase tracking-[0.2em] text-ash">Totale: ${allSorted.length} · Attivi: ${activeCount}</p>
           <div class="flex flex-wrap gap-1 ml-auto">
-            ${['statistici','neurali','ibridi'].map(k=>`<span class="rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[0.68rem] tracking-[0.12em] text-ash cursor-pointer hover:border-neon/60 hover:text-neon transition" data-alg-macro-pill="${k}">${k.charAt(0).toUpperCase()+k.slice(1)}</span>`).join('')}
+            ${presentCategories.map(k=>`<span class="rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[0.68rem] tracking-[0.12em] text-ash cursor-pointer hover:border-neon/60 hover:text-neon transition" data-alg-macro-pill="${k}">${CATEGORY_LABELS[k] || (k.charAt(0).toUpperCase()+k.slice(1))}</span>`).join('')}
           </div>`;
         panel.appendChild(intro);
         const grid = document.createElement('div');
@@ -329,7 +334,7 @@ function sanitizeId(value) {
 }
 
 function sortBySpotlightType(a, b) {
-  const order = ['statistici', 'neurale', 'ibrido'];
+  const order = ['statistici', 'neurale', 'ibrido', 'generativo'];
   const keyA = String(a?.macroGroup || '').toLowerCase();
   const keyB = String(b?.macroGroup || '').toLowerCase();
   const indexA = order.indexOf(keyA);
@@ -344,6 +349,13 @@ function sortBySpotlightType(a, b) {
 
 function classifyCategoryFromText(value) {
   const key = String(value || '').toLowerCase();
+  if (
+    key.includes('generativo')
+    || key.includes('xeno-qdna')
+    || key.includes('xeno_qdna')
+    || key.includes('qdna')
+    || key.includes('g-family')
+  ) return 'generativi';
   if (
     key.includes('ibrid')
     || key.includes('hybrid')
@@ -612,6 +624,9 @@ function resolveGroupTargetKey(rawGroupId) {
   if (['ibridi', 'ibrido', 'hybrid', 'custom'].includes(cleaned)) {
     return 'ibridi';
   }
+  if (['generativi', 'generativo', 'g-family', 'gfamily', 'qdna', 'xeno-qdna'].includes(cleaned)) {
+    return 'generativi';
+  }
   if (['tipologie', 'tipologia'].includes(cleaned)) {
     return 'tipologie';
   }
@@ -660,7 +675,7 @@ function groupByMacro(items) {
     groups.get(key).push(item);
   });
 
-  const order = ['statistici', 'logici', 'statistica', 'neurale', 'ibrido', 'custom', 'algoritmo', 'storico'];
+  const order = ['statistici', 'logici', 'statistica', 'neurale', 'ibrido', 'custom', 'generativi', 'algoritmo', 'storico'];
   const labels = {
     statistici: 'Statistici',
     logici: 'Logici',
@@ -668,6 +683,7 @@ function groupByMacro(items) {
     neurale: 'Reti neurali',
     ibrido: 'Ibridi / Custom',
     custom: 'Custom',
+    generativi: 'G-Family — Generativi',
     algoritmo: 'Algoritmi',
     storico: 'Storico'
   };

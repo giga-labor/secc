@@ -1,0 +1,22 @@
+{
+  "id": "xeno-qdna",
+  "title": "XENO-QDNA",
+  "subtitle": "Generatore sperimentale a collasso binario quantizzato",
+  "image": "img.webp",
+  "lastUpdated": "13/06/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Mirror lab",
+  "narrativeSummary": "Algoritmo sperimentale che codifica ogni sestina come DNA binario da 42 bit, costruisce delta XOR, genera una maschera di collasso e produce una sestina tramite riflessione, tunneling e controllo membrana.",
+  "page": "pages/algoritmi/algs/xeno-qdna/",
+  "macroGroup": "generativi",
+  "isActive": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "type": "ALGORITMI",
+  "view": true,
+  "hits": {
+    "enabled": false,
+    "count": 1
+  }
+}
