@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13 02:21:09",
-  "count": 15,
+  "generated_at": "2026-06-13 19:45:09",
+  "count": 16,
   "sheets": {
     "astra-moon": {
       "slug": "astra-moon",
@@ -1306,7 +1306,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 40,
+        "ranking_stability_pct": 44,
         "avg_hits": "0.42",
         "hit_rate_gte_2": "5.5%",
         "hit_rate_gte_3": "0.3%",
@@ -3948,7 +3948,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 80,
+        "ranking_stability_pct": 81,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
@@ -5269,7 +5269,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 67,
+        "ranking_stability_pct": 69,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "0.4%",
@@ -5292,7 +5292,7 @@
       "title": "classic-coppie-terzine-frequenti",
       "subtitle": "Pattern frequenti di coppie e terzine",
       "family": "statistica",
-      "rank_position": 15,
+      "rank_position": 16,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -7911,7 +7911,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 53,
+        "ranking_stability_pct": 56,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.4%",
@@ -9232,7 +9232,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 33,
+        "ranking_stability_pct": 38,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
@@ -10553,7 +10553,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 47,
+        "ranking_stability_pct": 50,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.3%",
@@ -11874,7 +11874,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 93,
+        "ranking_stability_pct": 94,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.4%",
@@ -11897,7 +11897,7 @@
       "title": "classic-statistiche-combinate-finestre-mobili",
       "subtitle": "Statistiche combinate su finestre mobili",
       "family": "statistica",
-      "rank_position": 14,
+      "rank_position": 15,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -13195,7 +13195,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 13,
+        "ranking_stability_pct": 12,
         "avg_hits": "0.38",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.3%",
@@ -13218,7 +13218,7 @@
       "title": "classic-tavole-probabilita-teorica-test-uniformita",
       "subtitle": "Probabilità teorica e test di uniformità",
       "family": "statistica",
-      "rank_position": 12,
+      "rank_position": 13,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -14516,7 +14516,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 27,
+        "ranking_stability_pct": 25,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.9%",
         "hit_rate_gte_3": "0.3%",
@@ -15837,7 +15837,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 73,
+        "ranking_stability_pct": 75,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.6%",
         "hit_rate_gte_3": "0.4%",
@@ -17158,7 +17158,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 60,
+        "ranking_stability_pct": 62,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.4%",
         "hit_rate_gte_3": "0.4%",
@@ -18479,7 +18479,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 87,
+        "ranking_stability_pct": 88,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.40%",
@@ -18502,7 +18502,7 @@
       "title": "Super6 NN",
       "subtitle": "Walk-forward con training incrementale e sampling sestine",
       "family": "neurale",
-      "rank_position": 13,
+      "rank_position": 14,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "11/02/2026",
@@ -19800,7 +19800,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 20,
+        "ranking_stability_pct": 19,
         "avg_hits": "0.3897",
         "hit_rate_gte_2": "4.61%",
         "hit_rate_gte_3": "0.28%",
@@ -19815,6 +19815,1327 @@
         "output": "historical-db con hit marcati per concorso | metrics-db con copertura e stabilita | analysis tecnica | sestina proposta prossimo concorso.",
         "limits": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window.",
         "observed_results": "- Media hit/sestina: 0.3897\n- Hit >=1: 1435/4211 (34.08%)\n- Hit >=2: 194/4211 (4.61%)\n- Hit >=3: 12/4211 (0.28%)\n- Hit >=4: 0/4211 (0.00%)\n- Hit >=5: 0/4211 (0.0000%)\n- Hit =6: 0/4211 (0.000000%)\n- Distribuzione hit esatta: 0:2776 1:1241 2:182 3:12 4:0 5:0 6:0"
+      }
+    },
+    "xeno-qdna": {
+      "slug": "xeno-qdna",
+      "page": "pages/algoritmi/algs/xeno-qdna/",
+      "title": "XENO-QDNA",
+      "subtitle": "G-Family - generatore a collasso binario quantizzato",
+      "family": "generativi",
+      "rank_position": 12,
+      "is_active": true,
+      "access_tier": "free",
+      "last_updated": "13/06/2026",
+      "proposal": [
+        4,
+        12,
+        25,
+        52,
+        59,
+        76
+      ],
+      "performance": {
+        "label": "Performance - ultimi 40 concorsi",
+        "rows": [
+          {
+            "seq": "4173",
+            "date": "03/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 78,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4174",
+            "date": "04/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 8,
+                "hit": true
+              },
+              {
+                "number": 11,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4175",
+            "date": "07/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3333
+          },
+          {
+            "seq": "4176",
+            "date": "09/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 17,
+                "hit": false
+              },
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.25
+          },
+          {
+            "seq": "4177",
+            "date": "10/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 27,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4178",
+            "date": "11/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 54,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 79,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3333
+          },
+          {
+            "seq": "4179",
+            "date": "14/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2857
+          },
+          {
+            "seq": "4180",
+            "date": "16/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 24,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 52,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 88,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.25
+          },
+          {
+            "seq": "4181",
+            "date": "17/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 52,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2222
+          },
+          {
+            "seq": "4182",
+            "date": "18/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": false
+              },
+              {
+                "number": 79,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4183",
+            "date": "21/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 16,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4184",
+            "date": "23/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 21,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 79,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4185",
+            "date": "24/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 9,
+                "hit": false
+              },
+              {
+                "number": 30,
+                "hit": false
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4186",
+            "date": "27/04/2026",
+            "hit": 2,
+            "picks": [
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": true
+              },
+              {
+                "number": 77,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": true
+              },
+              {
+                "number": 88,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4187",
+            "date": "28/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 67,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 78,
+                "hit": false
+              },
+              {
+                "number": 84,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4188",
+            "date": "30/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": true
+              },
+              {
+                "number": 20,
+                "hit": false
+              },
+              {
+                "number": 21,
+                "hit": false
+              },
+              {
+                "number": 66,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4189",
+            "date": "02/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 5,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 66,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4190",
+            "date": "04/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": false
+              },
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4191",
+            "date": "05/05/2026",
+            "hit": 2,
+            "picks": [
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 34,
+                "hit": true
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": true
+              },
+              {
+                "number": 82,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4192",
+            "date": "07/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 34,
+                "hit": true
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 78,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4193",
+            "date": "08/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 30,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 46,
+                "hit": false
+              },
+              {
+                "number": 54,
+                "hit": false
+              },
+              {
+                "number": 56,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4194",
+            "date": "09/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": true
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              },
+              {
+                "number": 84,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.7
+          },
+          {
+            "seq": "4195",
+            "date": "12/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 22,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.7
+          },
+          {
+            "seq": "4196",
+            "date": "14/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4197",
+            "date": "15/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4198",
+            "date": "16/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4199",
+            "date": "19/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4200",
+            "date": "21/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 40,
+                "hit": false
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4201",
+            "date": "23/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4202",
+            "date": "26/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4203",
+            "date": "28/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": true
+              },
+              {
+                "number": 87,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4204",
+            "date": "29/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 40,
+                "hit": false
+              },
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4205",
+            "date": "30/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 20,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4206",
+            "date": "04/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 33,
+                "hit": true
+              },
+              {
+                "number": 54,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4207",
+            "date": "05/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 21,
+                "hit": false
+              },
+              {
+                "number": 29,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4208",
+            "date": "06/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 37,
+                "hit": false
+              },
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 52,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4209",
+            "date": "08/06/2026",
+            "hit": 2,
+            "picks": [
+              {
+                "number": 28,
+                "hit": true
+              },
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 52,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": true
+              },
+              {
+                "number": 64,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4210",
+            "date": "09/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 26,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4211",
+            "date": "11/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 14,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 54,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 78,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4212",
+            "date": "12/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 9,
+                "hit": false
+              },
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": true
+              },
+              {
+                "number": 87,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          }
+        ]
+      },
+      "metrics": {
+        "ranking_stability_pct": 31,
+        "avg_hits": "0.43",
+        "hit_rate_gte_2": "5.8%",
+        "hit_rate_gte_3": "0.2%",
+        "last_200_avg": "0.4000",
+        "std_hit": "0.6087"
+      },
+      "method": {
+        "intro": "XENO-QDNA e un generatore sperimentale a collasso binario: ogni sestina diventa un DNA da 42 bit.",
+        "scope": "Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto.",
+        "input": "draws.csv storico | ultime estrazioni reali | finestra mobile di 21 delta XOR",
+        "method": "Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA.",
+        "output": "historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/.",
+        "limits": "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi.",
+        "observed_results": ""
       }
     }
   }

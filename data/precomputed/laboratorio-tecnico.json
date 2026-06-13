@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13 02:21:07",
-  "active_algorithms_count": 15,
+  "generated_at": "2026-06-13 19:45:08",
+  "active_algorithms_count": 16,
   "kpi": {
-    "algoritmi_documentati": 15,
+    "algoritmi_documentati": 16,
     "storico_analizzato_anni": 30,
     "sezioni_tecniche": 6,
     "bias_documentati": 4,
-    "famiglie_modelli": 3
+    "famiglie_modelli": 4
   },
   "entries": [
     {
@@ -539,6 +539,41 @@
         {
           "key": "LIMITI",
           "value": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
+        }
+      ]
+    },
+    {
+      "title": "XENO-QDNA",
+      "page": "pages/algoritmi/algs/xeno-qdna/",
+      "intro": "XENO-QDNA e un generatore sperimentale a collasso binario: ogni sestina diventa un DNA da 42 bit.",
+      "scope": "Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto.",
+      "method": "Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA.",
+      "limits": "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi.",
+      "analysis": "XENO-QDNA - Concorso 4212 del 12/06/2026\nSestina proposta per il concorso 4213: 04 12 25 52 59 76\n\nMaschera di collasso: 001111000111000110011111111111111110011111\nTentativo: 1. Score decoerenza: 1. Membrana XENO-90: OK.\n\nRiflessioni applicate: 0 | Tunneling: 0",
+      "facts": [
+        {
+          "key": "INTRO",
+          "value": "XENO-QDNA e un generatore sperimentale a collasso binario: ogni sestina diventa un DNA da 42 bit."
+        },
+        {
+          "key": "SCOPO",
+          "value": "Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto."
+        },
+        {
+          "key": "INPUT",
+          "value": "draws.csv storico | ultime estrazioni reali | finestra mobile di 21 delta XOR"
+        },
+        {
+          "key": "METODO",
+          "value": "Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA."
+        },
+        {
+          "key": "OUTPUT",
+          "value": "historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/."
+        },
+        {
+          "key": "LIMITI",
+          "value": "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi."
         }
       ]
     }

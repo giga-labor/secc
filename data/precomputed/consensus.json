@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T02:21:09",
-  "total_algorithms": 15,
+  "generated_at": "2026-06-13T19:45:10",
+  "total_algorithms": 16,
   "numbers": {
     "1": {
       "support": 0,
@@ -20,13 +20,14 @@
       ]
     },
     "4": {
-      "support": 5,
+      "support": 6,
       "algorithms": [
         "astra-moon",
         "classic-analisi-anomalie-pattern",
         "classic-ritardi",
         "genetic",
-        "paradox-logiche-decisionali-metriche"
+        "paradox-logiche-decisionali-metriche",
+        "xeno-qdna"
       ]
     },
     "5": {
@@ -69,9 +70,10 @@
       "algorithms": []
     },
     "12": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-ritardi-combinazioni"
+        "classic-ritardi-combinazioni",
+        "xeno-qdna"
       ]
     },
     "13": {
@@ -136,8 +138,10 @@
       ]
     },
     "25": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna"
+      ]
     },
     "26": {
       "support": 0,
@@ -274,8 +278,10 @@
       ]
     },
     "52": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna"
+      ]
     },
     "53": {
       "support": 1,
@@ -316,8 +322,10 @@
       "algorithms": []
     },
     "59": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna"
+      ]
     },
     "60": {
       "support": 1,
@@ -406,13 +414,14 @@
       ]
     },
     "76": {
-      "support": 5,
+      "support": 6,
       "algorithms": [
         "classic-analisi-anomalie-pattern",
         "classic-co-occorrenze",
         "classic-ritardi",
         "genetic",
-        "paradox-logiche-decisionali-metriche"
+        "paradox-logiche-decisionali-metriche",
+        "xeno-qdna"
       ]
     },
     "77": {
@@ -502,13 +511,26 @@
   "top": [
     {
       "number": 4,
-      "support": 5,
+      "support": 6,
       "algorithms": [
         "astra-moon",
         "classic-analisi-anomalie-pattern",
         "classic-ritardi",
         "genetic",
-        "paradox-logiche-decisionali-metriche"
+        "paradox-logiche-decisionali-metriche",
+        "xeno-qdna"
+      ]
+    },
+    {
+      "number": 76,
+      "support": 6,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-co-occorrenze",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche",
+        "xeno-qdna"
       ]
     },
     {
@@ -528,17 +550,6 @@
       "algorithms": [
         "classic-analisi-anomalie-pattern",
         "classic-distribuzioni-modelli-raggruppamento",
-        "classic-ritardi",
-        "genetic",
-        "paradox-logiche-decisionali-metriche"
-      ]
-    },
-    {
-      "number": 76,
-      "support": 5,
-      "algorithms": [
-        "classic-analisi-anomalie-pattern",
-        "classic-co-occorrenze",
         "classic-ritardi",
         "genetic",
         "paradox-logiche-decisionali-metriche"
@@ -637,11 +648,11 @@
       ]
     },
     {
-      "number": 24,
+      "number": 12,
       "support": 2,
       "algorithms": [
-        "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita"
+        "classic-ritardi-combinazioni",
+        "xeno-qdna"
       ]
     }
   ]

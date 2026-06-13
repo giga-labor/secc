@@ -11,3 +11,7 @@ Tentativo collasso,1,"1=mask base, 2=rotazione 7 bit, 3=rotazione 14 bit"
 Score decoerenza,1,Soglia preferita < 2; accettazione forzata al terzo tentativo
 Membrana XENO-90,OK,Controllo di somiglianza e concentrazione sulle ultime estrazioni
 Distribuzione hit,"{""0"": 2661, ""1"": 1285, ""2"": 234, ""3"": 10}",Conteggio hit 0-6 nel backtest
+membrane pass rate,82.0%,% sestine backtest superate al controllo membrana
+decoherence block rate,2.0%,% sestine backtest bloccate per decoerenza >= 3
+tunneling rate,18.5%,% sestine backtest che hanno richiesto tunneling
+mask stability,32.3 / 42,bit attivi medi su 42 nella maschera di collasso

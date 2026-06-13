@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13 02:21:07",
-  "active_algorithms_count": 15,
+  "generated_at": "2026-06-13 19:45:08",
+  "active_algorithms_count": 16,
   "rows": [
     {
       "title": "classic-analisi-anomalie-pattern",
@@ -172,6 +172,22 @@
         "1": 1217,
         "2": 200,
         "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "XENO-QDNA",
+      "page": "pages/algoritmi/algs/xeno-qdna/",
+      "family": "generativi",
+      "ranking": 16689.47,
+      "hits": {
+        "0": 2661,
+        "1": 1285,
+        "2": 234,
+        "3": 10,
         "4": 0,
         "5": 0,
         "6": 0

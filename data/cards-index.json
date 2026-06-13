@@ -155,7 +155,7 @@
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
     "rankingValue": 14132.05,
-    "rankingPosition": 15,
+    "rankingPosition": 16,
     "exactHits": {
       "0": 2797,
       "1": 1217,
@@ -317,7 +317,7 @@
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
     "rankingValue": 15923.05,
-    "rankingPosition": 14,
+    "rankingPosition": 15,
     "exactHits": {
       "0": 2819,
       "1": 1195,
@@ -352,7 +352,7 @@
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
     "rankingValue": 16483.26,
-    "rankingPosition": 12,
+    "rankingPosition": 13,
     "exactHits": {
       "0": 2759,
       "1": 1247,
@@ -490,7 +490,7 @@
     },
     "cardBase": "pages/algoritmi/algs/super6NN/",
     "rankingValue": 16252.5,
-    "rankingPosition": 13,
+    "rankingPosition": 14,
     "exactHits": {
       "0": 2776,
       "1": 1241,
@@ -504,13 +504,13 @@
   {
     "id": "xeno-qdna",
     "title": "XENO-QDNA",
-    "subtitle": "G-Family — Generatore a collasso binario quantizzato",
+    "subtitle": "G-Family - generatore a collasso binario quantizzato",
     "image": "img.webp",
     "lastUpdated": "13/06/2026",
     "hasNews": false,
     "usesOutData": true,
-    "statusTag": "Mirror lab",
-    "narrativeSummary": "Prima istanza della G-Family: algoritmo generativo a trasformazione di stato che codifica ogni sestina come DNA da 42 bit, calcola fratture XOR tra estrazioni consecutive e produce la sestina successiva tramite maschera di collasso, riflessione e tunneling. Nessuna frequenza, nessun peso da aggiornare, nessun consenso aggregato.",
+    "statusTag": "Beta lab",
+    "narrativeSummary": "Prima istanza della G-Family: un generatore sperimentale che smette di leggere i numeri come valori isolati e li trasforma in un piccolo DNA binario. Dalle fratture tra estrazioni nasce una maschera di collasso che produce una sestina laterale, verificabile e volutamente fuori dai metodi classici.",
     "page": "pages/algoritmi/algs/xeno-qdna/",
     "macroGroup": "generativi",
     "isActive": true,
@@ -520,16 +520,16 @@
     "view": true,
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "cardBase": "pages/algoritmi/algs/xeno-qdna/",
-    "rankingValue": 1,
-    "rankingPosition": 16,
+    "rankingValue": 16689.47,
+    "rankingPosition": 12,
     "exactHits": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
+      "0": 2661,
+      "1": 1285,
+      "2": 234,
+      "3": 10,
       "4": 0,
       "5": 0,
       "6": 0
@@ -551,10 +551,8 @@
     "no_data_show": false,
     "accessTier": "free",
     "view": true,
-    "hits": { "enabled": false, "count": 0 }
-  }
-]
-
+    "hits": {
+      "enabled": false,
       "count": 0
     }
   },
@@ -579,5 +577,35 @@
       "count": 0
     },
     "cardBase": "pages/sestine-proposte/"
+  },
+  {
+    "macroGroup": "storico",
+    "id": "storico-estrazioni",
+    "title": "Estrazione del:",
+    "subtitle": "$D",
+    "showSubtitle": true,
+    "image": "img.webp",
+    "mediaScale": 1.08,
+    "lastUpdated": "02/02/2026",
+    "hasNews": true,
+    "statusTag": "Archivio",
+    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
+    "page": "pages/storico-estrazioni/index.html",
+    "type": "ARCHIVI",
+    "features": [
+      "draws-latest"
+    ],
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/storico-estrazioni/",
+    "imageVersion": 1771969284
   }
 ]
