@@ -41,11 +41,11 @@
         const renderHitCount = (row) => row.picks.reduce((sum, pick) => sum + (pick.hit ? 1 : 0), 0);
         const ensureVisibleHistory = () => {
           if (!pager.rows.length || document.querySelector('[data-visible-history-panel]')) return;
-          const anchor = document.querySelector('[data-tabs-root]') || body.closest('section') || body.closest('main');
+          const anchor = body.closest('[data-tabs-root]') || document.querySelector('[data-tabs-root]') || body.closest('section') || body.closest('main');
           if (!anchor || !anchor.parentNode) return;
           const panel = document.createElement('section');
           panel.dataset.visibleHistoryPanel = '1';
-          panel.className = 'mt-8 rounded-2xl border border-white/10 bg-midnight/60 p-4';
+          panel.className = 'mt-4 rounded-2xl border border-white/10 bg-midnight/60 p-4';
           panel.innerHTML = `
             <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
               <div>

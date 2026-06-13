@@ -90,7 +90,7 @@
     var clean = String(path || '').replace(/^\/+/, '');
     try {
       var script = document.currentScript && document.currentScript.src ? document.currentScript.src : '';
-      if (script) return new URL('../' + clean, script).toString();
+      if (script) return new URL('../../' + clean, script).toString();
     } catch (e) {}
     return '/' + clean;
   }
@@ -307,7 +307,7 @@
       var l = document.createElement('link');
       l.id = 'v8skin-css';
       l.rel = 'stylesheet';
-      l.href = '/assets/css/v8skin.css?v=20260613-0138';
+      l.href = siteAsset('assets/css/v8skin.css?v=20260613-0305');
       document.head.appendChild(l);
     }
     injectRailSafeLayout();
