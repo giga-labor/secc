@@ -86,6 +86,39 @@
     });
   }
 
+  function v8AssetUrl(path) {
+    var clean = String(path || '').replace(/^\/+/, '');
+    try {
+      var scriptUrl = document.currentScript && document.currentScript.src ? document.currentScript.src : '';
+      if (scriptUrl) return new URL('../../' + clean, scriptUrl).toString();
+    } catch (e) {}
+    return '/' + clean;
+  }
+
+  function v8FetchText(path) {
+    var primary = v8AssetUrl(path);
+    var fallback = '/' + String(path || '').replace(/^\/+/, '');
+    return fetch(primary, { cache: 'no-store' }).then(function (r) {
+      if (r.ok) return r.text();
+      if (primary !== fallback) {
+        return fetch(fallback, { cache: 'no-store' }).then(function (r2) { return r2.ok ? r2.text() : ''; });
+      }
+      return '';
+    }).catch(function () {
+      if (primary !== fallback) {
+        return fetch(fallback, { cache: 'no-store' }).then(function (r2) { return r2.ok ? r2.text() : ''; }).catch(function () { return ''; });
+      }
+      return '';
+    });
+  }
+
+  function v8FetchJson(path, fallbackValue) {
+    return v8FetchText(path).then(function (text) {
+      if (!text) return fallbackValue;
+      try { return JSON.parse(text); } catch (e) { return fallbackValue; }
+    });
+  }
+
   // â”€â”€ AD RAIL ALIGN â”€â”€
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
   // Aggiungiamo padding-top pari alla topbar (64px) perche il contenuto
@@ -277,7 +310,7 @@
       var l = document.createElement('link');
       l.id = 'v8skin-css';
       l.rel = 'stylesheet';
-      l.href = '/assets/css/v8skin.css?v=20260613-0138';
+      l.href = v8AssetUrl('assets/css/v8skin.css?v=20260613-0315');
       document.head.appendChild(l);
     }
     injectRailSafeLayout();
@@ -687,8 +720,8 @@
   function buildGlobalSignals() {
     if (document.getElementById('v8-global-ticker')) return;
     Promise.all([
-      fetch('/data/cards-index.json').then(function (r) { return r.json(); }).catch(function () { return []; }),
-      fetch('/archives/draws/draws.csv').then(function (r) { return r.text(); }).catch(function () { return ''; })
+      v8FetchJson('data/cards-index.json', []),
+      v8FetchText('archives/draws/draws.csv')
     ]).then(function (res) {
       var cards = res[0] || [];
       var draws = parseCSV(res[1] || '');
@@ -797,8 +830,7 @@
                  document.querySelector('main');
     if (!anchor) return;
 
-    fetch('/data/cards-index.json')
-      .then(function (r) { return r.json(); })
+    v8FetchJson('data/cards-index.json', [])
       .then(function (cards) {
         function normPagePath(value) {
           var p = '/' + String(value || '').replace(/^\/+/, '');
@@ -1064,8 +1096,7 @@
           var left = hero.firstElementChild;
           if (left) left.appendChild(metrics);
         }
-        fetch('/data/cards-index.json', { cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : []; })
+        v8FetchJson('data/cards-index.json', [])
           .then(function (cards) {
             var path = window.location.pathname.replace(/index\.html$/i, '');
             if (path.slice(-1) !== '/') path += '/';

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-13 02:12:12",
+  "updated_at": "2026-06-13 02:14:30",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -24,10 +24,10 @@
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": false,
-    "git_dirty": false,
-    "remote_ahead": 0,
+    "git_dirty": true,
+    "remote_ahead": 1,
     "remote_behind": 0,
-    "alignment_diff_count": 16,
+    "alignment_diff_count": 1,
     "active_algorithms_count": 15,
     "active_algorithms_aligned_count": 15
   },

@@ -47,6 +47,8 @@
           const section = document.createElement('section');
           section.className = 'mt-4 space-y-4';
           section.dataset.attachedHistoryPanel = '1';
+          section.style.position = 'relative';
+          section.style.zIndex = '2';
           section.innerHTML = `
             <div class="overflow-x-auto rounded-2xl border border-white/10">
               <table class="min-w-full text-left text-sm">
