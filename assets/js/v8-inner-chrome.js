@@ -86,6 +86,36 @@
     });
   }
 
+  function siteAsset(path) {
+    var clean = String(path || '').replace(/^\/+/, '');
+    try {
+      var script = document.currentScript && document.currentScript.src ? document.currentScript.src : '';
+      if (script) return new URL('../' + clean, script).toString();
+    } catch (e) {}
+    return '/' + clean;
+  }
+
+  function fetchTextAsset(path) {
+    var primary = siteAsset(path);
+    var fallback = '/' + String(path || '').replace(/^\/+/, '');
+    return fetch(primary, { cache: 'no-store' }).then(function (r) {
+      if (r.ok) return r.text();
+      if (primary !== fallback) return fetch(fallback, { cache: 'no-store' }).then(function (r2) { return r2.ok ? r2.text() : ''; });
+      return '';
+    }).catch(function () {
+      return primary !== fallback
+        ? fetch(fallback, { cache: 'no-store' }).then(function (r2) { return r2.ok ? r2.text() : ''; }).catch(function () { return ''; })
+        : '';
+    });
+  }
+
+  function fetchJsonAsset(path, fallbackValue) {
+    return fetchTextAsset(path).then(function (text) {
+      if (!text) return fallbackValue;
+      try { return JSON.parse(text); } catch (e) { return fallbackValue; }
+    });
+  }
+
   // â”€â”€ AD RAIL ALIGN â”€â”€
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
   // Aggiungiamo padding-top pari alla topbar (64px) perche il contenuto
@@ -459,8 +489,7 @@
   function hydrateV8SheetData(sheet, card, fallbackBalls, fallbackMetrics) {
     if (!sheet || sheet.dataset.v8Hydrated === '1') return;
     sheet.dataset.v8Hydrated = '1';
-    fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
+    fetchJsonAsset('data/precomputed/algorithm-sheets.json', null)
       .then(function (payload) {
       var sheets = payload && payload.sheets && typeof payload.sheets === 'object' ? payload.sheets : {};
       var path = '/' + String((card && card.page) || window.location.pathname).replace(/^\/+/, '').replace(/index\.html$/i, '');
@@ -687,8 +716,8 @@
   function buildGlobalSignals() {
     if (document.getElementById('v8-global-ticker')) return;
     Promise.all([
-      fetch('/data/cards-index.json').then(function (r) { return r.json(); }).catch(function () { return []; }),
-      fetch('/archives/draws/draws.csv').then(function (r) { return r.text(); }).catch(function () { return ''; })
+      fetchJsonAsset('data/cards-index.json', []),
+      fetchTextAsset('archives/draws/draws.csv')
     ]).then(function (res) {
       var cards = res[0] || [];
       var draws = parseCSV(res[1] || '');
@@ -797,8 +826,7 @@
                  document.querySelector('main');
     if (!anchor) return;
 
-    fetch('/data/cards-index.json')
-      .then(function (r) { return r.json(); })
+    fetchJsonAsset('data/cards-index.json', [])
       .then(function (cards) {
         function normPagePath(value) {
           var p = '/' + String(value || '').replace(/^\/+/, '');
@@ -1064,8 +1092,7 @@
           var left = hero.firstElementChild;
           if (left) left.appendChild(metrics);
         }
-        fetch('/data/cards-index.json', { cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : []; })
+        fetchJsonAsset('data/cards-index.json', [])
           .then(function (cards) {
             var path = window.location.pathname.replace(/index\.html$/i, '');
             if (path.slice(-1) !== '/') path += '/';
