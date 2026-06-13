@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13 21:03:36",
+  "generated_at": "2026-06-13 21:43:50",
   "count": 16,
   "sheets": {
     "astra-moon": {
@@ -8,7 +8,7 @@
       "title": "ASTRA Moon",
       "subtitle": "Ranking numerico da effemeridi lunari con riferimento fisso 20:30",
       "family": "ibrido",
-      "rank_position": 9,
+      "rank_position": 7,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "17/04/2026",
@@ -1306,7 +1306,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 50,
+        "ranking_stability_pct": 62,
         "avg_hits": "0.42",
         "hit_rate_gte_2": "5.5%",
         "hit_rate_gte_3": "0.3%",
@@ -1329,7 +1329,7 @@
       "title": "classic-analisi-anomalie-pattern",
       "subtitle": "Analisi di anomalie e pattern",
       "family": "statistica",
-      "rank_position": 1,
+      "rank_position": 10,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -2627,7 +2627,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 96,
+        "ranking_stability_pct": 44,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.6%",
         "hit_rate_gte_3": "0.4%",
@@ -2650,7 +2650,7 @@
       "title": "classic  co-occorrenze",
       "subtitle": "Analisi relazionale su coppie e co-presenze storiche",
       "family": "statistica",
-      "rank_position": 3,
+      "rank_position": 14,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "10/02/2026",
@@ -3948,7 +3948,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 88,
+        "ranking_stability_pct": 19,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
@@ -3971,7 +3971,7 @@
       "title": "classic-coppie-terni-consecutivi",
       "subtitle": "Analisi di coppie e terni consecutivi",
       "family": "statistica",
-      "rank_position": 5,
+      "rank_position": 11,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -5269,7 +5269,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 75,
+        "ranking_stability_pct": 38,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "0.4%",
@@ -5292,7 +5292,7 @@
       "title": "classic-coppie-terzine-frequenti",
       "subtitle": "Pattern frequenti di coppie e terzine",
       "family": "statistica",
-      "rank_position": 16,
+      "rank_position": 12,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -6590,7 +6590,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 10,
+        "ranking_stability_pct": 31,
         "avg_hits": "0.38",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.1%",
@@ -6613,7 +6613,7 @@
       "title": "classic-distribuzioni-modelli-raggruppamento",
       "subtitle": "Distribuzioni e modelli di raggruppamento",
       "family": "statistica",
-      "rank_position": 7,
+      "rank_position": 9,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -7911,7 +7911,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 62,
+        "ranking_stability_pct": 50,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.4%",
@@ -7934,7 +7934,7 @@
       "title": "classic-frequency",
       "subtitle": "Analisi frequenziale su storico estrazioni",
       "family": "statistica",
-      "rank_position": 10,
+      "rank_position": 1,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "07/02/2026",
@@ -9232,7 +9232,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 44,
+        "ranking_stability_pct": 96,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
@@ -9255,7 +9255,7 @@
       "title": "classic-ritardi-combinazioni",
       "subtitle": "Ritardi su combinazioni multiple",
       "family": "statistica",
-      "rank_position": 8,
+      "rank_position": 4,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -10553,7 +10553,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 56,
+        "ranking_stability_pct": 81,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.3%",
@@ -10576,7 +10576,7 @@
       "title": "classic-ritardi",
       "subtitle": "Analisi dei numeri in ritardo (overdue)",
       "family": "statistica",
-      "rank_position": 2,
+      "rank_position": 15,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "09/02/2026",
@@ -11874,7 +11874,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 94,
+        "ranking_stability_pct": 12,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.4%",
@@ -11897,7 +11897,7 @@
       "title": "classic-statistiche-combinate-finestre-mobili",
       "subtitle": "Statistiche combinate su finestre mobili",
       "family": "statistica",
-      "rank_position": 15,
+      "rank_position": 3,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -13195,7 +13195,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 12,
+        "ranking_stability_pct": 88,
         "avg_hits": "0.38",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.3%",
@@ -13218,7 +13218,7 @@
       "title": "classic-tavole-probabilita-teorica-test-uniformita",
       "subtitle": "Probabilità teorica e test di uniformità",
       "family": "statistica",
-      "rank_position": 13,
+      "rank_position": 2,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "23/02/2026",
@@ -14516,7 +14516,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 25,
+        "ranking_stability_pct": 94,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.9%",
         "hit_rate_gte_3": "0.3%",
@@ -14539,7 +14539,7 @@
       "title": "GeneticSE",
       "subtitle": "Multi-agent online learning con aggiornamenti continui",
       "family": "neurale",
-      "rank_position": 4,
+      "rank_position": 16,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "07/02/2026",
@@ -15837,7 +15837,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 81,
+        "ranking_stability_pct": 10,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.6%",
         "hit_rate_gte_3": "0.4%",
@@ -17181,7 +17181,7 @@
       "title": "Paradox Logiche Decisionali Metriche",
       "subtitle": "Descrizione in arrivo",
       "family": "ibrido",
-      "rank_position": 11,
+      "rank_position": 5,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "07/02/2026",
@@ -18479,7 +18479,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 38,
+        "ranking_stability_pct": 75,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.0%",
         "hit_rate_gte_3": "0.31%",
@@ -18502,7 +18502,7 @@
       "title": "Super6 NN",
       "subtitle": "Walk-forward con training incrementale e sampling sestine",
       "family": "neurale",
-      "rank_position": 14,
+      "rank_position": 13,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "11/02/2026",
@@ -19800,7 +19800,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 19,
+        "ranking_stability_pct": 25,
         "avg_hits": "0.3896",
         "hit_rate_gte_2": "4.61%",
         "hit_rate_gte_3": "0.28%",
@@ -19823,7 +19823,7 @@
       "title": "XENO-QDNA",
       "subtitle": "G-Family - generatore a collasso binario quantizzato",
       "family": "generativi",
-      "rank_position": 12,
+      "rank_position": 8,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "13/06/2026",
@@ -21121,7 +21121,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 31,
+        "ranking_stability_pct": 56,
         "avg_hits": "0.43",
         "hit_rate_gte_2": "5.8%",
         "hit_rate_gte_3": "0.2%",

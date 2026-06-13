@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T21:03:36",
+  "generated_at": "2026-06-13T21:43:50",
   "stale": false,
   "latest_draw": {
     "seq": 4213,
@@ -120,70 +120,70 @@
   ],
   "ranking_top": [
     {
-      "title": "classic-analisi-anomalie-pattern",
+      "title": "classic-frequency",
       "family": "statistica",
-      "ranking": 30415.16,
+      "ranking": 47.29,
       "hits": {
-        "0": 2774,
-        "1": 1203,
-        "2": 217,
-        "3": 17,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      }
-    },
-    {
-      "title": "classic-ritardi",
-      "family": "statistica",
-      "ranking": 29792.4,
-      "hits": {
-        "0": 2769,
-        "1": 1226,
-        "2": 200,
-        "3": 16,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      }
-    },
-    {
-      "title": "classic  co-occorrenze",
-      "family": "statistica",
-      "ranking": 28813.17,
-      "hits": {
-        "0": 2774,
-        "1": 1224,
+        "0": 2782,
+        "1": 1217,
         "2": 200,
         "3": 13,
-        "4": 1,
+        "4": 0,
         "5": 0,
         "6": 0
       }
     },
     {
-      "title": "GeneticSE",
-      "family": "neurale",
-      "ranking": 28757.36,
-      "hits": {
-        "0": 2763,
-        "1": 1256,
-        "2": 178,
-        "3": 14,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      }
-    },
-    {
-      "title": "classic-coppie-terni-consecutivi",
+      "title": "classic-tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
-      "ranking": 18003.67,
+      "ranking": 43.37,
       "hits": {
-        "0": 2754,
-        "1": 1254,
-        "2": 187,
-        "3": 17,
+        "0": 2760,
+        "1": 1247,
+        "2": 193,
+        "3": 12,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "classic-statistiche-combinate-finestre-mobili",
+      "family": "statistica",
+      "ranking": 42.78,
+      "hits": {
+        "0": 2820,
+        "1": 1195,
+        "2": 186,
+        "3": 11,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "classic-ritardi-combinazioni",
+      "family": "statistica",
+      "ranking": 41.9,
+      "hits": {
+        "0": 2725,
+        "1": 1267,
+        "2": 207,
+        "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "title": "Paradox Logiche Decisionali Metriche",
+      "family": "ibrido",
+      "ranking": 39.61,
+      "hits": {
+        "0": 2760,
+        "1": 1243,
+        "2": 196,
+        "3": 13,
         "4": 0,
         "5": 0,
         "6": 0
@@ -192,7 +192,7 @@
     {
       "title": "HiSPA",
       "family": "statistica",
-      "ranking": 17852.79,
+      "ranking": 37.04,
       "hits": {
         "0": 2731,
         "1": 1254,
@@ -204,28 +204,28 @@
       }
     },
     {
-      "title": "classic-distribuzioni-modelli-raggruppamento",
-      "family": "statistica",
-      "ranking": 17574.62,
+      "title": "ASTRA Moon",
+      "family": "ibrido",
+      "ranking": 36.96,
       "hits": {
-        "0": 2782,
-        "1": 1230,
-        "2": 184,
-        "3": 16,
+        "0": 2701,
+        "1": 1279,
+        "2": 220,
+        "3": 12,
         "4": 0,
         "5": 0,
         "6": 0
       }
     },
     {
-      "title": "classic-ritardi-combinazioni",
-      "family": "statistica",
-      "ranking": 17126.3,
+      "title": "XENO-QDNA",
+      "family": "generativi",
+      "ranking": 33.14,
       "hits": {
-        "0": 2725,
-        "1": 1267,
-        "2": 207,
-        "3": 13,
+        "0": 2662,
+        "1": 1285,
+        "2": 234,
+        "3": 10,
         "4": 0,
         "5": 0,
         "6": 0

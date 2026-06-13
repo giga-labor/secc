@@ -1,156 +1,25 @@
 {
-  "generated_at": "2026-06-13 21:03:34",
+  "generated_at": "2026-06-13 21:43:48",
   "active_algorithms_count": 16,
   "rows": [
-    {
-      "title": "classic-analisi-anomalie-pattern",
-      "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-      "family": "statistica",
-      "ranking": 30415.16,
-      "hits": {
-        "0": 2774,
-        "1": 1203,
-        "2": 217,
-        "3": 17,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "classic-ritardi",
-      "page": "pages/algoritmi/algs/classic-ritardi/",
-      "family": "statistica",
-      "ranking": 29792.4,
-      "hits": {
-        "0": 2769,
-        "1": 1226,
-        "2": 200,
-        "3": 16,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "classic  co-occorrenze",
-      "page": "pages/algoritmi/algs/classic-co-occorrenze/",
-      "family": "statistica",
-      "ranking": 28813.17,
-      "hits": {
-        "0": 2774,
-        "1": 1224,
-        "2": 200,
-        "3": 13,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "GeneticSE",
-      "page": "pages/algoritmi/algs/genetic/",
-      "family": "neurale",
-      "ranking": 28757.36,
-      "hits": {
-        "0": 2763,
-        "1": 1256,
-        "2": 178,
-        "3": 14,
-        "4": 1,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "classic-coppie-terni-consecutivi",
-      "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-      "family": "statistica",
-      "ranking": 18003.67,
-      "hits": {
-        "0": 2754,
-        "1": 1254,
-        "2": 187,
-        "3": 17,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "HiSPA",
-      "page": "pages/algoritmi/algs/hispa/",
-      "family": "statistica",
-      "ranking": 17852.79,
-      "hits": {
-        "0": 2731,
-        "1": 1254,
-        "2": 212,
-        "3": 15,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "classic-distribuzioni-modelli-raggruppamento",
-      "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-      "family": "statistica",
-      "ranking": 17574.62,
-      "hits": {
-        "0": 2782,
-        "1": 1230,
-        "2": 184,
-        "3": 16,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "classic-ritardi-combinazioni",
-      "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
-      "family": "statistica",
-      "ranking": 17126.3,
-      "hits": {
-        "0": 2725,
-        "1": 1267,
-        "2": 207,
-        "3": 13,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "ASTRA Moon",
-      "page": "pages/algoritmi/algs/astra-moon/",
-      "family": "ibrido",
-      "ranking": 17082.81,
-      "hits": {
-        "0": 2701,
-        "1": 1279,
-        "2": 220,
-        "3": 12,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
     {
       "title": "classic-frequency",
       "page": "pages/algoritmi/algs/classic-frequency/",
       "family": "statistica",
-      "ranking": 16894.94,
+      "ranking": 47.29,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -5.99,
+        "observedScore": 0.13,
+        "expectedScore": 0.1382,
+        "stability": 64.73,
+        "recentForm": 100.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 70.9,
+        "riskPenalty": 0.98,
+        "risk": "basso",
+        "label": "Forte sul breve"
+      },
       "hits": {
         "0": 2782,
         "1": 1217,
@@ -163,42 +32,23 @@
       "image": "img.webp"
     },
     {
-      "title": "Paradox Logiche Decisionali Metriche",
-      "page": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
-      "family": "ibrido",
-      "ranking": 16862.6,
-      "hits": {
-        "0": 2760,
-        "1": 1243,
-        "2": 196,
-        "3": 13,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
-      "title": "XENO-QDNA",
-      "page": "pages/algoritmi/algs/xeno-qdna/",
-      "family": "generativi",
-      "ranking": 16691.0,
-      "hits": {
-        "0": 2662,
-        "1": 1285,
-        "2": 234,
-        "3": 10,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
       "title": "classic-tavole-probabilita-teorica-test-uniformita",
       "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
       "family": "statistica",
-      "ranking": 16484.79,
+      "ranking": 43.37,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -7.54,
+        "observedScore": 0.1278,
+        "expectedScore": 0.1382,
+        "stability": 58.83,
+        "recentForm": 100.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 66.92,
+        "riskPenalty": 3.02,
+        "risk": "medio",
+        "label": "Forte sul breve"
+      },
       "hits": {
         "0": 2760,
         "1": 1247,
@@ -211,26 +61,23 @@
       "image": "img.webp"
     },
     {
-      "title": "Super6 NN",
-      "page": "pages/algoritmi/algs/super6NN/",
-      "family": "neurale",
-      "ranking": 16254.03,
-      "hits": {
-        "0": 2777,
-        "1": 1241,
-        "2": 182,
-        "3": 12,
-        "4": 0,
-        "5": 0,
-        "6": 0
-      },
-      "image": "img.webp"
-    },
-    {
       "title": "classic-statistiche-combinate-finestre-mobili",
       "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
       "family": "statistica",
-      "ranking": 15924.58,
+      "ranking": 42.78,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -11.9,
+        "observedScore": 0.1218,
+        "expectedScore": 0.1382,
+        "stability": 63.39,
+        "recentForm": 84.93,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 71.56,
+        "riskPenalty": 2.96,
+        "risk": "basso",
+        "label": "Forte sul breve"
+      },
       "hits": {
         "0": 2820,
         "1": 1195,
@@ -243,16 +90,377 @@
       "image": "img.webp"
     },
     {
+      "title": "classic-ritardi-combinazioni",
+      "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
+      "family": "statistica",
+      "ranking": 41.9,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -3.07,
+        "observedScore": 0.134,
+        "expectedScore": 0.1382,
+        "stability": 68.5,
+        "recentForm": 58.84,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 74.56,
+        "riskPenalty": 1.5,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2725,
+        "1": 1267,
+        "2": 207,
+        "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "Paradox Logiche Decisionali Metriche",
+      "page": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
+      "family": "ibrido",
+      "ranking": 39.61,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -5.78,
+        "observedScore": 0.1302,
+        "expectedScore": 0.1382,
+        "stability": 64.02,
+        "recentForm": 53.57,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 70.24,
+        "riskPenalty": 1.45,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2760,
+        "1": 1243,
+        "2": 196,
+        "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "HiSPA",
+      "page": "pages/algoritmi/algs/hispa/",
+      "family": "statistica",
+      "ranking": 37.04,
+      "rankProfile": {
+        "edge": 0.45,
+        "edgePercent": 0.09,
+        "observedScore": 0.1384,
+        "expectedScore": 0.1382,
+        "stability": 71.45,
+        "recentForm": 14.78,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 76.34,
+        "riskPenalty": 0.85,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2731,
+        "1": 1254,
+        "2": 212,
+        "3": 15,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "ASTRA Moon",
+      "page": "pages/algoritmi/algs/astra-moon/",
+      "family": "ibrido",
+      "ranking": 36.96,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -1.8,
+        "observedScore": 0.1358,
+        "expectedScore": 0.1382,
+        "stability": 65.81,
+        "recentForm": 29.55,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 73.35,
+        "riskPenalty": 1.25,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2701,
+        "1": 1279,
+        "2": 220,
+        "3": 12,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "XENO-QDNA",
+      "page": "pages/algoritmi/algs/xeno-qdna/",
+      "family": "generativi",
+      "ranking": 33.14,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -1.45,
+        "observedScore": 0.1362,
+        "expectedScore": 0.1382,
+        "stability": 67.48,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 75.49,
+        "riskPenalty": 1.28,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2662,
+        "1": 1285,
+        "2": 234,
+        "3": 10,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
+      "family": "statistica",
+      "ranking": 31.79,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -4.17,
+        "observedScore": 0.1325,
+        "expectedScore": 0.1382,
+        "stability": 64.34,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 70.17,
+        "riskPenalty": 1.31,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2782,
+        "1": 1230,
+        "2": 184,
+        "3": 16,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-analisi-anomalie-pattern",
+      "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
+      "family": "statistica",
+      "ranking": 30.22,
+      "rankProfile": {
+        "edge": 78.41,
+        "edgePercent": 15.68,
+        "observedScore": 0.1599,
+        "expectedScore": 0.1382,
+        "stability": 16.64,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 55.56,
+        "riskPenalty": 20.86,
+        "risk": "alto",
+        "label": "Volatile"
+      },
+      "hits": {
+        "0": 2774,
+        "1": 1203,
+        "2": 217,
+        "3": 17,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-coppie-terni-consecutivi",
+      "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
+      "family": "statistica",
+      "ranking": 29.46,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -1.46,
+        "observedScore": 0.1362,
+        "expectedScore": 0.1382,
+        "stability": 58.23,
+        "recentForm": 16.63,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 67.44,
+        "riskPenalty": 4.34,
+        "risk": "medio",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2754,
+        "1": 1254,
+        "2": 187,
+        "3": 17,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
       "title": "classic-coppie-terzine-frequenti",
       "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
       "family": "statistica",
-      "ranking": 14153.56,
+      "ranking": 27.71,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -18.18,
+        "observedScore": 0.1131,
+        "expectedScore": 0.1382,
+        "stability": 56.55,
+        "recentForm": 10.23,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 69.43,
+        "riskPenalty": 4.9,
+        "risk": "medio",
+        "label": "Stabile"
+      },
       "hits": {
         "0": 2797,
         "1": 1217,
         "2": 193,
         "3": 5,
         "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "Super6 NN",
+      "page": "pages/algoritmi/algs/super6NN/",
+      "family": "neurale",
+      "ranking": 27.69,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -9.63,
+        "observedScore": 0.1249,
+        "expectedScore": 0.1382,
+        "stability": 61.21,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 69.31,
+        "riskPenalty": 4.54,
+        "risk": "basso",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2777,
+        "1": 1241,
+        "2": 182,
+        "3": 12,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic  co-occorrenze",
+      "page": "pages/algoritmi/algs/classic-co-occorrenze/",
+      "family": "statistica",
+      "ranking": 25.58,
+      "rankProfile": {
+        "edge": 39.95,
+        "edgePercent": 7.99,
+        "observedScore": 0.1493,
+        "expectedScore": 0.1382,
+        "stability": 2.07,
+        "recentForm": 100.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 52.47,
+        "riskPenalty": 21.16,
+        "risk": "alto",
+        "label": "Esplosivo ma instabile"
+      },
+      "hits": {
+        "0": 2774,
+        "1": 1224,
+        "2": 200,
+        "3": 13,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "classic-ritardi",
+      "page": "pages/algoritmi/algs/classic-ritardi/",
+      "family": "statistica",
+      "ranking": 23.02,
+      "rankProfile": {
+        "edge": 60.9,
+        "edgePercent": 12.18,
+        "observedScore": 0.1551,
+        "expectedScore": 0.1382,
+        "stability": 16.05,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 54.41,
+        "riskPenalty": 20.79,
+        "risk": "alto",
+        "label": "Volatile"
+      },
+      "hits": {
+        "0": 2769,
+        "1": 1226,
+        "2": 200,
+        "3": 16,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "GeneticSE",
+      "page": "pages/algoritmi/algs/genetic/",
+      "family": "neurale",
+      "ranking": 9.56,
+      "rankProfile": {
+        "edge": 33.42,
+        "edgePercent": 6.68,
+        "observedScore": 0.1475,
+        "expectedScore": 0.1382,
+        "stability": 6.72,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 54.45,
+        "riskPenalty": 20.93,
+        "risk": "alto",
+        "label": "Volatile"
+      },
+      "hits": {
+        "0": 2763,
+        "1": 1256,
+        "2": 178,
+        "3": 14,
+        "4": 1,
         "5": 0,
         "6": 0
       },
