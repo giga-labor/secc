@@ -36,66 +36,18 @@
         const pageEl = document.querySelector('[data-historical-page]');
         const prev = document.querySelector('[data-historical-prev]');
         const next = document.querySelector('[data-historical-next]');
+        const attachedBody = document.querySelector('[data-attached-history-body]');
+        const attachedPage = document.querySelector('[data-attached-history-page]');
+        const attachedPrev = document.querySelector('[data-attached-history-prev]');
+        const attachedNext = document.querySelector('[data-attached-history-next]');
         const renderPicks = (row) => row.picks.map((pick) => `<span class="historical-pick${pick.hit ? ' is-hit' : ''}">${esc(pick.value)}</span>`).join('');
         const renderReal = (row) => (pager.draws[String(row.draw)] || []).map((n) => `<span class="historical-pick is-drawn">${esc(String(n).padStart(2, '0'))}</span>`).join('');
         const renderHitCount = (row) => row.picks.reduce((sum, pick) => sum + (pick.hit ? 1 : 0), 0);
-        const ensureVisibleHistory = () => {
-          if (!pager.rows.length || document.querySelector('[data-visible-history-panel]')) return;
-          const anchor = body.closest('[data-tabs-root]') || document.querySelector('[data-tabs-root]') || body.closest('section') || body.closest('main');
-          if (!anchor || !anchor.parentNode) return;
-          const panel = document.createElement('section');
-          panel.dataset.visibleHistoryPanel = '1';
-          panel.className = 'mt-4 rounded-2xl border border-white/10 bg-midnight/60 p-4';
-          panel.innerHTML = `
-            <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p class="text-xs uppercase tracking-[0.2em] text-ash">Storico previsioni</p>
-                <h2 class="mt-1 text-xl font-semibold text-white">Previsioni passate e numeri indovinati</h2>
-              </div>
-              <span class="text-xs text-ash" data-visible-history-count></span>
-            </div>
-            <div class="space-y-2" data-visible-history-list></div>
-            <div class="mt-4 text-center">
-              <button type="button" class="rounded-md border border-white/15 px-3 py-2 text-xs text-ash transition hover:border-neon/60 hover:text-neon" data-visible-history-more>Mostra altri</button>
-            </div>
-          `;
-          anchor.insertAdjacentElement('afterend', panel);
-          const list = panel.querySelector('[data-visible-history-list]');
-          const count = panel.querySelector('[data-visible-history-count]');
-          const more = panel.querySelector('[data-visible-history-more]');
-          let shown = 0;
-          const step = 60;
-          const rowHtml = (row) => {
-            const real = renderReal(row) || '<span class="text-ash/60">--</span>';
-            const hits = renderHitCount(row);
-            return `
-              <article class="rounded-xl border border-white/10 bg-black/20 px-3 py-3">
-                <div class="mb-2 flex flex-wrap items-center justify-between gap-2 text-xs text-ash">
-                  <span>Concorso #${esc(row.draw)}</span>
-                  <span class="historical-hit-count">${hits} hit</span>
-                </div>
-                <div class="grid gap-3 md:grid-cols-2">
-                  <div>
-                    <p class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-ash">Previsione fatta</p>
-                    <div class="flex flex-wrap gap-2">${renderPicks(row)}</div>
-                  </div>
-                  <div>
-                    <p class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-ash">Estratti reali</p>
-                    <div class="flex flex-wrap gap-2">${real}</div>
-                  </div>
-                </div>
-              </article>
-            `;
-          };
-          const append = () => {
-            const nextRows = pager.rows.slice(shown, shown + step);
-            shown += nextRows.length;
-            list.insertAdjacentHTML('beforeend', nextRows.map(rowHtml).join(''));
-            if (count) count.textContent = `${shown.toLocaleString('it-IT')} / ${pager.rows.length.toLocaleString('it-IT')}`;
-            if (more && shown >= pager.rows.length) more.style.display = 'none';
-          };
-          if (more) more.addEventListener('click', append);
-          append();
+        const rowHtml = (row) => {
+          const picks = renderPicks(row);
+          const real = renderReal(row);
+          const hits = renderHitCount(row);
+          return `<tr><td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${esc(row.draw)}</td><td class="px-2 py-3 pl-1"><div class="flex flex-wrap gap-2">${picks}</div></td><td class="px-2 py-3"><div class="flex flex-wrap gap-2">${real || '<span class="text-ash/60">--</span>'}</div></td><td class="w-[1%] whitespace-nowrap px-2 py-3 text-center"><span class="historical-hit-count">${hits}</span></td></tr>`;
         };
         const render = () => {
           ensureHead();
@@ -104,18 +56,18 @@
           if (pageEl) pageEl.textContent = `Pagina ${pager.page} / ${total}`;
           if (prev) prev.disabled = pager.page <= 1;
           if (next) next.disabled = pager.page >= total;
+          if (attachedPage) attachedPage.textContent = `Pagina ${pager.page} / ${total}`;
+          if (attachedPrev) attachedPrev.disabled = pager.page <= 1;
+          if (attachedNext) attachedNext.disabled = pager.page >= total;
           if (!pager.rows.length) {
             body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun dato storico disponibile.</td></tr>';
+            if (attachedBody) attachedBody.innerHTML = body.innerHTML;
             return;
           }
           const start = (pager.page - 1) * pager.size;
-          body.innerHTML = pager.rows.slice(start, start + pager.size).map((row) => {
-            const picks = renderPicks(row);
-            const real = renderReal(row);
-            const hits = renderHitCount(row);
-            return `<tr><td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${esc(row.draw)}</td><td class="px-2 py-3 pl-1"><div class="flex flex-wrap gap-2">${picks}</div></td><td class="px-2 py-3"><div class="flex flex-wrap gap-2">${real || '<span class="text-ash/60">--</span>'}</div></td><td class="w-[1%] whitespace-nowrap px-2 py-3 text-center"><span class="historical-hit-count">${hits}</span></td></tr>`;
-          }).join('');
-          ensureVisibleHistory();
+          const html = pager.rows.slice(start, start + pager.size).map(rowHtml).join('');
+          body.innerHTML = html;
+          if (attachedBody) attachedBody.innerHTML = html;
         };
         if (prev && prev.dataset.historicalBootClick !== '1') {
           prev.dataset.historicalBootClick = '1';
@@ -124,6 +76,14 @@
         if (next && next.dataset.historicalBootClick !== '1') {
           next.dataset.historicalBootClick = '1';
           next.addEventListener('click', () => { pager.page += 1; render(); });
+        }
+        if (attachedPrev && attachedPrev.dataset.historicalBootClick !== '1') {
+          attachedPrev.dataset.historicalBootClick = '1';
+          attachedPrev.addEventListener('click', () => { pager.page -= 1; render(); });
+        }
+        if (attachedNext && attachedNext.dataset.historicalBootClick !== '1') {
+          attachedNext.dataset.historicalBootClick = '1';
+          attachedNext.addEventListener('click', () => { pager.page += 1; render(); });
         }
         Promise.all([
           fetch('out/historical-db.csv', { cache: 'no-store' }).then((res) => {
@@ -143,6 +103,7 @@
         }).catch(() => {
           ensureHead();
           body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Archivio non disponibile o formato non valido.</td></tr>';
+          if (attachedBody) attachedBody.innerHTML = body.innerHTML;
         });
       };
       bootHistoricalTable();

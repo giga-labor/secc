@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13 02:04:36",
+  "generated_at": "2026-06-13 02:08:06",
   "ok": true,
   "active_algorithms": 15,
   "ranking_rows": 15,
@@ -34,37 +34,37 @@
     "data/iargos-public-status.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 02:04:07"
+      "generated_at": "2026-06-13 02:07:53"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 02:04:34"
+      "generated_at": "2026-06-13 02:08:05"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 02:04:36"
+      "generated_at": "2026-06-13 02:08:06"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 02:04:34"
+      "generated_at": "2026-06-13 02:08:05"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13T02:04:36"
+      "generated_at": "2026-06-13T02:08:06"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13T02:04:36"
+      "generated_at": "2026-06-13T02:08:06"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13T02:04:36"
+      "generated_at": "2026-06-13T02:08:06"
     }
   },
   "errors": [],
