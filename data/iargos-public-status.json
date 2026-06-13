@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-13 19:47:56",
+  "updated_at": "2026-06-13 21:23:48",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "summary": "Problemi attivi: p6_local_publish, p8_backup_over_limit",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -17,7 +17,7 @@
     "p5_archive_stale": false,
     "p6_local_publish": true,
     "p7_remote_force_align": false,
-    "p8_backup_over_limit": false,
+    "p8_backup_over_limit": true,
     "p9_smtp_broken": false
   },
   "alignment": {
@@ -38,26 +38,50 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-13 19:45:19",
+    "last_push_at": "2026-06-13 21:04:33",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781368061
+    "boot_ts": 1781375431
   },
   "feed": [
     {
       "type": "alert",
-      "ts": "2026-06-12T21:54:22",
+      "ts": "2026-06-13T21:23:47",
       "message": "Rilevata una situazione anomala, intervento in corso",
       "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": true,
       "source": "iargos"
     },
     {
-      "type": "alert",
-      "ts": "2026-06-12T21:21:17",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
+      "type": "draw",
+      "ts": "2026-06-13T21:04:46",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-13T20:57:38",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "snapshot",
+      "ts": "2026-06-13T19:47:57",
+      "message": "Statistiche e previsioni ricalcolate",
+      "detail": "Riepilogo statistico e indici di previsione aggiornati con i dati più recenti.",
+      "ok": true,
+      "source": "cart"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-13T19:44:25",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
       "source": "updates"
     },
     {
@@ -109,28 +133,12 @@
       "source": "iargos"
     },
     {
-      "type": "training",
-      "ts": "2026-06-11T21:24:50",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
       "type": "draw",
       "ts": "2026-06-09T21:15:12",
       "message": "Nuova estrazione importata e analizzata",
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-09T21:02:00",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
     },
     {
       "type": "draw",
@@ -272,14 +280,6 @@
       "type": "versioning",
       "ts": "2026-02-11T13:13:10",
       "message": "Versione del sito aggiornata (00.03.004 -> 00.04.001)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:54:13",
-      "message": "Versione del sito aggiornata (00.02.042 -> 00.03.001)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
