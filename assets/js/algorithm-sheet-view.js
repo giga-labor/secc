@@ -924,7 +924,31 @@
         let hasAny = false;
         rows.forEach((r) => {
           const metric = String(r[0] || '').trim().toLowerCase();
-          const v = Number.parseInt(String(r[1] || '').replace(/[^\d-]/g, ''), 10);
+          const rawValue = String(r[1] || '').trim();
+          if (metric === 'distribuzione hit' || metric === 'distribuzione hit 0-6') {
+            try {
+              const parsed = JSON.parse(rawValue);
+              for (let k = 0; k <= 6; k += 1) {
+                const v = Number.parseInt(String(parsed[String(k)] ?? parsed[k] ?? 0), 10);
+                if (Number.isFinite(v)) {
+                  counts[k] = Math.max(0, v);
+                  hasAny = true;
+                }
+              }
+            } catch (_) {
+              const matches = rawValue.matchAll(/(?:^|[\s|,;])([0-6])\s*[:=]\s*(\d+)/g);
+              for (const match of matches) {
+                const k = Number.parseInt(match[1], 10);
+                const v = Number.parseInt(match[2], 10);
+                if (Number.isFinite(k) && Number.isFinite(v)) {
+                  counts[k] = Math.max(0, v);
+                  hasAny = true;
+                }
+              }
+            }
+            return;
+          }
+          const v = Number.parseInt(rawValue.replace(/[^\d-]/g, ''), 10);
           if (!Number.isFinite(v)) return;
           const m = metric.match(/^con\s+([0-6])\s+hit$/);
           if (!m) return;

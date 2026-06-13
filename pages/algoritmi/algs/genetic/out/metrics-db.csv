@@ -12,6 +12,7 @@ Con 4 hit,1,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
+Distribuzione hit 0-6,0: 2762 | 1: 1256 | 2: 178 | 3: 14 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Ultimo concorso calcolato,4212,Data estrazione: 12/06/2026
 Concorso successivo stimato,4213,Sestina proposta: 04 23 65 70 76 88
 Sestina proposta (prossimo concorso),04 23 65 70 76 88,Calcolata su storico progressivo GeneticSE

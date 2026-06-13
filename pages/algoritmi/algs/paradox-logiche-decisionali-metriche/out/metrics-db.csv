@@ -12,6 +12,7 @@ Con 4 hit,1,Conteggio hit esatte = 4
 Con 5 hit,0,Conteggio hit esatte = 5
 Con 6 hit,0,Conteggio hit esatte = 6
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
+Distribuzione hit 0-6,0: 2788 | 1: 1209 | 2: 197 | 3: 16 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Algoritmi attivi letti,14,Moduli con card isActive=true e output validi
 Sample neurale,12000,Numero campioni usati dal meta-modello
 Warning discovery/parsing,0,Numero warning non bloccanti nel run

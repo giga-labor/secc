@@ -10,6 +10,7 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,8,Massima sequenza di concorsi con almeno 1 hit
+Distribuzione hit 0-6,0: 2700 | 1: 1279 | 2: 220 | 3: 12 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Ultimo concorso calcolato,4212,Data estrazione: 12/06/2026
 Concorso successivo stimato,4213,Riferimento ASTRA Moon: 13/06/2026 20:30 CEST (13/06/2026 18:30 UTC)
 Sestina proposta (prossimo concorso),04 06 05 03 07 50,Ranking numeri da effemeridi lunari + storico incrementale

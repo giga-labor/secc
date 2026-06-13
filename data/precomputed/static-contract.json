@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13 19:45:10",
+  "generated_at": "2026-06-13 19:47:55",
   "ok": true,
   "active_algorithms": 16,
   "ranking_rows": 16,
@@ -39,32 +39,32 @@
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 19:45:08"
+      "generated_at": "2026-06-13 19:47:54"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 19:45:09"
+      "generated_at": "2026-06-13 19:47:55"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13 19:45:08"
+      "generated_at": "2026-06-13 19:47:54"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13T19:45:10"
+      "generated_at": "2026-06-13T19:47:55"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13T19:45:10"
+      "generated_at": "2026-06-13T19:47:55"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-13T19:45:10"
+      "generated_at": "2026-06-13T19:47:55"
     }
   },
   "errors": [],

@@ -3,6 +3,7 @@ Concorsi analizzati,4212,Conteggio archivio dal concorso 1 al concorso 4212
 Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,5.1%,Percentuale concorsi con almeno 2 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
+Distribuzione hit 0-6,0: 2781 | 1: 1217 | 2: 200 | 3: 13 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Ultimo concorso calcolato,4212,Data estrazione: 12/06/2026
 Concorso successivo stimato,4213,Sestina proposta: 85 06 86 49 79 55
 Sestina proposta (prossimo concorso),85 06 86 49 79 55,Calcolata su tutto lo storico disponibile

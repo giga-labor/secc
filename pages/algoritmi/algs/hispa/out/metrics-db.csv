@@ -10,6 +10,7 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,9,Massima sequenza di concorsi con almeno 1 hit
+Distribuzione hit 0-6,0: 2730 | 1: 1254 | 2: 212 | 3: 15 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Media hit ultimi 100,0.41,Ultimi 100 concorsi o meno
 Ultimo concorso calcolato,4212,Data estrazione: 12/06/2026
 Pattern query match (singoli),6,Pattern della query con frequenza storica > 0
