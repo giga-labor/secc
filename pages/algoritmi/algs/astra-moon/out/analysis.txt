@@ -1,1 +1,1 @@
-ASTRA Moon aggiornato fino al concorso 4212 su 4212 estrazioni. Il modello usa sempre il riferimento locale 20:30 Europe/Rome per ogni concorso, con conversione UTC coerente ai passaggi ora solare/legale. Prossimo riferimento: 13/06/2026 20:30 CEST (13/06/2026 18:30 UTC).
+ASTRA Moon aggiornato fino al concorso 4213 su 4213 estrazioni. Il modello usa sempre il riferimento locale 20:30 Europe/Rome per ogni concorso, con conversione UTC coerente ai passaggi ora solare/legale. Prossimo riferimento: 16/06/2026 20:30 CEST (16/06/2026 18:30 UTC).

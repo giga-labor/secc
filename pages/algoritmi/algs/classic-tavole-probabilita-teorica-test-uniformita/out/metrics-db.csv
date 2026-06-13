@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4212,Conteggio archivio fino al concorso 4212
+Concorsi analizzati,4213,Conteggio archivio fino al concorso 4213
 Media hit/sestina,0.40,Media numeri corretti per concorso
 Hit rate >= 2,4.9%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2759,Numero concorsi con esattamente 0 hit
+Con 0 hit,2760,Numero concorsi con esattamente 0 hit
 Con 1 hit,1247,Numero concorsi con esattamente 1 hit
 Con 2 hit,193,Numero concorsi con esattamente 2 hit
 Con 3 hit,12,Numero concorsi con esattamente 3 hit
@@ -10,13 +10,13 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2759 | 1: 1247 | 2: 193 | 3: 12 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-Media hit ultimi 100,0.47,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4212,Data estrazione: 12/06/2026
-Concorso successivo stimato,4213,Sestina proposta: 50 36 53 18 24 60
+Distribuzione hit 0-6,0: 2760 | 1: 1247 | 2: 193 | 3: 12 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Media hit ultimi 100,0.46,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4213,Data estrazione: 13/06/2026
+Concorso successivo stimato,4214,Sestina proposta: 50 36 53 18 24 60
 Sestina proposta (prossimo concorso),50 36 53 18 24 60,Pronostico prodotto con addestramento incrementale
-Atteso per numero,280.80,Valore teorico uniforme: draws * 6/90
-Chi quadro numeri (90 classi),94.47,Statistica descrittiva senza p-value
-Chi quadro decadi (9 classi),21.09,Confronto osservato/atteso sulle 9 decadi
+Atteso per numero,280.87,Valore teorico uniforme: draws * 6/90
+Chi quadro numeri (90 classi),94.46,Statistica descrittiva senza p-value
+Chi quadro decadi (9 classi),21.19,Confronto osservato/atteso sulle 9 decadi
 Chi quadro pari-dispari,2.39,Uniformita su due classi aggregate
-Massima deviazione numero,85,Scarto osservato-atteso: +43.20
+Massima deviazione numero,85,Scarto osservato-atteso: +43.13

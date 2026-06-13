@@ -16,8 +16,8 @@
   "type": "ALGORITMI",
   "accessTier": "free",
   "hits": {
-    "enabled": true,
-    "count": 2
+    "enabled": false,
+    "count": 0
   },
   "featured": false,
   "news": []

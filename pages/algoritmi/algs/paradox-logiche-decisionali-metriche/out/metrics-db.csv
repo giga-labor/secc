@@ -1,21 +1,21 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4212,Archivio condiviso fino al concorso 4212
-Media hit/sestina,0.39,Media hit della sestina Paradox su storico aggregato
-Hit rate >= 2,5.1%,Percentuale concorsi con almeno 2 hit
-Hit rate >= 3,0.40%,Percentuale concorsi con almeno 3 hit
-Hit rate >= 4,0.024%,Percentuale concorsi con almeno 4 hit
+Concorsi analizzati,4213,Archivio condiviso fino al concorso 4213
+Media hit/sestina,0.40,Media hit della sestina Paradox su storico aggregato
+Hit rate >= 2,5.0%,Percentuale concorsi con almeno 2 hit
+Hit rate >= 3,0.31%,Percentuale concorsi con almeno 3 hit
+Hit rate >= 4,0.000%,Percentuale concorsi con almeno 4 hit
 Hit rate >= 5,0.0000%,Percentuale concorsi con almeno 5 hit
 Hit rate >= 6,0.000000%,Percentuale concorsi con 6 hit
-Con 2 hit,197,Conteggio hit esatte = 2
-Con 3 hit,16,Conteggio hit esatte = 3
-Con 4 hit,1,Conteggio hit esatte = 4
+Con 2 hit,196,Conteggio hit esatte = 2
+Con 3 hit,13,Conteggio hit esatte = 3
+Con 4 hit,0,Conteggio hit esatte = 4
 Con 5 hit,0,Conteggio hit esatte = 5
 Con 6 hit,0,Conteggio hit esatte = 6
-Best streak,6,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2788 | 1: 1209 | 2: 197 | 3: 16 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-Algoritmi attivi letti,14,Moduli con card isActive=true e output validi
+Best streak,9,Massima sequenza di concorsi con almeno 1 hit
+Distribuzione hit 0-6,0: 2760 | 1: 1243 | 2: 196 | 3: 13 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Algoritmi attivi letti,15,Moduli con card isActive=true e output validi
 Sample neurale,12000,Numero campioni usati dal meta-modello
 Warning discovery/parsing,0,Numero warning non bloccanti nel run
-Ultimo concorso calcolato,4212,Data estrazione: 12/06/2026
-Concorso successivo stimato,4213,Sestina proposta: 04 06 55 65 76 85
-Sestina proposta (prossimo concorso),04 06 55 65 76 85,Meta-aggregazione Paradox su algoritmi attivi + scoring neurale/statistico
+Ultimo concorso calcolato,4213,Data estrazione: 13/06/2026
+Concorso successivo stimato,4214,Sestina proposta: 04 65 76 85 88 06
+Sestina proposta (prossimo concorso),04 65 76 85 88 06,Meta-aggregazione Paradox su algoritmi attivi + scoring neurale/statistico
