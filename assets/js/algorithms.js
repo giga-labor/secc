@@ -99,13 +99,8 @@ async function renderAlgorithms(area, algorithms, spotlightCards = []) {
   const tabsSheet = document.createElement('div');
   tabsSheet.className = 'tabs-sheet';
 
-  const CATEGORY_LABELS = {
-    statistici: 'Statistici',
-    neurali: 'Neurali',
-    ibridi: 'Ibridi',
-    generativi: 'G-Family'
-  };
-  const CATEGORY_ORDER = ['statistici', 'neurali', 'ibridi', 'generativi'];
+  const CATEGORY_LABELS = { statistici: 'Statistici', neurali: 'Neurali', ibridi: 'Ibridi', generativi: 'G-Family', algoritmo: 'Algoritmo Family' };
+  const CATEGORY_ORDER = ['statistici', 'neurali', 'ibridi', 'generativi', 'algoritmo'];
 
   const buckets = {};
   algorithms.forEach((algorithm) => {

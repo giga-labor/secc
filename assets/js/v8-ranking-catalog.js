@@ -77,6 +77,7 @@
     if (raw.indexOf('neur') === 0) return 'Neurale';
     if (raw.indexOf('ibr') === 0) return 'Ibrido';
     if (raw.indexOf('stor') === 0) return 'Storico';
+    if (raw.indexOf('gen') === 0) return 'Generativo';
     return 'Statistico';
   }
 
@@ -113,15 +114,13 @@
       + '<div class="v8rank-title">' + title + '</div>'
       + (subtitle ? '<p class="v8rank-subtitle">' + subtitle + '</p>' : '')
       + '<div class="v8rank-score"><b>' + escapeHtml(formatScore(row.ranking)) + '</b><span>Punteggio storico</span></div>'
-      + '<div class="v8rank-bars" aria-label="Distribuzione hit">' + bars + '</div>'
-      + '<div class="v8rank-meta"><span>0 hit ' + (row.hits[0] || 0) + '</span><span>3+ hit ' + hit3p + '</span></div>'
       + '<span class="v8rank-go">Apri scheda &rarr;</span>'
       + '</a>';
   }
 
   async function buildRows() {
-    var precomputed = await fetchJson('data/precomputed/ranking.json');
-    var cardIndex = await fetchJson('data/cards-index.json');
+    var precomputed = await fetchJson('/data/precomputed/ranking.json');
+    var cardIndex = await fetchJson('/data/cards-index.json');
     var cardsByPage = {};
 
     if (Array.isArray(cardIndex)) {
@@ -201,7 +200,7 @@
       wrap.style.cssText = 'padding:4px 8px 6px;border-top:1px solid rgba(255,255,255,0.07)';
       wrap.innerHTML = '<div id="mini-' + escapeHtml(slug) + '" style="min-height:40px"></div>';
       card.appendChild(wrap);
-      fetchJson('pages/algoritmi/algs/' + slug + '/out/charts-data.json').then(function (data) {
+      fetchJson('/pages/algoritmi/algs/' + slug + '/out/charts-data.json').then(function (data) {
         var el = document.getElementById('mini-' + slug);
         if (!el || !data || !data.hit_distribution) return;
         window.ChartRenderer.renderHitDistribution(el, data.hit_distribution);

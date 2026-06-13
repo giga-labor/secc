@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T21:44:08",
+  "generated_at": "2026-06-13T23:02:01",
   "stale": false,
   "latest_draw": {
     "seq": 4213,
@@ -120,7 +120,7 @@
   ],
   "ranking_top": [
     {
-      "title": "classic-frequency",
+      "title": "frequency",
       "family": "statistica",
       "ranking": 47.29,
       "hits": {
@@ -134,7 +134,7 @@
       }
     },
     {
-      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "title": "tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
       "ranking": 43.37,
       "hits": {
@@ -148,7 +148,7 @@
       }
     },
     {
-      "title": "classic-statistiche-combinate-finestre-mobili",
+      "title": "statistiche-combinate-finestre-mobili",
       "family": "statistica",
       "ranking": 42.78,
       "hits": {
@@ -162,7 +162,7 @@
       }
     },
     {
-      "title": "classic-ritardi-combinazioni",
+      "title": "ritardi-combinazioni",
       "family": "statistica",
       "ranking": 41.9,
       "hits": {

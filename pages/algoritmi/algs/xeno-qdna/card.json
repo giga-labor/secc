@@ -12,11 +12,5 @@
   "macroGroup": "generativi",
   "isActive": true,
   "no_data_show": true,
-  "accessTier": "free",
-  "type": "ALGORITMI",
-  "view": true,
-  "hits": {
-    "enabled": false,
-    "count": 0
-  }
+  "accessTier": "free"
 }

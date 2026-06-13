@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-13 21:44:06",
+  "generated_at": "2026-06-13 23:01:59",
   "active_algorithms_count": 16,
   "rows": [
     {
-      "title": "classic-frequency",
+      "title": "frequency",
       "page": "pages/algoritmi/algs/classic-frequency/",
       "family": "statistica",
       "ranking": 47.29,
@@ -32,7 +32,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "title": "tavole-probabilita-teorica-test-uniformita",
       "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
       "family": "statistica",
       "ranking": 43.37,
@@ -61,7 +61,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-statistiche-combinate-finestre-mobili",
+      "title": "statistiche-combinate-finestre-mobili",
       "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
       "family": "statistica",
       "ranking": 42.78,
@@ -90,7 +90,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-ritardi-combinazioni",
+      "title": "ritardi-combinazioni",
       "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
       "family": "statistica",
       "ranking": 41.9,
@@ -235,7 +235,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "title": "distribuzioni-modelli-raggruppamento",
       "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
       "family": "statistica",
       "ranking": 31.79,
@@ -264,7 +264,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-analisi-anomalie-pattern",
+      "title": "analisi-anomalie-pattern",
       "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
       "family": "statistica",
       "ranking": 30.22,
@@ -293,7 +293,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-coppie-terni-consecutivi",
+      "title": "coppie-terni-consecutivi",
       "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
       "family": "statistica",
       "ranking": 29.46,
@@ -322,7 +322,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-coppie-terzine-frequenti",
+      "title": "coppie-terzine-frequenti",
       "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
       "family": "statistica",
       "ranking": 27.71,
@@ -380,7 +380,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic  co-occorrenze",
+      "title": "co-occorrenze",
       "page": "pages/algoritmi/algs/classic-co-occorrenze/",
       "family": "statistica",
       "ranking": 25.58,
@@ -409,7 +409,7 @@
       "image": "img.webp"
     },
     {
-      "title": "classic-ritardi",
+      "title": "ritardi",
       "page": "pages/algoritmi/algs/classic-ritardi/",
       "family": "statistica",
       "ranking": 23.02,

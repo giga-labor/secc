@@ -83,8 +83,12 @@
   /* ── 1. Hit Distribution (bar verticale) ─────────────── */
   function renderHitDistribution(container, data) {
     if (!data || !data.values) { _empty(container, 'Dati hit distribution non disponibili'); return; }
-    const labels = data.labels || ['0','1','2','3','4','5','6'];
-    const values = data.values;
+    const rawLabels = data.labels || ['0','1','2','3','4','5','6'];
+    const rawValues = data.values;
+    // Escludi colonna 0 (nessun punto, non significativa per il punteggio)
+    const zeroIdx = rawLabels.indexOf('0');
+    const labels = zeroIdx >= 0 ? rawLabels.filter((_, i) => i !== zeroIdx) : rawLabels;
+    const values = zeroIdx >= 0 ? rawValues.filter((_, i) => i !== zeroIdx) : rawValues;
     const n = labels.length;
     const W = 420, H = 180;
     const PAD = { top: 20, right: 16, bottom: 36, left: 40 };
@@ -111,7 +115,8 @@
       const barH = (v / maxV) * chartH;
       const x = PAD.left + i * gap + (gap - barW) / 2;
       const y = PAD.top + chartH - barH;
-      const fill = i >= 2 ? C.barHit : C.bar;
+      // labels[0] = '1', labels[1] = '2', … → colore hit da indice 1 (hit ≥ 2)
+      const fill = i >= 1 ? C.barHit : C.bar;
       svg.appendChild(_rect(x, y, barW, barH, fill));
       // valore sopra
       if (v > 0) {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13 21:44:08",
+  "generated_at": "2026-06-13 23:02:01",
   "count": 16,
   "sheets": {
     "astra-moon": {
@@ -1326,7 +1326,7 @@
     "classic-analisi-anomalie-pattern": {
       "slug": "classic-analisi-anomalie-pattern",
       "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-      "title": "classic-analisi-anomalie-pattern",
+      "title": "analisi-anomalie-pattern",
       "subtitle": "Analisi di anomalie e pattern",
       "family": "statistica",
       "rank_position": 10,
@@ -2647,7 +2647,7 @@
     "classic-co-occorrenze": {
       "slug": "classic-co-occorrenze",
       "page": "pages/algoritmi/algs/classic-co-occorrenze/",
-      "title": "classic  co-occorrenze",
+      "title": "co-occorrenze",
       "subtitle": "Analisi relazionale su coppie e co-presenze storiche",
       "family": "statistica",
       "rank_position": 14,
@@ -3968,7 +3968,7 @@
     "classic-coppie-terni-consecutivi": {
       "slug": "classic-coppie-terni-consecutivi",
       "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-      "title": "classic-coppie-terni-consecutivi",
+      "title": "coppie-terni-consecutivi",
       "subtitle": "Analisi di coppie e terni consecutivi",
       "family": "statistica",
       "rank_position": 11,
@@ -5289,7 +5289,7 @@
     "classic-coppie-terzine-frequenti": {
       "slug": "classic-coppie-terzine-frequenti",
       "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-      "title": "classic-coppie-terzine-frequenti",
+      "title": "coppie-terzine-frequenti",
       "subtitle": "Pattern frequenti di coppie e terzine",
       "family": "statistica",
       "rank_position": 12,
@@ -6610,7 +6610,7 @@
     "classic-distribuzioni-modelli-raggruppamento": {
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-      "title": "classic-distribuzioni-modelli-raggruppamento",
+      "title": "distribuzioni-modelli-raggruppamento",
       "subtitle": "Distribuzioni e modelli di raggruppamento",
       "family": "statistica",
       "rank_position": 9,
@@ -7931,7 +7931,7 @@
     "classic-frequency": {
       "slug": "classic-frequency",
       "page": "pages/algoritmi/algs/classic-frequency/",
-      "title": "classic-frequency",
+      "title": "frequency",
       "subtitle": "Analisi frequenziale su storico estrazioni",
       "family": "statistica",
       "rank_position": 1,
@@ -9252,7 +9252,7 @@
     "classic-ritardi-combinazioni": {
       "slug": "classic-ritardi-combinazioni",
       "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
-      "title": "classic-ritardi-combinazioni",
+      "title": "ritardi-combinazioni",
       "subtitle": "Ritardi su combinazioni multiple",
       "family": "statistica",
       "rank_position": 4,
@@ -10573,7 +10573,7 @@
     "classic-ritardi": {
       "slug": "classic-ritardi",
       "page": "pages/algoritmi/algs/classic-ritardi/",
-      "title": "classic-ritardi",
+      "title": "ritardi",
       "subtitle": "Analisi dei numeri in ritardo (overdue)",
       "family": "statistica",
       "rank_position": 15,
@@ -11894,7 +11894,7 @@
     "classic-statistiche-combinate-finestre-mobili": {
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-      "title": "classic-statistiche-combinate-finestre-mobili",
+      "title": "statistiche-combinate-finestre-mobili",
       "subtitle": "Statistiche combinate su finestre mobili",
       "family": "statistica",
       "rank_position": 3,
@@ -13215,7 +13215,7 @@
     "classic-tavole-probabilita-teorica-test-uniformita": {
       "slug": "classic-tavole-probabilita-teorica-test-uniformita",
       "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-      "title": "classic-tavole-probabilita-teorica-test-uniformita",
+      "title": "tavole-probabilita-teorica-test-uniformita",
       "subtitle": "Probabilità teorica e test di uniformità",
       "family": "statistica",
       "rank_position": 2,

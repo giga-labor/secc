@@ -803,16 +803,65 @@ body[data-page-id="ranking"] .cc-rank-filter{
   box-shadow:0 18px 48px -18px rgba(139,92,246,.35);
   transform:translateY(-3px);
 }
+/* ── Colori per famiglia ─────────────────────────────────── */
+/* statistici → sky/cyan */
+.v8rank-card[data-rank-family="statistica"],
+.v8rank-card[data-rank-family="statistici"]{
+  --ac:#38bdf8;
+  border-color:rgba(56,189,248,.22);
+}
+.v8rank-card[data-rank-family="statistica"]:hover,
+.v8rank-card[data-rank-family="statistici"]:hover{
+  border-color:rgba(56,189,248,.5);
+  box-shadow:0 18px 48px -18px rgba(56,189,248,.28);
+}
+/* neurali → violet */
+.v8rank-card[data-rank-family="neurale"],
+.v8rank-card[data-rank-family="neurali"]{
+  --ac:#a78bfa;
+  border-color:rgba(167,139,250,.22);
+}
+.v8rank-card[data-rank-family="neurale"]:hover,
+.v8rank-card[data-rank-family="neurali"]:hover{
+  border-color:rgba(167,139,250,.5);
+  box-shadow:0 18px 48px -18px rgba(167,139,250,.28);
+}
+/* ibridi → emerald */
+.v8rank-card[data-rank-family="ibrido"],
+.v8rank-card[data-rank-family="ibridi"]{
+  --ac:#34d399;
+  border-color:rgba(52,211,153,.22);
+}
+.v8rank-card[data-rank-family="ibrido"]:hover,
+.v8rank-card[data-rank-family="ibridi"]:hover{
+  border-color:rgba(52,211,153,.5);
+  box-shadow:0 18px 48px -18px rgba(52,211,153,.28);
+}
+/* generativi → amber */
+.v8rank-card[data-rank-family="generativo"],
+.v8rank-card[data-rank-family="generativi"]{
+  --ac:#fbbf24;
+  border-color:rgba(251,191,36,.22);
+}
+.v8rank-card[data-rank-family="generativo"]:hover,
+.v8rank-card[data-rank-family="generativi"]:hover{
+  border-color:rgba(251,191,36,.5);
+  box-shadow:0 18px 48px -18px rgba(251,191,36,.28);
+}
+
+/* ── Podio: mantieni colore famiglia + effetti podio ─────── */
 .v8rank-card.is-podium{
   min-height:320px;
 }
 .v8rank-card.is-podium-1{
-  --ac:var(--v8-amber);
   min-height:360px;
-  border-color:rgba(245,158,11,.42);
+  border-width:2px;
+  filter:drop-shadow(0 0 18px color-mix(in srgb, var(--ac) 35%, transparent));
 }
-.v8rank-card.is-podium-2{--ac:var(--v8-cyan)}
-.v8rank-card.is-podium-3{--ac:var(--v8-red)}
+.v8rank-card.is-podium-2,
+.v8rank-card.is-podium-3{
+  border-width:1.5px;
+}
 .v8rank-pos{
   position:absolute;
   right:1rem;

@@ -95,7 +95,7 @@ function buildGroupDef(soId,cards){
 function buildFallbackMenuDefs(){
   const fallbackCards={
     alg_statistici:[
-      { title:'Classic Frequency', page:'pages/algoritmi/algs/classic-frequency/', cardBase:'pages/algoritmi/algs/classic-frequency/' }
+      { title:'Frequency', page:'pages/algoritmi/algs/classic-frequency/', cardBase:'pages/algoritmi/algs/classic-frequency/' }
     ],
     alg_ibridi:[
     ],

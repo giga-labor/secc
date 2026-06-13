@@ -99,6 +99,7 @@
         <button type="button" class="cc-prop-pill" data-filter-group="statistici">Statistici</button>
         <button type="button" class="cc-prop-pill" data-filter-group="neurali">Neurali</button>
         <button type="button" class="cc-prop-pill" data-filter-group="ibridi">Ibridi</button>
+        <button type="button" class="cc-prop-pill" data-filter-group="generativi">Generativi</button>
       </div>
 
       <section class="bg-transparent p-0 mt-4 space-y-2" data-proposals-list>
@@ -333,12 +334,14 @@
           const k = String(raw || '').trim().toLowerCase();
           if (k.includes('neur')) return 'neurali';
           if (k.includes('ibrid') || k.includes('hybrid') || k.includes('custom')) return 'ibridi';
+          if (k.includes('gen') || k.includes('qdna') || k.includes('g-family')) return 'generativi';
           return 'statistici';
         };
         const MACRO_BADGE = {
-          statistici: 'border-[#8fceec]/60 text-[#8fceec]',
-          neurali:    'border-[#b7a2f4]/60 text-[#b7a2f4]',
-          ibridi:     'border-[#7ecba5]/60 text-[#7ecba5]'
+          statistici:  'border-[#8fceec]/60 text-[#8fceec]',
+          neurali:     'border-[#b7a2f4]/60 text-[#b7a2f4]',
+          ibridi:      'border-[#7ecba5]/60 text-[#7ecba5]',
+          generativi:  'border-[#fbbf24]/60 text-[#fbbf24]'
         };
 
         host.innerHTML = rowsWithProposal.map((row, idx) => {

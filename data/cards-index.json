@@ -20,8 +20,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/astra-moon/",
-    "imageVersion": 1776446201,
     "rankingValue": 36.96,
     "rankingPosition": 7,
     "exactHits": {
@@ -49,7 +47,7 @@
   },
   {
     "id": "classic-analisi-anomalie-pattern",
-    "title": "classic-analisi-anomalie-pattern",
+    "title": "analisi-anomalie-pattern",
     "subtitle": "Analisi di anomalie e pattern",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -69,8 +67,6 @@
     "type": "ALGORITMI",
     "featured": false,
     "news": [],
-    "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-    "imageVersion": 1773168664,
     "rankingValue": 30.22,
     "rankingPosition": 10,
     "exactHits": {
@@ -98,7 +94,7 @@
   },
   {
     "id": "classic-co-occorrenze",
-    "title": "classic  co-occorrenze",
+    "title": "co-occorrenze",
     "subtitle": "Analisi relazionale su coppie e co-presenze storiche",
     "image": "img.webp",
     "lastUpdated": "10/02/2026",
@@ -117,8 +113,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
-    "imageVersion": 1773168663,
     "rankingValue": 25.58,
     "rankingPosition": 14,
     "exactHits": {
@@ -146,7 +140,7 @@
   },
   {
     "id": "classic-coppie-terni-consecutivi",
-    "title": "classic-coppie-terni-consecutivi",
+    "title": "coppie-terni-consecutivi",
     "subtitle": "Analisi di coppie e terni consecutivi",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -163,8 +157,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "imageVersion": 1773168664,
     "rankingValue": 29.46,
     "rankingPosition": 11,
     "exactHits": {
@@ -192,7 +184,7 @@
   },
   {
     "id": "classic-coppie-terzine-frequenti",
-    "title": "classic-coppie-terzine-frequenti",
+    "title": "coppie-terzine-frequenti",
     "subtitle": "Pattern frequenti di coppie e terzine",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -209,8 +201,6 @@
       "enabled": true,
       "count": 2
     },
-    "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "imageVersion": 1771969283,
     "rankingValue": 27.71,
     "rankingPosition": 12,
     "exactHits": {
@@ -238,7 +228,7 @@
   },
   {
     "id": "classic-distribuzioni-modelli-raggruppamento",
-    "title": "classic-distribuzioni-modelli-raggruppamento",
+    "title": "distribuzioni-modelli-raggruppamento",
     "subtitle": "Distribuzioni e modelli di raggruppamento",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -255,8 +245,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "imageVersion": 1773168665,
     "rankingValue": 31.79,
     "rankingPosition": 9,
     "exactHits": {
@@ -284,7 +272,7 @@
   },
   {
     "id": "classic-frequency",
-    "title": "classic-frequency",
+    "title": "frequency",
     "subtitle": "Analisi frequenziale su storico estrazioni",
     "image": "img.webp",
     "lastUpdated": "07/02/2026",
@@ -302,8 +290,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "imageVersion": 1770663727,
     "rankingValue": 47.29,
     "rankingPosition": 1,
     "exactHits": {
@@ -331,7 +317,7 @@
   },
   {
     "id": "classic-ritardi-combinazioni",
-    "title": "classic-ritardi-combinazioni",
+    "title": "ritardi-combinazioni",
     "subtitle": "Ritardi su combinazioni multiple",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -348,8 +334,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "imageVersion": 1773168665,
     "rankingValue": 41.9,
     "rankingPosition": 4,
     "exactHits": {
@@ -377,7 +361,7 @@
   },
   {
     "id": "classic-ritardi",
-    "title": "classic-ritardi",
+    "title": "ritardi",
     "subtitle": "Analisi dei numeri in ritardo (overdue)",
     "image": "img.webp",
     "lastUpdated": "09/02/2026",
@@ -395,8 +379,6 @@
       "enabled": false,
       "count": 1
     },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "imageVersion": 1773168662,
     "rankingValue": 23.02,
     "rankingPosition": 15,
     "exactHits": {
@@ -424,7 +406,7 @@
   },
   {
     "id": "classic-statistiche-combinate-finestre-mobili",
-    "title": "classic-statistiche-combinate-finestre-mobili",
+    "title": "statistiche-combinate-finestre-mobili",
     "subtitle": "Statistiche combinate su finestre mobili",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -441,8 +423,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "imageVersion": 1773168666,
     "rankingValue": 42.78,
     "rankingPosition": 3,
     "exactHits": {
@@ -470,7 +450,7 @@
   },
   {
     "id": "classic-tavole-probabilita-teorica-test-uniformita",
-    "title": "classic-tavole-probabilita-teorica-test-uniformita",
+    "title": "tavole-probabilita-teorica-test-uniformita",
     "subtitle": "Probabilità teorica e test di uniformità",
     "image": "img.webp",
     "lastUpdated": "23/02/2026",
@@ -490,8 +470,6 @@
     "type": "ALGORITMI",
     "featured": false,
     "news": [],
-    "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-    "imageVersion": 1773168666,
     "rankingValue": 43.37,
     "rankingPosition": 2,
     "exactHits": {
@@ -538,8 +516,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/genetic/",
-    "imageVersion": 1770663729,
     "rankingValue": 9.56,
     "rankingPosition": 16,
     "exactHits": {
@@ -586,8 +562,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/hispa/",
-    "imageVersion": 1773599476,
     "rankingValue": 37.04,
     "rankingPosition": 6,
     "exactHits": {
@@ -636,8 +610,6 @@
     },
     "featured": false,
     "news": [],
-    "cardBase": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
-    "imageVersion": 1773168662,
     "rankingValue": 39.61,
     "rankingPosition": 5,
     "exactHits": {
@@ -684,8 +656,6 @@
       "enabled": false,
       "count": 0
     },
-    "cardBase": "pages/algoritmi/algs/super6NN/",
-    "imageVersion": 1771969284,
     "rankingValue": 27.69,
     "rankingPosition": 13,
     "exactHits": {
@@ -726,13 +696,6 @@
     "isActive": true,
     "no_data_show": true,
     "accessTier": "free",
-    "type": "ALGORITMI",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/algoritmi/algs/xeno-qdna/",
     "rankingValue": 33.14,
     "rankingPosition": 8,
     "exactHits": {
@@ -756,6 +719,27 @@
       "riskPenalty": 1.28,
       "risk": "basso",
       "label": "Stabile"
+    }
+  },
+  {
+    "id": "laboratorio-tecnico-legacy",
+    "title": "Laboratorio Tecnico (legacy)",
+    "subtitle": "Alias legacy non pubblicato",
+    "statusTag": "Legacy",
+    "narrativeSummary": "Report in preparazione.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/laboratorio-tecnico/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": false,
+    "isActive": false,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": false,
+    "hits": {
+      "enabled": false,
+      "count": 0
     }
   },
   {
@@ -798,8 +782,7 @@
     "hits": {
       "enabled": false,
       "count": 0
-    },
-    "cardBase": "pages/sestine-proposte/"
+    }
   },
   {
     "macroGroup": "storico",
@@ -827,8 +810,6 @@
       "count": 0
     },
     "featured": false,
-    "news": [],
-    "cardBase": "pages/storico-estrazioni/",
-    "imageVersion": 1771969284
+    "news": []
   }
 ]
