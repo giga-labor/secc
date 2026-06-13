@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,XENO-QDNA e un generatore sperimentale a collasso binario: ogni sestina diventa un DNA da 42 bit.
+SCOPO,"Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto."
+INPUT,draws.csv storico | ultime estrazioni reali | finestra mobile di 21 delta XOR
+METODO,"Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA."
+OUTPUT,"historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/."
+LIMITI,Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi.

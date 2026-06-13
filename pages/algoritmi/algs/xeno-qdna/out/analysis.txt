@@ -1,0 +1,7 @@
+XENO-QDNA tratta ogni estrazione come DNA binario da 42 bit. Le differenze XOR tra concorsi consecutivi formano una serie di fratture; dagli ultimi 21 delta vengono selezionati solo i bit con attivazione viva, transizioni non banali e assenza di alternanza perfetta.
+
+Archivio letto: 4212 estrazioni, ultimo concorso 4212. La sestina sperimentale per il prossimo concorso e: 04 12 25 52 59 76.
+
+Maschera usata: 001111000111000110011111111111111110011111. Tentativo di collasso: 1. Score decoerenza: 1. Membrana XENO-90: OK.
+
+Il modello e volutamente esplorativo: genera una configurazione laterale e verificabile, ma non certifica alcun vantaggio probabilistico reale su un sistema casuale.
