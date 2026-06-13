@@ -1,6 +1,7 @@
 ﻿(function () {
   'use strict';
   if (document.getElementById('v8-inner-topbar')) return;
+  var V8_SCRIPT_URL = document.currentScript && document.currentScript.src ? document.currentScript.src : '';
 
   // â”€â”€ TOPBAR â”€â”€
   var bar = document.createElement('div');
@@ -89,7 +90,7 @@
   function v8AssetUrl(path) {
     var clean = String(path || '').replace(/^\/+/, '');
     try {
-      var scriptUrl = document.currentScript && document.currentScript.src ? document.currentScript.src : '';
+      var scriptUrl = V8_SCRIPT_URL || '';
       if (scriptUrl) return new URL('../../' + clean, scriptUrl).toString();
     } catch (e) {}
     return '/' + clean;
@@ -310,7 +311,7 @@
       var l = document.createElement('link');
       l.id = 'v8skin-css';
       l.rel = 'stylesheet';
-      l.href = v8AssetUrl('assets/css/v8skin.css?v=20260613-0315');
+      l.href = v8AssetUrl('assets/css/v8skin.css?v=20260613-0325');
       document.head.appendChild(l);
     }
     injectRailSafeLayout();
