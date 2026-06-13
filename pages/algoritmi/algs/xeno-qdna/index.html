@@ -76,6 +76,16 @@
                 </div>
               </div>
 
+              <div class="mt-6 rounded-2xl border border-neon/20 bg-neon/5 p-4">
+                <p class="text-xs uppercase tracking-[0.18em] text-neon">Come ragiona</p>
+                <p class="mt-3 text-sm leading-relaxed text-ash">
+                  XENO-QDNA non ha un modello da addestrare né pesi da aggiornare. Ad ogni esecuzione rilegge l'intera storia recente e ricomincia da zero.<br><br>
+                  Prima converte le ultime estrazioni in stringhe binarie da 42 bit. Poi calcola i delta XOR tra ogni coppia consecutiva — così ogni «frattura» lascia una traccia. Con i 21 delta più recenti costruisce una maschera: mantiene solo i bit che cambiano in modo non banale, scartando quelli sempre fissi (morti) o quelli che oscillano senza regola (caos).<br><br>
+                  La maschera viene applicata all'ultimo genoma reale: il risultato è una nuova stringa binaria che viene decodificata in sei numeri. Se escono duplicati, un meccanismo di tunneling li sostituisce usando un salto derivato dai delta stessi — non un numero casuale, ma un offset strutturato. Prima di consegnare la sestina, un controllo membrana verifica che i numeri non abbiano tutti la stessa parità né la stessa distribuzione delle cifre finali.<br><br>
+                  Il risultato cambia ad ogni concorso, perché la finestra dei delta si sposta. Non impara, ma si adatta automaticamente alla struttura più recente del sistema.
+                </p>
+              </div>
+
               <div class="mt-6 rounded-2xl border border-white/10 bg-midnight/60 p-4">
                 <p class="text-xs uppercase tracking-[0.18em] text-ash">Cosa lo rende diverso dagli altri algoritmi</p>
                 <p class="mt-2 text-sm leading-relaxed text-ash">
@@ -142,6 +152,34 @@
                   <tr><td class="px-4 py-3 text-ash" colspan="3">Caricamento metriche...</td></tr>
                 </tbody>
               </table>
+            </div>
+
+            <div class="mt-2 rounded-2xl border border-neon/20 bg-neon/5 p-4">
+              <p class="text-xs uppercase tracking-[0.18em] text-neon">Metriche di affidabilità</p>
+              <p class="mt-2 text-xs text-ash leading-relaxed">Indicatori specifici del processo QDNA — calcolati sul backtest walk-forward. Riflettono la stabilità strutturale del generatore, non solo i risultati numerici.</p>
+              <div class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Passaggio membrana</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="membrane pass rate">--</p>
+                  <p class="text-[0.65rem] text-ash opacity-60">% sestine superate</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Decoherenza bloccata</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="decoherence block rate">--</p>
+                  <p class="text-[0.65rem] text-ash opacity-60">% rifiutate dal check</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Tunneling usato</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="tunneling rate">--</p>
+                  <p class="text-[0.65rem] text-ash opacity-60">% sestine con fix</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Stabilità maschera</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="mask stability">--</p>
+                  <p class="text-[0.65rem] text-ash opacity-60">bit attivi medi / 42</p>
+                </div>
+              </div>
+              <p class="mt-3 text-[0.7rem] text-ash opacity-50">I valori vengono popolati dal runner locale dopo l'esecuzione di run.py.</p>
             </div>
           </section>
 
