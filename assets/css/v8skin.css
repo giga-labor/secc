@@ -137,13 +137,7 @@
   .v8-page-hero{padding-top:1.7rem;max-width:calc(100vw - 24px)}
   .v8ph-k{font-size:.56rem;letter-spacing:.24em}
   .v8ph-sub{font-size:.66rem;letter-spacing:.16em}
-  #v8-global-ticker{
-    display:flex!important;
-    height:32px!important;
-    right:0!important;
-    bottom:var(--ad-reserve-bottom,0px)!important;
-  }
-  #v8-global-ticker span{font-size:.56rem;letter-spacing:.12em}
+  #v8-global-ticker{display:none!important}
   .bottom-ad{
     max-width:100vw!important;
     overflow:hidden!important;
