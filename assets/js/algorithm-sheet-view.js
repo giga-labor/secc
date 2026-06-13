@@ -1,140 +1,12 @@
 ﻿(function () {
   document.addEventListener('DOMContentLoaded', () => {
-      const bootHistoricalTable = () => {
-        const body = document.querySelector('[data-historical-body]');
-        if (!body || body.dataset.historicalBootReady === '1') return;
-        body.dataset.historicalBootReady = '1';
-        const esc = (value) => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-        const parsePicks = (tokens) => tokens.filter(Boolean).slice(0, 6).map((token) => {
-          const raw = String(token || '').trim();
-          const hit = raw.startsWith('[') && raw.endsWith(']');
-          const clean = raw.replace(/[\[\]]/g, '');
-          return { value: /^\d+$/.test(clean) ? clean.padStart(2, '0') : clean, hit };
-        });
-        const parseRows = (raw) => {
-          const lines = String(raw || '').split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith('#'));
-          if (!lines.length) return [];
-          const first = lines[0];
-          const delimiter = (first.match(/;/g) || []).length > (first.match(/,/g) || []).length ? ';' : ',';
-          return lines.map((line) => {
-            const cells = line.split(delimiter).map((cell) => String(cell || '').trim());
-            if (!cells.length) return null;
-            const draw = cells[0];
-            const picks = cells.length >= 8 ? parsePicks(cells.slice(2, 8)) : parsePicks(String(cells[1] || '').split(/\s+/));
-            return { draw, picks };
-          }).filter((row) => {
-            const draw = String(row?.draw || '').toLowerCase();
-            return row && row.picks.length && draw !== 'concorso' && !draw.includes('nr. sequenziale');
-          });
-        };
-        const ensureHead = () => {
-          const row = body.closest('table')?.querySelector('thead tr');
-          if (!row) return;
-          row.innerHTML = '<th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th><th class="px-2 py-3 pl-1">Previsione fatta</th><th class="px-2 py-3">Estratti reali</th><th class="w-[1%] whitespace-nowrap px-2 py-3 text-center">Hit</th>';
-        };
-        const pager = { page: 1, size: 100, rows: [], draws: {} };
-        const pageEl = document.querySelector('[data-historical-page]');
-        const prev = document.querySelector('[data-historical-prev]');
-        const next = document.querySelector('[data-historical-next]');
-        let attachedBody = null;
-        let attachedPage = null;
-        let attachedPrev = null;
-        let attachedNext = null;
-        const ensureAttachedHistory = () => {
-          if (attachedBody) return;
-          const root = body.closest('[data-tabs-root]');
-          if (!root || !root.parentNode || document.querySelector('[data-attached-history-panel]')) return;
-          const section = document.createElement('section');
-          section.className = 'mt-4 space-y-4';
-          section.dataset.attachedHistoryPanel = '1';
-          section.style.position = 'relative';
-          section.style.zIndex = '2';
-          section.innerHTML = `
-            <div class="overflow-x-auto rounded-2xl border border-white/10">
-              <table class="min-w-full text-left text-sm">
-                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
-                  <tr>
-                    <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th>
-                    <th class="px-2 py-3 pl-1">Previsione fatta</th>
-                    <th class="px-2 py-3">Estratti reali</th>
-                    <th class="w-[1%] whitespace-nowrap px-2 py-3 text-center">Hit</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-white/5" data-attached-history-body>
-                  <tr><td class="px-4 py-3 text-ash" colspan="4">Caricamento...</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 text-xs text-ash">
-              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-attached-history-prev>Prec</button>
-              <span data-attached-history-page>Pagina 1 / 1</span>
-              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-attached-history-next>Succ</button>
-            </div>
-          `;
-          root.insertAdjacentElement('afterend', section);
-          attachedBody = section.querySelector('[data-attached-history-body]');
-          attachedPage = section.querySelector('[data-attached-history-page]');
-          attachedPrev = section.querySelector('[data-attached-history-prev]');
-          attachedNext = section.querySelector('[data-attached-history-next]');
-          if (attachedPrev) attachedPrev.addEventListener('click', () => { pager.page -= 1; render(); });
-          if (attachedNext) attachedNext.addEventListener('click', () => { pager.page += 1; render(); });
-        };
-        const render = () => {
-          ensureAttachedHistory();
-          ensureHead();
-          const total = Math.max(1, Math.ceil(pager.rows.length / pager.size));
-          pager.page = Math.max(1, Math.min(pager.page, total));
-          if (pageEl) pageEl.textContent = `Pagina ${pager.page} / ${total}`;
-          if (prev) prev.disabled = pager.page <= 1;
-          if (next) next.disabled = pager.page >= total;
-          if (attachedPage) attachedPage.textContent = `Pagina ${pager.page} / ${total}`;
-          if (attachedPrev) attachedPrev.disabled = pager.page <= 1;
-          if (attachedNext) attachedNext.disabled = pager.page >= total;
-          if (!pager.rows.length) {
-            body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun dato storico disponibile.</td></tr>';
-            if (attachedBody) attachedBody.innerHTML = body.innerHTML;
-            return;
-          }
-          const start = (pager.page - 1) * pager.size;
-          const html = pager.rows.slice(start, start + pager.size).map((row) => {
-            const picks = row.picks.map((pick) => `<span class="historical-pick${pick.hit ? ' is-hit' : ''}">${esc(pick.value)}</span>`).join('');
-            const real = (pager.draws[String(row.draw)] || []).map((n) => `<span class="historical-pick is-drawn">${esc(String(n).padStart(2, '0'))}</span>`).join('');
-            const hits = row.picks.reduce((sum, pick) => sum + (pick.hit ? 1 : 0), 0);
-            return `<tr><td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${esc(row.draw)}</td><td class="px-2 py-3 pl-1"><div class="flex flex-wrap gap-2">${picks}</div></td><td class="px-2 py-3"><div class="flex flex-wrap gap-2">${real || '<span class="text-ash/60">--</span>'}</div></td><td class="w-[1%] whitespace-nowrap px-2 py-3 text-center"><span class="historical-hit-count">${hits}</span></td></tr>`;
-          }).join('');
-          body.innerHTML = html;
-          if (attachedBody) attachedBody.innerHTML = html;
-        };
-        if (prev && prev.dataset.historicalBootClick !== '1') {
-          prev.dataset.historicalBootClick = '1';
-          prev.addEventListener('click', () => { pager.page -= 1; render(); });
-        }
-        if (next && next.dataset.historicalBootClick !== '1') {
-          next.dataset.historicalBootClick = '1';
-          next.addEventListener('click', () => { pager.page += 1; render(); });
-        }
-        Promise.all([
-          fetch('out/historical-db.csv', { cache: 'no-store' }).then((res) => {
-            if (!res.ok) throw new Error(`historical ${res.status}`);
-            return res.text();
-          }),
-          fetch('../../../../archives/draws/draws.csv', { cache: 'no-store' }).then((res) => (res.ok ? res.text() : '')).catch(() => '')
-        ]).then(([historyText, drawsText]) => {
-          parseRows(drawsText).forEach((row) => { pager.draws[String(row.draw)] = row.picks.map((pick) => pick.value); });
-          pager.rows = parseRows(historyText).sort((a, b) => {
-            const an = Number.parseInt(String(a.draw), 10);
-            const bn = Number.parseInt(String(b.draw), 10);
-            if (Number.isFinite(an) && Number.isFinite(bn)) return bn - an;
-            return String(b.draw).localeCompare(String(a.draw));
-          });
-          render();
-        }).catch(() => {
-          ensureHead();
-          body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Archivio non disponibile o formato non valido.</td></tr>';
-          if (attachedBody) attachedBody.innerHTML = body.innerHTML;
-        });
-      };
-      bootHistoricalTable();
+      if (
+        document.body &&
+        document.body.getAttribute('data-page-id') === 'algsheet' &&
+        document.body.getAttribute('data-style-lock') === 'final'
+      ) {
+        return;
+      }
       const LAB_TECH_URL = '../../../laboratorio-tecnico/';
       if (document.body) document.body.dataset.pageKicker = 'off';
       const main = document.querySelector('main');
@@ -213,22 +85,6 @@
             height: 2.18rem;
             font-size: 0.9rem;
             transform: translateY(-1px) scale(1.06);
-          }
-          .historical-pick.is-drawn {
-            border-color: rgba(255, 255, 255, 0.18);
-            background: rgba(255, 255, 255, 0.06);
-            color: rgba(226, 232, 240, 0.88);
-          }
-          .historical-hit-count {
-            display: inline-flex;
-            min-width: 2.2rem;
-            justify-content: center;
-            border-radius: 999px;
-            border: 1px solid rgba(123, 211, 255, 0.35);
-            background: rgba(123, 211, 255, 0.10);
-            padding: 0.2rem 0.55rem;
-            color: #dff6ff;
-            font-weight: 700;
           }
         `;
         document.head.appendChild(proposalStyle);
@@ -604,7 +460,6 @@
 
       const historicalState = {
         rows: [],
-        realDrawsBySeq: {},
         page: 1,
         pageSize: 100
       };
@@ -650,19 +505,6 @@
       };
       renderOperationalAlgorithmPanel();
 
-      const ensureHistoricalHeader = () => {
-        const table = historicalBody ? historicalBody.closest('table') : null;
-        const row = table ? table.querySelector('thead tr') : null;
-        if (!row || row.dataset.historicalEnhanced === '1') return;
-        row.dataset.historicalEnhanced = '1';
-        row.innerHTML = `
-          <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th>
-          <th class="px-2 py-3 pl-1">Previsione fatta</th>
-          <th class="px-2 py-3">Estratti reali</th>
-          <th class="w-[1%] whitespace-nowrap px-2 py-3 text-center">Hit</th>
-        `;
-      };
-
       const updateHistoricalPager = () => {
         const totalPages = Math.max(1, Math.ceil(historicalState.rows.length / historicalState.pageSize));
         if (historicalPage) historicalPage.textContent = `Pagina ${historicalState.page} / ${totalPages}`;
@@ -672,12 +514,10 @@
       const renderHistoricalRows = () => {
         const rows = historicalState.rows;
         if (!Array.isArray(rows) || rows.length === 0) {
-          ensureHistoricalHeader();
-          historicalBody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun dato storico disponibile.</td></tr>';
+          historicalBody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="2">Nessun dato storico disponibile.</td></tr>';
           updateHistoricalPager();
           return;
         }
-        ensureHistoricalHeader();
         const start = (historicalState.page - 1) * historicalState.pageSize;
         const end = start + historicalState.pageSize;
         const pageRows = rows.slice(start, end);
@@ -686,22 +526,11 @@
             const cls = pick.hit ? 'historical-pick is-hit' : 'historical-pick';
             return `<span class="${cls}">${escapeHtml(String(pick.value ?? ''))}</span>`;
           }).join('');
-          const realDraw = historicalState.realDrawsBySeq[String(draw)] || [];
-          const realHtml = realDraw.length
-            ? realDraw.map((value) => `<span class="historical-pick is-drawn">${escapeHtml(String(value ?? '').padStart(2, '0'))}</span>`).join('')
-            : '<span class="text-ash/60">--</span>';
-          const hitCount = picks.reduce((acc, pick) => acc + (pick.hit ? 1 : 0), 0);
           return `
             <tr>
               <td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${escapeHtml(String(draw ?? ''))}</td>
               <td class="px-2 py-3 pl-1">
                 <div class="flex flex-wrap gap-2">${picksHtml}</div>
-              </td>
-              <td class="px-2 py-3">
-                <div class="flex flex-wrap gap-2">${realHtml}</div>
-              </td>
-              <td class="w-[1%] whitespace-nowrap px-2 py-3 text-center">
-                <span class="historical-hit-count">${hitCount}</span>
               </td>
             </tr>
           `;
@@ -718,8 +547,6 @@
               <td class="px-2 py-3 pl-1">
                 <div class="flex flex-wrap gap-2">${proposalBalls}</div>
               </td>
-              <td class="px-2 py-3 text-ash">In attesa estrazione</td>
-              <td class="w-[1%] whitespace-nowrap px-2 py-3 text-center text-ash">--</td>
             </tr>
           `;
         }
@@ -774,25 +601,13 @@
         return rows.filter((row) => !String(row.draw).toLowerCase().includes('nr. sequenziale') && String(row.draw).toLowerCase() !== 'concorso');
       };
 
-      const parseDrawsArchive = (raw) => {
-        return parseArchive(raw).reduce((acc, row) => {
-          acc[String(row.draw)] = row.picks.map((pick) => String(pick.value ?? '').padStart(2, '0'));
-          return acc;
-        }, {});
-      };
-
-      Promise.all([
-        fetch('out/historical-db.csv', { cache: 'no-store' }).then((res) => {
-          if (!res.ok) throw new Error(`historical ${res.status}`);
+      fetch('out/historical-db.csv', { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`status ${res.status}`);
           return res.text();
-        }),
-        fetch('../../../../archives/draws/draws.csv', { cache: 'no-store' })
-          .then((res) => (res.ok ? res.text() : ''))
-          .catch(() => '')
-      ])
-        .then(([historyText, drawsText]) => {
-          historicalState.realDrawsBySeq = parseDrawsArchive(drawsText);
-          const orderedRows = parseArchive(historyText).sort((a, b) => {
+        })
+        .then((text) => {
+          const orderedRows = parseArchive(text).sort((a, b) => {
             const aNum = Number.parseInt(String(a.draw), 10);
             const bNum = Number.parseInt(String(b.draw), 10);
             if (Number.isFinite(aNum) && Number.isFinite(bNum)) return bNum - aNum;
@@ -807,8 +622,7 @@
           }
         })
         .catch(() => {
-          ensureHistoricalHeader();
-          historicalBody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Archivio non disponibile o formato non valido.</td></tr>';
+          historicalBody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="2">Archivio non disponibile o formato non valido.</td></tr>';
           updateHistoricalPager();
         });
 
