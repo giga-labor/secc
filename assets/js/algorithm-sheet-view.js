@@ -36,24 +36,72 @@
         const pageEl = document.querySelector('[data-historical-page]');
         const prev = document.querySelector('[data-historical-prev]');
         const next = document.querySelector('[data-historical-next]');
+        let attachedBody = null;
+        let attachedPage = null;
+        let attachedPrev = null;
+        let attachedNext = null;
+        const ensureAttachedHistory = () => {
+          if (attachedBody) return;
+          const root = body.closest('[data-tabs-root]');
+          if (!root || !root.parentNode || document.querySelector('[data-attached-history-panel]')) return;
+          const section = document.createElement('section');
+          section.className = 'mt-4 space-y-4';
+          section.dataset.attachedHistoryPanel = '1';
+          section.innerHTML = `
+            <div class="overflow-x-auto rounded-2xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-midnight/80 text-xs uppercase tracking-[0.2em] text-ash">
+                  <tr>
+                    <th class="w-[1%] whitespace-nowrap px-2 py-3 pr-1">Target</th>
+                    <th class="px-2 py-3 pl-1">Previsione fatta</th>
+                    <th class="px-2 py-3">Estratti reali</th>
+                    <th class="w-[1%] whitespace-nowrap px-2 py-3 text-center">Hit</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5" data-attached-history-body>
+                  <tr><td class="px-4 py-3 text-ash" colspan="4">Caricamento...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-midnight/60 px-3 py-2 text-xs text-ash">
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-attached-history-prev>Prec</button>
+              <span data-attached-history-page>Pagina 1 / 1</span>
+              <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-attached-history-next>Succ</button>
+            </div>
+          `;
+          root.insertAdjacentElement('afterend', section);
+          attachedBody = section.querySelector('[data-attached-history-body]');
+          attachedPage = section.querySelector('[data-attached-history-page]');
+          attachedPrev = section.querySelector('[data-attached-history-prev]');
+          attachedNext = section.querySelector('[data-attached-history-next]');
+          if (attachedPrev) attachedPrev.addEventListener('click', () => { pager.page -= 1; render(); });
+          if (attachedNext) attachedNext.addEventListener('click', () => { pager.page += 1; render(); });
+        };
         const render = () => {
+          ensureAttachedHistory();
           ensureHead();
           const total = Math.max(1, Math.ceil(pager.rows.length / pager.size));
           pager.page = Math.max(1, Math.min(pager.page, total));
           if (pageEl) pageEl.textContent = `Pagina ${pager.page} / ${total}`;
           if (prev) prev.disabled = pager.page <= 1;
           if (next) next.disabled = pager.page >= total;
+          if (attachedPage) attachedPage.textContent = `Pagina ${pager.page} / ${total}`;
+          if (attachedPrev) attachedPrev.disabled = pager.page <= 1;
+          if (attachedNext) attachedNext.disabled = pager.page >= total;
           if (!pager.rows.length) {
             body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Nessun dato storico disponibile.</td></tr>';
+            if (attachedBody) attachedBody.innerHTML = body.innerHTML;
             return;
           }
           const start = (pager.page - 1) * pager.size;
-          body.innerHTML = pager.rows.slice(start, start + pager.size).map((row) => {
+          const html = pager.rows.slice(start, start + pager.size).map((row) => {
             const picks = row.picks.map((pick) => `<span class="historical-pick${pick.hit ? ' is-hit' : ''}">${esc(pick.value)}</span>`).join('');
             const real = (pager.draws[String(row.draw)] || []).map((n) => `<span class="historical-pick is-drawn">${esc(String(n).padStart(2, '0'))}</span>`).join('');
             const hits = row.picks.reduce((sum, pick) => sum + (pick.hit ? 1 : 0), 0);
             return `<tr><td class="w-[1%] whitespace-nowrap px-2 py-3 pr-1 text-ash">#${esc(row.draw)}</td><td class="px-2 py-3 pl-1"><div class="flex flex-wrap gap-2">${picks}</div></td><td class="px-2 py-3"><div class="flex flex-wrap gap-2">${real || '<span class="text-ash/60">--</span>'}</div></td><td class="w-[1%] whitespace-nowrap px-2 py-3 text-center"><span class="historical-hit-count">${hits}</span></td></tr>`;
           }).join('');
+          body.innerHTML = html;
+          if (attachedBody) attachedBody.innerHTML = html;
         };
         if (prev && prev.dataset.historicalBootClick !== '1') {
           prev.dataset.historicalBootClick = '1';
@@ -81,6 +129,7 @@
         }).catch(() => {
           ensureHead();
           body.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="4">Archivio non disponibile o formato non valido.</td></tr>';
+          if (attachedBody) attachedBody.innerHTML = body.innerHTML;
         });
       };
       bootHistoricalTable();
