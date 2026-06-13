@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-13 21:23:48",
+  "updated_at": "2026-06-13 21:44:14",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish, p8_backup_over_limit",
+  "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -17,7 +17,7 @@
     "p5_archive_stale": false,
     "p6_local_publish": true,
     "p7_remote_force_align": false,
-    "p8_backup_over_limit": true,
+    "p8_backup_over_limit": false,
     "p9_smtp_broken": false
   },
   "alignment": {
@@ -38,12 +38,28 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-13 21:04:33",
+    "last_push_at": "2026-06-13 21:43:58",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781375431
+    "boot_ts": 1781379704
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-13T21:43:17",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-13T21:43:07",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
     {
       "type": "alert",
       "ts": "2026-06-13T21:23:47",
@@ -103,14 +119,6 @@
     {
       "type": "training",
       "ts": "2026-06-12T21:00:03",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-12T20:22:56",
       "message": "Algoritmi aggiornati con i dati più recenti",
       "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
@@ -272,14 +280,6 @@
       "type": "versioning",
       "ts": "2026-02-14T19:10:15",
       "message": "Nuova versione del sito pubblicata (00.04.008 -> 00.05.000)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T13:13:10",
-      "message": "Versione del sito aggiornata (00.03.004 -> 00.04.001)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
