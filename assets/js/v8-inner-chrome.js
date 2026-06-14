@@ -195,7 +195,7 @@
         'z-index:9000!important;display:flex!important;align-items:center!important;padding:0 2rem!important;gap:clamp(.7rem,1.2vw,1.8rem)!important;' +
         'background:linear-gradient(180deg,rgba(3,1,9,.92) 60%,transparent)!important;' +
         'backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;' +
-        'border-bottom:1px solid rgba(237,232,223,.04)!important;box-sizing:border-box!important;font-family:"DM Mono",monospace!important;min-width:0!important;overflow:hidden!important;' +
+        'border-bottom:1px solid rgba(237,232,223,.04)!important;box-sizing:border-box!important;font-family:"DM Mono",monospace!important;min-width:0!important;overflow:visible!important;' +
       '}' +
       'body{padding-top:88px!important;padding-bottom:calc(var(--ad-reserve-bottom,0px) + 38px)!important;}' +
       '#tb .tb-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;min-width:0;flex-shrink:0;color:inherit!important;}' +
