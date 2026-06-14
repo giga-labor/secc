@@ -1,6 +1,6 @@
 {
-  "id": "xeno-qdna",
-  "title": "XENO-QDNA",
+  "id": "xeno-qdna-alpha",
+  "title": "XENO-QDNA α",
   "subtitle": "G-Family - generatore a collasso binario quantizzato",
   "image": "img.webp",
   "lastUpdated": "13/06/2026",
@@ -8,9 +8,10 @@
   "usesOutData": true,
   "statusTag": "Beta lab",
   "narrativeSummary": "Prima istanza della G-Family: un generatore sperimentale che smette di leggere i numeri come valori isolati e li trasforma in un piccolo DNA binario. Dalle fratture tra estrazioni nasce una maschera di collasso che produce una sestina laterale, verificabile e volutamente fuori dai metodi classici.",
-  "page": "pages/algoritmi/algs/xeno-qdna/",
+  "page": "pages/algoritmi/algs/xeno-qdna-alpha/",
   "macroGroup": "generativi",
   "isActive": true,
   "no_data_show": true,
-  "accessTier": "free"
+  "accessTier": "free",
+  "priority": 50
 }

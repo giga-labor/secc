@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T15:34:50",
-  "total_algorithms": 16,
+  "generated_at": "2026-06-14T17:07:18",
+  "total_algorithms": 17,
   "numbers": {
     "1": {
       "support": 1,
@@ -68,7 +68,7 @@
     "11": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna"
+        "xeno-qdna-alpha"
       ]
     },
     "12": {
@@ -98,7 +98,7 @@
     "17": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna"
+        "xeno-qdna-alpha"
       ]
     },
     "18": {
@@ -112,7 +112,7 @@
     "19": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna"
+        "xeno-qdna-alpha"
       ]
     },
     "20": {
@@ -217,7 +217,7 @@
     "40": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna"
+        "xeno-qdna-alpha"
       ]
     },
     "41": {
@@ -324,7 +324,7 @@
     "59": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna"
+        "xeno-qdna-alpha"
       ]
     },
     "60": {
@@ -380,7 +380,7 @@
     "69": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna"
+        "xeno-qdna-alpha"
       ]
     },
     "70": {

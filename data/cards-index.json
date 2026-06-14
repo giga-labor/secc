@@ -1,5 +1,100 @@
 [
   {
+    "id": "laboratorio-tecnico-legacy",
+    "title": "Laboratorio Tecnico (legacy)",
+    "subtitle": "Alias legacy non pubblicato",
+    "statusTag": "Legacy",
+    "narrativeSummary": "Report in preparazione.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/analisi-statistiche/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": false,
+    "isActive": false,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": false,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "imageVersion": 1770663709
+  },
+  {
+    "id": "laboratorio-tecnico",
+    "title": "Laboratorio Tecnico",
+    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
+    "statusTag": "Lab",
+    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/laboratorio-tecnico/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    }
+  },
+  {
+    "id": "sestine-proposte-info",
+    "title": "Sestine Proposte",
+    "subtitle": "Apri subito le proposte ordinate",
+    "statusTag": "Proposte",
+    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
+    "macroGroup": "info",
+    "page": "pages/sestine-proposte/index.html",
+    "image": "img/statistic.webp",
+    "lastUpdated": "15/03/2026",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "type": "INFO",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/sestine-proposte/"
+  },
+  {
+    "macroGroup": "storico",
+    "id": "storico-estrazioni",
+    "title": "Estrazione del:",
+    "subtitle": "$D",
+    "showSubtitle": true,
+    "image": "img.webp",
+    "mediaScale": 1.08,
+    "lastUpdated": "02/02/2026",
+    "hasNews": true,
+    "statusTag": "Archivio",
+    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
+    "page": "pages/storico-estrazioni/index.html",
+    "type": "ARCHIVI",
+    "features": [
+      "draws-latest"
+    ],
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/storico-estrazioni/",
+    "imageVersion": 1771969284
+  },
+  {
     "id": "astra-moon",
     "title": "ASTRA Moon",
     "subtitle": "Ranking numerico da effemeridi lunari con riferimento fisso 20:30",
@@ -70,7 +165,7 @@
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
     "rankingValue": 30.22,
-    "rankingPosition": 10,
+    "rankingPosition": 11,
     "exactHits": {
       "0": 2774,
       "1": 1203,
@@ -117,7 +212,7 @@
     },
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
     "rankingValue": 25.58,
-    "rankingPosition": 14,
+    "rankingPosition": 15,
     "exactHits": {
       "0": 2774,
       "1": 1224,
@@ -161,8 +256,9 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
+    "type": "ALGORITMI",
     "rankingValue": 29.46,
-    "rankingPosition": 11,
+    "rankingPosition": 12,
     "exactHits": {
       "0": 2754,
       "1": 1254,
@@ -206,8 +302,9 @@
       "count": 2
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
+    "type": "ALGORITMI",
     "rankingValue": 27.71,
-    "rankingPosition": 12,
+    "rankingPosition": 13,
     "exactHits": {
       "0": 2797,
       "1": 1217,
@@ -251,8 +348,9 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
+    "type": "ALGORITMI",
     "rankingValue": 31.79,
-    "rankingPosition": 9,
+    "rankingPosition": 10,
     "exactHits": {
       "0": 2782,
       "1": 1230,
@@ -297,6 +395,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
+    "type": "ALGORITMI",
     "rankingValue": 47.29,
     "rankingPosition": 1,
     "exactHits": {
@@ -323,6 +422,53 @@
     }
   },
   {
+    "id": "classic-ritardi",
+    "title": "ritardi",
+    "subtitle": "Analisi dei numeri in ritardo (overdue)",
+    "image": "img.webp",
+    "lastUpdated": "09/02/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
+    "page": "pages/algoritmi/algs/classic-ritardi/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 1
+    },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
+    "type": "ALGORITMI",
+    "rankingValue": 23.02,
+    "rankingPosition": 16,
+    "exactHits": {
+      "0": 2769,
+      "1": 1226,
+      "2": 200,
+      "3": 16,
+      "4": 1,
+      "5": 0,
+      "6": 0
+    },
+    "rankProfile": {
+      "edge": 60.9,
+      "edgePercent": 12.18,
+      "observedScore": 0.1551,
+      "expectedScore": 0.1382,
+      "stability": 16.05,
+      "recentForm": 0.0,
+      "sampleConfidence": 99.98,
+      "windowCoherence": 54.41,
+      "riskPenalty": 20.79,
+      "risk": "alto",
+      "label": "Volatile"
+    }
+  },
+  {
     "id": "classic-ritardi-combinazioni",
     "title": "ritardi-combinazioni",
     "subtitle": "Ritardi su combinazioni multiple",
@@ -342,6 +488,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
+    "type": "ALGORITMI",
     "rankingValue": 41.9,
     "rankingPosition": 4,
     "exactHits": {
@@ -368,52 +515,6 @@
     }
   },
   {
-    "id": "classic-ritardi",
-    "title": "ritardi",
-    "subtitle": "Analisi dei numeri in ritardo (overdue)",
-    "image": "img.webp",
-    "lastUpdated": "09/02/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
-    "page": "pages/algoritmi/algs/classic-ritardi/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 1
-    },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "rankingValue": 23.02,
-    "rankingPosition": 15,
-    "exactHits": {
-      "0": 2769,
-      "1": 1226,
-      "2": 200,
-      "3": 16,
-      "4": 1,
-      "5": 0,
-      "6": 0
-    },
-    "rankProfile": {
-      "edge": 60.9,
-      "edgePercent": 12.18,
-      "observedScore": 0.1551,
-      "expectedScore": 0.1382,
-      "stability": 16.05,
-      "recentForm": 0.0,
-      "sampleConfidence": 99.98,
-      "windowCoherence": 54.41,
-      "riskPenalty": 20.79,
-      "risk": "alto",
-      "label": "Volatile"
-    }
-  },
-  {
     "id": "classic-statistiche-combinate-finestre-mobili",
     "title": "statistiche-combinate-finestre-mobili",
     "subtitle": "Statistiche combinate su finestre mobili",
@@ -433,6 +534,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
+    "type": "ALGORITMI",
     "rankingValue": 42.78,
     "rankingPosition": 3,
     "exactHits": {
@@ -529,7 +631,7 @@
     },
     "cardBase": "pages/algoritmi/algs/genetic/",
     "rankingValue": 9.56,
-    "rankingPosition": 16,
+    "rankingPosition": 17,
     "exactHits": {
       "0": 2763,
       "1": 1256,
@@ -672,7 +774,7 @@
     },
     "cardBase": "pages/algoritmi/algs/super6NN/",
     "rankingValue": 27.69,
-    "rankingPosition": 13,
+    "rankingPosition": 14,
     "exactHits": {
       "0": 2777,
       "1": 1241,
@@ -697,8 +799,8 @@
     }
   },
   {
-    "id": "xeno-qdna",
-    "title": "XENO-QDNA",
+    "id": "xeno-qdna-alpha",
+    "title": "XENO-QDNA α",
     "subtitle": "G-Family - generatore a collasso binario quantizzato",
     "image": "img.webp",
     "lastUpdated": "13/06/2026",
@@ -706,13 +808,14 @@
     "usesOutData": true,
     "statusTag": "Beta lab",
     "narrativeSummary": "Prima istanza della G-Family: un generatore sperimentale che smette di leggere i numeri come valori isolati e li trasforma in un piccolo DNA binario. Dalle fratture tra estrazioni nasce una maschera di collasso che produce una sestina laterale, verificabile e volutamente fuori dai metodi classici.",
-    "page": "pages/algoritmi/algs/xeno-qdna/",
+    "page": "pages/algoritmi/algs/xeno-qdna-alpha/",
     "macroGroup": "generativi",
     "isActive": true,
     "no_data_show": true,
     "accessTier": "free",
-    "cardBase": "pages/algoritmi/algs/xeno-qdna/",
-    "view": true,
+    "priority": 50,
+    "cardBase": "pages/algoritmi/algs/xeno-qdna-alpha/",
+    "type": "ALGORITMI",
     "rankingValue": 33.14,
     "rankingPosition": 8,
     "exactHits": {
@@ -739,98 +842,49 @@
     }
   },
   {
-    "id": "laboratorio-tecnico-legacy",
-    "title": "Laboratorio Tecnico (legacy)",
-    "subtitle": "Alias legacy non pubblicato",
-    "statusTag": "Legacy",
-    "narrativeSummary": "Report in preparazione.",
-    "macroGroup": "statistica",
-    "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/analisi-statistiche/",
+    "id": "xeno-qdna-beta",
+    "title": "XENO-QDNA β",
+    "subtitle": "G-Family - correzione autocritica del residuo α",
     "image": "img.webp",
-    "lastUpdated": "",
+    "lastUpdated": "14/06/2026",
     "hasNews": false,
-    "isActive": false,
-    "no_data_show": false,
-    "accessTier": "off",
-    "view": false,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "imageVersion": 1770663709
-  },
-  {
-    "id": "laboratorio-tecnico",
-    "title": "Laboratorio Tecnico",
-    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
-    "statusTag": "Lab",
-    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
-    "macroGroup": "statistica",
-    "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/laboratorio-tecnico/",
-    "image": "img.webp",
-    "lastUpdated": "",
-    "hasNews": true,
+    "usesOutData": true,
+    "statusTag": "Beta lab",
+    "priority": 60,
+    "narrativeSummary": "Seconda istanza della G-Family: non genera la sestina dallo storico reale, ma metabolizza l'errore di XENO-QDNA α. Calcola la stringa residua B(t) = Eα XOR R XOR Pα per ogni concorso passato, distilla una maschera B* con selezione meritocratica dei bit e produce una sestina che cerca di fuggire dal centro predittivo di α.",
+    "page": "pages/algoritmi/algs/xeno-qdna-beta/",
+    "macroGroup": "generativi",
     "isActive": true,
-    "no_data_show": false,
+    "no_data_show": true,
     "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    }
-  },
-  {
-    "id": "sestine-proposte-info",
-    "title": "Sestine Proposte",
-    "subtitle": "Apri subito le proposte ordinate",
-    "statusTag": "Proposte",
-    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
-    "macroGroup": "info",
-    "page": "pages/sestine-proposte/index.html",
-    "image": "img/statistic.webp",
-    "lastUpdated": "15/03/2026",
-    "hasNews": true,
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "free",
-    "type": "INFO",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/sestine-proposte/"
-  },
-  {
-    "macroGroup": "storico",
-    "id": "storico-estrazioni",
-    "title": "Estrazione del:",
-    "subtitle": "$D",
-    "showSubtitle": true,
-    "image": "img.webp",
-    "mediaScale": 1.08,
-    "lastUpdated": "02/02/2026",
-    "hasNews": true,
-    "statusTag": "Archivio",
-    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
-    "page": "pages/storico-estrazioni/index.html",
-    "type": "ARCHIVI",
-    "features": [
-      "draws-latest"
+    "dependsOn": [
+      "xeno-qdna-alpha"
     ],
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "off",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
+    "cardBase": "pages/algoritmi/algs/xeno-qdna-beta/",
+    "type": "ALGORITMI",
+    "rankingValue": 31.96,
+    "rankingPosition": 9,
+    "exactHits": {
+      "0": 2703,
+      "1": 1214,
+      "2": 223,
+      "3": 15,
+      "4": 1,
+      "5": 0,
+      "6": 0
     },
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/storico-estrazioni/",
-    "imageVersion": 1771969284
+    "rankProfile": {
+      "edge": 79.42,
+      "edgePercent": 15.88,
+      "observedScore": 0.1602,
+      "expectedScore": 0.1382,
+      "stability": 0.0,
+      "recentForm": 39.59,
+      "sampleConfidence": 99.98,
+      "windowCoherence": 57.63,
+      "riskPenalty": 21.5,
+      "risk": "alto",
+      "label": "Volatile"
+    }
   }
 ]

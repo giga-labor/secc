@@ -346,7 +346,7 @@ function classifyCategoryFromText(value) {
   const key = String(value || '').toLowerCase();
   if (
     key.includes('generativo')
-    || key.includes('xeno-qdna')
+    || key.includes('xeno-qdna-alpha')
     || key.includes('xeno_qdna')
     || key.includes('qdna')
     || key.includes('g-family')
@@ -619,7 +619,7 @@ function resolveGroupTargetKey(rawGroupId) {
   if (['ibridi', 'ibrido', 'hybrid', 'custom'].includes(cleaned)) {
     return 'ibridi';
   }
-  if (['generativi', 'generativo', 'g-family', 'gfamily', 'qdna', 'xeno-qdna'].includes(cleaned)) {
+  if (['generativi', 'generativo', 'g-family', 'gfamily', 'qdna', 'xeno-qdna-alpha'].includes(cleaned)) {
     return 'generativi';
   }
   if (['tipologie', 'tipologia'].includes(cleaned)) {

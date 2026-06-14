@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14 15:34:49",
-  "active_algorithms_count": 16,
+  "generated_at": "2026-06-14 17:07:16",
+  "active_algorithms_count": 17,
   "rows": [
     {
       "title": "frequency",
@@ -206,8 +206,8 @@
       "image": "img.webp"
     },
     {
-      "title": "XENO-QDNA",
-      "page": "pages/algoritmi/algs/xeno-qdna/",
+      "title": "XENO-QDNA α",
+      "page": "pages/algoritmi/algs/xeno-qdna-alpha/",
       "family": "generativi",
       "ranking": 33.14,
       "rankProfile": {
@@ -229,6 +229,35 @@
         "2": 234,
         "3": 10,
         "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "XENO-QDNA β",
+      "page": "pages/algoritmi/algs/xeno-qdna-beta/",
+      "family": "generativi",
+      "ranking": 31.96,
+      "rankProfile": {
+        "edge": 79.42,
+        "edgePercent": 15.88,
+        "observedScore": 0.1602,
+        "expectedScore": 0.1382,
+        "stability": 0.0,
+        "recentForm": 39.59,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 57.63,
+        "riskPenalty": 21.5,
+        "risk": "alto",
+        "label": "Volatile"
+      },
+      "hits": {
+        "0": 2703,
+        "1": 1214,
+        "2": 223,
+        "3": 15,
+        "4": 1,
         "5": 0,
         "6": 0
       },

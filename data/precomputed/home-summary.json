@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T15:34:50",
+  "generated_at": "2026-06-14T17:07:18",
   "stale": false,
   "latest_draw": {
     "seq": 4213,
@@ -218,7 +218,7 @@
       }
     },
     {
-      "title": "XENO-QDNA",
+      "title": "XENO-QDNA α",
       "family": "generativi",
       "ranking": 33.14,
       "hits": {
@@ -242,5 +242,5 @@
     "note": "Valori estratti da HTML. In calibrazione — iARGOS aggiornerà questo file.",
     "updated_at": "2026-06-07 12:04:50"
   },
-  "total_active_algorithms": 16
+  "total_active_algorithms": 17
 }
