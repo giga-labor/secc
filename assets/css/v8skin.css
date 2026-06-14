@@ -439,7 +439,7 @@ main input[type="search"]:focus,main input[type="text"]:focus{
 .v8sh-gr::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--ac,var(--v8-violet));
   box-shadow:0 0 12px var(--ac,var(--v8-violet))}
 .v8sh-title{font-family:'BioRhyme',serif;font-weight:800;font-size:clamp(2.8rem,6vw,5rem);
-  letter-spacing:-.04em;line-height:.9;color:var(--v8-ink);word-break:break-word}
+  letter-spacing:-.04em;line-height:.9;color:var(--v8-ink)!important;word-break:break-word}
 .v8sh-sub{display:block;margin-top:.8rem;font-size:.85rem;letter-spacing:.06em;line-height:1.6;color:rgba(237,232,223,.45);max-width:760px}
 .v8sh-badges{display:flex;gap:.6rem;margin-top:1.4rem;flex-wrap:wrap}
 .v8sh-b{font-size:.52rem;letter-spacing:.25em;text-transform:uppercase;padding:.32rem .65rem;

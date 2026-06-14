@@ -40,7 +40,7 @@
     '#v8-inner-topbar .v8i-sep{width:1px;height:18px;background:rgba(237,232,223,.08);}',
     '#v8-inner-topbar .v8i-back{display:inline-flex;align-items:center;gap:.35rem;flex-shrink:0;}',
     '#v8-inner-topbar .v8i-back .v8i-back-arrow{font-size:1rem;line-height:1;}',
-    'body{padding-top:64px!important;}',
+    'body{padding-top:64px!important;padding-bottom:calc(var(--ad-reserve-bottom,0px) + 48px)!important;}',
     '</style>',
     '<a href="/" class="v8i-logo"><span class="v8i-logo-main">Control<b>Chaos</b></span><span class="v8i-version" data-v8-version>--</span></a>',
     '<div class="v8i-sep"></div>',

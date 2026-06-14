@@ -609,9 +609,8 @@ const DASH_SECTIONS={
 // Dashboard centrale della home.
 const dash=document.getElementById('v8-dashboard');
 
-function dashLink(code,title,href,note){
+function dashLink(title,href,note){
   return `<a class="lf" href="${href}">
-    <span class="lf-n">${code}</span>
     <span class="lf-t">${title}${note?'<br><span class="lf-sub">'+note+'</span>':''}</span>
     <span class="lf-a">&rarr;</span>
   </a>`;
@@ -623,14 +622,14 @@ function dashMetric(label,value,cls){
 
 function _dashBodyConcorso(){
   return `
-    <div class="hub-links">
-      ${dashLink('C.01','Pagina concorso','pages/concorso/','dettaglio concorso')}
-      ${dashLink('C.02','Storico estrazioni','pages/storico-estrazioni/','archivio completo')}
-    </div>
-    <div class="p-sec">Stato</div>
+    <div class="p-sec">Ultimo concorso</div>
     ${dashMetric('Concorso', '#'+String(DRAW_ID).padStart(3,'0'))}
     ${dashMetric('Data', DRAW_DATE)}
-    ${dashMetric('Prossimo', nextDrawDayLabel(), 'v')}`;
+    ${dashMetric('Prossimo', nextDrawDayLabel(), 'v')}
+    <div class="hub-links">
+      ${dashLink('Dettaglio concorso','pages/concorso/')}
+      ${dashLink('Storico estrazioni','pages/storico-estrazioni/')}
+    </div>`;
 }
 
 // ─── SKY CANVAS (identico a v8-inner-chrome.js) ───────────────────────────────
@@ -681,117 +680,118 @@ function _startSky(cv){
 
 function _dashBodyStorico(){
   return `
-    <div class="p-sec">Archivio e dataset</div>
+    <div class="p-sec">Archivio dal 1997</div>
     ${dashMetric('Estrazioni archiviate', DRAWS_COUNT?DRAWS_COUNT.toLocaleString('it-IT'):'--')}
-    ${dashMetric('Archivio dal', '1997')}
-    ${dashMetric('Caldi ultima estrazione', LAST.filter(n=>HOT.includes(n)).join(' · ')||'--', 'r')}
-    ${dashMetric('Freddi ultima estrazione', LAST.filter(n=>COLD.includes(n)).join(' · ')||'--', 'v')}
+    ${dashMetric('Numeri caldi', LAST.filter(n=>HOT.includes(n)).join(' · ')||'--', 'r')}
+    ${dashMetric('Numeri freddi', LAST.filter(n=>COLD.includes(n)).join(' · ')||'--', 'v')}
     <div class="hub-links">
-      ${dashLink('S.01','Storico estrazioni','pages/storico-estrazioni/','tabella e filtri')}
-      ${dashLink('S.02','Analisi statistiche','pages/analisi-statistiche/','letture aggregate')}
+      ${dashLink('Consulta l\'archivio','pages/storico-estrazioni/')}
     </div>`;
 }
 
 function _dashBodyAlgoritmi(){
-  const groups=[...new Set(ALGOS.map(a=>a.group).filter(Boolean))];
   return `
-    <div class="p-sec">Sezione algoritmi</div>
-    ${dashMetric('Algoritmi attivi', ALGOS.length||'--', 'v')}
-    ${dashMetric('Famiglie', groups.length||'--')}
+    <div class="p-sec">Motori di analisi attivi</div>
+    ${dashMetric('Algoritmi', ALGOS.length||'--', 'v')}
+    <div class="dash-fam-list">
+      <span class="dash-fam dash-fam--stat">Statistici &mdash; modelli classici su frequenze, ritardi e co-occorrenze</span>
+      <span class="dash-fam dash-fam--neu">Neurali &mdash; reti adattive addestrate sullo storico</span>
+      <span class="dash-fam dash-fam--ibr">Ibridi &mdash; combinazione di approcci statistici e ML</span>
+      <span class="dash-fam dash-fam--gen">Generativi / Evolutivi &mdash; algoritmi a popolazione con selezione e mutazione</span>
+    </div>
     <div class="hub-links">
-      ${dashLink('A.01','Tutti gli algoritmi','pages/algoritmi/','sezione principale')}
-      ${dashLink('A.02','Statistici','pages/algoritmi/spotlight/statistici/','famiglia')}
-      ${dashLink('A.03','Neurali','pages/algoritmi/spotlight/neurali/','famiglia')}
-      ${dashLink('A.04','Ibridi','pages/algoritmi/spotlight/ibridi/','famiglia')}
+      ${dashLink('Esplora tutti gli algoritmi','pages/algoritmi/')}
     </div>`;
 }
 
 function _dashBodyRanking(){
-  const top=ALGOS.slice(0,5);
+  const top=ALGOS.slice(0,7);
   return `
-    <div class="p-sec">Sintesi ranking</div>
+    <div class="p-sec">Classifica algoritmi</div>
     ${top.length?top.map(a=>`
       <div class="rank-row"><span>${String(a.r).padStart(2,'0')}</span><strong>${a.n}</strong></div>`).join(''):
       '<div class="p-sec" style="color:rgba(237,232,223,.3)">Classifica in caricamento...</div>'}
     <div class="hub-links">
-      ${dashLink('R.01','Ranking completo','pages/ranking/','classifica')}
-      ${dashLink('R.02','Algoritmi','pages/algoritmi/','contesto modelli')}
+      ${dashLink('Apri ranking completo','pages/ranking/')}
     </div>`;
 }
 
 function _dashBodySes(){
+  const preview=_sestine.slice(0,4);
+  const previewHtml=preview.map(s=>`
+    <div class="ses-row">
+      <span class="ses-alg">${s.title||s.id}</span>
+      <span class="ses-balls">${(s.nums||[]).map(n=>`<span class="ses-b">${String(n).padStart(2,'0')}</span>`).join('')}</span>
+    </div>`).join('');
   return `
     <div class="p-sec">Proposte per ${nextDrawDayLabel()}</div>
-    ${_sestine.length?dashMetric('Sestine disponibili', _sestine.length, 'v'):dashMetric('Sestine', 'in caricamento')}
+    ${_sestine.length?previewHtml:'<div class="p-sec" style="color:rgba(237,232,223,.3)">Caricamento sestine...</div>'}
     <div class="hub-links">
-      ${dashLink('P.01','Sestine proposte','pages/sestine-proposte/','pagina principale')}
-      ${dashLink('P.02','Algoritmi generatori','pages/algoritmi/','origine modelli')}
-      ${dashLink('P.03','Ranking','pages/ranking/','confronto')}
+      ${dashLink('Tutte le sestine proposte','pages/sestine-proposte/')}
     </div>
-    <div class="hub-disclaimer">Proposte algoritmiche: non sono previsioni e non garantiscono vincite.</div>`;
+    <div class="hub-disclaimer">Proposte algoritmiche &mdash; nessuna promessa di vincita.</div>`;
 }
 
 function _dashBodyAnalisi(){
   return `
-    <div class="p-sec">Analisi e interpretazione</div>
+    <div class="p-sec">Fondamenti statistici</div>
+    <div class="dash-prose">Frequenze relative, ritardi critici e co-occorrenze calcolati su finestre mobili di 30, 90 e 180 estrazioni. Ogni valore viene confrontato col baseline teorico (6/90) per isolare segnali strutturali dal rumore stocastico.</div>
+    ${dashMetric('Finestre analisi', '30 · 90 · 180 · full')}
+    ${dashMetric('Dataset dal', '1997', 'v')}
     <div class="hub-links">
-      ${dashLink('N.01','Analisi statistiche','pages/analisi-statistiche/','pattern e metriche')}
-      ${dashLink('N.02','Storico estrazioni','pages/storico-estrazioni/','base dati')}
-      ${dashLink('N.03','Laboratorio tecnico','pages/laboratorio-tecnico/','strumenti avanzati')}
-    </div>
-    ${dashMetric('Approccio', 'statistico')}
-    ${dashMetric('Garanzia vincita', 'nessuna', 'r')}`;
+      ${dashLink('Apri analisi statistiche','pages/analisi-statistiche/')}
+    </div>`;
 }
 
 function _dashBodyLab(){
   const st=_iargosStatus;
   return `
-    <div class="p-sec">Strumenti avanzati</div>
-    <div class="hub-links">
-      ${dashLink('L.01','Laboratorio tecnico','pages/laboratorio-tecnico/','dashboard tecnica')}
-      ${dashLink('L.02','Analisi statistiche','pages/analisi-statistiche/','letture pubbliche')}
-      ${dashLink('L.03','Storico estrazioni','pages/storico-estrazioni/','dataset')}
-    </div>
-    <div class="p-sec">Sistema iARGOS</div>
+    <div class="p-sec">Strumenti per l'esperto</div>
+    <div class="dash-prose">Formule, metriche di ranking, bias cognitivi e limiti metodologici dell'analisi statistica sul SuperEnalotto. Documentazione tecnica completa di ogni modulo.</div>
+    <div class="p-sec">iARGOS &mdash; supervisore autonomo</div>
+    <div class="dash-prose dash-prose--sm">Motore di monitoraggio continuo: verifica l'allineamento mirror/locale, esegue auto-healing e registra ogni intervento nel diario operativo.</div>
     ${dashMetric('Stato', st?(st.overview_green?'Operativo':(st.severity||'warning')):'--', st?(st.overview_green?'g':'r'):'')}
-    ${dashMetric('Algoritmi allineati', st?.runtime?(st.runtime.algorithms_aligned_count||'--')+' / '+(st.runtime.algorithms_total_count||'--'):'--')}`;
+    ${dashMetric('Algoritmi allineati', st?.runtime?(st.runtime.algorithms_aligned_count||'--')+' / '+(st.runtime.algorithms_total_count||'--'):'--')}
+    <div class="hub-links">
+      ${dashLink('Apri Laboratorio Tecnico','pages/laboratorio-tecnico/')}
+    </div>`;
 }
 
 function _dashBodyOra(){
+  const hot=HOT.slice(0,3).join(' · ')||'--';
+  const cold=COLD.slice(0,3).join(' · ')||'--';
   return `
-    <div class="p-sec">Oracle e visualizzazioni</div>
+    <div class="p-sec">Segnali visuali e mappa Cosmos</div>
+    ${dashMetric('Numeri caldi', hot, 'r')}
+    ${dashMetric('Numeri freddi', cold, 'v')}
+    ${dashMetric('Prossima estrazione', nextDrawDayLabel(), 'v')}
     <div class="hub-links">
-      ${dashLink('O.01','Oracle','pages/oracle/','pagina principale')}
-      ${dashLink('O.02','Oracle Cosmos','pages/oracle/cosmos/','mappa visuale')}
+      ${dashLink('Apri Oracle','pages/oracle/')}
     </div>
-    ${dashMetric('Entropia', '72%', 'r')}
-    ${dashMetric('Coerenza', '58%', 'v')}
-    ${dashMetric('Ritardo', '81%', 'r')}
-    <div class="hub-disclaimer">Sintesi visuale: metafora di analisi, non previsione.</div>`;
+    <div class="hub-disclaimer">Sintesi visuale &mdash; metafora di analisi, non previsione.</div>`;
 }
 
 function _dashBodyCommunity(){
   return `
-    <div class="p-sec">Comunicazione</div>
-    <div class="hub-links">
-      ${dashLink('M.01','Community','pages/community/','area pubblica')}
-      ${dashLink('M.02','Contatti e chi siamo','pages/contatti-chi-siamo/','identita progetto')}
-    </div>
+    <div class="p-sec">Area pubblica del progetto</div>
+    <div class="dash-prose">Feed operativo aggiornato: attivit&agrave; algoritmi, leaderboard e highlights statistici. Analisi statistica indipendente senza fini commerciali.</div>
     ${dashMetric('Progetto', 'Control Chaos')}
-    ${dashMetric('Metodo', 'analisi indipendente')}`;
+    ${dashMetric('Tipo', 'analisi indipendente')}
+    <div class="hub-links">
+      ${dashLink('Apri Community','pages/community/')}
+    </div>`;
 }
 
 function _dashBodyInfo(){
   return `
     <div class="p-sec">Trasparenza e regole</div>
     <div class="hub-links">
-      ${dashLink('I.01','Contatti e chi siamo','pages/contatti-chi-siamo/','progetto')}
-      ${dashLink('I.02','Disclaimer','pages/disclaimer/','gioco responsabile')}
-      ${dashLink('I.03','Privacy policy','pages/privacy-policy/','dati personali')}
-      ${dashLink('I.04','Cookie policy','pages/cookie-policy/','cookie')}
-      ${dashLink('I.05','Termini servizio','pages/termini-servizio/','regole')}
-      ${dashLink('I.06','Consenso','pages/consenso/','preferenze')}
-      ${dashLink('I.07','Policy consenso','pages/policy-consenso/','dettagli consenso')}
+      ${dashLink('Chi siamo','pages/contatti-chi-siamo/')}
+      ${dashLink('Disclaimer','pages/disclaimer/')}
+      ${dashLink('Privacy policy','pages/privacy-policy/')}
+      ${dashLink('Cookie policy','pages/cookie-policy/')}
+      ${dashLink('Termini di servizio','pages/termini-servizio/')}
+      ${dashLink('Consenso','pages/consenso/')}
     </div>`;
 }
 

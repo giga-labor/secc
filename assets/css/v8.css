@@ -1064,6 +1064,40 @@ body::after { display: none; }
   color:rgba(237,232,223,.22);
 }
 
+/* -- Card prose / famiglie / sestine preview -- */
+.dash-prose{
+  font-size:.8rem;line-height:1.55;letter-spacing:.04em;
+  color:rgba(237,232,223,.48);margin:.55rem 0 .85rem;
+}
+.dash-prose--sm{font-size:.72rem;margin:.3rem 0 .6rem;}
+.dash-fam-list{display:flex;flex-direction:column;gap:.3rem;margin:.55rem 0 .85rem;}
+.dash-fam{
+  font-size:.72rem;letter-spacing:.05em;line-height:1.4;
+  color:rgba(237,232,223,.42);padding-left:.6rem;border-left:2px solid rgba(237,232,223,.08);
+}
+.dash-fam--stat{border-color:rgba(99,169,210,.4);color:rgba(99,169,210,.75);}
+.dash-fam--neu{border-color:rgba(139,92,246,.4);color:rgba(139,92,246,.75);}
+.dash-fam--ibr{border-color:rgba(200,57,26,.4);color:rgba(200,57,26,.75);}
+.dash-fam--gen{border-color:rgba(245,158,11,.4);color:rgba(245,158,11,.75);}
+.ses-row{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.38rem 0;border-bottom:1px solid rgba(237,232,223,.04);
+}
+.ses-alg{
+  font-size:.68rem;letter-spacing:.06em;color:rgba(237,232,223,.38);
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 0 7rem;
+}
+.ses-balls{display:flex;gap:.22rem;flex-wrap:nowrap;}
+.ses-b{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.55rem;height:1.55rem;border-radius:50%;
+  font-size:.62rem;font-weight:600;font-family:'DM Mono',monospace;
+  background:rgba(237,232,223,.06);color:rgba(237,232,223,.55);
+  border:1px solid rgba(237,232,223,.1);
+}
+/* -- lf senza codice -- */
+.lf{grid-template-columns:1fr auto;}
+
 /* -- Card evidenziata -- */
 .dash-card.dash-focus{border-color:rgba(139,92,246,.35);}
 .dash-card.dash-focus::before{opacity:1;}

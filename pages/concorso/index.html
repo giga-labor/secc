@@ -197,6 +197,7 @@
     .cc-family-chip--statistica  { background: rgba(99,169,210,.12); color: #63A9D2; border: 1px solid rgba(99,169,210,.25); }
     .cc-family-chip--neurale     { background: rgba(139,92,246,.12); color: #8B5CF6; border: 1px solid rgba(139,92,246,.25); }
     .cc-family-chip--ibrido      { background: rgba(251,146,60,.12); color: #FB923C; border: 1px solid rgba(251,146,60,.25); }
+    .cc-family-chip--generativi  { background: rgba(245,158,11,.12); color: #F59E0B; border: 1px solid rgba(245,158,11,.25); }
     .cc-family-chip--             { background: rgba(237,232,223,.07); color: rgba(237,232,223,.4); }
 
     /* Pos rank */
@@ -271,7 +272,7 @@
       </div>
       <div class="cc-concorso-kpi">
         <div class="cc-concorso-kpi__value" id="kpi-pct">--%</div>
-        <div class="cc-concorso-kpi__label">Hit rate â‰¥ 1</div>
+        <div class="cc-concorso-kpi__label">Hit rate &ge; 1</div>
       </div>
     </div>
 
@@ -279,8 +280,8 @@
     <div class="cc-concorso-note">
       <strong>Come si legge questa pagina.</strong>
       Per ogni algoritmo attivo vengono confrontati i 6 numeri proposti per questo concorso con i 6 numeri effettivamente estratti.
-      Un "hit" Ã¨ un numero proposto che coincide con un numero estratto.
-      SuperEnalotto ha probabilitÃ  di 6/90 per numero: <strong>0-1 hit per concorso Ã¨ l'esito statisticamente normale</strong>.
+      Un "hit" &egrave; un numero proposto che coincide con un numero estratto.
+      SuperEnalotto ha probabilit&agrave; di 6/90 per numero: <strong>0-1 hit per concorso &egrave; l'esito statisticamente normale</strong>.
       Questi dati non costituiscono previsione e non garantiscono vincite future.
     </div>
 
@@ -369,7 +370,7 @@
     }
 
     function resolveBase() {
-      // Dalla posizione pages/concorso/ &rarr; root Ã¨ ../../
+      // Dalla posizione pages/concorso/ &rarr; root &egrave; ../../
       var base = '../../';
       // Se caricato localmente o da subpath diverso, adatta
       try {
@@ -438,7 +439,7 @@
         };
       });
 
-      // Ordina: piÃ¹ hit prima, poi per titolo
+      // Ordina: pi&ugrave; hit prima, poi per titolo
       rows.sort(function (a, b) {
         return (b.hitCount - a.hitCount) || a.title.localeCompare(b.title);
       });
@@ -484,12 +485,4 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       init().catch(function (err) {
-        document.getElementById('concorso-loading').textContent = 'Errore: ' + err.message;
-      });
-    });
-  })();
-  </script>
-
-  <script src="../../assets/js/lazy-bootstrap.js" defer></script>
-</body>
-</html>
+        document.getElementById('concorso-loading').textContent = 'Errore: ' + err.messag
