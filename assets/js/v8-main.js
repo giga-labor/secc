@@ -1,20 +1,20 @@
-// v8-main.js - Shell grafica v8
+﻿// v8-main.js - Shell grafica v8
 // Dipende da: v8-data-bridge.js, core/cache-engine.js, core/data-repository.js, cards-index.js
 
-// ─── CURSOR
+// â”€â”€â”€ CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
 let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
 (function a(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(a);})();
 
-// ─── CANVAS SETUP
+// â”€â”€â”€ CANVAS SETUP
 const canvas=document.getElementById('c');
 const ctx=canvas.getContext('2d');
 let W,H,frame=0,alive=false;
 function resize(){W=canvas.width=canvas.clientWidth||innerWidth;H=canvas.height=canvas.clientHeight||innerHeight;}
 resize();
 
-// ─── STATO DATI (popolato da v8WaitAndInit dopo il caricamento)
+// â”€â”€â”€ STATO DATI (popolato da v8WaitAndInit dopo il caricamento)
 let LAST=[],HOT=[],COLD=[],JOLLY=null,ALGOS=[],DRAW_ID='--',DRAW_DATE='--',DRAWS_COUNT=0;
 let _iargosStatus=null;
 let _sestine=[];
@@ -23,7 +23,7 @@ let _hovPrev=null;         // cella in hover al frame precedente
 let _hovStart=0;           // timestamp inizio hover corrente
 let _richOn=false;         // tooltip ricco visibile
 
-// ─── CELLS
+// â”€â”€â”€ CELLS
 const cells=[];
 function buildCells(){
   cells.length=0;
@@ -59,7 +59,7 @@ function buildCells(){
 }
 // buildCells() non viene chiamata qui - viene chiamata dopo il caricamento dati
 
-// ─── STATISTICHE PER NUMERO (calcolate su tutti i draws)
+// â”€â”€â”€ STATISTICHE PER NUMERO (calcolate su tutti i draws)
 function computeNumStats(draws){
   const out={};
   const list=Array.isArray(draws)?draws:[];
@@ -110,10 +110,10 @@ function formatStatValue(value, fallback){
   return hasStatValue(value)?value:(fallback||'N/D');
 }
 
-// Resize: ricostruisce celle solo se i dati sono già disponibili
+// Resize: ricostruisce celle solo se i dati sono giÃ  disponibili
 window.addEventListener('resize',()=>{resize();if(LAST.length||alive)buildCells();});
 
-// ─── SEISMIC WAVES
+// â”€â”€â”€ SEISMIC WAVES
 const waves=[];
 for(let i=0;i<5;i++){
   waves.push({
@@ -132,17 +132,15 @@ const ttB=document.getElementById('tt-b'),ttN=document.getElementById('tt-n'),tt
 
 function isNumberHoverBlocked(){
   const panelEl=document.getElementById('panel');
-  const sideEl=document.getElementById('side');
   const blockers=[];
   if(panelEl&&panelEl.classList.contains('open'))blockers.push(panelEl);
-  if(sideEl)blockers.push(sideEl);
   return blockers.some(el=>{
     const r=el.getBoundingClientRect();
     return pmx>=r.left&&pmx<=r.right&&pmy>=r.top&&pmy<=r.bottom;
   });
 }
 
-// ─── DRAW LOOP (parte subito - canvas nero finché i dati non arrivano)
+// â”€â”€â”€ DRAW LOOP (parte subito - canvas nero finchÃ© i dati non arrivano)
 function draw(){
   ctx.clearRect(0,0,W,H);
   frame++;
@@ -233,13 +231,13 @@ function draw(){
     }
   });
 
-  // ─── HOVER DELAY + TOOLTIP DIREZIONALE
+  // â”€â”€â”€ HOVER DELAY + TOOLTIP DIREZIONALE
   const now=performance.now();
 
   if(hovCell){
     curR.classList.add('xl');
 
-    // Reset timer se la cella è cambiata
+    // Reset timer se la cella Ã¨ cambiata
     if(hovCell!==_hovPrev){
       _hovPrev=hovCell;_hovStart=now;_richOn=false;tt.classList.remove('on');
     }
@@ -321,7 +319,7 @@ function draw(){
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(c.px,c.py);
-      // punto di aggancio lato tooltip più vicino alla bolla
+      // punto di aggancio lato tooltip piÃ¹ vicino alla bolla
       const tlx=Math.max(tx,Math.min(c.px,tx+TW));
       const tly=Math.max(ty,Math.min(c.py,ty+TH));
       ctx.lineTo(tlx,tly);
@@ -339,9 +337,9 @@ function draw(){
 }
 draw();
 
-// ═══════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // MOTORE MICCIA CC - usato da intro, topbar, panel watermark
-// ═══════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function buildCCEngine(cvs, opts){
   const c2=cvs.getContext('2d');
   const CW=cvs.width,CH=cvs.height;
@@ -476,7 +474,7 @@ function buildCCEngine(cvs, opts){
   tickFrame();
 }
 
-// ─── COUNTDOWN
+// â”€â”€â”€ COUNTDOWN
 let _nextDrawAt=null;        // null = nessuna risposta ancora dal JSON
 let _nextDrawLoading=false;
 let _nextDrawFetched=false;  // true dopo il primo fetch andato a buon fine
@@ -517,12 +515,15 @@ function parseNextDrawDate(payload){
 function _applyJackpot(payload){
   var jkEl=document.getElementById('v8-jackpot');
   if(!jkEl) return;
+  function renderJackpot(value){
+    jkEl.innerHTML='<span class="tb-jk-label">Jackpot</span><span class="tb-jk-value">'+value+'</span>';
+  }
   if(!payload||typeof payload!=='object'){
-    jkEl.textContent='Jackpot N/D';
+    renderJackpot('N/D');
     return;
   }
   var jk=payload.jackpot_eur||payload.jackpot_str||null;
-  jkEl.textContent=jk?'Jackpot '+jk:'Jackpot N/D';
+  renderJackpot(jk||'N/D');
 }
 
 function fetchNextDrawDate(){
@@ -556,7 +557,7 @@ function upCd(){
   const el=document.getElementById('cd');
   if(!el) return;
   if(diff===0){
-    // Data dal JSON è nel passato: siamo in attesa dei risultati
+    // Data dal JSON Ã¨ nel passato: siamo in attesa dei risultati
     if(!el.dataset.waiting){
       el.dataset.waiting='1';
       el.textContent='Risultati in arrivo...';
@@ -591,109 +592,236 @@ function nextDrawDayLabel(){
   return target.toLocaleDateString('it-IT',{weekday:'long'});
 }
 
-// ─── PANELS
-const PANELS={
-  est:{
-    kicker:'',
-    title:'I numeri<br>estratti',
-    sub:'',
-    body:()=>`
-      <div class="p-sec">Numeri estratti</div>
-      <div class="ball-row">
-        ${LAST.map(n=>`<div class="pball ${HOT.includes(n)?'hot':COLD.includes(n)?'cold':''}">${n}</div>`).join('')}
-        ${JOLLY!==null?`<div class="pball jolly">&#9733;${JOLLY}</div>`:''}
-      </div>
-      <div class="p-sec">Info estrazione</div>
-      <div class="sr"><span class="sr-k">Concorso</span><span class="sr-v">#${String(DRAW_ID).padStart(3,'0')}</span></div>
-      <div class="sr"><span class="sr-k">Data</span><span class="sr-v">${DRAW_DATE}</span></div>
-      <div class="sr"><span class="sr-k">Numeri caldi estratti</span><span class="sr-v r">${LAST.filter(n=>HOT.includes(n)).join(' &middot; ')||'--'}</span></div>
-      <div class="sr"><span class="sr-k">Numeri freddi estratti</span><span class="sr-v v">${LAST.filter(n=>COLD.includes(n)).join(' &middot; ')||'--'}</span></div>
-      <div class="p-sec">Archivio</div>
-      <div class="sr"><span class="sr-k">Estrazioni totali</span><span class="sr-v">${DRAWS_COUNT.toLocaleString('it-IT')}</span></div>
-      <div class="sr"><span class="sr-k">Archivio dal</span><span class="sr-v">1997</span></div>
-      <a href="pages/storico-estrazioni/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(110,231,255,.55);text-decoration:none;letter-spacing:.1em">Apri archivio storico &rarr;</a>
-    `
-  },
-  alg:{
-    kicker:'Classifica algoritmi',
-    title:'Algoritmi<br>in gara',
-    sub:'',
-    body:()=>`
-      <div class="p-sec">Algoritmi attivi &middot; ${ALGOS.length}</div>
-      ${ALGOS.map(a=>`
-        <div class="ar" onclick="window.location='${a.page||'pages/algoritmi/algs/'+a.id+'/'}'" style="cursor:pointer">
-          <div class="ar-top">
-            <span class="ar-rk">${String(a.r).padStart(2,'0')}</span>
-            <span class="ar-nm">${a.n}</span>
-            <span class="ar-sc" style="font-size:.9rem;color:rgba(237,232,223,.28);font-family:'DM Mono',monospace;letter-spacing:.08em;flex-shrink:0">${a.group||''}</span>
-          </div>
-          <div class="ar-bar"><div class="ar-fill" data-w="${a.w}%" style="width:0"></div></div>
-        </div>`).join('')}
-      <a href="pages/algoritmi/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Tutti gli algoritmi in ranking &rarr;</a>
-    `
-  },
-  ses:{
-    kicker:'Sestine proposte',
-    title:()=>`Proposte<br>per ${nextDrawDayLabel()}`,
-    sub:'Una per ogni algoritmo attivo',
-    body:()=> _sestine.length ? `
-      <div class="p-sec">Sestine per il prossimo concorso</div>
-      ${_sestine.map(s=>`
-        <div class="sc" onclick="window.location='${'pages/algoritmi/algs/'+s.id+'/'}'" style="cursor:pointer">
-          <div class="sc-top">
-            <span class="sc-algo">${s.id.replace(/^classic-|^arc90-|^super/i,'').slice(0,14).toUpperCase()}</span>
-            <span class="sc-conf" style="font-size:1rem;color:rgba(237,232,223,.25)">${s.group||''}</span>
-          </div>
-          <div class="sc-nums">
-            ${s.nums.map(n=>`<div class="scn">${n}</div>`).join('')}
-          </div>
-        </div>`).join('')}
-      <div style="margin-top:1.4rem;font-size:1rem;color:rgba(237,232,223,.12);letter-spacing:.08em;text-align:center">
-        Proposta algoritmica &middot; Non una previsione &middot; Il gioco comporta rischi
-      </div>
-      <a href="pages/sestine-proposte/" style="display:block;margin-top:.8rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">
-        Tutte le sestine &rarr;
-      </a>
-    ` : `
-      <div class="p-sec" style="color:rgba(237,232,223,.3)">Caricamento sestine...</div>
-      <div style="padding:1.5rem 0;font-size:1.44rem;color:rgba(237,232,223,.25)">
-        <a href="pages/sestine-proposte/" style="color:#8B5CF6;text-decoration:none">
-          Apri pagina sestine &rarr;
-        </a>
-      </div>
-    `
-  },
-  lab:{
-    kicker:'Laboratorio Tecnico',
-    title:'Per<br>l\'esperto',
-    sub:'Strumenti avanzati di analisi statistica',
-    body:()=>`
-      <div class="p-sec">Accesso ai dati</div>
-      <div class="lf" onclick="window.location='pages/laboratorio-tecnico/'" style="cursor:pointer"><span class="lf-n">F&middot;01</span><span class="lf-t">Laboratorio tecnico</span><span class="lf-a">&rarr;</span></div>
-      <div class="lf" onclick="window.location='pages/storico-estrazioni/'" style="cursor:pointer"><span class="lf-n">F&middot;02</span><span class="lf-t">Archivio storico estrazioni</span><span class="lf-a">&rarr;</span></div>
-      <div class="lf" onclick="window.location='pages/algoritmi/'" style="cursor:pointer"><span class="lf-n">F&middot;03</span><span class="lf-t">Algoritmi in ranking</span><span class="lf-a">&rarr;</span></div>
-      <div class="lf" onclick="window.location='pages/analisi-statistiche/'" style="cursor:pointer"><span class="lf-n">F&middot;04</span><span class="lf-t">Analisi statistiche</span><span class="lf-a">&rarr;</span></div>
-      <div class="p-sec">Sistema iARGOS</div>
-      <div class="sr"><span class="sr-k">Versione</span><span class="sr-v v">${_iargosStatus?.version||'--'}</span></div>
-      <div class="sr"><span class="sr-k">Stato</span><span class="sr-v ${_iargosStatus?(_iargosStatus.overview_green?'g':'r'):''}">${_iargosStatus?(_iargosStatus.overview_green?'Operativo':(_iargosStatus.severity||'warning')):'--'}</span></div>
-      <div class="sr"><span class="sr-k">Algoritmi allineati</span><span class="sr-v">${_iargosStatus?.runtime?(_iargosStatus.runtime.algorithms_aligned_count||'--')+' / '+(_iargosStatus.runtime.algorithms_total_count||'--'):'--'}</span></div>
-      <div class="sr"><span class="sr-k">Estrazioni archiviate</span><span class="sr-v">${DRAWS_COUNT||'--'}</span></div>
-      <a href="pages/laboratorio-tecnico/" style="display:block;margin-top:1.2rem;text-align:center;font-size:1.1rem;color:rgba(139,92,246,.6);text-decoration:none;letter-spacing:.1em">Apri Laboratorio tecnico &rarr;</a>
-    `
-  }
+// Dashboard sections.
+const DASH_SECTIONS={
+  concorso:'dc-concorso',
+  storico:'dc-storico',
+  algoritmi:'dc-algoritmi',
+  ranking:'dc-ranking',
+  ses:'dc-ses',
+  analisi:'dc-analisi',
+  lab:'dc-lab',
+  ora:'dc-ora',
+  community:'dc-community',
+  info:'dc-info'
 };
 
-// ─── PANEL ENGINE
-const panel=document.getElementById('panel');
-const pKick=document.getElementById('p-kicker');
-const pTitle=document.getElementById('p-title');
-const pSub=document.getElementById('p-subtitle');
-const pBody=document.getElementById('p-body');
-const pCls=document.getElementById('p-cls');
+// Dashboard centrale della home.
+const dash=document.getElementById('v8-dashboard');
+
+function dashLink(code,title,href,note){
+  return `<a class="hub-link" href="${href}">
+    <span class="lf-n">${code}</span>
+    <span class="lf-t">${title}</span>
+    ${note?`<span class="hub-note">${note}</span>`:''}
+    <span class="lf-a">&rarr;</span>
+  </a>`;
+}
+
+function dashMetric(label,value,cls){
+  return `<div class="sr"><span class="sr-k">${label}</span><span class="sr-v ${cls||''}">${value}</span></div>`;
+}
+
+function _dashBodyConcorso(){
+  return `
+    <div class="p-sec">Ultima estrazione</div>
+    <div class="ball-row">
+      ${LAST.map(n=>`<div class="pball ${HOT.includes(n)?'hot':COLD.includes(n)?'cold':''}">${n}</div>`).join('')}
+      ${JOLLY!==null?`<div class="pball jolly">&#9733;${JOLLY}</div>`:''}
+    </div>
+    <div class="hub-links">
+      ${dashLink('C.01','Pagina concorso','pages/concorso/','dettaglio concorso')}
+      ${dashLink('C.02','Storico estrazioni','pages/storico-estrazioni/','archivio completo')}
+    </div>
+    <div class="p-sec">Stato</div>
+    ${dashMetric('Concorso', '#'+String(DRAW_ID).padStart(3,'0'))}
+    ${dashMetric('Data', DRAW_DATE)}
+    ${dashMetric('Prossimo', nextDrawDayLabel(), 'v')}`;
+}
+
+function _dashBodyStorico(){
+  return `
+    <div class="p-sec">Archivio e dataset</div>
+    ${dashMetric('Estrazioni archiviate', DRAWS_COUNT?DRAWS_COUNT.toLocaleString('it-IT'):'--')}
+    ${dashMetric('Archivio dal', '1997')}
+    ${dashMetric('Caldi ultima estrazione', LAST.filter(n=>HOT.includes(n)).join(' · ')||'--', 'r')}
+    ${dashMetric('Freddi ultima estrazione', LAST.filter(n=>COLD.includes(n)).join(' · ')||'--', 'v')}
+    <div class="hub-links">
+      ${dashLink('S.01','Storico estrazioni','pages/storico-estrazioni/','tabella e filtri')}
+      ${dashLink('S.02','Analisi statistiche','pages/analisi-statistiche/','letture aggregate')}
+    </div>`;
+}
+
+function _dashBodyAlgoritmi(){
+  const groups=[...new Set(ALGOS.map(a=>a.group).filter(Boolean))];
+  return `
+    <div class="p-sec">Sezione algoritmi</div>
+    ${dashMetric('Algoritmi attivi', ALGOS.length||'--', 'v')}
+    ${dashMetric('Famiglie', groups.length||'--')}
+    <div class="hub-links">
+      ${dashLink('A.01','Tutti gli algoritmi','pages/algoritmi/','sezione principale')}
+      ${dashLink('A.02','Statistici','pages/algoritmi/spotlight/statistici/','famiglia')}
+      ${dashLink('A.03','Neurali','pages/algoritmi/spotlight/neurali/','famiglia')}
+      ${dashLink('A.04','Ibridi','pages/algoritmi/spotlight/ibridi/','famiglia')}
+    </div>`;
+}
+
+function _dashBodyRanking(){
+  const top=ALGOS.slice(0,5);
+  return `
+    <div class="p-sec">Sintesi ranking</div>
+    ${top.length?top.map(a=>`
+      <div class="rank-row"><span>${String(a.r).padStart(2,'0')}</span><strong>${a.n}</strong></div>`).join(''):
+      '<div class="p-sec" style="color:rgba(237,232,223,.3)">Classifica in caricamento...</div>'}
+    <div class="hub-links">
+      ${dashLink('R.01','Ranking completo','pages/ranking/','classifica')}
+      ${dashLink('R.02','Algoritmi','pages/algoritmi/','contesto modelli')}
+    </div>`;
+}
+
+function _dashBodySes(){
+  return `
+    <div class="p-sec">Proposte per ${nextDrawDayLabel()}</div>
+    ${_sestine.length?dashMetric('Sestine disponibili', _sestine.length, 'v'):dashMetric('Sestine', 'in caricamento')}
+    <div class="hub-links">
+      ${dashLink('P.01','Sestine proposte','pages/sestine-proposte/','pagina principale')}
+      ${dashLink('P.02','Algoritmi generatori','pages/algoritmi/','origine modelli')}
+      ${dashLink('P.03','Ranking','pages/ranking/','confronto')}
+    </div>
+    <div class="hub-disclaimer">Proposte algoritmiche: non sono previsioni e non garantiscono vincite.</div>`;
+}
+
+function _dashBodyAnalisi(){
+  return `
+    <div class="p-sec">Analisi e interpretazione</div>
+    <div class="hub-links">
+      ${dashLink('N.01','Analisi statistiche','pages/analisi-statistiche/','pattern e metriche')}
+      ${dashLink('N.02','Storico estrazioni','pages/storico-estrazioni/','base dati')}
+      ${dashLink('N.03','Laboratorio tecnico','pages/laboratorio-tecnico/','strumenti avanzati')}
+    </div>
+    ${dashMetric('Approccio', 'statistico')}
+    ${dashMetric('Garanzia vincita', 'nessuna', 'r')}`;
+}
+
+function _dashBodyLab(){
+  const st=_iargosStatus;
+  return `
+    <div class="p-sec">Strumenti avanzati</div>
+    <div class="hub-links">
+      ${dashLink('L.01','Laboratorio tecnico','pages/laboratorio-tecnico/','dashboard tecnica')}
+      ${dashLink('L.02','Analisi statistiche','pages/analisi-statistiche/','letture pubbliche')}
+      ${dashLink('L.03','Storico estrazioni','pages/storico-estrazioni/','dataset')}
+    </div>
+    <div class="p-sec">Sistema iARGOS</div>
+    ${dashMetric('Stato', st?(st.overview_green?'Operativo':(st.severity||'warning')):'--', st?(st.overview_green?'g':'r'):'')}
+    ${dashMetric('Algoritmi allineati', st?.runtime?(st.runtime.algorithms_aligned_count||'--')+' / '+(st.runtime.algorithms_total_count||'--'):'--')}`;
+}
+
+function _dashBodyOra(){
+  return `
+    <div class="p-sec">Oracle e visualizzazioni</div>
+    <div class="hub-links">
+      ${dashLink('O.01','Oracle','pages/oracle/','pagina principale')}
+      ${dashLink('O.02','Oracle Cosmos','pages/oracle/cosmos/','mappa visuale')}
+    </div>
+    ${dashMetric('Entropia', '72%', 'r')}
+    ${dashMetric('Coerenza', '58%', 'v')}
+    ${dashMetric('Ritardo', '81%', 'r')}
+    <div class="hub-disclaimer">Sintesi visuale: metafora di analisi, non previsione.</div>`;
+}
+
+function _dashBodyCommunity(){
+  return `
+    <div class="p-sec">Comunicazione</div>
+    <div class="hub-links">
+      ${dashLink('M.01','Community','pages/community/','area pubblica')}
+      ${dashLink('M.02','Contatti e chi siamo','pages/contatti-chi-siamo/','identita progetto')}
+    </div>
+    ${dashMetric('Progetto', 'Control Chaos')}
+    ${dashMetric('Metodo', 'analisi indipendente')}`;
+}
+
+function _dashBodyInfo(){
+  return `
+    <div class="p-sec">Trasparenza e regole</div>
+    <div class="hub-links">
+      ${dashLink('I.01','Contatti e chi siamo','pages/contatti-chi-siamo/','progetto')}
+      ${dashLink('I.02','Disclaimer','pages/disclaimer/','gioco responsabile')}
+      ${dashLink('I.03','Privacy policy','pages/privacy-policy/','dati personali')}
+      ${dashLink('I.04','Cookie policy','pages/cookie-policy/','cookie')}
+      ${dashLink('I.05','Termini servizio','pages/termini-servizio/','regole')}
+      ${dashLink('I.06','Consenso','pages/consenso/','preferenze')}
+      ${dashLink('I.07','Policy consenso','pages/policy-consenso/','dettagli consenso')}
+    </div>`;
+}
+
+function _dashPopulate(focusId){
+  const dkConcorso=document.getElementById('dk-concorso');
+  const dsConcorso=document.getElementById('ds-concorso');
+  const dbConcorso=document.getElementById('db-concorso');
+  if(dkConcorso)dkConcorso.innerHTML=`Ultima estrazione &middot; #${String(DRAW_ID).padStart(3,'0')}`;
+  if(dsConcorso)dsConcorso.textContent=DRAW_DATE;
+  if(dbConcorso)dbConcorso.innerHTML=_dashBodyConcorso();
+
+  const dsStorico=document.getElementById('ds-storico');
+  const dbStorico=document.getElementById('db-storico');
+  if(dsStorico)dsStorico.textContent=DRAWS_COUNT?`${DRAWS_COUNT.toLocaleString('it-IT')} concorsi archiviati`:'Archivio storico';
+  if(dbStorico)dbStorico.innerHTML=_dashBodyStorico();
+
+  const dsAlgoritmi=document.getElementById('ds-algoritmi');
+  const dbAlgoritmi=document.getElementById('db-algoritmi');
+  if(dsAlgoritmi)dsAlgoritmi.textContent=`${ALGOS.length||'--'} algoritmi attivi`;
+  if(dbAlgoritmi)dbAlgoritmi.innerHTML=_dashBodyAlgoritmi();
+
+  const dbRanking=document.getElementById('db-ranking');
+  if(dbRanking)dbRanking.innerHTML=_dashBodyRanking();
+
+  const dtSes=document.getElementById('dt-ses');
+  const dbSes=document.getElementById('db-ses');
+  if(dtSes)dtSes.innerHTML=`Sestine<br>${nextDrawDayLabel()}`;
+  if(dbSes)dbSes.innerHTML=_dashBodySes();
+
+  const dbAnalisi=document.getElementById('db-analisi');
+  if(dbAnalisi)dbAnalisi.innerHTML=_dashBodyAnalisi();
+
+  const dbLab=document.getElementById('db-lab');
+  if(dbLab)dbLab.innerHTML=_dashBodyLab();
+
+  const dbOra=document.getElementById('db-ora');
+  if(dbOra)dbOra.innerHTML=_dashBodyOra();
+
+  const dbCommunity=document.getElementById('db-community');
+  if(dbCommunity)dbCommunity.innerHTML=_dashBodyCommunity();
+
+  const dbInfo=document.getElementById('db-info');
+  if(dbInfo)dbInfo.innerHTML=_dashBodyInfo();
+
+  if(dash)dash.querySelectorAll('.dash-card').forEach(c=>c.classList.remove('dash-focus'));
+  const focusEl=focusId?document.getElementById(DASH_SECTIONS[focusId]):null;
+  if(focusEl){focusEl.classList.add('dash-focus');}
+}
+
+function openDashboard(focusId){
+  if(!dash)return;
+  const id=DASH_SECTIONS[focusId]?focusId:'concorso';
+  _dashPopulate(id);
+  dash.classList.add('open');
+  updatePanelHash(id);
+  rememberPanel(id);
+}
+
+function closeDashboard(){
+  if(dash)dash.classList.remove('open');
+}
 
 function panelIdFromHash(){
   const raw=String(window.location.hash||'').replace(/^#/,'');
-  if(raw.startsWith('panel-')) return raw.slice(6);
+  if(raw.startsWith('dash-')) return raw.slice(5);
+  if(raw.startsWith('panel-')) {
+    const legacy={est:'concorso',alg:'algoritmi',com:'community'};
+    const old=raw.slice(6);
+    return legacy[old]||old;
+  }
   return '';
 }
 
@@ -703,75 +831,42 @@ function rememberPanel(id){
 
 function updatePanelHash(id){
   if(!id)return;
-  const next='#panel-'+id;
+  const next='#dash-'+id;
   if(window.location.hash===next)return;
   try{ history.replaceState(history.state,'',next); }catch(e){ window.location.hash=next; }
 }
 
 function initialPanelId(){
   const fromHash=panelIdFromHash();
-  if(PANELS[fromHash])return fromHash;
+  if(DASH_SECTIONS[fromHash])return fromHash;
   try{
     const stored=sessionStorage.getItem('cc-v8-panel');
-    if(PANELS[stored])return stored;
+    if(DASH_SECTIONS[stored])return stored;
   }catch(e){}
-  return 'est';
+  return 'concorso';
 }
-
-function setSideActive(id){
-  document.querySelectorAll('.si').forEach(i=>i.classList.remove('on'));
-  const current=document.querySelector(`.si[data-p="${id}"]`);
-  if(current)current.classList.add('on');
-}
-
-function openPanel(id,opts){
-  const p=PANELS[id];if(!p)return;
-  pKick.textContent=p.kicker;
-  pTitle.innerHTML=typeof p.title==='function'?p.title():p.title;
-  pSub.textContent=p.sub;
-  pBody.innerHTML=p.body();
-  panel.classList.add('open');
-  rememberPanel(id);
-  setSideActive(id);
-  if(!opts||opts.updateHash!==false)updatePanelHash(id);
-  setTimeout(()=>{
-    pBody.querySelectorAll('[data-w]').forEach(b=>{b.style.width=b.dataset.w;});
-  },80);
-}
-
-if(pCls) pCls.addEventListener('click',()=>{
-  panel.classList.remove('open');
-  document.querySelectorAll('.si').forEach(s=>s.classList.remove('on'));
-});
-
-document.querySelectorAll('.si[data-p]').forEach(s=>{
-  s.addEventListener('click',()=>{
-    openPanel(s.dataset.p);
-  });
-});
 
 window.addEventListener('hashchange',()=>{
   if(!alive)return;
   const id=panelIdFromHash();
-  if(PANELS[id])openPanel(id,{updateHash:false});
+  if(DASH_SECTIONS[id])openDashboard(id);
 });
 
-const oraBtn=document.getElementById('ora-btn');
 const ov=document.getElementById('ov');
 const ovCls=document.getElementById('ov-cls');
-if(oraBtn) oraBtn.addEventListener('click',()=>{
-  document.querySelectorAll('.si').forEach(i=>i.classList.remove('on'));
-  oraBtn.classList.add('on');ov.classList.add('on');
+const oracleOpen=document.getElementById('oracle-open');
+if(oracleOpen&&ov) oracleOpen.addEventListener('click',()=>{
+  ov.classList.add('on');
+  openDashboard('ora');
 });
-if(ovCls) ovCls.addEventListener('click',()=>{ov.classList.remove('on');oraBtn.classList.remove('on');});
+if(ovCls&&ov) ovCls.addEventListener('click',()=>{ov.classList.remove('on');});
 
-// ─── V8 DATA INIT - attende che tutti i moduli siano pronti
+// V8 DATA INIT - attende che tutti i moduli siano pronti
 function v8WaitAndInit(cb, attempts){
   attempts=attempts||0;
   if(window.V8_BRIDGE && window.CC_DATA_REPOSITORY && window.CARDS_INDEX){
     window.V8_BRIDGE.load().then(cb).catch(function(e){
       console.warn('[v8-main] V8_BRIDGE.load() failed:', e);
-      // Procede con dati vuoti per non bloccare la UI
       cb({lastDraw:null,hotNums:[],coldNums:[],draws:[],cards:[]});
     });
   } else if(attempts<40){
@@ -783,7 +878,6 @@ function v8WaitAndInit(cb, attempts){
 }
 
 v8WaitAndInit(function(bundle){
-  // Popola lo stato condiviso
   LAST  = bundle.lastDraw ? bundle.lastDraw.nums : [];
   HOT   = bundle.hotNums  || [];
   COLD  = bundle.coldNums || [];
@@ -792,7 +886,6 @@ v8WaitAndInit(function(bundle){
   DRAW_ID     = bundle.lastDraw ? bundle.lastDraw.id   : '--';
   DRAW_DATE   = bundle.lastDraw ? bundle.lastDraw.date : '--';
 
-  // ALGOS da cards reali
   ALGOS = (bundle.cards||[]).map(function(c,i){
     return {
       r:i+1,
@@ -800,27 +893,21 @@ v8WaitAndInit(function(bundle){
       id:c.id,
       page:c.page||('pages/algoritmi/algs/'+c.id+'/'),
       group:c.macroGroup||'',
-      w:60  // barra aggiornata dal ranking reale
+      w:60
     };
   });
 
-  // Aggiorna PANELS.est e PANELS.alg kicker/sub con dati reali
-  PANELS.est.kicker = `Ultima estrazione &middot; #${String(DRAW_ID).padStart(3,'0')}`;
-  PANELS.est.sub    = DRAW_DATE;
-  PANELS.alg.sub    = `${ALGOS.length} algoritmi attivi`;
-
-  // Aggiorna topbar
   var algCount=document.getElementById('v8-alg-count');
   if(algCount) algCount.textContent=ALGOS.length+' Algoritmi';
 
-  // Costruisce il campo numerico con dati reali
+  // Versione sotto ControlChaos
+  var tbVer=document.getElementById('tb-version');
+  if(tbVer) tbVer.textContent='v '+(window.CC_VERSION||'--');
+
   buildCells();
-  // Usa numStats pre-calcolato dal backend se disponibile e completa i vuoti
-  // con il CSV fallback quando presente.
   NUM_STATS=normalizeNumberStats(bundle.numStats,bundle.draws||[]);
   DRAWS_COUNT=bundle.totalDraws||bundle.draws.length||DRAWS_COUNT;
 
-  // ─── RANKING REALE da precomputed/ranking.json
   function _normPage(p){ return String(p||'').replace(/^\/+/,'').replace(/\/+$/,''); }
 
   function _applyRankingOrder(rankRows){
@@ -830,20 +917,17 @@ v8WaitAndInit(function(bundle){
     rankRows.forEach(function(row,i){
       rankMap[_normPage(row.page)]={pos:i+1,score:row.ranking||0,title:row.title||''};
     });
-    // Ordina ALGOS per posizione classifica (migliore prima)
     ALGOS.sort(function(a,b){
       var ra=rankMap[_normPage(a.page)];
       var rb=rankMap[_normPage(b.page)];
       return ((ra?ra.pos:9999)-(rb?rb.pos:9999));
     });
-    // Aggiorna r (posizione), w (barra proporzionale al punteggio) e n (nome da ranking)
     ALGOS.forEach(function(a,i){
       a.r=i+1;
       var ri=rankMap[_normPage(a.page)];
       a.w=ri?Math.round((ri.score/maxScore)*100):20;
       if(ri&&ri.title) a.n=ri.title;
     });
-    // Riordina _sestine nello stesso ordine classifica
     if(_sestine.length){
       _sestine.sort(function(a,b){
         var pa='pages/algoritmi/algs/'+a.id;
@@ -874,20 +958,15 @@ v8WaitAndInit(function(bundle){
     })
     .catch(function(){});
 
-  // Carica dati iARGOS (asincrono, non bloccante) - cachati in _iargosStatus
-  // Il panel Lab li legge da _iargosStatus al momento del render
   if(window.CC_DATA_REPOSITORY){
     window.CC_DATA_REPOSITORY.fetchJson('data/iargos-public-status.json')
       .then(function(status){ if(status) _iargosStatus=status; })
       .catch(function(){});
   }
 
-  // Avvia motori CC logo
   buildCCEngine(document.getElementById('cc-intro'),{speed:1.2,pause:90});
   buildCCEngine(document.getElementById('cc-logo'), {speed:1.8,pause:60});
-  buildCCEngine(document.getElementById('cc-panel'),{speed:1.4,pause:75});
 
-  // Intro &rarr; Launch
   var intro=document.getElementById('intro');
   var ui=document.getElementById('ui');
 
@@ -900,29 +979,26 @@ v8WaitAndInit(function(bundle){
       return ref.origin===window.location.origin&&ref.pathname.includes('/pages/');
     }catch(e){return false;}
   })();
-  if(PANELS[panelIdFromHash()])_introSeen=true;
+  if(DASH_SECTIONS[panelIdFromHash()])_introSeen=true;
   if(fromInternalPage)_introSeen=true;
 
   function launch(){
     if(alive)return;
-    // Memorizza che l'utente ha già visto l'intro in questa sessione
     try{ sessionStorage.setItem(CC_INTRO_KEY,'1'); }catch(e){}
     intro.classList.add('out');
-    var delay=_introSeen?80:1600; // utente di ritorno: skip quasi istantaneo
-    setTimeout(()=>{
+    var delay=_introSeen?80:1600;
+    setTimeout(function(){
       intro.style.display='none';
       ui.classList.add('on');
       alive=true;
-      cells.forEach(c=>{c.t=0;});
-      openPanel(initialPanelId(),{updateHash:!PANELS[panelIdFromHash()]});
+      cells.forEach(function(c){c.t=0;});
+      openDashboard(initialPanelId());
     },delay);
   }
 
   if(_introSeen){
-    // Utente di ritorno: salta intro dopo un tick per permettere al canvas di renderizzarsi
     setTimeout(launch,120);
   } else {
-    // Prima visita: la hero resta finché l'utente non interagisce (click/tasto)
     document.addEventListener('click',launch);
     document.addEventListener('keydown',launch);
   }

@@ -622,12 +622,6 @@ const buildPolicyBrandText = (drawSeq) => {
   return `SuperEnalotto Control Chaos ${base}${suffix}`;
 };
 
-const buildFooterVersionText = (drawSeq) => {
-  const base = getBaseVersion();
-  const suffix = drawSeq ? `.${drawSeq}` : '';
-  return `${base}${suffix}`;
-};
-
 const syncPolicyBrandVersion = async (policyRow) => {
   if (!(policyRow instanceof HTMLElement)) return;
   const brand = policyRow.querySelector('.ad-policy-row__brand');
@@ -643,37 +637,9 @@ const syncPolicyBrandVersion = async (policyRow) => {
   brand.textContent = buildPolicyBrandText(latestSeq || immediateSeq);
 };
 
-const ensureFooterVersionBadge = () => {
-  if (document.getElementById('v8-inner-topbar')) {
-    const existing = document.querySelector('[data-cc-footer-version="true"]');
-    if (existing instanceof HTMLElement) existing.remove();
-    return null;
-  }
-  let host = document.querySelector('[data-cc-footer-version="true"]');
-  if (host instanceof HTMLElement) return host;
-  host = document.createElement('div');
-  host.className = 'cc-footer-version-fixed';
-  host.dataset.ccFooterVersion = 'true';
-  host.setAttribute('aria-hidden', 'true');
-  host.innerHTML = '<span class="cc-footer-version-fixed__pill"></span>';
-  document.body.appendChild(host);
-  return host;
-};
-
-const syncFooterVersionBadge = async () => {
-  const host = ensureFooterVersionBadge();
-  if (!(host instanceof HTMLElement)) return;
-  const pill = host.querySelector('.cc-footer-version-fixed__pill');
-  if (!(pill instanceof HTMLElement)) return;
-
-  const immediateSeq = normalizeDrawSeq(window.CC_LAST_DRAW);
-  pill.textContent = buildFooterVersionText(immediateSeq);
-
-  const latestSeq = await resolveLatestDrawSeq();
-  if (latestSeq) {
-    window.CC_LAST_DRAW = String(Number.parseInt(latestSeq, 10));
-  }
-  pill.textContent = buildFooterVersionText(latestSeq || immediateSeq);
+const removeFooterVersionBadge = () => {
+  const existing = document.querySelector('[data-cc-footer-version="true"]');
+  if (existing instanceof HTMLElement) existing.remove();
 };
 
 const getStoredConsent = () => {
@@ -1304,7 +1270,7 @@ const ensureAds = () => {
   if (existingPolicyRow instanceof HTMLElement) {
     existingPolicyRow.remove();
   }
-  syncFooterVersionBadge();
+  removeFooterVersionBadge();
 
   if (disableDisplayAds) {
     root.style.setProperty('--ad-reserve-bottom', '0px');

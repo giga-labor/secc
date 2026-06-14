@@ -225,8 +225,9 @@
   }
 
   function buildChips(st) {
-    // montate su #v8-root: visibili già in hero, non solo dopo l'ingresso
-    var ui = document.getElementById('v8-root') || document.getElementById('ui');
+    // Info ora disponibili nella dashboard - chip flottanti disabilitate
+    return;
+    var ui = document.getElementById('v8-root') || document.getElementById('ui'); // eslint-disable-line
     if (!ui || document.getElementById('v8chips') || !st.draws) return;
 
     var chips = document.createElement('div');
