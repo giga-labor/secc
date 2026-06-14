@@ -610,10 +610,9 @@ const DASH_SECTIONS={
 const dash=document.getElementById('v8-dashboard');
 
 function dashLink(code,title,href,note){
-  return `<a class="hub-link" href="${href}">
+  return `<a class="lf" href="${href}">
     <span class="lf-n">${code}</span>
-    <span class="lf-t">${title}</span>
-    ${note?`<span class="hub-note">${note}</span>`:''}
+    <span class="lf-t">${title}${note?'<br><span class="lf-sub">'+note+'</span>':''}</span>
     <span class="lf-a">&rarr;</span>
   </a>`;
 }
@@ -624,11 +623,6 @@ function dashMetric(label,value,cls){
 
 function _dashBodyConcorso(){
   return `
-    <div class="p-sec">Ultima estrazione</div>
-    <div class="ball-row">
-      ${LAST.map(n=>`<div class="pball ${HOT.includes(n)?'hot':COLD.includes(n)?'cold':''}">${n}</div>`).join('')}
-      ${JOLLY!==null?`<div class="pball jolly">&#9733;${JOLLY}</div>`:''}
-    </div>
     <div class="hub-links">
       ${dashLink('C.01','Pagina concorso','pages/concorso/','dettaglio concorso')}
       ${dashLink('C.02','Storico estrazioni','pages/storico-estrazioni/','archivio completo')}
@@ -638,6 +632,52 @@ function _dashBodyConcorso(){
     ${dashMetric('Data', DRAW_DATE)}
     ${dashMetric('Prossimo', nextDrawDayLabel(), 'v')}`;
 }
+
+// ─── SKY CANVAS (identico a v8-inner-chrome.js) ───────────────────────────────
+function _startSky(cv){
+  if(!cv||!cv.getContext)return;
+  var ctx=cv.getContext('2d');
+  var W=0,H=0,mx=-9999,my=-9999;
+  function resize(){W=cv.width=Math.max(1,cv.clientWidth||Math.round(window.innerWidth*.666667));H=cv.height=Math.max(1,cv.clientHeight||Math.round(window.innerHeight*.4));}
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+  window.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
+  var pts=[];
+  for(var i=1;i<=90;i++){pts.push({n:i,x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(){
+    requestAnimationFrame(frame);
+    ctx.clearRect(0,0,W,H);
+    var link=130,link2=link*link;
+    for(var i=0;i<pts.length;i++){
+      for(var j=i+1;j<pts.length;j++){
+        var a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<link2){ctx.strokeStyle='rgba(139,92,246,'+((1-d2/link2)*.055).toFixed(3)+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+      }
+    }
+    for(i=0;i<pts.length;i++){
+      var p=pts[i];
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      var ddx=p.x-mx,ddy=p.y-my,d=Math.sqrt(ddx*ddx+ddy*ddy);
+      if(d<110&&d>0){p.x+=ddx/d*.45;p.y+=ddy/d*.45;}
+      var near=d<130;
+      ctx.fillStyle=near?'rgba(237,232,223,.55)':'rgba(237,232,223,.16)';
+      ctx.beginPath();ctx.arc(p.x,p.y,near?2.4:1.5,0,7);ctx.fill();
+      if(near){ctx.fillStyle='rgba(237,232,223,.75)';ctx.font='500 10px "DM Mono",monospace';ctx.fillText(p.n,p.x+7,p.y-6);}
+    }
+  }
+  frame();
+}
+(function(){
+  if(document.getElementById('v8-sky'))return;
+  var cv=document.createElement('canvas');
+  cv.id='v8-sky';
+  cv.setAttribute('aria-hidden','true');
+  cv.style.cssText='display:block;position:fixed;top:0;left:0;width:66.6667vw;height:40vh;z-index:0;pointer-events:none;opacity:.7;';
+  document.body.prepend(cv);
+  _startSky(cv);
+})();
 
 function _dashBodyStorico(){
   return `
@@ -806,12 +846,14 @@ function openDashboard(focusId){
   const id=DASH_SECTIONS[focusId]?focusId:'concorso';
   _dashPopulate(id);
   dash.classList.add('open');
+  canvas.style.opacity='0';
   updatePanelHash(id);
   rememberPanel(id);
 }
 
 function closeDashboard(){
   if(dash)dash.classList.remove('open');
+  canvas.style.opacity='';
 }
 
 function panelIdFromHash(){

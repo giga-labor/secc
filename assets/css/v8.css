@@ -820,10 +820,8 @@ body::after { display: none; }
 @media (prefers-reduced-motion:reduce){.v8chip{animation:none!important;}}
 
 /* ── HERO MOCKUP V8+ (intro persistente) ── */
-#intro{
-  background:radial-gradient(ellipse at 50% 60%, rgba(12,4,32,.55) 0%, rgba(3,1,9,.82) 70%);
-}
 #ihero{position:absolute;inset:0;width:100%;height:100%;z-index:-1;}
+.lf-sub{font-size:1.2rem;color:rgba(237,232,223,.3);display:block;letter-spacing:.06em;}
 .i-cta{
   margin-top:2.6rem;
   display:inline-flex;align-items:center;gap:.8rem;
@@ -865,11 +863,11 @@ body::after { display: none; }
   padding:2rem 2.5rem;
   scrollbar-width:thin;scrollbar-color:rgba(139,92,246,.2) transparent;
   background:
-    radial-gradient(720px 420px at 15% 0%,rgba(139,92,246,.12),transparent 68%),
-    radial-gradient(620px 360px at 88% 18%,rgba(200,57,26,.10),transparent 70%),
-    linear-gradient(180deg,rgba(5,2,18,.62),rgba(3,1,9,.74));
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+    radial-gradient(720px 420px at 15% 0%,rgba(139,92,246,.10),transparent 68%),
+    radial-gradient(620px 360px at 88% 18%,rgba(200,57,26,.08),transparent 70%),
+    linear-gradient(180deg,rgba(5,2,18,.28),rgba(3,1,9,.38));
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
   opacity:0;pointer-events:none;
   transform:translateY(8px);
   transition:opacity .45s cubic-bezier(.23,1,.32,1),transform .45s cubic-bezier(.23,1,.32,1);
@@ -894,11 +892,9 @@ body::after { display: none; }
 .dash-card{
   --ac:#8B5CF6;
   min-height:310px;
-  background:linear-gradient(160deg,rgba(14,8,28,.82),rgba(6,3,14,.92));
+  background:linear-gradient(160deg,rgba(14,8,28,.72),rgba(6,3,14,.82));
   border:1px solid var(--v8-line,rgba(237,232,223,.07));
   border-radius:16px;
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
   display:flex;flex-direction:column;
   padding:0;
   position:relative;overflow:hidden;
