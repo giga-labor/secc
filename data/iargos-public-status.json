@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14 17:09:49",
+  "updated_at": "2026-06-14 17:48:00",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -38,12 +38,28 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-14 17:09:04",
+    "last_push_at": "2026-06-14 17:47:47",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781449611
+    "boot_ts": 1781451647
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-14T17:46:54",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-14T17:46:40",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
     {
       "type": "alert",
       "ts": "2026-06-14T15:05:07",
@@ -119,14 +135,6 @@
     {
       "type": "training",
       "ts": "2026-06-13T19:44:25",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-12T21:21:08",
       "message": "Algoritmi aggiornati con i dati più recenti",
       "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
@@ -272,14 +280,6 @@
       "type": "versioning",
       "ts": "2026-02-11T13:13:10",
       "message": "Versione del sito aggiornata (00.03.004 -> 00.04.001)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:54:13",
-      "message": "Versione del sito aggiornata (00.02.042 -> 00.03.001)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
