@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-06-14 13:17:33",
+  "updated_at": "2026-06-14 15:05:04",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Sistema allineato",
-  "overview_green": true,
+  "summary": "Problemi attivi: p7_remote_force_align",
+  "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
@@ -16,17 +16,17 @@
     "p5_training_gap": false,
     "p5_archive_stale": false,
     "p6_local_publish": false,
-    "p7_remote_force_align": false,
-    "p8_backup_over_limit": true,
+    "p7_remote_force_align": true,
+    "p8_backup_over_limit": false,
     "p9_smtp_broken": false
   },
   "alignment": {
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
-    "git_dirty": false,
-    "remote_ahead": 0,
-    "remote_behind": 0,
+    "git_dirty": true,
+    "remote_ahead": 1,
+    "remote_behind": 1,
     "alignment_diff_count": 0,
     "active_algorithms_count": 16,
     "active_algorithms_aligned_count": 16
@@ -38,12 +38,44 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-14 13:17:26",
+    "last_push_at": "2026-06-14 13:18:01",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781435808
+    "boot_ts": 1781442196
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-14T15:04:59",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "iargos"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-06-14T14:17:03",
+      "message": "Nuova versione del sito pubblicata (01.03.000 -> 01.04.000)",
+      "detail": "716 file sincronizzati tra mirror e sito pubblico",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-14T14:16:24",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-06-14T13:17:44",
+      "message": "Nuova versione del sito pubblicata (01.02.000 -> 01.03.000)",
+      "detail": "701 file sincronizzati tra mirror e sito pubblico",
+      "ok": true,
+      "source": "versioning-audit"
+    },
     {
       "type": "versioning",
       "ts": "2026-06-14T12:25:46",
@@ -53,28 +85,12 @@
       "source": "versioning-audit"
     },
     {
-      "type": "alert",
-      "ts": "2026-06-13T21:43:17",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
-    },
-    {
       "type": "training",
       "ts": "2026-06-13T21:43:07",
       "message": "Algoritmi aggiornati con i dati più recenti",
       "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-06-13T21:23:47",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": true,
-      "source": "iargos"
     },
     {
       "type": "draw",
@@ -125,14 +141,6 @@
       "source": "iargos"
     },
     {
-      "type": "training",
-      "ts": "2026-06-12T21:00:03",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
       "type": "versioning",
       "ts": "2026-06-12T17:48:48",
       "message": "Nuova versione del sito pubblicata (01.00.004 -> 01.01.000)",
@@ -151,14 +159,6 @@
     {
       "type": "draw",
       "ts": "2026-06-09T21:15:12",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-09T08:16:12",
       "message": "Nuova estrazione importata e analizzata",
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
