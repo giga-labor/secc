@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14 17:41:08",
+  "generated_at": "2026-06-14 17:47:36",
   "count": 17,
   "sheets": {
     "astra-moon": {
@@ -9249,1327 +9249,6 @@
         "observed_results": ""
       }
     },
-    "classic-ritardi": {
-      "slug": "classic-ritardi",
-      "page": "pages/algoritmi/algs/classic-ritardi/",
-      "title": "ritardi",
-      "subtitle": "Analisi dei numeri in ritardo (overdue)",
-      "family": "statistica",
-      "rank_position": 16,
-      "is_active": true,
-      "access_tier": "free",
-      "last_updated": "09/02/2026",
-      "proposal": [
-        70,
-        65,
-        76,
-        4,
-        88,
-        26
-      ],
-      "performance": {
-        "label": "Performance - ultimi 40 concorsi",
-        "rows": [
-          {
-            "seq": "4174",
-            "date": "04/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 59,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 38,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
-            "seq": "4175",
-            "date": "07/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 59,
-                "hit": true
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 38,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.5
-          },
-          {
-            "seq": "4176",
-            "date": "09/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 38,
-                "hit": true
-              },
-              {
-                "number": 44,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.6667
-          },
-          {
-            "seq": "4177",
-            "date": "10/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.5
-          },
-          {
-            "seq": "4178",
-            "date": "11/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.4
-          },
-          {
-            "seq": "4179",
-            "date": "14/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3333
-          },
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": true
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.4286
-          },
-          {
-            "seq": "4181",
-            "date": "17/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.375
-          },
-          {
-            "seq": "4182",
-            "date": "18/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3333
-          },
-          {
-            "seq": "4183",
-            "date": "21/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4184",
-            "date": "23/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4185",
-            "date": "24/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 82,
-                "hit": true
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4186",
-            "date": "27/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4187",
-            "date": "28/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4188",
-            "date": "30/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4189",
-            "date": "02/05/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": true
-              },
-              {
-                "number": 31,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4190",
-            "date": "04/05/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 31,
-                "hit": true
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4191",
-            "date": "05/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4192",
-            "date": "07/05/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": true
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.4
-          },
-          {
-            "seq": "4193",
-            "date": "08/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.4
-          },
-          {
-            "seq": "4194",
-            "date": "09/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.4
-          },
-          {
-            "seq": "4195",
-            "date": "12/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4196",
-            "date": "14/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4197",
-            "date": "15/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4198",
-            "date": "16/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4199",
-            "date": "19/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4200",
-            "date": "21/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.1
-          },
-          {
-            "seq": "4201",
-            "date": "23/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.1
-          },
-          {
-            "seq": "4202",
-            "date": "26/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
-            "seq": "4203",
-            "date": "28/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
-            "seq": "4204",
-            "date": "29/05/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
-            "seq": "4205",
-            "date": "30/05/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": true
-              },
-              {
-                "number": 23,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.1
-          },
-          {
-            "seq": "4206",
-            "date": "04/06/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 75,
-                "hit": true
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4207",
-            "date": "05/06/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4208",
-            "date": "06/06/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4209",
-            "date": "08/06/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4210",
-            "date": "09/06/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4211",
-            "date": "11/06/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.2
-          },
-          {
-            "seq": "4212",
-            "date": "12/06/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": true
-              }
-            ],
-            "moving_avg": 0.3
-          },
-          {
-            "seq": "4213",
-            "date": "13/06/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 23,
-                "hit": true
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 88,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.4
-          }
-        ]
-      },
-      "metrics": {
-        "ranking_stability_pct": 12,
-        "avg_hits": "0.40",
-        "hit_rate_gte_2": "5.2%",
-        "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4050",
-        "std_hit": "0.6002"
-      },
-      "method": {
-        "intro": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
-        "scope": "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
-        "input": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv",
-        "method": "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
-        "output": "Sestina ritardataria proposta e metriche di copertura hit su storico.",
-        "limits": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico",
-        "observed_results": ""
-      }
-    },
     "classic-ritardi-combinazioni": {
       "slug": "classic-ritardi-combinazioni",
       "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
@@ -11888,6 +10567,1327 @@
         "method": "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay",
         "output": "historical-db.csv con hit incrementali | metrics-db.csv con ritardi combinazionali | algorithm-sheet.csv | analysis.txt",
         "limits": "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva",
+        "observed_results": ""
+      }
+    },
+    "classic-ritardi": {
+      "slug": "classic-ritardi",
+      "page": "pages/algoritmi/algs/classic-ritardi/",
+      "title": "ritardi",
+      "subtitle": "Analisi dei numeri in ritardo (overdue)",
+      "family": "statistica",
+      "rank_position": 16,
+      "is_active": true,
+      "access_tier": "free",
+      "last_updated": "09/02/2026",
+      "proposal": [
+        70,
+        65,
+        76,
+        4,
+        88,
+        26
+      ],
+      "performance": {
+        "label": "Performance - ultimi 40 concorsi",
+        "rows": [
+          {
+            "seq": "4174",
+            "date": "04/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4175",
+            "date": "07/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": true
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4176",
+            "date": "09/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 38,
+                "hit": true
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6667
+          },
+          {
+            "seq": "4177",
+            "date": "10/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4178",
+            "date": "11/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4179",
+            "date": "14/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3333
+          },
+          {
+            "seq": "4180",
+            "date": "16/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": true
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4286
+          },
+          {
+            "seq": "4181",
+            "date": "17/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.375
+          },
+          {
+            "seq": "4182",
+            "date": "18/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3333
+          },
+          {
+            "seq": "4183",
+            "date": "21/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4184",
+            "date": "23/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4185",
+            "date": "24/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 82,
+                "hit": true
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4186",
+            "date": "27/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4187",
+            "date": "28/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4188",
+            "date": "30/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4189",
+            "date": "02/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": true
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4190",
+            "date": "04/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": true
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4191",
+            "date": "05/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4192",
+            "date": "07/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": true
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4193",
+            "date": "08/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4194",
+            "date": "09/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4195",
+            "date": "12/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4196",
+            "date": "14/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4197",
+            "date": "15/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4198",
+            "date": "16/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4199",
+            "date": "19/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4200",
+            "date": "21/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4201",
+            "date": "23/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4202",
+            "date": "26/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4203",
+            "date": "28/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4204",
+            "date": "29/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4205",
+            "date": "30/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": true
+              },
+              {
+                "number": 23,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4206",
+            "date": "04/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": true
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4207",
+            "date": "05/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4208",
+            "date": "06/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4209",
+            "date": "08/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4210",
+            "date": "09/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4211",
+            "date": "11/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4212",
+            "date": "12/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4213",
+            "date": "13/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": true
+              },
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 88,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          }
+        ]
+      },
+      "metrics": {
+        "ranking_stability_pct": 12,
+        "avg_hits": "0.40",
+        "hit_rate_gte_2": "5.2%",
+        "hit_rate_gte_3": "0.4%",
+        "last_200_avg": "0.4050",
+        "std_hit": "0.6002"
+      },
+      "method": {
+        "intro": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
+        "scope": "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
+        "input": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv",
+        "method": "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
+        "output": "Sestina ritardataria proposta e metriche di copertura hit su storico.",
+        "limits": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico",
         "observed_results": ""
       }
     },
