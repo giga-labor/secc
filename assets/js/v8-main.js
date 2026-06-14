@@ -124,7 +124,7 @@ for(let i=0;i<5;i++){
   });
 }
 
-let hovCell=null,pmx=W/2,pmy=H/2;
+let hovCell=null,pmx=-9999,pmy=-9999;
 document.addEventListener('mousemove',e=>{pmx=e.clientX;pmy=e.clientY;});
 
 const tt=document.getElementById('tt');
