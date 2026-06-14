@@ -982,8 +982,11 @@ v8WaitAndInit(function(bundle){
   }
 
   var _rankRows=null;
-  if(window.CC_DATA_REPOSITORY){
-    window.CC_DATA_REPOSITORY.fetchJson('data/precomputed/ranking.json')
+  var _rankPromise=(typeof DataRegistry!=='undefined')
+    ?DataRegistry.load('algorithms.rankings_db').catch(function(){return window.CC_DATA_REPOSITORY?window.CC_DATA_REPOSITORY.fetchJson('data/precomputed/ranking.json'):null;})
+    :window.CC_DATA_REPOSITORY?window.CC_DATA_REPOSITORY.fetchJson('data/precomputed/ranking.json'):Promise.resolve(null);
+  if(_rankPromise){
+    _rankPromise
       .then(function(rk){
         if(rk&&Array.isArray(rk.rows)&&rk.rows.length){
           _rankRows=rk.rows;
@@ -1031,6 +1034,7 @@ v8WaitAndInit(function(bundle){
     var delay=_introSeen?80:1600;
     setTimeout(function(){
       intro.style.display='none';
+
       ui.classList.add('on');
       alive=true;
       cells.forEach(function(c){c.t=0;});

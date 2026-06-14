@@ -20,6 +20,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/astra-moon/",
     "rankingValue": 36.96,
     "rankingPosition": 7,
     "exactHits": {
@@ -67,6 +68,7 @@
     "type": "ALGORITMI",
     "featured": false,
     "news": [],
+    "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
     "rankingValue": 30.22,
     "rankingPosition": 10,
     "exactHits": {
@@ -113,6 +115,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
     "rankingValue": 25.58,
     "rankingPosition": 14,
     "exactHits": {
@@ -157,6 +160,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
     "rankingValue": 29.46,
     "rankingPosition": 11,
     "exactHits": {
@@ -201,6 +205,7 @@
       "enabled": true,
       "count": 2
     },
+    "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
     "rankingValue": 27.71,
     "rankingPosition": 12,
     "exactHits": {
@@ -245,6 +250,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
     "rankingValue": 31.79,
     "rankingPosition": 9,
     "exactHits": {
@@ -290,6 +296,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/classic-frequency/",
     "rankingValue": 47.29,
     "rankingPosition": 1,
     "exactHits": {
@@ -334,6 +341,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
     "rankingValue": 41.9,
     "rankingPosition": 4,
     "exactHits": {
@@ -379,6 +387,7 @@
       "enabled": false,
       "count": 1
     },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
     "rankingValue": 23.02,
     "rankingPosition": 15,
     "exactHits": {
@@ -423,6 +432,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
     "rankingValue": 42.78,
     "rankingPosition": 3,
     "exactHits": {
@@ -470,6 +480,7 @@
     "type": "ALGORITMI",
     "featured": false,
     "news": [],
+    "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
     "rankingValue": 43.37,
     "rankingPosition": 2,
     "exactHits": {
@@ -516,6 +527,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/genetic/",
     "rankingValue": 9.56,
     "rankingPosition": 16,
     "exactHits": {
@@ -562,6 +574,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/hispa/",
     "rankingValue": 37.04,
     "rankingPosition": 6,
     "exactHits": {
@@ -610,6 +623,7 @@
     },
     "featured": false,
     "news": [],
+    "cardBase": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
     "rankingValue": 39.61,
     "rankingPosition": 5,
     "exactHits": {
@@ -656,6 +670,7 @@
       "enabled": false,
       "count": 0
     },
+    "cardBase": "pages/algoritmi/algs/super6NN/",
     "rankingValue": 27.69,
     "rankingPosition": 13,
     "exactHits": {
@@ -696,6 +711,8 @@
     "isActive": true,
     "no_data_show": true,
     "accessTier": "free",
+    "cardBase": "pages/algoritmi/algs/xeno-qdna/",
+    "view": true,
     "rankingValue": 33.14,
     "rankingPosition": 8,
     "exactHits": {
@@ -729,7 +746,7 @@
     "narrativeSummary": "Report in preparazione.",
     "macroGroup": "statistica",
     "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/laboratorio-tecnico/",
+    "cardBase": "pages/analisi-statistiche/",
     "image": "img.webp",
     "lastUpdated": "",
     "hasNews": false,
@@ -740,7 +757,8 @@
     "hits": {
       "enabled": false,
       "count": 0
-    }
+    },
+    "imageVersion": 1770663709
   },
   {
     "id": "laboratorio-tecnico",
@@ -782,7 +800,8 @@
     "hits": {
       "enabled": false,
       "count": 0
-    }
+    },
+    "cardBase": "pages/sestine-proposte/"
   },
   {
     "macroGroup": "storico",
@@ -810,6 +829,8 @@
       "count": 0
     },
     "featured": false,
-    "news": []
+    "news": [],
+    "cardBase": "pages/storico-estrazioni/",
+    "imageVersion": 1771969284
   }
 ]

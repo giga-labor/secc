@@ -993,11 +993,10 @@
           setSummaryPosition('--');
           return;
         }
-        fetch('../../../../data/precomputed/ranking.json', { cache: 'no-store' })
-          .then((res) => {
-            if (!res.ok) throw new Error(`status ${res.status}`);
-            return res.json();
-          })
+        const _rankingFetch = (typeof DataRegistry !== 'undefined')
+          ? DataRegistry.load('algorithms.rankings_db').catch(() => fetch('../../../../data/precomputed/ranking.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null))
+          : fetch('../../../../data/precomputed/ranking.json', { cache: 'no-store' }).then(res => { if (!res.ok) throw new Error(`status ${res.status}`); return res.json(); });
+        _rankingFetch
           .then((data) => {
             const rows = Array.isArray(data?.rows) ? data.rows : [];
             const totalActive = rows.length;
@@ -1314,6 +1313,7 @@
         .then((text) => {
           applyAnalysisText(text);
         })
+
         .catch(() => {
           const textEl = document.querySelector('[data-analysis-text]');
           if (textEl) textEl.textContent = 'Analisi non disponibile.';

@@ -379,7 +379,9 @@ async function loadLaboratorioTechnicalCatalog() {
   if (!host) return;
   host.innerHTML = '<span class="cc-skeleton cc-skeleton--block block h-4 w-full" aria-hidden="true"></span>';
   try {
-    const precomputed = await fetchJsonFirstOk('data/precomputed/laboratorio-tecnico.json');
+    const precomputed = (typeof DataRegistry !== 'undefined')
+      ? await DataRegistry.load('lab.lab_db').catch(() => fetchJsonFirstOk('data/precomputed/laboratorio-tecnico.json'))
+      : await fetchJsonFirstOk('data/precomputed/laboratorio-tecnico.json');
     let validEntries = Array.isArray(precomputed?.entries) ? precomputed.entries.filter(Boolean) : [];
 
     if (!validEntries.length) {
@@ -517,7 +519,9 @@ async function loadAnalisiRanking() {
   if (!tbody && !cardsHost) return;
   try {
     let ranked = [];
-    const precomputed = await fetchJsonFirstOk('data/precomputed/ranking.json');
+    const precomputed = (typeof DataRegistry !== 'undefined')
+      ? await DataRegistry.load('algorithms.rankings_db').catch(() => fetchJsonFirstOk('data/precomputed/ranking.json'))
+      : await fetchJsonFirstOk('data/precomputed/ranking.json');
     const preRows = Array.isArray(precomputed?.rows) ? precomputed.rows : [];
     if (preRows.length) {
       ranked = preRows
@@ -681,6 +685,7 @@ const bootAnalisiRuntime = () => {
 };
 
 if (document.readyState === 'loading') {
+
   document.addEventListener('DOMContentLoaded', bootAnalisiRuntime, { once: true });
 } else {
   bootAnalisiRuntime();

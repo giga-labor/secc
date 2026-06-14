@@ -119,7 +119,9 @@
   }
 
   async function buildRows() {
-    var precomputed = await fetchJson('/data/precomputed/ranking.json');
+    var precomputed = (typeof DataRegistry !== 'undefined')
+      ? await DataRegistry.load('algorithms.rankings_db').catch(function () { return fetchJson('/data/precomputed/ranking.json'); })
+      : await fetchJson('/data/precomputed/ranking.json');
     var cardIndex = await fetchJson('/data/cards-index.json');
     var cardsByPage = {};
 
@@ -249,6 +251,7 @@
   }
 
   if (document.readyState === 'loading') {
+
     document.addEventListener('DOMContentLoaded', boot, { once: true });
   } else {
     boot();

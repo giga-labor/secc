@@ -83,7 +83,7 @@ background-size:180px;}
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(237,232,223,.04);
   min-width:0;
-  overflow:hidden;
+  overflow:visible;
 }
 
 /* Logo con simbolo */

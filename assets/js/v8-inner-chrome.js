@@ -869,8 +869,12 @@
   function hydrateV8SheetData(sheet, card, fallbackBalls, fallbackMetrics) {
     if (!sheet || sheet.dataset.v8Hydrated === '1') return;
     sheet.dataset.v8Hydrated = '1';
-    fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
+    var _sheetsPromise = (typeof DataRegistry !== 'undefined')
+      ? DataRegistry.load('algorithms.sheets').catch(function () {
+          return fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; });
+        })
+      : fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; });
+    _sheetsPromise
       .then(function (payload) {
       var sheets = payload && payload.sheets && typeof payload.sheets === 'object' ? payload.sheets : {};
       var path = '/' + String((card && card.page) || window.location.pathname).replace(/^\/+/, '').replace(/index\.html$/i, '');
@@ -1158,6 +1162,7 @@
     var ctx = cv.getContext('2d');
     var W = 0, H = 0, mx = -9999, my = -9999;
     function resize() {
+
       W = cv.width = Math.max(1, cv.clientWidth || Math.round(window.innerWidth * 0.666667));
       H = cv.height = Math.max(1, cv.clientHeight || Math.round(window.innerHeight * 0.4));
     }

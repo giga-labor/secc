@@ -149,9 +149,16 @@
     const statsUrl = repo.resolveWithBase('data/numeri-stats.json');
     const summaryUrl = repo.resolveWithBase('data/precomputed/home-summary.json');
 
+    const _loadStats = (typeof DataRegistry !== 'undefined')
+      ? DataRegistry.load('storico.numeri_stats').catch(() => fetch(statsUrl).then((r) => r.ok ? r.json() : null).catch(() => null))
+      : fetch(statsUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const _loadSummary = (typeof DataRegistry !== 'undefined')
+      ? DataRegistry.load('home.home_db').catch(() => fetch(summaryUrl).then((r) => r.ok ? r.json() : null).catch(() => null))
+      : fetch(summaryUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+
     const [preStatsRaw, homeSummaryRaw] = await Promise.allSettled([
-      fetch(statsUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
-      fetch(summaryUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      _loadStats,
+      _loadSummary,
     ]);
 
     const preStats = (preStatsRaw.status === 'fulfilled' &&
@@ -247,7 +254,6 @@
           const last = lines[lines.length - 1].split(',');
           if (last.length < 8) return null;
           const nums = last.slice(2, 8)
-            .map((n) => Number.parseInt(n.replace(/[\[\]]/g, ''), 10))
             .filter((n) => n >= 1 && n <= 90);
           if (nums.length !== 6) return null;
           const date = last[1] ? last[1].trim() : '--';

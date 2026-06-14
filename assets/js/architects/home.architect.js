@@ -5,10 +5,11 @@
   orchestrator.registerArchitect('home', (ctx) => ({
     async collectData(layout) {
       const sources = layout?.data_sources || {};
-      // home-summary.json è piccolo (~3 KB) e pre-calcolato da iARGOS: caricato per primo
-      const homeSummary = await this.loadHomeSummary(
-        sources.home_summary || 'data/precomputed/home-summary.json'
-      );
+      // home-db.json (SODA) o fallback legacy home-summary.json
+      const _homePath = (typeof DataRegistry !== 'undefined')
+        ? await DataRegistry.resolve('home.home_db').catch(() => sources.home_summary || 'data/precomputed/home-summary.json')
+        : (sources.home_summary || 'data/precomputed/home-summary.json');
+      const homeSummary = await this.loadHomeSummary(_homePath);
       const modules = await ctx.repo.loadCardsByManifest(sources.modules_manifest || 'data/modules-manifest.json');
       const communityFeed = await this.loadCommunityFeed(sources.community_feed || 'data/community-feed.json');
       const drawsRows = await this.loadDrawsRows(sources.draws_csv || 'archives/draws/draws.csv');
