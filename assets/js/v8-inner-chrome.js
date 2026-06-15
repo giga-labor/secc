@@ -182,10 +182,6 @@
         '<span class="tb-cd-wrap" aria-label="Mancano al prossimo concorso"><span class="tb-cd-label">Mancano</span><span class="tb-cd" id="cd">--:--:--</span></span>' +
         '<div class="tb-sep"></div>' +
         '<span id="v8-alg-count" style="font-size:1.36rem;letter-spacing:.1em;color:rgba(237,232,223,.25)">-- Algoritmi</span>' +
-        '<div class="tb-sep"></div>' +
-        '<a class="tb-back" href="javascript:history.back()" aria-label="Torna indietro">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>' +
-        '</a>' +
       '</div>';
   }
 
@@ -208,8 +204,6 @@
       '#tb .tb-logo-text b{background:linear-gradient(90deg,#8B5CF6,#C8391A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}' +
       '#tb .tb-logo-stack{display:flex;flex-direction:column;gap:.15rem;}' +
       '#tb .tb-version{font-family:"BioRhyme",serif;font-weight:400;font-size:1rem;letter-spacing:.12em;color:rgba(237,232,223,.2);line-height:1;}' +
-      '#tb .tb-back{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:rgba(237,232,223,.5);background:rgba(237,232,223,.06);border:1px solid rgba(237,232,223,.08);text-decoration:none;transition:color .2s,background .2s,border-color .2s;flex-shrink:0;}' +
-      '#tb .tb-back:hover{color:#EDE8DF;background:rgba(237,232,223,.12);border-color:rgba(237,232,223,.18);}' +
       '#tb .tb-sep{width:1px;height:20px;background:rgba(237,232,223,.07);flex-shrink:0;}' +
       '#tb .tb-github{position:relative;display:flex;align-items:center;gap:.5rem;min-height:32px;padding:.35rem .72rem;color:#EDE8DF;text-decoration:none;background:linear-gradient(135deg,rgba(255,176,0,.16),rgba(255,102,0,.1));border:1px solid rgba(255,176,0,.3);border-radius:999px;box-shadow:0 0 18px rgba(255,176,0,.1),inset 0 0 0 1px rgba(237,232,223,.04);transition:color .2s,border-color .2s,background .2s,box-shadow .2s,transform .2s;}' +
       '#tb .tb-github:hover{color:#fff;background:linear-gradient(135deg,rgba(255,176,0,.24),rgba(255,102,0,.16));border-color:rgba(255,176,0,.62);box-shadow:0 0 24px rgba(255,176,0,.2),0 0 16px rgba(255,102,0,.12),inset 0 0 0 1px rgba(237,232,223,.08);transform:translateY(-1px);}' +
