@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-06-15 23:15:20",
+  "updated_at": "2026-06-15 23:15:52",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "critical",
-  "summary": "Problemi attivi: p2_flow_guard",
-  "overview_green": false,
+  "severity": "ok",
+  "summary": "Sistema allineato",
+  "overview_green": true,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
-    "p2_flow_guard": true,
+    "p2_flow_guard": false,
     "p3_pending_publish": false,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
@@ -23,11 +23,11 @@
   "alignment": {
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": false,
-    "git_dirty": true,
+    "flow_guard_ok": true,
+    "git_dirty": false,
     "remote_ahead": 0,
     "remote_behind": 0,
-    "alignment_diff_count": 3,
+    "alignment_diff_count": 0,
     "active_algorithms_count": 17,
     "active_algorithms_aligned_count": 17
   },
@@ -36,9 +36,9 @@
     "consecutive_failures": 0
   },
   "runtime": {
-    "state_level": "warn",
-    "state_label": "monitoraggio",
-    "last_push_at": "2026-06-15 22:50:50",
+    "state_level": "ok",
+    "state_label": "operativo",
+    "last_push_at": "2026-06-15 23:15:44",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781558075
