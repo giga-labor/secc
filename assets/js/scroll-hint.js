@@ -39,14 +39,10 @@
 
       /* Back button — stesso stile frecce */
       '.sh-back{position:fixed;z-index:201;left:10px;cursor:pointer;',
-      '  display:inline-flex;align-items:center;gap:.2rem;',
       '  text-decoration:none;opacity:1;transition:opacity .3s ease;}',
-      '.sh-back svg{width:28px;height:28px;stroke:#d4c6ff;stroke-width:2.5;',
-      '  filter:drop-shadow(0 0 14px rgba(139,92,246,.7)) drop-shadow(0 0 5px rgba(167,139,250,.95)) drop-shadow(0 0 2px #fff3);}',
       '.sh-back-label{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.12em;',
       '  text-transform:uppercase;color:#d4c6ff;',
-      '  filter:drop-shadow(0 0 8px rgba(139,92,246,.6));}',
-      '.sh-back:hover svg{stroke:#fff;}',
+      '  filter:drop-shadow(0 0 14px rgba(139,92,246,.7)) drop-shadow(0 0 5px rgba(167,139,250,.95)) drop-shadow(0 0 2px #fff3);}',
       '.sh-back:hover .sh-back-label{color:#fff;}',
       '@media(min-width:641px){.sh-back{top:calc(88px + 10px);}}',
       '@media(max-width:860px){.sh-back{top:calc(72px + 10px);}}',
@@ -207,7 +203,7 @@
     btn.className = 'sh-back';
     btn.href = 'javascript:history.back()';
     btn.setAttribute('aria-label', 'Torna indietro');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span class="sh-back-label">Back</span>';
+    btn.innerHTML = '<span class="sh-back-label">Back</span>';
     document.body.appendChild(btn);
   }
 
