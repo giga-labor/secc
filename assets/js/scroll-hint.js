@@ -35,7 +35,19 @@
 
       '@keyframes shY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}',
       '@keyframes shX{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(5px)}}',
-      '@media(prefers-reduced-motion:reduce){.sh{animation:none!important;}}'
+      '@media(prefers-reduced-motion:reduce){.sh{animation:none!important;}}',
+
+      /* Back button — stesso stile frecce */
+      '.sh-back{position:fixed;z-index:201;left:10px;cursor:pointer;',
+      '  opacity:1;transition:opacity .3s ease;}',
+      '.sh-back svg{width:36px;height:36px;stroke:#d4c6ff;stroke-width:2.5;',
+      '  filter:drop-shadow(0 0 14px rgba(139,92,246,.7)) drop-shadow(0 0 5px rgba(167,139,250,.95)) drop-shadow(0 0 2px #fff3);}',
+      '.sh-back:hover svg{stroke:#fff;}',
+      '@media(min-width:641px){.sh-back{top:calc(88px + 10px);}}',
+      '@media(max-width:860px){.sh-back{top:calc(72px + 10px);}}',
+      '@media(max-width:640px){.sh-back{top:calc(72px + 8px);}',
+      '  .sh-back svg{width:30px;height:30px;}}',
+      '@media(max-width:520px){.sh-back{top:calc(60px + 8px);}}'
     ].join('\n');
     document.head.appendChild(css);
   }
@@ -182,8 +194,21 @@
     }
   }
 
+  function createBackButton() {
+    // Solo pagine interne, non homepage
+    var path = window.location.pathname.replace(/\/+$/, '') || '/';
+    if (path === '' || path === '/' || path === '/index.html') return;
+    var btn = document.createElement('a');
+    btn.className = 'sh-back';
+    btn.href = 'javascript:history.back()';
+    btn.setAttribute('aria-label', 'Torna indietro');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+    document.body.appendChild(btn);
+  }
+
   function init() {
     createArrows();
+    createBackButton();
     scan();
 
     // Riscan quando cambiano classi (es. dashboard.open, panel.open)
