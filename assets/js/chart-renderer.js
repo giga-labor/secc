@@ -187,6 +187,47 @@
 
     svg.appendChild(_text(W / 2, H - 2, 'Numeri 1-90', { fill: C.label, 'font-size': 10 }));
 
+    // ── tooltip interattivo ──
+    const tipG = _svg('g', { style: 'pointer-events:none', opacity: '0' });
+    const tipBg = _svg('rect', { rx: 4, fill: 'rgba(3,1,9,.88)', stroke: 'rgba(139,92,246,.4)', 'stroke-width': 1 });
+    const tipNum = _svg('text', { 'font-family': C.font, 'font-size': 11, fill: '#c9b8ff', 'font-weight': '700', 'text-anchor': 'middle' });
+    const tipVal = _svg('text', { 'font-family': C.font, 'font-size': 10, fill: C.value, 'text-anchor': 'middle' });
+    tipG.appendChild(tipBg);
+    tipG.appendChild(tipNum);
+    tipG.appendChild(tipVal);
+    svg.appendChild(tipG);
+
+    // overlay trasparente per ogni barra
+    values.forEach((v, i) => {
+      const x = PAD.left + i * gap;
+      const overlay = _rect(x, PAD.top, gap, chartH, 'transparent', 0);
+      overlay.style.cursor = 'crosshair';
+      overlay.style.pointerEvents = 'all';
+      const showTip = function () {
+        const bx = PAD.left + i * gap + gap / 2;
+        const barH = (v / maxV) * chartH;
+        const by = PAD.top + chartH - barH;
+        tipNum.textContent = String(i + 1);
+        tipVal.textContent = String(v);
+        const tw = 52, th = 34;
+        const tx = Math.max(PAD.left, Math.min(bx - tw / 2, W - PAD.right - tw));
+        const ty = Math.max(2, by - th - 6);
+        tipBg.setAttribute('x', tx);
+        tipBg.setAttribute('y', ty);
+        tipBg.setAttribute('width', tw);
+        tipBg.setAttribute('height', th);
+        tipNum.setAttribute('x', tx + tw / 2);
+        tipNum.setAttribute('y', ty + 13);
+        tipVal.setAttribute('x', tx + tw / 2);
+        tipVal.setAttribute('y', ty + 27);
+        tipG.setAttribute('opacity', '1');
+      };
+      overlay.addEventListener('mouseenter', showTip);
+      overlay.addEventListener('touchstart', function (e) { e.preventDefault(); showTip(); }, { passive: false });
+      svg.appendChild(overlay);
+    });
+    svg.addEventListener('mouseleave', function () { tipG.setAttribute('opacity', '0'); });
+
     container.innerHTML = '';
     container.appendChild(svg);
   }

@@ -250,11 +250,88 @@
           }
         }
 
+        // ── tooltip (solo mono-colonna ≤900px) ──
+        var activeTip = null;
+        function closeTip() {
+          if (activeTip) { activeTip.remove(); activeTip = null; }
+        }
+        function showTip(cell) {
+          closeTip();
+          var m = mate(sel);
+          var ys = years[sel] || {};
+          var yk = Object.keys(ys).sort();
+          var avgYear = yk.length ? (freq[sel] / yk.length).toFixed(1) : '0.0';
+          var latestYear = yk.length ? yk[yk.length - 1] : '';
+          var latestYearCount = latestYear ? (ys[latestYear] || 0) : 0;
+          var tip = document.createElement('div');
+          tip.className = 'v8x-tip';
+          if (mode === 'F') {
+            tip.innerHTML =
+              '<div class="v8x-k" style="margin:0 0 .2rem">Focus frequenza</div>' +
+              '<div class="big">' + sel + '</div>' +
+              '<div class="v8x-frow"><span>Uscite totali</span><b class="cy">' + freq[sel] + '</b></div>' +
+              '<div class="v8x-frow"><span>Media annua</span><b class="am">' + avgYear + ' uscite</b></div>' +
+              '<div class="v8x-frow"><span>Uscite ' + latestYear + '</span><b>' + latestYearCount + '</b></div>' +
+              '<div class="v8x-frow"><span>Compagno piu frequente</span><b class="hot">' + m.n + ' - ' + m.c + ' volte</b></div>';
+          } else {
+            tip.innerHTML =
+              '<div class="v8x-k" style="margin:0 0 .2rem">Focus numero</div>' +
+              '<div class="big">' + sel + '</div>' +
+              '<div class="v8x-frow"><span>Uscite totali</span><b class="cy">' + freq[sel] + '</b></div>' +
+              '<div class="v8x-frow"><span>Ritardo attuale</span><b class="am">' + delay[sel] + ' concorsi</b></div>' +
+              '<div class="v8x-frow"><span>Ritardo massimo storico</span><b>' + maxGap[sel] + '</b></div>' +
+              '<div class="v8x-frow"><span>Compagno piu frequente</span><b class="hot">' + m.n + ' &middot; ' + m.c + ' volte</b></div>';
+          }
+          // posiziona verso il baricentro dello schermo rispetto alla cella
+          var rect = cell.getBoundingClientRect();
+          var vw = window.innerWidth, vh = window.innerHeight;
+          var cx = vw / 2, cy = vh / 2;  // baricentro schermo
+          var cellCx = rect.left + rect.width / 2;
+          var cellCy = rect.top + rect.height / 2;
+          var gap = 8;
+
+          // orizzontale: se cella a sinistra del centro → tooltip a destra, e viceversa
+          if (cellCx < cx) {
+            tip.style.left = (rect.right + gap) + 'px';
+            tip.style.right = 'auto';
+          } else {
+            tip.style.right = (vw - rect.left + gap) + 'px';
+            tip.style.left = 'auto';
+          }
+          // verticale: se cella sopra il centro → tooltip sotto, e viceversa
+          if (cellCy < cy) {
+            tip.style.top = rect.top + 'px';
+            tip.style.bottom = 'auto';
+          } else {
+            tip.style.bottom = (vh - rect.bottom) + 'px';
+            tip.style.top = 'auto';
+          }
+
+          document.body.appendChild(tip);
+          activeTip = tip;
+        }
+
+        // chiudi tip al click fuori dalla griglia
+        var gridClicking = false;
+        document.addEventListener('click', function (ev) {
+          if (gridClicking) return;
+          if (activeTip && !activeTip.contains(ev.target)) closeTip();
+        });
+
+        var isNarrow = function () { return window.innerWidth <= 900; };
+
         grid.addEventListener('click', function (e) {
           var t = e.target.closest('.v8x-n');
           if (!t) return;
           sel = +t.getAttribute('data-n');
+          gridClicking = true;
+          if (isNarrow()) {
+            showTip(t);
+          } else {
+            closeTip();
+          }
           focus(); paint(); renderSideSummary();
+          setTimeout(function () { gridClicking = false; }, 0);
         });
         document.getElementById('v8x-mf').addEventListener('click', function () {
           mode = 'F'; this.classList.add('on');
@@ -268,6 +345,20 @@
         });
 
         paint(); focus(); renderSideSummary();
+
+        // ── Sticky mode toggle ──
+        // Sposta .v8x-head in un wrapper che abbraccia v8x-mount + freq-section
+        // così position:sticky copre entrambe le aree.
+        var freqSec = document.getElementById('freq-section');
+        var head = mount.querySelector('.v8x-head');
+        if (freqSec && head) {
+          var wrapper = document.createElement('div');
+          mount.parentNode.insertBefore(wrapper, mount);
+          wrapper.appendChild(head);        // estrae head da .v8x, lo mette nel wrapper
+          head.classList.add('v8x-sticky');  // attiva position:sticky via CSS
+          wrapper.appendChild(mount);        // sposta mount dentro wrapper
+          wrapper.appendChild(freqSec);      // sposta freq-section dentro wrapper
+        }
       })
       .catch(function () { /* explorer opzionale */ });
   }

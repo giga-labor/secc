@@ -481,6 +481,7 @@ background-size:180px;}
    TOOLTIP
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #tt{
+  display:none;
   position:fixed;pointer-events:none;z-index:30;
   right:auto;
   bottom:auto;
@@ -559,11 +560,9 @@ body::after { display: none; }
   .tb-sep{display:none;}
   .tb-github-label{display:none;}
   .tb-concorso{display:none;}
-  .tb-jk{max-width:7.2rem;}
-  .tb-jk-label{font-size:.58rem;letter-spacing:.14em;}
-  .tb-jk-value{font-size:.92rem;}
+  .tb-jk{display:none;}
   .tb-cd-wrap{display:none;}
-  #v8-alg-count{display:none;}
+  #v8-alg-count{display:inline;font-size:1rem;letter-spacing:.08em;color:rgba(237,232,223,.35);}
 
   /* Sidenav → tab bar orizzontale in basso */
   #side{
@@ -1098,6 +1097,14 @@ body::after { display: none; }
 /* -- lf senza codice -- */
 .lf{grid-template-columns:1fr auto;}
 
+/* -- Card countdown (no body content) -- */
+#dc-next{--ac:#F59E0B;min-height:auto;}
+#dc-next .dash-card-body{display:none;}
+#dc-next .dash-title{
+  font-family:'DM Mono',monospace;font-weight:400;
+  font-size:2rem;letter-spacing:.1em;color:#F59E0B;
+}
+
 /* -- Card evidenziata -- */
 .dash-card.dash-focus{border-color:rgba(139,92,246,.35);}
 .dash-card.dash-focus::before{opacity:1;}
@@ -1113,13 +1120,62 @@ body::after { display: none; }
 @media(max-width:640px){
   #v8-dashboard{
     left:0;top:56px;bottom:56px;
-    padding:1rem .8rem;
+    padding:.7rem .6rem;
+    /* fade-hint bottom: segnala che c'è altro sotto */
+    -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 48px),transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 calc(100% - 48px),transparent 100%);
   }
-  .dash-grid{grid-template-columns:1fr;gap:1rem;}
-  .dash-card-head{padding:1.3rem 1.2rem 1rem;}
-  .dash-card-body{padding:1.2rem;max-height:260px;}
-  .dash-card-foot{padding:.8rem 1.2rem;}
-  .dash-title{font-size:1.5rem;}
-  .hub-link{grid-template-columns:auto 1fr auto;padding:.68rem .7rem;}
+  /* rimuove il mask quando l'utente ha scrollato fino in fondo */
+  #v8-dashboard.scrolled-end{
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+
+  /* ── Grid 2 colonne compatte ── */
+  .dash-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:.55rem;
+  }
+  /* tutte le card uguali, compatte */
+  .dash-card-primary{grid-column:auto;}
+
+  .dash-card{
+    min-height:auto;
+    border-radius:12px;
+    box-shadow:0 10px 28px rgba(0,0,0,.2);
+  }
+  .dash-card-head{padding:.8rem .75rem .55rem;}
+  .dash-card-body{display:none;}
+  .dash-card-foot{
+    padding:.5rem .75rem;
+    font-size:.78rem;
+    letter-spacing:.06em;
+  }
+  .dash-kicker{font-size:.62rem;letter-spacing:.16em;margin-bottom:.25rem;}
+  .dash-title{font-size:1.1rem;line-height:1;margin-bottom:.22rem;}
+  .dash-sub{font-size:.68rem;letter-spacing:.04em;}
+
+  .hub-link{grid-template-columns:auto 1fr auto;padding:.5rem .55rem;}
   .hub-note{display:none;}
+
+  /* ── Card concorso: mostra mini-sestina inline ── */
+  #dc-concorso .dash-card-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .5rem;
+  }
+  #dc-concorso .dash-kicker{flex-basis:100%;}
+  #dc-concorso .dash-title{flex:0 0 auto;}
+  #dc-concorso .dash-sub{flex:0 0 auto;font-size:.72rem;}
+  .mob-sestina{
+    flex-basis:100%;
+    display:flex;gap:.25rem;margin-top:.3rem;
+  }
+  .mob-sestina .ses-b{
+    width:1.45rem;height:1.45rem;font-size:.58rem;
+    background:rgba(237,232,223,.08);color:rgba(237,232,223,.65);
+    border:1px solid rgba(237,232,223,.12);
+  }
+
+  /* ── Card countdown: font ridotto su mobile ── */
+  #dc-next .dash-title{font-size:1.2rem;}
+
 }

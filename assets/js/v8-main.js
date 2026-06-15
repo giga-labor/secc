@@ -231,105 +231,10 @@ function draw(){
     }
   });
 
-  // â”€â”€â”€ HOVER DELAY + TOOLTIP DIREZIONALE
-  const now=performance.now();
-
+  // â”€â”€â”€ HOVER (tooltip disabilitato)
   if(hovCell){
     curR.classList.add('xl');
-
-    // Reset timer se la cella Ã¨ cambiata
-    if(hovCell!==_hovPrev){
-      _hovPrev=hovCell;_hovStart=now;_richOn=false;tt.classList.remove('on');
-    }
-
-    // Dopo 650ms mostra il tooltip ricco
-    if(!_richOn&&now-_hovStart>650){
-      _richOn=true;
-      const c=hovCell;
-      const s=NUM_STATS[c.n]||{};
-
-      // Badge categoria
-      const badge=c.isLast&&LAST.includes(c.n)?`Estratto &middot; #${String(DRAW_ID).padStart(3,'0')}`
-        :c.isJolly?`Jolly &middot; #${String(DRAW_ID).padStart(3,'0')}`
-        :c.isHot?'Numero caldo'
-        :c.isCold?'Ritardo prolungato'
-        :'Campo numerico';
-      ttB.textContent=badge;
-      ttN.textContent=`N. ${c.n}`;
-
-      // Contenuto ricco
-      const catColor=c.isLast||c.isJolly?'#F59E0B':c.isHot?'#C8391A':c.isCold?'#8B5CF6':'rgba(237,232,223,.55)';
-      const catLabel=c.isLast?'Ultima estrazione':c.isJolly?'Jolly':c.isHot?'Alta frequenza (ult. 30)':c.isCold?'Assente (ult. 50)':'Frequenza nella media';
-      const delay=formatStatValue(s.delay);
-      const f90=formatStatValue(s.f90);
-      const f180=formatStatValue(s.f180);
-      const lastDate=formatStatValue(s.lastDate);
-      const avgEvery=formatStatValue(s.avgEvery);
-      const lastId=hasStatValue(s.lastId)&&s.lastId!=='--'?` &middot; #${s.lastId}`:'';
-      ttI.innerHTML=
-        `<b style="color:${catColor}">${catLabel}</b><br>`+
-        `Ritardo: <b>${s.delay!==undefined?s.delay:'--'}</b> estrazioni<br>`+
-        `Ultime 90: <b>${s.f90!==undefined?s.f90:'--'}</b> uscite`+
-        (s.f180!==undefined?` &middot; 180: <b>${s.f180}</b>`:'')+`<br>`+
-        `Ultima: <b>${s.lastDate||'--'}</b>`+
-        (s.lastId&&s.lastId!=='--'?` &middot; #${s.lastId}`:'')+`<br>`+
-        `Media: ogni ~<b>${s.avgEvery||'--'}</b> estrazioni`;
-      const lastSeq=hasStatValue(s.lastId)&&s.lastId!=='--'?` - #${s.lastId}`:'';
-      ttI.innerHTML=
-        `<b style="color:${catColor}">${catLabel}</b><br>`+
-        `Ritardo: <b>${delay}</b> estrazioni<br>`+
-        `Ultime 90: <b>${f90}</b> uscite - 180: <b>${f180}</b><br>`+
-        `Ultima: <b>${lastDate}</b>${lastSeq}<br>`+
-        `Media: ogni ~<b>${avgEvery}</b> estrazioni`;
-
-      // Posizionamento direzionale: tooltip punta verso il centro schermo
-      // Prima rendi visibile fuori schermo per misurare le dimensioni reali
-      tt.style.left='-9999px';tt.style.top='-9999px';
-      tt.classList.add('on');
-      const TW=tt.offsetWidth||180;
-      const TH=tt.offsetHeight||100;
-      const reserveRight=Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-reserve-right'))||0;
-      const reserveBottom=Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-reserve-bottom'))||0;
-      const minX=8;
-      const minY=68;
-      const maxX=Math.max(minX,W-reserveRight-TW-8);
-      const maxY=Math.max(minY,H-reserveBottom-TH-8);
-
-      const viewW=W-reserveRight;
-      const viewH=H-reserveBottom;
-      const cx=viewW/2,cy=Math.max(minY,viewH/2);
-      const toCenterX=cx-c.px;
-      const toCenterY=cy-c.py;
-      const dist=Math.max(1,Math.hypot(toCenterX,toCenterY));
-      const nx=toCenterX/dist;
-      const ny=toCenterY/dist;
-      const gap=24;
-      let tx=c.px+(nx*gap)-(TW/2);
-      let ty=c.py+(ny*gap)-(TH/2);
-      if(Math.abs(nx)>=Math.abs(ny)){
-        tx=nx>0?c.px+gap:c.px-TW-gap;
-      } else {
-        ty=ny>0?c.py+gap:c.py-TH-gap;
-      }
-      tx=Math.max(minX,Math.min(tx,maxX));
-      ty=Math.max(minY,Math.min(ty,maxY));
-      tt.style.left=tx+'px';tt.style.top=ty+'px';
-
-      // Linea sottile dal tooltip verso la bolla (canvas)
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(c.px,c.py);
-      // punto di aggancio lato tooltip piÃ¹ vicino alla bolla
-      const tlx=Math.max(tx,Math.min(c.px,tx+TW));
-      const tly=Math.max(ty,Math.min(c.py,ty+TH));
-      ctx.lineTo(tlx,tly);
-      ctx.strokeStyle=`rgba(${c.cr},${c.cg},${c.cb},.18)`;
-      ctx.lineWidth=.8;ctx.setLineDash([3,4]);ctx.stroke();
-      ctx.setLineDash([]);ctx.restore();
-    }
   } else {
-    if(_hovPrev){_hovPrev=null;_richOn=false;}
-    tt.classList.remove('on');
     curR.classList.remove('xl');
   }
 
@@ -524,6 +429,9 @@ function _applyJackpot(payload){
   }
   var jk=payload.jackpot_eur||payload.jackpot_str||null;
   renderJackpot(jk||'N/D');
+  // Mirror jackpot nella card dashboard
+  var dsNextJk=document.getElementById('ds-next-jk');
+  if(dsNextJk) dsNextJk.textContent='Jackpot: '+(jk||'N/D');
 }
 
 function fetchNextDrawDate(){
@@ -572,6 +480,9 @@ function upCd(){
     const f=n=>String(n).padStart(2,'0');
     el.textContent=`${f(h)}:${f(m)}:${f(s)}`;
   }
+  // Mirror countdown nella card dashboard
+  const dtNext=document.getElementById('dt-next');
+  if(dtNext) dtNext.textContent=el.textContent;
 }
 setInterval(upCd,1000);upCd();
 fetchNextDrawDate();
@@ -595,6 +506,7 @@ function nextDrawDayLabel(){
 // Dashboard sections.
 const DASH_SECTIONS={
   concorso:'dc-concorso',
+  next:'dc-next',
   storico:'dc-storico',
   algoritmi:'dc-algoritmi',
   ranking:'dc-ranking',
@@ -802,6 +714,31 @@ function _dashPopulate(focusId){
   if(dkConcorso)dkConcorso.innerHTML=`Ultima estrazione &middot; #${String(DRAW_ID).padStart(3,'0')}`;
   if(dsConcorso)dsConcorso.textContent=DRAW_DATE;
   if(dbConcorso)dbConcorso.innerHTML=_dashBodyConcorso();
+
+  // ── Mini-sestina mobile nella card concorso ──
+  const concorsoHead=document.querySelector('#dc-concorso .dash-card-head');
+  if(concorsoHead&&LAST.length&&!concorsoHead.querySelector('.mob-sestina')){
+    const wrap=document.createElement('div');
+    wrap.className='mob-sestina';
+    LAST.forEach(function(n){
+      const b=document.createElement('span');
+      b.className='ses-b';
+      b.textContent=n;
+      wrap.appendChild(b);
+    });
+    concorsoHead.appendChild(wrap);
+  }
+
+  // ── Card countdown + jackpot ──
+  const dtNext=document.getElementById('dt-next');
+  const dsNextJk=document.getElementById('ds-next-jk');
+  if(dtNext){
+    // Il countdown viene aggiornato da _updateNextCard (sotto)
+    // qui impostiamo il jackpot
+    const jkEl=document.getElementById('v8-jackpot');
+    const jkVal=jkEl?jkEl.querySelector('.tb-jk-value'):null;
+    if(dsNextJk&&jkVal)dsNextJk.textContent='Jackpot: '+(jkVal.textContent||'N/D');
+  }
 
   const dsStorico=document.getElementById('ds-storico');
   const dbStorico=document.getElementById('db-storico');

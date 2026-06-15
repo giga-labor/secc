@@ -388,6 +388,10 @@ main input[type="search"]:focus,main input[type="text"]:focus{
 .v8x{border:1px solid var(--v8-line);border-radius:18px;padding:1.5rem;margin-top:1.5rem;
   background:linear-gradient(160deg,rgba(12,7,24,.7),rgba(5,3,12,.85))}
 .v8x-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;flex-wrap:wrap}
+/* Sticky mode toggle — attivo quando .v8x-head è stato estratto nel wrapper */
+.v8x-head.v8x-sticky{position:sticky;top:64px;z-index:50;
+  background:linear-gradient(180deg,rgba(3,1,9,.94) 70%,transparent);
+  padding:.6rem 1rem;margin:0 0 .4rem;border-radius:12px}
 .v8x-k{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--v8-faint)}
 .v8x-mode{margin-left:auto;display:flex;gap:.4rem}
 .v8x-mode button{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
@@ -406,7 +410,23 @@ main input[type="search"]:focus,main input[type="text"]:focus{
   letter-spacing:.22em;text-transform:uppercase;color:var(--v8-faint)}
 .v8x-lg{flex:1;height:8px;border-radius:4px}
 .v8x-cols{display:grid;grid-template-columns:1fr 300px;gap:1.4rem;align-items:start}
-@media(max-width:900px){.v8x-cols{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .v8x-cols{grid-template-columns:1fr}
+  .v8x-focus,.v8x-focus+.v8x-k,.v8x-focus~.v8x-spark{display:none}
+}
+/* Tooltip numero mobile */
+.v8x-tip{position:fixed;z-index:300;min-width:200px;max-width:260px;
+  background:rgba(3,1,9,.92);border:1px solid rgba(139,92,246,.35);
+  border-radius:12px;padding:.7rem .85rem;backdrop-filter:blur(12px);
+  box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:auto;
+  animation:v8xTipIn .2s ease}
+.v8x-tip .big{font-family:'BioRhyme',serif;font-weight:800;font-size:1.6rem;line-height:1;
+  background:linear-gradient(120deg,var(--v8-cyan),var(--v8-violet));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.v8x-tip .v8x-frow{padding:.32rem 0;font-size:.66rem}
+.v8x-tip .v8x-frow span{font-size:.52rem}
+.v8x-tip .v8x-k{font-size:.52rem;margin:.4rem 0 .15rem}
+@keyframes v8xTipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .v8x-focus .big{font-family:'BioRhyme',serif;font-weight:800;font-size:3rem;line-height:1;
   background:linear-gradient(120deg,var(--v8-cyan),var(--v8-violet));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}

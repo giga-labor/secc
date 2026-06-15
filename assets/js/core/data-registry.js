@@ -86,15 +86,24 @@
     return _fetchRegistry().then(function (reg) {
       var entry = reg && reg.datasets && reg.datasets[key];
       var path = (entry && entry.path) || _LEGACY_FALLBACK[key];
+      var fallback = (entry && entry.path && _LEGACY_FALLBACK[key]) ? _LEGACY_FALLBACK[key] : null;
       var type = (entry && entry.type) || 'json';
 
       if (!path) {
         return Promise.reject(new Error('[DataRegistry] key "' + key + '" senza path.'));
       }
 
-      return fetch(path, { cache: 'no-store' }).then(function (r) {
-        if (!r.ok) throw new Error('[DataRegistry] fetch ' + path + ' → HTTP ' + r.status);
+      function _parse(r) {
+        if (!r.ok) throw new Error('[DataRegistry] fetch ' + r.url + ' → HTTP ' + r.status);
         return type === 'csv' ? r.text() : r.json();
+      }
+
+      return fetch(path, { cache: 'no-store' }).then(_parse).catch(function (err) {
+        if (fallback) {
+          console.warn('[DataRegistry] ' + path + ' fallito, provo legacy: ' + fallback);
+          return fetch(fallback, { cache: 'no-store' }).then(_parse);
+        }
+        throw err;
       });
     });
   }
