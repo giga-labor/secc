@@ -163,9 +163,6 @@
           '<span class="tb-version" id="tb-version" data-v8-version>--</span>' +
         '</div>' +
       '</a>' +
-      '<a class="tb-back" href="javascript:history.back()" aria-label="Torna indietro">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>' +
-      '</a>' +
       '<div class="tb-sep"></div>' +
       '<a class="tb-github" href="https://giga-labor.github.io/gigalabor-web/index.html" target="_blank" rel="noopener noreferrer" aria-label="Apri il sito GiGa Labor">' +
         '<svg class="tb-github-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">' +
@@ -185,6 +182,10 @@
         '<span class="tb-cd-wrap" aria-label="Mancano al prossimo concorso"><span class="tb-cd-label">Mancano</span><span class="tb-cd" id="cd">--:--:--</span></span>' +
         '<div class="tb-sep"></div>' +
         '<span id="v8-alg-count" style="font-size:1.36rem;letter-spacing:.1em;color:rgba(237,232,223,.25)">-- Algoritmi</span>' +
+        '<div class="tb-sep"></div>' +
+        '<a class="tb-back" href="javascript:history.back()" aria-label="Torna indietro">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>' +
+        '</a>' +
       '</div>';
   }
 
