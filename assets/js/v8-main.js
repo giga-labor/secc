@@ -417,21 +417,49 @@ function parseNextDrawDate(payload){
   return null;
 }
 
+function _fmtJackpotShort(raw){
+  if(!raw||raw==='N/D') return 'N/D';
+  var cleaned=raw.replace(/[^\d.,]/g,'');
+  var parts=cleaned.split(',');
+  var intPart=parts[0].replace(/\./g,'');
+  var n=parseFloat(intPart+(parts[1]?'.'+parts[1]:''));
+  if(isNaN(n)||n<1) return raw;
+  var mln=n/1000000;
+  var val=mln.toFixed(2).replace('.',',');
+  // Progressive: "Euro 54,20 Mln" → "€ 54,20 Mln" → "54,20 Mln"
+  return '<span class="jk-euro">Euro </span><span class="jk-sym">€ </span>'+val+' Mln';
+}
+
 function _applyJackpot(payload){
   var jkEl=document.getElementById('v8-jackpot');
   if(!jkEl) return;
-  function renderJackpot(value){
-    jkEl.innerHTML='<span class="tb-jk-label">Jackpot</span><span class="tb-jk-value">'+value+'</span>';
-  }
   if(!payload||typeof payload!=='object'){
-    renderJackpot('N/D');
+    jkEl.innerHTML='<span class="tb-jk-label">Jackpot</span><span class="tb-jk-value">N/D</span>';
     return;
   }
   var jk=payload.jackpot_eur||payload.jackpot_str||null;
-  renderJackpot(jk||'N/D');
-  // Mirror jackpot nella card dashboard
+  var shortJk=_fmtJackpotShort(jk);
+  jkEl.innerHTML='<span class="tb-jk-label">Jackpot</span><span class="tb-jk-value">'+shortJk+'</span>';
+
+  // Mirror nella card dashboard (formato esteso)
+  _applyNextCardInfo(payload,jk);
+}
+
+function _applyNextCardInfo(payload,jk){
   var dsNextJk=document.getElementById('ds-next-jk');
-  if(dsNextJk) dsNextJk.textContent='Jackpot: '+(jk||'N/D');
+  var dbNext=document.getElementById('db-next');
+  // Data e giorno della settimana
+  var weekday=payload&&payload.next_weekday||'';
+  var date=payload&&payload.next_date||'';
+  var dateStr=(weekday&&date)?(weekday+' '+date):(date||'');
+  // Popola la card next
+  if(dbNext){
+    dbNext.innerHTML=
+      (dateStr?'<div class="next-date">'+dateStr+'</div>':'')+
+      '<div class="next-jk-label">JACKPOT</div>'+
+      '<div class="next-jk-value">'+_fmtJackpotShort(jk)+'</div>';
+  }
+  if(dsNextJk) dsNextJk.textContent='';
 }
 
 function fetchNextDrawDate(){
@@ -730,15 +758,7 @@ function _dashPopulate(focusId){
   }
 
   // ── Card countdown + jackpot ──
-  const dtNext=document.getElementById('dt-next');
-  const dsNextJk=document.getElementById('ds-next-jk');
-  if(dtNext){
-    // Il countdown viene aggiornato da _updateNextCard (sotto)
-    // qui impostiamo il jackpot
-    const jkEl=document.getElementById('v8-jackpot');
-    const jkVal=jkEl?jkEl.querySelector('.tb-jk-value'):null;
-    if(dsNextJk&&jkVal)dsNextJk.textContent='Jackpot: '+(jkVal.textContent||'N/D');
-  }
+  // Il contenuto viene popolato da _applyNextCardInfo() al fetch del JSON
 
   const dsStorico=document.getElementById('ds-storico');
   const dbStorico=document.getElementById('db-storico');
@@ -773,7 +793,17 @@ function _dashPopulate(focusId){
   const dbInfo=document.getElementById('db-info');
   if(dbInfo)dbInfo.innerHTML=_dashBodyInfo();
 
-  if(dash)dash.querySelectorAll('.dash-card').forEach(c=>c.classList.remove('dash-focus'));
+  // ── Card cliccabili ovunque ──
+  if(dash){
+    dash.querySelectorAll('.dash-card').forEach(function(card){
+      if(card.hasAttribute('data-href')) return; // già processata
+      var link=card.querySelector('.dash-card-foot[href]');
+      if(link){
+        card.setAttribute('data-href',link.getAttribute('href'));
+      }
+    });
+    dash.querySelectorAll('.dash-card').forEach(c=>c.classList.remove('dash-focus'));
+  }
   const focusEl=focusId?document.getElementById(DASH_SECTIONS[focusId]):null;
   if(focusEl){focusEl.classList.add('dash-focus');}
 }
@@ -792,6 +822,15 @@ function closeDashboard(){
   if(dash)dash.classList.remove('open');
   canvas.style.opacity='';
 }
+
+// Card intere cliccabili — delegato sulla dash-grid
+if(dash)dash.addEventListener('click',function(e){
+  var card=e.target.closest('.dash-card[data-href]');
+  if(!card) return;
+  // non intercettare click su link/button interni
+  if(e.target.closest('a,button')) return;
+  window.location.href=card.getAttribute('data-href');
+});
 
 function panelIdFromHash(){
   const raw=String(window.location.hash||'').replace(/^#/,'');

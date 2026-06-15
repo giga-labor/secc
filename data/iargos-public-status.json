@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-15 21:34:27",
+  "updated_at": "2026-06-15 22:06:34",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -38,7 +38,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-15 21:34:22",
+    "last_push_at": "2026-06-15 21:36:19",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781551975
@@ -147,14 +147,6 @@
       "detail": "Riepilogo statistico e indici di previsione aggiornati con i dati più recenti.",
       "ok": true,
       "source": "cart"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-12T21:07:44",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
     },
     {
       "type": "versioning",
@@ -280,6 +272,14 @@
       "type": "versioning",
       "ts": "2026-02-14T19:10:15",
       "message": "Nuova versione del sito pubblicata (00.04.008 -> 00.05.000)",
+      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-11T13:13:10",
+      "message": "Versione del sito aggiornata (00.03.004 -> 00.04.001)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
