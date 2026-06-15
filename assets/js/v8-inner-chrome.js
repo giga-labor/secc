@@ -215,6 +215,8 @@
       '#tb .tb-jk{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:.06rem;min-width:0;max-width:clamp(7.8rem,12vw,12.4rem);color:#F59E0B;font-weight:500;text-align:right;line-height:1;overflow:hidden;text-shadow:0 0 22px rgba(245,158,11,.45);font-variant-numeric:tabular-nums;}' +
       '#tb .tb-jk-label{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,158,11,.72);line-height:1;}' +
       '#tb .tb-jk-value{display:block;max-width:100%;font-size:clamp(1rem,1.18vw,1.46rem);letter-spacing:.04em;color:#F59E0B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums;line-height:1.08;}' +
+      '#tb .jk-euro{font-weight:500;font-size:.75em;letter-spacing:.06em;}' +
+      '#tb .jk-sym{display:none;font-weight:500;font-size:.85em;}' +
       '#tb .tb-cd-wrap{display:flex;flex-direction:column;align-items:center;gap:.08rem;line-height:1;}' +
       '#tb .tb-cd-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,232,223,.36);font-weight:500;}' +
       '#tb .tb-cd{font-size:1.44rem;letter-spacing:.08em;color:rgba(237,232,223,.7);font-weight:500;font-variant-numeric:tabular-nums;}' +
@@ -239,8 +241,10 @@
       '#bb-msg.v8tk .v8tk-in .r{color:#C8391A;}#bb-msg.v8tk .v8tk-in .v{color:#8B5CF6;}#bb-msg.v8tk .v8tk-in .o{color:#F59E0B;}#bb-msg.v8tk .v8tk-in .cy{color:#6EE7FF;}#bb-msg.v8tk .v8tk-in .sep{color:rgba(200,57,26,.5);}' +
       '@keyframes v8tk{to{transform:translateX(-100%);}}' +
       '#v8-global-ticker{display:none!important;}' +
-      '@media(max-width:980px){#tb{height:72px!important;padding:0 1rem!important;gap:1rem!important;}body{padding-top:72px!important;}#tb .tb-logo canvas{width:66px;height:38px;}#tb .tb-logo-text{font-size:1.8rem;}#tb .tb-jk{max-width:9.2rem;}#tb .tb-jk-value{font-size:1.16rem;}#tb .tb-github-label{display:none;}#tb .tb-r{gap:.8rem;}#tb .tb-r .tb-sep:last-of-type,#tb #v8-alg-count{display:none!important;}}' +
-      '@media(max-width:640px){#tb{height:60px!important;padding:0 .75rem!important;gap:.7rem!important;}body{padding-top:60px!important;}#tb .tb-logo canvas{width:34px;height:34px;}#tb .tb-logo-text{font-size:1.5rem;}#tb .tb-version{display:none;}#tb .tb-github{display:none!important;}#tb .tb-jk{max-width:7.2rem;}#tb .tb-jk-label{font-size:.58rem;letter-spacing:.14em;}#tb .tb-jk-value{font-size:.92rem;}#tb .tb-cd-wrap{display:none;}#tb .tb-sep{display:none;}}';
+      '@media(max-width:1024px){#tb .tb-github-label{display:none;}#tb .tb-jk{max-width:9.2rem;}#tb .tb-jk-value{font-size:1.16rem;}#tb .jk-euro{display:none;}#tb .jk-sym{display:inline;}}' +
+      '@media(max-width:860px){#tb{height:72px!important;padding:0 1rem!important;gap:1rem!important;}body{padding-top:72px!important;}#tb .tb-logo canvas{display:none!important;}#tb #v8-alg-count{display:none!important;}#tb .tb-r .tb-sep:last-of-type{display:none!important;}#tb .tb-r{gap:.8rem;}}' +
+      '@media(max-width:700px){#tb .tb-cd-wrap{display:none!important;}}' +
+      '@media(max-width:520px){#tb{height:60px!important;padding:0 .75rem!important;gap:.6rem!important;}body{padding-top:60px!important;}#tb .tb-version{display:none!important;}#tb .tb-logo-text{font-size:1.3rem!important;line-height:1.1!important;}#tb .tb-logo-text b{display:block!important;}#tb .tb-sep{display:none!important;}#tb .tb-github-icon{width:14px!important;height:14px!important;}#tb .tb-github{padding:.25rem .5rem!important;}#tb .tb-jk{max-width:none!important;}#tb .tb-jk-label{display:none!important;}#tb .tb-jk-value{font-size:.92rem!important;}#tb .jk-sym{display:none!important;}}';
     document.head.appendChild(css);
   }
 
@@ -354,6 +358,17 @@
     return t;
   }
 
+  function _fmtJackpotShortIC(raw) {
+    if (!raw || raw === 'N/D') return 'N/D';
+    var cleaned = raw.replace(/[^\d.,]/g, '');
+    var parts = cleaned.split(',');
+    var intPart = parts[0].replace(/\./g, '');
+    var n = parseFloat(intPart + (parts[1] ? '.' + parts[1] : ''));
+    if (isNaN(n) || n < 1) return raw;
+    var val = (n / 1000000).toFixed(2).replace('.', ',');
+    return '<span class="jk-euro">Euro </span><span class="jk-sym">€ </span>' + val + ' Mln';
+  }
+
   function startSharedCountdown() {
     var cd = document.getElementById('cd');
     if (!cd || cd.dataset.v8Countdown === '1') return;
@@ -364,8 +379,9 @@
       if (parsed) target = parsed;
       var jk = document.getElementById('v8-jackpot');
       if (jk && payload) {
-        var value = payload.jackpot_eur || payload.jackpot_str || 'N/D';
-        jk.innerHTML = '<span class="tb-jk-label">Jackpot</span><span class="tb-jk-value">' + value + '</span>';
+        var raw = payload.jackpot_eur || payload.jackpot_str || 'N/D';
+        var shortJk = _fmtJackpotShortIC(raw);
+        jk.innerHTML = '<span class="tb-jk-label">Jackpot</span><span class="tb-jk-value">' + shortJk + '</span>';
         jk.classList.add('v8jk-pulse');
       }
     }).catch(function () {});

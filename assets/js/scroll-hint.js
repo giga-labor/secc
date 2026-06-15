@@ -12,9 +12,9 @@
     var css = document.createElement('style');
     css.id = STYLE_ID;
     css.textContent = [
-      '.sh{position:fixed;z-index:200;pointer-events:none;',
+      '.sh{position:fixed;z-index:200;pointer-events:none;cursor:pointer;',
       '  opacity:0;transition:opacity .3s ease;}',
-      '.sh.visible{opacity:1;}',
+      '.sh.visible{opacity:1;pointer-events:auto;}',
       '.sh svg{width:36px;height:36px;stroke:#d4c6ff;stroke-width:2.5;',
       '  filter:drop-shadow(0 0 14px rgba(139,92,246,.7)) drop-shadow(0 0 5px rgba(167,139,250,.95)) drop-shadow(0 0 2px #fff3);}',
 
@@ -90,9 +90,23 @@
   var attached = false;
   var THRESHOLD = 12; // px margine per considerare "al bordo"
 
+  var SCROLL_AMOUNT = 280; // px per click
+
+  function scrollDir(dir) {
+    if (!target) return;
+    var el = (target === document.documentElement || target === document.body) ? window : target;
+    var opts = { behavior: 'smooth' };
+    if (dir === 'down') opts.top = SCROLL_AMOUNT;
+    else if (dir === 'up') opts.top = -SCROLL_AMOUNT;
+    else if (dir === 'right') opts.left = SCROLL_AMOUNT;
+    else if (dir === 'left') opts.left = -SCROLL_AMOUNT;
+    el.scrollBy(opts);
+  }
+
   function createArrows() {
     ['up', 'down', 'left', 'right'].forEach(function (dir) {
       arrows[dir] = makeArrow(dir);
+      arrows[dir].addEventListener('click', function () { scrollDir(dir); });
       document.body.appendChild(arrows[dir]);
     });
   }
