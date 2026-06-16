@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-16 22:37:07",
+  "updated_at": "2026-06-16 22:47:40",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p3_pending_publish, p6_local_publish",
+  "summary": "Problemi attivi: p3_pending_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -15,7 +15,7 @@
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": true,
+    "p6_local_publish": false,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -38,15 +38,15 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-16 21:21:34",
+    "last_push_at": "2026-06-16 22:47:25",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781641786
+    "boot_ts": 1781642825
   },
   "feed": [
     {
       "type": "alert",
-      "ts": "2026-06-16T22:37:04",
+      "ts": "2026-06-16T22:46:57",
       "message": "Rilevata una situazione anomala, intervento in corso",
       "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
