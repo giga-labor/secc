@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-16 21:20:35",
-  "active_algorithms_count": 17,
+  "generated_at": "2026-06-16 22:07:22",
+  "active_algorithms_count": 16,
   "kpi": {
-    "algoritmi_documentati": 17,
+    "algoritmi_documentati": 16,
     "storico_analizzato_anni": 30,
     "sezioni_tecniche": 6,
     "bias_documentati": 4,
@@ -574,41 +574,6 @@
         {
           "key": "LIMITI",
           "value": "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi."
-        }
-      ]
-    },
-    {
-      "title": "XENO-QDNA β",
-      "page": "pages/algoritmi/algs/xeno-qdna-beta/",
-      "intro": "XENO-QDNA β non genera la sestina dallo storico reale: metabolizza l'errore di XENO-QDNA α trasformandolo in stringa residua B*.",
-      "scope": "Produrre una sestina alternativa che fugge dal centro predittivo di α, usando il DNA del fallimento come fonte generativa.",
-      "method": "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni.",
-      "limits": "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale.",
-      "analysis": "XENO-QDNA β - Concorso 4214 del 16/06/2026\nSestina β proposta per il concorso 4215: 11 30 31 61 75 88\nSestina α di riferimento: 11 17 19 40 59 69\n\nMaschera B*: 001101100101110111111111111111111110011011\nBit corretti selezionati: 32/42. IFC score: 11.0. Tentativo: 1.\nMembrana XENO-90: OK.\n\nRiflessioni: 1 | Tunneling: 0",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "XENO-QDNA β non genera la sestina dallo storico reale: metabolizza l'errore di XENO-QDNA α trasformandolo in stringa residua B*."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Produrre una sestina alternativa che fugge dal centro predittivo di α, usando il DNA del fallimento come fonte generativa."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | xeno-qdna-alpha/out/historical-db.csv (previsioni α) | xeno-qdna-alpha/out/snapshot.json (proposta α corrente)"
-        },
-        {
-          "key": "METODO",
-          "value": "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
         }
       ]
     }

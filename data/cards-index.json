@@ -21,6 +21,7 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/astra-moon/",
+    "imageVersion": 1776446201,
     "rankingValue": 37.4,
     "rankingPosition": 5,
     "exactHits": {
@@ -69,8 +70,9 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
+    "imageVersion": 1773168664,
     "rankingValue": 30.31,
-    "rankingPosition": 11,
+    "rankingPosition": 10,
     "exactHits": {
       "0": 2774,
       "1": 1204,
@@ -116,8 +118,9 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
+    "imageVersion": 1773168663,
     "rankingValue": 25.64,
-    "rankingPosition": 15,
+    "rankingPosition": 14,
     "exactHits": {
       "0": 2774,
       "1": 1225,
@@ -161,8 +164,9 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
+    "imageVersion": 1773168664,
     "rankingValue": 29.47,
-    "rankingPosition": 12,
+    "rankingPosition": 11,
     "exactHits": {
       "0": 2755,
       "1": 1254,
@@ -206,8 +210,9 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
+    "imageVersion": 1771969283,
     "rankingValue": 27.73,
-    "rankingPosition": 13,
+    "rankingPosition": 12,
     "exactHits": {
       "0": 2798,
       "1": 1217,
@@ -251,6 +256,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
+    "imageVersion": 1773168665,
     "rankingValue": 31.74,
     "rankingPosition": 9,
     "exactHits": {
@@ -297,6 +303,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
+    "imageVersion": 1770663727,
     "rankingValue": 47.25,
     "rankingPosition": 1,
     "exactHits": {
@@ -342,6 +349,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
+    "imageVersion": 1773168665,
     "rankingValue": 42.01,
     "rankingPosition": 4,
     "exactHits": {
@@ -388,8 +396,9 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi/",
+    "imageVersion": 1773168662,
     "rankingValue": 23.11,
-    "rankingPosition": 16,
+    "rankingPosition": 15,
     "exactHits": {
       "0": 2769,
       "1": 1227,
@@ -433,6 +442,7 @@
       "count": 2
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
+    "imageVersion": 1773168666,
     "rankingValue": 43.8,
     "rankingPosition": 2,
     "exactHits": {
@@ -481,6 +491,7 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
+    "imageVersion": 1773168666,
     "rankingValue": 43.43,
     "rankingPosition": 3,
     "exactHits": {
@@ -528,8 +539,9 @@
       "count": 2
     },
     "cardBase": "pages/algoritmi/algs/genetic/",
+    "imageVersion": 1770663729,
     "rankingValue": 10.48,
-    "rankingPosition": 17,
+    "rankingPosition": 16,
     "exactHits": {
       "0": 2763,
       "1": 1256,
@@ -575,6 +587,7 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/hispa/",
+    "imageVersion": 1773599476,
     "rankingValue": 36.95,
     "rankingPosition": 7,
     "exactHits": {
@@ -624,6 +637,7 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
+    "imageVersion": 1773168662,
     "rankingValue": 37.01,
     "rankingPosition": 6,
     "exactHits": {
@@ -671,8 +685,9 @@
       "count": 1
     },
     "cardBase": "pages/algoritmi/algs/super6NN/",
+    "imageVersion": 1771969284,
     "rankingValue": 27.68,
-    "rankingPosition": 14,
+    "rankingPosition": 13,
     "exactHits": {
       "0": 2777,
       "1": 1242,
@@ -737,52 +752,6 @@
       "riskPenalty": 1.28,
       "risk": "basso",
       "label": "Stabile"
-    }
-  },
-  {
-    "id": "xeno-qdna-beta",
-    "title": "XENO-QDNA β",
-    "subtitle": "G-Family - correzione autocritica del residuo α",
-    "image": "img.webp",
-    "lastUpdated": "14/06/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Beta lab",
-    "priority": 60,
-    "narrativeSummary": "Seconda istanza della G-Family: non genera la sestina dallo storico reale, ma metabolizza l'errore di XENO-QDNA α. Calcola la stringa residua B(t) = Eα XOR R XOR Pα per ogni concorso passato, distilla una maschera B* con selezione meritocratica dei bit e produce una sestina che cerca di fuggire dal centro predittivo di α.",
-    "page": "pages/algoritmi/algs/xeno-qdna-beta/",
-    "macroGroup": "generativi",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "dependsOn": [
-      "xeno-qdna-alpha"
-    ],
-    "cardBase": "pages/algoritmi/algs/xeno-qdna-beta/",
-    "view": true,
-    "rankingValue": 30.41,
-    "rankingPosition": 10,
-    "exactHits": {
-      "0": 2704,
-      "1": 1214,
-      "2": 223,
-      "3": 15,
-      "4": 1,
-      "5": 0,
-      "6": 0
-    },
-    "rankProfile": {
-      "edge": 79.28,
-      "edgePercent": 15.86,
-      "observedScore": 0.1602,
-      "expectedScore": 0.1382,
-      "stability": 0.0,
-      "recentForm": 29.61,
-      "sampleConfidence": 99.98,
-      "windowCoherence": 57.59,
-      "riskPenalty": 21.5,
-      "risk": "alto",
-      "label": "Volatile"
     }
   },
   {
