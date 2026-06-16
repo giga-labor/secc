@@ -1,0 +1,18 @@
+{
+  "id": "xeno-qdna-beta",
+  "title": "XENO-QDNA β",
+  "subtitle": "G-Family - correzione autocritica del residuo α",
+  "image": "img.webp",
+  "lastUpdated": "14/06/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Beta lab",
+  "priority": 60,
+  "narrativeSummary": "Seconda istanza della G-Family: non genera la sestina dallo storico reale, ma metabolizza l'errore di XENO-QDNA α. Calcola la stringa residua B(t) = Eα XOR R XOR Pα per ogni concorso passato, distilla una maschera B* con selezione meritocratica dei bit e produce una sestina che cerca di fuggire dal centro predittivo di α.",
+  "page": "pages/algoritmi/algs/xeno-qdna-beta/",
+  "macroGroup": "generativi",
+  "isActive": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "dependsOn": ["xeno-qdna-alpha"]
+}
