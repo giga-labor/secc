@@ -1,0 +1,14 @@
+METRICA,VALORE,NOTE
+Concorsi analizzati,4157,Walk-forward backtest β (minimo 34 B-valori richiesti)
+Media hit/sestina,0.41,Media numeri corretti sulle sestine generate da β
+Hit rate >= 2,5.7%,Percentuale concorsi con almeno 2 hit
+Best streak,7,Massima sequenza con almeno 1 hit
+Ultimo concorso calcolato,4214,Data: 16/06/2026
+Sestina proposta β (prossimo concorso),11 30 31 61 75 88,DNA_LAST XOR B* (maschera meritocratica residuo α)
+Sestina α di riferimento,11 17 19 40 59 69,Previsione α per lo stesso concorso (fonte: snapshot.json)
+Maschera B*,001101100101110111111111111111111110011011,42 bit selezionati da residuo errore α
+Bit corretti in B*,32,Bit con correction_score > 0 e instabilità viva
+Tentativo collasso,1,"1=mask base, 2=rot 7 bit, 3=rot 14 bit"
+IFC score,11.0,Indice di Fuga dal Centro (più alto = più divergente da α e dalle ultime estrazioni)
+Membrana XENO-90,OK,Controllo di somiglianza con estrazioni recenti
+Distribuzione hit 0-6,0: 2704 | 1: 1214 | 2: 223 | 3: 15 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"

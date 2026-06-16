@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,XENO-QDNA β non genera la sestina dallo storico reale: metabolizza l'errore di XENO-QDNA α trasformandolo in stringa residua B*.
+SCOPO,"Produrre una sestina alternativa che fugge dal centro predittivo di α, usando il DNA del fallimento come fonte generativa."
+INPUT,draws.csv storico | xeno-qdna-alpha/out/historical-db.csv (previsioni α) | xeno-qdna-alpha/out/snapshot.json (proposta α corrente)
+METODO,"Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni."
+OUTPUT,"historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/."
+LIMITI,Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale.
