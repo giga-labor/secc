@@ -2,23 +2,23 @@
   "slug": "paradox-logiche-decisionali-metriche",
   "title": "Paradox Logiche Decisionali Metriche",
   "family": "ibrido",
-  "generated_at": "2026-06-16T21:11:33",
-  "last_seq": 4213,
+  "generated_at": "2026-06-16T21:20:37",
+  "last_seq": 4214,
   "last_date": "",
   "proposal": [
-    4,
     65,
-    76,
     85,
+    6,
+    76,
     88,
-    6
+    3
   ],
   "metrics": {
-    "draws_covered": 4213,
-    "avg_hits": 0.4,
+    "draws_covered": 4214,
+    "avg_hits": 0.39,
     "hit_rate_gte_2": 5.0,
-    "hit_rate_gte_3": 0.31,
-    "best_streak": 9
+    "hit_rate_gte_3": 0.36,
+    "best_streak": 6
   },
   "explanation": [
     "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",

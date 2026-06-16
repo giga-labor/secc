@@ -2,19 +2,19 @@
   "slug": "genetic",
   "title": "GeneticSE",
   "family": "neurale",
-  "generated_at": "2026-06-16T21:11:33",
-  "last_seq": 4213,
+  "generated_at": "2026-06-16T21:20:37",
+  "last_seq": 4214,
   "last_date": "",
   "proposal": [
-    4,
     65,
     70,
     76,
     88,
-    26
+    26,
+    32
   ],
   "metrics": {
-    "draws_covered": 4213,
+    "draws_covered": 4214,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 4.6,
     "hit_rate_gte_3": 0.4,
