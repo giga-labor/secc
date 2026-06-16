@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-06-16T22:07:21",
+  "version": "1.0",
+  "sections_loaded": [
+    "algorithms",
+    "archive",
+    "community",
+    "home",
+    "lab",
+    "oracle",
+    "storico"
+  ],
+  "datasets": {
+    "core.site_state": {
+      "owner": "core",
+      "path": "/data/core/site-state.json",
+      "type": "json"
+    },
+    "core.latest_draw": {
+      "owner": "core",
+      "path": "/data/core/latest-draw.json",
+      "type": "json"
+    },
+    "algorithms.algorithms_db": {
+      "owner": "algorithms",
+      "path": "/data/sections/algorithms/algorithms-db.json",
+      "type": "json"
+    },
+    "algorithms.rankings_db": {
+      "owner": "algorithms",
+      "path": "/data/sections/algorithms/rankings-db.json",
+      "type": "json"
+    },
+    "algorithms.sheets": {
+      "owner": "algorithms",
+      "path": "/data/sections/algorithms/algorithm-sheets.json",
+      "type": "json"
+    },
+    "algorithms.consensus": {
+      "owner": "algorithms",
+      "path": "/data/sections/algorithms/consensus-db.json",
+      "type": "json"
+    },
+    "algorithms.static_contract": {
+      "owner": "algorithms",
+      "path": "/data/sections/algorithms/static-contract.json",
+      "type": "json"
+    },
+    "archive.draws": {
+      "owner": "archive",
+      "path": "/archives/draws/draws.csv",
+      "type": "csv"
+    },
+    "community.feed": {
+      "owner": "community",
+      "path": "/data/sections/community/community-feed.json",
+      "type": "json"
+    },
+    "home.home_db": {
+      "owner": "home",
+      "path": "/data/sections/home/home-db.json",
+      "type": "json"
+    },
+    "lab.lab_db": {
+      "owner": "lab",
+      "path": "/data/sections/lab/lab-db.json",
+      "type": "json"
+    },
+    "oracle.state": {
+      "owner": "oracle",
+      "path": "/data/sections/oracle/oracle-state.json",
+      "type": "json"
+    },
+    "storico.numeri_stats": {
+      "owner": "storico",
+      "path": "/data/sections/storico/numeri-stats.json",
+      "type": "json"
+    },
+    "storico.draws_frequency": {
+      "owner": "storico",
+      "path": "/data/sections/storico/draws-frequency.json",
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "section_id": "archive",
+  "name": "Archivio Estrazioni",
+  "description": "Owner del CSV storico completo delle estrazioni. Fonte primaria per tutti gli algoritmi.",
+  "owned_datasets": [
+    "archive.draws"
+  ],
+  "required_inputs": [],
+  "outputs": [
+    { "key": "archive.draws", "file": "/archives/draws/draws.csv", "type": "csv", "absolute": true }
+  ]
+}
