@@ -82,6 +82,7 @@
     <div class="content-box">
     <header class="mt-6 space-y-3" data-page-kicker-wrap>
       <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Archivio storico</span>
+      <p class="text-ash text-sm leading-relaxed max-w-2xl" style="color:rgba(237,232,223,.55);">Consulta l'archivio completo di tutte le estrazioni del SuperEnalotto. Cerca per data, numero o concorso e analizza frequenze, ritardi e distribuzioni storiche.</p>
     </header>
 
 <section class="mt-6" aria-label="Prossima estrazione" id="next-draw-banner" style="display:none">
@@ -177,6 +178,7 @@
   <script src="../../assets/js/ads.js?v=no-footer-version-1" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer></script>
   <script src="../../assets/js/chart-renderer.js" defer></script>
+  <script src="../../assets/js/scroll-hint.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       fetch('../../data/draws-frequency.json')
@@ -191,16 +193,4 @@
         })
         .catch(function () {
           var el = document.getElementById('chart-draws-freq');
-          if (el) el.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-size:11px;text-align:center;padding:8px 0">Grafico non disponibile</p>';
-        });
-    });
-  </script>
-<script src="../../assets/js/scroll-hint.js" defer></script>
-</body>
-</html>
-
-
-
-
-
-
+   

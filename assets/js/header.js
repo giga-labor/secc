@@ -1,3 +1,19 @@
+// ── Engagement tracker (pagine + tempo) ──
+(function(){
+  var K='cc-engagement';
+  try{
+    var raw=localStorage.getItem(K);
+    var eng=raw?JSON.parse(raw):{visits:0,pages:[],time:0};
+    var pg=window.location.pathname.replace(/\/index\.html$/i,'/');
+    if(!Array.isArray(eng.pages))eng.pages=[];
+    if(eng.pages.indexOf(pg)<0)eng.pages.push(pg);
+    localStorage.setItem(K,JSON.stringify(eng));
+    setInterval(function(){
+      try{var e=JSON.parse(localStorage.getItem(K)||'{}');e.time=(e.time||0)+10;localStorage.setItem(K,JSON.stringify(e));}catch(_){}
+    },10000);
+  }catch(_){}
+})();
+
 const ensureViewTransitionMeta = () => {
   const existing = document.querySelector('meta[name="view-transition"]');
   if (existing) return;

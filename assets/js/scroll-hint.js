@@ -15,8 +15,15 @@
       '.sh{position:fixed;z-index:200;pointer-events:none;cursor:pointer;',
       '  opacity:0;transition:opacity .3s ease;}',
       '.sh.visible{opacity:1;pointer-events:auto;}',
-      '.sh svg{width:36px;height:36px;stroke:#d4c6ff;stroke-width:2.5;',
+      /* Frecce scroll — stile card/glass */
+      '.sh svg{width:48px;height:48px;stroke:#d4c6ff;stroke-width:2;',
       '  filter:drop-shadow(0 0 14px rgba(139,92,246,.7)) drop-shadow(0 0 5px rgba(167,139,250,.95)) drop-shadow(0 0 2px #fff3);}',
+      '.sh .sh-pill{display:flex;align-items:center;justify-content:center;',
+      '  padding:.35em .55em;border-radius:10px;background:rgba(139,92,246,.15);',
+      '  border:1px solid rgba(139,92,246,.3);backdrop-filter:blur(6px);',
+      '  transition:background .2s,border-color .2s;}',
+      '.sh:hover .sh-pill{background:rgba(139,92,246,.28);border-color:rgba(139,92,246,.55);}',
+      '.sh:hover svg{stroke:#fff;}',
 
       '.sh--down{left:50%;bottom:10px;transform:translateX(-50%);animation:shY 1.6s ease-in-out infinite;}',
       '.sh--up{left:50%;top:10px;transform:translateX(-50%);animation:shY 1.6s ease-in-out infinite reverse;}',
@@ -26,6 +33,7 @@
       '@media(max-width:640px){',
       '  .sh--down{bottom:calc(56px + var(--ad-reserve-bottom,0px) + 8px);}',
       '  .sh--up{top:calc(56px + 8px);}',
+      '  .sh svg{width:40px;height:40px;}',
       '}',
       '@media(min-width:641px){',
       '  .sh--down{bottom:calc(62px + var(--ad-reserve-bottom,0px) + 8px);}',
@@ -33,21 +41,36 @@
       '  .sh--right{right:calc(var(--ad-reserve-right,0px) + 10px);}',
       '}',
 
-      '@keyframes shY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}',
-      '@keyframes shX{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(5px)}}',
-      '@media(prefers-reduced-motion:reduce){.sh{animation:none!important;}}',
+      '@keyframes shY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}',
+      '@keyframes shX{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(8px)}}',
+      '@keyframes shFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-8px) scale(1.03)}}',
+      '@keyframes shPillFloat{0%,100%{transform:scale(1);box-shadow:0 2px 8px rgba(139,92,246,.2)}50%{transform:scale(1.05);box-shadow:0 6px 20px rgba(139,92,246,.35)}}',
+      '.sh .sh-pill{animation:shPillFloat 2.4s ease-in-out infinite !important;}',
+      '@media(prefers-reduced-motion:reduce){.sh{animation:none!important;}.sh-back{animation:none!important;}.sh .sh-pill{animation:none!important;}}',
 
-      /* Back button — stesso stile frecce */
-      '.sh-back{position:fixed;z-index:201;left:10px;cursor:pointer;',
-      '  text-decoration:none;opacity:1;transition:opacity .3s ease;}',
-      '.sh-back-label{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.12em;',
-      '  text-transform:uppercase;color:#d4c6ff;',
+      /* Back button */
+      '.sh-back{position:fixed;z-index:201;left:14px;cursor:pointer;',
+      '  text-decoration:none;opacity:1;',
+      '  display:flex;align-items:center;gap:.5em;',
+      '  animation:shFloat 2.6s ease-in-out infinite !important;}',
+      '.sh-back:hover{animation:none !important;transform:translateX(-5px);}',
+      '.sh-back-arrow{display:flex;align-items:center;justify-content:center;',
+      '  width:2.8rem;height:2.8rem;border-radius:10px;background:rgba(139,92,246,.18);',
+      '  border:1px solid rgba(139,92,246,.35);backdrop-filter:blur(6px);',
+      '  font-size:1.7rem;line-height:1;color:#a78bfa;',
+      '  box-shadow:0 3px 12px rgba(139,92,246,.25);',
+      '  transition:background .2s,border-color .2s,color .2s,box-shadow .2s;}',
+      '.sh-back-label{font-family:"DM Mono",monospace;font-size:1.4rem;letter-spacing:.1em;',
+      '  font-weight:700;text-transform:uppercase;color:#d4c6ff;',
+      '  padding:.3em .7em;border-radius:10px;background:rgba(139,92,246,.18);',
+      '  border:1px solid rgba(139,92,246,.35);backdrop-filter:blur(6px);',
+      '  box-shadow:0 3px 12px rgba(139,92,246,.25);',
       '  filter:drop-shadow(0 0 14px rgba(139,92,246,.7)) drop-shadow(0 0 5px rgba(167,139,250,.95)) drop-shadow(0 0 2px #fff3);}',
-      '.sh-back:hover .sh-back-label{color:#fff;}',
+      '.sh-back:hover .sh-back-label{color:#fff;background:rgba(139,92,246,.28);border-color:rgba(139,92,246,.55);}',
+      '.sh-back:hover .sh-back-arrow{color:#fff;background:rgba(139,92,246,.28);border-color:rgba(139,92,246,.55);}',
       '@media(min-width:641px){.sh-back{top:calc(88px + 10px);}}',
       '@media(max-width:860px){.sh-back{top:calc(72px + 10px);}}',
-      '@media(max-width:640px){.sh-back{top:calc(72px + 8px);}',
-      '  .sh-back svg{width:30px;height:30px;}}',
+      '@media(max-width:640px){.sh-back{top:calc(72px + 8px);} .sh-back-label{font-size:1.1rem;} .sh-back-arrow{width:2.2rem;height:2.2rem;font-size:1.3rem;}}',
       '@media(max-width:520px){.sh-back{top:calc(60px + 8px);}}'
     ].join('\n');
     document.head.appendChild(css);
@@ -59,7 +82,7 @@
     el.className = 'sh sh--' + dir;
     el.setAttribute('aria-hidden', 'true');
     var rotation = { down: 0, up: 180, right: -90, left: 90 }[dir] || 0;
-    el.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(' + rotation + 'deg)"><polyline points="6 9 12 15 18 9"/></svg>';
+    el.innerHTML = '<div class="sh-pill"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(' + rotation + 'deg)"><polyline points="6 9 12 15 18 9"/></svg></div>';
     return el;
   }
 
@@ -203,7 +226,7 @@
     btn.className = 'sh-back';
     btn.href = 'javascript:history.back()';
     btn.setAttribute('aria-label', 'Torna indietro');
-    btn.innerHTML = '<span class="sh-back-label">Back</span>';
+    btn.innerHTML = '<span class="sh-back-arrow" aria-hidden="true">&#8592;</span><span class="sh-back-label">Back</span>';
     document.body.appendChild(btn);
   }
 

@@ -991,23 +991,40 @@ v8WaitAndInit(function(bundle){
   var intro=document.getElementById('intro');
   var ui=document.getElementById('ui');
 
-  var CC_INTRO_KEY='cc-intro-seen';
-  var _introSeen=false;
-  try{ _introSeen=!!sessionStorage.getItem(CC_INTRO_KEY); }catch(e){}
+  // ── Intro progressiva basata su engagement ──
+  // Score calcolato da intro-showcase.js: visits*1 + pages*2 + floor(time/60)*0.5
+  //   0-19  → intro completa (click per entrare)
+  //   20-49 → intro breve (auto-skip dopo 4s, click per saltare)
+  //   50+   → skip immediato
+  var _engScore=0;
+  try{
+    var _engRaw=localStorage.getItem('cc-engagement');
+    if(_engRaw){var _engObj=JSON.parse(_engRaw);_engScore=(_engObj.visits||0)+(_engObj.pages?_engObj.pages.length:0)*2+Math.floor((_engObj.time||0)/60)*0.5;}
+  }catch(e){}
+
+  var _skipIntro=false;
+  var _autoSkipDelay=0;
   const fromInternalPage=(()=>{
     try{
       const ref=new URL(document.referrer||'',window.location.href);
       return ref.origin===window.location.origin&&ref.pathname.includes('/pages/');
     }catch(e){return false;}
   })();
-  if(DASH_SECTIONS[panelIdFromHash()])_introSeen=true;
-  if(fromInternalPage)_introSeen=true;
+
+  if(DASH_SECTIONS[panelIdFromHash()]||fromInternalPage){
+    _skipIntro=true;
+  } else if(_engScore>=50){
+    _skipIntro=true;
+  } else if(_engScore>=20){
+    _autoSkipDelay=4000;
+  }
 
   function launch(){
     if(alive)return;
-    try{ sessionStorage.setItem(CC_INTRO_KEY,'1'); }catch(e){}
+    // Stop showcase animato
+    if(typeof window._introShowcaseStop==='function') window._introShowcaseStop();
     intro.classList.add('out');
-    var delay=_introSeen?80:1600;
+    var delay=_skipIntro?80:1600;
     setTimeout(function(){
       intro.style.display='none';
 
@@ -1018,10 +1035,24 @@ v8WaitAndInit(function(bundle){
     },delay);
   }
 
-  if(_introSeen){
+
+  if(_skipIntro&&(DASH_SECTIONS[panelIdFromHash()]||fromInternalPage)){
+    // Navigazione interna o hash: skip immediato, nessuna intro
     setTimeout(launch,120);
+  } else if(_skipIntro){
+    // Score>=50: attende esplosione "Bentornato" poi entra
+    window.addEventListener('intro-welcome-done',function(){setTimeout(launch,300);},{once:true});
+    // Fallback se intro-showcase non caricato o errore
+    setTimeout(function(){if(!alive)launch();},8000);
+    document.addEventListener('click',launch);
+    document.addEventListener('keydown',launch);
   } else {
     document.addEventListener('click',launch);
     document.addEventListener('keydown',launch);
+    if(_autoSkipDelay>0){
+      // Score 20-49: attende esplosione "Bentornato" oppure timeout
+      window.addEventListener('intro-welcome-done',function(){setTimeout(launch,300);},{once:true});
+      setTimeout(function(){if(!alive)launch();},_autoSkipDelay);
+    }
   }
 });

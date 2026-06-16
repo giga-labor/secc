@@ -80,7 +80,7 @@
     <header class="mt-6 space-y-2" data-page-kicker-wrap>
       <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Laboratorio Tecnico</span>
       <h2 class="text-white">Base tecnica documentata e verificabile</h2>
-      <p class="text-sm text-ash max-w-2xl">Formule, pipeline di calcolo, assunzioni operative e limiti dichiarati per ogni modulo. Il contenuto operativo rapido resta nelle pagine di sezione — qui trovi la documentazione tecnica completa.</p>
+      <p class="text-sm text-ash leading-relaxed max-w-2xl" style="color:rgba(237,232,223,.55);">Formule, pipeline di calcolo, assunzioni operative e limiti dichiarati per ogni modulo. Il contenuto operativo rapido resta nelle pagine di sezione — qui trovi la documentazione tecnica completa.</p>
       <div class="cc-lab-kpi-bar">
         <div class="cc-lab-kpi-item">
           <span class="cc-lab-kpi-value">17</span>
@@ -558,6 +558,7 @@ dove freq_relativa(k) = n_estrazioni_con_k_hit / n_totale</code>
 <script src="../../assets/js/analisi-runtime.js" defer></script>
 <script src="../../assets/js/runtime-bootstrap.js" defer></script>
 <script src="../../assets/js/ads.js?v=no-footer-version-1" defer></script>
+<script src="../../assets/js/scroll-hint.js" defer></script>
   <script src="../../assets/js/lazy-bootstrap.js" defer>
 <script>
 (function () {
@@ -645,10 +646,4 @@ dove freq_relativa(k) = n_estrazioni_con_k_hit / n_totale</code>
     if (!entries.length) { list.innerHTML = '<li class="text-ash text-sm">Nessun evento registrato.</li>'; return; }
     list.innerHTML = entries.slice(0,30).map(renderEntry).join('');
   }
-  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', loadLabDiario); }
-  else { loadLabDiario(); }
-})();
-</script>
-<script src="../../assets/js/scroll-hint.js" defer></script>
-</body>
-</html>
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', lo
