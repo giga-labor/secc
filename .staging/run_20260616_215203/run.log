@@ -1,0 +1,21 @@
+[21:55:04] Fase KO: check_sources_quorum_phase1 -> Fallito (runtime: py -3)
+CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)
+Locale corrente: seq=4214 data=16/06/2026
+
+
+
+ERRORI FONTI:
+- [parse_official_archivio] errore: <urlopen error [Errno 11001] getaddrinfo failed>
+- [parse_superenalotto_com] errore: <urlopen error [Errno 11001] getaddrinfo failed>
+Nessuna fonte online verificabile
+[21:56:09] Email cumulativa non inviata su stop anticipato (check_sources_quorum_phase1): Invio email fallito: [WinError 10054] Connessione in corso interrotta forzatamente dall'host remoto
+[21:56:09] Fallito (runtime: py -3)
+CHECK ONLINE CONCORSI (solo verifica, nessun salvataggio)
+Locale corrente: seq=4214 data=16/06/2026
+
+
+
+ERRORI FONTI:
+- [parse_official_archivio] errore: <urlopen error [Errno 11001] getaddrinfo failed>
+- [parse_superenalotto_com] errore: <urlopen error [Errno 11001] getaddrinfo failed>
+Nessuna fonte online verificabile
