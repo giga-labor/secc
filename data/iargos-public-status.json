@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-17 13:10:10",
+  "updated_at": "2026-06-17 14:26:28",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "summary": "Problemi attivi: p6_local_publish, p8_backup_over_limit",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -17,7 +17,7 @@
     "p5_archive_stale": false,
     "p6_local_publish": true,
     "p7_remote_force_align": false,
-    "p8_backup_over_limit": false,
+    "p8_backup_over_limit": true,
     "p9_smtp_broken": false
   },
   "alignment": {
@@ -38,12 +38,36 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-17 12:56:30",
+    "last_push_at": "2026-06-17 13:10:52",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781691322
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-17T13:52:48",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-06-17T13:32:39",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-06-17T13:12:29",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": true,
+      "source": "iargos"
+    },
     {
       "type": "alert",
       "ts": "2026-06-16T22:46:57",
@@ -256,30 +280,6 @@
       "type": "versioning",
       "ts": "2026-02-11T00:54:13",
       "message": "Versione del sito aggiornata (00.02.042 -> 00.03.001)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:29:05",
-      "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:22:41",
-      "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-10T18:00:22",
-      "message": "Versione del sito aggiornata (00.02.040 -> 00.02.041)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
