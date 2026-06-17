@@ -5,11 +5,12 @@
   "generated_at": "2026-06-16T23:40:57",
   "last_seq": 4214,
   "last_date": "",
-  "proposal": [],
+  "proposal": [11, 30, 31, 61, 75, 88],
   "metrics": {
     "draws_covered": 4157,
     "avg_hits": 0.41,
     "hit_rate_gte_2": 5.7,
+    "hit_rate_gte_3": 0.36,
     "best_streak": 7
   },
   "explanation": [
