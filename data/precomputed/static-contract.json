@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17 12:07:59",
-  "ok": false,
-  "active_algorithms": 16,
-  "ranking_rows": 16,
+  "generated_at": "2026-06-17 12:47:32",
+  "ok": true,
+  "active_algorithms": 17,
+  "ranking_rows": 17,
   "algorithm_snapshots": 17,
-  "algorithm_sheets": 16,
+  "algorithm_sheets": 17,
   "files": {
     "data/modules-manifest.json": {
       "exists": true,
@@ -19,12 +19,12 @@
     "data/jackpot.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-14 12:25:22"
+      "generated_at": "2026-06-17 12:15:26"
     },
     "data/next-draw.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-14 12:25:22"
+      "generated_at": "2026-06-17 12:15:32"
     },
     "data/numeri-stats.json": {
       "exists": true,
@@ -34,54 +34,41 @@
     "data/iargos-public-status.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-14 15:46:38"
+      "generated_at": "2026-06-17 12:46:51"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17 12:07:58"
+      "generated_at": "2026-06-17 12:47:31"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17 12:07:59"
+      "generated_at": "2026-06-17 12:47:32"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17 12:07:58"
+      "generated_at": "2026-06-17 12:47:31"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17T12:07:59"
+      "generated_at": "2026-06-17T12:47:32"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17T12:07:59"
+      "generated_at": "2026-06-17T12:47:32"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17T12:07:59"
+      "generated_at": "2026-06-17T12:47:32"
     }
   },
-  "errors": [
-    "snapshots_missing:1",
-    "algorithm_out_missing:5"
-  ],
-  "warnings": [
-    "algorithm_sheet_no_performance:pages/algoritmi/algs/xeno-qdna/"
-  ],
-  "missing_snapshots": [
-    "xeno-qdna"
-  ],
-  "missing_algorithm_out_files": [
-    "xeno-qdna/snapshot.json",
-    "xeno-qdna/metrics-db.csv",
-    "xeno-qdna/historical-db.csv",
-    "xeno-qdna/algorithm-sheet.csv",
-    "xeno-qdna/analysis.txt"
-  ]
+  "errors": [],
+  "warnings": [],
+  "missing_snapshots": [],
+  "missing_algorithm_out_files": []
 }
