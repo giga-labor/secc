@@ -1,100 +1,5 @@
 [
   {
-    "id": "laboratorio-tecnico-legacy",
-    "title": "Laboratorio Tecnico (legacy)",
-    "subtitle": "Alias legacy non pubblicato",
-    "statusTag": "Legacy",
-    "narrativeSummary": "Report in preparazione.",
-    "macroGroup": "statistica",
-    "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/analisi-statistiche/",
-    "image": "img.webp",
-    "lastUpdated": "",
-    "hasNews": false,
-    "isActive": false,
-    "no_data_show": false,
-    "accessTier": "off",
-    "view": false,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "imageVersion": 1770663709
-  },
-  {
-    "id": "laboratorio-tecnico",
-    "title": "Laboratorio Tecnico",
-    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
-    "statusTag": "Lab",
-    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
-    "macroGroup": "statistica",
-    "page": "pages/laboratorio-tecnico/index.html",
-    "cardBase": "pages/laboratorio-tecnico/",
-    "image": "img.webp",
-    "lastUpdated": "",
-    "hasNews": true,
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    }
-  },
-  {
-    "id": "sestine-proposte-info",
-    "title": "Sestine Proposte",
-    "subtitle": "Apri subito le proposte ordinate",
-    "statusTag": "Proposte",
-    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
-    "macroGroup": "info",
-    "page": "pages/sestine-proposte/index.html",
-    "image": "img/statistic.webp",
-    "lastUpdated": "15/03/2026",
-    "hasNews": true,
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "free",
-    "type": "INFO",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "cardBase": "pages/sestine-proposte/"
-  },
-  {
-    "macroGroup": "storico",
-    "id": "storico-estrazioni",
-    "title": "Estrazione del:",
-    "subtitle": "$D",
-    "showSubtitle": true,
-    "image": "img.webp",
-    "mediaScale": 1.08,
-    "lastUpdated": "02/02/2026",
-    "hasNews": true,
-    "statusTag": "Archivio",
-    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
-    "page": "pages/storico-estrazioni/index.html",
-    "type": "ARCHIVI",
-    "features": [
-      "draws-latest"
-    ],
-    "isActive": true,
-    "no_data_show": false,
-    "accessTier": "off",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 0
-    },
-    "featured": false,
-    "news": [],
-    "cardBase": "pages/storico-estrazioni/",
-    "imageVersion": 1771969284
-  },
-  {
     "id": "astra-moon",
     "title": "ASTRA Moon",
     "subtitle": "Ranking numerico da effemeridi lunari con riferimento fisso 20:30",
@@ -256,7 +161,6 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "type": "ALGORITMI",
     "rankingValue": 29.47,
     "rankingPosition": 12,
     "exactHits": {
@@ -302,7 +206,6 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "type": "ALGORITMI",
     "rankingValue": 27.73,
     "rankingPosition": 13,
     "exactHits": {
@@ -348,7 +251,6 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "type": "ALGORITMI",
     "rankingValue": 31.74,
     "rankingPosition": 9,
     "exactHits": {
@@ -395,7 +297,6 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "type": "ALGORITMI",
     "rankingValue": 47.25,
     "rankingPosition": 1,
     "exactHits": {
@@ -422,53 +323,6 @@
     }
   },
   {
-    "id": "classic-ritardi",
-    "title": "ritardi",
-    "subtitle": "Analisi dei numeri in ritardo (overdue)",
-    "image": "img.webp",
-    "lastUpdated": "09/02/2026",
-    "hasNews": false,
-    "usesOutData": true,
-    "statusTag": "Scheda tecnica",
-    "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
-    "page": "pages/algoritmi/algs/classic-ritardi/",
-    "macroGroup": "statistica",
-    "isActive": true,
-    "no_data_show": true,
-    "accessTier": "free",
-    "view": true,
-    "hits": {
-      "enabled": false,
-      "count": 1
-    },
-    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "type": "ALGORITMI",
-    "rankingValue": 23.11,
-    "rankingPosition": 16,
-    "exactHits": {
-      "0": 2769,
-      "1": 1227,
-      "2": 200,
-      "3": 16,
-      "4": 1,
-      "5": 0,
-      "6": 0
-    },
-    "rankProfile": {
-      "edge": 60.94,
-      "edgePercent": 12.19,
-      "observedScore": 0.1551,
-      "expectedScore": 0.1382,
-      "stability": 16.28,
-      "recentForm": 0.0,
-      "sampleConfidence": 99.98,
-      "windowCoherence": 54.57,
-      "riskPenalty": 20.79,
-      "risk": "alto",
-      "label": "Volatile"
-    }
-  },
-  {
     "id": "classic-ritardi-combinazioni",
     "title": "ritardi-combinazioni",
     "subtitle": "Ritardi su combinazioni multiple",
@@ -488,7 +342,6 @@
       "count": 0
     },
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "type": "ALGORITMI",
     "rankingValue": 42.01,
     "rankingPosition": 4,
     "exactHits": {
@@ -515,6 +368,52 @@
     }
   },
   {
+    "id": "classic-ritardi",
+    "title": "ritardi",
+    "subtitle": "Analisi dei numeri in ritardo (overdue)",
+    "image": "img.webp",
+    "lastUpdated": "09/02/2026",
+    "hasNews": false,
+    "usesOutData": true,
+    "statusTag": "Scheda tecnica",
+    "narrativeSummary": "Modello statistico basato sui ritardi correnti dei numeri rispetto all'ultima estrazione utile.",
+    "page": "pages/algoritmi/algs/classic-ritardi/",
+    "macroGroup": "statistica",
+    "isActive": true,
+    "no_data_show": true,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 1
+    },
+    "cardBase": "pages/algoritmi/algs/classic-ritardi/",
+    "rankingValue": 23.11,
+    "rankingPosition": 16,
+    "exactHits": {
+      "0": 2769,
+      "1": 1227,
+      "2": 200,
+      "3": 16,
+      "4": 1,
+      "5": 0,
+      "6": 0
+    },
+    "rankProfile": {
+      "edge": 60.94,
+      "edgePercent": 12.19,
+      "observedScore": 0.1551,
+      "expectedScore": 0.1382,
+      "stability": 16.28,
+      "recentForm": 0.0,
+      "sampleConfidence": 99.98,
+      "windowCoherence": 54.57,
+      "riskPenalty": 20.79,
+      "risk": "alto",
+      "label": "Volatile"
+    }
+  },
+  {
     "id": "classic-statistiche-combinate-finestre-mobili",
     "title": "statistiche-combinate-finestre-mobili",
     "subtitle": "Statistiche combinate su finestre mobili",
@@ -534,7 +433,6 @@
       "count": 2
     },
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "type": "ALGORITMI",
     "rankingValue": 43.8,
     "rankingPosition": 2,
     "exactHits": {
@@ -815,7 +713,7 @@
     "accessTier": "free",
     "priority": 50,
     "cardBase": "pages/algoritmi/algs/xeno-qdna-alpha/",
-    "type": "ALGORITMI",
+    "view": true,
     "rankingValue": 33.12,
     "rankingPosition": 8,
     "exactHits": {
@@ -861,7 +759,7 @@
       "xeno-qdna-alpha"
     ],
     "cardBase": "pages/algoritmi/algs/xeno-qdna-beta/",
-    "type": "ALGORITMI",
+    "view": true,
     "rankingValue": 30.41,
     "rankingPosition": 10,
     "exactHits": {
@@ -886,5 +784,100 @@
       "risk": "alto",
       "label": "Volatile"
     }
+  },
+  {
+    "id": "laboratorio-tecnico-legacy",
+    "title": "Laboratorio Tecnico (legacy)",
+    "subtitle": "Alias legacy non pubblicato",
+    "statusTag": "Legacy",
+    "narrativeSummary": "Report in preparazione.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/analisi-statistiche/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": false,
+    "isActive": false,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": false,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "imageVersion": 1770663709
+  },
+  {
+    "id": "laboratorio-tecnico",
+    "title": "Laboratorio Tecnico",
+    "subtitle": "Tutte le spiegazioni tecniche, in un solo posto",
+    "statusTag": "Lab",
+    "narrativeSummary": "Tutto il contenuto tecnico esteso e raccolto qui.",
+    "macroGroup": "statistica",
+    "page": "pages/laboratorio-tecnico/index.html",
+    "cardBase": "pages/laboratorio-tecnico/",
+    "image": "img.webp",
+    "lastUpdated": "",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    }
+  },
+  {
+    "id": "sestine-proposte-info",
+    "title": "Sestine Proposte",
+    "subtitle": "Apri subito le proposte ordinate",
+    "statusTag": "Proposte",
+    "narrativeSummary": "Vai alla sezione Proposte della home per vedere le sestine consigliate e ordinate per classifica.",
+    "macroGroup": "info",
+    "page": "pages/sestine-proposte/index.html",
+    "image": "img/statistic.webp",
+    "lastUpdated": "15/03/2026",
+    "hasNews": true,
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "free",
+    "type": "INFO",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "cardBase": "pages/sestine-proposte/"
+  },
+  {
+    "macroGroup": "storico",
+    "id": "storico-estrazioni",
+    "title": "Estrazione del:",
+    "subtitle": "$D",
+    "showSubtitle": true,
+    "image": "img.webp",
+    "mediaScale": 1.08,
+    "lastUpdated": "02/02/2026",
+    "hasNews": true,
+    "statusTag": "Archivio",
+    "narrativeSummary": "$N1 $N2 $N3 $N4 $N5 $N6",
+    "page": "pages/storico-estrazioni/index.html",
+    "type": "ARCHIVI",
+    "features": [
+      "draws-latest"
+    ],
+    "isActive": true,
+    "no_data_show": false,
+    "accessTier": "off",
+    "view": true,
+    "hits": {
+      "enabled": false,
+      "count": 0
+    },
+    "featured": false,
+    "news": [],
+    "cardBase": "pages/storico-estrazioni/",
+    "imageVersion": 1771969284
   }
 ]
