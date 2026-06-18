@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-06-18 14:14:18",
+  "updated_at": "2026-06-18 20:55:42",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "summary": "Problemi attivi: p3_pending_publish, p4_alignment_diff",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
     "p2_flow_guard": false,
-    "p3_pending_publish": false,
-    "p4_alignment_diff": false,
+    "p3_pending_publish": true,
+    "p4_alignment_diff": true,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": true,
+    "p6_local_publish": false,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -27,7 +27,7 @@
     "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
-    "alignment_diff_count": 0,
+    "alignment_diff_count": 17,
     "active_algorithms_count": 17,
     "active_algorithms_aligned_count": 17
   },
@@ -38,12 +38,44 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-18 14:14:04",
+    "last_push_at": "2026-06-18 20:55:19",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781691322
+    "boot_ts": 1781793184
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-18T20:54:23",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-18T20:54:06",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "draw",
+      "ts": "2026-06-18T20:53:39",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-06-18T14:14:19",
+      "message": "Nuova versione del sito pubblicata (01.04.008 -> 01.05.000)",
+      "detail": "680 file sincronizzati tra mirror e sito pubblico",
+      "ok": true,
+      "source": "versioning-audit"
+    },
     {
       "type": "alert",
       "ts": "2026-06-17T13:52:48",
@@ -74,38 +106,6 @@
       "message": "Rilevata una situazione anomala, intervento in corso",
       "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
-      "source": "updates"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-16T22:03:40",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-16T21:32:02",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-16T21:21:07",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-16T21:10:46",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
       "source": "updates"
     },
     {
