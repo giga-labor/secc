@@ -1,5 +1,5 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4214,Archivio condiviso fino al concorso 4214
+Concorsi analizzati,4215,Archivio condiviso fino al concorso 4215
 Media hit/sestina,0.39,Media hit della sestina Paradox su storico aggregato
 Hit rate >= 2,5.0%,Percentuale concorsi con almeno 2 hit
 Hit rate >= 3,0.36%,Percentuale concorsi con almeno 3 hit
@@ -12,10 +12,10 @@ Con 4 hit,0,Conteggio hit esatte = 4
 Con 5 hit,0,Conteggio hit esatte = 5
 Con 6 hit,0,Conteggio hit esatte = 6
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2775 | 1: 1229 | 2: 194 | 3: 15 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Distribuzione hit 0-6,0: 2776 | 1: 1229 | 2: 194 | 3: 15 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Algoritmi attivi letti,16,Moduli con card isActive=true e output validi
 Sample neurale,12000,Numero campioni usati dal meta-modello
 Warning discovery/parsing,1,Numero warning non bloccanti nel run
-Ultimo concorso calcolato,4214,Data estrazione: 16/06/2026
-Concorso successivo stimato,4215,Sestina proposta: 65 85 06 76 88 03
-Sestina proposta (prossimo concorso),65 85 06 76 88 03,Meta-aggregazione Paradox su algoritmi attivi + scoring neurale/statistico
+Ultimo concorso calcolato,4215,Data estrazione: 18/06/2026
+Concorso successivo stimato,4216,Sestina proposta: 76 32 65 06 18 50
+Sestina proposta (prossimo concorso),76 32 65 06 18 50,Meta-aggregazione Paradox su algoritmi attivi + scoring neurale/statistico

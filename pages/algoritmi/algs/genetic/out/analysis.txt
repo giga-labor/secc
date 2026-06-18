@@ -9,19 +9,19 @@ Il modello e adattivo e apprende in modo progressivo, quindi e spesso percepito 
 Tecnicamente pero non e una rete neurale classica supervisionata con layer e backpropagation: e un ottimizzatore genetico su feature statistiche.
 
 Risultati osservati sullo storico
-Concorsi valutati: 4.213
+Concorsi valutati: 4.214
 - Media hit/sestina: 0.39
-- Hit >=1: 1450 su 4213 (34.4%)
-- Hit >=2: 194 su 4213 (4.6%)
-- Hit >=3: 15 su 4213 (0.4%)
-- Hit >=4: 1 su 4213 (0.0%)
-- Hit >=5: 0 su 4213 (0.0%)
-- Hit =6: 0 su 4213 (0.0%)
+- Hit >=1: 1450 su 4214 (34.4%)
+- Hit >=2: 194 su 4214 (4.6%)
+- Hit >=3: 15 su 4214 (0.4%)
+- Hit >=4: 1 su 4214 (0.0%)
+- Hit >=5: 0 su 4214 (0.0%)
+- Hit =6: 0 su 4214 (0.0%)
 - Best streak hit>=1: 7
-- Distribuzione esatta hit: 0:2763 1:1256 2:179 3:14 4:1 5:0 6:0
+- Distribuzione esatta hit: 0:2764 1:1256 2:179 3:14 4:1 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
-- Media hit attesa random: 0.4000 | osservata: 0.3940
+- Media hit attesa random: 0.4000 | osservata: 0.3939
 - Hit>=2 atteso random: 4.96% | osservato: 4.60% | z-score: -1.07
 - Hit>=3 atteso random: 0.315% | osservato: 0.356%
 - Hit>=4 atteso random: 0.0085% | osservato: 0.0237%
@@ -29,18 +29,18 @@ Confronto con baseline casuale (6 su 90)
 - Hit=6 atteso random: 0.00000016% | osservato: 0.00000000%
 
 Stabilita temporale e drift
-- Media ultimi 200 concorsi: 0.3650 (delta vs storico: -0.0290)
+- Media ultimi 200 concorsi: 0.3600 (delta vs storico: -0.0339)
 - Hit>=2 ultimi 200: 11/200 (5.50%)
-- Deviazione standard hit: 0.5887
-- Intervallo 95% media hit: [0.3762, 0.4118]
+- Deviazione standard hit: 0.5886
+- Intervallo 95% media hit: [0.3762, 0.4117]
 
 Configurazione operativa
 - Fonte: training_history progressivo GeneticSE
 - Popolazione: 48 organismi
 - Finestra recente: 90 concorsi
-- Ultimo concorso: 4214 (16/06/2026)
-- Prossimo concorso stimato: 4215
-- Sestina proposta: 65 70 76 88 26 32
+- Ultimo concorso: 4215 (18/06/2026)
+- Prossimo concorso stimato: 4216
+- Sestina proposta: 32 65 76 88 06 67
 
 Lettura e limiti
 Le metriche sono coerenti con un modello adattivo che segue pattern storici, ma non dimostrano vantaggio matematico stabile fuori campione.

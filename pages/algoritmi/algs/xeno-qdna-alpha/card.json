@@ -13,5 +13,9 @@
   "isActive": true,
   "no_data_show": true,
   "accessTier": "free",
-  "priority": 50
+  "priority": 50,
+  "hits": {
+    "enabled": false,
+    "count": 1
+  }
 }
