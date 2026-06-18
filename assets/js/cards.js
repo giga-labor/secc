@@ -2168,7 +2168,15 @@
       ])
     );
     const next = map.get('concorso successivo stimato');
-    const pick = map.get('sestina proposta (prossimo concorso)');
+    let pick = map.get('sestina proposta (prossimo concorso)');
+    if (!pick) {
+      for (const [key, value] of map.entries()) {
+        if (key.includes('sestina proposta') && key.includes('prossimo concorso')) {
+          pick = value;
+          break;
+        }
+      }
+    }
     const nextSeq = Number.parseInt(String(next?.value || '').trim(), 10);
     let proposal = String(pick?.value || '').trim();
     if (!proposal && next?.note) {
@@ -2541,4 +2549,3 @@ function resolveWithBase(path) {
   if (!base) return value;
   return new URL(trimmed, base).toString();
 }
-

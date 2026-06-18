@@ -460,6 +460,36 @@
     else { document.addEventListener('DOMContentLoaded', fn); }
   }
 
+  function v8BuildFetchCandidates(path) {
+    var value = String(path || '').trim();
+    if (!value) return [];
+    if (/^(https?:|file:|#)/i.test(value)) return [value];
+    var trimmed = value.replace(/^\/+/, '').replace(/^\.\//, '');
+    var out = [];
+    if (window.CC_BASE && window.CC_BASE.url) {
+      try { out.push(new URL(trimmed, window.CC_BASE.url).toString()); } catch (_) {}
+    }
+    out.push('/' + trimmed);
+    var depth = Math.max(0, String(window.location.pathname || '').split('/').filter(Boolean).length - 1);
+    for (var i = 0; i <= Math.min(depth + 1, 7); i += 1) {
+      out.push('../'.repeat(i) + trimmed);
+    }
+    return Array.from(new Set(out));
+  }
+
+  function v8FetchJson(path, options) {
+    var candidates = v8BuildFetchCandidates(path);
+    var idx = 0;
+    function next() {
+      if (idx >= candidates.length) return Promise.resolve(null);
+      var url = candidates[idx++];
+      return fetch(url, options || { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : next(); })
+        .catch(next);
+    }
+    return next();
+  }
+
   function ensureV8SheetProgress() {
     if (document.getElementById('v8sheet-prog')) return;
     var prog = document.createElement('div');
@@ -721,7 +751,8 @@
   }
 
   function v8ExtractProposal(text) {
-    var m = String(text || '').match(/Sestina proposta:\s*([0-9\s]+)/i);
+    var m = String(text || '').match(/Sestina proposta(?:[^,\n\r]*)?,\s*([0-9\s]+)/i)
+      || String(text || '').match(/Sestina proposta[^:]*:\s*([0-9\s]+)/i);
     if (!m) return [];
     return m[1].trim().split(/\s+/).map(function (x) { return parseInt(x, 10); })
       .filter(function (n) { return n >= 1 && n <= 90; }).slice(0, 6);
@@ -887,9 +918,9 @@
     sheet.dataset.v8Hydrated = '1';
     var _sheetsPromise = (typeof DataRegistry !== 'undefined')
       ? DataRegistry.load('algorithms.sheets').catch(function () {
-          return fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; });
+          return v8FetchJson('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' });
         })
-      : fetch('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; });
+      : v8FetchJson('/data/precomputed/algorithm-sheets.json', { cache: 'no-store' });
     _sheetsPromise
       .then(function (payload) {
       var sheets = payload && payload.sheets && typeof payload.sheets === 'object' ? payload.sheets : {};
@@ -1113,7 +1144,7 @@
   function buildGlobalSignals() {
     if (document.getElementById('bb') && document.getElementById('bb-msg') && document.getElementById('bb-msg').classList.contains('v8tk')) return;
     Promise.all([
-      fetch('/data/cards-index.json').then(function (r) { return r.json(); }).catch(function () { return []; }),
+      v8FetchJson('/data/cards-index.json').then(function (data) { return Array.isArray(data) ? data : []; }),
       fetch('/archives/draws/draws.csv').then(function (r) { return r.text(); }).catch(function () { return ''; })
     ]).then(function (res) {
       var cards = res[0] || [];
@@ -1235,9 +1266,9 @@
                  document.querySelector('main');
     if (!anchor) return;
 
-    fetch('/data/cards-index.json')
-      .then(function (r) { return r.json(); })
+    v8FetchJson('/data/cards-index.json', { cache: 'no-store' })
       .then(function (cards) {
+        cards = Array.isArray(cards) ? cards : [];
         function normPagePath(value) {
           var p = '/' + String(value || '').replace(/^\/+/, '');
           p = p.replace(/index\.html$/i, '');
@@ -1502,9 +1533,9 @@
           var left = hero.firstElementChild;
           if (left) left.appendChild(metrics);
         }
-        fetch('/data/cards-index.json', { cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : []; })
+        v8FetchJson('/data/cards-index.json', { cache: 'no-store' })
           .then(function (cards) {
+            cards = Array.isArray(cards) ? cards : [];
             var path = window.location.pathname.replace(/index\.html$/i, '');
             if (path.slice(-1) !== '/') path += '/';
             var card = (cards || []).find(function (c) {

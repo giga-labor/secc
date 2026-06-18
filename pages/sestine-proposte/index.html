@@ -9,21 +9,12 @@
     (function () {
       var root = document.documentElement;
       var w = window.innerWidth || document.documentElement.clientWidth || 0;
-      var isRight = w >= 1024;
       var initialHeaderOffset = w >= 1024 ? 96 : 88;
-      var desktopReserve = 276;
-      if (w >= 1600) {
-        desktopReserve = 366;
-      } else if (w >= 1400) {
-        desktopReserve = 336;
-      } else if (w >= 1200) {
-        desktopReserve = 316;
-      }
-      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.removeAttribute('data-ad-rail');
       root.style.setProperty('--ad-reserve-left', '0px');
-      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
-      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
-      root.style.setProperty('--ad-rail-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--ad-reserve-right', '0px');
+      root.style.setProperty('--ad-reserve-bottom', '0px');
+      root.style.setProperty('--ad-rail-bottom', '0px');
       root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
       root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
     })();
@@ -129,6 +120,13 @@
         }
         /* Rimuove lo scroll interno: la lista si estende normalmente */
         [data-proposals-list] { overflow: visible !important; max-height: none !important; }
+        body[data-page-id="proposte"] main.content-fade {
+          padding-bottom: calc(var(--ad-reserve-bottom, 0px) + 7rem) !important;
+          scroll-padding-bottom: calc(var(--ad-reserve-bottom, 0px) + 7rem);
+        }
+        body[data-page-id="proposte"] .content-box {
+          padding-bottom: 6rem !important;
+        }
       </style>
 
     </div>
@@ -227,6 +225,21 @@
         }
       };
 
+      const loadSnapshotProposal = async (card) => {
+        try {
+          const page = String(card?.page || '').replace(/^\/+/, '').replace(/\/?index\.html?$/i, '/');
+          if (!page) return [];
+          const res = await fetch(toHref(`${page.replace(/\/?$/, '/')}out/snapshot.json`), { cache: 'no-store' });
+          if (!res.ok) return [];
+          const snapshot = await res.json();
+          return window.CARDS && typeof window.CARDS.normalizeProposalNumbers === 'function'
+            ? window.CARDS.normalizeProposalNumbers(snapshot?.proposal)
+            : [];
+        } catch (_) {
+          return [];
+        }
+      };
+
       const loadManifestCards = async () => {
         const repo = window.CC_DATA_REPOSITORY || window.CC_REPO;
         if (repo && typeof repo.loadCardsByManifest === 'function') {
@@ -301,9 +314,13 @@
             const info = cardsApi.extractProposalInfo(metricsRows || []);
             const nextSeq = Number.isFinite(info?.nextSeq) ? info.nextSeq : null;
             const isUpdated = Number.isFinite(latestArchiveSeq) && Number.isFinite(nextSeq) && nextSeq > latestArchiveSeq;
-            proposal = isUpdated || !Number.isFinite(latestArchiveSeq)
+            proposal = isUpdated || !Number.isFinite(latestArchiveSeq) || !Number.isFinite(nextSeq)
               ? cardsApi.normalizeProposalNumbers(info?.proposal)
               : [];
+          }
+
+          if (!Array.isArray(proposal) || proposal.length !== 6) {
+            proposal = await loadSnapshotProposal(card);
           }
 
           return { card, ranking, rankingPosition, proposal };
@@ -397,4 +414,29 @@
   </script>
   <script src="../../assets/js/runtime-bootstrap.js" defer></script>
   <script src="../../assets/js/scroll-hint.js" defer></script>
-  <script src="../../assets
+  <script>
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        if (document.getElementById('bb')) return;
+        var ticker = document.createElement('div');
+        ticker.id = 'bb';
+        ticker.innerHTML = '<span id="bb-msg" class="v8tk"><span class="v8tk-in">' +
+          '<span>Gioca responsabilmente &middot; nessuna promessa di vincita &middot; 18+</span>' +
+          '<span class="sep">&#9670;</span>' +
+          '<span>Sestine proposte ordinate per ranking algoritmico</span>' +
+          '<span class="sep">&#9670;</span>' +
+          '<span>Analisi statistica indipendente ControlChaos</span>' +
+          '<span class="sep">&#9670;</span>' +
+          '<span>Gioca responsabilmente &middot; nessuna promessa di vincita &middot; 18+</span>' +
+          '<span class="sep">&#9670;</span>' +
+          '<span>Sestine proposte ordinate per ranking algoritmico</span>' +
+          '<span class="sep">&#9670;</span>' +
+          '<span>Analisi statistica indipendente ControlChaos</span>' +
+          '<span class="sep">&#9670;</span>' +
+          '</span></span>';
+        document.body.appendChild(ticker);
+      }, 900);
+    });
+  </script>
+</body>
+</html>

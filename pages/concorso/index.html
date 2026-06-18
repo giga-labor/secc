@@ -42,11 +42,17 @@
   <script src="../../assets/js/header.js" defer></script>
   <script src="../../assets/js/tailwind-config.js" defer></script>
   <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
   <style>
     /* â”€â”€ Pagina Concorso â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .cc-concorso-hero {
       padding: 1rem 0 1.5rem;
       text-align: center;
+    }
+    .cc-concorso-shell {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
     }
     .cc-concorso-badge {
       display: inline-block;
@@ -242,12 +248,14 @@
   </style>
   <script src="../../assets/js/v8-inner-chrome.js?v=jackpot-two-lines-1" defer></script>
   <script src="../../assets/js/scroll-hint.js" defer></script>
+  <script src="../../assets/js/ads.js?v=no-footer-version-1" defer></script>
 </head>
 <body class="bg-midnight text-white" data-page-id="concorso">
 
   <div id="cc-header-root"></div>
 
-  <main class="cc-page-wrap cc-page-wrap--wide" style="max-width:900px;margin:0 auto;padding:0 1.5rem 4rem;">
+  <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell cc-page-wrap cc-page-wrap--wide px-6 py-2" data-scroll-target>
+    <div class="cc-concorso-shell">
 
     <!-- Hero -->
     <div class="cc-concorso-hero" id="concorso-hero">
@@ -328,6 +336,7 @@
       </a>
     </nav>
 
+    </div>
   </main>
 
   <script>

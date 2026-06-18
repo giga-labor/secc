@@ -283,11 +283,12 @@
   <script src="../../../../assets/js/chart-renderer.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      ChartRenderer.loadAndRender('xeno-qdna-alpha', '../../../../', {
+      if (!window.ChartRenderer || typeof ChartRenderer.loadAndRender !== 'function') return;
+      Promise.resolve(ChartRenderer.loadAndRender('xeno-qdna-alpha', '../../../../', {
         hitDist: document.getElementById('chart-hit-dist'),
         numFreq: document.getElementById('chart-num-freq'),
         timeline: document.getElementById('chart-timeline')
-      });
+      })).catch(function () {});
     });
   </script>
 <script src="../../../../assets/js/scroll-hint.js" defer></script>

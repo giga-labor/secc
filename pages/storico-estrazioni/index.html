@@ -74,6 +74,15 @@
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body[data-page-id="storico"] main.content-fade {
+    padding-bottom: calc(var(--ad-reserve-bottom, 0px) + 8rem) !important;
+    scroll-padding-bottom: calc(var(--ad-reserve-bottom, 0px) + 8rem);
+  }
+  body[data-page-id="storico"] main.content-fade > .content-box {
+    padding-bottom: calc(var(--ad-reserve-bottom, 0px) + 8rem) !important;
+  }
+</style>
 <script src="../../assets/js/v8-inner-chrome.js?v=jackpot-two-lines-1" defer></script>
 </head>
 <body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="storico" data-style-lock="final" data-auto-tabs="off">
@@ -180,17 +189,46 @@
   <script src="../../assets/js/chart-renderer.js" defer></script>
   <script src="../../assets/js/scroll-hint.js" defer></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      fetch('../../data/draws-frequency.json')
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-        .then(function (data) {
-          var meta = document.getElementById('freq-meta');
-          if (meta) meta.textContent = data.total_draws + ' estrazioni &middot; aggiornato ' + (data.generated_at || '').slice(0, 10);
-          ChartRenderer.renderNumberFrequency(
-            document.getElementById('chart-draws-freq'),
-            { labels: data.labels, values: data.values }
-          );
-        })
-        .catch(function () {
-          var el = document.getElementById('chart-draws-freq');
-   
+    (function () {
+      function waitForChartRenderer(attempt) {
+        attempt = attempt || 0;
+        if (window.ChartRenderer && typeof window.ChartRenderer.renderNumberFrequency === 'function') {
+          return Promise.resolve(window.ChartRenderer);
+        }
+        if (attempt >= 30) return Promise.reject(new Error('ChartRenderer non disponibile'));
+        return new Promise(function (resolve) {
+          window.setTimeout(resolve, 80);
+        }).then(function () {
+          return waitForChartRenderer(attempt + 1);
+        });
+      }
+
+      function renderInitialFrequencyChart() {
+        var chartEl = document.getElementById('chart-draws-freq');
+        if (!chartEl) return;
+        Promise.all([
+          fetch('../../data/draws-frequency.json', { cache: 'no-store' })
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); }),
+          waitForChartRenderer(0)
+        ])
+          .then(function (res) {
+            var data = res[0];
+            var meta = document.getElementById('freq-meta');
+            if (meta) meta.textContent = data.total_draws + ' estrazioni \u00b7 aggiornato ' + (data.generated_at || '').slice(0, 10);
+            window.ChartRenderer.renderNumberFrequency(chartEl, { labels: data.labels, values: data.values });
+          })
+          .catch(function () {
+            var el = document.getElementById('chart-draws-freq');
+            if (el) el.innerHTML = '<span class="text-xs text-ash opacity-40">Grafico non disponibile.</span>';
+          });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderInitialFrequencyChart);
+      } else {
+        renderInitialFrequencyChart();
+      }
+    })();
+  </script>
+</body>
+</html>

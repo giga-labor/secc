@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-17 14:26:28",
+  "updated_at": "2026-06-17 16:55:54",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish, p8_backup_over_limit",
+  "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -17,7 +17,7 @@
     "p5_archive_stale": false,
     "p6_local_publish": true,
     "p7_remote_force_align": false,
-    "p8_backup_over_limit": true,
+    "p8_backup_over_limit": false,
     "p9_smtp_broken": false
   },
   "alignment": {
@@ -38,7 +38,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-17 13:10:52",
+    "last_push_at": "2026-06-17 14:27:12",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781691322
@@ -103,14 +103,6 @@
     {
       "type": "training",
       "ts": "2026-06-16T21:10:46",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-14T19:37:22",
       "message": "Algoritmi aggiornati con i dati più recenti",
       "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
@@ -280,6 +272,14 @@
       "type": "versioning",
       "ts": "2026-02-11T00:54:13",
       "message": "Versione del sito aggiornata (00.02.042 -> 00.03.001)",
+      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-11T00:29:05",
+      "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
