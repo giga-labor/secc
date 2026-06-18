@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-06-18 20:55:42",
+  "updated_at": "2026-06-18 21:03:50",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p3_pending_publish, p4_alignment_diff",
+  "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
     "p2_flow_guard": false,
-    "p3_pending_publish": true,
-    "p4_alignment_diff": true,
+    "p3_pending_publish": false,
+    "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": false,
+    "p6_local_publish": true,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -27,7 +27,7 @@
     "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
-    "alignment_diff_count": 17,
+    "alignment_diff_count": 0,
     "active_algorithms_count": 17,
     "active_algorithms_aligned_count": 17
   },
@@ -38,15 +38,23 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-18 20:55:19",
+    "last_push_at": "2026-06-18 21:03:33",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1781793184
   },
   "feed": [
     {
+      "type": "draw",
+      "ts": "2026-06-18T21:03:46",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
       "type": "alert",
-      "ts": "2026-06-18T20:54:23",
+      "ts": "2026-06-18T21:02:34",
       "message": "Rilevata una situazione anomala, intervento in corso",
       "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
@@ -54,19 +62,11 @@
     },
     {
       "type": "training",
-      "ts": "2026-06-18T20:54:06",
+      "ts": "2026-06-18T20:57:26",
       "message": "Algoritmi aggiornati con i dati più recenti",
       "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
       "ok": true,
       "source": "updates"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-18T20:53:39",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
     },
     {
       "type": "versioning",
