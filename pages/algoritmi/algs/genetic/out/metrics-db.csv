@@ -1,5 +1,5 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4215,Conteggio archivio dal concorso 1 al concorso 4215
+Concorsi analizzati,4216,Conteggio archivio dal concorso 1 al concorso 4216
 Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,4.6%,Percentuale concorsi con almeno 2 hit
 Hit rate >= 3,0.4%,Percentuale concorsi con almeno 3 hit
@@ -12,7 +12,7 @@ Con 4 hit,1,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2764 | 1: 1256 | 2: 179 | 3: 14 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-Ultimo concorso calcolato,4215,Data estrazione: 18/06/2026
-Concorso successivo stimato,4216,Sestina proposta: 32 65 76 88 06 67
-Sestina proposta (prossimo concorso),32 65 76 88 06 67,Calcolata su storico progressivo GeneticSE
+Distribuzione hit 0-6,0: 2765 | 1: 1256 | 2: 179 | 3: 14 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Ultimo concorso calcolato,4216,Data estrazione: 20/06/2026
+Concorso successivo stimato,4217,Sestina proposta: 65 76 88 32 06 67
+Sestina proposta (prossimo concorso),65 76 88 32 06 67,Calcolata su storico progressivo GeneticSE

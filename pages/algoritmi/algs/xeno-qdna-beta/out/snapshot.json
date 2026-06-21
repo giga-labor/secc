@@ -2,12 +2,12 @@
   "slug": "xeno-qdna-beta",
   "title": "XENO-QDNA β",
   "family": "generativi",
-  "generated_at": "2026-06-18T21:03:23",
-  "last_seq": 4215,
+  "generated_at": "2026-06-21T21:29:10",
+  "last_seq": 4216,
   "last_date": "",
   "proposal": [],
   "metrics": {
-    "draws_covered": 4158,
+    "draws_covered": 4159,
     "avg_hits": 0.41,
     "hit_rate_gte_2": 5.7,
     "best_streak": 7
@@ -19,13 +19,13 @@
     "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
   ],
   "alpha_proposal": [
-    18,
-    26,
-    32,
-    61,
-    79,
-    84
+    52,
+    55,
+    73,
+    80,
+    88,
+    89
   ],
-  "ifc_score": 10.0,
-  "correction_bits": 33
+  "ifc_score": 12.0,
+  "correction_bits": 34
 }

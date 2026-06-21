@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4215,Conteggio archivio fino al concorso 4215
+Concorsi analizzati,4216,Conteggio archivio fino al concorso 4216
 Media hit/sestina,0.41,Media numeri corretti per concorso
 Hit rate >= 2,5.4%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2733,Numero concorsi con esattamente 0 hit
+Con 0 hit,2734,Numero concorsi con esattamente 0 hit
 Con 1 hit,1254,Numero concorsi con esattamente 1 hit
 Con 2 hit,212,Numero concorsi con esattamente 2 hit
 Con 3 hit,15,Numero concorsi con esattamente 3 hit
@@ -10,15 +10,15 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,9,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2733 | 1: 1254 | 2: 212 | 3: 15 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Distribuzione hit 0-6,0: 2734 | 1: 1254 | 2: 212 | 3: 15 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Media hit ultimi 100,0.39,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4215,Data estrazione: 18/06/2026
+Ultimo concorso calcolato,4216,Data estrazione: 20/06/2026
 Pattern query match (singoli),6,Pattern della query con frequenza storica > 0
-Eventi storici match (singoli),1669,Somma frequenze dei pattern matchati
-Contributo score (singoli),559.8967,Contributo allo score della proposta corrente
+Eventi storici match (singoli),1660,Somma frequenze dei pattern matchati
+Contributo score (singoli),558.2782,Contributo allo score della proposta corrente
 Pattern query match (coppie),15,Pattern della query con frequenza storica > 0
-Eventi storici match (coppie),207,Somma frequenze dei pattern matchati
-Contributo score (coppie),347.5548,Contributo allo score della proposta corrente
+Eventi storici match (coppie),215,Somma frequenze dei pattern matchati
+Contributo score (coppie),358.9298,Contributo allo score della proposta corrente
 Pattern query match (terzine),7,Pattern della query con frequenza storica > 0
 Eventi storici match (terzine),8,Somma frequenze dei pattern matchati
 Contributo score (terzine),23.2454,Contributo allo score della proposta corrente
@@ -31,6 +31,6 @@ Contributo score (cinquine),0.0000,Contributo allo score della proposta corrente
 Pattern query match (sestina),0,Pattern della query con frequenza storica > 0
 Eventi storici match (sestina),0,Somma frequenze dei pattern matchati
 Contributo score (sestina),0.0000,Contributo allo score della proposta corrente
-Eventi progressivi processati,4214,Numero eventi t->t+1 assorbiti dal motore HiSPA
-Concorso successivo stimato,4216,Sestina proposta: 63 67 21 55 36 44
-Sestina proposta (prossimo concorso),63 67 21 55 36 44,Pronostico prodotto con backtest progressivo HiSPA
+Eventi progressivi processati,4215,Numero eventi t->t+1 assorbiti dal motore HiSPA
+Concorso successivo stimato,4217,Sestina proposta: 85 41 45 62 35 63
+Sestina proposta (prossimo concorso),85 41 45 62 35 63,Pronostico prodotto con backtest progressivo HiSPA

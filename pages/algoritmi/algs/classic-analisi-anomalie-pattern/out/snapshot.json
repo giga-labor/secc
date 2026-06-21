@@ -2,8 +2,8 @@
   "slug": "classic-analisi-anomalie-pattern",
   "title": "analisi-anomalie-pattern",
   "family": "statistica",
-  "generated_at": "2026-06-18T21:03:23",
-  "last_seq": 4215,
+  "generated_at": "2026-06-21T21:29:10",
+  "last_seq": 4216,
   "last_date": "",
   "proposal": [
     65,
@@ -14,7 +14,7 @@
     50
   ],
   "metrics": {
-    "draws_covered": 4215,
+    "draws_covered": 4216,
     "avg_hits": 0.4,
     "hit_rate_gte_2": 5.6,
     "best_streak": 7
