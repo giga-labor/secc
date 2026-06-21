@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18 21:03:50",
+  "updated_at": "2026-06-21 20:46:30",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -38,12 +38,20 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-18 21:03:33",
+    "last_push_at": "2026-06-18 21:04:13",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1781793184
+    "boot_ts": 1782067516
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-06-21T20:46:17",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": true,
+      "source": "iargos"
+    },
     {
       "type": "draw",
       "ts": "2026-06-18T21:03:46",
@@ -75,38 +83,6 @@
       "detail": "680 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-06-17T13:52:48",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-06-17T13:32:39",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-06-17T13:12:29",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-06-16T22:46:57",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
     },
     {
       "type": "versioning",
@@ -280,6 +256,30 @@
       "type": "versioning",
       "ts": "2026-02-11T00:29:05",
       "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
+      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-11T00:22:41",
+      "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
+      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-10T18:00:22",
+      "message": "Versione del sito aggiornata (00.02.040 -> 00.02.041)",
+      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
+      "ok": true,
+      "source": "versioning-audit"
+    },
+    {
+      "type": "versioning",
+      "ts": "2026-02-10T16:38:38",
+      "message": "Versione del sito aggiornata (00.02.039 -> 00.02.040)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
