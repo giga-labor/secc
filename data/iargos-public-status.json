@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-06-21 20:46:30",
+  "updated_at": "2026-06-21 22:13:39",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
   "severity": "warning",
-  "summary": "Problemi attivi: p6_local_publish",
+  "summary": "Problemi attivi: p3_pending_publish, p8_backup_over_limit",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
     "p1_mirror_map": false,
     "p2_flow_guard": false,
-    "p3_pending_publish": false,
+    "p3_pending_publish": true,
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": true,
+    "p6_local_publish": false,
     "p7_remote_force_align": false,
-    "p8_backup_over_limit": false,
+    "p8_backup_over_limit": true,
     "p9_smtp_broken": false
   },
   "alignment": {
@@ -25,7 +25,7 @@
     "mirror_has_inconsistencies": false,
     "flow_guard_ok": true,
     "git_dirty": true,
-    "remote_ahead": 0,
+    "remote_ahead": 2,
     "remote_behind": 0,
     "alignment_diff_count": 0,
     "active_algorithms_count": 17,
@@ -38,7 +38,7 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-18 21:04:13",
+    "last_push_at": "2026-06-21 22:13:05",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1782067516
@@ -46,9 +46,57 @@
   "feed": [
     {
       "type": "alert",
-      "ts": "2026-06-21T20:46:17",
+      "ts": "2026-06-21T22:12:56",
       "message": "Rilevata una situazione anomala, intervento in corso",
       "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "iargos"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-06-21T22:01:25",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "iargos"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-21T21:58:28",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-06-21T21:43:49",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "draw",
+      "ts": "2026-06-21T21:33:47",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "training",
+      "ts": "2026-06-21T20:56:02",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "draw",
+      "ts": "2026-06-21T20:53:05",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
     },
@@ -59,14 +107,6 @@
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-06-18T21:02:34",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
     },
     {
       "type": "training",
@@ -240,46 +280,6 @@
       "type": "versioning",
       "ts": "2026-02-11T13:13:10",
       "message": "Versione del sito aggiornata (00.03.004 -> 00.04.001)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:54:13",
-      "message": "Versione del sito aggiornata (00.02.042 -> 00.03.001)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:29:05",
-      "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-11T00:22:41",
-      "message": "Versione precedente ripristinata (00.02.042 -> 00.02.041)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-10T18:00:22",
-      "message": "Versione del sito aggiornata (00.02.040 -> 00.02.041)",
-      "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-02-10T16:38:38",
-      "message": "Versione del sito aggiornata (00.02.039 -> 00.02.040)",
       "detail": "Il sito è stato aggiornato alla nuova versione e reso disponibile al pubblico.",
       "ok": true,
       "source": "versioning-audit"
