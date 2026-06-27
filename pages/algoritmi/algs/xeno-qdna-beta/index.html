@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="index,follow,max-image-preview:large"/>
   <meta name="google-adsense-account" content="ca-pub-4257836243471373">
   <script>
     (function () {
@@ -12,9 +12,13 @@
       var isRight = w >= 1024;
       var initialHeaderOffset = w >= 1024 ? 96 : 88;
       var desktopReserve = 276;
-      if (w >= 1600) desktopReserve = 366;
-      else if (w >= 1400) desktopReserve = 336;
-      else if (w >= 1200) desktopReserve = 316;
+      if (w >= 1600) {
+        desktopReserve = 366;
+      } else if (w >= 1400) {
+        desktopReserve = 336;
+      } else if (w >= 1200) {
+        desktopReserve = 316;
+      }
       root.dataset.adRail = isRight ? 'right' : 'bottom';
       root.style.setProperty('--ad-reserve-left', '0px');
       root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
@@ -25,19 +29,19 @@
     })();
   </script>
   <title>XENO-QDNA β - SuperEnalotto Control Chaos</title>
-  <meta name="description" content="Scheda XENO-QDNA β: seconda istanza G-Family, metabolizza l'errore residuo di XENO-QDNA α tramite calcolo B(t)=Eα XOR R XOR Pα e maschera meritocratica B*.">
-  <link rel="canonical" href="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/">
-  <meta property="og:locale" content="it_IT">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="SuperEnalotto Control Chaos">
-  <meta property="og:title" content="XENO-QDNA β - SuperEnalotto Control Chaos">
-  <meta property="og:description" content="Scheda XENO-QDNA β: seconda istanza G-Family, metabolizza l'errore residuo di XENO-QDNA α tramite calcolo B(t)=Eα XOR R XOR Pα e maschera meritocratica B*.">
-  <meta property="og:url" content="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/">
-  <meta property="og:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/img.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XENO-QDNA β - SuperEnalotto Control Chaos">
-  <meta name="twitter:description" content="Scheda XENO-QDNA β: seconda istanza G-Family, metabolizza l'errore residuo di XENO-QDNA α tramite calcolo B(t)=Eα XOR R XOR Pα e maschera meritocratica B*.">
-  <meta name="twitter:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/img.webp">
+  <meta name="description" content="Scheda algoritmo XENO-QDNA β: generatore sperimentale G-Family con storico, metriche, analisi e grafici operativi."/>
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="SuperEnalotto Control Chaos"/>
+  <meta property="og:title" content="XENO-QDNA β - SuperEnalotto Control Chaos"/>
+  <meta property="og:description" content="Scheda algoritmo XENO-QDNA β: generatore sperimentale G-Family con storico, metriche, analisi e grafici operativi."/>
+  <meta property="og:url" content="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/"/>
+  <meta property="og:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/img.webp"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="XENO-QDNA β - SuperEnalotto Control Chaos"/>
+  <meta name="twitter:description" content="Scheda algoritmo XENO-QDNA β: generatore sperimentale G-Family con storico, metriche, analisi e grafici operativi."/>
+  <meta name="twitter:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/img.webp"/>
   <meta name="view-transition" content="same-origin">
   <script src="../../../../assets/js/ga4.js" defer></script>
   <link rel="stylesheet" href="../../../../assets/css/tailwind.generated.css">
@@ -57,7 +61,7 @@
     "@type": "WebPage",
     "name": "XENO-QDNA β - SuperEnalotto Control Chaos",
     "url": "https://www.superenalottocc.it/pages/algoritmi/algs/xeno-qdna-beta/",
-    "description": "Scheda XENO-QDNA β: seconda istanza G-Family, metabolizza l'errore residuo di XENO-QDNA α tramite calcolo B(t)=Eα XOR R XOR Pα e maschera meritocratica B*.",
+    "description": "Scheda algoritmo XENO-QDNA β: generatore sperimentale G-Family con storico, metriche, analisi e grafici operativi.",
     "inLanguage": "it-IT",
     "isPartOf": {
       "@type": "WebSite",
@@ -74,9 +78,8 @@
     <h1 class="sr-only">XENO-QDNA β</h1>
     <div class="content-box">
       <header class="mt-6 space-y-3" data-page-kicker-wrap>
-        <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>G-Family - algoritmo beta sperimentale</span>
+        <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Scheda algoritmo</span>
       </header>
-
       <div class="tabs-shell mt-4 text-sm text-ash" data-tabs-root data-tab-panel-label="off">
         <div class="folder-tabs">
           <button class="tab-btn is-active" type="button" data-tab-target="algoritmo">Algoritmo</button>
@@ -85,66 +88,15 @@
           <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
           <button class="tab-btn" type="button" data-tab-target="grafici">Grafici</button>
         </div>
-
         <div class="tabs-sheet">
           <section class="tab-panel is-active space-y-4" data-tab-panel="algoritmo">
             <section class="rounded-3xl border border-white/10 bg-transparent p-6" data-adsense-quality="1">
-              <h2 class="text-2xl font-semibold text-white">XENO-QDNA &#946;</h2>
-              <p class="mt-1 text-xs uppercase tracking-[0.2em] text-ash">G-Family &mdash; correzione autocritica del residuo &#945;</p>
-
-              <p class="mt-4 text-sm leading-relaxed text-ash">
-                XENO-QDNA &#946; non genera la sestina dallo storico reale: metabolizza l&rsquo;errore di XENO-QDNA &#945; trasformandolo in stringa residua B*.<br>
-                Invece di osservare le estrazioni, osserva dove &#945; ha sbagliato &mdash; e usa quel fallimento come fonte generativa.
-              </p>
-
-              <p class="mt-3 text-sm leading-relaxed text-ash">
-                L&rsquo;obiettivo &egrave; produrre una sestina alternativa che fugge dal centro predittivo di &#945;: non una correzione del sistema, ma un secondo punto di vista costruito sul DNA del suo errore. Dipende da xeno-qdna-alpha e deve girare dopo di esso.
-              </p>
-
-              <div class="mt-6 grid gap-3 md:grid-cols-2">
-                <div class="rounded-2xl border border-white/10 bg-midnight/60 p-4">
-                  <p class="text-xs uppercase tracking-[0.18em] text-ash">Step 1 &mdash; Il residuo</p>
-                  <p class="mt-2 text-sm text-white">B(t) = E&#945; XOR R XOR P&#945;</p>
-                  <p class="mt-1 text-xs leading-relaxed text-ash">Per ogni concorso passato, &#946; calcola la stringa residua combinando l&rsquo;errore di &#945; (E&#945;), l&rsquo;estrazione reale (R) e la proposta di &#945; (P&#945;) tramite XOR. Ogni B(t) &egrave; il &ldquo;DNA del fallimento&rdquo; di quel concorso.</p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-midnight/60 p-4">
-                  <p class="text-xs uppercase tracking-[0.18em] text-ash">Step 2 &mdash; La selezione meritocratica</p>
-                  <p class="mt-2 text-sm text-white">34 residui recenti, bit per bit</p>
-                  <p class="mt-1 text-xs leading-relaxed text-ash">Dagli ultimi 34 B(t) ogni bit viene valutato su tre criteri: frequenza di attivazione, stabilit&agrave; delle transizioni e correction_score. Solo i bit con segnale non banale vengono trattenuti nella maschera B*.</p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-midnight/60 p-4">
-                  <p class="text-xs uppercase tracking-[0.18em] text-ash">Step 3 &mdash; La maschera B*</p>
-                  <p class="mt-2 text-sm text-white">Distillazione del fallimento</p>
-                  <p class="mt-1 text-xs leading-relaxed text-ash">B* &egrave; la sintesi meritocratica dei 34 residui: ogni posizione conserva solo i bit che hanno dimostrato coerenza nel segnalare l&rsquo;errore di &#945;. Bit troppo caotici o troppo silenziosi vengono esclusi.</p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-midnight/60 p-4">
-                  <p class="text-xs uppercase tracking-[0.18em] text-ash">Step 4 &mdash; Il collasso IFC</p>
-                  <p class="mt-2 text-sm text-white">3 rotazioni, IFC massimo</p>
-                  <p class="mt-1 text-xs leading-relaxed text-ash">&#946; applica B* in tre rotazioni diverse e sceglie il collasso con IFC (Indice di Fuga dal Centro) massimo: la sestina che pi&ugrave; si allontana dalla zona predittiva di &#945;, decodificata in numeri 1-90 tramite riflessione.</p>
-                </div>
-              </div>
-
-              <div class="mt-6 rounded-2xl border border-neon/20 bg-neon/5 p-4">
-                <p class="text-xs uppercase tracking-[0.18em] text-neon">Come ragiona</p>
-                <p class="mt-3 text-sm leading-relaxed text-ash">
-                  &#946; riceve l&rsquo;output di &#945; come input: senza una proposta valida di &#945; non pu&ograve; girare. Legge la sequenza storica degli errori &mdash; non le estrazioni &mdash; e costruisce una visione alternativa a partire da dove il modello fratello ha fallito.<br><br>
-                  La formula B(t) = E&#945; XOR R XOR P&#945; cattura simultaneamente l&rsquo;errore assoluto (dove R differisce da P&#945;) e la struttura di quell&rsquo;errore (XOR con E&#945; contestualizza il fallimento rispetto alla deviazione osservata). I 34 B(t) pi&ugrave; recenti vengono aggregati bit per bit con tre pesi: frequenza grezza, coerenza delle transizioni e un correction_score che misura quante volte quel bit ha anticipato l&rsquo;errore correttamente.<br><br>
-                  Tra le tre rotazioni di B*, &#946; sceglie quella con IFC massimo: preferisce la sestina pi&ugrave; distante dal centro di &#945; piuttosto che la pi&ugrave; &ldquo;corretta&rdquo; in senso assoluto. Il risultato &egrave; complementare ad &#945; per costruzione, non per casualit&agrave;.
-                </p>
-              </div>
-
-              <div class="mt-6 rounded-2xl border border-white/10 bg-midnight/60 p-4">
-                <p class="text-xs uppercase tracking-[0.18em] text-ash">Cosa non &egrave; e cosa non fa</p>
-                <p class="mt-2 text-sm leading-relaxed text-ash">
-                  &#946; non corregge &#945; e non lo sostituisce. Non ha accesso alle estrazioni reali durante la generazione: lavora esclusivamente sulla sequenza degli errori passati di &#945;.<br><br>
-                  Non usa frequenze storiche, ritardi o pattern classici. Non si addestra. Ad ogni esecuzione rilegge gli ultimi 34 residui e ricomincia da zero. Il suo valore &egrave; nella diversit&agrave; strutturale rispetto ad &#945;: le due sestine G-Family nascono da sorgenti distinte e dovrebbero divergere sistematicamente.
-                </p>
-              </div>
-
-              <p class="mt-5 text-xs leading-relaxed text-ash opacity-60">Modello sperimentale &mdash; seconda istanza G-Family. Dipende da xeno-qdna-alpha (deve girare prima). Non garantisce vantaggio probabilistico reale. Backtest, metriche e analisi vanno letti come laboratorio aperto.</p>
+              <h3 class="text-xl font-semibold">XENO-QDNA β</h3>
+              <p class="mt-3 text-sm text-ash">Questa scheda mostra l'uso pratico del modulo: storico, metriche e confronto rapido.</p>
+              <p class="mt-3 text-sm text-ash">Per i dettagli tecnici completi (metodo, limiti e analisi estesa) usa il Laboratorio tecnico.</p>
+              <a class="mt-4 inline-flex rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../../laboratorio-tecnico/">Apri il Laboratorio tecnico completo</a>
             </section>
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="storica">
             <div class="overflow-x-auto rounded-2xl border border-white/10">
               <table class="min-w-full text-left text-sm">
@@ -155,7 +107,9 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-white/5" data-historical-body>
-                  <tr><td class="px-2 py-3 text-ash" colspan="2">Caricamento storico...</td></tr>
+                  <tr>
+                    <td class="px-2 py-3 text-ash" colspan="2"><span class="cc-skeleton cc-skeleton--line block h-4 w-full" aria-hidden="true"></span></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -165,25 +119,26 @@
               <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-historical-next>Succ</button>
             </div>
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="metriche">
             <p data-metrics-intro>Metriche di efficacia dell'algoritmo su storico validato.</p>
-            <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">--</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">--</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">--</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">--</p>
+            <div class="overflow-x-auto">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">--</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">--</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">--</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">--</p>
+                </div>
               </div>
             </div>
             <div class="overflow-x-auto rounded-2xl border border-white/10">
@@ -196,66 +151,36 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-white/5" data-metrics-body>
-                  <tr><td class="px-4 py-3 text-ash" colspan="3">Caricamento metriche...</td></tr>
+                  <tr><td class="px-4 py-3 text-ash" colspan="3"><span class="cc-skeleton cc-skeleton--line block h-4 w-full" aria-hidden="true"></span></td></tr>
                 </tbody>
               </table>
             </div>
-
-            <div class="mt-2 rounded-2xl border border-neon/20 bg-neon/5 p-4">
-              <p class="text-xs uppercase tracking-[0.18em] text-neon">Metriche di affidabilitÃ </p>
-              <p class="mt-2 text-xs text-ash leading-relaxed">Indicatori specifici del processo QDNA â€” calcolati sul backtest walk-forward. Riflettono la stabilitÃ  strutturale del generatore, non solo i risultati numerici.</p>
-              <div class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Passaggio membrana</p>
-                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="membrane pass rate">--</p>
-                  <p class="text-[0.65rem] text-ash opacity-60">% sestine superate</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Decoherenza bloccata</p>
-                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="decoherence block rate">--</p>
-                  <p class="text-[0.65rem] text-ash opacity-60">% rifiutate dal check</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Tunneling usato</p>
-                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="tunneling rate">--</p>
-                  <p class="text-[0.65rem] text-ash opacity-60">% sestine con fix</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">StabilitÃ  maschera</p>
-                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="mask stability">--</p>
-                  <p class="text-[0.65rem] text-ash opacity-60">bit attivi medi / 42</p>
-                </div>
-              </div>
-              <p class="mt-3 text-[0.7rem] text-ash opacity-50">I valori vengono popolati dal runner locale dopo l'esecuzione di run.py.</p>
-            </div>
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="analisi">
-            <p data-analysis-intro>Analisi del collasso QDNA</p>
+            <p data-analysis-intro>La parola all'esperto</p>
             <div class="rounded-2xl border border-white/10 bg-midnight/60 px-4 py-3">
-              <p class="whitespace-pre-line break-words text-sm leading-relaxed text-white" data-analysis-text>Caricamento analisi...</p>
+              <p class="whitespace-pre-line break-words text-sm leading-relaxed text-white" data-analysis-text><span class="cc-skeleton cc-skeleton--block inline-block h-4 w-3/4" aria-hidden="true"></span></p>
             </div>
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="grafici">
             <p class="text-sm text-ash">Statistiche visuali generate dai dati reali dell'algoritmo.</p>
             <div class="space-y-6">
               <div>
                 <p class="mb-2 text-xs uppercase tracking-widest text-ash">Distribuzione hit per sestina</p>
                 <div id="chart-hit-dist" class="rounded-2xl border border-white/10 bg-midnight/60 px-3 py-3 min-h-[100px] flex items-center justify-center">
-                  <span class="text-xs text-ash opacity-50">Caricamento...</span>
+                  <span class="text-xs text-ash opacity-50">Caricamento&hellip;</span>
                 </div>
               </div>
               <div>
                 <p class="mb-2 text-xs uppercase tracking-widest text-ash">Frequenza numeri 1-90 nelle proposte</p>
                 <div id="chart-num-freq" class="rounded-2xl border border-white/10 bg-midnight/60 px-3 py-3 min-h-[80px] flex items-center justify-center">
-                  <span class="text-xs text-ash opacity-50">Caricamento...</span>
+                  <span class="text-xs text-ash opacity-50">Caricamento&hellip;</span>
                 </div>
               </div>
               <div>
                 <p class="mb-2 text-xs uppercase tracking-widest text-ash">Andamento hit nel tempo (finestre 100)</p>
                 <div id="chart-timeline" class="rounded-2xl border border-white/10 bg-midnight/60 px-3 py-3 min-h-[100px] flex items-center justify-center">
-                  <span class="text-xs text-ash opacity-50">Caricamento...</span>
+                  <span class="text-xs text-ash opacity-50">Caricamento&hellip;</span>
                 </div>
               </div>
             </div>
@@ -264,7 +189,6 @@
       </div>
     </div>
   </main>
-
   <script src="../../../../assets/js/core/cache-engine.js" defer></script>
   <script src="../../../../assets/js/core/data-repository.js" defer></script>
   <script src="../../../../assets/js/core/page-orchestrator.js" defer></script>
@@ -274,7 +198,7 @@
   <script src="../../../../assets/js/version.js" defer></script>
   <script src="../../../../assets/js/header.js" defer></script>
   <script src="../../../../assets/js/runtime-bootstrap.js" defer></script>
-  <script src="../../../../assets/js/algorithm-sheet-view.js?v=20260613-xeno-qdna-beta" defer></script>
+  <script src="../../../../assets/js/algorithm-sheet-view.js?v=20260613-history-inline" defer></script>
   <script src="../../../../assets/js/component-builder.js" defer></script>
   <script src="../../../../assets/js/ads.js?v=no-footer-version-1" defer></script>
   <script src="../../../../assets/js/lazy-bootstrap.js" defer></script>
@@ -282,14 +206,14 @@
   <script src="../../../../assets/js/chart-renderer.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      if (!window.ChartRenderer || typeof ChartRenderer.loadAndRender !== 'function') return;
-      Promise.resolve(ChartRenderer.loadAndRender('xeno-qdna-beta', '../../../../', {
+      var slug = 'xeno-qdna-beta';
+      ChartRenderer.loadAndRender(slug, '../../../../', {
         hitDist: document.getElementById('chart-hit-dist'),
         numFreq: document.getElementById('chart-num-freq'),
         timeline: document.getElementById('chart-timeline')
-      })).catch(function () {});
+      });
     });
   </script>
-<script src="../../../../assets/js/scroll-hint.js" defer></script>
+  <script src="../../../../assets/js/scroll-hint.js" defer></script>
 </body>
 </html>
