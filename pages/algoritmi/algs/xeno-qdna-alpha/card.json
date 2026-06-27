@@ -11,11 +11,13 @@
   "page": "pages/algoritmi/algs/xeno-qdna-alpha/",
   "macroGroup": "generativi",
   "isActive": true,
+  "view": true,
   "no_data_show": true,
   "accessTier": "free",
-  "priority": 50,
   "hits": {
     "enabled": false,
     "count": 1
-  }
+  },
+  "type": "ALGORITMI",
+  "priority": 50
 }

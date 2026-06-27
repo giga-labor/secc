@@ -9,14 +9,14 @@
   "statusTag": "Scheda tecnica",
   "narrativeSummary": "Multi-agent online learning con aggiornamenti continui.",
   "page": "pages/algoritmi/algs/genetic/",
-  "macroGroup": "neurale",
+  "macroGroup": "genetico",
   "isActive": true,
-  "no_data_show": true,
-  "type": "ALGORITMI",
   "view": true,
+  "no_data_show": true,
   "accessTier": "free",
   "hits": {
     "enabled": false,
     "count": 0
-  }
+  },
+  "type": "ALGORITMI"
 }

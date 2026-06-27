@@ -5,16 +5,18 @@
   "image": "img.webp",
   "lastUpdated": "23/02/2026",
   "hasNews": false,
+  "usesOutData": true,
   "statusTag": "Scheda tecnica",
   "narrativeSummary": "Indicatori frequenza/ritardo su ultime 50, 100 e 200 estrazioni.",
   "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
   "macroGroup": "statistica",
   "isActive": true,
-  "no_data_show": true,
   "view": true,
+  "no_data_show": true,
   "accessTier": "free",
   "hits": {
     "enabled": false,
     "count": 0
-  }
+  },
+  "type": "ALGORITMI"
 }

@@ -5,16 +5,18 @@
   "image": "img.webp",
   "lastUpdated": "23/02/2026",
   "hasNews": false,
+  "usesOutData": true,
   "statusTag": "Scheda tecnica",
   "narrativeSummary": "Studio di fasce numeriche, pari/dispari, somme e bilanciamento della sestina.",
   "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
   "macroGroup": "statistica",
   "isActive": true,
-  "no_data_show": true,
   "view": true,
+  "no_data_show": true,
   "accessTier": "free",
   "hits": {
     "enabled": false,
     "count": 0
-  }
+  },
+  "type": "ALGORITMI"
 }

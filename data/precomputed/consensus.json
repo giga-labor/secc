@@ -1,10 +1,12 @@
 {
-  "generated_at": "2026-06-27T15:50:59",
-  "total_algorithms": 17,
+  "generated_at": "2026-06-27T16:33:34",
+  "total_algorithms": 18,
   "numbers": {
     "1": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "arc90-logico-algoritmica"
+      ]
     },
     "2": {
       "support": 0,
@@ -114,8 +116,10 @@
       ]
     },
     "22": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "arc90-logico-algoritmica"
+      ]
     },
     "23": {
       "support": 1,
@@ -153,8 +157,9 @@
       "algorithms": []
     },
     "30": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "arc90-logico-algoritmica",
         "xeno-qdna-alpha"
       ]
     },
@@ -234,8 +239,9 @@
       ]
     },
     "45": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "arc90-logico-algoritmica",
         "classic-coppie-terni-consecutivi"
       ]
     },
@@ -405,8 +411,10 @@
       "algorithms": []
     },
     "73": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "arc90-logico-algoritmica"
+      ]
     },
     "74": {
       "support": 0,
@@ -417,8 +425,9 @@
       "algorithms": []
     },
     "76": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "arc90-logico-algoritmica",
         "classic-co-occorrenze"
       ]
     },
@@ -643,19 +652,19 @@
       ]
     },
     {
+      "number": 30,
+      "support": 2,
+      "algorithms": [
+        "arc90-logico-algoritmica",
+        "xeno-qdna-alpha"
+      ]
+    },
+    {
       "number": 41,
       "support": 2,
       "algorithms": [
         "super6NN",
         "xeno-qdna-alpha"
-      ]
-    },
-    {
-      "number": 49,
-      "support": 2,
-      "algorithms": [
-        "classic-distribuzioni-modelli-raggruppamento",
-        "classic-frequency"
       ]
     }
   ]

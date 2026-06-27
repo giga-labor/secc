@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-27 15:51:54",
+  "updated_at": "2026-06-27 16:33:39",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "ok",
-  "summary": "Problemi attivi: ",
+  "severity": "warning",
+  "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -15,21 +15,21 @@
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": false,
+    "p6_local_publish": true,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
   },
   "alignment": {
-    "archive_update_state": "orange",
+    "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": false,
+    "flow_guard_ok": true,
     "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
-    "alignment_diff_count": 74,
-    "active_algorithms_count": 17,
-    "active_algorithms_aligned_count": 17
+    "alignment_diff_count": 0,
+    "active_algorithms_count": 18,
+    "active_algorithms_aligned_count": 18
   },
   "circuit": {
     "state": "CLOSED",
@@ -38,12 +38,20 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-06-27 15:51:10",
+    "last_push_at": "2026-06-27 15:52:07",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
     "boot_ts": 1782567623
   },
   "feed": [
+    {
+      "type": "draw",
+      "ts": "2026-06-27T15:51:42",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
     {
       "type": "alert",
       "ts": "2026-06-27T15:50:17",
@@ -51,14 +59,6 @@
       "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
       "ok": false,
       "source": "updates"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-27T15:44:42",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
     },
     {
       "type": "training",

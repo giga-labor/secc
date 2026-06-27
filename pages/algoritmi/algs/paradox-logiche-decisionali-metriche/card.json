@@ -11,14 +11,14 @@
   "page": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
   "macroGroup": "ibrido",
   "isActive": true,
-  "no_data_show": true,
   "view": true,
-  "type": "ALGORITMI",
+  "no_data_show": true,
   "accessTier": "free",
   "hits": {
     "enabled": false,
     "count": 1
   },
+  "type": "ALGORITMI",
   "featured": false,
   "news": []
 }

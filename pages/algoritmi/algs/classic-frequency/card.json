@@ -11,11 +11,12 @@
   "page": "pages/algoritmi/algs/classic-frequency/",
   "macroGroup": "statistica",
   "isActive": true,
+  "view": true,
   "no_data_show": true,
   "accessTier": "free",
-  "view": true,
   "hits": {
     "enabled": false,
     "count": 0
-  }
+  },
+  "type": "ALGORITMI"
 }
