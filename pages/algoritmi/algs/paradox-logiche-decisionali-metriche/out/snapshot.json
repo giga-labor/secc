@@ -2,19 +2,19 @@
   "slug": "paradox-logiche-decisionali-metriche",
   "title": "Paradox Logiche Decisionali Metriche",
   "family": "ibrido",
-  "generated_at": "2026-06-21T22:02:20",
-  "last_seq": 4216,
+  "generated_at": "2026-06-27T15:50:59",
+  "last_seq": 4217,
   "last_date": "",
   "proposal": [
     65,
-    76,
-    85,
-    88,
     55,
-    86
+    57,
+    67,
+    85,
+    88
   ],
   "metrics": {
-    "draws_covered": 4216,
+    "draws_covered": 4217,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 5.0,
     "hit_rate_gte_3": 0.36,

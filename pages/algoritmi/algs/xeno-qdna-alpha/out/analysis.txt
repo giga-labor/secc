@@ -1,7 +1,7 @@
-XENO-QDNA - Concorso 4216 del 20/06/2026
-Sestina proposta per il concorso 4217: 07 17 45 57 62 70
+XENO-QDNA - Concorso 4217 del 26/06/2026
+Sestina proposta per il concorso 4218: 30 41 42 54 82 83
 
-Maschera di collasso: 001111101111000110011111111011111110011111
+Maschera di collasso: 001111101111000110111111111111111110011111
 Tentativo: 1. Score decoerenza: 1. Membrana XENO-90: OK.
 
-Riflessioni applicate: 1 | Tunneling: 0
+Riflessioni applicate: 0 | Tunneling: 0

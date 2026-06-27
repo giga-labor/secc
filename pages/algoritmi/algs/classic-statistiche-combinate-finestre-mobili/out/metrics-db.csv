@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4216,Conteggio archivio fino al concorso 4216
+Concorsi analizzati,4217,Conteggio archivio fino al concorso 4217
 Media hit/sestina,0.38,Media numeri corretti per concorso
 Hit rate >= 2,4.7%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2822,Numero concorsi con esattamente 0 hit
+Con 0 hit,2823,Numero concorsi con esattamente 0 hit
 Con 1 hit,1195,Numero concorsi con esattamente 1 hit
 Con 2 hit,187,Numero concorsi con esattamente 2 hit
 Con 3 hit,11,Numero concorsi con esattamente 3 hit
@@ -10,13 +10,13 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2822 | 1: 1195 | 2: 187 | 3: 11 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-Media hit ultimi 100,0.43,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4216,Data estrazione: 20/06/2026
-Concorso successivo stimato,4217,Sestina proposta: 07 18 28 33 63 90
-Sestina proposta (prossimo concorso),07 18 28 33 63 90,Pronostico prodotto con addestramento incrementale
-Top6 finestra 50,28 57 58 68 87 07,Numeri piu frequenti nelle ultime 50
-Top6 finestra 100,07 08 33 06 18 28,Numeri piu frequenti nelle ultime 100
+Distribuzione hit 0-6,0: 2823 | 1: 1195 | 2: 187 | 3: 11 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Media hit ultimi 100,0.42,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4217,Data estrazione: 26/06/2026
+Concorso successivo stimato,4218,Sestina proposta: 07 18 24 28 33 57
+Sestina proposta (prossimo concorso),07 18 24 28 33 57,Pronostico prodotto con addestramento incrementale
+Top6 finestra 50,28 57 58 68 07 13,Numeri piu frequenti nelle ultime 50
+Top6 finestra 100,07 33 45 06 08 18,Numeri piu frequenti nelle ultime 100
 Top6 finestra 200,08 07 18 58 85 90,Numeri piu frequenti nelle ultime 200
 Overlap Top6 (50/100/200),1,Numeri presenti in tutte e tre le top6
-Volatilita finestre,11,Dispersione tra top list delle finestre
+Volatilita finestre,12,Dispersione tra top list delle finestre
