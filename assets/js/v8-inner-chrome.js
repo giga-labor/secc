@@ -113,6 +113,8 @@
     if (valueEl) valueEl.textContent = v8FormatRankingScore(numScore);
     if (ringArc && Number.isFinite(numScore) && Number.isFinite(numMax) && numMax > 0) {
       var pct = v8ComputeRingFill(numScore, numMax);
+      ringArc.setAttribute('stroke-dasharray', String(ringCirc));
+      ringArc.style.strokeDasharray = String(ringCirc);
       ringArc.style.strokeDashoffset = String((ringCirc * (1 - pct)).toFixed(1));
     }
   }
@@ -1428,6 +1430,10 @@
         } else {
           anchor.insertAdjacentElement('afterend', hero);
         }
+        v8ApplyHeroScoreToRing(hero, rankingValue, maxRankingValue, {
+          ringCirc: CIRC,
+          labelText: 'Punteggio storico'
+        });
         var scoreElInit = hero.querySelector('.v8sh-mid .v');
         if (scoreElInit) {
           scoreElInit.setAttribute('data-v8-score', String(Number.isFinite(rankingValue) ? rankingValue : 0));
@@ -1500,7 +1506,12 @@
         // anima il ring
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
-            hero.querySelector('.fgc').style.strokeDashoffset = (CIRC * (1 - pct)).toFixed(1);
+            var ringArc = hero.querySelector('.fgc');
+            if (ringArc) {
+              ringArc.setAttribute('stroke-dasharray', CIRC.toFixed(1));
+              ringArc.style.strokeDasharray = CIRC.toFixed(1);
+              ringArc.style.strokeDashoffset = (CIRC * (1 - pct)).toFixed(1);
+            }
             var scoreEl = hero.querySelector('[data-v8-score]');
             if (scoreEl) {
               var target = parseFloat(scoreEl.getAttribute('data-v8-score') || '0');
