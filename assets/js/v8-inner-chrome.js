@@ -1407,8 +1407,8 @@
               '<defs><linearGradient id="v8shg" x1="0" y1="0" x2="1" y2="1">' +
                 '<stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/>' +
               '</linearGradient></defs>' +
-              '<circle class="bgc" cx="150" cy="150" r="' + R + '" fill="none" stroke-width="10"/>' +
-              '<circle class="fgc" cx="150" cy="150" r="' + R + '" fill="none" stroke-width="10" ' +
+              '<circle class="bgc" cx="150" cy="150" r="' + R + '" fill="none" stroke="rgba(237,232,223,.06)" stroke-width="10"/>' +
+              '<circle class="fgc" cx="150" cy="150" r="' + R + '" fill="none" stroke="url(#v8shg)" stroke-width="10" ' +
                 'stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + CIRC.toFixed(1) + '"/>' +
             '</svg>' +
             '<div class="v8sh-mid">' +
@@ -1546,7 +1546,7 @@
           '<div class="v8sh-badges"><span class="v8sh-b on">&#9679; Attivo</span><span class="v8sh-b">Free tier</span><span class="v8sh-b">Metodo documentato</span></div>' +
         '</div>' +
         '<div class="v8sh-side">' +
-          '<div class="v8sh-ring"><svg width="190" height="190" viewBox="0 0 190 190"><defs><linearGradient id="v8shg-late" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs><circle class="bgc" cx="95" cy="95" r="78" fill="none" stroke-width="8"/><circle class="fgc" cx="95" cy="95" r="78" fill="none" stroke-width="8" stroke-dasharray="490" stroke-dashoffset="172"/></svg><div class="v8sh-mid"><span class="v">V8+</span><span class="l">Scheda migrata</span></div></div>' +
+          '<div class="v8sh-ring"><svg width="190" height="190" viewBox="0 0 190 190"><defs><linearGradient id="v8shg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="60%" stop-color="#C8391A"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient></defs><circle class="bgc" cx="95" cy="95" r="78" fill="none" stroke="rgba(237,232,223,.06)" stroke-width="8"/><circle class="fgc" cx="95" cy="95" r="78" fill="none" stroke="url(#v8shg)" stroke-width="8" stroke-dasharray="490" stroke-dashoffset="490"/></svg><div class="v8sh-mid"><span class="v">V8+</span><span class="l">Scheda migrata</span></div></div>' +
         '</div>';
       target.prepend(hero);
       (function enrichLateHero() {
