@@ -983,6 +983,28 @@
         if (!page.endsWith('/')) page = `${page}/`;
         return page;
       };
+      const loadOfficialRankingForCurrent = () => {
+        const currentId = resolveCurrentAlgorithmId();
+        if (!currentId) return Promise.resolve(null);
+        const rankingFetch = (typeof DataRegistry !== 'undefined')
+          ? DataRegistry.load('algorithms.rankings_db').catch(() => fetch('../../../../data/precomputed/ranking.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null))
+          : fetch('../../../../data/precomputed/ranking.json', { cache: 'no-store' }).then(res => { if (!res.ok) throw new Error(`status ${res.status}`); return res.json(); });
+        return rankingFetch.then((data) => {
+          const rows = Array.isArray(data?.rows) ? data.rows : [];
+          const idx = rows.findIndex((row) => {
+            const seg = String(row?.page || '').replace(/\\/g, '/').replace(/\/$/, '').split('/').pop();
+            return seg === currentId;
+          });
+          if (idx < 0) return null;
+          const score = Number(rows[idx]?.ranking);
+          return {
+            score: Number.isFinite(score) ? score : NaN,
+            position: idx + 1,
+            total: rows.length,
+            row: rows[idx]
+          };
+        }).catch(() => null);
+      };
       // computeGlobalRankingPosition — usa ranking.json precomputato invece di
       // caricare tutti i card.json + historical-db.csv a runtime (N fetch → 1 fetch).
       const computeGlobalRankingPosition = () => {
@@ -1169,16 +1191,29 @@
         }
         setSummaryRanking(rankingValue);
         refreshAlgoTabRanking(rankingValue, null); // aggiorna KPI nel tab Algoritmo
+        const metricsPayload = {
+          draws_covered: cards.get('concorsi analizzati')?.textContent || null,
+          avg_hits: cards.get('media hit/sestina')?.textContent || null,
+          hit_rate_gte_2: formatHitRateValue(cards.get('hit rate >= 2')?.textContent || ''),
+          best_streak: cards.get('best streak')?.textContent || null
+        };
         emitAlgoSheetData({
-          source: 'metrics-db',
+          source: 'metrics-db-local-fallback',
           ranking: formatRanking(rankingValue),
-          rankingRaw: rankingValue,
-          metrics: {
-            draws_covered: cards.get('concorsi analizzati')?.textContent || null,
-            avg_hits: cards.get('media hit/sestina')?.textContent || null,
-            hit_rate_gte_2: formatHitRateValue(cards.get('hit rate >= 2')?.textContent || ''),
-            best_streak: cards.get('best streak')?.textContent || null
-          }
+          rankingRaw: null,
+          metrics: metricsPayload
+        });
+        loadOfficialRankingForCurrent().then((official) => {
+          if (!official || !Number.isFinite(official.score)) return;
+          setSummaryRanking(official.score);
+          setSummaryPosition(`${official.position}/${official.total}`);
+          refreshAlgoTabRanking(official.score, `${official.position}/${official.total}`);
+          emitAlgoSheetData({
+            source: 'precomputed-ranking',
+            ranking: formatRanking(official.score),
+            rankingRaw: official.score,
+            metrics: metricsPayload
+          });
         });
       };
 
