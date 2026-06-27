@@ -87,6 +87,19 @@
     });
   }
 
+  function v8FormatRankingScore(value) {
+    var num = Number(value);
+    if (!Number.isFinite(num)) return '--';
+    return new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num);
+  }
+
+  function v8ComputeRingFill(score, maxScore) {
+    var s = Number(score);
+    var m = Number(maxScore);
+    if (!Number.isFinite(s) || !Number.isFinite(m) || m <= 0) return 0;
+    return Math.max(0, Math.min(1, s / m));
+  }
+
   // â”€â”€ AD RAIL ALIGN â”€â”€
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
   // Aggiungiamo padding-top pari alla topbar (64px) perche il contenuto
@@ -1311,7 +1324,7 @@
           var rv = Number(c && c.rankingValue);
           if (Number.isFinite(rv) && rv > maxRankingValue) maxRankingValue = rv;
         });
-        var pct = (Number.isFinite(rankingValue) && maxRankingValue > 0) ? Math.max(0, Math.min(1, rankingValue / maxRankingValue)) : 0.0;
+        var pct = v8ComputeRingFill(rankingValue, maxRankingValue);
 
         // metriche da exactHits
         var hits = card.exactHits || card.hits || null;
@@ -1334,7 +1347,7 @@
         stability = Math.max(8, Math.min(98, stability));
         var signal = Math.max(10, Math.min(96, Math.round(pct * 100)));
         var coverage = sum ? Math.max(10, Math.min(96, Math.round((1 - h0 / Math.max(1, sum)) * 100))) : signal;
-        var rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var rankingFmt = { format: v8FormatRankingScore };
 
         function synthNums(seedText) {
           var seed = 0;
@@ -1525,7 +1538,7 @@
         var midLabel = hero.querySelector('.v8sh-mid .l');
         var ringArc = hero.querySelector('.fgc');
         var ringCirc = 490;
-        var rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var rankingFmt = { format: v8FormatRankingScore };
         if (gr) gr.setAttribute('data-v8sh-family', '1');
         if (midValue) {
           midValue.setAttribute('data-v8sh-score', '1');
@@ -1538,7 +1551,7 @@
           var numMax = Number(maxScore);
           if (midValue && Number.isFinite(numScore)) midValue.textContent = rankingFmt.format(numScore);
           if (ringArc && Number.isFinite(numScore) && Number.isFinite(numMax) && numMax > 0) {
-            var pct = Math.max(0, Math.min(1, numScore / numMax));
+            var pct = v8ComputeRingFill(numScore, numMax);
             ringArc.style.strokeDashoffset = String((ringCirc * (1 - pct)).toFixed(1));
           }
         }
