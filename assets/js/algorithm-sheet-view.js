@@ -1171,7 +1171,8 @@
         refreshAlgoTabRanking(rankingValue, null); // aggiorna KPI nel tab Algoritmo
         emitAlgoSheetData({
           source: 'metrics-db',
-          ranking: rankingValue,
+          ranking: formatRanking(rankingValue),
+          rankingRaw: rankingValue,
           metrics: {
             draws_covered: cards.get('concorsi analizzati')?.textContent || null,
             avg_hits: cards.get('media hit/sestina')?.textContent || null,
@@ -1285,6 +1286,7 @@
         emitAlgoSheetData({
           source: 'snapshot',
           ranking: rankingValueEl ? String(rankingValueEl.textContent || '').trim() : null,
+          rankingRaw: null,
           metrics: {
             draws_covered: metricMap['concorsi analizzati'],
             avg_hits: metricMap['media hit/sestina'],
