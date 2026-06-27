@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="robots" content="index,follow,max-image-preview:large"/>
-<meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <meta name="robots" content="index,follow,max-image-preview:large"/>
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
   <script>
     (function () {
       var root = document.documentElement;
@@ -28,19 +28,19 @@
       root.style.setProperty('--header-fade-height', (initialHeaderOffset + 1) + 'px');
     })();
   </script>
-<title>ASTRA Moon - SuperEnalotto Control Chaos</title>
-  <meta name="description" content="Scheda algoritmo ASTRA Moon: ranking numerico da effemeridi lunari con riferimento fisso 20:30 Europe/Rome e backtest incrementale."/>
+  <title>ASTRA Moon - SuperEnalotto Control Chaos</title>
+  <meta name="description" content="Scheda algoritmo ASTRA Moon: storico, metriche, analisi e grafici operativi."/>
   <link rel="canonical" href="https://www.superenalottocc.it/pages/algoritmi/algs/astra-moon/"/>
   <meta property="og:locale" content="it_IT"/>
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="SuperEnalotto Control Chaos"/>
   <meta property="og:title" content="ASTRA Moon - SuperEnalotto Control Chaos"/>
-  <meta property="og:description" content="Scheda algoritmo ASTRA Moon: ranking numerico da effemeridi lunari con riferimento fisso 20:30 Europe/Rome e backtest incrementale."/>
+  <meta property="og:description" content="Scheda algoritmo ASTRA Moon: storico, metriche, analisi e grafici operativi."/>
   <meta property="og:url" content="https://www.superenalottocc.it/pages/algoritmi/algs/astra-moon/"/>
   <meta property="og:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/astra-moon/img.webp"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="ASTRA Moon - SuperEnalotto Control Chaos"/>
-  <meta name="twitter:description" content="Scheda algoritmo ASTRA Moon: ranking numerico da effemeridi lunari con riferimento fisso 20:30 Europe/Rome e backtest incrementale."/>
+  <meta name="twitter:description" content="Scheda algoritmo ASTRA Moon: storico, metriche, analisi e grafici operativi."/>
   <meta name="twitter:image" content="https://www.superenalottocc.it/pages/algoritmi/algs/astra-moon/img.webp"/>
   <meta name="view-transition" content="same-origin">
   <script src="../../../../assets/js/ga4.js" defer></script>
@@ -51,51 +51,51 @@
   <link rel="stylesheet" href="../../../../assets/css/redesign-neo.css">
   <link rel="stylesheet" href="../../../../assets/css/site-guide.css">
   <link rel="stylesheet" href="../../../../assets/css/user-first.css">
-  <link rel="stylesheet" href="/assets/css/balls-standard.css">  <link rel="stylesheet" href="/assets/css/alg-sheet.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/assets/css/balls-standard.css">
+  <link rel="stylesheet" href="/assets/css/alg-sheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "ASTRA Moon - SuperEnalotto Control Chaos",
-  "url": "https://www.superenalottocc.it/pages/algoritmi/algs/astra-moon/",
-  "description": "Scheda algoritmo ASTRA Moon: ranking numerico da effemeridi lunari con riferimento fisso 20:30 Europe/Rome e backtest incrementale.",
-  "inLanguage": "it-IT",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "SuperEnalotto Control Chaos",
-    "url": "https://www.superenalottocc.it/"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ASTRA Moon - SuperEnalotto Control Chaos",
+    "url": "https://www.superenalottocc.it/pages/algoritmi/algs/astra-moon/",
+    "description": "Scheda algoritmo ASTRA Moon: storico, metriche, analisi e grafici operativi.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "SuperEnalotto Control Chaos",
+      "url": "https://www.superenalottocc.it/"
+    }
   }
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
-<script src="../../../../assets/js/v8-inner-chrome.js?v=jackpot-two-lines-1" defer></script>
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <script src="../../../../assets/js/v8-inner-chrome.js?v=jackpot-two-lines-1" defer></script>
 </head>
 <body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="algsheet" id="top" data-style-lock="final">
-<main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
-
-      <h1 class="sr-only">ASTRA Moon</h1>
-        <div class="content-box">
+  <main class="content-fade mx-auto max-w-5xl content-width cc-operational-shell px-6 py-2">
+    <h1 class="sr-only">ASTRA Moon</h1>
+    <div class="content-box">
       <header class="mt-6 space-y-3" data-page-kicker-wrap>
         <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Scheda algoritmo</span>
       </header>
-<div class="tabs-shell mt-4 text-sm text-ash" data-tabs-root data-tab-panel-label="off">
-          <div class="folder-tabs">
-            <button class="tab-btn is-active" type="button" data-tab-target="algoritmo">Algoritmo</button>
-            <button class="tab-btn" type="button" data-tab-target="storica">Storica</button>
-            <button class="tab-btn" type="button" data-tab-target="metriche">Metriche</button>
-            <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
-            <button class="tab-btn" type="button" data-tab-target="grafici">Grafici</button>
-          </div><div class="tabs-sheet">
+      <div class="tabs-shell mt-4 text-sm text-ash" data-tabs-root data-tab-panel-label="off">
+        <div class="folder-tabs">
+          <button class="tab-btn is-active" type="button" data-tab-target="algoritmo">Algoritmo</button>
+          <button class="tab-btn" type="button" data-tab-target="storica">Storica</button>
+          <button class="tab-btn" type="button" data-tab-target="metriche">Metriche</button>
+          <button class="tab-btn" type="button" data-tab-target="analisi">Analisi</button>
+          <button class="tab-btn" type="button" data-tab-target="grafici">Grafici</button>
+        </div>
+        <div class="tabs-sheet">
           <section class="tab-panel is-active space-y-4" data-tab-panel="algoritmo">
             <section class="rounded-3xl border border-white/10 bg-transparent p-6" data-adsense-quality="1">
-      <h3 class="text-xl font-semibold">ASTRA Moon</h3>
-      <p class="mt-3 text-sm text-ash">Questa scheda mostra l uso pratico del modulo: storico, metriche e confronto rapido.</p>
-      <p class="mt-3 text-sm text-ash">Per i dettagli tecnici completi (metodo, limiti e analisi estesa) usa il Laboratorio tecnico.</p>
-      <a class="mt-4 inline-flex rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../../laboratorio-tecnico/">Apri il Laboratorio tecnico completo</a>
-    </section>
+              <h3 class="text-xl font-semibold">ASTRA Moon</h3>
+              <p class="mt-3 text-sm text-ash">Questa scheda mostra l'uso pratico del modulo: storico, metriche e confronto rapido.</p>
+              <p class="mt-3 text-sm text-ash">Per i dettagli tecnici completi (metodo, limiti e analisi estesa) usa il Laboratorio tecnico.</p>
+              <a class="mt-4 inline-flex rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../../laboratorio-tecnico/">Apri il Laboratorio tecnico completo</a>
+            </section>
           </section>
           <section class="tab-panel space-y-4" data-tab-panel="storica">
             <div class="overflow-x-auto rounded-2xl border border-white/10">
@@ -119,27 +119,26 @@
               <button type="button" class="rounded-md border border-white/15 px-2 py-1 text-ash transition hover:border-neon/60 hover:text-neon disabled:opacity-40 disabled:cursor-not-allowed" data-historical-next>Succ</button>
             </div>
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="metriche">
             <p data-metrics-intro>Metriche di efficacia dell'algoritmo su storico validato.</p>
             <div class="overflow-x-auto">
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">--</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">--</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">--</p>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
-                <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
-                <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">--</p>
-              </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Concorsi analizzati</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="concorsi analizzati">--</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Media hit/sestina</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="media hit/sestina">--</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Hit rate &gt;= 2</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="hit rate >= 2">--</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-midnight/80 px-2.5 py-1.5">
+                  <p class="text-[0.7rem] uppercase tracking-[0.1em] text-ash">Best streak</p>
+                  <p class="mt-1 text-base font-semibold text-white" data-metric-card="best streak">--</p>
+                </div>
               </div>
             </div>
             <div class="overflow-x-auto rounded-2xl border border-white/10">
@@ -157,15 +156,14 @@
               </table>
             </div>
           </section>
-
           <section class="tab-panel space-y-4" data-tab-panel="analisi">
             <p data-analysis-intro>La parola all'esperto</p>
             <div class="rounded-2xl border border-white/10 bg-midnight/60 px-4 py-3">
               <p class="whitespace-pre-line break-words text-sm leading-relaxed text-white" data-analysis-text><span class="cc-skeleton cc-skeleton--block inline-block h-4 w-3/4" aria-hidden="true"></span></p>
             </div>
-          
+          </section>
           <section class="tab-panel space-y-4" data-tab-panel="grafici">
-            <p class="text-sm text-ash">Statistiche visuali generate dai dati reali dell&apos;algoritmo.</p>
+            <p class="text-sm text-ash">Statistiche visuali generate dai dati reali dell'algoritmo.</p>
             <div class="space-y-6">
               <div>
                 <p class="mb-2 text-xs uppercase tracking-widest text-ash">Distribuzione hit per sestina</p>
@@ -186,26 +184,23 @@
                 </div>
               </div>
             </div>
-          </section></div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   </main>
-
-  
-
-    <script src="../../../../assets/js/core/cache-engine.js" defer></script>
-<script src="../../../../assets/js/core/data-repository.js" defer></script>
-<script src="../../../../assets/js/core/page-orchestrator.js" defer></script>
-<script src="../../../../assets/js/architects/base.architect.js" defer></script>
-<script src="../../../../assets/js/architects/algsheet.architect.js" defer></script>
-<script src="../../../../assets/js/directors/algsheet.director.js" defer></script>
-<script src="../../../../assets/js/version.js" defer></script>
-<script src="../../../../assets/js/header.js" defer></script>
-<script src="../../../../assets/js/runtime-bootstrap.js" defer></script>
-<script src="../../../../assets/js/algorithm-sheet-view.js?v=20260613-history-inline" defer></script>
-<script src="../../../../assets/js/component-builder.js" defer></script>
-<script src="../../../../assets/js/ads.js?v=no-footer-version-1" defer></script>
+  <script src="../../../../assets/js/core/cache-engine.js" defer></script>
+  <script src="../../../../assets/js/core/data-repository.js" defer></script>
+  <script src="../../../../assets/js/core/page-orchestrator.js" defer></script>
+  <script src="../../../../assets/js/architects/base.architect.js" defer></script>
+  <script src="../../../../assets/js/architects/algsheet.architect.js" defer></script>
+  <script src="../../../../assets/js/directors/algsheet.director.js" defer></script>
+  <script src="../../../../assets/js/version.js" defer></script>
+  <script src="../../../../assets/js/header.js" defer></script>
+  <script src="../../../../assets/js/runtime-bootstrap.js" defer></script>
+  <script src="../../../../assets/js/algorithm-sheet-view.js?v=20260613-history-inline" defer></script>
+  <script src="../../../../assets/js/component-builder.js" defer></script>
+  <script src="../../../../assets/js/ads.js?v=no-footer-version-1" defer></script>
   <script src="../../../../assets/js/lazy-bootstrap.js" defer></script>
   <script src="../../../../assets/js/tab-hash.js?v=20260613-0138" defer></script>
   <script src="../../../../assets/js/chart-renderer.js" defer></script>
@@ -213,19 +208,12 @@
     document.addEventListener('DOMContentLoaded', function () {
       var slug = 'astra-moon';
       ChartRenderer.loadAndRender(slug, '../../../../', {
-        hitDist:  document.getElementById('chart-hit-dist'),
-        numFreq:  document.getElementById('chart-num-freq'),
-        timeline: document.getElementById('chart-timeline'),
+        hitDist: document.getElementById('chart-hit-dist'),
+        numFreq: document.getElementById('chart-num-freq'),
+        timeline: document.getElementById('chart-timeline')
       });
     });
   </script>
-<script src="../../../../assets/js/scroll-hint.js" defer></script>
+  <script src="../../../../assets/js/scroll-hint.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
