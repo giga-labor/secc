@@ -1196,11 +1196,17 @@
 
         // Metriche come data-metric-card
         const m = snap.metrics || {};
+        const formatHitRate = (value) => {
+          if (value == null || value === '') return null;
+          const num = Number(value);
+          if (!Number.isFinite(num)) return null;
+          return (num > 1 ? num : num * 100).toFixed(1) + '%';
+        };
         const metricMap = {
           'concorsi analizzati': m.draws_covered != null ? String(m.draws_covered) : null,
-          'media hit/sestina': m.avg_hits != null ? m.avg_hits.toFixed(2) : null,
-          'hit rate >= 2': m.hit_rate_gte_2 != null ? (m.hit_rate_gte_2 * 100).toFixed(1) + '%' : null,
-          'hit rate >= 3': m.hit_rate_gte_3 != null ? (m.hit_rate_gte_3 * 100).toFixed(1) + '%' : null,
+          'media hit/sestina': m.avg_hits != null ? Number(m.avg_hits).toFixed(2) : null,
+          'hit rate >= 2': formatHitRate(m.hit_rate_gte_2),
+          'hit rate >= 3': formatHitRate(m.hit_rate_gte_3),
           'best streak': m.best_streak != null ? String(m.best_streak) : null,
         };
         document.querySelectorAll('[data-metric-card]').forEach((el) => {
@@ -1214,9 +1220,9 @@
           const rows = [];
           if (lastSeq) rows.push({ label: 'Ultimo concorso calcolato', value: lastDate ? `${lastSeq} (${lastDate})` : String(lastSeq) });
           if (m.draws_covered != null) rows.push({ label: 'Concorsi analizzati', value: String(m.draws_covered) });
-          if (m.avg_hits != null) rows.push({ label: 'Media hit/sestina', value: m.avg_hits.toFixed(2) });
-          if (m.hit_rate_gte_2 != null) rows.push({ label: 'Hit rate ≥ 2', value: (m.hit_rate_gte_2 * 100).toFixed(1) + '%' });
-          if (m.hit_rate_gte_3 != null) rows.push({ label: 'Hit rate ≥ 3', value: (m.hit_rate_gte_3 * 100).toFixed(1) + '%' });
+          if (m.avg_hits != null) rows.push({ label: 'Media hit/sestina', value: Number(m.avg_hits).toFixed(2) });
+          if (m.hit_rate_gte_2 != null) rows.push({ label: 'Hit rate ≥ 2', value: formatHitRate(m.hit_rate_gte_2) });
+          if (m.hit_rate_gte_3 != null) rows.push({ label: 'Hit rate ≥ 3', value: formatHitRate(m.hit_rate_gte_3) });
           if (m.best_streak != null) rows.push({ label: 'Best streak', value: String(m.best_streak) });
           // Finestre
           if (snap.windows) {

@@ -1511,9 +1511,6 @@
         '</div>';
       target.prepend(hero);
       (function enrichLateHero() {
-        var kpis = Array.prototype.slice.call(document.querySelectorAll('[data-metric-card]')).map(function (el) {
-          return (el.textContent || '').trim();
-        });
         var gr = hero.querySelector('.v8sh-gr');
         var midValue = hero.querySelector('.v8sh-mid .v');
         var midLabel = hero.querySelector('.v8sh-mid .l');
@@ -1523,16 +1520,80 @@
           if (midValue.textContent === 'V8+') midValue.textContent = '--';
         }
         if (midLabel) midLabel.textContent = 'Rank catalogo';
-        if (!hero.querySelector('.v8sh-metrics')) {
-          var metrics = document.createElement('div');
-          metrics.className = 'v8sh-metrics';
-          metrics.innerHTML =
-            '<div class="v8sh-m"><b>' + (kpis[0] || '--') + '</b><span>Concorsi</span><i style="--w:82%"></i></div>' +
-            '<div class="v8sh-m"><b>' + (kpis[1] || '--') + '</b><span>Hit medi</span><i style="--w:52%"></i></div>' +
-            '<div class="v8sh-m"><b>' + (kpis[2] || '--') + '</b><span>Hit rate</span><i style="--w:44%"></i></div>';
+
+        var metricsHost = hero.querySelector('.v8sh-metrics');
+        if (!metricsHost) {
+          metricsHost = document.createElement('div');
+          metricsHost.className = 'v8sh-metrics';
+          metricsHost.innerHTML =
+            '<div class="v8sh-m"><b>--</b><span>Concorsi</span><i style="--w:82%"></i></div>' +
+            '<div class="v8sh-m"><b>--</b><span>Hit medi</span><i style="--w:52%"></i></div>' +
+            '<div class="v8sh-m"><b>--</b><span>Hit rate</span><i style="--w:44%"></i></div>';
           var left = hero.firstElementChild;
-          if (left) left.appendChild(metrics);
+          if (left) left.appendChild(metricsHost);
         }
+
+        function readMetricCards() {
+          var map = {};
+          Array.prototype.slice.call(document.querySelectorAll('[data-metric-card]')).forEach(function (el) {
+            var key = String(el.getAttribute('data-metric-card') || '').trim().toLowerCase();
+            map[key] = (el.textContent || '').trim();
+          });
+          return map;
+        }
+
+        function updateHeroMetrics(values) {
+          if (!metricsHost) return;
+          var cards = Array.prototype.slice.call(metricsHost.querySelectorAll('.v8sh-m b'));
+          if (cards[0] && values.concorsi) cards[0].textContent = values.concorsi;
+          if (cards[1] && values.media) cards[1].textContent = values.media;
+          if (cards[2] && values.hitRate) cards[2].textContent = values.hitRate;
+        }
+
+        function syncHeroMetricsFromDom() {
+          var metricMap = readMetricCards();
+          updateHeroMetrics({
+            concorsi: metricMap['concorsi analizzati'] || '--',
+            media: metricMap['media hit/sestina'] || '--',
+            hitRate: metricMap['hit rate >= 2'] || '--'
+          });
+        }
+
+        syncHeroMetricsFromDom();
+        window.setTimeout(syncHeroMetricsFromDom, 250);
+        window.setTimeout(syncHeroMetricsFromDom, 1000);
+        window.setTimeout(syncHeroMetricsFromDom, 2500);
+
+        if (typeof MutationObserver === 'function') {
+          var metricNodes = Array.prototype.slice.call(document.querySelectorAll('[data-metric-card]'));
+          if (metricNodes.length) {
+            var observer = new MutationObserver(function () {
+              syncHeroMetricsFromDom();
+            });
+            metricNodes.forEach(function (node) {
+              observer.observe(node, { childList: true, subtree: true, characterData: true });
+            });
+          }
+        }
+
+        fetch('out/snapshot.json', { cache: 'no-store' })
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .then(function (snap) {
+            if (!snap || !snap.metrics) return;
+            var m = snap.metrics || {};
+            var hitRate = m.hit_rate_gte_2;
+            var hitRateText = '--';
+            if (typeof hitRate === 'number' && isFinite(hitRate)) {
+              hitRateText = (hitRate > 1 ? hitRate.toFixed(1) : (hitRate * 100).toFixed(1)) + '%';
+            }
+            updateHeroMetrics({
+              concorsi: m.draws_covered != null ? String(m.draws_covered) : '--',
+              media: m.avg_hits != null ? Number(m.avg_hits).toFixed(2) : '--',
+              hitRate: hitRateText
+            });
+          })
+          .catch(function () {});
+
         v8FetchJson('/data/cards-index.json', { cache: 'no-store' })
           .then(function (cards) {
             cards = Array.isArray(cards) ? cards : [];
