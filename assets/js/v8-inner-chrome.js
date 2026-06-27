@@ -100,6 +100,23 @@
     return Math.max(0, Math.min(1, s / m));
   }
 
+  function v8ApplyHeroScoreToRing(hero, score, maxScore, opts) {
+    if (!hero) return;
+    opts = opts || {};
+    var valueEl = hero.querySelector('.v8sh-mid .v');
+    var labelEl = hero.querySelector('.v8sh-mid .l');
+    var ringArc = hero.querySelector('.fgc');
+    var ringCirc = Number(opts.ringCirc) || Number(ringArc && ringArc.getAttribute('stroke-dasharray')) || 490;
+    var numScore = Number(score);
+    var numMax = Number(maxScore);
+    if (labelEl && opts.labelText) labelEl.textContent = opts.labelText;
+    if (valueEl) valueEl.textContent = v8FormatRankingScore(numScore);
+    if (ringArc && Number.isFinite(numScore) && Number.isFinite(numMax) && numMax > 0) {
+      var pct = v8ComputeRingFill(numScore, numMax);
+      ringArc.style.strokeDashoffset = String((ringCirc * (1 - pct)).toFixed(1));
+    }
+  }
+
   // â”€â”€ AD RAIL ALIGN â”€â”€
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
   // Aggiungiamo padding-top pari alla topbar (64px) perche il contenuto
@@ -1536,25 +1553,13 @@
         var gr = hero.querySelector('.v8sh-gr');
         var midValue = hero.querySelector('.v8sh-mid .v');
         var midLabel = hero.querySelector('.v8sh-mid .l');
-        var ringArc = hero.querySelector('.fgc');
         var ringCirc = 490;
-        var rankingFmt = { format: v8FormatRankingScore };
         if (gr) gr.setAttribute('data-v8sh-family', '1');
         if (midValue) {
           midValue.setAttribute('data-v8sh-score', '1');
           if (midValue.textContent === 'V8+') midValue.textContent = '--';
         }
         if (midLabel) midLabel.textContent = 'Punteggio storico';
-
-        function updateRingFromScore(score, maxScore) {
-          var numScore = Number(score);
-          var numMax = Number(maxScore);
-          if (midValue && Number.isFinite(numScore)) midValue.textContent = rankingFmt.format(numScore);
-          if (ringArc && Number.isFinite(numScore) && Number.isFinite(numMax) && numMax > 0) {
-            var pct = v8ComputeRingFill(numScore, numMax);
-            ringArc.style.strokeDashoffset = String((ringCirc * (1 - pct)).toFixed(1));
-          }
-        }
 
         var metricsHost = hero.querySelector('.v8sh-metrics');
         if (!metricsHost) {
@@ -1676,7 +1681,10 @@
           }, 0);
           if (maxScore > 0) window.__SECC_ALGO_RANKING_MAX__ = maxScore;
           if (row && Number.isFinite(Number(row.ranking))) {
-            updateRingFromScore(Number(row.ranking), maxScore || Number(row.ranking));
+            v8ApplyHeroScoreToRing(hero, Number(row.ranking), maxScore || Number(row.ranking), {
+              ringCirc: ringCirc,
+              labelText: 'Punteggio storico'
+            });
           }
         }).catch(function () {});
       })();
