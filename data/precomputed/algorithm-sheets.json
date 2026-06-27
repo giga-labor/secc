@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-27 18:11:33",
-  "count": 17,
+  "generated_at": "2026-06-27 18:13:55",
+  "count": 18,
   "sheets": {
     "astra-moon": {
       "slug": "astra-moon",
@@ -1306,7 +1306,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 71,
+        "ranking_stability_pct": 72,
         "avg_hits": "0.42",
         "hit_rate_gte_2": "5.5%",
         "hit_rate_gte_3": "0.3%",
@@ -2627,7 +2627,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 47,
+        "ranking_stability_pct": 50,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.6%",
         "hit_rate_gte_3": "0.4%",
@@ -3948,7 +3948,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 18,
+        "ranking_stability_pct": 22,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
@@ -5269,7 +5269,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 41,
+        "ranking_stability_pct": 44,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "0.4%",
@@ -6590,7 +6590,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 29,
+        "ranking_stability_pct": 33,
         "avg_hits": "0.38",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.1%",
@@ -7911,7 +7911,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 53,
+        "ranking_stability_pct": 56,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.4%",
@@ -10553,7 +10553,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 82,
+        "ranking_stability_pct": 83,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.3%",
@@ -10576,7 +10576,7 @@
       "title": "ritardi",
       "subtitle": "Analisi dei numeri in ritardo (overdue)",
       "family": "statistica",
-      "rank_position": 16,
+      "rank_position": 17,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "09/02/2026",
@@ -11874,7 +11874,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 12,
+        "ranking_stability_pct": 11,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.4%",
@@ -14516,7 +14516,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 88,
+        "ranking_stability_pct": 89,
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.9%",
         "hit_rate_gte_3": "0.3%",
@@ -14539,7 +14539,7 @@
       "title": "GeneticSE",
       "subtitle": "Multi-agent online learning con aggiornamenti continui",
       "family": "neurale",
-      "rank_position": 17,
+      "rank_position": 18,
       "is_active": true,
       "access_tier": "free",
       "last_updated": "07/02/2026",
@@ -17158,7 +17158,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 65,
+        "ranking_stability_pct": 67,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.4%",
         "hit_rate_gte_3": "0.4%",
@@ -18479,7 +18479,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 76,
+        "ranking_stability_pct": 78,
         "avg_hits": "0.39",
         "hit_rate_gte_2": "5.0%",
         "hit_rate_gte_3": "0.36%",
@@ -19800,7 +19800,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 24,
+        "ranking_stability_pct": 28,
         "avg_hits": "0.3895",
         "hit_rate_gte_2": "4.60%",
         "hit_rate_gte_3": "0.28%",
@@ -21121,7 +21121,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 59,
+        "ranking_stability_pct": 61,
         "avg_hits": "0.43",
         "hit_rate_gte_2": "5.8%",
         "hit_rate_gte_3": "0.2%",
@@ -22435,7 +22435,7 @@
         ]
       },
       "metrics": {
-        "ranking_stability_pct": 35,
+        "ranking_stability_pct": 39,
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.7%",
         "hit_rate_gte_3": "0.4%",
@@ -22449,6 +22449,1327 @@
         "method": "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni.",
         "output": "historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/.",
         "limits": "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale.",
+        "observed_results": ""
+      }
+    },
+    "arc90-logico-algoritmica": {
+      "slug": "arc90-logico-algoritmica",
+      "page": "pages/algoritmi/algs/arc90-logico-algoritmica/",
+      "title": "ARC90",
+      "subtitle": "Algoritmo ibrido neurale-statistico con scoring e regole proprietarie",
+      "family": "ibrido",
+      "rank_position": 16,
+      "is_active": true,
+      "access_tier": "free",
+      "last_updated": "07/02/2026",
+      "proposal": [
+        1,
+        22,
+        30,
+        45,
+        73,
+        76
+      ],
+      "performance": {
+        "label": "Performance - ultimi 40 concorsi",
+        "rows": [
+          {
+            "seq": "4178",
+            "date": "11/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 10,
+                "hit": false
+              },
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 17,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4179",
+            "date": "14/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 19,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 77,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4180",
+            "date": "16/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 66,
+                "hit": false
+              },
+              {
+                "number": 27,
+                "hit": false
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 20,
+                "hit": false
+              },
+              {
+                "number": 5,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4181",
+            "date": "17/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 11,
+                "hit": false
+              },
+              {
+                "number": 54,
+                "hit": false
+              },
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 9,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4182",
+            "date": "18/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 27,
+                "hit": false
+              },
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 84,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.0
+          },
+          {
+            "seq": "4183",
+            "date": "21/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 11,
+                "hit": false
+              },
+              {
+                "number": 77,
+                "hit": true
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 22,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1667
+          },
+          {
+            "seq": "4184",
+            "date": "23/04/2026",
+            "hit": 2,
+            "picks": [
+              {
+                "number": 18,
+                "hit": true
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 40,
+                "hit": false
+              },
+              {
+                "number": 56,
+                "hit": true
+              },
+              {
+                "number": 19,
+                "hit": false
+              },
+              {
+                "number": 77,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4286
+          },
+          {
+            "seq": "4185",
+            "date": "24/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 56,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.375
+          },
+          {
+            "seq": "4186",
+            "date": "27/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 37,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3333
+          },
+          {
+            "seq": "4187",
+            "date": "28/04/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              },
+              {
+                "number": 87,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": true
+              },
+              {
+                "number": 40,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4188",
+            "date": "30/04/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 29,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 60,
+                "hit": false
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4189",
+            "date": "02/05/2026",
+            "hit": 2,
+            "picks": [
+              {
+                "number": 58,
+                "hit": true
+              },
+              {
+                "number": 7,
+                "hit": true
+              },
+              {
+                "number": 52,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 15,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4190",
+            "date": "04/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 60,
+                "hit": false
+              },
+              {
+                "number": 84,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 79,
+                "hit": false
+              },
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4191",
+            "date": "05/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 14,
+                "hit": false
+              },
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 46,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4192",
+            "date": "07/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": false
+              },
+              {
+                "number": 34,
+                "hit": true
+              },
+              {
+                "number": 81,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 87,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.7
+          },
+          {
+            "seq": "4193",
+            "date": "08/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 66,
+                "hit": false
+              },
+              {
+                "number": 1,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 34,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4194",
+            "date": "09/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 16,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              },
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4195",
+            "date": "12/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 27,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 30,
+                "hit": false
+              },
+              {
+                "number": 9,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4196",
+            "date": "14/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": false
+              },
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4197",
+            "date": "15/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 74,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 84,
+                "hit": false
+              },
+              {
+                "number": 56,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4198",
+            "date": "16/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 17,
+                "hit": false
+              },
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 5,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4199",
+            "date": "19/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 60,
+                "hit": false
+              },
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4200",
+            "date": "21/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 57,
+                "hit": true
+              },
+              {
+                "number": 79,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              },
+              {
+                "number": 49,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4201",
+            "date": "23/05/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 38,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": false
+              },
+              {
+                "number": 1,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.4
+          },
+          {
+            "seq": "4202",
+            "date": "26/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 59,
+                "hit": false
+              },
+              {
+                "number": 14,
+                "hit": false
+              },
+              {
+                "number": 29,
+                "hit": false
+              },
+              {
+                "number": 34,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4203",
+            "date": "28/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 10,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4204",
+            "date": "29/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 78,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 22,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4205",
+            "date": "30/05/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 46,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 9,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4206",
+            "date": "04/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 21,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 8,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4207",
+            "date": "05/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4208",
+            "date": "06/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": true
+              },
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              },
+              {
+                "number": 9,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4209",
+            "date": "08/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 29,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4210",
+            "date": "09/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 87,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4211",
+            "date": "11/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              },
+              {
+                "number": 73,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4212",
+            "date": "12/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 87,
+                "hit": false
+              },
+              {
+                "number": 21,
+                "hit": false
+              },
+              {
+                "number": 22,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 40,
+                "hit": false
+              },
+              {
+                "number": 7,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
+          },
+          {
+            "seq": "4213",
+            "date": "13/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": true
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4214",
+            "date": "16/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 87,
+                "hit": false
+              },
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 90,
+                "hit": false
+              },
+              {
+                "number": 34,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.2
+          },
+          {
+            "seq": "4215",
+            "date": "18/06/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 80,
+                "hit": false
+              },
+              {
+                "number": 66,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": true
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4216",
+            "date": "20/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 87,
+                "hit": false
+              },
+              {
+                "number": 70,
+                "hit": false
+              },
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 39,
+                "hit": false
+              },
+              {
+                "number": 26,
+                "hit": false
+              },
+              {
+                "number": 4,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          },
+          {
+            "seq": "4217",
+            "date": "26/06/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              },
+              {
+                "number": 14,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
+          }
+        ]
+      },
+      "metrics": {
+        "ranking_stability_pct": 17,
+        "avg_hits": "0.3921",
+        "hit_rate_gte_2": "5.00%",
+        "hit_rate_gte_3": "0.26%",
+        "last_200_avg": "0.3400",
+        "std_hit": "0.5907"
+      },
+      "method": {
+        "intro": "ARC90 e un algoritmo ibrido neurale-statistico progettato per lavorare in modo strutturato su una sequenza temporale di estrazioni, con un obiettivo pratico: trasformare uno storico grezzo in un sistema coerente di proposta, valutazione e aggiornamento continuo. Non nasce come oracolo, ma come motore di ranking: prende dati storici, costruisce rappresentazioni interne, aggiorna i pesi in modo progressivo e produce una sestina candidata per il concorso successivo insieme a metriche osservabili. Il suo valore sta piu nella disciplina del processo che nella promessa del risultato.\n\nL'architettura concettuale di ARC90 ruota attorno a tre blocchi. Il primo e la memoria strutturata dei concorsi, implementata come insieme di neuroni permanenti: ogni concorso storico diventa un neurone con identita propria, feature, vettore di predizione e metadati di affidabilita. Il secondo e il backbone, una memoria trasversale che cattura relazioni numero-numero e segnali aggregati utili a mantenere continuita nel tempo. Il terzo e il livello neurale di apprendimento, che aggiorna i vettori di predizione in ottica incrementale usando lo storico disponibile fino a quel momento. Insieme, questi tre livelli permettono ad ARC90 di evitare sia l'approccio puramente statico, sia quello puramente black-box.\n\nIl dato di partenza e l'archivio draws, ordinato per numero sequenziale. Da ogni riga ARC90 estrae i sei numeri validi del concorso, verifica coerenza minima e li integra nello stato interno. L'integrazione non e solo salvataggio: il concorso viene trasformato in una rappresentazione chiamata DNA, un vettore di feature che sintetizza informazioni come frequenze, ritardi, segnali recenti e pattern locali utili a descrivere il contesto in cui quel concorso e avvenuto. Questo passaggio e importante perche il modello non impara direttamente da una sestina nuda, ma da una codifica che prova a catturare struttura, non solo valori.\n\nUna componente chiave di ARC90 e la credibilita dei neuroni. Ogni neurone possiede un livello di credibilita dinamico, aggiornato in base al comportamento osservato e a regole di stabilita. In termini pratici, i neuroni non pesano tutti uguale quando si aggrega una proposta: un neurone piu credibile ha piu influenza nella costruzione della previsione di consenso. Questo riduce il rumore di record poco informativi e favorisce continuita nei segnali che nel tempo risultano piu robusti. La credibilita, pero, non e definitiva: puo salire o scendere in funzione dei cicli di aggiornamento e delle regole di decadimento.\n\nSul fronte predittivo, ARC90 lavora su 90 classi, una per ogni numero possibile. Il modello neurale produce un vettore di score su 90 posizioni; questi score vengono poi combinati con logiche di consenso, pesi di credibilita e vincoli operativi per estrarre una top-6 ordinata. In altre parole, la sestina finale non e il frutto di una singola decisione binaria, ma l'esito di un ranking su spazio completo, poi ridotto ai sei numeri con punteggio relativo piu forte. Questo approccio e piu coerente con il problema reale rispetto a una previsione diretta e rigida.\n\nIl training e incrementale. Significa che, quando arrivano nuovi concorsi, ARC90 non riparte da zero ogni volta: aggiorna il modello sul delta informativo mantenendo memoria dello stato precedente. Questo approccio e utile per due motivi: costo computazionale piu sostenibile e adattamento progressivo ai cambiamenti di regime statistico. In un dominio dove i pattern sono instabili e spesso deboli, la capacita di aggiornare in continuo senza distruggere la memoria precedente e piu pragmatica di un retrain totale frequente.\n\nUn aspetto fondamentale, soprattutto per valutare l'algoritmo in modo onesto, e l'anti-leakage temporale. ARC90, nel flusso corretto, deve generare una proposta per un concorso usando solo informazione disponibile prima di quel concorso, non dopo. In pratica, la validazione storica va fatta in stile walk-forward: predici, poi osservi il risultato, poi aggiorni. Questa disciplina evita l'errore piu comune nei sistemi predittivi su serie temporali: sembrare molto migliori di quanto siano davvero per uso accidentale di informazione futura durante la valutazione.\n\nL'output operativo e pensato per essere trasparente: mostra storico proposte con hit marcati, tabella metriche e analisi testuale. Questa standardizzazione non e solo comodita di consultazione: obbliga il motore a rendere espliciti i risultati in forma verificabile. Lo storico mostra come si comportano le proposte sui concorsi gia chiusi, le metriche condensano indicatori di copertura e hit rate, l'analisi fornisce contesto interpretativo e limiti. E una forma di accountability: se le performance sono deboli, deve emergere chiaramente.\n\nDal punto di vista statistico, ARC90 va letto con prudenza metodologica. Le lotterie hanno componente aleatoria elevata; anche quando emergono pattern, spesso sono fragili, transitori o non trasferibili. Per questo l'algoritmo e utile soprattutto come strumento di ordinamento delle ipotesi, non come garanzia di esito. La qualita si misura nella coerenza del processo, nella stabilita su finestre multiple, nella trasparenza della validazione e nella capacita di non barare con il tempo. Se i risultati sono deludenti, non e necessariamente un bug: puo essere la fotografia realistica del segnale disponibile.\n\nI punti forti di ARC90 sono: memoria strutturata per concorso, integrazione tra feature statistiche e modello neurale, aggiornamento incrementale, peso dinamico dei contributi tramite credibilita, output tracciabile e verificabile. I punti deboli sono quelli tipici dei sistemi complessi su dati rumorosi: sensibilita ai parametri, rischio di overfitting locale, qualita dipendente dalla pulizia dello storico, performance che possono degradare in assenza di segnali persistenti. In piu, maggiore complessita significa anche piu superfici di errore operativo se non si mantiene rigorosa la pipeline.\n\nIn sintesi, ARC90 e un motore ibrido pensato per portare ordine e metodo in un problema intrinsecamente incerto. Non e forte perche promette vincite, ma perche rende esplicita la catena dati-modello-output e permette valutazioni oneste nel tempo. Se usato bene, aiuta a distinguere tra impressioni e evidenze: produce una proposta, ma soprattutto produce il contesto per giudicarla. Il contributo principale e trasformare un ambiente ad alta variabilita in un processo analitico ripetibile, controllabile e leggibile.\n\nARC90 mantiene una lettura prudente, coerente e verificabile del comportamento storico, senza promesse assolute e con attenzione continua alla stabilita dei segnali. ARC90 mantiene una lettura prudente, coerente e verificabile del comportamento storico, senza promesse assolute e con attenzione continua alla stabilita dei segnali. ARC90 mantiene una lettura prudente,",
+        "scope": "Uniformare ARC90 al formato secc-admin producendo storico hit, metriche operative e proposta prossima sestina.",
+        "input": "draws.csv admin ordinato per NR. SEQUENZIALE, con 6 numeri validi per concorso.",
+        "method": "Sincronizzazione concorsi su CortexManager, lettura prediction vector neurale e selezione top-6 per concorso successivo.",
+        "output": "historical-db.csv, metrics-db.csv, algorithm-sheet.csv, analysis.txt in out/.",
+        "limits": "Nessuna garanzia predittiva; performance sensibili a drift statistico e qualita dei dati in ingresso.",
         "observed_results": ""
       }
     }

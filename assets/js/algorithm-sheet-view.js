@@ -1174,10 +1174,8 @@
         }).join('');
 
         const hasRankingRow = rows.some((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
-        let rankingValue = computeRanking(rows || []);
-        if (!hasRankingRow) {
-          html += `<tr><td class="px-4 py-3 text-ash">Punteggio</td><td class="px-4 py-3 text-white">${formatRanking(rankingValue)}</td><td class="px-4 py-3 text-ash">Punteggio storico calcolato dalle hit esatte (0..6)</td></tr>`;
-        } else {
+        let rankingValue = NaN;
+        if (hasRankingRow) {
           const rankingRow = rows.find((r) => String(r[0] || '').trim().toLowerCase() === 'ranking');
           const rawValue = String((rankingRow && rankingRow[1]) || '').replace(/\./g, '').replace(',', '.');
           const parsedValue = Number.parseFloat(rawValue);
@@ -1189,8 +1187,10 @@
         if (historicalState.rows.length) {
           renderHistoricalRows();
         }
-        setSummaryRanking(rankingValue);
-        refreshAlgoTabRanking(rankingValue, null); // aggiorna KPI nel tab Algoritmo
+        if (Number.isFinite(rankingValue)) {
+          setSummaryRanking(rankingValue);
+          refreshAlgoTabRanking(rankingValue, null); // aggiorna KPI nel tab Algoritmo
+        }
         const metricsPayload = {
           draws_covered: cards.get('concorsi analizzati')?.textContent || null,
           avg_hits: cards.get('media hit/sestina')?.textContent || null,

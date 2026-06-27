@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-27 18:11:32",
-  "active_algorithms_count": 17,
+  "generated_at": "2026-06-27 18:13:54",
+  "active_algorithms_count": 18,
   "rows": [
     {
       "title": "frequency",
@@ -432,6 +432,35 @@
         "2": 200,
         "3": 13,
         "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "image": "img.webp"
+    },
+    {
+      "title": "ARC90",
+      "page": "pages/algoritmi/algs/arc90-logico-algoritmica/",
+      "family": "ibrido",
+      "ranking": 24.95,
+      "rankProfile": {
+        "edge": 0.0,
+        "edgePercent": -8.72,
+        "observedScore": 0.1262,
+        "expectedScore": 0.1382,
+        "stability": 58.73,
+        "recentForm": 0.0,
+        "sampleConfidence": 99.98,
+        "windowCoherence": 72.62,
+        "riskPenalty": 7.0,
+        "risk": "medio",
+        "label": "Stabile"
+      },
+      "hits": {
+        "0": 2785,
+        "1": 1220,
+        "2": 200,
+        "3": 11,
+        "4": 0,
         "5": 0,
         "6": 0
       },
