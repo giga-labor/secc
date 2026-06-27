@@ -867,6 +867,11 @@
         if (!Number.isFinite(value)) return '--';
         return new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
       };
+      const emitAlgoSheetData = (payload) => {
+        try {
+          document.dispatchEvent(new CustomEvent('secc:algo-sheet-data', { detail: payload || {} }));
+        } catch (_) {}
+      };
       const setSummaryRanking = (value) => {
         if (rankingValueEl) rankingValueEl.textContent = formatRanking(value);
       };
@@ -1106,6 +1111,11 @@
 
       const applyMetricsSheet = (rows) => {
         const tbody = document.querySelector('[data-metrics-body]');
+        const formatHitRateValue = (raw) => {
+          const num = Number(String(raw || '').replace(/[^\d.,-]/g, '').replace(/\./g, '').replace(',', '.'));
+          if (!Number.isFinite(num)) return '--';
+          return String(raw).includes('%') ? String(raw).trim() : ((num > 1 ? num : num * 100).toFixed(1) + '%');
+        };
         if (!tbody) return;
         if (!rows.length) {
           tbody.innerHTML = '<tr><td class="px-4 py-3 text-ash" colspan="3">Nessuna metrica disponibile.</td></tr>';
@@ -1159,6 +1169,16 @@
         }
         setSummaryRanking(rankingValue);
         refreshAlgoTabRanking(rankingValue, null); // aggiorna KPI nel tab Algoritmo
+        emitAlgoSheetData({
+          source: 'metrics-db',
+          ranking: rankingValue,
+          metrics: {
+            draws_covered: cards.get('concorsi analizzati')?.textContent || null,
+            avg_hits: cards.get('media hit/sestina')?.textContent || null,
+            hit_rate_gte_2: formatHitRateValue(cards.get('hit rate >= 2')?.textContent || ''),
+            best_streak: cards.get('best streak')?.textContent || null
+          }
+        });
       };
 
       const applyAnalysisText = (rawText) => {
@@ -1261,6 +1281,17 @@
           const note = snapSect.querySelector('p.italic') || snapSect.querySelector('p:last-child');
           if (note) note.textContent = `Snapshot: ${genAt.slice(0, 16).replace('T', ' ')}`;
         }
+
+        emitAlgoSheetData({
+          source: 'snapshot',
+          ranking: rankingValueEl ? String(rankingValueEl.textContent || '').trim() : null,
+          metrics: {
+            draws_covered: metricMap['concorsi analizzati'],
+            avg_hits: metricMap['media hit/sestina'],
+            hit_rate_gte_2: metricMap['hit rate >= 2'],
+            best_streak: metricMap['best streak']
+          }
+        });
       };
 
       // Carica snapshot.json PRIMA dei CSV per pre-popolare senza "--"

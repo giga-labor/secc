@@ -1559,6 +1559,23 @@
           });
         }
 
+        function syncHeroFromEvent(detail) {
+          detail = detail || {};
+          var metrics = detail.metrics || {};
+          updateHeroMetrics({
+            concorsi: metrics.draws_covered || '--',
+            media: metrics.avg_hits || '--',
+            hitRate: metrics.hit_rate_gte_2 || '--'
+          });
+          if (midValue && detail.ranking && detail.ranking !== '--') {
+            midValue.textContent = String(detail.ranking);
+          }
+        }
+
+        document.addEventListener('secc:algo-sheet-data', function (ev) {
+          syncHeroFromEvent(ev && ev.detail);
+        });
+
         syncHeroMetricsFromDom();
         window.setTimeout(syncHeroMetricsFromDom, 250);
         window.setTimeout(syncHeroMetricsFromDom, 1000);
