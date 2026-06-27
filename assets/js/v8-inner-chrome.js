@@ -1523,12 +1523,25 @@
         var gr = hero.querySelector('.v8sh-gr');
         var midValue = hero.querySelector('.v8sh-mid .v');
         var midLabel = hero.querySelector('.v8sh-mid .l');
+        var ringArc = hero.querySelector('.fgc');
+        var ringCirc = 490;
+        var rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         if (gr) gr.setAttribute('data-v8sh-family', '1');
         if (midValue) {
-          midValue.setAttribute('data-v8sh-rank', '1');
+          midValue.setAttribute('data-v8sh-score', '1');
           if (midValue.textContent === 'V8+') midValue.textContent = '--';
         }
-        if (midLabel) midLabel.textContent = 'Rank catalogo';
+        if (midLabel) midLabel.textContent = 'Punteggio storico';
+
+        function updateRingFromScore(score, maxScore) {
+          var numScore = Number(score);
+          var numMax = Number(maxScore);
+          if (midValue && Number.isFinite(numScore)) midValue.textContent = rankingFmt.format(numScore);
+          if (ringArc && Number.isFinite(numScore) && Number.isFinite(numMax) && numMax > 0) {
+            var pct = Math.max(0, Math.min(1, numScore / numMax));
+            ringArc.style.strokeDashoffset = String((ringCirc * (1 - pct)).toFixed(1));
+          }
+        }
 
         var metricsHost = hero.querySelector('.v8sh-metrics');
         if (!metricsHost) {
@@ -1576,7 +1589,7 @@
             media: metrics.avg_hits || '--',
             hitRate: metrics.hit_rate_gte_2 || '--'
           });
-          if (midValue && detail.ranking && detail.ranking !== '--') {
+          if (midValue && (!midValue.textContent || midValue.textContent === '--') && detail.ranking && detail.ranking !== '--') {
             midValue.textContent = String(detail.ranking);
           }
         }
@@ -1620,24 +1633,39 @@
           })
           .catch(function () {});
 
-        v8FetchJson('/data/cards-index.json', { cache: 'no-store' })
-          .then(function (cards) {
-            cards = Array.isArray(cards) ? cards : [];
-            var path = window.location.pathname.replace(/index\.html$/i, '');
-            if (path.slice(-1) !== '/') path += '/';
-            var card = (cards || []).find(function (c) {
-              var p = '/' + String((c && c.page) || '').replace(/^\/+/, '').replace(/index\.html$/i, '');
-              if (p.slice(-1) !== '/') p += '/';
-              return p === path;
-            });
-            if (!card) return;
+        Promise.all([
+          v8FetchJson('/data/cards-index.json', { cache: 'no-store' }).catch(function () { return null; }),
+          v8FetchJson('/data/precomputed/ranking.json', { cache: 'no-store' }).catch(function () { return null; })
+        ]).then(function (results) {
+          var cards = Array.isArray(results[0]) ? results[0] : [];
+          var rankingDb = results[1] && Array.isArray(results[1].rows) ? results[1].rows : [];
+          var path = window.location.pathname.replace(/index\.html$/i, '');
+          if (path.slice(-1) !== '/') path += '/';
+          var card = (cards || []).find(function (c) {
+            var p = '/' + String((c && c.page) || '').replace(/^\/+/, '').replace(/index\.html$/i, '');
+            if (p.slice(-1) !== '/') p += '/';
+            return p === path;
+          });
+          var familyEl = hero.querySelector('[data-v8sh-family]');
+          if (card && familyEl) {
             var rank = card.rankingPosition ? ('#' + String(card.rankingPosition).padStart(2, '0')) : '--';
-            var familyEl = hero.querySelector('[data-v8sh-family]');
-            var rankEl = hero.querySelector('[data-v8sh-rank]');
-            if (familyEl) familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' &middot; Rank ' + rank : '');
-            if (rankEl) rankEl.textContent = rank;
-          })
-          .catch(function () {});
+            familyEl.textContent = 'Famiglia ' + (card.macroGroup || 'algoritmo') + (card.rankingPosition ? ' · Rank ' + rank : '');
+          }
+          var normalizedPath = path.replace(/^\/+/, '');
+          var row = rankingDb.find(function (r) {
+            var p = String((r && r.page) || '').replace(/^\/+/, '').replace(/index\.html$/i, '');
+            if (p.slice(-1) !== '/') p += '/';
+            return p === normalizedPath;
+          });
+          var maxScore = rankingDb.reduce(function (acc, r) {
+            var v = Number(r && r.ranking);
+            return Number.isFinite(v) && v > acc ? v : acc;
+          }, 0);
+          if (maxScore > 0) window.__SECC_ALGO_RANKING_MAX__ = maxScore;
+          if (row && Number.isFinite(Number(row.ranking))) {
+            updateRingFromScore(Number(row.ranking), maxScore || Number(row.ranking));
+          }
+        }).catch(function () {});
       })();
       placeSheetPrevNextAfterHero();
     }

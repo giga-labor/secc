@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-27T17:08:39",
+  "generated_at": "2026-06-27T17:09:28",
   "count": 18,
   "algorithms": [
     {
       "slug": "arc90-logico-algoritmica",
       "title": "ARC90",
       "family": "ibrido",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -35,7 +35,7 @@
       "slug": "astra-moon",
       "title": "ASTRA Moon",
       "family": "ibrido",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -63,7 +63,7 @@
       "slug": "classic-analisi-anomalie-pattern",
       "title": "analisi-anomalie-pattern",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -91,7 +91,7 @@
       "slug": "classic-co-occorrenze",
       "title": "co-occorrenze",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -118,7 +118,7 @@
       "slug": "classic-coppie-terni-consecutivi",
       "title": "coppie-terni-consecutivi",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -146,7 +146,7 @@
       "slug": "classic-coppie-terzine-frequenti",
       "title": "coppie-terzine-frequenti",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -174,7 +174,7 @@
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "title": "distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -202,7 +202,7 @@
       "slug": "classic-frequency",
       "title": "frequency",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -230,7 +230,7 @@
       "slug": "classic-ritardi",
       "title": "ritardi",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -257,7 +257,7 @@
       "slug": "classic-ritardi-combinazioni",
       "title": "ritardi-combinazioni",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -285,7 +285,7 @@
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "title": "statistiche-combinate-finestre-mobili",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -313,7 +313,7 @@
       "slug": "classic-tavole-probabilita-teorica-test-uniformita",
       "title": "tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -341,7 +341,7 @@
       "slug": "genetic",
       "title": "GeneticSE",
       "family": "genetico",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -370,7 +370,7 @@
       "slug": "hispa",
       "title": "HiSPA",
       "family": "statistica",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -398,7 +398,7 @@
       "slug": "paradox-logiche-decisionali-metriche",
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -427,7 +427,7 @@
       "slug": "super6NN",
       "title": "Super6 NN",
       "family": "neurale",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -456,7 +456,7 @@
       "slug": "xeno-qdna-alpha",
       "title": "XENO-QDNA α",
       "family": "generativi",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [
@@ -484,7 +484,7 @@
       "slug": "xeno-qdna-beta",
       "title": "XENO-QDNA β",
       "family": "generativi",
-      "generated_at": "2026-06-27T17:08:39",
+      "generated_at": "2026-06-27T17:09:28",
       "last_seq": 4217,
       "last_date": "",
       "proposal": [],
