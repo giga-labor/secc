@@ -1303,11 +1303,15 @@
         };
         var g = GROUPS[card.macroGroup] || GROUPS.statistica;
 
-        // ranking &rarr; percentuale ring
+        // ranking -> punteggio reale + riempimento ring normalizzato sul massimo disponibile
         var pos = card.rankingPosition || null;
-        var tot = 0;
-        cards.forEach(function (c) { if (c.rankingPosition) tot++; });
-        var pct = (pos && tot) ? (tot - pos + 1) / tot : 0.5;
+        var rankingValue = Number.isFinite(Number(card.rankingValue)) ? Number(card.rankingValue) : null;
+        var maxRankingValue = rankingValue || 1;
+        cards.forEach(function (c) {
+          var rv = Number(c && c.rankingValue);
+          if (Number.isFinite(rv) && rv > maxRankingValue) maxRankingValue = rv;
+        });
+        var pct = (Number.isFinite(rankingValue) && maxRankingValue > 0) ? Math.max(0, Math.min(1, rankingValue / maxRankingValue)) : 0.0;
 
         // metriche da exactHits
         var hits = card.exactHits || card.hits || null;
@@ -1330,6 +1334,7 @@
         stability = Math.max(8, Math.min(98, stability));
         var signal = Math.max(10, Math.min(96, Math.round(pct * 100)));
         var coverage = sum ? Math.max(10, Math.min(96, Math.round((1 - h0 / Math.max(1, sum)) * 100))) : signal;
+        var rankingFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
         function synthNums(seedText) {
           var seed = 0;
@@ -1349,8 +1354,8 @@
         }).join(' ');
 
         var R = 120, CIRC = 2 * Math.PI * R;
-        var score = Math.max(0, Math.min(10.5, pct * 10.5));
-        var scoreLabel = score.toFixed(1);
+        var score = Number.isFinite(rankingValue) ? rankingValue : 0;
+        var scoreLabel = Number.isFinite(rankingValue) ? rankingFmt.format(rankingValue) : '--';
         var hero = document.createElement('section');
         hero.className = 'v8sh';
         hero.style.setProperty('--ac', g.ac);
@@ -1377,8 +1382,8 @@
                 'stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + CIRC.toFixed(1) + '"/>' +
             '</svg>' +
             '<div class="v8sh-mid">' +
-              '<span class="v">' + (pos ? '#' + String(pos).padStart(2, '0') : '-') + '</span>' +
-              '<span class="l">Score complessivo</span>' +
+              '<span class="v">' + scoreLabel + '</span>' +
+              '<span class="l">Punteggio storico</span>' +
               (media ? '<span class="l" style="margin-top:.3rem;color:rgba(245,158,11,.7)">' + media + ' hit medi &middot; ' + h3p + 'x &gt;=3</span>' : '') +
             '</div>' +
           '</div>' +
@@ -1395,13 +1400,13 @@
         }
         var scoreElInit = hero.querySelector('.v8sh-mid .v');
         if (scoreElInit) {
-          scoreElInit.setAttribute('data-v8-score', scoreLabel);
-          scoreElInit.textContent = '0.0';
+          scoreElInit.setAttribute('data-v8-score', String(Number.isFinite(rankingValue) ? rankingValue : 0));
+          scoreElInit.textContent = Number.isFinite(rankingValue) ? '0.00' : '--';
         }
         var ringMeta = hero.querySelector('.v8sh-mid .l + .l');
         if (ringMeta) {
           ringMeta.className = 'rk';
-          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (media ? ' &middot; ' + media + ' hit medi' : '');
+          ringMeta.textContent = (pos ? 'Rank #' + String(pos).padStart(2, '0') : 'Rank catalogo') + (Number.isFinite(rankingValue) ? ' · Max ' + rankingFmt.format(maxRankingValue) : '') + (media ? ' · ' + media + ' hit medi' : '');
         }
         placeSheetPrevNextAfterHero();
         if (!document.querySelector('.v8sheet-body')) {
@@ -1468,14 +1473,18 @@
             hero.querySelector('.fgc').style.strokeDashoffset = (CIRC * (1 - pct)).toFixed(1);
             var scoreEl = hero.querySelector('[data-v8-score]');
             if (scoreEl) {
-              var target = parseFloat(scoreEl.getAttribute('data-v8-score') || '0') || 0;
-              var current = 0;
-              var step = Math.max(0.08, target / 70);
-              (function up() {
-                current = Math.min(target, current + step);
-                scoreEl.textContent = current.toFixed(1);
-                if (current < target) requestAnimationFrame(up);
-              })();
+              var target = parseFloat(scoreEl.getAttribute('data-v8-score') || '0');
+              if (isFinite(target) && target > 0) {
+                var current = 0;
+                var step = Math.max(0.12, target / 70);
+                (function up() {
+                  current = Math.min(target, current + step);
+                  scoreEl.textContent = rankingFmt.format(current);
+                  if (current < target) requestAnimationFrame(up);
+                })();
+              } else {
+                scoreEl.textContent = '--';
+              }
             }
           });
         });
