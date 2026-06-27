@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = w >= 1600 ? 366 : w >= 1400 ? 336 : w >= 1200 ? 316 : 276;
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+    })();
+  </script>
+  <title>CNX — Borsa dei Numeri · SuperEnalotto Control Chaos</title>
+  <meta name="description" content="CNX: Chaos Number Exchange. Indice di pressione predittiva per i 90 numeri del SuperEnalotto. Frequenza, ritardo, fase e consenso algoritmico.">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/cnx/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../../assets/js/ga4.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/site-guide.css">
+  <link rel="stylesheet" href="../../assets/css/user-first.css">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SuperEnalotto Control Chaos">
+  <meta property="og:title" content="CNX — Borsa dei Numeri · SuperEnalotto Control Chaos">
+  <meta property="og:description" content="Indice di pressione predittiva per i 90 numeri SuperEnalotto.">
+  <meta property="og:url" content="https://www.superenalottocc.it/pages/cnx/">
+  <meta property="og:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
+  <meta name="theme-color" content="#081322">
+  <style>
+    /* Phase color map */
+    .ph-hot        { --ph-bg: rgba(239,68,68,.18); --ph-col: #fca5a5; }
+    .ph-cold       { --ph-bg: rgba(56,189,248,.15); --ph-col: #7dd3fc; }
+    .ph-rising     { --ph-bg: rgba(34,197,94,.18); --ph-col: #86efac; }
+    .ph-falling    { --ph-bg: rgba(245,158,11,.18); --ph-col: #fcd34d; }
+    .ph-stable     { --ph-bg: rgba(99,102,241,.15); --ph-col: #c7d2fe; }
+    .ph-compressed { --ph-bg: rgba(156,163,175,.12); --ph-col: #d1d5db; }
+    .ph-overexposed{ --ph-bg: rgba(249,115,22,.18); --ph-col: #fdba74; }
+    .ph-undervalued{ --ph-bg: rgba(167,139,250,.18); --ph-col: #c4b5fd; }
+    /* Grid */
+    .num-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin-bottom: 1.4rem; }
+    @media (max-width: 480px) { .num-grid { grid-template-columns: repeat(9, 1fr); gap: 4px; } }
+    .num-cell {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      background: var(--ph-bg, rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.06);
+      transition: transform .12s;
+      position: relative;
+    }
+    .num-cell:hover { transform: scale(1.08); z-index: 2; }
+    .num-cell .n-num { font-size: .8rem; font-weight: 700; color: var(--ph-col, rgba(255,255,255,.7)); }
+    .num-cell .n-val { font-size: .58rem; opacity: .7; color: var(--ph-col, rgba(255,255,255,.5)); }
+    /* Legend */
+    .legend { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.2rem; }
+    .leg-item { display: flex; align-items: center; gap: .35rem; font-size: .7rem; opacity: .75; }
+    .leg-dot { width: 10px; height: 10px; border-radius: 3px; }
+    /* Panels */
+    .section-panel { background: rgba(13,19,32,.7); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; margin-bottom: 1.2rem; overflow: hidden; }
+    .section-title { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: #22C55E; padding: .9rem 1rem .4rem; }
+    table.cnx-tbl { width: 100%; border-collapse: collapse; }
+    table.cnx-tbl th { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.35); padding: .45rem .75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,.06); }
+    table.cnx-tbl td { padding: .5rem .75rem; font-size: .83rem; border-top: 1px solid rgba(255,255,255,.05); }
+    table.cnx-tbl tr:hover td { background: rgba(255,255,255,.03); }
+    .ph-badge { font-size: .7rem; padding: 2px 7px; border-radius: 4px; }
+    .rank-badge { display: inline-block; width: 22px; height: 22px; border-radius: 50%; font-size: .68rem; font-weight: 700; text-align: center; line-height: 22px; }
+    .rank-1 { background: #854d0e; color: #fde68a; }
+    .rank-2 { background: #374151; color: #d1d5db; }
+    .rank-3 { background: #431407; color: #fca5a5; }
+    .rank-n { background: rgba(255,255,255,.06); color: rgba(255,255,255,.5); }
+    .empty-state { text-align: center; padding: 3rem 1rem; opacity: .4; font-size: .9rem; }
+    .global-bar { background:rgba(13,19,32,.8);border:1px solid rgba(34,197,94,.15);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1.5rem; }
+    .back-link { font-size: .78rem; opacity: .5; margin-bottom: 1rem; display: inline-block; }
+    .back-link:hover { opacity: .8; }
+    .formula-note { font-size: .72rem; opacity: .4; margin-top: 1.5rem; line-height: 1.6; }
+    /* Filter bar */
+    .filter-bar { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .f-btn { padding: .3rem .75rem; border-radius: 6px; font-size: .75rem; border: 1px solid rgba(255,255,255,.12); background: transparent; color: rgba(255,255,255,.6); cursor: pointer; }
+    .f-btn.active, .f-btn:hover { background: rgba(34,197,94,.15); color: #22C55E; border-color: rgba(34,197,94,.3); }
+  </style>
+</head>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="cnx" data-style-lock="final">
+<main class="content-fade mx-auto max-w-5xl content-width px-6 py-2">
+  <div class="content-box">
+
+    <header class="mt-6 space-y-3" data-page-kicker-wrap>
+      <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Mercato interno</span>
+      <h1 class="text-2xl font-bold">CNX &mdash; Borsa dei Numeri</h1>
+      <p class="text-ash text-sm leading-relaxed max-w-2xl" style="color:rgba(237,232,223,.55)">
+        Chaos Number Exchange. Ogni numero 1–90 riceve un indice CNX‑A basato su frequenza, ritardo, fase,
+        pressione statistica e consenso algoritmico. Il colore indica la fase di mercato corrente.
+      </p>
+    </header>
+
+    <a class="back-link" href="../mercati/" style="margin-top:.8rem">&larr; Dashboard mercati</a>
+
+    <!-- Global -->
+    <div id="cnx-global"></div>
+
+    <!-- Phase legend -->
+    <div class="legend" id="cnx-legend">
+      <span class="leg-item"><span class="leg-dot" style="background:#fca5a5"></span>Caldo</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#7dd3fc"></span>Freddo</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#86efac"></span>In salita</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#fcd34d"></span>In discesa</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#c7d2fe"></span>Stabile</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#d1d5db"></span>Compresso</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#fdba74"></span>Overexposed</span>
+      <span class="leg-item"><span class="leg-dot" style="background:#c4b5fd"></span>Sottovalutato</span>
+    </div>
+
+    <!-- Sort controls -->
+    <div class="filter-bar" id="cnx-filter">
+      <button class="f-btn active" data-sort="number">Ord. numero</button>
+      <button class="f-btn" data-sort="cnx_a_desc">Ord. CNX-A ↓</button>
+      <button class="f-btn" data-sort="phase">Ord. fase</button>
+    </div>
+
+    <!-- Number grid -->
+    <div id="cnx-grid"></div>
+
+    <!-- Groups -->
+    <div id="cnx-groups"></div>
+
+    <p id="cnx-updated" style="margin-top:.5rem; font-size:.72rem; opacity:.35; text-align:right"></p>
+    <p class="formula-note">
+      CNX&#8209;A = Frequenza&times;0.15 + FreqRecente&times;0.15 + Deviazione&times;0.15 + Fase&times;0.15 + Pressione&times;0.15 + ConsensoAlgoritmico&times;0.15 + Correlazione&times;0.05 &minus; Volatilità&times;0.05
+    </p>
+
+  </div>
+</main>
+
+<script src="../../assets/js/version.js" defer></script>
+<script src="../../assets/js/header.js" defer></script>
+<script src="../../assets/js/component-builder.js" defer></script>
+<script src="../../assets/js/runtime-bootstrap.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  var BASE = '../../data/';
+  var _numbers = [];
+
+  var PHASE_CLASS = {
+    hot: 'ph-hot', cold: 'ph-cold', rising: 'ph-rising', falling: 'ph-falling',
+    stable: 'ph-stable', compressed: 'ph-compressed',
+    overexposed: 'ph-overexposed', undervalued: 'ph-undervalued'
+  };
+
+  function fmt(v) { return (+v || 0).toFixed(1); }
+  function pct(v) { return Math.min(100, Math.max(0, +v || 0)); }
+  function phClass(p) { return PHASE_CLASS[(p || '').toLowerCase()] || ''; }
+
+  function renderGlobal(idx) {
+    if (!idx || !idx.cnx_g) return '';
+    return [
+      '<div class="global-bar">',
+        '<div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:#22C55E;margin-bottom:.3rem">CNX&#8209;G — Indice Globale</div>',
+        '<div style="display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap">',
+          '<span style="font-size:3rem;font-weight:700;color:#22C55E;line-height:1">' + fmt(idx.cnx_g) + '</span>',
+          '<div style="flex:1;min-width:120px">',
+            '<div style="height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:.5rem">',
+              '<div style="height:100%;width:' + pct(idx.cnx_g) + '%;background:#22C55E;border-radius:3px"></div>',
+            '</div>',
+            '<span style="font-size:.78rem;opacity:.6">',
+              'Fase: <strong style="opacity:1">' + (idx.phase || '—') + '</strong> &nbsp;·&nbsp; ',
+              'Trend: <strong style="opacity:1">' + (idx.trend || '—') + '</strong>',
+            '</span>',
+          '</div>',
+        '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderGrid(numbers, sortKey) {
+    if (!numbers || !numbers.length) {
+      return '<p class="empty-state">Nessun dato disponibile.</p>';
+    }
+    var sorted = numbers.slice();
+    if (sortKey === 'cnx_a_desc') {
+      sorted.sort(function (a, b) { return (+b.cnx_a || 0) - (+a.cnx_a || 0); });
+    } else if (sortKey === 'phase') {
+      sorted.sort(function (a, b) {
+        return (a.phase || '').localeCompare(b.phase || '') || (+a.number || 0) - (+b.number || 0);
+      });
+    } else {
+      sorted.sort(function (a, b) { return (+a.number || 0) - (+b.number || 0); });
+    }
+    var cells = sorted.map(function (n) {
+      var ph = (n.phase || '').toLowerCase();
+      return [
+        '<div class="num-cell ' + phClass(ph) + '" title="CNX-A: ' + fmt(n.cnx_a) + ' | Fase: ' + (n.phase || '—') + '">',
+          '<span class="n-num">' + n.number + '</span>',
+          '<span class="n-val">' + fmt(n.cnx_a) + '</span>',
+        '</div>'
+      ].join('');
+    }).join('');
+    return '<div class="num-grid">' + cells + '</div>';
+  }
+
+  function renderGroups(groups) {
+    if (!groups || !groups.length) return '';
+    var sorted = groups.slice().sort(function (a, b) { return (+b.cnx_f || 0) - (+a.cnx_f || 0); });
+    var rows = sorted.map(function (g, i) {
+      var rk = i < 3 ? 'rank-' + (i + 1) : 'rank-n';
+      var phc = phClass((g.dominant_phase || '').toLowerCase());
+      return [
+        '<tr>',
+          '<td><span class="rank-badge ' + rk + '">' + (i + 1) + '</span></td>',
+          '<td><strong>' + (g.name || '—') + '</strong></td>',
+          '<td style="opacity:.6;font-size:.78rem">' + (g.type || '—') + '</td>',
+          '<td><strong style="color:#22C55E">' + fmt(g.cnx_f) + '</strong></td>',
+          '<td>' + fmt(g.avg_cnx_a) + '</td>',
+          '<td><span class="ph-badge ' + phc + '" style="background:var(--ph-bg);color:var(--ph-col)">' + (g.dominant_phase || '—') + '</span></td>',
+        '</tr>'
+      ].join('');
+    }).join('');
+    return [
+      '<div class="section-panel">',
+        '<div class="section-title">Gruppi Numerici (CNX&#8209;F)</div>',
+        '<div style="overflow-x:auto">',
+          '<table class="cnx-tbl">',
+            '<thead><tr><th>#</th><th>Gruppo</th><th>Tipo</th><th>CNX&#8209;F</th><th>Avg CNX&#8209;A</th><th>Fase dominante</th></tr></thead>',
+            '<tbody>' + rows + '</tbody>',
+          '</table>',
+        '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  function applySort(sortKey) {
+    var grid = document.getElementById('cnx-grid');
+    if (grid && _numbers.length) {
+      grid.innerHTML = renderGrid(_numbers, sortKey);
+    }
+  }
+
+  function initFilters() {
+    var bar = document.getElementById('cnx-filter');
+    if (!bar) return;
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('.f-btn');
+      if (!btn) return;
+      bar.querySelectorAll('.f-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applySort(btn.dataset.sort);
+    });
+  }
+
+  function load() {
+    var p = [
+      fetch(BASE + 'cnx/cnx_index.json?_=' + Date.now()).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
+      fetch(BASE + 'cnx/cnx_numbers.json?_=' + Date.now()).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+      fetch(BASE + 'cnx/cnx_groups.json?_=' + Date.now()).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+    ];
+    Promise.all(p).then(function (res) {
+      var idx = res[0]; var numbers = res[1]; var groups = res[2];
+
+      if (!numbers || !numbers.length) {
+        document.getElementById('cnx-global').innerHTML = '<p class="empty-state">Nessun dato disponibile. Avvia il calcolo CAX/CNX dal pannello admin.</p>';
+        return;
+      }
+
+      _numbers = numbers;
+      document.getElementById('cnx-global').innerHTML = renderGlobal(idx);
+      document.getElementById('cnx-grid').innerHTML = renderGrid(numbers, 'number');
+      document.getElementById('cnx-groups').innerHTML = renderGroups(groups);
+      initFilters();
+
+      var upd = document.getElementById('cnx-updated');
+      if (upd && idx && idx.generated_at) {
+        upd.textContent = 'Dati aggiornati: ' + idx.generated_at;
+      }
+    }).catch(function () {
+      document.getElementById('cnx-global').innerHTML = '<p class="empty-state">Errore nel caricamento dei dati.</p>';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', load);
+  } else {
+    load();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = w >= 1600 ? 366 : w >= 1400 ? 336 : w >= 1200 ? 316 : 276;
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+    })();
+  </script>
+  <title>CAX — Borsa degli Algoritmi · SuperEnalotto Control Chaos</title>
+  <meta name="description" content="CAX: Chaos Algorithmic Exchange. Ranking di performance degli algoritmi predittivi SuperEnalotto basato su edge statistico, stabilità e forma recente.">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/cax/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../../assets/js/ga4.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/site-guide.css">
+  <link rel="stylesheet" href="../../assets/css/user-first.css">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SuperEnalotto Control Chaos">
+  <meta property="og:title" content="CAX — Borsa degli Algoritmi · SuperEnalotto Control Chaos">
+  <meta property="og:description" content="Ranking di performance degli algoritmi predittivi basato su dati storici reali.">
+  <meta property="og:url" content="https://www.superenalottocc.it/pages/cax/">
+  <meta property="og:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
+  <meta name="theme-color" content="#081322">
+  <style>
+    .cax-header-bar { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; background: rgba(13,19,32,.8); border: 1px solid rgba(56,189,248,.15); border-radius: 14px; padding: 1.2rem 1.4rem; margin-bottom: 1.5rem; }
+    .cax-g-val { font-size: 2.8rem; font-weight: 700; color: #38BDF8; line-height: 1; }
+    .cax-g-meta { font-size: .8rem; opacity: .65; line-height: 1.7; }
+    .cax-g-meta strong { opacity: 1; }
+    .section-panel { background: rgba(13,19,32,.7); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; margin-bottom: 1.2rem; overflow: hidden; }
+    .section-title { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: #38BDF8; padding: .9rem 1rem .4rem; }
+    table.cax-tbl { width: 100%; border-collapse: collapse; }
+    table.cax-tbl th { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.35); padding: .45rem .75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,.06); }
+    table.cax-tbl td { padding: .5rem .75rem; font-size: .83rem; border-top: 1px solid rgba(255,255,255,.05); }
+    table.cax-tbl tr:hover td { background: rgba(255,255,255,.03); }
+    .rank-badge { display: inline-block; width: 22px; height: 22px; border-radius: 50%; font-size: .68rem; font-weight: 700; text-align: center; line-height: 22px; }
+    .rank-1 { background: #854d0e; color: #fde68a; }
+    .rank-2 { background: #374151; color: #d1d5db; }
+    .rank-3 { background: #431407; color: #fca5a5; }
+    .rank-n { background: rgba(255,255,255,.06); color: rgba(255,255,255,.5); }
+    .trend-badge { font-size: .72rem; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+    .tr-pos { background: rgba(34,197,94,.12); color: #86efac; }
+    .tr-neg { background: rgba(239,68,68,.12); color: #fca5a5; }
+    .tr-neu { background: rgba(56,189,248,.1); color: #7dd3fc; }
+    .val-green { color: #22C55E; }
+    .val-yellow { color: #F59E0B; }
+    .val-red { color: #EF4444; }
+    .empty-state { text-align: center; padding: 3rem 1rem; opacity: .4; font-size: .9rem; }
+    .bar-wrap { display: flex; align-items: center; gap: .5rem; }
+    .mini-bar { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,.07); overflow: hidden; max-width: 60px; }
+    .mini-fill { height: 100%; border-radius: 2px; background: #38BDF8; }
+    .back-link { font-size: .78rem; opacity: .5; margin-bottom: 1rem; display: inline-block; }
+    .back-link:hover { opacity: .8; }
+    .formula-note { font-size: .72rem; opacity: .4; margin-top: 1.5rem; line-height: 1.6; }
+  </style>
+</head>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="cax" data-style-lock="final">
+<main class="content-fade mx-auto max-w-5xl content-width px-6 py-2">
+  <div class="content-box">
+
+    <header class="mt-6 space-y-3" data-page-kicker-wrap>
+      <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Mercato interno</span>
+      <h1 class="text-2xl font-bold">CAX &mdash; Borsa degli Algoritmi</h1>
+      <p class="text-ash text-sm leading-relaxed max-w-2xl" style="color:rgba(237,232,223,.55)">
+        Chaos Algorithmic Exchange. Ogni algoritmo è valutato su edge statistico, stabilità, forma recente,
+        credibilità storica, coerenza interna e convergenza. Il CAX‑G è l'indice globale di mercato.
+      </p>
+    </header>
+
+    <a class="back-link" href="../mercati/" style="margin-top:.8rem">&larr; Dashboard mercati</a>
+
+    <!-- Global index bar -->
+    <div id="cax-global" style="margin-bottom:1.5rem"></div>
+
+    <!-- Algorithm ranking -->
+    <div id="cax-algorithms"></div>
+
+    <!-- Family ranking -->
+    <div id="cax-families"></div>
+
+    <p id="cax-updated" style="margin-top:.5rem; font-size:.72rem; opacity:.35; text-align:right"></p>
+    <p class="formula-note">
+      CAX&#8209;A = Edge&times;0.35 + Stabilità&times;0.20 + FormaRecente&times;0.15 + CredibilitàStorica&times;0.15 + Coerenza&times;0.10 + Convergenza&times;0.05 &minus; Rischio&times;0.20
+    </p>
+
+  </div>
+</main>
+
+<script src="../../assets/js/version.js" defer></script>
+<script src="../../assets/js/header.js" defer></script>
+<script src="../../assets/js/component-builder.js" defer></script>
+<script src="../../assets/js/runtime-bootstrap.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  var BASE = '../../data/';
+  function fmt(v) { return (+v || 0).toFixed(1); }
+  function pct(v) { return Math.min(100, Math.max(0, +v || 0)); }
+
+  function colorCax(v) {
+    return +v >= 60 ? 'val-green' : +v >= 40 ? 'val-yellow' : 'val-red';
+  }
+  function colorRisk(v) {
+    return +v < 30 ? 'val-green' : +v < 60 ? 'val-yellow' : 'val-red';
+  }
+  function trendClass(t) {
+    t = (t || '').toLowerCase();
+    if (t.indexOf('positiv') >= 0) return 'tr-pos';
+    if (t.indexOf('negativ') >= 0) return 'tr-neg';
+    return 'tr-neu';
+  }
+  function rankClass(i) {
+    return i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : 'rank-n';
+  }
+
+  function renderGlobal(idx) {
+    if (!idx || !idx.cax_g) return '';
+    return [
+      '<div style="background:rgba(13,19,32,.8);border:1px solid rgba(56,189,248,.15);border-radius:14px;padding:1.2rem 1.4rem">',
+        '<div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:#38BDF8;margin-bottom:.3rem">CAX&#8209;G — Indice Globale</div>',
+        '<div style="display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap">',
+          '<span style="font-size:3rem;font-weight:700;color:#38BDF8;line-height:1">' + fmt(idx.cax_g) + '</span>',
+          '<div style="flex:1;min-width:120px">',
+            '<div style="height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:.5rem">',
+              '<div style="height:100%;width:' + pct(idx.cax_g) + '%;background:#38BDF8;border-radius:3px"></div>',
+            '</div>',
+            '<span style="font-size:.78rem;opacity:.6">',
+              'Fase: <strong style="opacity:1">' + (idx.phase || '—') + '</strong> &nbsp;·&nbsp; ',
+              'Trend: <strong style="opacity:1">' + (idx.trend || '—') + '</strong> &nbsp;·&nbsp; ',
+              'Algoritmi attivi: <strong style="opacity:1">' + (idx.active_algorithms || '—') + '</strong>',
+            '</span>',
+          '</div>',
+        '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderAlgorithms(algos) {
+    if (!algos || !algos.length) return '';
+    var sorted = algos.slice().sort(function (a, b) { return (+b.cax_a || 0) - (+a.cax_a || 0); });
+    var rows = sorted.map(function (a, i) {
+      return [
+        '<tr>',
+          '<td><span class="rank-badge ' + rankClass(i) + '">' + (i + 1) + '</span></td>',
+          '<td><strong>' + (a.name || a.id || '—') + '</strong></td>',
+          '<td style="opacity:.6;font-size:.78rem">' + (a.family || '—') + '</td>',
+          '<td><strong class="' + colorCax(a.cax_a) + '">' + fmt(a.cax_a) + '</strong></td>',
+          '<td class="' + colorCax(a.edge_index) + '">' + fmt(a.edge_index) + '</td>',
+          '<td>' + fmt(a.stability_index) + '</td>',
+          '<td>' + fmt(a.recent_form_index) + '</td>',
+          '<td class="' + colorRisk(a.risk_index) + '">' + fmt(a.risk_index) + '</td>',
+          '<td><span class="trend-badge ' + trendClass(a.trend) + '">' + (a.trend || '—') + '</span></td>',
+        '</tr>'
+      ].join('');
+    }).join('');
+    return [
+      '<div class="section-panel">',
+        '<div class="section-title">Classifica Algoritmi (CAX&#8209;A)</div>',
+        '<div style="overflow-x:auto">',
+          '<table class="cax-tbl">',
+            '<thead><tr>',
+              '<th>#</th><th>Algoritmo</th><th>Famiglia</th>',
+              '<th>CAX&#8209;A</th><th>Edge</th><th>Stabilità</th><th>Forma Rec.</th><th>Rischio</th><th>Trend</th>',
+            '</tr></thead>',
+            '<tbody>' + rows + '</tbody>',
+          '</table>',
+        '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderFamilies(fams) {
+    if (!fams || !fams.length) return '';
+    var sorted = fams.slice().sort(function (a, b) { return (+b.cax_f || 0) - (+a.cax_f || 0); });
+    var rows = sorted.map(function (f, i) {
+      return [
+        '<tr>',
+          '<td><span class="rank-badge ' + rankClass(i) + '">' + (i + 1) + '</span></td>',
+          '<td><strong>' + (f.family || '—') + '</strong></td>',
+          '<td style="opacity:.6">' + (f.algorithms_count || 0) + '</td>',
+          '<td><strong style="color:#38BDF8">' + fmt(f.cax_f) + '</strong></td>',
+          '<td>' + fmt(f.avg_edge_index) + '</td>',
+          '<td>' + fmt(f.avg_stability_index) + '</td>',
+          '<td class="' + colorRisk(f.avg_risk_index) + '">' + fmt(f.avg_risk_index) + '</td>',
+        '</tr>'
+      ].join('');
+    }).join('');
+    return [
+      '<div class="section-panel">',
+        '<div class="section-title">Famiglie Algoritmiche (CAX&#8209;F)</div>',
+        '<div style="overflow-x:auto">',
+          '<table class="cax-tbl">',
+            '<thead><tr>',
+              '<th>#</th><th>Famiglia</th><th>Algoritmi</th>',
+              '<th>CAX&#8209;F</th><th>Avg Edge</th><th>Avg Stab.</th><th>Avg Rischio</th>',
+            '</tr></thead>',
+            '<tbody>' + rows + '</tbody>',
+          '</table>',
+        '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  function load() {
+    var p = [
+      fetch(BASE + 'cax/cax_index.json?_=' + Date.now()).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
+      fetch(BASE + 'cax/cax_algorithms.json?_=' + Date.now()).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+      fetch(BASE + 'cax/cax_families.json?_=' + Date.now()).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+    ];
+    Promise.all(p).then(function (res) {
+      var idx = res[0]; var algos = res[1]; var fams = res[2];
+
+      if ((!algos || !algos.length) && (!fams || !fams.length)) {
+        document.getElementById('cax-global').innerHTML = '<p class="empty-state">Nessun dato disponibile. Avvia il calcolo CAX/CNX dal pannello admin.</p>';
+        return;
+      }
+
+      document.getElementById('cax-global').innerHTML = renderGlobal(idx);
+      document.getElementById('cax-algorithms').innerHTML = renderAlgorithms(algos);
+      document.getElementById('cax-families').innerHTML = renderFamilies(fams);
+
+      var upd = document.getElementById('cax-updated');
+      if (upd && idx && idx.generated_at) {
+        upd.textContent = 'Dati aggiornati: ' + idx.generated_at;
+      }
+    }).catch(function () {
+      document.getElementById('cax-global').innerHTML = '<p class="empty-state">Errore nel caricamento dei dati.</p>';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', load);
+  } else {
+    load();
+  }
+})();
+</script>
+</body>
+</html>

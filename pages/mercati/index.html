@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-4257836243471373">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var w = window.innerWidth || document.documentElement.clientWidth || 0;
+      var isRight = w >= 1024;
+      var initialHeaderOffset = w >= 1024 ? 96 : 88;
+      var desktopReserve = w >= 1600 ? 366 : w >= 1400 ? 336 : w >= 1200 ? 316 : 276;
+      root.dataset.adRail = isRight ? 'right' : 'bottom';
+      root.style.setProperty('--ad-reserve-left', '0px');
+      root.style.setProperty('--ad-reserve-right', isRight ? (desktopReserve + 'px') : '0px');
+      root.style.setProperty('--ad-reserve-bottom', isRight ? '0px' : '142px');
+      root.style.setProperty('--fixed-header-offset', initialHeaderOffset + 'px');
+    })();
+  </script>
+  <title>Mercati CAX/CNX — SuperEnalotto Control Chaos</title>
+  <meta name="description" content="Dashboard dei mercati interni CAX (algoritmi) e CNX (numeri 1–90). Indici di performance, ranking e fasi di mercato in tempo reale.">
+  <link rel="canonical" href="https://www.superenalottocc.it/pages/mercati/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../../assets/js/ga4.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css/tailwind.generated.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/ads.css">
+  <link rel="stylesheet" href="../../assets/css/migration.css">
+  <link rel="stylesheet" href="../../assets/css/redesign-neo.css">
+  <link rel="stylesheet" href="../../assets/css/site-guide.css">
+  <link rel="stylesheet" href="../../assets/css/user-first.css">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SuperEnalotto Control Chaos">
+  <meta property="og:title" content="Mercati CAX/CNX — SuperEnalotto Control Chaos">
+  <meta property="og:description" content="Dashboard dei mercati interni CAX (algoritmi) e CNX (numeri 1–90).">
+  <meta property="og:url" content="https://www.superenalottocc.it/pages/mercati/">
+  <meta property="og:image" content="https://www.superenalottocc.it/img/headerControlChaos3.webp">
+  <meta name="theme-color" content="#081322">
+  <style>
+    :root { --cax-col: #38BDF8; --cnx-col: #22C55E; --warn-col: #F59E0B; --neg-col: #EF4444; }
+    .mkt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .mkt-grid { grid-template-columns: 1fr; } }
+    .mkt-panel { background: rgba(13,19,32,.8); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 1.4rem; }
+    .mkt-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .14em; opacity: .7; margin-bottom: .3rem; }
+    .mkt-index { font-size: 3rem; font-weight: 700; line-height: 1; margin-bottom: .4rem; }
+    .mkt-bar-bg { height: 6px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; margin-bottom: .8rem; }
+    .mkt-bar-fill { height: 100%; border-radius: 3px; }
+    .mkt-meta { font-size: .78rem; opacity: .6; line-height: 1.6; }
+    .mkt-meta strong { opacity: 1; }
+    .mkt-link { display: inline-block; margin-top: 1rem; padding: .45rem 1.1rem; border-radius: 7px; font-size: .8rem; font-weight: 600; text-decoration: none; }
+    .mkt-link-cax { background: rgba(56,189,248,.15); color: #38BDF8; border: 1px solid rgba(56,189,248,.3); }
+    .mkt-link-cnx { background: rgba(34,197,94,.15); color: #22C55E; border: 1px solid rgba(34,197,94,.3); }
+    .mkt-link:hover { opacity: .85; }
+    .comment-box { background: rgba(13,19,32,.6); border-left: 3px solid rgba(255,255,255,.15); border-radius: 0 10px 10px 0; padding: .8rem 1rem; font-size: .82rem; font-style: italic; opacity: .65; margin-top: 1rem; }
+    .top-nums { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .4rem; }
+    .num-pill { background: rgba(34,197,94,.18); color: #22C55E; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 700; }
+    .empty-state { text-align: center; padding: 3rem 1rem; opacity: .45; font-size: .9rem; }
+  </style>
+</head>
+<body class="min-h-screen bg-midnight text-white theme-cosmic motion-balanced cc-final-look cc-redesign cc-neo" data-page-id="mercati" data-style-lock="final">
+<main class="content-fade mx-auto max-w-5xl content-width px-6 py-2">
+  <div class="content-box">
+
+    <header class="mt-6 space-y-3" data-page-kicker-wrap>
+      <span class="text-xs uppercase tracking-[0.2em] text-ash" data-page-kicker>Borsa interna</span>
+      <h1 class="text-2xl font-bold">Mercati CAX / CNX</h1>
+      <p class="text-ash text-sm leading-relaxed max-w-2xl" style="color:rgba(237,232,223,.55)">
+        CAX misura la performance statistica degli algoritmi. CNX misura la pressione predittiva dei 90 numeri.
+        Entrambi gli indici sono calcolati sui dati storici reali delle estrazioni SuperEnalotto.
+      </p>
+    </header>
+
+    <div id="mkt-root" style="margin-top:1.5rem">
+      <p class="empty-state">Caricamento indici di mercato&hellip;</p>
+    </div>
+
+    <p id="mkt-updated" style="margin-top:1rem; font-size:.72rem; opacity:.4; text-align:right"></p>
+
+  </div>
+</main>
+
+<script src="../../assets/js/version.js" defer></script>
+<script src="../../assets/js/header.js" defer></script>
+<script src="../../assets/js/component-builder.js" defer></script>
+<script src="../../assets/js/runtime-bootstrap.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  var BASE = '../../data/';
+
+  function pct(v) { return Math.min(100, Math.max(0, +v || 0)); }
+  function fmt(v) { return (+v || 0).toFixed(1); }
+
+  function renderCax(summary) {
+    var c = summary.cax || {};
+    return [
+      '<div class="mkt-panel">',
+        '<div class="mkt-label" style="color:var(--cax-col)">CAX&#8209;G &mdash; Mercato Algoritmi</div>',
+        '<div class="mkt-index" style="color:var(--cax-col)">' + fmt(c.cax_g) + '</div>',
+        '<div class="mkt-bar-bg"><div class="mkt-bar-fill" style="width:' + pct(c.cax_g) + '%;background:var(--cax-col)"></div></div>',
+        '<div class="mkt-meta">',
+          'Fase: <strong>' + (c.phase || '—') + '</strong> &nbsp;·&nbsp; Trend: <strong>' + (c.trend || '—') + '</strong><br>',
+          'Miglior algoritmo: <strong>' + (c.best_algorithm || '—') + '</strong><br>',
+          'Migliore famiglia: <strong>' + (c.best_family || '—') + '</strong>',
+        '</div>',
+        '<a class="mkt-link mkt-link-cax" href="../cax/">Esplora mercato algoritmi &rsaquo;</a>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderCnx(summary) {
+    var c = summary.cnx || {};
+    var nums = (c.top_numbers || []).slice(0, 6).map(function (n) {
+      return '<span class="num-pill">' + n + '</span>';
+    }).join('');
+    return [
+      '<div class="mkt-panel">',
+        '<div class="mkt-label" style="color:var(--cnx-col)">CNX&#8209;G &mdash; Mercato Numeri</div>',
+        '<div class="mkt-index" style="color:var(--cnx-col)">' + fmt(c.cnx_g) + '</div>',
+        '<div class="mkt-bar-bg"><div class="mkt-bar-fill" style="width:' + pct(c.cnx_g) + '%;background:var(--cnx-col)"></div></div>',
+        '<div class="mkt-meta">',
+          'Fase: <strong>' + (c.phase || '—') + '</strong> &nbsp;·&nbsp; Trend: <strong>' + (c.trend || '—') + '</strong><br>',
+          'Miglior gruppo: <strong>' + (c.best_group || '—') + '</strong>',
+          nums ? '<div class="top-nums" style="margin-top:.5rem">' + nums + '</div>' : '',
+        '</div>',
+        '<a class="mkt-link mkt-link-cnx" href="../cnx/">Esplora mercato numeri &rsaquo;</a>',
+      '</div>'
+    ].join('');
+  }
+
+  function render(summary) {
+    var root = document.getElementById('mkt-root');
+    if (!summary || (!summary.cax && !summary.cnx)) {
+      root.innerHTML = '<p class="empty-state">Nessun dato disponibile. Avvia il calcolo CAX/CNX dal pannello admin.</p>';
+      return;
+    }
+    root.innerHTML = [
+      '<div class="mkt-grid">',
+        renderCax(summary),
+        renderCnx(summary),
+      '</div>',
+      summary.system_comment
+        ? '<div class="comment-box">' + summary.system_comment + '</div>'
+        : ''
+    ].join('');
+
+    var upd = document.getElementById('mkt-updated');
+    if (upd && summary.updated_at) {
+      upd.textContent = 'Dati aggiornati il ' + summary.updated_at;
+    }
+  }
+
+  function load() {
+    fetch(BASE + 'markets/market_summary.json?_=' + Date.now())
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(render)
+      .catch(function () {
+        document.getElementById('mkt-root').innerHTML =
+          '<p class="empty-state">Dati non ancora disponibili. Avvia il calcolo CAX/CNX dal pannello admin.</p>';
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', load);
+  } else {
+    load();
+  }
+})();
+</script>
+</body>
+</html>
