@@ -1,9 +1,9 @@
-﻿(function () {
+(function () {
   'use strict';
   if (/^\/pages\/oracle\//.test(window.location.pathname || '')) return;
   if (document.getElementById('v8-inner-topbar')) return;
 
-  // â”€â”€ TOPBAR â”€â”€
+  // ── TOPBAR ──
   var bar = document.createElement('div');
   bar.id = 'v8-inner-topbar';
   bar.innerHTML = [
@@ -55,7 +55,7 @@
     });
   }
 
-  // â”€â”€ BODY OVERRIDE: allinea al design V8 home â”€â”€
+  // ── BODY OVERRIDE: allinea al design V8 home ──
   // Rimuove gradiente redesign-neo, sfondo-immagine, font Space Grotesk
   var override = document.createElement('style');
   override.id = 'v8-body-override';
@@ -119,7 +119,7 @@
     }
   }
 
-  // â”€â”€ AD RAIL ALIGN â”€â”€
+  // ── AD RAIL ALIGN ──
   // Il rail fisso (top:0 height:100vh) copre tutto inclusa la topbar.
   // Aggiungiamo padding-top pari alla topbar (64px) perche il contenuto
   // del pannello ads parta alla stessa quota del contenuto pagina,
@@ -140,7 +140,7 @@
     }
   }
 
-  // â”€â”€ NASCONDI VECCHIO HEADER â”€â”€
+  // ── NASCONDI VECCHIO HEADER ──
   // Usiamo una regola CSS (non inline style) perche header.js chiama
   // node.style.removeProperty('display') che rimuoverebbe un display:none inline.
   // Una regola in <style> con !important sopravvive a removeProperty().
@@ -473,10 +473,10 @@
   });
 })();
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ════════════════════════════════════════════════════════════════
    V8SKIN BOOTSTRAP - estende il chrome interno con il design V8+
    (font, v8skin.css, aurora, nav topbar, hero schede algoritmo)
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ════════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
   if (/^\/pages\/oracle\//.test(window.location.pathname || '')) return;
@@ -656,7 +656,7 @@
     }
   }
 
-  // â”€â”€ FONT V8 (BioRhyme + DM Mono) â”€â”€
+  // ── FONT V8 (BioRhyme + DM Mono) ──
   onHead(function () {
     if (!document.getElementById('v8skin-fonts')) {
       var f = document.createElement('link');
@@ -675,7 +675,7 @@
     injectRailSafeLayout();
   });
 
-  // â”€â”€ AURORA â”€â”€
+  // ── AURORA ──
   onBody(function () {
     if (!document.querySelector('.v8-aurora')) {
       var a = document.createElement('div');
@@ -1285,7 +1285,7 @@
     requestAnimationFrame(frame);
   }
 
-  // â”€â”€ HERO SCHEDA ALGORITMO (score ring) â”€â”€
+  // ── HERO SCHEDA ALGORITMO (score ring) ──
   onBody(function () {
     if ((document.body.getAttribute('data-page-id') || '') !== 'algsheet') return;
     clearStaleSheetTitles();

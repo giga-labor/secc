@@ -1,20 +1,20 @@
-﻿// v8-main.js - Shell grafica v8
+// v8-main.js - Shell grafica v8
 // Dipende da: v8-data-bridge.js, core/cache-engine.js, core/data-repository.js, cards-index.js
 
-// â”€â”€â”€ CURSOR
+// ─── CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
 let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
 (function a(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(a);})();
 
-// â”€â”€â”€ CANVAS SETUP
+// ─── CANVAS SETUP
 const canvas=document.getElementById('c');
 const ctx=canvas.getContext('2d');
 let W,H,frame=0,alive=false;
 function resize(){W=canvas.width=canvas.clientWidth||innerWidth;H=canvas.height=canvas.clientHeight||innerHeight;}
 resize();
 
-// â”€â”€â”€ STATO DATI (popolato da v8WaitAndInit dopo il caricamento)
+// ─── STATO DATI (popolato da v8WaitAndInit dopo il caricamento)
 let LAST=[],HOT=[],COLD=[],JOLLY=null,ALGOS=[],DRAW_ID='--',DRAW_DATE='--',DRAWS_COUNT=0;
 let _iargosStatus=null;
 let _sestine=[];
@@ -23,7 +23,7 @@ let _hovPrev=null;         // cella in hover al frame precedente
 let _hovStart=0;           // timestamp inizio hover corrente
 let _richOn=false;         // tooltip ricco visibile
 
-// â”€â”€â”€ CELLS
+// ─── CELLS
 const cells=[];
 function buildCells(){
   cells.length=0;
@@ -59,7 +59,7 @@ function buildCells(){
 }
 // buildCells() non viene chiamata qui - viene chiamata dopo il caricamento dati
 
-// â”€â”€â”€ STATISTICHE PER NUMERO (calcolate su tutti i draws)
+// ─── STATISTICHE PER NUMERO (calcolate su tutti i draws)
 function computeNumStats(draws){
   const out={};
   const list=Array.isArray(draws)?draws:[];
@@ -110,10 +110,10 @@ function formatStatValue(value, fallback){
   return hasStatValue(value)?value:(fallback||'N/D');
 }
 
-// Resize: ricostruisce celle solo se i dati sono giÃ  disponibili
+// Resize: ricostruisce celle solo se i dati sono già disponibili
 window.addEventListener('resize',()=>{resize();if(LAST.length||alive)buildCells();});
 
-// â”€â”€â”€ SEISMIC WAVES
+// ─── SEISMIC WAVES
 const waves=[];
 for(let i=0;i<5;i++){
   waves.push({
@@ -140,7 +140,7 @@ function isNumberHoverBlocked(){
   });
 }
 
-// â”€â”€â”€ DRAW LOOP (parte subito - canvas nero finchÃ© i dati non arrivano)
+// ─── DRAW LOOP (parte subito - canvas nero finché i dati non arrivano)
 function draw(){
   ctx.clearRect(0,0,W,H);
   frame++;
@@ -231,7 +231,7 @@ function draw(){
     }
   });
 
-  // â”€â”€â”€ HOVER (tooltip disabilitato)
+  // ─── HOVER (tooltip disabilitato)
   if(hovCell){
     curR.classList.add('xl');
   } else {
@@ -242,9 +242,9 @@ function draw(){
 }
 draw();
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════
 // MOTORE MICCIA CC - usato da intro, topbar, panel watermark
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════
 function buildCCEngine(cvs, opts){
   const c2=cvs.getContext('2d');
   const CW=cvs.width,CH=cvs.height;
@@ -379,7 +379,7 @@ function buildCCEngine(cvs, opts){
   tickFrame();
 }
 
-// â”€â”€â”€ COUNTDOWN
+// ─── COUNTDOWN
 let _nextDrawAt=null;        // null = nessuna risposta ancora dal JSON
 let _nextDrawLoading=false;
 let _nextDrawFetched=false;  // true dopo il primo fetch andato a buon fine
@@ -493,7 +493,7 @@ function upCd(){
   const el=document.getElementById('cd');
   if(!el) return;
   if(diff===0){
-    // Data dal JSON Ã¨ nel passato: siamo in attesa dei risultati
+    // Data dal JSON è nel passato: siamo in attesa dei risultati
     if(!el.dataset.waiting){
       el.dataset.waiting='1';
       el.textContent='Risultati in arrivo...';

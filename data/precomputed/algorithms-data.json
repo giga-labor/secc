@@ -1,41 +1,12 @@
 {
-  "generated_at": "2026-07-01T21:47:41",
-  "count": 18,
+  "generated_at": "2026-07-02T00:12:06",
+  "count": 17,
   "algorithms": [
-    {
-      "slug": "arc90-logico-algoritmica",
-      "title": "ARC90",
-      "family": "ibrido",
-      "generated_at": "2026-07-01T21:47:41",
-      "last_seq": 4218,
-      "last_date": "",
-      "proposal": [
-        1,
-        7,
-        51,
-        64,
-        78,
-        83
-      ],
-      "metrics": {
-        "draws_covered": 4218,
-        "avg_hits": 0.39,
-        "hit_rate_gte_2": 5.0,
-        "hit_rate_gte_3": 0.3,
-        "best_streak": 7
-      },
-      "explanation": [
-        "ARC90 e un algoritmo ibrido neurale-statistico progettato per lavorare in modo strutturato su una sequenza temporale di estrazioni, con un obiettivo pratico: trasformare uno storico grezzo in un sistema coerente di proposta, valutazione e aggiornamento continuo. Non nasce come oracolo, ma come motore di ranking: prende dati storici, costruisce rappresentazioni interne, aggiorna i pesi in modo progressivo e produce una sestina candidata per il concorso successivo insieme a metriche osservabili. Il suo valore sta piu nella disciplina del processo che nella promessa del risultato.\n\nL'architettura concettuale di ARC90 ruota attorno a tre blocchi. Il primo e la memoria strutturata dei concorsi, implementata come insieme di neuroni permanenti: ogni concorso storico diventa un neurone con identita propria, feature, vettore di predizione e metadati di affidabilita. Il secondo e il backbone, una memoria trasversale che cattura relazioni numero-numero e segnali aggregati utili a mantenere continuita nel tempo. Il terzo e il livello neurale di apprendimento, che aggiorna i vettori di predizione in ottica incrementale usando lo storico disponibile fino a quel momento. Insieme, questi tre livelli permettono ad ARC90 di evitare sia l'approccio puramente statico, sia quello puramente black-box.\n\nIl dato di partenza e l'archivio draws, ordinato per numero sequenziale. Da ogni riga ARC90 estrae i sei numeri validi del concorso, verifica coerenza minima e li integra nello stato interno. L'integrazione non e solo salvataggio: il concorso viene trasformato in una rappresentazione chiamata DNA, un vettore di feature che sintetizza informazioni come frequenze, ritardi, segnali recenti e pattern locali utili a descrivere il contesto in cui quel concorso e avvenuto. Questo passaggio e importante perche il modello non impara direttamente da una sestina nuda, ma da una codifica che prova a catturare struttura, non solo valori.\n\nUna componente chiave di ARC90 e la credibilita dei neuroni. Ogni neurone possiede un livello di credibilita dinamico, aggiornato in base al comportamento osservato e a regole di stabilita. In termini pratici, i neuroni non pesano tutti uguale quando si aggrega una proposta: un neurone piu credibile ha piu influenza nella costruzione della previsione di consenso. Questo riduce il rumore di record poco informativi e favorisce continuita nei segnali che nel tempo risultano piu robusti. La credibilita, pero, non e definitiva: puo salire o scendere in funzione dei cicli di aggiornamento e delle regole di decadimento.\n\nSul fronte predittivo, ARC90 lavora su 90 classi, una per ogni numero possibile. Il modello neurale produce un vettore di score su 90 posizioni; questi score vengono poi combinati con logiche di consenso, pesi di credibilita e vincoli operativi per estrarre una top-6 ordinata. In altre parole, la sestina finale non e il frutto di una singola decisione binaria, ma l'esito di un ranking su spazio completo, poi ridotto ai sei numeri con punteggio relativo piu forte. Questo approccio e piu coerente con il problema reale rispetto a una previsione diretta e rigida.\n\nIl training e incrementale. Significa che, quando arrivano nuovi concorsi, ARC90 non riparte da zero ogni volta: aggiorna il modello sul delta informativo mantenendo memoria dello stato precedente. Questo approccio e utile per due motivi: costo computazionale piu sostenibile e adattamento progressivo ai cambiamenti di regime statistico. In un dominio dove i pattern sono instabili e spesso deboli, la capacita di aggiornare in continuo senza distruggere la memoria precedente e piu pragmatica di un retrain totale frequente.\n\nUn aspetto fondamentale, soprattutto per valutare l'algoritmo in modo onesto, e l'anti-leakage temporale. ARC90, nel flusso corretto, deve generare una proposta per un concorso usando solo informazione disponibile prima di quel concorso, non dopo. In pratica, la validazione storica va fatta in stile walk-forward: predici, poi osservi il risultato, poi aggiorni. Questa disciplina evita l'errore piu comune nei sistemi predittivi su serie temporali: sembrare molto migliori di quanto siano davvero per uso accidentale di informazione futura durante la valutazione.\n\nL'output operativo e pensato per essere trasparente: mostra storico proposte con hit marcati, tabella metriche e analisi testuale. Questa standardizzazione non e solo comodita di consultazione: obbliga il motore a rendere espliciti i risultati in forma verificabile. Lo storico mostra come si comportano le proposte sui concorsi gia chiusi, le metriche condensano indicatori di copertura e hit rate, l'analisi fornisce contesto interpretativo e limiti. E una forma di accountability: se le performance sono deboli, deve emergere chiaramente.\n\nDal punto di vista statistico, ARC90 va letto con prudenza metodologica. Le lotterie hanno componente aleatoria elevata; anche quando emergono pattern, spesso sono fragili, transitori o non trasferibili. Per questo l'algoritmo e utile soprattutto come strumento di ordinamento delle ipotesi, non come garanzia di esito. La qualita si misura nella coerenza del processo, nella stabilita su finestre multiple, nella trasparenza della validazione e nella capacita di non barare con il tempo. Se i risultati sono deludenti, non e necessariamente un bug: puo essere la fotografia realistica del segnale disponibile.\n\nI punti forti di ARC90 sono: memoria strutturata per concorso, integrazione tra feature statistiche e modello neurale, aggiornamento incrementale, peso dinamico dei contributi tramite credibilita, output tracciabile e verificabile. I punti deboli sono quelli tipici dei sistemi complessi su dati rumorosi: sensibilita ai parametri, rischio di overfitting locale, qualita dipendente dalla pulizia dello storico, performance che possono degradare in assenza di segnali persistenti. In piu, maggiore complessita significa anche piu superfici di errore operativo se non si mantiene rigorosa la pipeline.\n\nIn sintesi, ARC90 e un motore ibrido pensato per portare ordine e metodo in un problema intrinsecamente incerto. Non e forte perche promette vincite, ma perche rende esplicita la catena dati-modello-output e permette valutazioni oneste nel tempo. Se usato bene, aiuta a distinguere tra impressioni e evidenze: produce una proposta, ma soprattutto produce il contesto per giudicarla. Il contributo principale e trasformare un ambiente ad alta variabilita in un processo analitico ripetibile, controllabile e leggibile.\n\nARC90 mantiene una lettura prudente, coerente e verificabile del comportamento storico, senza promesse assolute e con attenzione continua alla stabilita dei segnali. ARC90 mantiene una lettura prudente, coerente e verificabile del comportamento storico, senza promesse assolute e con attenzione continua alla stabilita dei segnali. ARC90 mantiene una lettura prudente,",
-        "Uniformare ARC90 al formato secc-admin producendo storico hit, metriche operative e proposta prossima sestina.",
-        "Sincronizzazione concorsi su CortexManager, lettura prediction vector neurale e selezione top-6 per concorso successivo.",
-        "Nessuna garanzia predittiva; performance sensibili a drift statistico e qualita dei dati in ingresso."
-      ]
-    },
     {
       "slug": "astra-moon",
       "title": "ASTRA Moon",
       "family": "ibrido",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -63,7 +34,7 @@
       "slug": "classic-analisi-anomalie-pattern",
       "title": "analisi-anomalie-pattern",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -91,7 +62,7 @@
       "slug": "classic-co-occorrenze",
       "title": "co-occorrenze",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -118,7 +89,7 @@
       "slug": "classic-coppie-terni-consecutivi",
       "title": "coppie-terni-consecutivi",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -146,7 +117,7 @@
       "slug": "classic-coppie-terzine-frequenti",
       "title": "coppie-terzine-frequenti",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -174,7 +145,7 @@
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "title": "distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -202,7 +173,7 @@
       "slug": "classic-frequency",
       "title": "frequency",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -230,7 +201,7 @@
       "slug": "classic-ritardi",
       "title": "ritardi",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -257,7 +228,7 @@
       "slug": "classic-ritardi-combinazioni",
       "title": "ritardi-combinazioni",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -285,7 +256,7 @@
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "title": "statistiche-combinate-finestre-mobili",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -313,7 +284,7 @@
       "slug": "classic-tavole-probabilita-teorica-test-uniformita",
       "title": "tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -341,7 +312,7 @@
       "slug": "genetic",
       "title": "GeneticSE",
       "family": "genetico",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -370,7 +341,7 @@
       "slug": "hispa",
       "title": "HiSPA",
       "family": "statistica",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -398,7 +369,7 @@
       "slug": "paradox-logiche-decisionali-metriche",
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -427,7 +398,7 @@
       "slug": "super6NN",
       "title": "Super6 NN",
       "family": "neurale",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -456,7 +427,7 @@
       "slug": "xeno-qdna-alpha",
       "title": "XENO-QDNA α",
       "family": "generativi",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [
@@ -484,7 +455,7 @@
       "slug": "xeno-qdna-beta",
       "title": "XENO-QDNA β",
       "family": "generativi",
-      "generated_at": "2026-07-01T21:47:41",
+      "generated_at": "2026-07-02T00:12:06",
       "last_seq": 4218,
       "last_date": "",
       "proposal": [],

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T21:47:41",
+  "generated_at": "2026-07-02T00:12:06",
   "stale": false,
   "latest_draw": {
     "seq": 4218,
@@ -242,5 +242,5 @@
     "note": "Valori estratti da HTML. In calibrazione — iARGOS aggiornerà questo file.",
     "updated_at": "2026-06-07 12:04:50"
   },
-  "total_active_algorithms": 18
+  "total_active_algorithms": 17
 }

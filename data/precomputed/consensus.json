@@ -1,12 +1,10 @@
 {
-  "generated_at": "2026-07-01T21:47:41",
-  "total_algorithms": 18,
+  "generated_at": "2026-07-02T00:12:06",
+  "total_algorithms": 17,
   "numbers": {
     "1": {
-      "support": 1,
-      "algorithms": [
-        "arc90-logico-algoritmica"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "2": {
       "support": 0,
@@ -36,9 +34,8 @@
       ]
     },
     "7": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "arc90-logico-algoritmica",
         "classic-statistiche-combinate-finestre-mobili"
       ]
     },
@@ -272,9 +269,8 @@
       ]
     },
     "51": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "arc90-logico-algoritmica",
         "classic-coppie-terzine-frequenti"
       ]
     },
@@ -355,10 +351,8 @@
       ]
     },
     "64": {
-      "support": 1,
-      "algorithms": [
-        "arc90-logico-algoritmica"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "65": {
       "support": 6,
@@ -433,10 +427,8 @@
       ]
     },
     "78": {
-      "support": 1,
-      "algorithms": [
-        "arc90-logico-algoritmica"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "79": {
       "support": 2,
@@ -463,10 +455,8 @@
       "algorithms": []
     },
     "83": {
-      "support": 1,
-      "algorithms": [
-        "arc90-logico-algoritmica"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "84": {
       "support": 0,
@@ -634,14 +624,6 @@
       ]
     },
     {
-      "number": 7,
-      "support": 2,
-      "algorithms": [
-        "arc90-logico-algoritmica",
-        "classic-statistiche-combinate-finestre-mobili"
-      ]
-    },
-    {
       "number": 19,
       "support": 2,
       "algorithms": [
@@ -658,11 +640,19 @@
       ]
     },
     {
-      "number": 51,
+      "number": 54,
       "support": 2,
       "algorithms": [
-        "arc90-logico-algoritmica",
-        "classic-coppie-terzine-frequenti"
+        "classic-analisi-anomalie-pattern",
+        "xeno-qdna-alpha"
+      ]
+    },
+    {
+      "number": 57,
+      "support": 2,
+      "algorithms": [
+        "classic-coppie-terni-consecutivi",
+        "classic-statistiche-combinate-finestre-mobili"
       ]
     }
   ]

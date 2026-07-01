@@ -1,4 +1,4 @@
-﻿const canvas = document.querySelector('[data-wormhole-canvas]');
+const canvas = document.querySelector('[data-wormhole-canvas]');
 if (!(canvas instanceof HTMLCanvasElement)) {
   // no-op
 } else {
@@ -133,7 +133,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
 
   const TAU = Math.PI * 2;
 
-  // â”€â”€ FALLBACK 2D â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── FALLBACK 2D ──────────────────────────────────────────────────────
   const bootFallback2D = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -191,7 +191,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
     });
   };
 
-  // â”€â”€ THREE.JS â€“ WORMHOLE FOTOGRAFICO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── THREE.JS – WORMHOLE FOTOGRAFICO ─────────────────────────────────
   (async () => {
     try {
       const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js');
@@ -204,7 +204,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
       const camera = new THREE.PerspectiveCamera(80, 16 / 9, 0.01, 50);
       camera.position.z = 0;
 
-      // â”€â”€ SHADER FULL-SCREEN: campo stellare + lensing gravitazionale â”€â”€
+      // ── SHADER FULL-SCREEN: campo stellare + lensing gravitazionale ──
       const wormholeMat = new THREE.ShaderMaterial({
         uniforms: {
           uTime:   { value: 0.0 },
@@ -228,7 +228,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
           uniform float uAspect;
           uniform vec2  uMouse;
 
-          // â”€â”€ Hash / noise â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          // ── Hash / noise ───────────────────────────────────────────
           float h11(float n){ return fract(sin(n)*43758.5453); }
           float h21(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
           vec2  h22(vec2 p){ return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453); }
@@ -248,8 +248,8 @@ if (!(canvas instanceof HTMLCanvasElement)) {
 
           mat2 rot2(float a){ float c=cos(a),s=sin(a); return mat2(c,-s,s,c); }
 
-          // â”€â”€ Campo stellare: griglia procedurale con stelle realistiche â”€
-          // Restituisce (luminositÃ , tipo_spettrale)
+          // ── Campo stellare: griglia procedurale con stelle realistiche ─
+          // Restituisce (luminosità, tipo_spettrale)
           vec2 starGrid(vec2 uv, float scale, float density){
             vec2 cell  = floor(uv * scale);
             vec2 local = fract(uv * scale);
@@ -274,7 +274,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             return vec2(bright, spec);
           }
 
-          // â”€â”€ Nebulose proceduali (emissione + riflessione + polvere) â”€â”€
+          // ── Nebulose proceduali (emissione + riflessione + polvere) ──
           vec3 nebula(vec2 uv){
             vec2 q = uv;
             float n1 = fbm(q * 2.2 + uTime * 0.004);
@@ -283,7 +283,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             float n4 = fbm(q * 1.1 + vec2(3.1, 1.9)); // struttura larga
 
             vec3 col = vec3(0.0);
-            // Nebulosa a emissione HÎ± (rosso-viola)
+            // Nebulosa a emissione Hα (rosso-viola)
             col += vec3(0.40, 0.04, 0.10) * pow(n1, 3.0) * n4 * 0.9;
             // Nebulosa a riflessione (blu)
             col += vec3(0.03, 0.07, 0.30) * pow(n2, 2.5) * 0.7;
@@ -296,7 +296,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             return col * 0.55;
           }
 
-          // â”€â”€ Galassie distanti (blob ellittici) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          // ── Galassie distanti (blob ellittici) ───────────────────────
           float distGalaxy(vec2 uv, vec2 center, float rad, float ang, float ellong){
             vec2 d = rot2(ang) * (uv - center);
             d.x /= ellong;
@@ -306,7 +306,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             return core + disc;
           }
 
-          // â”€â”€ Pianeti (sfere colorate con shading lambertiano) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          // ── Pianeti (sfere colorate con shading lambertiano) ──────────
           float planet(vec2 uv, vec2 center, float rad){
             vec2 d = uv - center;
             float r = length(d);
@@ -361,7 +361,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             // Rotazione lenta del cielo stellato (siamo dentro il wormhole)
             vec2 sky = rot2(uTime * 0.022) * (uv + drift);
 
-            // â”€â”€ Parametri wormhole â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+            // ── Parametri wormhole ─────────────────────────────────────
             float r   = length(uv);
             float phi = atan(uv.y, uv.x);
             vec2 flowDir = normalize(uv + vec2(1e-5));
@@ -371,14 +371,14 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             float einsteinR = throatR * 1.40;
             float speedFactor = max(0.55, uSpeed);
 
-            // â”€â”€ Lensing gravitazionale â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+            // ── Lensing gravitazionale ─────────────────────────────────
             // Per ogni pixel fuori dalla gola, deformiamo le coordinate
             // del cielo simulando la curvatura dello spazio-tempo
             vec2 lensedSky;
             bool inThroat = (r < throatR * 0.98);
 
             if(!inThroat){
-              // Deflessione: angolo âˆ (R_throat / r)^2
+              // Deflessione: angolo ∝ (R_throat / r)^2
               float impact      = r;
               float deflAngle   = (throatR * throatR) / (impact * impact) * 1.1;
 
@@ -392,12 +392,12 @@ if (!(canvas instanceof HTMLCanvasElement)) {
 
               lensedSky = rot2(uTime * 0.022) * (vec2(cos(lensedPhi), sin(lensedPhi)) * lensedR + drift);
             } else {
-              // Dentro la gola: vediamo l'altra universitÃ  (campo diverso, ruotato)
+              // Dentro la gola: vediamo l'altra università (campo diverso, ruotato)
               vec2 innerCoord = (uv / max(r, 0.001)) * (throatR * 0.9);
               lensedSky = rot2(-uTime * 0.035 + 2.1) * (innerCoord * 1.8 + vec2(0.3, -0.2));
             }
 
-            // â”€â”€ Background spaziale â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+            // ── Background spaziale ────────────────────────────────────
             float motionSharpen = mix(0.42, 1.0, smoothstep(0.95, 1.9, speedFactor));
             vec2 flowSky = lensedSky - flowDir * (uFlow * motionSharpen);
             vec2 skyA = flowSky * 0.30 + 0.5; // coordinate UV per nebulosa/stelle
@@ -423,7 +423,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             float totalStars = st1.x * 0.45 + st2.x * 0.7 + st3.x * 1.1 + st4.x * 2.2;
             float spectral   = (st1.y + st2.y + st3.y + st4.y) * 0.25;
 
-            // Colore stelle: blu-bianco (stelle calde) â†” arancio-rosso (stelle fredde)
+            // Colore stelle: blu-bianco (stelle calde) ↔ arancio-rosso (stelle fredde)
             vec3 starHot  = vec3(0.65, 0.80, 1.00);
             vec3 starMid  = vec3(1.00, 0.97, 0.90);
             vec3 starCool = vec3(1.00, 0.60, 0.30);
@@ -463,7 +463,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
               }
             }
 
-            // â”€â”€ Gola del wormhole (nera, quasi opaca) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+            // ── Gola del wormhole (nera, quasi opaca) ─────────────────
                         if(inThroat){
               float coreR = throatR * 0.74;
               float coreSoft = throatR * 0.11;
@@ -515,7 +515,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
             float eventMask = smoothstep(eventCoreR, eventCoreR + eventSoft, r);
             space *= eventMask;
 
-            // â”€â”€ Tonemapping cinematografico â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+            // ── Tonemapping cinematografico ────────────────────────────
             // ACES approssimato
             vec3 x = max(vec3(0.0), space);
             x = (x * (2.51*x + 0.03)) / (x * (2.43*x + 0.59) + 0.14);
@@ -531,7 +531,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
       bgPlane.position.z = -10.0;
       scene.add(bgPlane);
 
-      // â”€â”€ RESIZE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+      // ── RESIZE ─────────────────────────────────────────────────────────
       const setSize = () => {
         const rect = canvas.getBoundingClientRect();
         const w = Math.max(1, Math.floor(rect.width  || 1));
@@ -551,7 +551,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
       setSize();
       window.addEventListener('resize', setSize, { passive: true });
 
-      // â”€â”€ MOUSE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+      // ── MOUSE ──────────────────────────────────────────────────────────
       const mouse = { x: 0, y: 0 };
       const mouseVec = new THREE.Vector2(0, 0);
       canvas.addEventListener('pointermove', ev => {
@@ -561,7 +561,7 @@ if (!(canvas instanceof HTMLCanvasElement)) {
         mouse.y = -(ev.clientY - rect.top)  / rect.height * 2 + 1;
       }, { passive: true });
 
-      // â”€â”€ LOOP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+      // ── LOOP ───────────────────────────────────────────────────────────
       let raf = 0;
       let t0  = performance.now();
       let firstFrameRendered = false;
