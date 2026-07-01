@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T18:50:23",
+  "generated_at": "2026-07-01T21:44:52",
   "total_algorithms": 18,
   "numbers": {
     "1": {
@@ -23,22 +23,22 @@
       "algorithms": []
     },
     "5": {
-      "support": 1,
-      "algorithms": [
-        "hispa"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "6": {
-      "support": 3,
+      "support": 4,
       "algorithms": [
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
-        "genetic"
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     "7": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "arc90-logico-algoritmica",
         "classic-statistiche-combinate-finestre-mobili"
       ]
     },
@@ -51,8 +51,10 @@
       "algorithms": []
     },
     "10": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "hispa"
+      ]
     },
     "11": {
       "support": 0,
@@ -77,60 +79,62 @@
     "15": {
       "support": 1,
       "algorithms": [
-        "hispa"
+        "astra-moon"
       ]
     },
     "16": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "astra-moon"
+      ]
     },
     "17": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "astra-moon"
+      ]
     },
     "18": {
-      "support": 3,
+      "support": 5,
       "algorithms": [
+        "astra-moon",
         "classic-coppie-terzine-frequenti",
         "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita"
+        "classic-tavole-probabilita-teorica-test-uniformita",
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     "19": {
-      "support": 1,
-      "algorithms": [
-        "astra-moon"
-      ]
-    },
-    "20": {
       "support": 2,
       "algorithms": [
         "astra-moon",
-        "classic-ritardi"
+        "hispa"
+      ]
+    },
+    "20": {
+      "support": 4,
+      "algorithms": [
+        "astra-moon",
+        "classic-ritardi",
+        "hispa",
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     "21": {
-      "support": 1,
-      "algorithms": [
-        "astra-moon"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "22": {
-      "support": 1,
-      "algorithms": [
-        "arc90-logico-algoritmica"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "23": {
-      "support": 1,
-      "algorithms": [
-        "astra-moon"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "24": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "classic-statistiche-combinate-finestre-mobili",
         "classic-tavole-probabilita-teorica-test-uniformita"
       ]
     },
@@ -157,11 +161,8 @@
       "algorithms": []
     },
     "30": {
-      "support": 2,
-      "algorithms": [
-        "arc90-logico-algoritmica",
-        "xeno-qdna-alpha"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "31": {
       "support": 0,
@@ -214,17 +215,14 @@
       "algorithms": []
     },
     "41": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "super6NN",
-        "xeno-qdna-alpha"
+        "super6NN"
       ]
     },
     "42": {
-      "support": 1,
-      "algorithms": [
-        "xeno-qdna-alpha"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "43": {
       "support": 1,
@@ -239,9 +237,8 @@
       ]
     },
     "45": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "arc90-logico-algoritmica",
         "classic-coppie-terni-consecutivi"
       ]
     },
@@ -250,10 +247,8 @@
       "algorithms": []
     },
     "47": {
-      "support": 1,
-      "algorithms": [
-        "hispa"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "48": {
       "support": 1,
@@ -277,8 +272,9 @@
       ]
     },
     "51": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "arc90-logico-algoritmica",
         "classic-coppie-terzine-frequenti"
       ]
     },
@@ -302,13 +298,11 @@
       ]
     },
     "55": {
-      "support": 5,
+      "support": 3,
       "algorithms": [
         "classic-co-occorrenze",
         "classic-coppie-terni-consecutivi",
-        "classic-frequency",
-        "hispa",
-        "paradox-logiche-decisionali-metriche"
+        "classic-frequency"
       ]
     },
     "56": {
@@ -318,11 +312,10 @@
       ]
     },
     "57": {
-      "support": 3,
+      "support": 2,
       "algorithms": [
         "classic-coppie-terni-consecutivi",
-        "classic-statistiche-combinate-finestre-mobili",
-        "paradox-logiche-decisionali-metriche"
+        "classic-statistiche-combinate-finestre-mobili"
       ]
     },
     "58": {
@@ -330,8 +323,10 @@
       "algorithms": []
     },
     "59": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "hispa"
+      ]
     },
     "60": {
       "support": 1,
@@ -340,32 +335,34 @@
       ]
     },
     "61": {
-      "support": 2,
+      "support": 1,
       "algorithms": [
-        "hispa",
         "super6NN"
       ]
     },
     "62": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-co-occorrenze"
+        "classic-co-occorrenze",
+        "super6NN"
       ]
     },
     "63": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
+        "classic-statistiche-combinate-finestre-mobili",
         "super6NN"
       ]
     },
     "64": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "arc90-logico-algoritmica"
+      ]
     },
     "65": {
-      "support": 7,
+      "support": 6,
       "algorithms": [
-        "astra-moon",
         "classic-analisi-anomalie-pattern",
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-ritardi",
@@ -379,28 +376,28 @@
       "algorithms": []
     },
     "67": {
-      "support": 5,
+      "support": 3,
       "algorithms": [
-        "astra-moon",
         "classic-analisi-anomalie-pattern",
         "classic-ritardi",
-        "genetic",
-        "paradox-logiche-decisionali-metriche"
+        "genetic"
       ]
     },
     "68": {
-      "support": 0,
-      "algorithms": []
-    },
-    "69": {
-      "support": 0,
-      "algorithms": []
-    },
-    "70": {
       "support": 1,
       "algorithms": [
-        "hispa"
+        "xeno-qdna-alpha"
       ]
+    },
+    "69": {
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna-alpha"
+      ]
+    },
+    "70": {
+      "support": 0,
+      "algorithms": []
     },
     "71": {
       "support": 0,
@@ -411,10 +408,8 @@
       "algorithms": []
     },
     "73": {
-      "support": 1,
-      "algorithms": [
-        "arc90-logico-algoritmica"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "74": {
       "support": 0,
@@ -427,8 +422,8 @@
     "76": {
       "support": 2,
       "algorithms": [
-        "arc90-logico-algoritmica",
-        "classic-co-occorrenze"
+        "classic-co-occorrenze",
+        "xeno-qdna-alpha"
       ]
     },
     "77": {
@@ -440,7 +435,7 @@
     "78": {
       "support": 1,
       "algorithms": [
-        "super6NN"
+        "arc90-logico-algoritmica"
       ]
     },
     "79": {
@@ -457,21 +452,20 @@
       ]
     },
     "81": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-co-occorrenze"
+        "classic-co-occorrenze",
+        "xeno-qdna-alpha"
       ]
     },
     "82": {
-      "support": 1,
-      "algorithms": [
-        "xeno-qdna-alpha"
-      ]
+      "support": 0,
+      "algorithms": []
     },
     "83": {
       "support": 1,
       "algorithms": [
-        "xeno-qdna-alpha"
+        "arc90-logico-algoritmica"
       ]
     },
     "84": {
@@ -479,12 +473,13 @@
       "algorithms": []
     },
     "85": {
-      "support": 6,
+      "support": 7,
       "algorithms": [
         "classic-co-occorrenze",
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
         "classic-ritardi-combinazioni",
+        "hispa",
         "paradox-logiche-decisionali-metriche",
         "super6NN"
       ]
@@ -498,9 +493,10 @@
       ]
     },
     "87": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-coppie-terzine-frequenti"
+        "classic-coppie-terzine-frequenti",
+        "hispa"
       ]
     },
     "88": {
@@ -514,8 +510,10 @@
       ]
     },
     "89": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna-alpha"
+      ]
     },
     "90": {
       "support": 0,
@@ -524,49 +522,38 @@
   },
   "top": [
     {
-      "number": 65,
-      "support": 7,
-      "algorithms": [
-        "astra-moon",
-        "classic-analisi-anomalie-pattern",
-        "classic-distribuzioni-modelli-raggruppamento",
-        "classic-ritardi",
-        "genetic",
-        "paradox-logiche-decisionali-metriche",
-        "super6NN"
-      ]
-    },
-    {
       "number": 85,
-      "support": 6,
+      "support": 7,
       "algorithms": [
         "classic-co-occorrenze",
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
         "classic-ritardi-combinazioni",
+        "hispa",
         "paradox-logiche-decisionali-metriche",
         "super6NN"
       ]
     },
     {
-      "number": 55,
-      "support": 5,
+      "number": 65,
+      "support": 6,
       "algorithms": [
-        "classic-co-occorrenze",
-        "classic-coppie-terni-consecutivi",
-        "classic-frequency",
-        "hispa",
-        "paradox-logiche-decisionali-metriche"
+        "classic-analisi-anomalie-pattern",
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-ritardi",
+        "genetic",
+        "paradox-logiche-decisionali-metriche",
+        "super6NN"
       ]
     },
     {
-      "number": 67,
+      "number": 18,
       "support": 5,
       "algorithms": [
         "astra-moon",
-        "classic-analisi-anomalie-pattern",
-        "classic-ritardi",
-        "genetic",
+        "classic-coppie-terzine-frequenti",
+        "classic-statistiche-combinate-finestre-mobili",
+        "classic-tavole-probabilita-teorica-test-uniformita",
         "paradox-logiche-decisionali-metriche"
       ]
     },
@@ -583,20 +570,22 @@
     },
     {
       "number": 6,
-      "support": 3,
+      "support": 4,
       "algorithms": [
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency",
-        "genetic"
+        "genetic",
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     {
-      "number": 18,
-      "support": 3,
+      "number": 20,
+      "support": 4,
       "algorithms": [
-        "classic-coppie-terzine-frequenti",
-        "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita"
+        "astra-moon",
+        "classic-ritardi",
+        "hispa",
+        "paradox-logiche-decisionali-metriche"
       ]
     },
     {
@@ -618,12 +607,21 @@
       ]
     },
     {
-      "number": 57,
+      "number": 55,
       "support": 3,
       "algorithms": [
+        "classic-co-occorrenze",
         "classic-coppie-terni-consecutivi",
-        "classic-statistiche-combinate-finestre-mobili",
-        "paradox-logiche-decisionali-metriche"
+        "classic-frequency"
+      ]
+    },
+    {
+      "number": 67,
+      "support": 3,
+      "algorithms": [
+        "classic-analisi-anomalie-pattern",
+        "classic-ritardi",
+        "genetic"
       ]
     },
     {
@@ -636,35 +634,35 @@
       ]
     },
     {
-      "number": 20,
-      "support": 2,
-      "algorithms": [
-        "astra-moon",
-        "classic-ritardi"
-      ]
-    },
-    {
-      "number": 24,
-      "support": 2,
-      "algorithms": [
-        "classic-statistiche-combinate-finestre-mobili",
-        "classic-tavole-probabilita-teorica-test-uniformita"
-      ]
-    },
-    {
-      "number": 30,
+      "number": 7,
       "support": 2,
       "algorithms": [
         "arc90-logico-algoritmica",
-        "xeno-qdna-alpha"
+        "classic-statistiche-combinate-finestre-mobili"
       ]
     },
     {
-      "number": 41,
+      "number": 19,
       "support": 2,
       "algorithms": [
-        "super6NN",
-        "xeno-qdna-alpha"
+        "astra-moon",
+        "hispa"
+      ]
+    },
+    {
+      "number": 49,
+      "support": 2,
+      "algorithms": [
+        "classic-distribuzioni-modelli-raggruppamento",
+        "classic-frequency"
+      ]
+    },
+    {
+      "number": 51,
+      "support": 2,
+      "algorithms": [
+        "arc90-logico-algoritmica",
+        "classic-coppie-terzine-frequenti"
       ]
     }
   ]

@@ -1,9 +1,9 @@
-XENO-QDNA β - Concorso 4217 del 26/06/2026
-Sestina β proposta per il concorso 4218: 30 41 80 83 86 90
-Sestina α di riferimento: 07 17 45 57 62 70
+XENO-QDNA β - Concorso 4218 del 30/06/2026
+Sestina β proposta per il concorso 4219: 60 62 70 76 81 85
+Sestina α di riferimento: 30 41 42 54 82 83
 
-Maschera B*: 001111101111111111111111011100101110011111
-Bit corretti selezionati: 33/42. IFC score: 11.0. Tentativo: 2.
-Membrana XENO-90: OK.
+Maschera B*: 011111111111111111111001111100111110011111
+Bit corretti selezionati: 35/42. IFC score: 12.0. Tentativo: 3.
+Membrana XENO-90: accettata in modalita forzata.
 
-Riflessioni: 2 | Tunneling: 2
+Riflessioni: 2 | Tunneling: 1
