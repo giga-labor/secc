@@ -2,19 +2,19 @@
   "slug": "super6NN",
   "title": "Super6 NN",
   "family": "neurale",
-  "generated_at": "2026-07-02T00:12:06",
-  "last_seq": 4218,
+  "generated_at": "2026-07-08T08:46:05",
+  "last_seq": 4219,
   "last_date": "",
   "proposal": [
     41,
     61,
     62,
-    63,
     65,
+    81,
     85
   ],
   "metrics": {
-    "draws_covered": 4218,
+    "draws_covered": 4219,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 4.6,
     "hit_rate_gte_3": 0.3,

@@ -1,17 +1,17 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4196,Backtest walk-forward con finestra minima XENO-QDNA
+Concorsi analizzati,4197,Backtest walk-forward con finestra minima XENO-QDNA
 Media hit/sestina,0.43,Media numeri corretti sulle sestine generate
 Hit rate >= 2,5.8%,Percentuale concorsi con almeno 2 hit
 Best streak,8,Massima sequenza con almeno 1 hit
-Ultimo concorso calcolato,4218,Data estrazione: 30/06/2026
-Concorso successivo stimato,4219,Sestina proposta: 54 68 69 76 81 89
-Sestina proposta (prossimo concorso),54 68 69 76 81 89,DNA_LAST XOR maschera di collasso QDNA
-Maschera QDNA,011011111101111111111001101100111110111100,42 bit selezionati da attivazioni e transizioni degli ultimi 21 delta
-Tentativo collasso,3,"1=mask base, 2=rotazione 7 bit, 3=rotazione 14 bit"
-Score decoerenza,2,Soglia preferita < 2; accettazione forzata al terzo tentativo
-Membrana XENO-90,FORZATA,Controllo di somiglianza e concentrazione sulle ultime estrazioni
-Distribuzione hit 0-6,0: 2663 | 1: 1289 | 2: 234 | 3: 10 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-membrane pass rate,82.5%,% sestine backtest superate al controllo membrana
+Ultimo concorso calcolato,4219,Data estrazione: 07/07/2026
+Concorso successivo stimato,4220,Sestina proposta: 28 41 62 72 74 84
+Sestina proposta (prossimo concorso),28 41 62 72 74 84,DNA_LAST XOR maschera di collasso QDNA
+Maschera QDNA,001111101011100110111111111111111110011011,42 bit selezionati da attivazioni e transizioni degli ultimi 21 delta
+Tentativo collasso,1,"1=mask base, 2=rotazione 7 bit, 3=rotazione 14 bit"
+Score decoerenza,1,Soglia preferita < 2; accettazione forzata al terzo tentativo
+Membrana XENO-90,OK,Controllo di somiglianza e concentrazione sulle ultime estrazioni
+Distribuzione hit 0-6,0: 2664 | 1: 1289 | 2: 234 | 3: 10 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+membrane pass rate,82.0%,% sestine backtest superate al controllo membrana
 decoherence block rate,2.0%,% sestine backtest bloccate per decoerenza >= 3
 tunneling rate,18.5%,% sestine backtest che hanno richiesto tunneling
 mask stability,32.3 / 42,bit attivi medi su 42 nella maschera di collasso

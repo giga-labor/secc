@@ -2,8 +2,8 @@
   "slug": "classic-tavole-probabilita-teorica-test-uniformita",
   "title": "tavole-probabilita-teorica-test-uniformita",
   "family": "statistica",
-  "generated_at": "2026-07-02T00:12:06",
-  "last_seq": 4218,
+  "generated_at": "2026-07-08T08:46:05",
+  "last_seq": 4219,
   "last_date": "",
   "proposal": [
     50,
@@ -14,7 +14,7 @@
     60
   ],
   "metrics": {
-    "draws_covered": 4218,
+    "draws_covered": 4219,
     "avg_hits": 0.4,
     "hit_rate_gte_2": 4.9,
     "best_streak": 7
