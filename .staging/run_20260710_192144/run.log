@@ -1,0 +1,14 @@
+[19:31:03] Fase OK: apply_stage_to_repo
+[19:31:05] AI nulla osta OK su git_add_commit_push_once
+[19:31:05] Avvio fase: git_add_commit_push_once
+[19:31:09] Fase OK: git_add_commit_push_once
+[19:31:11] AI nulla osta OK su post_push_verify
+[19:31:11] Avvio fase: post_push_verify
+[19:31:11] Fase OK: post_push_verify
+[19:31:12] AI nulla osta OK su email_final_report
+[19:31:12] Avvio fase: email_final_report
+[19:31:16] Fase OK: email_final_report
+[19:31:16] AI nulla osta OK su lock_release
+[19:31:16] Avvio fase: lock_release
+[19:31:16] Fase OK: lock_release
+[19:31:16] Pipeline server completa terminata
