@@ -1,7 +1,7 @@
-XENO-QDNA - Concorso 4219 del 07/07/2026
-Sestina proposta per il concorso 4220: 28 41 62 72 74 84
+XENO-QDNA - Concorso 4220 del 09/07/2026
+Sestina proposta per il concorso 4221: 22 35 43 80 84 87
 
-Maschera di collasso: 001111101011100110111111111111111110011011
+Maschera di collasso: 001111101110100110111111111111111110011111
 Tentativo: 1. Score decoerenza: 1. Membrana XENO-90: OK.
 
-Riflessioni applicate: 0 | Tunneling: 0
+Riflessioni applicate: 1 | Tunneling: 0

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08 08:46:05",
+  "generated_at": "2026-07-10 19:31:01",
   "count": 17,
   "sheets": {
     "astra-moon": {
@@ -14,47 +14,15 @@
       "last_updated": "17/04/2026",
       "proposal": [
         50,
-        11,
-        8,
-        9,
         6,
-        10
+        48,
+        8,
+        49,
+        5
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 6,
-                "hit": false
-              },
-              {
-                "number": 7,
-                "hit": false
-              },
-              {
-                "number": 5,
-                "hit": false
-              },
-              {
-                "number": 3,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -149,7 +117,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.3333
           },
           {
             "seq": "4184",
@@ -181,7 +149,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.25
           },
           {
             "seq": "4185",
@@ -213,7 +181,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.4
           },
           {
             "seq": "4186",
@@ -245,7 +213,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -277,7 +245,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -309,7 +277,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2222
+            "moving_avg": 0.25
           },
           {
             "seq": "4189",
@@ -341,7 +309,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.3333
           },
           {
             "seq": "4190",
@@ -1302,6 +1270,38 @@
               }
             ],
             "moving_avg": 0.2
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 11,
+                "hit": false
+              },
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 9,
+                "hit": true
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 10,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -1310,7 +1310,7 @@
         "avg_hits": "0.42",
         "hit_rate_gte_2": "5.5%",
         "hit_rate_gte_3": "0.3%",
-        "last_200_avg": "0.3750",
+        "last_200_avg": "0.3800",
         "std_hit": "0.6036"
       },
       "method": {
@@ -1339,43 +1339,11 @@
         67,
         32,
         50,
-        20
+        54
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": true
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -1406,7 +1374,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4182",
@@ -1438,7 +1406,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.0
           },
           {
             "seq": "4183",
@@ -1470,7 +1438,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.0
           },
           {
             "seq": "4184",
@@ -1502,7 +1470,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.0
           },
           {
             "seq": "4185",
@@ -1534,7 +1502,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.2
           },
           {
             "seq": "4186",
@@ -1566,7 +1534,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.1667
           },
           {
             "seq": "4187",
@@ -1598,7 +1566,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.1429
           },
           {
             "seq": "4188",
@@ -1630,7 +1598,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2222
+            "moving_avg": 0.125
           },
           {
             "seq": "4189",
@@ -1662,7 +1630,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.2222
           },
           {
             "seq": "4190",
@@ -2623,6 +2591,38 @@
               }
             ],
             "moving_avg": 0.6
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 88,
+                "hit": false
+              },
+              {
+                "number": 67,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 20,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.7
           }
         ]
       },
@@ -2631,7 +2631,7 @@
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.6%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4400",
+        "last_200_avg": "0.4450",
         "std_hit": "0.6089"
       },
       "method": {
@@ -2666,38 +2666,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 85,
-                "hit": false
-              },
-              {
-                "number": 55,
-                "hit": false
-              },
-              {
-                "number": 81,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              },
-              {
-                "number": 62,
-                "hit": false
-              },
-              {
-                "number": 80,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 0,
@@ -2887,7 +2855,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -2919,7 +2887,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -2951,7 +2919,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2222
+            "moving_avg": 0.25
           },
           {
             "seq": "4189",
@@ -2983,7 +2951,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.2222
           },
           {
             "seq": "4190",
@@ -3944,6 +3912,38 @@
               }
             ],
             "moving_avg": 0.5
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -3952,7 +3952,7 @@
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
-        "last_200_avg": "0.4200",
+        "last_200_avg": "0.4150",
         "std_hit": "0.5961"
       },
       "method": {
@@ -3987,38 +3987,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 43,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": true
-              },
-              {
-                "number": 45,
-                "hit": false
-              },
-              {
-                "number": 55,
-                "hit": false
-              },
-              {
-                "number": 56,
-                "hit": false
-              },
-              {
-                "number": 57,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 2,
@@ -4048,7 +4016,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 1.5
+            "moving_avg": 2.0
           },
           {
             "seq": "4182",
@@ -4112,7 +4080,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 1.25
+            "moving_avg": 1.3333
           },
           {
             "seq": "4184",
@@ -4144,7 +4112,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 1.2
+            "moving_avg": 1.25
           },
           {
             "seq": "4185",
@@ -4240,7 +4208,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 1.125
+            "moving_avg": 1.1429
           },
           {
             "seq": "4188",
@@ -4272,7 +4240,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 1.1111
+            "moving_avg": 1.125
           },
           {
             "seq": "4189",
@@ -5265,6 +5233,38 @@
               }
             ],
             "moving_avg": 0.5
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 44,
+                "hit": false
+              },
+              {
+                "number": 45,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 56,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
           }
         ]
       },
@@ -5273,7 +5273,7 @@
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4250",
+        "last_200_avg": "0.4200",
         "std_hit": "0.5938"
       },
       "method": {
@@ -5308,38 +5308,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 48,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 87,
-                "hit": false
-              },
-              {
-                "number": 13,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 51,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 1,
@@ -5369,7 +5337,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 1.0
           },
           {
             "seq": "4182",
@@ -5401,7 +5369,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.5
           },
           {
             "seq": "4183",
@@ -5433,7 +5401,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6667
           },
           {
             "seq": "4184",
@@ -5465,7 +5433,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.75
           },
           {
             "seq": "4185",
@@ -5497,7 +5465,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 0.8
           },
           {
             "seq": "4186",
@@ -5529,7 +5497,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.7143
+            "moving_avg": 0.8333
           },
           {
             "seq": "4187",
@@ -5561,7 +5529,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.625
+            "moving_avg": 0.7143
           },
           {
             "seq": "4188",
@@ -5593,7 +5561,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5556
+            "moving_avg": 0.625
           },
           {
             "seq": "4189",
@@ -5625,7 +5593,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.6667
           },
           {
             "seq": "4190",
@@ -6586,6 +6554,38 @@
               }
             ],
             "moving_avg": 0.7
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 48,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 87,
+                "hit": false
+              },
+              {
+                "number": 13,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 51,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
           }
         ]
       },
@@ -6595,7 +6595,7 @@
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.1%",
         "last_200_avg": "0.3600",
-        "std_hit": "0.5790"
+        "std_hit": "0.5789"
       },
       "method": {
         "intro": "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.",
@@ -6629,38 +6629,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 79,
-                "hit": false
-              },
-              {
-                "number": 49,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 0,
@@ -6818,7 +6786,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.1667
+            "moving_avg": 0.2
           },
           {
             "seq": "4186",
@@ -6850,7 +6818,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -6882,7 +6850,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -6914,7 +6882,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2222
+            "moving_avg": 0.25
           },
           {
             "seq": "4189",
@@ -6946,7 +6914,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.4444
           },
           {
             "seq": "4190",
@@ -7907,6 +7875,38 @@
               }
             ],
             "moving_avg": 0.2
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 88,
+                "hit": false
+              },
+              {
+                "number": 77,
+                "hit": false
+              },
+              {
+                "number": 49,
+                "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.1
           }
         ]
       },
@@ -7915,8 +7915,8 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.7%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.3650",
-        "std_hit": "0.5899"
+        "last_200_avg": "0.3600",
+        "std_hit": "0.5898"
       },
       "method": {
         "intro": "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione.",
@@ -7949,38 +7949,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 85,
-                "hit": false
-              },
-              {
-                "number": 6,
-                "hit": false
-              },
-              {
-                "number": 49,
-                "hit": false
-              },
-              {
-                "number": 79,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 81,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -8139,7 +8107,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.1667
+            "moving_avg": 0.2
           },
           {
             "seq": "4186",
@@ -8171,7 +8139,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -8203,7 +8171,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -8235,7 +8203,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.375
           },
           {
             "seq": "4189",
@@ -8267,7 +8235,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.5556
           },
           {
             "seq": "4190",
@@ -9228,6 +9196,38 @@
               }
             ],
             "moving_avg": 0.2
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 79,
+                "hit": true
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 49,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -9236,7 +9236,7 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "5.1%",
         "hit_rate_gte_3": "0.3%",
-        "last_200_avg": "0.4050",
+        "last_200_avg": "0.4000",
         "std_hit": "0.5936"
       },
       "method": {
@@ -9260,48 +9260,16 @@
       "access_tier": "free",
       "last_updated": "23/02/2026",
       "proposal": [
-        1,
-        17,
         3,
         86,
         12,
-        85
+        85,
+        49,
+        70
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 3,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              },
-              {
-                "number": 90,
-                "hit": false
-              },
-              {
-                "number": 56,
-                "hit": false
-              },
-              {
-                "number": 84,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -9332,7 +9300,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 1.0
           },
           {
             "seq": "4182",
@@ -9364,7 +9332,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.5
           },
           {
             "seq": "4183",
@@ -9396,7 +9364,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6667
           },
           {
             "seq": "4184",
@@ -9428,7 +9396,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.75
           },
           {
             "seq": "4185",
@@ -9460,7 +9428,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6
           },
           {
             "seq": "4186",
@@ -9492,7 +9460,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5714
+            "moving_avg": 0.6667
           },
           {
             "seq": "4187",
@@ -9524,7 +9492,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.5714
           },
           {
             "seq": "4188",
@@ -9556,7 +9524,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4444
+            "moving_avg": 0.5
           },
           {
             "seq": "4189",
@@ -9588,7 +9556,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.6667
           },
           {
             "seq": "4190",
@@ -10549,6 +10517,38 @@
               }
             ],
             "moving_avg": 0.2
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 1,
+                "hit": false
+              },
+              {
+                "number": 17,
+                "hit": true
+              },
+              {
+                "number": 3,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              },
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -10586,43 +10586,11 @@
         67,
         32,
         50,
-        20
+        54
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 82,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 44,
-                "hit": true
-              },
-              {
-                "number": 73,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -10653,7 +10621,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4182",
@@ -10685,7 +10653,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.0
           },
           {
             "seq": "4183",
@@ -10717,7 +10685,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.0
           },
           {
             "seq": "4184",
@@ -10749,7 +10717,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.0
           },
           {
             "seq": "4185",
@@ -10781,7 +10749,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.2
           },
           {
             "seq": "4186",
@@ -10813,7 +10781,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.1667
           },
           {
             "seq": "4187",
@@ -10845,7 +10813,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.1429
           },
           {
             "seq": "4188",
@@ -10877,7 +10845,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2222
+            "moving_avg": 0.125
           },
           {
             "seq": "4189",
@@ -10909,7 +10877,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.2222
           },
           {
             "seq": "4190",
@@ -11870,6 +11838,38 @@
               }
             ],
             "moving_avg": 0.6
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 88,
+                "hit": false
+              },
+              {
+                "number": 67,
+                "hit": false
+              },
+              {
+                "number": 32,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 20,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.7
           }
         ]
       },
@@ -11878,7 +11878,7 @@
         "avg_hits": "0.40",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4200",
+        "last_200_avg": "0.4250",
         "std_hit": "0.6006"
       },
       "method": {
@@ -11913,38 +11913,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 6,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 11,
-                "hit": true
-              },
-              {
-                "number": 16,
-                "hit": false
-              },
-              {
-                "number": 17,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 0,
@@ -11974,7 +11942,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4182",
@@ -12006,7 +11974,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 0.5
           },
           {
             "seq": "4183",
@@ -12038,7 +12006,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 0.6667
           },
           {
             "seq": "4184",
@@ -12070,7 +12038,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.8
+            "moving_avg": 0.75
           },
           {
             "seq": "4185",
@@ -12102,7 +12070,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 0.6
           },
           {
             "seq": "4186",
@@ -12134,7 +12102,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.7143
+            "moving_avg": 0.6667
           },
           {
             "seq": "4187",
@@ -12166,7 +12134,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.625
+            "moving_avg": 0.5714
           },
           {
             "seq": "4188",
@@ -12198,7 +12166,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5556
+            "moving_avg": 0.5
           },
           {
             "seq": "4189",
@@ -12230,7 +12198,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4444
           },
           {
             "seq": "4190",
@@ -13163,6 +13131,38 @@
           {
             "seq": "4219",
             "date": "07/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
             "hit": 0,
             "picks": [
               {
@@ -13234,38 +13234,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 50,
-                "hit": false
-              },
-              {
-                "number": 36,
-                "hit": false
-              },
-              {
-                "number": 53,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 60,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 1,
@@ -13295,7 +13263,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 1.0
           },
           {
             "seq": "4182",
@@ -13327,7 +13295,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.5
           },
           {
             "seq": "4183",
@@ -13359,7 +13327,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6667
           },
           {
             "seq": "4184",
@@ -13391,7 +13359,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.8
+            "moving_avg": 1.0
           },
           {
             "seq": "4185",
@@ -13423,7 +13391,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 0.8
           },
           {
             "seq": "4186",
@@ -13455,7 +13423,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5714
+            "moving_avg": 0.6667
           },
           {
             "seq": "4187",
@@ -13487,7 +13455,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.625
+            "moving_avg": 0.7143
           },
           {
             "seq": "4188",
@@ -13519,7 +13487,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5556
+            "moving_avg": 0.625
           },
           {
             "seq": "4189",
@@ -13551,7 +13519,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.6667
           },
           {
             "seq": "4190",
@@ -14512,6 +14480,38 @@
               }
             ],
             "moving_avg": 0.5
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": false
+              },
+              {
+                "number": 60,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -14555,38 +14555,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 64,
-                "hit": false
-              },
-              {
-                "number": 81,
-                "hit": false
-              },
-              {
-                "number": 52,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 6,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 0,
@@ -14680,7 +14648,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.3333
           },
           {
             "seq": "4184",
@@ -14712,7 +14680,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4185",
@@ -14744,7 +14712,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.4
           },
           {
             "seq": "4186",
@@ -14776,7 +14744,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -14808,7 +14776,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -14840,7 +14808,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.375
           },
           {
             "seq": "4189",
@@ -14872,7 +14840,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.4444
           },
           {
             "seq": "4190",
@@ -15833,6 +15801,38 @@
               }
             ],
             "moving_avg": 0.3
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 57,
+                "hit": false
+              },
+              {
+                "number": 68,
+                "hit": false
+              },
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -15851,7 +15851,7 @@
         "method": "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
         "output": "historical-db con hit marcati concorso per concorso | metrics-db con copertura hit 2..6, media e streak | analisi testuale tecnica e operativa | sestina proposta per il prossimo concorso",
         "limits": "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale",
-        "observed_results": "Concorsi valutati: 4.218\n- Media hit/sestina: 0.39\n- Hit >=1: 1451 su 4218 (34.4%)\n- Hit >=2: 194 su 4218 (4.6%)\n- Hit >=3: 15 su 4218 (0.4%)\n- Hit >=4: 1 su 4218 (0.0%)\n- Hit >=5: 0 su 4218 (0.0%)\n- Hit =6: 0 su 4218 (0.0%)\n- Best streak hit>=1: 7\n- Distribuzione esatta hit: 0:2767 1:1257 2:179 3:14 4:1 5:0 6:0"
+        "observed_results": "Concorsi valutati: 4.219\n- Media hit/sestina: 0.39\n- Hit >=1: 1451 su 4219 (34.4%)\n- Hit >=2: 194 su 4219 (4.6%)\n- Hit >=3: 15 su 4219 (0.4%)\n- Hit >=4: 1 su 4219 (0.0%)\n- Hit >=5: 0 su 4219 (0.0%)\n- Hit =6: 0 su 4219 (0.0%)\n- Best streak hit>=1: 7\n- Distribuzione esatta hit: 0:2768 1:1257 2:179 3:14 4:1 5:0 6:0"
       }
     },
     "hispa": {
@@ -15865,48 +15865,16 @@
       "access_tier": "free",
       "last_updated": "15/03/2026",
       "proposal": [
-        62,
         6,
-        85,
-        40,
+        12,
+        71,
         8,
-        53
+        55,
+        42
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 79,
-                "hit": false
-              },
-              {
-                "number": 4,
-                "hit": false
-              },
-              {
-                "number": 55,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              },
-              {
-                "number": 45,
-                "hit": false
-              },
-              {
-                "number": 34,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -15969,7 +15937,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 1.0
           },
           {
             "seq": "4183",
@@ -16001,7 +15969,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 1.0
           },
           {
             "seq": "4184",
@@ -16033,7 +16001,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.8
+            "moving_avg": 1.0
           },
           {
             "seq": "4185",
@@ -16065,7 +16033,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 0.8
           },
           {
             "seq": "4186",
@@ -16097,7 +16065,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5714
+            "moving_avg": 0.6667
           },
           {
             "seq": "4187",
@@ -16129,7 +16097,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.5714
           },
           {
             "seq": "4188",
@@ -16161,7 +16129,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4444
+            "moving_avg": 0.5
           },
           {
             "seq": "4189",
@@ -16193,7 +16161,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.4444
           },
           {
             "seq": "4190",
@@ -17154,6 +17122,38 @@
               }
             ],
             "moving_avg": 0.2
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 40,
+                "hit": true
+              },
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 53,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -17162,7 +17162,7 @@
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.4%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.3700",
+        "last_200_avg": "0.3750",
         "std_hit": "0.6029"
       },
       "method": {
@@ -17186,48 +17186,16 @@
       "access_tier": "free",
       "last_updated": "07/02/2026",
       "proposal": [
-        85,
         6,
+        49,
         65,
-        62,
-        86,
-        50
+        85,
+        50,
+        55
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 81,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              },
-              {
-                "number": 6,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -17242,11 +17210,11 @@
                 "hit": false
               },
               {
-                "number": 65,
+                "number": 85,
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 65,
                 "hit": false
               },
               {
@@ -17254,7 +17222,7 @@
                 "hit": false
               },
               {
-                "number": 51,
+                "number": 82,
                 "hit": false
               }
             ],
@@ -17266,11 +17234,11 @@
             "hit": 0,
             "picks": [
               {
-                "number": 18,
+                "number": 86,
                 "hit": false
               },
               {
-                "number": 86,
+                "number": 18,
                 "hit": false
               },
               {
@@ -17306,23 +17274,23 @@
                 "hit": true
               },
               {
-                "number": 81,
-                "hit": false
-              },
-              {
                 "number": 85,
                 "hit": false
               },
               {
-                "number": 52,
+                "number": 81,
                 "hit": false
               },
               {
-                "number": 51,
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 82,
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.3333
           },
           {
             "seq": "4184",
@@ -17354,7 +17322,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4185",
@@ -17374,19 +17342,19 @@
                 "hit": false
               },
               {
-                "number": 73,
-                "hit": false
-              },
-              {
                 "number": 65,
                 "hit": false
               },
               {
                 "number": 82,
                 "hit": true
+              },
+              {
+                "number": 79,
+                "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6
           },
           {
             "seq": "4186",
@@ -17418,7 +17386,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5714
+            "moving_avg": 0.6667
           },
           {
             "seq": "4187",
@@ -17430,7 +17398,7 @@
                 "hit": false
               },
               {
-                "number": 6,
+                "number": 85,
                 "hit": false
               },
               {
@@ -17438,7 +17406,7 @@
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 6,
                 "hit": false
               },
               {
@@ -17450,7 +17418,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.5714
           },
           {
             "seq": "4188",
@@ -17482,7 +17450,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4444
+            "moving_avg": 0.5
           },
           {
             "seq": "4189",
@@ -17502,19 +17470,19 @@
                 "hit": false
               },
               {
-                "number": 75,
-                "hit": false
-              },
-              {
                 "number": 79,
                 "hit": true
               },
               {
                 "number": 65,
                 "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.6667
           },
           {
             "seq": "4190",
@@ -17530,11 +17498,11 @@
                 "hit": false
               },
               {
-                "number": 86,
+                "number": 85,
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 86,
                 "hit": false
               },
               {
@@ -17542,7 +17510,7 @@
                 "hit": false
               },
               {
-                "number": 8,
+                "number": 75,
                 "hit": false
               }
             ],
@@ -17638,7 +17606,7 @@
                 "hit": false
               },
               {
-                "number": 6,
+                "number": 80,
                 "hit": false
               }
             ],
@@ -17654,10 +17622,6 @@
                 "hit": false
               },
               {
-                "number": 76,
-                "hit": false
-              },
-              {
                 "number": 80,
                 "hit": false
               },
@@ -17667,6 +17631,10 @@
               },
               {
                 "number": 85,
+                "hit": false
+              },
+              {
+                "number": 76,
                 "hit": false
               },
               {
@@ -17690,19 +17658,19 @@
                 "hit": false
               },
               {
-                "number": 86,
-                "hit": false
-              },
-              {
                 "number": 18,
                 "hit": false
               },
               {
-                "number": 80,
+                "number": 86,
                 "hit": false
               },
               {
                 "number": 63,
+                "hit": false
+              },
+              {
+                "number": 80,
                 "hit": false
               }
             ],
@@ -17726,15 +17694,15 @@
                 "hit": true
               },
               {
-                "number": 70,
-                "hit": false
-              },
-              {
-                "number": 45,
-                "hit": false
-              },
-              {
                 "number": 65,
+                "hit": false
+              },
+              {
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 8,
                 "hit": false
               }
             ],
@@ -17762,11 +17730,11 @@
                 "hit": false
               },
               {
-                "number": 63,
+                "number": 81,
                 "hit": false
               },
               {
-                "number": 7,
+                "number": 63,
                 "hit": false
               }
             ],
@@ -17790,7 +17758,7 @@
                 "hit": false
               },
               {
-                "number": 80,
+                "number": 49,
                 "hit": false
               },
               {
@@ -17798,7 +17766,7 @@
                 "hit": false
               },
               {
-                "number": 49,
+                "number": 52,
                 "hit": false
               }
             ],
@@ -17818,11 +17786,11 @@
                 "hit": false
               },
               {
-                "number": 3,
+                "number": 85,
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 3,
                 "hit": false
               },
               {
@@ -17858,11 +17826,11 @@
                 "hit": false
               },
               {
-                "number": 80,
+                "number": 56,
                 "hit": false
               },
               {
-                "number": 70,
+                "number": 75,
                 "hit": false
               }
             ],
@@ -17871,7 +17839,7 @@
           {
             "seq": "4201",
             "date": "23/05/2026",
-            "hit": 1,
+            "hit": 0,
             "picks": [
               {
                 "number": 85,
@@ -17886,19 +17854,19 @@
                 "hit": false
               },
               {
-                "number": 6,
+                "number": 75,
                 "hit": false
               },
               {
-                "number": 57,
-                "hit": true
+                "number": 65,
+                "hit": false
               },
               {
-                "number": 75,
+                "number": 76,
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.2
           },
           {
             "seq": "4202",
@@ -17930,7 +17898,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.2
           },
           {
             "seq": "4203",
@@ -17958,11 +17926,11 @@
                 "hit": false
               },
               {
-                "number": 28,
+                "number": 81,
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.3
           },
           {
             "seq": "4204",
@@ -17974,10 +17942,6 @@
                 "hit": false
               },
               {
-                "number": 55,
-                "hit": false
-              },
-              {
                 "number": 65,
                 "hit": false
               },
@@ -17986,15 +17950,19 @@
                 "hit": true
               },
               {
-                "number": 49,
+                "number": 55,
                 "hit": false
               },
               {
-                "number": 62,
+                "number": 76,
+                "hit": false
+              },
+              {
+                "number": 81,
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4205",
@@ -18018,15 +17986,15 @@
                 "hit": false
               },
               {
-                "number": 81,
+                "number": 49,
                 "hit": false
               },
               {
-                "number": 49,
+                "number": 83,
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4206",
@@ -18046,19 +18014,19 @@
                 "hit": false
               },
               {
-                "number": 23,
-                "hit": false
-              },
-              {
                 "number": 6,
                 "hit": false
               },
               {
                 "number": 75,
                 "hit": true
+              },
+              {
+                "number": 23,
+                "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4207",
@@ -18074,23 +18042,23 @@
                 "hit": false
               },
               {
-                "number": 28,
-                "hit": false
-              },
-              {
-                "number": 52,
-                "hit": false
-              },
-              {
                 "number": 58,
                 "hit": false
               },
               {
                 "number": 85,
                 "hit": false
+              },
+              {
+                "number": 65,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4208",
@@ -18122,7 +18090,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4209",
@@ -18154,7 +18122,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.3
           },
           {
             "seq": "4210",
@@ -18186,7 +18154,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.3
           },
           {
             "seq": "4211",
@@ -18198,11 +18166,11 @@
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 6,
                 "hit": false
               },
               {
-                "number": 6,
+                "number": 85,
                 "hit": false
               },
               {
@@ -18230,10 +18198,6 @@
                 "hit": true
               },
               {
-                "number": 76,
-                "hit": false
-              },
-              {
                 "number": 7,
                 "hit": false
               },
@@ -18242,12 +18206,16 @@
                 "hit": false
               },
               {
-                "number": 55,
+                "number": 76,
                 "hit": false
               },
               {
                 "number": 83,
                 "hit": true
+              },
+              {
+                "number": 55,
+                "hit": false
               }
             ],
             "moving_avg": 0.6
@@ -18278,7 +18246,7 @@
                 "hit": false
               },
               {
-                "number": 6,
+                "number": 65,
                 "hit": false
               }
             ],
@@ -18287,14 +18255,14 @@
           {
             "seq": "4214",
             "date": "16/06/2026",
-            "hit": 0,
+            "hit": 1,
             "picks": [
               {
-                "number": 76,
+                "number": 65,
                 "hit": false
               },
               {
-                "number": 65,
+                "number": 76,
                 "hit": false
               },
               {
@@ -18306,15 +18274,15 @@
                 "hit": false
               },
               {
-                "number": 77,
+                "number": 88,
                 "hit": false
               },
               {
-                "number": 88,
-                "hit": false
+                "number": 4,
+                "hit": true
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4215",
@@ -18326,11 +18294,11 @@
                 "hit": false
               },
               {
-                "number": 86,
+                "number": 85,
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 86,
                 "hit": false
               },
               {
@@ -18346,7 +18314,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4216",
@@ -18378,12 +18346,12 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.4
           },
           {
             "seq": "4217",
             "date": "26/06/2026",
-            "hit": 0,
+            "hit": 1,
             "picks": [
               {
                 "number": 85,
@@ -18402,15 +18370,15 @@
                 "hit": false
               },
               {
-                "number": 49,
+                "number": 88,
                 "hit": false
               },
               {
-                "number": 58,
-                "hit": false
+                "number": 76,
+                "hit": true
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.5
           },
           {
             "seq": "4218",
@@ -18422,11 +18390,11 @@
                 "hit": false
               },
               {
-                "number": 86,
+                "number": 85,
                 "hit": false
               },
               {
-                "number": 85,
+                "number": 86,
                 "hit": false
               },
               {
@@ -18434,23 +18402,67 @@
                 "hit": false
               },
               {
-                "number": 58,
-                "hit": false
-              },
-              {
                 "number": 7,
                 "hit": true
+              },
+              {
+                "number": 28,
+                "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.6
           },
           {
             "seq": "4219",
             "date": "07/07/2026",
-            "hit": 1,
+            "hit": 0,
             "picks": [
               {
                 "number": 85,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 49,
+                "hit": false
+              },
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.6
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 18,
                 "hit": false
               },
               {
@@ -18460,31 +18472,19 @@
               {
                 "number": 88,
                 "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              },
-              {
-                "number": 50,
-                "hit": false
-              },
-              {
-                "number": 55,
-                "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6
           }
         ]
       },
       "metrics": {
         "ranking_stability_pct": 76,
         "avg_hits": "0.39",
-        "hit_rate_gte_2": "4.9%",
-        "hit_rate_gte_3": "0.33%",
-        "last_200_avg": "0.4500",
-        "std_hit": "0.5918"
+        "hit_rate_gte_2": "5.0%",
+        "hit_rate_gte_3": "0.36%",
+        "last_200_avg": "0.4550",
+        "std_hit": "0.5934"
       },
       "method": {
         "intro": "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
@@ -18511,44 +18511,12 @@
         61,
         62,
         65,
-        81,
-        85
+        71,
+        81
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 52,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              },
-              {
-                "number": 80,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -18643,7 +18611,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.3333
           },
           {
             "seq": "4184",
@@ -18675,7 +18643,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4185",
@@ -18707,7 +18675,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.4
           },
           {
             "seq": "4186",
@@ -18739,7 +18707,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -18771,7 +18739,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -18803,7 +18771,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.375
           },
           {
             "seq": "4189",
@@ -18835,7 +18803,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.3333
           },
           {
             "seq": "4190",
@@ -19796,12 +19764,44 @@
               }
             ],
             "moving_avg": 0.5
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
           }
         ]
       },
       "metrics": {
         "ranking_stability_pct": 24,
-        "avg_hits": "0.3895",
+        "avg_hits": "0.3894",
         "hit_rate_gte_2": "4.60%",
         "hit_rate_gte_3": "0.28%",
         "last_200_avg": "0.3800",
@@ -19814,7 +19814,7 @@
         "method": "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.",
         "output": "historical-db con hit marcati per concorso | metrics-db con copertura e stabilita | analysis tecnica | sestina proposta prossimo concorso.",
         "limits": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window.",
-        "observed_results": "- Media hit/sestina: 0.3895\n- Hit >=1: 1437/4218 (34.07%)\n- Hit >=2: 194/4218 (4.60%)\n- Hit >=3: 12/4218 (0.28%)\n- Hit >=4: 0/4218 (0.00%)\n- Hit >=5: 0/4218 (0.0000%)\n- Hit =6: 0/4218 (0.000000%)\n- Distribuzione hit esatta: 0:2781 1:1243 2:182 3:12 4:0 5:0 6:0"
+        "observed_results": "- Media hit/sestina: 0.3894\n- Hit >=1: 1437/4219 (34.06%)\n- Hit >=2: 194/4219 (4.60%)\n- Hit >=3: 12/4219 (0.28%)\n- Hit >=4: 0/4219 (0.00%)\n- Hit >=5: 0/4219 (0.0000%)\n- Hit =6: 0/4219 (0.000000%)\n- Distribuzione hit esatta: 0:2782 1:1243 2:182 3:12 4:0 5:0 6:0"
       }
     },
     "xeno-qdna-alpha": {
@@ -19828,48 +19828,16 @@
       "access_tier": "free",
       "last_updated": "13/06/2026",
       "proposal": [
-        28,
-        41,
-        62,
-        72,
-        74,
-        84
+        22,
+        35,
+        43,
+        80,
+        84,
+        87
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 43,
-                "hit": false
-              },
-              {
-                "number": 45,
-                "hit": false
-              },
-              {
-                "number": 52,
-                "hit": false
-              },
-              {
-                "number": 58,
-                "hit": false
-              },
-              {
-                "number": 88,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4181",
             "date": "17/04/2026",
@@ -20060,7 +20028,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2857
+            "moving_avg": 0.3333
           },
           {
             "seq": "4187",
@@ -20092,7 +20060,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.2857
           },
           {
             "seq": "4188",
@@ -20124,7 +20092,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3333
+            "moving_avg": 0.375
           },
           {
             "seq": "4189",
@@ -20156,7 +20124,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.3333
           },
           {
             "seq": "4190",
@@ -21117,6 +21085,38 @@
               }
             ],
             "moving_avg": 0.5
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 62,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": false
+              },
+              {
+                "number": 84,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
           }
         ]
       },
@@ -21125,7 +21125,7 @@
         "avg_hits": "0.43",
         "hit_rate_gte_2": "5.8%",
         "hit_rate_gte_3": "0.2%",
-        "last_200_avg": "0.4000",
+        "last_200_avg": "0.3900",
         "std_hit": "0.6085"
       },
       "method": {
@@ -21153,38 +21153,6 @@
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
           {
-            "seq": "4180",
-            "date": "16/04/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 58,
-                "hit": false
-              },
-              {
-                "number": 59,
-                "hit": false
-              },
-              {
-                "number": 60,
-                "hit": false
-              },
-              {
-                "number": 80,
-                "hit": false
-              },
-              {
-                "number": 81,
-                "hit": false
-              },
-              {
-                "number": 87,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
-          {
             "seq": "4181",
             "date": "17/04/2026",
             "hit": 2,
@@ -21214,7 +21182,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 1.0
+            "moving_avg": 2.0
           },
           {
             "seq": "4182",
@@ -21246,7 +21214,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6667
+            "moving_avg": 1.0
           },
           {
             "seq": "4183",
@@ -21278,7 +21246,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6667
           },
           {
             "seq": "4184",
@@ -21310,7 +21278,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4185",
@@ -21342,7 +21310,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6
           },
           {
             "seq": "4186",
@@ -21374,7 +21342,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4286
+            "moving_avg": 0.5
           },
           {
             "seq": "4187",
@@ -21406,7 +21374,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.375
+            "moving_avg": 0.4286
           },
           {
             "seq": "4188",
@@ -21438,7 +21406,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4444
+            "moving_avg": 0.5
           },
           {
             "seq": "4189",
@@ -21470,7 +21438,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.5556
           },
           {
             "seq": "4190",
@@ -22431,6 +22399,38 @@
               }
             ],
             "moving_avg": 0.4
+          },
+          {
+            "seq": "4220",
+            "date": "09/07/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 54,
+                "hit": false
+              },
+              {
+                "number": 60,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              },
+              {
+                "number": 69,
+                "hit": false
+              },
+              {
+                "number": 83,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -22439,8 +22439,8 @@
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.7%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4050",
-        "std_hit": "0.6114"
+        "last_200_avg": "0.4000",
+        "std_hit": "0.6113"
       },
       "method": {
         "intro": "XENO-QDNA β non genera la sestina dallo storico reale: metabolizza l'errore di XENO-QDNA α trasformandolo in stringa residua B*.",

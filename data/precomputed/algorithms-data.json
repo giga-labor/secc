@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-07-08T08:46:05",
+  "generated_at": "2026-07-10T19:31:01",
   "count": 17,
   "algorithms": [
     {
       "slug": "astra-moon",
       "title": "ASTRA Moon",
       "family": "ibrido",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         50,
-        11,
-        8,
-        9,
         6,
-        10
+        48,
+        8,
+        49,
+        5
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.42,
         "hit_rate_gte_2": 5.5,
         "best_streak": 8
@@ -34,8 +34,8 @@
       "slug": "classic-analisi-anomalie-pattern",
       "title": "analisi-anomalie-pattern",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         65,
@@ -43,10 +43,10 @@
         67,
         32,
         50,
-        20
+        54
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 5.6,
         "best_streak": 7
@@ -62,8 +62,8 @@
       "slug": "classic-co-occorrenze",
       "title": "co-occorrenze",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         85,
@@ -74,7 +74,7 @@
         80
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 5.1
       },
@@ -89,8 +89,8 @@
       "slug": "classic-coppie-terni-consecutivi",
       "title": "coppie-terni-consecutivi",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         43,
@@ -101,7 +101,7 @@
         57
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 4.8,
         "best_streak": 8
@@ -117,8 +117,8 @@
       "slug": "classic-coppie-terzine-frequenti",
       "title": "coppie-terzine-frequenti",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         48,
@@ -129,7 +129,7 @@
         51
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.38,
         "hit_rate_gte_2": 4.7,
         "best_streak": 6
@@ -145,8 +145,8 @@
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "title": "distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         88,
@@ -157,7 +157,7 @@
         85
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 4.7,
         "best_streak": 6
@@ -173,8 +173,8 @@
       "slug": "classic-frequency",
       "title": "frequency",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         85,
@@ -185,7 +185,7 @@
         55
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 5.1,
         "best_streak": 7
@@ -201,8 +201,8 @@
       "slug": "classic-ritardi",
       "title": "ritardi",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         65,
@@ -210,10 +210,10 @@
         67,
         32,
         50,
-        20
+        54
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 5.2
       },
@@ -228,19 +228,19 @@
       "slug": "classic-ritardi-combinazioni",
       "title": "ritardi-combinazioni",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
-        1,
-        17,
         3,
         86,
         12,
-        85
+        85,
+        49,
+        70
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.41,
         "hit_rate_gte_2": 5.2,
         "best_streak": 7
@@ -256,8 +256,8 @@
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "title": "statistiche-combinate-finestre-mobili",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         7,
@@ -268,7 +268,7 @@
         63
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.38,
         "hit_rate_gte_2": 4.7,
         "best_streak": 7
@@ -284,8 +284,8 @@
       "slug": "classic-tavole-probabilita-teorica-test-uniformita",
       "title": "tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         50,
@@ -296,7 +296,7 @@
         60
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 4.9,
         "best_streak": 7
@@ -312,8 +312,8 @@
       "slug": "genetic",
       "title": "GeneticSE",
       "family": "genetico",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         32,
@@ -324,7 +324,7 @@
         54
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 4.6,
         "hit_rate_gte_3": 0.4,
@@ -341,19 +341,19 @@
       "slug": "hispa",
       "title": "HiSPA",
       "family": "statistica",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
-        62,
         6,
-        85,
-        40,
+        12,
+        71,
         8,
-        53
+        55,
+        42
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.41,
         "hit_rate_gte_2": 5.4,
         "best_streak": 9
@@ -369,22 +369,22 @@
       "slug": "paradox-logiche-decisionali-metriche",
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
-        85,
         6,
+        49,
         65,
-        62,
-        86,
-        50
+        85,
+        50,
+        55
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.39,
-        "hit_rate_gte_2": 4.9,
-        "hit_rate_gte_3": 0.33,
+        "hit_rate_gte_2": 5.0,
+        "hit_rate_gte_3": 0.36,
         "best_streak": 6
       },
       "explanation": [
@@ -398,19 +398,19 @@
       "slug": "super6NN",
       "title": "Super6 NN",
       "family": "neurale",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
         41,
         61,
         62,
         65,
-        81,
-        85
+        71,
+        81
       ],
       "metrics": {
-        "draws_covered": 4219,
+        "draws_covered": 4220,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 4.6,
         "hit_rate_gte_3": 0.3,
@@ -427,19 +427,19 @@
       "slug": "xeno-qdna-alpha",
       "title": "XENO-QDNA α",
       "family": "generativi",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [
-        28,
-        41,
-        62,
-        72,
-        74,
-        84
+        22,
+        35,
+        43,
+        80,
+        84,
+        87
       ],
       "metrics": {
-        "draws_covered": 4197,
+        "draws_covered": 4198,
         "avg_hits": 0.43,
         "hit_rate_gte_2": 5.8,
         "best_streak": 8
@@ -455,12 +455,12 @@
       "slug": "xeno-qdna-beta",
       "title": "XENO-QDNA β",
       "family": "generativi",
-      "generated_at": "2026-07-08T08:46:05",
-      "last_seq": 4219,
+      "generated_at": "2026-07-10T19:31:01",
+      "last_seq": 4220,
       "last_date": "",
       "proposal": [],
       "metrics": {
-        "draws_covered": 4162,
+        "draws_covered": 4163,
         "avg_hits": 0.41,
         "hit_rate_gte_2": 5.7,
         "best_streak": 7
@@ -472,15 +472,15 @@
         "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
       ],
       "alpha_proposal": [
-        54,
-        68,
-        69,
-        76,
-        81,
-        89
+        28,
+        41,
+        62,
+        72,
+        74,
+        84
       ],
       "ifc_score": 12.0,
-      "correction_bits": 33
+      "correction_bits": 34
     }
   ]
 }

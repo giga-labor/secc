@@ -1,20 +1,20 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4219,Conteggio archivio fino al concorso 4219
+Concorsi analizzati,4220,Conteggio archivio fino al concorso 4220
 Media hit/sestina,0.40,Media numeri corretti per concorso
 Hit rate >= 2,5.6%,Percentuale concorsi con almeno 2 hit
 Con 0 hit,2777,Numero concorsi con esattamente 0 hit
-Con 1 hit,1205,Numero concorsi con esattamente 1 hit
+Con 1 hit,1206,Numero concorsi con esattamente 1 hit
 Con 2 hit,218,Numero concorsi con esattamente 2 hit
 Con 3 hit,17,Numero concorsi con esattamente 3 hit
 Con 4 hit,1,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2777 | 1: 1205 | 2: 218 | 3: 17 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Distribuzione hit 0-6,0: 2777 | 1: 1206 | 2: 218 | 3: 17 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
 Media hit ultimi 100,0.42,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4219,Data estrazione: 07/07/2026
-Concorso successivo stimato,4220,Sestina proposta: 65 88 67 32 50 20
-Sestina proposta (prossimo concorso),65 88 67 32 50 20,Pronostico prodotto con addestramento incrementale
+Ultimo concorso calcolato,4220,Data estrazione: 09/07/2026
+Concorso successivo stimato,4221,Sestina proposta: 65 88 67 32 50 54
+Sestina proposta (prossimo concorso),65 88 67 32 50 54,Pronostico prodotto con addestramento incrementale
 Pattern anomali (score>=3),39.8%,Quota concorsi con pattern strutturali anomali
 Concorsi con consecutivi,29.4%,Almeno una coppia consecutiva
 Concorsi con terminali ripetuti,83.4%,Almeno due numeri con stessa cifra finale
