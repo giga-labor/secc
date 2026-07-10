@@ -1,8 +1,8 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4220,Conteggio archivio fino al concorso 4220
+Concorsi analizzati,4221,Conteggio archivio fino al concorso 4221
 Media hit/sestina,0.39,Media numeri corretti per concorso
 Hit rate >= 2,4.7%,Percentuale concorsi con almeno 2 hit
-Con 0 hit,2789,Numero concorsi con esattamente 0 hit
+Con 0 hit,2790,Numero concorsi con esattamente 0 hit
 Con 1 hit,1230,Numero concorsi con esattamente 1 hit
 Con 2 hit,184,Numero concorsi con esattamente 2 hit
 Con 3 hit,16,Numero concorsi con esattamente 3 hit
@@ -10,10 +10,10 @@ Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,6,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2789 | 1: 1230 | 2: 184 | 3: 16 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-Media hit ultimi 100,0.29,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4220,Data estrazione: 09/07/2026
-Concorso successivo stimato,4221,Sestina proposta: 88 77 49 65 06 85
+Distribuzione hit 0-6,0: 2790 | 1: 1230 | 2: 184 | 3: 16 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Media hit ultimi 100,0.28,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4221,Data estrazione: 10/07/2026
+Concorso successivo stimato,4222,Sestina proposta: 88 77 49 65 06 85
 Sestina proposta (prossimo concorso),88 77 49 65 06 85,Pronostico prodotto con addestramento incrementale
 Split pari/dispari modale,3/3,Frequenza storica piu comune
 Split bassi/alti modale,3/3,Bassi=1..45 | Alti=46..90

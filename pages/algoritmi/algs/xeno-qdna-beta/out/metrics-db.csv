@@ -1,14 +1,14 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4163,Walk-forward backtest β (minimo 34 B-valori richiesti)
+Concorsi analizzati,4164,Walk-forward backtest β (minimo 34 B-valori richiesti)
 Media hit/sestina,0.41,Media numeri corretti sulle sestine generate da β
 Hit rate >= 2,5.7%,Percentuale concorsi con almeno 2 hit
 Best streak,7,Massima sequenza con almeno 1 hit
-Ultimo concorso calcolato,4220,Data: 09/07/2026
-Sestina proposta β (prossimo concorso),14 22 43 68 80 87,DNA_LAST XOR B* (maschera meritocratica residuo α)
-Sestina α di riferimento,28 41 62 72 74 84,Previsione α per lo stesso concorso (fonte: snapshot.json)
+Ultimo concorso calcolato,4221,Data: 10/07/2026
+Sestina proposta β (prossimo concorso),28 29 51 64 65 77,DNA_LAST XOR B* (maschera meritocratica residuo α)
+Sestina α di riferimento,22 35 43 80 84 87,Previsione α per lo stesso concorso (fonte: snapshot.json)
 Maschera B*,001111100111110111111110111111111110011111,42 bit selezionati da residuo errore α
 Bit corretti in B*,34,Bit con correction_score > 0 e instabilità viva
 Tentativo collasso,1,"1=mask base, 2=rot 7 bit, 3=rot 14 bit"
-IFC score,12.0,Indice di Fuga dal Centro (più alto = più divergente da α e dalle ultime estrazioni)
+IFC score,11.0,Indice di Fuga dal Centro (più alto = più divergente da α e dalle ultime estrazioni)
 Membrana XENO-90,OK,Controllo di somiglianza con estrazioni recenti
-Distribuzione hit 0-6,0: 2708 | 1: 1216 | 2: 223 | 3: 15 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Distribuzione hit 0-6,0: 2708 | 1: 1217 | 2: 223 | 3: 15 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"

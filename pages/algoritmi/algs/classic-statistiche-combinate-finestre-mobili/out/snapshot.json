@@ -2,19 +2,19 @@
   "slug": "classic-statistiche-combinate-finestre-mobili",
   "title": "statistiche-combinate-finestre-mobili",
   "family": "statistica",
-  "generated_at": "2026-07-10T19:31:01",
-  "last_seq": 4220,
+  "generated_at": "2026-07-10T21:04:12",
+  "last_seq": 4221,
   "last_date": "",
   "proposal": [
+    2,
+    3,
     7,
     18,
     28,
-    33,
-    57,
-    63
+    33
   ],
   "metrics": {
-    "draws_covered": 4220,
+    "draws_covered": 4221,
     "avg_hits": 0.38,
     "hit_rate_gte_2": 4.7,
     "best_streak": 7

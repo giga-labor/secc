@@ -2,8 +2,8 @@
   "slug": "classic-co-occorrenze",
   "title": "co-occorrenze",
   "family": "statistica",
-  "generated_at": "2026-07-10T19:31:01",
-  "last_seq": 4220,
+  "generated_at": "2026-07-10T21:04:12",
+  "last_seq": 4221,
   "last_date": "",
   "proposal": [
     85,
@@ -14,7 +14,7 @@
     80
   ],
   "metrics": {
-    "draws_covered": 4220,
+    "draws_covered": 4221,
     "avg_hits": 0.4,
     "hit_rate_gte_2": 5.1
   },

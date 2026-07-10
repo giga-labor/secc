@@ -1,5 +1,5 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4220,Conteggio archivio dal concorso 1 al concorso 4220
+Concorsi analizzati,4221,Conteggio archivio dal concorso 1 al concorso 4221
 Media hit/sestina,0.40,Media numeri corretti per concorso
 Hit rate >= 2,5.1%,Percentuale concorsi con almeno 2 hit
 Con 2 hit,200,Numero concorsi con esattamente 2 hit
@@ -9,7 +9,7 @@ Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Commento - qualita,Copertura media contenuta; utile soprattutto per lettura strutturale.,Sintesi automatica
 Commento - periodo recente,Periodo recente sopra la media storica.,Ultimi 100 concorsi (o meno)
-Ultimo concorso calcolato,4220,Data estrazione: 09/07/2026
-Concorso successivo stimato,4221,Sestina proposta: 85 55 81 76 62 80
+Ultimo concorso calcolato,4221,Data estrazione: 10/07/2026
+Concorso successivo stimato,4222,Sestina proposta: 85 55 81 76 62 80
 Sestina proposta (prossimo concorso),85 55 81 76 62 80,Calcolata massimizzando co-occorrenze storiche e coesione tra numeri
-Distribuzione hit 0-6,0: 2778 | 1: 1227 | 2: 200 | 3: 13 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Distribuzione hit 0-6,0: 2779 | 1: 1227 | 2: 200 | 3: 13 | 4: 1 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"

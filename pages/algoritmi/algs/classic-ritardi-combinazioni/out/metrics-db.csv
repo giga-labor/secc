@@ -1,24 +1,24 @@
 METRICA,VALORE,NOTE
-Concorsi analizzati,4220,Conteggio archivio fino al concorso 4220
+Concorsi analizzati,4221,Conteggio archivio fino al concorso 4221
 Media hit/sestina,0.41,Media numeri corretti per concorso
-Hit rate >= 2,5.2%,Percentuale concorsi con almeno 2 hit
+Hit rate >= 2,5.3%,Percentuale concorsi con almeno 2 hit
 Con 0 hit,2730,Numero concorsi con esattamente 0 hit
 Con 1 hit,1268,Numero concorsi con esattamente 1 hit
-Con 2 hit,208,Numero concorsi con esattamente 2 hit
+Con 2 hit,209,Numero concorsi con esattamente 2 hit
 Con 3 hit,13,Numero concorsi con esattamente 3 hit
 Con 4 hit,0,Numero concorsi con esattamente 4 hit
 Con 5 hit,0,Numero concorsi con esattamente 5 hit
 Con 6 hit,0,Numero concorsi con esattamente 6 hit
 Best streak,7,Massima sequenza di concorsi con almeno 1 hit
-Distribuzione hit 0-6,0: 2730 | 1: 1268 | 2: 208 | 3: 13 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
-Media hit ultimi 100,0.47,Ultimi 100 concorsi o meno
-Ultimo concorso calcolato,4220,Data estrazione: 09/07/2026
-Concorso successivo stimato,4221,Sestina proposta: 03 86 12 85 49 70
+Distribuzione hit 0-6,0: 2730 | 1: 1268 | 2: 209 | 3: 13 | 4: 0 | 5: 0 | 6: 0,"Conteggio concorsi con esattamente 0, 1, 2, 3, 4, 5 o 6 hit"
+Media hit ultimi 100,0.49,Ultimi 100 concorsi o meno
+Ultimo concorso calcolato,4221,Data estrazione: 10/07/2026
+Concorso successivo stimato,4222,Sestina proposta: 03 86 12 85 49 70
 Sestina proposta (prossimo concorso),03 86 12 85 49 70,Pronostico prodotto con addestramento incrementale
 Coppie osservate,4005,Numero coppie distinte viste almeno una volta
-Terzine osservate,60072,Numero terzine distinte viste almeno una volta
+Terzine osservate,60085,Numero terzine distinte viste almeno una volta
 Ritardo massimo coppia,3122,Massimo ritardo storico registrato su una coppia
-Ritardo massimo terzina,4187,Massimo ritardo storico registrato su una terzina
-Coppia piu ritardataria,11-60,Ritardo corrente: 3006
-Terzina piu ritardataria,20-36-41,Ritardo corrente: 4219
-Score ritardi combo sestina,24380413,Indice sintetico interno basato su ritardi coppie/terzine
+Ritardo massimo terzina,4204,Massimo ritardo storico registrato su una terzina
+Coppia piu ritardataria,11-60,Ritardo corrente: 3007
+Terzina piu ritardataria,20-36-41,Ritardo corrente: 4220
+Score ritardi combo sestina,24358890,Indice sintetico interno basato su ritardi coppie/terzine
