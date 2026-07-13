@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10 21:06:58",
+  "updated_at": "2026-07-13 19:24:25",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -38,12 +38,44 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-07-10 21:05:02",
+    "last_push_at": "2026-07-13 19:24:03",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1783704084
+    "boot_ts": 1783962535
   },
   "feed": [
+    {
+      "type": "alert",
+      "ts": "2026-07-13T19:23:53",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "iargos"
+    },
+    {
+      "type": "draw",
+      "ts": "2026-07-13T19:09:46",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "training",
+      "ts": "2026-07-13T19:09:38",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-07-13T19:09:31",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": true,
+      "source": "iargos"
+    },
     {
       "type": "alert",
       "ts": "2026-07-10T21:03:29",
@@ -131,14 +163,6 @@
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
       "source": "iargos"
-    },
-    {
-      "type": "training",
-      "ts": "2026-06-27T15:44:38",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
     },
     {
       "type": "draw",
@@ -257,30 +281,6 @@
       "ts": "2026-04-17T19:46:22",
       "message": "Nuova versione del sito pubblicata (00.10.033 -> 00.11.000)",
       "detail": "617 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-25T12:56:04",
-      "message": "Nuova versione del sito pubblicata (00.09.022 -> 00.10.000)",
-      "detail": "501 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-14T23:02:33",
-      "message": "Versione del sito aggiornata (00.09.010 -> 00.09.012)",
-      "detail": "481 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-14T23:01:41",
-      "message": "Versione precedente ripristinata (00.09.011 -> 00.09.010)",
-      "detail": "481 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     }
