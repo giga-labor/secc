@@ -15,8 +15,8 @@
   "no_data_show": true,
   "accessTier": "free",
   "hits": {
-    "enabled": false,
-    "count": 0
+    "enabled": true,
+    "count": 2
   },
   "type": "ALGORITMI",
   "featured": false,

@@ -2,19 +2,19 @@
   "slug": "hispa",
   "title": "HiSPA",
   "family": "statistica",
-  "generated_at": "2026-07-10T21:04:12",
-  "last_seq": 4221,
+  "generated_at": "2026-07-13T19:23:42",
+  "last_seq": 4222,
   "last_date": "",
   "proposal": [
-    56,
-    13,
-    1,
-    80,
-    4,
-    62
+    79,
+    14,
+    72,
+    84,
+    87,
+    20
   ],
   "metrics": {
-    "draws_covered": 4221,
+    "draws_covered": 4222,
     "avg_hits": 0.41,
     "hit_rate_gte_2": 5.4,
     "best_streak": 9

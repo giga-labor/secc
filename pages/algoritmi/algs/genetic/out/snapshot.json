@@ -2,19 +2,19 @@
   "slug": "genetic",
   "title": "GeneticSE",
   "family": "genetico",
-  "generated_at": "2026-07-10T21:04:12",
-  "last_seq": 4221,
+  "generated_at": "2026-07-13T19:23:42",
+  "last_seq": 4222,
   "last_date": "",
   "proposal": [
     32,
+    54,
     65,
     88,
-    6,
     67,
-    52
+    11
   ],
   "metrics": {
-    "draws_covered": 4221,
+    "draws_covered": 4222,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 4.6,
     "hit_rate_gte_3": 0.4,

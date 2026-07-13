@@ -2,19 +2,19 @@
   "slug": "classic-ritardi-combinazioni",
   "title": "ritardi-combinazioni",
   "family": "statistica",
-  "generated_at": "2026-07-10T21:04:12",
-  "last_seq": 4221,
+  "generated_at": "2026-07-13T19:23:42",
+  "last_seq": 4222,
   "last_date": "",
   "proposal": [
     3,
     86,
-    12,
-    85,
-    49,
-    70
+    72,
+    90,
+    35,
+    12
   ],
   "metrics": {
-    "draws_covered": 4221,
+    "draws_covered": 4222,
     "avg_hits": 0.41,
     "hit_rate_gte_2": 5.3,
     "best_streak": 7
