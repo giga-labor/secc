@@ -2,10 +2,17 @@
   "slug": "xeno-qdna-beta",
   "title": "XENO-QDNA β",
   "family": "generativi",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
-  "proposal": [],
+  "proposal": [
+    25,
+    38,
+    46,
+    56,
+    63,
+    80
+  ],
   "metrics": {
     "draws_covered": 4165,
     "avg_hits": 0.41,
@@ -18,13 +25,26 @@
     "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni.",
     "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
   ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      6,
+      29,
+      32,
+      60,
+      77,
+      81
+    ],
+    "hits": 1
+  },
   "alpha_proposal": [
-    3,
-    48,
-    53,
-    56,
-    65,
-    72
+    9,
+    34,
+    57,
+    61,
+    78,
+    80
   ],
   "ifc_score": 11.0,
   "correction_bits": 34

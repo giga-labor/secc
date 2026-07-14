@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "stale": false,
   "latest_draw": {
     "seq": 4222,
@@ -105,12 +105,12 @@
       ]
     },
     {
-      "number": 85,
+      "number": 80,
       "support": 3,
       "algorithms": [
         "classic-co-occorrenze",
-        "classic-distribuzioni-modelli-raggruppamento",
-        "classic-frequency"
+        "xeno-qdna-alpha",
+        "xeno-qdna-beta"
       ]
     }
   ],

@@ -2,7 +2,7 @@
   "slug": "genetic",
   "title": "GeneticSE",
   "family": "genetico",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -25,5 +25,18 @@
     "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi.",
     "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
     "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      7,
+      58,
+      9,
+      57,
+      33,
+      28
+    ],
+    "hits": 1
+  }
 }

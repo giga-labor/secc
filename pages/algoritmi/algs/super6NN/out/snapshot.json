@@ -2,7 +2,7 @@
   "slug": "super6NN",
   "title": "Super6 NN",
   "family": "neurale",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -25,5 +25,18 @@
     "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi.",
     "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.",
     "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      7,
+      8,
+      18,
+      28,
+      58,
+      63
+    ],
+    "hits": 1
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13 19:23:38",
+  "generated_at": "2026-07-14 19:05:24",
   "active_algorithms_count": 17,
   "kpi": {
     "algoritmi_documentati": 17,
@@ -584,7 +584,7 @@
       "scope": "Produrre una sestina alternativa che fugge dal centro predittivo di α, usando il DNA del fallimento come fonte generativa.",
       "method": "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni.",
       "limits": "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale.",
-      "analysis": "XENO-QDNA β - Concorso 4222 del 11/07/2026\nSestina β proposta per il concorso 4223: 24 29 34 53 78 80\nSestina α di riferimento: 03 48 53 56 65 72\n\nMaschera B*: 001101100111110111111111111111111110011111\nBit corretti selezionati: 34/42. IFC score: 11.0. Tentativo: 1.\nMembrana XENO-90: OK.\n\nRiflessioni: 0 | Tunneling: 0",
+      "analysis": "XENO-QDNA β - Concorso 4222 del 11/07/2026\nSestina β proposta per il concorso 4223: 25 38 46 56 63 80\nSestina α di riferimento: 09 34 57 61 78 80\n\nMaschera B*: 001111101111111111111111111100111110011011\nBit corretti selezionati: 34/42. IFC score: 11.0. Tentativo: 2.\nMembrana XENO-90: OK.\n\nRiflessioni: 1 | Tunneling: 0",
       "facts": [
         {
           "key": "INTRO",

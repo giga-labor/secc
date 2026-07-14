@@ -2,7 +2,7 @@
   "slug": "paradox-logiche-decisionali-metriche",
   "title": "Paradox Logiche Decisionali Metriche",
   "family": "ibrido",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -25,5 +25,18 @@
     "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
     "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
     "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      85,
+      50,
+      65,
+      88,
+      49,
+      6
+    ],
+    "hits": 2
+  }
 }

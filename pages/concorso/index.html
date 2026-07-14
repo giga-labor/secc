@@ -37,6 +37,26 @@
     }
   }
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.superenalottocc.it/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Concorso",
+      "item": "https://www.superenalottocc.it/pages/concorso/"
+    }
+  ]
+}
+</script>
   <script src="../../assets/js/ga4.js?v=01.05.000" defer></script>
   <script src="../../assets/js/version.js?v=01.05.000" defer></script>
   <script src="../../assets/js/header.js?v=01.05.000" defer></script>
@@ -44,7 +64,7 @@
   <link rel="stylesheet" href="../../assets/css/main.css?v=01.05.000">
   <link rel="stylesheet" href="../../assets/css/ads.css?v=01.05.000">
   <style>
-    /* â”€â”€ Pagina Concorso â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── Pagina Concorso ────────────────────────────────── */
     .cc-concorso-hero {
       padding: 1rem 0 1.5rem;
       text-align: center;
@@ -370,7 +390,7 @@
       return nums.map(function (n) {
         var isHit = hitSet.has(n);
         var cls = 'cc-mini-ball' + (isHit ? ' cc-mini-ball--hit' : '');
-        return '<span class="' + cls + '" title="' + n + (isHit ? ' âœ“ HIT' : '') + '">' + padNum(n) + '</span>';
+        return '<span class="' + cls + '" title="' + n + (isHit ? ' ✓ HIT' : '') + '">' + padNum(n) + '</span>';
       }).join('');
     }
 
@@ -412,7 +432,7 @@
         return;
       }
 
-      // â”€â”€ Ultimo concorso â”€â”€
+      // ── Ultimo concorso ──
       var draw = (summary && summary.latest_draw) || null;
       var drawSeq  = draw ? draw.seq  : '-';
       var drawDate = draw ? draw.date  : '-';
@@ -433,20 +453,26 @@
         ballsEl.innerHTML = '<span style="color:rgba(237,232,223,.4)">Dati non disponibili</span>';
       }
 
-      // â”€â”€ Matchup algoritmi â”€â”€
+      // ── Matchup algoritmi ──
       var algorithms = (algorithmsData && Array.isArray(algorithmsData.algorithms)) ? algorithmsData.algorithms : [];
       var generatedAt = algorithmsData && algorithmsData.generated_at ? algorithmsData.generated_at : '';
 
       var rows = algorithms.map(function (alg) {
-        var nums = Array.isArray(alg.proposal) ? alg.proposal : [];
+        // last_verified = sestina realmente proposta PRIMA di questo concorso
+        // (archiviata in historical-db.csv). 'proposal' invece è sempre la
+        // previsione per il concorso successivo, non ancora estratto: non va
+        // usata per il matchup previsione-vs-estrazione.
+        var lv = alg.last_verified;
+        var nums = (lv && Array.isArray(lv.proposal)) ? lv.proposal : [];
         var hits = nums.filter(function (n) { return drawnSet.has(n); });
+        var hitCount = lv && typeof lv.hits === 'number' ? lv.hits : hits.length;
         return {
           slug: alg.slug || '',
           title: alg.title || alg.slug || '-',
           family: alg.family || '',
           nums: nums,
           hits: hits,
-          hitCount: hits.length
+          hitCount: hitCount
         };
       });
 

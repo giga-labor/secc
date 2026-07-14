@@ -2,7 +2,7 @@
   "slug": "classic-coppie-terzine-frequenti",
   "title": "coppie-terzine-frequenti",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.",
     "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale",
     "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      48,
+      86,
+      87,
+      13,
+      18,
+      51
+    ],
+    "hits": 0
+  }
 }

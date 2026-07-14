@@ -2,7 +2,7 @@
   "slug": "classic-tavole-probabilita-teorica-test-uniformita",
   "title": "tavole-probabilita-teorica-test-uniformita",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
     "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
     "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      50,
+      36,
+      53,
+      18,
+      24,
+      60
+    ],
+    "hits": 0
+  }
 }

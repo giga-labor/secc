@@ -2,7 +2,7 @@
   "slug": "classic-distribuzioni-modelli-raggruppamento",
   "title": "distribuzioni-modelli-raggruppamento",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione.",
     "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape",
     "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      88,
+      77,
+      49,
+      65,
+      6,
+      85
+    ],
+    "hits": 2
+  }
 }

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "count": 17,
   "algorithms": [
     {
       "slug": "astra-moon",
       "title": "ASTRA Moon",
       "family": "ibrido",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -28,13 +28,26 @@
         "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.",
         "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri.",
         "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          6,
+          50,
+          48,
+          5,
+          46,
+          8
+        ],
+        "hits": 1
+      }
     },
     {
       "slug": "classic-analisi-anomalie-pattern",
       "title": "analisi-anomalie-pattern",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -56,13 +69,26 @@
         "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo.",
         "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi",
         "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          65,
+          88,
+          67,
+          32,
+          50,
+          54
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "classic-co-occorrenze",
       "title": "co-occorrenze",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -83,13 +109,26 @@
         "Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo.",
         "Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo",
         "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          85,
+          55,
+          81,
+          76,
+          62,
+          80
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "classic-coppie-terni-consecutivi",
       "title": "coppie-terni-consecutivi",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -111,13 +150,26 @@
         "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.",
         "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti",
         "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          43,
+          44,
+          45,
+          55,
+          56,
+          57
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "classic-coppie-terzine-frequenti",
       "title": "coppie-terzine-frequenti",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -139,13 +191,26 @@
         "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.",
         "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale",
         "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          48,
+          86,
+          87,
+          13,
+          18,
+          51
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "title": "distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -167,13 +232,26 @@
         "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione.",
         "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape",
         "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          88,
+          77,
+          49,
+          65,
+          6,
+          85
+        ],
+        "hits": 2
+      }
     },
     {
       "slug": "classic-frequency",
       "title": "frequency",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -195,13 +273,26 @@
         "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.",
         "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.",
         "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          85,
+          6,
+          79,
+          86,
+          49,
+          55
+        ],
+        "hits": 2
+      }
     },
     {
       "slug": "classic-ritardi",
       "title": "ritardi",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -222,13 +313,26 @@
         "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
         "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
         "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          65,
+          88,
+          67,
+          32,
+          50,
+          54
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "classic-ritardi-combinazioni",
       "title": "ritardi-combinazioni",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -250,13 +354,26 @@
         "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie.",
         "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay",
         "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          3,
+          86,
+          12,
+          85,
+          49,
+          70
+        ],
+        "hits": 1
+      }
     },
     {
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "title": "statistiche-combinate-finestre-mobili",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -278,13 +395,26 @@
         "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.",
         "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top",
         "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          2,
+          3,
+          7,
+          18,
+          28,
+          33
+        ],
+        "hits": 1
+      }
     },
     {
       "slug": "classic-tavole-probabilita-teorica-test-uniformita",
       "title": "tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -306,13 +436,26 @@
         "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
         "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
         "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          50,
+          36,
+          53,
+          18,
+          24,
+          60
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "genetic",
       "title": "GeneticSE",
       "family": "genetico",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -335,13 +478,26 @@
         "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi.",
         "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
         "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          7,
+          58,
+          9,
+          57,
+          33,
+          28
+        ],
+        "hits": 1
+      }
     },
     {
       "slug": "hispa",
       "title": "HiSPA",
       "family": "statistica",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -363,13 +519,26 @@
         "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale.",
         "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati",
         "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura."
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          56,
+          13,
+          1,
+          80,
+          4,
+          62
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "paradox-logiche-decisionali-metriche",
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -392,13 +561,26 @@
         "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
         "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
         "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          85,
+          50,
+          65,
+          88,
+          49,
+          6
+        ],
+        "hits": 2
+      }
     },
     {
       "slug": "super6NN",
       "title": "Super6 NN",
       "family": "neurale",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -421,13 +603,26 @@
         "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi.",
         "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.",
         "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          7,
+          8,
+          18,
+          28,
+          58,
+          63
+        ],
+        "hits": 1
+      }
     },
     {
       "slug": "xeno-qdna-alpha",
       "title": "XENO-QDNA α",
       "family": "generativi",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
       "proposal": [
@@ -449,16 +644,36 @@
         "Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto.",
         "Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA.",
         "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi."
-      ]
+      ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          3,
+          48,
+          53,
+          56,
+          65,
+          72
+        ],
+        "hits": 0
+      }
     },
     {
       "slug": "xeno-qdna-beta",
       "title": "XENO-QDNA β",
       "family": "generativi",
-      "generated_at": "2026-07-13T19:23:42",
+      "generated_at": "2026-07-14T19:05:26",
       "last_seq": 4222,
       "last_date": "",
-      "proposal": [],
+      "proposal": [
+        25,
+        38,
+        46,
+        56,
+        63,
+        80
+      ],
       "metrics": {
         "draws_covered": 4165,
         "avg_hits": 0.41,
@@ -471,13 +686,26 @@
         "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni.",
         "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
       ],
+      "last_verified": {
+        "seq": 4222,
+        "date": "11/07/2026",
+        "proposal": [
+          6,
+          29,
+          32,
+          60,
+          77,
+          81
+        ],
+        "hits": 1
+      },
       "alpha_proposal": [
-        3,
-        48,
-        53,
-        56,
-        65,
-        72
+        9,
+        34,
+        57,
+        61,
+        78,
+        80
       ],
       "ifc_score": 11.0,
       "correction_bits": 34

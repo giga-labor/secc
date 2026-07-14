@@ -89,13 +89,45 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Si può prevedere il SuperEnalotto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nessun sistema statistico o algoritmo può garantire la vincita: le estrazioni sono eventi indipendenti ed equiprobabili. Control Chaos analizza il dataset storico (frequenze, ritardi, pattern) a scopo statistico e divulgativo, non fornisce pronostici garantiti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cosa sono gli algoritmi di Control Chaos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sono modelli statistici e di analisi dati (frequenze, ritardi, co-occorrenze, reti neurali e altri) applicati allo storico delle estrazioni SuperEnalotto per individuare pattern ricorrenti. Il metodo completo di ciascun algoritmo è documentato nel Laboratorio Tecnico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da dove arrivano i dati delle estrazioni?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dall'archivio storico ufficiale delle estrazioni SuperEnalotto, aggiornato a ogni nuovo concorso e consultabile nella sezione Storico Estrazioni."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body id="top" data-page-id="home">
 
   <noscript>
     <style>.cc-noscript{font-family:sans-serif;max-width:700px;margin:2rem auto;padding:1rem;color:#f0e6c8;background:#081322;border-radius:8px}.cc-noscript h1{font-size:1.5rem;margin-bottom:.5rem}.cc-noscript p{color:#8fa3b8;font-size:.9rem;margin-bottom:1rem}.cc-noscript ul{list-style:disc;padding-left:1.5rem}.cc-noscript a{color:#e8c468;text-decoration:none}</style>
     <div class="cc-noscript">
-      <h1>SuperEnalotto Control Chaos â€” Analisi Statistica</h1>
+      <h1>SuperEnalotto Control Chaos — Analisi Statistica</h1>
       <p>Archivio estrazioni, algoritmi statistici e approfondimenti sul dataset storico del SuperEnalotto. Abilita JavaScript per l'esperienza completa.</p>
       <p><strong>Algoritmi attivi:</strong></p>
       <ul>
@@ -109,19 +141,19 @@
         <li><a href="/pages/algoritmi/algs/classic-ritardi-combinazioni/">Ritardi Combinazioni</a></li>
         <li><a href="/pages/algoritmi/algs/classic-ritardi/">Ritardi</a></li>
         <li><a href="/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/">Statistiche Combinate Finestre Mobili</a></li>
-        <li><a href="/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/">Tavole ProbabilitÃ  Teorica Test UniformitÃ </a></li>
+        <li><a href="/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/">Tavole Probabilità Teorica Test Uniformità</a></li>
         <li><a href="/pages/algoritmi/algs/genetic/">GeneticSE</a></li>
         <li><a href="/pages/algoritmi/algs/hispa/">HiSPA</a></li>
         <li><a href="/pages/algoritmi/algs/paradox-logiche-decisionali-metriche/">Paradox Logiche Decisionali Metriche</a></li>
         <li><a href="/pages/algoritmi/algs/super6NN/">Super6 NN</a></li>
       </ul>
-      <p><a href="/pages/storico-estrazioni/">â†’ Storico estrazioni</a> Â· <a href="/pages/laboratorio-tecnico/">â†’ Laboratorio Tecnico</a></p>
+      <p><a href="/pages/storico-estrazioni/">→ Storico estrazioni</a> · <a href="/pages/laboratorio-tecnico/">→ Laboratorio Tecnico</a></p>
     </div>
   </noscript>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-       SHELL V8 â€” unica shell della home
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════════
+       SHELL V8 — unica shell della home
+  ═══════════════════════════════════════════ -->
   <div id="v8-root">
 
     <div id="cur"></div>
@@ -129,27 +161,27 @@
     <div id="v8-aurora" aria-hidden="true"><i class="au1"></i><i class="au2"></i><i class="au3"></i></div>
     <canvas id="c"></canvas>
 
-    <!-- â•â• HERO (stile mockup V8+) â•â• -->
+    <!-- ══ HERO (stile mockup V8+) ══ -->
     <div id="intro">
       <canvas id="ihero" aria-hidden="true"></canvas>
       <canvas id="cc-intro" width="260" height="140" style="margin-bottom:2rem;animation:fu .7s .1s both;"></canvas>
-      <div class="i-eyebrow">Osservatorio Statistico Â· SuperEnalotto Â· Est. 2024</div>
+      <div class="i-eyebrow">Osservatorio Statistico · SuperEnalotto · Est. 2024</div>
       <div class="i-title">
         <span class="solid">CONTROL</span><br>
         <span class="outline">CHAOS</span>
       </div>
       <div class="i-divider"></div>
-      <div class="i-tagline">90 numeri Â· algoritmi statistici Â· il punto esatto in cui la geometria si rompe</div>
+      <div class="i-tagline">90 numeri · algoritmi statistici · il punto esatto in cui la geometria si rompe</div>
 
       <!-- Floating text showcase + fireworks -->
       <div id="intro-showcase" aria-hidden="true"></div>
       <canvas id="intro-fw" aria-hidden="true"></canvas>
 
       <div class="i-cta"><span class="i-cta-dot"></span>Entra nell'osservatorio</div>
-      <div class="i-note">Gioca responsabilmente Â· Nessuna promessa di vincita Â· 18+</div>
+      <div class="i-note">Gioca responsabilmente · Nessuna promessa di vincita · 18+</div>
     </div>
 
-    <!-- â•â• UI â•â• -->
+    <!-- ══ UI ══ -->
     <div id="ui">
 
       <!-- TOPBAR -->
@@ -250,7 +282,7 @@
               <span class="dash-sub">Pattern, frequenze e anomalie</span>
             </div>
             <div class="dash-card-body" id="db-analisi"></div>
-            <a class="dash-card-foot" href="pages/analisi-statistiche/">Apri analisi &rarr;</a>
+            <a class="dash-card-foot" href="pages/laboratorio-tecnico/">Apri analisi &rarr;</a>
           </div>
           <div class="dash-card" id="dc-lab">
             <div class="dash-card-head">
@@ -293,10 +325,10 @@
 
       <!-- BOTTOMBAR -->
       <div id="bb">
-        <span>ControlChaos Â· Analisi statistica indipendente</span>
-        <span class="bb-sep">Â·</span>
+        <span>ControlChaos · Analisi statistica indipendente</span>
+        <span class="bb-sep">·</span>
         <span id="bb-msg">Gioca responsabilmente, nessuna promessa di vincita</span>
-        <span class="bb-r">Vietato ai minori Â· Nessuna promessa di vincita Â· Gioca responsabilmente</span>
+        <span class="bb-r">Vietato ai minori · Nessuna promessa di vincita · Gioca responsabilmente</span>
       </div>
 
     </div><!-- /ui -->
@@ -311,7 +343,7 @@
     <!-- ORACLE -->
     <div id="ov">
       <div class="ov-top"></div>
-      <div class="ov-close" id="ov-cls">âœ• Chiudi Oracle</div>
+      <div class="ov-close" id="ov-cls">✕ Chiudi Oracle</div>
       <svg class="ov-symbol" viewBox="0 0 72 72" fill="none">
         <circle cx="36" cy="36" r="33" stroke="rgba(237,232,223,1)" stroke-width="1"/>
         <path d="M36 12 C22 12 12 22 12 36 C12 50 22 60 36 60 C50 60 60 50 60 36 C60 29 56 23 50 19"
@@ -334,7 +366,7 @@
         <div class="om"><span class="om-v" style="color:#C8391A">81%</span><span class="om-l">Ritardo</span></div>
         <div class="om"><span class="om-v" style="color:#F59E0B">63%</span><span class="om-l">Pressione</span></div>
       </div>
-      <div class="ov-disclaimer">Sintesi visuale dei segnali statistici Â· Metafora di analisi, non previsione<br>Nessun sistema garantisce la vincita Â· Il gioco comporta rischi</div>
+      <div class="ov-disclaimer">Sintesi visuale dei segnali statistici · Metafora di analisi, non previsione<br>Nessun sistema garantisce la vincita · Il gioco comporta rischi</div>
       <div style="font-size:.72rem;color:rgba(237,232,223,.07);margin-top:.4rem;letter-spacing:.12em;text-transform:uppercase">
         Metriche in fase di calibrazione
       </div>
@@ -342,10 +374,10 @@
 
   </div><!-- /v8-root -->
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-       SCRIPT â€” dipendenze dati + shell V8
+  <!-- ═══════════════════════════════════════════
+       SCRIPT — dipendenze dati + shell V8
        (cards-index e data-repository servono a v8-data-bridge/v8-main)
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ═══════════════════════════════════════════ -->
   <script src="assets/js/version.js?v=01.05.000" defer></script>
   <script src="assets/js/core/data-repository.js?v=01.05.000" defer></script>
   <script src="assets/js/core/data-registry.js?v=01.05.000" defer></script>

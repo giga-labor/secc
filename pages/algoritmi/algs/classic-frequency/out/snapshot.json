@@ -2,7 +2,7 @@
   "slug": "classic-frequency",
   "title": "frequency",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.",
     "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.",
     "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      85,
+      6,
+      79,
+      86,
+      49,
+      55
+    ],
+    "hits": 2
+  }
 }

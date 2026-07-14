@@ -2,7 +2,7 @@
   "slug": "classic-statistiche-combinate-finestre-mobili",
   "title": "statistiche-combinate-finestre-mobili",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.",
     "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top",
     "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      2,
+      3,
+      7,
+      18,
+      28,
+      33
+    ],
+    "hits": 1
+  }
 }

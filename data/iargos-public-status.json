@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13 19:24:25",
+  "updated_at": "2026-07-14 19:05:52",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
@@ -38,10 +38,10 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-07-13 19:24:03",
+    "last_push_at": "2026-07-13 19:25:54",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1783962535
+    "boot_ts": 1784048702
   },
   "feed": [
     {

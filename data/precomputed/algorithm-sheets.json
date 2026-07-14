@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13 19:23:42",
+  "generated_at": "2026-07-14 19:05:26",
   "count": 17,
   "sheets": {
     "astra-moon": {
@@ -21148,7 +21148,14 @@
       "is_active": true,
       "access_tier": "free",
       "last_updated": "14/06/2026",
-      "proposal": [],
+      "proposal": [
+        25,
+        38,
+        46,
+        56,
+        63,
+        80
+      ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [

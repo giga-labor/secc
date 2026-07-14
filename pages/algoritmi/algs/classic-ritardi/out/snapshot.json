@@ -2,7 +2,7 @@
   "slug": "classic-ritardi",
   "title": "ritardi",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -23,5 +23,18 @@
     "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
     "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
     "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      65,
+      88,
+      67,
+      32,
+      50,
+      54
+    ],
+    "hits": 0
+  }
 }

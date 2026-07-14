@@ -70,6 +70,32 @@
     }
   }
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.superenalottocc.it/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Algoritmi",
+      "item": "https://www.superenalottocc.it/pages/algoritmi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Super6 NN",
+      "item": "https://www.superenalottocc.it/pages/algoritmi/algs/super6NN/"
+    }
+  ]
+}
+</script>
   <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
   <script src="../../../../assets/js/v8-inner-chrome.js?v=01.05.000" defer></script>
 </head>
@@ -91,10 +117,40 @@
         <div class="tabs-sheet">
           <section class="tab-panel is-active space-y-4" data-tab-panel="algoritmo">
             <section class="rounded-3xl border border-white/10 bg-transparent p-6" data-adsense-quality="1">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash">Neurale</span>
+                <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-ash">Accesso libero</span>
+                <span class="text-xs text-ash">Aggiornato al 11/02/2026</span>
+              </div>
               <h3 class="text-xl font-semibold">Super6 NN</h3>
-              <p class="mt-3 text-sm text-ash">Questa scheda mostra l'uso pratico del modulo: storico, metriche e confronto rapido.</p>
-              <p class="mt-3 text-sm text-ash">Per i dettagli tecnici completi (metodo, limiti e analisi estesa) usa il Laboratorio tecnico.</p>
+              <p class="mt-1 text-sm text-ash">Walk-forward con training incrementale e sampling sestine</p>
+              <p class="mt-3 text-sm text-white/90">Super6 NN nasce per risolvere un problema molto pratico: come usare una rete neurale in un contesto dove i dati arrivano nel tempo, senza fingere di conoscere in anticipo il futuro. Per questo il cuore del metodo non e solo la rete, ma il processo con cui la rete viene allenata e valutata. Qui entra la logica walk-forward: si parte da una finestra storica, si allena il modello, si genera una previsione per il passo successivo, poi si avanza e si ripete. In questo modo il sistema impara in modo incrementale, cioe aggiornando la conoscenza mano a mano che compaiono nuovi concorsi, invece di riaddestrare tutto da zero in maniera cieca e potenzialmente distorta.
+
+La parte importante, per chi legge i risultati, e capire che Super6 NN non promette la combinazione vincente. Offre invece una classifica di proposte con punteggi, costruita con un approccio disciplinato. E come avere un assistente che non dice "questo uscira sicuramente", ma dice "tra gli scenari possibili, questi sono quelli con migliore coerenza rispetto ai pattern osservati". Questo cambia il modo in cui si usa l algoritmo: non come oracolo, ma come strumento di decisione e confronto.
+
+Un esempio semplice aiuta. Immagina di dover scegliere un percorso in citta in un giorno di traffico incerto. Nessuno puo garantirti quale strada sara perfetta, ma un buon navigatore puo stimare quali percorsi hanno probabilita migliore in base a dati recenti e storici. Super6 NN ragiona in modo simile: valuta segnali, assegna priorita, scarta opzioni deboli e propone un insieme ristretto di alternative sensate. Se il contesto cambia, l aggiornamento incrementale lo intercetta e modifica i pesi interni del modello.
+
+Per rendere la lettura meno tecnica, pensa alla rete neurale come a un sistema di memoria pesata. Alcuni segnali contano di piu, altri meno. Con i passaggi successivi, i pesi si adattano: segnali che prima sembravano forti possono ridursi, mentre segnali deboli ma stabili possono guadagnare importanza. Questo evita due errori comuni: inseguire il rumore dell ultimo periodo e restare bloccati su schemi vecchi non piu utili.
+
+Un altro punto chiave e il sampling delle sestine. Invece di forzare una sola risposta, il sistema esplora un ventaglio di combinazioni candidate e le ordina. Questo approccio e piu realistico in un dominio ad alta incertezza: permette di lavorare per graduatoria, non per scelta unica. In pratica, l utente puo leggere la top list e decidere quanto essere conservativo o aggressivo, sempre sapendo che il ranking misura coerenza statistica, non certezza assoluta.
+
+Per chi vuole un livello tecnico in piu, il valore di Super6 NN sta nella separazione netta tra training e valutazione temporale. Ogni step walk-forward riduce il rischio di leakage informativo, cioe l errore di lasciare che il modello "veda" pezzi del futuro durante l apprendimento. In piu, l allenamento incrementale consente di contenere i costi computazionali e mantenere il modello allineato all evoluzione del dataset. La metrica di ranking finale non dipende da una sola epoca fortunata, ma da una procedura ripetibile su piu passi temporali.
+
+In termini operativi, questa scheda va letta con una regola semplice: prima il metodo, poi il risultato. Se il metodo e robusto, anche quando il punteggio cala la lettura resta utile, perche mostra dove il segnale si sta indebolendo. Se invece ci si concentra solo sul picco momentaneo, si rischia di confondere una fluttuazione con una tendenza. Super6 NN e stato pensato proprio per ridurre questa fragilita interpretativa.
+
+Cosa aspettarsi quindi dall output? Una sintesi concreta: combinazioni candidate, ranking, note di stabilita e traccia storica delle prestazioni. La parte piu utile non e il singolo numero in cima, ma la struttura complessiva della classifica e la sua coerenza nel tempo. Quando i primi candidati restano solidi su piu aggiornamenti, il segnale e piu credibile. Quando cambiano in modo troppo brusco, il sistema sta dicendo che il contesto e incerto e che serve prudenza.
+
+In conclusione, Super6 NN e una piattaforma di analisi progressiva, non una macchina di promesse. E adatto a chi vuole una lettura ordinata dell incertezza: comprensibile per chi cerca una guida pratica, abbastanza tecnico per chi vuole verificare come si costruisce il ranking, e soprattutto aggiornabile senza scorciatoie metodologiche. Questo equilibrio tra chiarezza, disciplina e adattamento continuo e il vero motivo per cui l algoritmo ha senso nel progetto.</p>
+              <p class="mt-3 text-sm text-ash">Per il metodo completo, i limiti e l'analisi tecnica estesa consulta il Laboratorio tecnico.</p>
               <a class="mt-4 inline-flex rounded-full border border-neon/70 bg-neon/10 px-4 py-2 text-sm font-semibold text-neon transition hover:-translate-y-1 hover:bg-neon/20" href="../../../laboratorio-tecnico/">Apri il Laboratorio tecnico completo</a>
+            </section>
+            <section class="rounded-3xl border border-white/10 bg-transparent p-6" data-related-algorithms>
+              <h4 class="text-xs uppercase tracking-[0.2em] text-ash mb-3">Algoritmi correlati</h4>
+              <div class="flex flex-wrap gap-2">
+      <a class="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-ash transition hover:border-neon/60 hover:text-neon" href="../classic-analisi-anomalie-pattern/">Anomalie e Pattern nei Numeri</a>
+      <a class="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-ash transition hover:border-neon/60 hover:text-neon" href="../classic-co-occorrenze/">Numeri in Co-occorrenza</a>
+      <a class="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-ash transition hover:border-neon/60 hover:text-neon" href="../classic-coppie-terni-consecutivi/">Coppie e Terni Consecutivi</a>
+              </div>
             </section>
           </section>
           <section class="tab-panel space-y-4" data-tab-panel="storica">
@@ -187,6 +243,10 @@
           </section>
         </div>
       </div>
+      <nav class="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm" aria-label="Navigazione tra algoritmi">
+        <a class="flex items-center gap-1 text-ash transition hover:text-neon" href="../paradox-logiche-decisionali-metriche/">&larr; Paradox Logiche Decisionali Metriche</a>
+        <a class="flex items-center gap-1 text-ash transition hover:text-neon" href="../xeno-qdna-alpha/">XENO-QDNA α &rarr;</a>
+      </nav>
     </div>
   </main>
   <script src="../../../../assets/js/core/cache-engine.js?v=01.05.000" defer></script>

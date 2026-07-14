@@ -2,7 +2,7 @@
   "slug": "classic-coppie-terni-consecutivi",
   "title": "coppie-terni-consecutivi",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.",
     "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti",
     "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      43,
+      44,
+      45,
+      55,
+      56,
+      57
+    ],
+    "hits": 0
+  }
 }

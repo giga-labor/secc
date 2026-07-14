@@ -2,7 +2,7 @@
   "slug": "astra-moon",
   "title": "ASTRA Moon",
   "family": "ibrido",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.",
     "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri.",
     "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      6,
+      50,
+      48,
+      5,
+      46,
+      8
+    ],
+    "hits": 1
+  }
 }

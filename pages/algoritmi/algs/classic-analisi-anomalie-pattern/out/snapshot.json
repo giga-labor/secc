@@ -2,7 +2,7 @@
   "slug": "classic-analisi-anomalie-pattern",
   "title": "analisi-anomalie-pattern",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo.",
     "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi",
     "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      65,
+      88,
+      67,
+      32,
+      50,
+      54
+    ],
+    "hits": 0
+  }
 }

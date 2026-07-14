@@ -2,7 +2,7 @@
   "slug": "classic-ritardi-combinazioni",
   "title": "ritardi-combinazioni",
   "family": "statistica",
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "last_seq": 4222,
   "last_date": "",
   "proposal": [
@@ -24,5 +24,18 @@
     "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie.",
     "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay",
     "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva"
-  ]
+  ],
+  "last_verified": {
+    "seq": 4222,
+    "date": "11/07/2026",
+    "proposal": [
+      3,
+      86,
+      12,
+      85,
+      49,
+      70
+    ],
+    "hits": 1
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T19:23:42",
+  "generated_at": "2026-07-14T19:05:26",
   "total_algorithms": 17,
   "numbers": {
     "1": {
@@ -136,8 +136,10 @@
       ]
     },
     "25": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna-beta"
+      ]
     },
     "26": {
       "support": 0,
@@ -204,9 +206,10 @@
       ]
     },
     "38": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "astra-moon"
+        "astra-moon",
+        "xeno-qdna-beta"
       ]
     },
     "39": {
@@ -248,8 +251,10 @@
       ]
     },
     "46": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna-beta"
+      ]
     },
     "47": {
       "support": 0,
@@ -313,9 +318,10 @@
       ]
     },
     "56": {
-      "support": 1,
+      "support": 2,
       "algorithms": [
-        "classic-coppie-terni-consecutivi"
+        "classic-coppie-terni-consecutivi",
+        "xeno-qdna-beta"
       ]
     },
     "57": {
@@ -353,8 +359,10 @@
       ]
     },
     "63": {
-      "support": 0,
-      "algorithms": []
+      "support": 1,
+      "algorithms": [
+        "xeno-qdna-beta"
+      ]
     },
     "64": {
       "support": 0,
@@ -444,10 +452,11 @@
       ]
     },
     "80": {
-      "support": 2,
+      "support": 3,
       "algorithms": [
         "classic-co-occorrenze",
-        "xeno-qdna-alpha"
+        "xeno-qdna-alpha",
+        "xeno-qdna-beta"
       ]
     },
     "81": {
@@ -607,6 +616,15 @@
       ]
     },
     {
+      "number": 80,
+      "support": 3,
+      "algorithms": [
+        "classic-co-occorrenze",
+        "xeno-qdna-alpha",
+        "xeno-qdna-beta"
+      ]
+    },
+    {
       "number": 85,
       "support": 3,
       "algorithms": [
@@ -633,27 +651,19 @@
       ]
     },
     {
+      "number": 38,
+      "support": 2,
+      "algorithms": [
+        "astra-moon",
+        "xeno-qdna-beta"
+      ]
+    },
+    {
       "number": 49,
       "support": 2,
       "algorithms": [
         "classic-distribuzioni-modelli-raggruppamento",
         "classic-frequency"
-      ]
-    },
-    {
-      "number": 57,
-      "support": 2,
-      "algorithms": [
-        "classic-coppie-terni-consecutivi",
-        "xeno-qdna-alpha"
-      ]
-    },
-    {
-      "number": 62,
-      "support": 2,
-      "algorithms": [
-        "classic-co-occorrenze",
-        "super6NN"
       ]
     }
   ]
