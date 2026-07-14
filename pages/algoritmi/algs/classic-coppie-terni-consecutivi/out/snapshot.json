@@ -2,8 +2,8 @@
   "slug": "classic-coppie-terni-consecutivi",
   "title": "coppie-terni-consecutivi",
   "family": "statistica",
-  "generated_at": "2026-07-14T19:05:26",
-  "last_seq": 4222,
+  "generated_at": "2026-07-14T22:01:46",
+  "last_seq": 4223,
   "last_date": "",
   "proposal": [
     43,
@@ -14,7 +14,7 @@
     57
   ],
   "metrics": {
-    "draws_covered": 4222,
+    "draws_covered": 4223,
     "avg_hits": 0.4,
     "hit_rate_gte_2": 4.8,
     "best_streak": 8
@@ -26,8 +26,8 @@
     "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
   ],
   "last_verified": {
-    "seq": 4222,
-    "date": "11/07/2026",
+    "seq": 4223,
+    "date": "14/07/2026",
     "proposal": [
       43,
       44,
@@ -36,6 +36,6 @@
       56,
       57
     ],
-    "hits": 0
+    "hits": 1
   }
 }

@@ -2,8 +2,8 @@
   "slug": "super6NN",
   "title": "Super6 NN",
   "family": "neurale",
-  "generated_at": "2026-07-14T19:05:26",
-  "last_seq": 4222,
+  "generated_at": "2026-07-14T22:01:46",
+  "last_seq": 4223,
   "last_date": "",
   "proposal": [
     22,
@@ -11,10 +11,10 @@
     41,
     62,
     65,
-    81
+    75
   ],
   "metrics": {
-    "draws_covered": 4222,
+    "draws_covered": 4223,
     "avg_hits": 0.39,
     "hit_rate_gte_2": 4.6,
     "hit_rate_gte_3": 0.3,
@@ -27,16 +27,16 @@
     "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
   ],
   "last_verified": {
-    "seq": 4222,
-    "date": "11/07/2026",
+    "seq": 4223,
+    "date": "14/07/2026",
     "proposal": [
       7,
-      8,
       18,
       28,
+      33,
       58,
       63
     ],
-    "hits": 1
+    "hits": 0
   }
 }

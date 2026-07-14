@@ -4,34 +4,34 @@ Ogni concorso viene codificato in multi-hot e letto in sequenza temporale per es
 La stima per ogni step usa solo lo storico precedente al concorso target, in ottica walk-forward.
 
 Impostazione di questo export SICC
-Analisi eseguita su 4222 concorsi del draws admin, con 4221 step di validazione storica.
+Analisi eseguita su 4223 concorsi del draws admin, con 4222 step di validazione storica.
 Per ogni step viene proposta una sestina deterministica dai 6 logit piu alti del modello.
 Ogni proposta e generata dallo stato appreso fino a quel passo, poi verificata sul concorso successivo.
 
 Risultati osservati sullo storico
-- Media hit/sestina: 0.3900
-- Hit >=1: 1439/4221 (34.09%)
-- Hit >=2: 195/4221 (4.62%)
-- Hit >=3: 12/4221 (0.28%)
-- Hit >=4: 0/4221 (0.00%)
-- Hit >=5: 0/4221 (0.0000%)
-- Hit =6: 0/4221 (0.000000%)
-- Distribuzione hit esatta: 0:2782 1:1244 2:183 3:12 4:0 5:0 6:0
+- Media hit/sestina: 0.3899
+- Hit >=1: 1439/4222 (34.08%)
+- Hit >=2: 195/4222 (4.62%)
+- Hit >=3: 12/4222 (0.28%)
+- Hit >=4: 0/4222 (0.00%)
+- Hit >=5: 0/4222 (0.0000%)
+- Hit =6: 0/4222 (0.000000%)
+- Distribuzione hit esatta: 0:2783 1:1244 2:183 3:12 4:0 5:0 6:0
 
 Confronto con baseline casuale (6 su 90)
-- Media hit attesa random: 0.4000 | osservata: 0.3900
-- Hit>=2 atteso random: 4.963% | osservato: 4.620% | z-score: -1.03
+- Media hit attesa random: 0.4000 | osservata: 0.3899
+- Hit>=2 atteso random: 4.963% | osservato: 4.619% | z-score: -1.03
 - Hit>=3 atteso random: 0.315%
 - Hit>=4 atteso random: 0.00848%
 
 Stabilita temporale
-- Media ultimi 200 step: 0.3950
+- Media ultimi 200 step: 0.3850
 - Deviazione standard hit: 0.5845
 
 Configurazione operativa
-- Ultimo concorso disponibile: 4222 (11/07/2026)
-- Prossimo concorso stimato: 4223
-- Sestina proposta: 22 39 41 62 65 81
+- Ultimo concorso disponibile: 4223 (14/07/2026)
+- Prossimo concorso stimato: 4224
+- Sestina proposta: 22 39 41 62 65 75
 
 Lettura e limiti
 Le metriche descrivono comportamento storico del modello ma non costituiscono garanzia predittiva futura.
