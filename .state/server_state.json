@@ -1,0 +1,60 @@
+{
+  "latest_local_contest_id": 4223,
+  "last_published_commit": "2fda86aa4be5ae319ca281ec836ca95c3cd5f016",
+  "per_algo_last_trained_contest_id": {
+    "astra-moon": 4223,
+    "classic-analisi-anomalie-pattern": 4223,
+    "classic-co-occorrenze": 4223,
+    "classic-coppie-terni-consecutivi": 4223,
+    "classic-coppie-terzine-frequenti": 4223,
+    "classic-distribuzioni-modelli-raggruppamento": 4223,
+    "classic-frequency": 4223,
+    "classic-ritardi": 4223,
+    "classic-ritardi-combinazioni": 4223,
+    "classic-statistiche-combinate-finestre-mobili": 4223,
+    "classic-tavole-probabilita-teorica-test-uniformita": 4223,
+    "genetic": 4223,
+    "hispa": 4223,
+    "paradox-logiche-decisionali-metriche": 4223,
+    "super6NN": 4223,
+    "xeno-qdna-alpha": 4223,
+    "xeno-qdna-beta": 4223
+  },
+  "last_card_hits_build_at": "2026-07-14T22:01:04",
+  "last_card_hits_changed_cards": 11,
+  "last_successful_run_id": "20260714_215403",
+  "last_email_status": "",
+  "pending_publish": {},
+  "consecutive_failures": 0,
+  "last_failure_at": "",
+  "last_failure_reason": "",
+  "run_journal": [
+    {
+      "ts": "2026-07-14T21:54:03",
+      "event": "lock_acquired",
+      "run_id": "20260714_215403",
+      "payload": {
+        "lease_until": "2026-07-14T21:56:03"
+      }
+    },
+    {
+      "ts": "2026-07-14T22:02:02",
+      "event": "lock_released",
+      "run_id": "20260714_215403",
+      "payload": {}
+    }
+  ],
+  "last_quorum_policy": {
+    "min_sources": 2,
+    "gold_weight": 2,
+    "max_skew_minutes": 180,
+    "max_block_minutes": 15,
+    "fallback_latest_source": true,
+    "phase1_min_sources": 1,
+    "phase2_min_sources": 2,
+    "phase2_retry_wait_sec": 20,
+    "phase2_allow_forced_publish": true,
+    "phase2_email_alert_on_forced": true
+  },
+  "quorum_degraded_since": ""
+}
