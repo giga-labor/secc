@@ -17,15 +17,15 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 0
+      "count": 1
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/astra-moon/",
-    "rankingValue": 32.56,
+    "rankingValue": 32.64,
     "rankingPosition": 8,
     "exactHits": {
       "0": 2708,
-      "1": 1282,
+      "1": 1283,
       "2": 220,
       "3": 12,
       "4": 0,
@@ -34,14 +34,14 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -1.93,
+      "edgePercent": -1.92,
       "observedScore": 0.1356,
       "expectedScore": 0.1382,
-      "stability": 65.98,
+      "stability": 66.2,
       "recentForm": 0.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 73.42,
-      "riskPenalty": 1.27,
+      "windowCoherence": 73.53,
+      "riskPenalty": 1.26,
       "risk": "basso",
       "label": "Stabile"
     }
@@ -70,11 +70,11 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-    "rankingValue": 30.63,
+    "rankingValue": 30.66,
     "rankingPosition": 10,
     "exactHits": {
       "0": 2779,
-      "1": 1207,
+      "1": 1208,
       "2": 218,
       "3": 17,
       "4": 1,
@@ -82,15 +82,15 @@
       "6": 0
     },
     "rankProfile": {
-      "edge": 78.59,
+      "edge": 78.62,
       "edgePercent": 15.72,
       "observedScore": 0.16,
       "expectedScore": 0.1382,
-      "stability": 17.64,
+      "stability": 17.7,
       "recentForm": 0.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 56.31,
-      "riskPenalty": 20.85,
+      "windowCoherence": 56.36,
+      "riskPenalty": 20.84,
       "risk": "alto",
       "label": "Volatile"
     }
@@ -112,15 +112,15 @@
     "no_data_show": true,
     "accessTier": "free",
     "hits": {
-      "enabled": true,
-      "count": 2
+      "enabled": false,
+      "count": 0
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-co-occorrenze/",
-    "rankingValue": 25.74,
+    "rankingValue": 25.65,
     "rankingPosition": 15,
     "exactHits": {
-      "0": 2780,
+      "0": 2781,
       "1": 1227,
       "2": 201,
       "3": 13,
@@ -129,14 +129,14 @@
       "6": 0
     },
     "rankProfile": {
-      "edge": 40.04,
-      "edgePercent": 8.01,
+      "edge": 39.91,
+      "edgePercent": 7.98,
       "observedScore": 0.1493,
       "expectedScore": 0.1382,
-      "stability": 2.42,
+      "stability": 2.32,
       "recentForm": 100.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 52.78,
+      "windowCoherence": 52.69,
       "riskPenalty": 21.16,
       "risk": "alto",
       "label": "Esplosivo ma instabile"
@@ -160,14 +160,14 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-    "rankingValue": 30.61,
+    "rankingValue": 29.09,
     "rankingPosition": 11,
     "exactHits": {
-      "0": 2760,
+      "0": 2761,
       "1": 1258,
       "2": 187,
       "3": 17,
@@ -177,14 +177,14 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -1.55,
+      "edgePercent": -1.58,
       "observedScore": 0.1361,
       "expectedScore": 0.1382,
-      "stability": 57.99,
-      "recentForm": 24.91,
+      "stability": 57.92,
+      "recentForm": 14.92,
       "sampleConfidence": 99.98,
-      "windowCoherence": 67.35,
-      "riskPenalty": 4.35,
+      "windowCoherence": 67.26,
+      "riskPenalty": 4.36,
       "risk": "medio",
       "label": "Stabile"
     }
@@ -211,10 +211,10 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-    "rankingValue": 28.02,
+    "rankingValue": 27.76,
     "rankingPosition": 12,
     "exactHits": {
-      "0": 2805,
+      "0": 2806,
       "1": 1219,
       "2": 193,
       "3": 5,
@@ -224,13 +224,13 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -18.31,
+      "edgePercent": -18.33,
       "observedScore": 0.1129,
       "expectedScore": 0.1382,
-      "stability": 60.03,
-      "recentForm": 4.51,
+      "stability": 60.12,
+      "recentForm": 2.55,
       "sampleConfidence": 99.98,
-      "windowCoherence": 71.54,
+      "windowCoherence": 71.69,
       "riskPenalty": 4.81,
       "risk": "basso",
       "label": "Stabile"
@@ -253,16 +253,16 @@
     "no_data_show": true,
     "accessTier": "free",
     "hits": {
-      "enabled": true,
-      "count": 3
+      "enabled": false,
+      "count": 1
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-    "rankingValue": 26.05,
+    "rankingValue": 26.89,
     "rankingPosition": 14,
     "exactHits": {
       "0": 2790,
-      "1": 1230,
+      "1": 1231,
       "2": 185,
       "3": 17,
       "4": 0,
@@ -271,14 +271,14 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -2.86,
+      "edgePercent": -2.84,
       "observedScore": 0.1343,
       "expectedScore": 0.1382,
-      "stability": 53.09,
-      "recentForm": 52.28,
+      "stability": 53.82,
+      "recentForm": 52.25,
       "sampleConfidence": 99.98,
-      "windowCoherence": 65.94,
-      "riskPenalty": 11.66,
+      "windowCoherence": 66.13,
+      "riskPenalty": 11.02,
       "risk": "medio",
       "label": "Stabile"
     }
@@ -300,15 +300,15 @@
     "no_data_show": true,
     "accessTier": "free",
     "hits": {
-      "enabled": true,
-      "count": 2
+      "enabled": false,
+      "count": 0
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-frequency/",
-    "rankingValue": 48.07,
+    "rankingValue": 48.09,
     "rankingPosition": 1,
     "exactHits": {
-      "0": 2788,
+      "0": 2789,
       "1": 1218,
       "2": 203,
       "3": 13,
@@ -318,13 +318,13 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -5.66,
+      "edgePercent": -5.69,
       "observedScore": 0.1304,
       "expectedScore": 0.1382,
-      "stability": 67.18,
+      "stability": 67.22,
       "recentForm": 100.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 72.06,
+      "windowCoherence": 72.19,
       "riskPenalty": 0.93,
       "risk": "basso",
       "label": "Forte sul breve"
@@ -352,10 +352,10 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-ritardi-combinazioni/",
-    "rankingValue": 41.71,
-    "rankingPosition": 5,
+    "rankingValue": 41.49,
+    "rankingPosition": 4,
     "exactHits": {
-      "0": 2731,
+      "0": 2732,
       "1": 1269,
       "2": 209,
       "3": 13,
@@ -365,13 +365,13 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -2.89,
+      "edgePercent": -2.91,
       "observedScore": 0.1342,
       "expectedScore": 0.1382,
-      "stability": 68.06,
-      "recentForm": 58.39,
+      "stability": 68.3,
+      "recentForm": 56.44,
       "sampleConfidence": 99.98,
-      "windowCoherence": 74.24,
+      "windowCoherence": 74.41,
       "riskPenalty": 1.49,
       "risk": "basso",
       "label": "Stabile"
@@ -399,11 +399,11 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-ritardi/",
-    "rankingValue": 23.45,
+    "rankingValue": 23.49,
     "rankingPosition": 16,
     "exactHits": {
       "0": 2774,
-      "1": 1230,
+      "1": 1231,
       "2": 201,
       "3": 16,
       "4": 1,
@@ -411,14 +411,14 @@
       "6": 0
     },
     "rankProfile": {
-      "edge": 61.11,
-      "edgePercent": 12.22,
-      "observedScore": 0.1551,
+      "edge": 61.15,
+      "edgePercent": 12.23,
+      "observedScore": 0.1552,
       "expectedScore": 0.1382,
-      "stability": 17.07,
+      "stability": 17.13,
       "recentForm": 0.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 55.19,
+      "windowCoherence": 55.24,
       "riskPenalty": 20.78,
       "risk": "alto",
       "label": "Volatile"
@@ -446,10 +446,10 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-    "rankingValue": 43.41,
-    "rankingPosition": 3,
+    "rankingValue": 43.47,
+    "rankingPosition": 2,
     "exactHits": {
-      "0": 2826,
+      "0": 2827,
       "1": 1197,
       "2": 188,
       "3": 11,
@@ -459,13 +459,13 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -11.7,
-      "observedScore": 0.1221,
+      "edgePercent": -11.72,
+      "observedScore": 0.122,
       "expectedScore": 0.1382,
-      "stability": 62.86,
-      "recentForm": 90.45,
+      "stability": 63.02,
+      "recentForm": 90.51,
       "sampleConfidence": 99.98,
-      "windowCoherence": 70.78,
+      "windowCoherence": 70.94,
       "riskPenalty": 2.95,
       "risk": "basso",
       "label": "Forte sul breve"
@@ -495,10 +495,10 @@
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-    "rankingValue": 43.4,
-    "rankingPosition": 4,
+    "rankingValue": 43.37,
+    "rankingPosition": 3,
     "exactHits": {
-      "0": 2769,
+      "0": 2770,
       "1": 1248,
       "2": 193,
       "3": 12,
@@ -508,14 +508,14 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -7.72,
-      "observedScore": 0.1276,
+      "edgePercent": -7.74,
+      "observedScore": 0.1275,
       "expectedScore": 0.1382,
-      "stability": 58.73,
+      "stability": 58.66,
       "recentForm": 100.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 67.63,
-      "riskPenalty": 3.04,
+      "windowCoherence": 67.54,
+      "riskPenalty": 3.05,
       "risk": "medio",
       "label": "Forte sul breve"
     }
@@ -542,10 +542,10 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/genetic/",
-    "rankingValue": 10.16,
+    "rankingValue": 10.08,
     "rankingPosition": 17,
     "exactHits": {
-      "0": 2769,
+      "0": 2770,
       "1": 1259,
       "2": 179,
       "3": 14,
@@ -554,14 +554,14 @@
       "6": 0
     },
     "rankProfile": {
-      "edge": 33.53,
-      "edgePercent": 6.71,
+      "edge": 33.4,
+      "edgePercent": 6.68,
       "observedScore": 0.1475,
       "expectedScore": 0.1382,
-      "stability": 8.43,
+      "stability": 8.35,
       "recentForm": 0.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 55.48,
+      "windowCoherence": 55.42,
       "riskPenalty": 20.91,
       "risk": "alto",
       "label": "Volatile"
@@ -589,10 +589,10 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/hispa/",
-    "rankingValue": 36.97,
+    "rankingValue": 36.65,
     "rankingPosition": 6,
     "exactHits": {
-      "0": 2738,
+      "0": 2739,
       "1": 1257,
       "2": 212,
       "3": 15,
@@ -602,13 +602,13 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -0.05,
-      "observedScore": 0.1382,
+      "edgePercent": -0.07,
+      "observedScore": 0.1381,
       "expectedScore": 0.1382,
-      "stability": 71.64,
-      "recentForm": 15.11,
+      "stability": 71.54,
+      "recentForm": 13.16,
       "sampleConfidence": 99.98,
-      "windowCoherence": 76.4,
+      "windowCoherence": 76.36,
       "riskPenalty": 0.84,
       "risk": "basso",
       "label": "Stabile"
@@ -631,36 +631,36 @@
     "no_data_show": true,
     "accessTier": "free",
     "hits": {
-      "enabled": true,
-      "count": 2
+      "enabled": false,
+      "count": 0
     },
     "type": "ALGORITMI",
     "featured": false,
     "news": [],
     "cardBase": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
-    "rankingValue": 44.43,
-    "rankingPosition": 2,
+    "rankingValue": 37.6,
+    "rankingPosition": 5,
     "exactHits": {
-      "0": 2782,
-      "1": 1227,
-      "2": 203,
-      "3": 10,
+      "0": 2781,
+      "1": 1233,
+      "2": 194,
+      "3": 15,
       "4": 0,
       "5": 0,
       "6": 0
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -9.47,
-      "observedScore": 0.1252,
+      "edgePercent": -3.97,
+      "observedScore": 0.1327,
       "expectedScore": 0.1382,
-      "stability": 65.51,
-      "recentForm": 78.86,
+      "stability": 60.17,
+      "recentForm": 53.07,
       "sampleConfidence": 99.98,
-      "windowCoherence": 71.65,
-      "riskPenalty": 0.94,
+      "windowCoherence": 67.03,
+      "riskPenalty": 2.1,
       "risk": "basso",
-      "label": "Forte sul breve"
+      "label": "Stabile"
     }
   },
   {
@@ -685,10 +685,10 @@
     },
     "type": "ALGORITMI",
     "cardBase": "pages/algoritmi/algs/super6NN/",
-    "rankingValue": 27.71,
+    "rankingValue": 27.74,
     "rankingPosition": 13,
     "exactHits": {
-      "0": 2783,
+      "0": 2784,
       "1": 1244,
       "2": 183,
       "3": 12,
@@ -698,13 +698,13 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -9.57,
+      "edgePercent": -9.59,
       "observedScore": 0.125,
       "expectedScore": 0.1382,
-      "stability": 61.23,
+      "stability": 61.28,
       "recentForm": 0.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 69.36,
+      "windowCoherence": 69.5,
       "riskPenalty": 4.53,
       "risk": "basso",
       "label": "Stabile"
@@ -728,15 +728,15 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "type": "ALGORITMI",
     "priority": 50,
     "cardBase": "pages/algoritmi/algs/xeno-qdna-alpha/",
-    "rankingValue": 33.05,
+    "rankingValue": 33.1,
     "rankingPosition": 7,
     "exactHits": {
-      "0": 2667,
+      "0": 2668,
       "1": 1290,
       "2": 234,
       "3": 10,
@@ -746,14 +746,14 @@
     },
     "rankProfile": {
       "edge": 0.0,
-      "edgePercent": -1.51,
-      "observedScore": 0.1362,
+      "edgePercent": -1.53,
+      "observedScore": 0.1361,
       "expectedScore": 0.1382,
-      "stability": 67.42,
+      "stability": 67.39,
       "recentForm": 0.0,
       "sampleConfidence": 99.98,
-      "windowCoherence": 74.94,
-      "riskPenalty": 1.3,
+      "windowCoherence": 75.41,
+      "riskPenalty": 1.29,
       "risk": "basso",
       "label": "Stabile"
     }
@@ -776,7 +776,7 @@
     "accessTier": "free",
     "hits": {
       "enabled": false,
-      "count": 1
+      "count": 0
     },
     "type": "ALGORITMI",
     "priority": 60,
@@ -784,10 +784,10 @@
       "xeno-qdna-alpha"
     ],
     "cardBase": "pages/algoritmi/algs/xeno-qdna-beta/",
-    "rankingValue": 31.48,
+    "rankingValue": 31.43,
     "rankingPosition": 9,
     "exactHits": {
-      "0": 2708,
+      "0": 2709,
       "1": 1219,
       "2": 223,
       "3": 15,
@@ -796,14 +796,14 @@
       "6": 0
     },
     "rankProfile": {
-      "edge": 78.9,
-      "edgePercent": 15.78,
-      "observedScore": 0.1601,
+      "edge": 78.76,
+      "edgePercent": 15.75,
+      "observedScore": 0.16,
       "expectedScore": 0.1382,
       "stability": 0.0,
-      "recentForm": 37.84,
+      "recentForm": 37.91,
       "sampleConfidence": 99.98,
-      "windowCoherence": 57.52,
+      "windowCoherence": 57.49,
       "riskPenalty": 21.5,
       "risk": "alto",
       "label": "Volatile"

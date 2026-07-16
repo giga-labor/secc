@@ -2,19 +2,19 @@
   "slug": "classic-statistiche-combinate-finestre-mobili",
   "title": "statistiche-combinate-finestre-mobili",
   "family": "statistica",
-  "generated_at": "2026-07-14T22:01:46",
-  "last_seq": 4223,
+  "generated_at": "2026-07-16T21:41:05",
+  "last_seq": 4224,
   "last_date": "",
   "proposal": [
+    1,
     3,
     7,
     18,
     28,
-    33,
-    63
+    33
   ],
   "metrics": {
-    "draws_covered": 4223,
+    "draws_covered": 4224,
     "avg_hits": 0.38,
     "hit_rate_gte_2": 4.7,
     "best_streak": 7
@@ -26,15 +26,15 @@
     "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
   ],
   "last_verified": {
-    "seq": 4223,
-    "date": "14/07/2026",
+    "seq": 4224,
+    "date": "16/07/2026",
     "proposal": [
-      2,
       3,
       7,
       18,
       28,
-      33
+      33,
+      63
     ],
     "hits": 0
   }

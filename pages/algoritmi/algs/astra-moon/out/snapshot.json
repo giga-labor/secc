@@ -2,19 +2,19 @@
   "slug": "astra-moon",
   "title": "ASTRA Moon",
   "family": "ibrido",
-  "generated_at": "2026-07-14T22:01:46",
-  "last_seq": 4223,
+  "generated_at": "2026-07-16T21:41:05",
+  "last_seq": 4224,
   "last_date": "",
   "proposal": [
     1,
+    77,
     2,
+    32,
     3,
-    4,
-    37,
-    5
+    78
   ],
   "metrics": {
-    "draws_covered": 4223,
+    "draws_covered": 4224,
     "avg_hits": 0.42,
     "hit_rate_gte_2": 5.5,
     "best_streak": 8
@@ -26,16 +26,16 @@
     "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
   ],
   "last_verified": {
-    "seq": 4223,
-    "date": "14/07/2026",
+    "seq": 4224,
+    "date": "16/07/2026",
     "proposal": [
-      5,
-      4,
-      3,
-      37,
+      1,
       2,
-      38
+      3,
+      4,
+      37,
+      5
     ],
-    "hits": 0
+    "hits": 1
   }
 }

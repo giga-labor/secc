@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-07-14T22:01:46",
+  "generated_at": "2026-07-16T21:41:05",
   "count": 17,
   "algorithms": [
     {
       "slug": "astra-moon",
       "title": "ASTRA Moon",
       "family": "ibrido",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         1,
+        77,
         2,
+        32,
         3,
-        4,
-        37,
-        5
+        78
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.42,
         "hit_rate_gte_2": 5.5,
         "best_streak": 8
@@ -30,36 +30,36 @@
         "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
-          5,
-          4,
-          3,
-          37,
+          1,
           2,
-          38
+          3,
+          4,
+          37,
+          5
         ],
-        "hits": 0
+        "hits": 1
       }
     },
     {
       "slug": "classic-analisi-anomalie-pattern",
       "title": "analisi-anomalie-pattern",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         65,
-        67,
         32,
         50,
         54,
-        37
+        37,
+        11
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 5.6,
         "best_streak": 7
@@ -71,15 +71,15 @@
         "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           65,
-          88,
           67,
           32,
           50,
-          54
+          54,
+          37
         ],
         "hits": 1
       }
@@ -88,8 +88,8 @@
       "slug": "classic-co-occorrenze",
       "title": "co-occorrenze",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         85,
@@ -100,7 +100,7 @@
         62
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 5.1
       },
@@ -111,25 +111,25 @@
         "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           85,
           55,
           81,
           76,
-          62,
-          80
+          80,
+          62
         ],
-        "hits": 2
+        "hits": 0
       }
     },
     {
       "slug": "classic-coppie-terni-consecutivi",
       "title": "coppie-terni-consecutivi",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         43,
@@ -140,7 +140,7 @@
         57
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 4.8,
         "best_streak": 8
@@ -152,8 +152,8 @@
         "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           43,
           44,
@@ -162,15 +162,15 @@
           56,
           57
         ],
-        "hits": 1
+        "hits": 0
       }
     },
     {
       "slug": "classic-coppie-terzine-frequenti",
       "title": "coppie-terzine-frequenti",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         48,
@@ -181,7 +181,7 @@
         51
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.38,
         "hit_rate_gte_2": 4.7,
         "best_streak": 6
@@ -193,8 +193,8 @@
         "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           48,
           86,
@@ -210,19 +210,19 @@
       "slug": "classic-distribuzioni-modelli-raggruppamento",
       "title": "distribuzioni-modelli-raggruppamento",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         81,
         77,
         49,
         65,
-        52,
-        19
+        19,
+        85
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 4.8,
         "best_streak": 6
@@ -234,25 +234,25 @@
         "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
-          88,
+          81,
           77,
           49,
           65,
-          85,
-          52
+          52,
+          19
         ],
-        "hits": 3
+        "hits": 1
       }
     },
     {
       "slug": "classic-frequency",
       "title": "frequency",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         85,
@@ -263,7 +263,7 @@
         55
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 5.1,
         "best_streak": 7
@@ -275,36 +275,36 @@
         "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           85,
           6,
-          79,
           49,
+          79,
           86,
           55
         ],
-        "hits": 2
+        "hits": 0
       }
     },
     {
       "slug": "classic-ritardi",
       "title": "ritardi",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         65,
-        67,
         32,
         50,
         54,
-        11
+        11,
+        19
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 5.2
       },
@@ -315,15 +315,15 @@
         "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           65,
-          88,
           67,
           32,
           50,
-          54
+          54,
+          11
         ],
         "hits": 1
       }
@@ -332,8 +332,8 @@
       "slug": "classic-ritardi-combinazioni",
       "title": "ritardi-combinazioni",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         3,
@@ -344,7 +344,7 @@
         12
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.41,
         "hit_rate_gte_2": 5.3,
         "best_streak": 7
@@ -356,8 +356,8 @@
         "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           3,
           86,
@@ -373,19 +373,19 @@
       "slug": "classic-statistiche-combinate-finestre-mobili",
       "title": "statistiche-combinate-finestre-mobili",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
+        1,
         3,
         7,
         18,
         28,
-        33,
-        63
+        33
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.38,
         "hit_rate_gte_2": 4.7,
         "best_streak": 7
@@ -397,15 +397,15 @@
         "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
-          2,
           3,
           7,
           18,
           28,
-          33
+          33,
+          63
         ],
         "hits": 0
       }
@@ -414,8 +414,8 @@
       "slug": "classic-tavole-probabilita-teorica-test-uniformita",
       "title": "tavole-probabilita-teorica-test-uniformita",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         50,
@@ -426,7 +426,7 @@
         60
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.4,
         "hit_rate_gte_2": 4.9,
         "best_streak": 7
@@ -438,8 +438,8 @@
         "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           50,
           36,
@@ -455,19 +455,19 @@
       "slug": "genetic",
       "title": "GeneticSE",
       "family": "genetico",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
+        11,
+        19,
         32,
         54,
         65,
-        67,
-        77,
-        52
+        77
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 4.6,
         "hit_rate_gte_3": 0.4,
@@ -480,14 +480,14 @@
         "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           7,
           58,
           28,
-          9,
           57,
+          9,
           33
         ],
         "hits": 0
@@ -497,19 +497,19 @@
       "slug": "hispa",
       "title": "HiSPA",
       "family": "statistica",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
-        61,
-        26,
-        88,
-        30,
-        32,
-        85
+        3,
+        90,
+        13,
+        85,
+        23,
+        87
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.41,
         "hit_rate_gte_2": 5.4,
         "best_streak": 9
@@ -521,15 +521,15 @@
         "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura."
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
-          79,
-          14,
-          72,
-          84,
-          87,
-          20
+          61,
+          26,
+          88,
+          30,
+          32,
+          85
         ],
         "hits": 0
       }
@@ -538,23 +538,23 @@
       "slug": "paradox-logiche-decisionali-metriche",
       "title": "Paradox Logiche Decisionali Metriche",
       "family": "ibrido",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
         65,
-        32,
-        80,
         3,
-        18,
-        50
+        19,
+        32,
+        85,
+        11
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.39,
-        "hit_rate_gte_2": 5.0,
-        "hit_rate_gte_3": 0.24,
-        "best_streak": 10
+        "hit_rate_gte_2": 4.9,
+        "hit_rate_gte_3": 0.36,
+        "best_streak": 6
       },
       "explanation": [
         "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
@@ -563,36 +563,36 @@
         "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           65,
-          88,
+          32,
           50,
           85,
-          86,
-          18
+          18,
+          55
         ],
-        "hits": 2
+        "hits": 0
       }
     },
     {
       "slug": "super6NN",
       "title": "Super6 NN",
       "family": "neurale",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
-        22,
+        2,
         39,
         41,
         62,
-        65,
+        74,
         75
       ],
       "metrics": {
-        "draws_covered": 4223,
+        "draws_covered": 4224,
         "avg_hits": 0.39,
         "hit_rate_gte_2": 4.6,
         "hit_rate_gte_3": 0.3,
@@ -605,8 +605,8 @@
         "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
           7,
           18,
@@ -622,19 +622,19 @@
       "slug": "xeno-qdna-alpha",
       "title": "XENO-QDNA α",
       "family": "generativi",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
-        43,
-        63,
-        78,
-        79,
-        83,
-        90
+        49,
+        54,
+        55,
+        59,
+        68,
+        74
       ],
       "metrics": {
-        "draws_covered": 4201,
+        "draws_covered": 4202,
         "avg_hits": 0.43,
         "hit_rate_gte_2": 5.8,
         "best_streak": 8
@@ -646,36 +646,36 @@
         "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi."
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
-          9,
-          34,
-          57,
-          61,
+          43,
+          63,
           78,
-          80
+          79,
+          83,
+          90
         ],
-        "hits": 1
+        "hits": 0
       }
     },
     {
       "slug": "xeno-qdna-beta",
       "title": "XENO-QDNA β",
       "family": "generativi",
-      "generated_at": "2026-07-14T22:01:46",
-      "last_seq": 4223,
+      "generated_at": "2026-07-16T21:41:05",
+      "last_seq": 4224,
       "last_date": "",
       "proposal": [
-        14,
-        19,
-        42,
-        47,
-        51,
-        71
+        33,
+        49,
+        62,
+        68,
+        82,
+        88
       ],
       "metrics": {
-        "draws_covered": 4166,
+        "draws_covered": 4167,
         "avg_hits": 0.41,
         "hit_rate_gte_2": 5.7,
         "best_streak": 7
@@ -687,28 +687,28 @@
         "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
       ],
       "last_verified": {
-        "seq": 4223,
-        "date": "14/07/2026",
+        "seq": 4224,
+        "date": "16/07/2026",
         "proposal": [
-          25,
-          38,
-          46,
-          56,
-          63,
-          80
+          14,
+          19,
+          42,
+          47,
+          51,
+          71
         ],
-        "hits": 1
+        "hits": 0
       },
       "alpha_proposal": [
-        9,
-        34,
-        57,
-        61,
+        43,
+        63,
         78,
-        80
+        79,
+        83,
+        90
       ],
       "ifc_score": 12.0,
-      "correction_bits": 34
+      "correction_bits": 32
     }
   ]
 }
