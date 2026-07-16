@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-14 22:02:29",
+  "updated_at": "2026-07-16 21:41:43",
   "version": "03.00.000",
   "enabled": true,
   "learning_mode": false,
   "developing_mode": false,
-  "severity": "ok",
-  "summary": "Problemi attivi: ",
+  "severity": "warning",
+  "summary": "Problemi attivi: p6_local_publish",
   "overview_green": false,
   "alignment_priority": {
     "p0_new_contest_found": false,
@@ -15,7 +15,7 @@
     "p4_alignment_diff": false,
     "p5_training_gap": false,
     "p5_archive_stale": false,
-    "p6_local_publish": false,
+    "p6_local_publish": true,
     "p7_remote_force_align": false,
     "p8_backup_over_limit": false,
     "p9_smtp_broken": false
@@ -23,11 +23,11 @@
   "alignment": {
     "archive_update_state": "green",
     "mirror_has_inconsistencies": false,
-    "flow_guard_ok": false,
+    "flow_guard_ok": true,
     "git_dirty": true,
     "remote_ahead": 0,
     "remote_behind": 0,
-    "alignment_diff_count": 66,
+    "alignment_diff_count": 0,
     "active_algorithms_count": 17,
     "active_algorithms_aligned_count": 17
   },
@@ -38,12 +38,44 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-07-14 22:01:58",
+    "last_push_at": "2026-07-16 21:41:23",
     "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
     "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1784058817
+    "boot_ts": 1784230175
   },
   "feed": [
+    {
+      "type": "draw",
+      "ts": "2026-07-16T21:41:34",
+      "message": "Nuova estrazione importata e analizzata",
+      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
+      "ok": true,
+      "source": "iargos"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-07-16T21:40:24",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": false,
+      "source": "updates"
+    },
+    {
+      "type": "training",
+      "ts": "2026-07-16T21:30:19",
+      "message": "Algoritmi aggiornati con i dati più recenti",
+      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
+      "ok": true,
+      "source": "updates"
+    },
+    {
+      "type": "alert",
+      "ts": "2026-07-16T21:30:10",
+      "message": "Rilevata una situazione anomala, intervento in corso",
+      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
+      "ok": true,
+      "source": "iargos"
+    },
     {
       "type": "alert",
       "ts": "2026-07-14T22:01:11",
@@ -149,14 +181,6 @@
       "source": "updates"
     },
     {
-      "type": "training",
-      "ts": "2026-07-08T08:40:07",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
       "type": "draw",
       "ts": "2026-07-01T21:29:56",
       "message": "Nuova estrazione importata e analizzata",
@@ -175,14 +199,6 @@
     {
       "type": "draw",
       "ts": "2026-06-21T21:33:47",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-06-21T20:53:05",
       "message": "Nuova estrazione importata e analizzata",
       "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
       "ok": true,
@@ -265,22 +281,6 @@
       "ts": "2026-05-26T17:43:14",
       "message": "Nuova versione del sito pubblicata (00.11.003 -> 00.12.000)",
       "detail": "632 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-04-19T00:23:14",
-      "message": "Versione del sito aggiornata (00.11.000 -> 00.11.002)",
-      "detail": "617 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-04-19T00:06:35",
-      "message": "Versione precedente ripristinata (00.11.001 -> 00.11.000)",
-      "detail": "617 file sincronizzati tra mirror e sito pubblico",
       "ok": true,
       "source": "versioning-audit"
     }
