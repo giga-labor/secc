@@ -1,0 +1,27 @@
+{
+    "generated_at": "2026-11-24 22:42:27",
+    "php": "8.4.28",
+    "count": 20,
+    "files": [
+        "pages/algoritmi/algs/bayesian-inference/index.html",
+        "pages/algoritmi/algs/markov-chain/index.html",
+        "pages/algoritmi/algs/max-entropy/index.html",
+        "pages/algoritmi/algs/monte-carlo/index.html",
+        "pages/algoritmi/algs/adaptive-ensemble/index.html",
+        "pages/algoritmi/algs/astro-statistical/index.html",
+        "pages/algoritmi/algs/freq-delay-blend/index.html",
+        "pages/algoritmi/algs/neural-stat-fusion/index.html",
+        "pages/algoritmi/algs/autoencoder-anomaly/index.html",
+        "pages/algoritmi/algs/feedforward-feature/index.html",
+        "pages/algoritmi/algs/lstm-sequenziale/index.html",
+        "pages/algoritmi/algs/transformer-attention/index.html",
+        "pages/algoritmi/algs/oracle/index.html",
+        "pages/algoritmi/algs/coppia-correlazione/index.html",
+        "pages/algoritmi/algs/distribuzione/index.html",
+        "pages/algoritmi/algs/equilibra-elefante/index.html",
+        "pages/algoritmi/algs/equilibra-gatto/index.html",
+        "pages/algoritmi/algs/equilibra-lepre/index.html",
+        "pages/algoritmi/algs/freq-classica/index.html",
+        "pages/algoritmi/algs/ritardo-massimo/index.html"
+    ]
+}

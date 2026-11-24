@@ -1,8 +1,0 @@
-CHIAVE,VALORE
-INTRO,ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome.
-SCOPO,Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.
-INPUT,draws.csv ufficiale | data concorso | riferimento locale fisso 20:30 Europe/Rome | conversione UTC per calcolo effemeridi
-METODO,"Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri."
-OUTPUT,historical-db.csv progressivo con hit marcati | metrics-db.csv con classi hit 0..6 e proposta prossimo concorso | analysis.txt
-LIMITI,"Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
-PARAMETRI,reference_time_local=20:30 Europe/Rome | timezone_output=UTC | walk_forward_incrementale=true

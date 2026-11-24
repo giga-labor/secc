@@ -1,8 +1,0 @@
-CHIAVE,VALORE
-INTRO,"CHIMERA-6 e' un ensemble adattivo: fa competere mix statistici, pesi ottimizzati da un algoritmo genetico e un banco di generatori deterministici, poi fa votare i migliori."
-SCOPO,"Riclassificare periodicamente i modelli candidati sulla finestra recente e comporre la sestina per voto pesato, senza mai usare informazioni successive al concorso da prevedere."
-INPUT,draws.csv ordinato per NR. SEQUENZIALE | training progressivo da 600 concorsi | per il target t si usano esclusivamente i concorsi 1..t-1
-METODO,"Sei canali-feature normalizzati (long_frequency, short_frequency, ewma, gap, pair_support, anti_crowd) | tre mix fissi piu' un mix genetico (popolazione 10, 3 generazioni) | banco di 80 seed deterministici | refit ogni 400 concorsi su finestra di validazione 120 | voto pesato dei primi 2 modelli e 4 seed, con bonus gap 0.6 e anti_crowd 0.8 | scoring convesso degli hit (un 4 vale 8, un 5 vale 80)."
-OUTPUT,historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt
-LIMITI,"Verificato su holdout mai usato per la selezione, CHIMERA-6 non batte una selezione uniforme: la media hit resta allineata al valore atteso del random (0,40) e la correlazione fra ranking in selezione e risultato in holdout e' negativa (-0,57). E' la firma dell'overfitting su rumore, ed e' il comportamento atteso su estrazioni indipendenti e uniformi. La scheda pubblica questo risultato invece di nasconderlo."
-PARAMETRI,validation_span=120 | population=10 | generations=3 | refit_every=400 | seed_bank=80 | refit eseguiti=1 | ultimi pesi genetici: long_frequency=-0.96 | short_frequency=-0.25 | ewma=+0.35 | gap=-0.61 | pair_support=-0.95 | anti_crowd=-0.10

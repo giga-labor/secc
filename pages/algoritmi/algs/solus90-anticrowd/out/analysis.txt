@@ -1,7 +1,0 @@
-SOLUS-90: archivio aggiornato al concorso 4235 su 4235 estrazioni (1 righe calcolate, 4233 riusate dal backtest precedente).
-
-Come leggere le metriche di questa scheda. La media hit e il tasso di hit >= 2 sono riportati per trasparenza, ma qui non misurano bravura: una selezione uniforme di sei numeri su novanta ha una media attesa di 0,40 numeri corretti per concorso, e SOLUS-90 resta su quel valore per costruzione. Non e' un difetto dell'algoritmo, e' il risultato atteso: le estrazioni del SuperEnalotto sono indipendenti e uniformi, quindi nessuna regola di selezione puo' spostare la probabilita' di vincita.
-
-Cio' su cui SOLUS-90 agisce davvero e' un'altra grandezza. Il montepremi del jackpot si divide fra tutti i vincitori: se la sestina vincente e' composta da numeri che milioni di persone giocano abitualmente - compleanni, sequenze regolari, numeri della smorfia - la vincita individuale crolla. Selezionando combinazioni che il modello stima come poco giocate, l'algoritmo non rende piu' probabile la vincita, ma rende piu' alta la vincita nel caso in cui si verifichi.
-
-Il limite da tenere presente e' che il modello di popolarita' e' una stima: Sisal non pubblica la distribuzione reale delle giocate, quindi le penalita' derivano dalla letteratura sul comportamento dei giocatori di lotterie a scelta libera, non da dati ufficiali. La direzione dell'effetto e' solida, la sua entita' no.

@@ -1,7 +1,0 @@
-XENO-QDNA - Concorso 4235 del 14/08/2026
-Sestina proposta per il concorso 4236: 22 38 42 45 78 81
-
-Maschera di collasso: 001111101111110111110111111100111110001011
-Tentativo: 2. Score decoerenza: 1. Membrana XENO-90: OK.
-
-Riflessioni applicate: 1 | Tunneling: 1

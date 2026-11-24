@@ -1,7 +1,0 @@
-CHIAVE,VALORE
-INTRO,Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte.
-SCOPO,Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.
-INPUT,draws.csv storico completo | Replay incrementale concorso per concorso | Ordinamento cronologico corretto
-METODO,Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti
-OUTPUT,historical-db.csv con hit incrementali | metrics-db.csv con statistiche sui consecutivi | algorithm-sheet.csv | analysis.txt
-LIMITI,Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato

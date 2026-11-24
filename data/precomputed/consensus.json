@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24 22:42:20",
+  "generated_at": "2026-11-24 23:42:24",
   "total_algorithms": 20,
   "consensus": [
     {
@@ -37,7 +37,7 @@
     },
     {
       "number": 18,
-      "support": 9,
+      "support": 8,
       "algorithms": [
         "bayesian-inference",
         "markov-chain",
@@ -46,7 +46,6 @@
         "adaptive-ensemble",
         "astro-statistical",
         "neural-stat-fusion",
-        "equilibra-gatto",
         "freq-classica"
       ]
     },
@@ -99,21 +98,29 @@
       ]
     },
     {
-      "number": 8,
+      "number": 63,
       "support": 3,
       "algorithms": [
-        "bayesian-inference",
-        "monte-carlo",
+        "neural-stat-fusion",
+        "lstm-sequenziale",
+        "equilibra-elefante"
+      ]
+    },
+    {
+      "number": 71,
+      "support": 3,
+      "algorithms": [
+        "lstm-sequenziale",
+        "equilibra-gatto",
         "equilibra-lepre"
       ]
     },
     {
-      "number": 61,
-      "support": 3,
+      "number": 8,
+      "support": 2,
       "algorithms": [
-        "autoencoder-anomaly",
-        "distribuzione",
-        "equilibra-gatto"
+        "bayesian-inference",
+        "monte-carlo"
       ]
     },
     {
@@ -122,6 +129,14 @@
       "algorithms": [
         "feedforward-feature",
         "ritardo-massimo"
+      ]
+    },
+    {
+      "number": 30,
+      "support": 2,
+      "algorithms": [
+        "equilibra-elefante",
+        "equilibra-lepre"
       ]
     },
     {
@@ -149,26 +164,18 @@
       ]
     },
     {
-      "number": 63,
-      "support": 2,
-      "algorithms": [
-        "lstm-sequenziale",
-        "equilibra-elefante"
-      ]
-    },
-    {
-      "number": 64,
+      "number": 61,
       "support": 2,
       "algorithms": [
         "autoencoder-anomaly",
-        "equilibra-lepre"
+        "distribuzione"
       ]
     },
     {
-      "number": 71,
+      "number": 72,
       "support": 2,
       "algorithms": [
-        "lstm-sequenziale",
+        "markov-chain",
         "equilibra-gatto"
       ]
     },
@@ -189,14 +196,6 @@
       ]
     },
     {
-      "number": 79,
-      "support": 2,
-      "algorithms": [
-        "neural-stat-fusion",
-        "lstm-sequenziale"
-      ]
-    },
-    {
       "number": 80,
       "support": 2,
       "algorithms": [
@@ -213,32 +212,10 @@
       ]
     },
     {
-      "number": 88,
-      "support": 2,
-      "algorithms": [
-        "markov-chain",
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 1,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
-      ]
-    },
-    {
       "number": 4,
       "support": 1,
       "algorithms": [
         "autoencoder-anomaly"
-      ]
-    },
-    {
-      "number": 5,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
       ]
     },
     {
@@ -291,6 +268,13 @@
       ]
     },
     {
+      "number": 26,
+      "support": 1,
+      "algorithms": [
+        "equilibra-lepre"
+      ]
+    },
+    {
       "number": 27,
       "support": 1,
       "algorithms": [
@@ -298,10 +282,10 @@
       ]
     },
     {
-      "number": 30,
+      "number": 29,
       "support": 1,
       "algorithms": [
-        "equilibra-elefante"
+        "equilibra-lepre"
       ]
     },
     {
@@ -315,7 +299,7 @@
       "number": 35,
       "support": 1,
       "algorithms": [
-        "equilibra-gatto"
+        "equilibra-lepre"
       ]
     },
     {
@@ -344,6 +328,13 @@
       "support": 1,
       "algorithms": [
         "feedforward-feature"
+      ]
+    },
+    {
+      "number": 43,
+      "support": 1,
+      "algorithms": [
+        "equilibra-gatto"
       ]
     },
     {
@@ -382,10 +373,10 @@
       ]
     },
     {
-      "number": 72,
+      "number": 64,
       "support": 1,
       "algorithms": [
-        "markov-chain"
+        "autoencoder-anomaly"
       ]
     },
     {
@@ -396,10 +387,24 @@
       ]
     },
     {
-      "number": 84,
+      "number": 78,
       "support": 1,
       "algorithms": [
-        "equilibra-lepre"
+        "equilibra-gatto"
+      ]
+    },
+    {
+      "number": 79,
+      "support": 1,
+      "algorithms": [
+        "lstm-sequenziale"
+      ]
+    },
+    {
+      "number": 81,
+      "support": 1,
+      "algorithms": [
+        "equilibra-gatto"
       ]
     },
     {
@@ -407,6 +412,13 @@
       "support": 1,
       "algorithms": [
         "ritardo-massimo"
+      ]
+    },
+    {
+      "number": 88,
+      "support": 1,
+      "algorithms": [
+        "markov-chain"
       ]
     },
     {

@@ -1,6 +1,6 @@
 === ASTRO STATISTICAL ===
-Generato: 24/11/2026 21:10
-Concorso di riferimento: 4293
+Generato: 24/11/2026 23:42
+Concorso di riferimento: 4294
 Sestina proposta: 12 - 18 - 28 - 41 - 82 - 85
 
 --- METRICHE ---
@@ -13,7 +13,7 @@ Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
-Fase lunare prossimo concorso: calante_gibbosa (0.575)
+Fase lunare prossimo concorso: calante_gibbosa (0.578)
 Peso lunare: 45% | Peso frequenza: 55%
 
 Top 10 per score astro-statistico:

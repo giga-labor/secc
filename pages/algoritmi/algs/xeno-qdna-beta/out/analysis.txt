@@ -1,9 +1,0 @@
-XENO-QDNA β - Concorso 4235 del 14/08/2026
-Sestina β proposta per il concorso 4236: 47 48 54 75 78 81
-Sestina α di riferimento: 02 50 60 61 69 79
-
-Maschera B*: 011111101111011111101111111100001010001011
-Bit corretti selezionati: 29/42. IFC score: 11.0. Tentativo: 2.
-Membrana XENO-90: accettata in modalita forzata.
-
-Riflessioni: 2 | Tunneling: 0

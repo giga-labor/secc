@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T22:42:20.555889",
+  "generated_at": "2026-11-24T23:42:24.605088",
   "latest_draw": {
     "seq": 4294
   },
@@ -39,7 +39,7 @@
     },
     {
       "number": 18,
-      "support": 9,
+      "support": 8,
       "algorithms": [
         "bayesian-inference",
         "markov-chain",
@@ -48,7 +48,6 @@
         "adaptive-ensemble",
         "astro-statistical",
         "neural-stat-fusion",
-        "equilibra-gatto",
         "freq-classica"
       ]
     },

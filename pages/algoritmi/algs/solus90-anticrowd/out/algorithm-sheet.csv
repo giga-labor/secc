@@ -1,8 +1,0 @@
-CHIAVE,VALORE
-INTRO,"SOLUS-90 non prevede i numeri estratti: sceglie la sestina statisticamente meno giocata dagli altri, per massimizzare la vincita attesa a parita' di probabilita' di vincita."
-SCOPO,"Ridurre il numero atteso di vincitori con cui dividere il montepremi, selezionando combinazioni lontane dai pattern di gioco umani (date, smorfia, sequenze, simmetrie di schedina)."
-INPUT,"draws.csv ordinato per NR. SEQUENZIALE | usato solo per evitare la ripetizione dell'ultima estrazione, mai per stimare i numeri futuri"
-METODO,Modello di popolarita' per numero (date 1-31. mesi 1-12. numeri tondi. smorfia. il 17 evitato) piu' penalita' di combinazione (progressioni. consecutivi. concentrazione per decina e colonna. somma centrale. combinazioni famose. ripetizione dell'ultima estrazione) | pool di 500 candidate minime campionate su 100.000 combinazioni con seed 20260728 | selezione a rotazione con penalita' di sovrapposizione.
-OUTPUT,historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt
-LIMITI,"Non aumenta in alcun modo la probabilita' di vincita, che resta 1 su 622.614.630 come per qualunque sestina. Agisce solo sulla vincita attesa condizionata alla vincita. Il modello di popolarita' e' una stima euristica del comportamento dei giocatori, non un dato ufficiale: Sisal non pubblica la distribuzione delle giocate."
-PARAMETRI,seed=20260728 | samples=100000 | pool=500 | overlap_penalty=1.5 | famosa=10.0 | progressione=4.0 | tutte_date=3.0 | popolarita' pool 5.50-6.45
