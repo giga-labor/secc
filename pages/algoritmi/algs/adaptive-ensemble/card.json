@@ -1,0 +1,22 @@
+{
+  "id": "adaptive-ensemble",
+  "title": "Adaptive Ensemble",
+  "subtitle": "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo",
+  "page": "pages/algoritmi/algs/adaptive-ensemble/",
+  "macroGroup": "ibridi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "oracle",
+  "title": "L'Oracolo",
+  "subtitle": "Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria",
+  "page": "pages/algoritmi/algs/oracle/",
+  "macroGroup": "oracle",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

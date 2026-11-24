@@ -1,0 +1,22 @@
+{
+  "id": "monte-carlo",
+  "title": "Monte Carlo",
+  "subtitle": "Simulazione probabilistica su N scenari — frequenza empirica campionata",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Simulazione probabilistica su N scenari — frequenza empirica campionata",
+  "page": "pages/algoritmi/algs/monte-carlo/",
+  "macroGroup": "generativi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "coppia-correlazione",
+  "title": "Coppia Correlazione",
+  "subtitle": "Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte",
+  "page": "pages/algoritmi/algs/coppia-correlazione/",
+  "macroGroup": "statistici",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

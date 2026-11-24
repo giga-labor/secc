@@ -1,0 +1,22 @@
+{
+  "id": "astro-statistical",
+  "title": "Astro Statistical",
+  "subtitle": "Fase lunare + correlazioni storiche per fase + frequenza classica",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Fase lunare + correlazioni storiche per fase + frequenza classica",
+  "page": "pages/algoritmi/algs/astro-statistical/",
+  "macroGroup": "ibridi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

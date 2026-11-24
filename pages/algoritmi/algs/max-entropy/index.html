@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    (function () {
+      var theme = '';
+      try { theme = localStorage.getItem('cc-app-theme') || localStorage.getItem('cc-theme') || ''; } catch (_) {}
+      if (theme !== 'light' && theme !== 'dark') theme = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      try { localStorage.setItem('cc-app-theme', theme); localStorage.setItem('cc-theme', theme); } catch (_) {}
+    })();
+  </script>
+  <meta name="theme-color" content="#04110f">
+  <meta name="description" content="Metodo, risultati storici e metriche di Massima Entropia.">
+  <title>Massima Entropia - SuperEnalotto Control Chaos</title>
+  <link rel="stylesheet" href="../../../../assets/css/cc-algorithms.css?v=02.00.012">
+  <script src="../../../../assets/js/ga4.js?v=02.00.004" defer></script>
+  <script src="../../../../assets/js/cc-algorithms.js?v=02.00.012" defer></script>
+  <link rel="stylesheet" href="/assets/css/cc-site-shell.css?v=02.00.012">
+  <script src="/assets/js/cc-site-shell.js?v=02.00.012" defer></script>
+</head>
+<body data-page-id="algsheet">
+  <noscript>Per consultare questa scheda e necessario attivare JavaScript.</noscript>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "id": "distribuzione",
+  "title": "Distribuzione Bilanciata",
+  "subtitle": "Sestina bilanciata per range, parità e somma target storica",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Sestina bilanciata per range, parità e somma target storica",
+  "page": "pages/algoritmi/algs/distribuzione/",
+  "macroGroup": "statistici",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

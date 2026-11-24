@@ -1,0 +1,22 @@
+{
+  "id": "transformer-attention",
+  "title": "Transformer Attention",
+  "subtitle": "Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale",
+  "page": "pages/algoritmi/algs/transformer-attention/",
+  "macroGroup": "neurali",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "equilibra-gatto",
+  "title": "Equilibra Gatto",
+  "subtitle": "EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale).",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale).",
+  "page": "pages/algoritmi/algs/equilibra-gatto/",
+  "macroGroup": "statistici",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

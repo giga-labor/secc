@@ -1,0 +1,22 @@
+{
+  "id": "neural-stat-fusion",
+  "title": "Neural-Stat Fusion",
+  "subtitle": "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente",
+  "page": "pages/algoritmi/algs/neural-stat-fusion/",
+  "macroGroup": "ibridi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

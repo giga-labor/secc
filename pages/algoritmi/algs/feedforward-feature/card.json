@@ -1,0 +1,22 @@
+{
+  "id": "feedforward-feature",
+  "title": "Feedforward Feature",
+  "subtitle": "MLP su feature engineered per numero — frequenze, ritardi, parità, range",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "MLP su feature engineered per numero — frequenze, ritardi, parità, range",
+  "page": "pages/algoritmi/algs/feedforward-feature/",
+  "macroGroup": "neurali",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

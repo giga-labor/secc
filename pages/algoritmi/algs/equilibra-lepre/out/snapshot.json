@@ -28,6 +28,10 @@
       "4": 0,
       "5": 1,
       "6": 0
-    }
-  }
+    },
+    "draws_covered": 4232,
+    "avg_hits": 0.4,
+    "hit_rate_gte_2": 5.0
+  },
+  "last_seq": 4294
 }

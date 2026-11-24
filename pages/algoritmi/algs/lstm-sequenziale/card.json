@@ -1,0 +1,22 @@
+{
+  "id": "lstm-sequenziale",
+  "title": "LSTM Sequenziale",
+  "subtitle": "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero",
+  "page": "pages/algoritmi/algs/lstm-sequenziale/",
+  "macroGroup": "neurali",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-24T21:11:00.473149",
+  "generated_at": "2026-11-24T22:42:20.772042",
   "kpi": {
     "algorithms_count": 20,
     "families_count": 5,
     "families": [
-      "ibridi",
       "statistici",
       "oracle",
+      "ibridi",
       "generativi",
       "neurali"
     ]

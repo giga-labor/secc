@@ -1,0 +1,22 @@
+{
+  "id": "markov-chain",
+  "title": "Markov Chain",
+  "subtitle": "Probabilità di transizione tra numeri — catena di Markov sullo storico",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Probabilità di transizione tra numeri — catena di Markov sullo storico",
+  "page": "pages/algoritmi/algs/markov-chain/",
+  "macroGroup": "generativi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

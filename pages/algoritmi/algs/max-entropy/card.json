@@ -1,0 +1,22 @@
+{
+  "id": "max-entropy",
+  "title": "Massima Entropia",
+  "subtitle": "Distribuzione a entropia massima compatibile con i vincoli osservati — least bias",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Distribuzione a entropia massima compatibile con i vincoli osservati — least bias",
+  "page": "pages/algoritmi/algs/max-entropy/",
+  "macroGroup": "generativi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "autoencoder-anomaly",
+  "title": "Autoencoder Anomaly",
+  "subtitle": "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo",
+  "page": "pages/algoritmi/algs/autoencoder-anomaly/",
+  "macroGroup": "neurali",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "freq-delay-blend",
+  "title": "Freq-Delay Blend",
+  "subtitle": "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente",
+  "page": "pages/algoritmi/algs/freq-delay-blend/",
+  "macroGroup": "ibridi",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}

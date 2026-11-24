@@ -1,0 +1,22 @@
+{
+  "id": "equilibra-lepre",
+  "title": "Equilibra Lepre",
+  "subtitle": "EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso).",
+  "image": "img.webp",
+  "lastUpdated": "24/11/2026",
+  "hasNews": false,
+  "usesOutData": true,
+  "statusTag": "Aggiornato",
+  "narrativeSummary": "EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso).",
+  "page": "pages/algoritmi/algs/equilibra-lepre/",
+  "macroGroup": "statistici",
+  "isActive": true,
+  "view": true,
+  "no_data_show": true,
+  "accessTier": "free",
+  "hits": {
+    "enabled": false,
+    "count": 0
+  },
+  "type": "ALGORITMI"
+}
