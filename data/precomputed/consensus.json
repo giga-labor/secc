@@ -1,7 +1,24 @@
 {
-  "generated_at": "2026-11-24 20:28:03",
+  "generated_at": "2026-11-24 20:46:03",
   "total_algorithms": 20,
   "consensus": [
+    {
+      "number": 18,
+      "support": 11,
+      "algorithms": [
+        "bayesian-inference",
+        "markov-chain",
+        "max-entropy",
+        "monte-carlo",
+        "adaptive-ensemble",
+        "astro-statistical",
+        "neural-stat-fusion",
+        "transformer-attention",
+        "distribuzione",
+        "equilibra-gatto",
+        "freq-classica"
+      ]
+    },
     {
       "number": 85,
       "support": 11,
@@ -15,22 +32,6 @@
         "neural-stat-fusion",
         "lstm-sequenziale",
         "coppia-correlazione",
-        "distribuzione",
-        "freq-classica"
-      ]
-    },
-    {
-      "number": 18,
-      "support": 10,
-      "algorithms": [
-        "bayesian-inference",
-        "markov-chain",
-        "max-entropy",
-        "monte-carlo",
-        "adaptive-ensemble",
-        "astro-statistical",
-        "neural-stat-fusion",
-        "transformer-attention",
         "distribuzione",
         "freq-classica"
       ]
@@ -78,12 +79,13 @@
     },
     {
       "number": 56,
-      "support": 5,
+      "support": 6,
       "algorithms": [
         "adaptive-ensemble",
         "freq-delay-blend",
         "neural-stat-fusion",
         "transformer-attention",
+        "equilibra-lepre",
         "freq-classica"
       ]
     },
@@ -98,10 +100,10 @@
       ]
     },
     {
-      "number": 55,
+      "number": 31,
       "support": 3,
       "algorithms": [
-        "transformer-attention",
+        "feedforward-feature",
         "coppia-correlazione",
         "equilibra-gatto"
       ]
@@ -131,6 +133,14 @@
       ]
     },
     {
+      "number": 19,
+      "support": 2,
+      "algorithms": [
+        "markov-chain",
+        "equilibra-gatto"
+      ]
+    },
+    {
       "number": 20,
       "support": 2,
       "algorithms": [
@@ -147,35 +157,19 @@
       ]
     },
     {
-      "number": 31,
-      "support": 2,
-      "algorithms": [
-        "feedforward-feature",
-        "coppia-correlazione"
-      ]
-    },
-    {
-      "number": 34,
-      "support": 2,
-      "algorithms": [
-        "equilibra-elefante",
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 42,
-      "support": 2,
-      "algorithms": [
-        "feedforward-feature",
-        "equilibra-gatto"
-      ]
-    },
-    {
       "number": 47,
       "support": 2,
       "algorithms": [
         "freq-delay-blend",
         "autoencoder-anomaly"
+      ]
+    },
+    {
+      "number": 55,
+      "support": 2,
+      "algorithms": [
+        "transformer-attention",
+        "coppia-correlazione"
       ]
     },
     {
@@ -200,14 +194,6 @@
       "algorithms": [
         "neural-stat-fusion",
         "lstm-sequenziale"
-      ]
-    },
-    {
-      "number": 83,
-      "support": 2,
-      "algorithms": [
-        "equilibra-gatto",
-        "equilibra-lepre"
       ]
     },
     {
@@ -255,20 +241,6 @@
       ]
     },
     {
-      "number": 19,
-      "support": 1,
-      "algorithms": [
-        "markov-chain"
-      ]
-    },
-    {
-      "number": 21,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
-      ]
-    },
-    {
       "number": 23,
       "support": 1,
       "algorithms": [
@@ -276,17 +248,24 @@
       ]
     },
     {
-      "number": 26,
+      "number": 27,
+      "support": 1,
+      "algorithms": [
+        "ritardo-massimo"
+      ]
+    },
+    {
+      "number": 32,
       "support": 1,
       "algorithms": [
         "equilibra-lepre"
       ]
     },
     {
-      "number": 27,
+      "number": 34,
       "support": 1,
       "algorithms": [
-        "ritardo-massimo"
+        "equilibra-elefante"
       ]
     },
     {
@@ -311,6 +290,13 @@
       ]
     },
     {
+      "number": 42,
+      "support": 1,
+      "algorithms": [
+        "feedforward-feature"
+      ]
+    },
+    {
       "number": 43,
       "support": 1,
       "algorithms": [
@@ -322,6 +308,20 @@
       "support": 1,
       "algorithms": [
         "equilibra-elefante"
+      ]
+    },
+    {
+      "number": 46,
+      "support": 1,
+      "algorithms": [
+        "equilibra-gatto"
+      ]
+    },
+    {
+      "number": 48,
+      "support": 1,
+      "algorithms": [
+        "equilibra-gatto"
       ]
     },
     {
@@ -388,17 +388,10 @@
       ]
     },
     {
-      "number": 69,
+      "number": 68,
       "support": 1,
       "algorithms": [
         "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 78,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
       ]
     },
     {
@@ -406,6 +399,13 @@
       "support": 1,
       "algorithms": [
         "coppia-correlazione"
+      ]
+    },
+    {
+      "number": 83,
+      "support": 1,
+      "algorithms": [
+        "equilibra-lepre"
       ]
     },
     {

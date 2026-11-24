@@ -1,9 +1,26 @@
 {
-  "generated_at": "2026-11-24T20:28:03.574735",
+  "generated_at": "2026-11-24T20:46:03.391757",
   "latest_draw": {
     "seq": 4293
   },
   "consensus_top": [
+    {
+      "number": 18,
+      "support": 11,
+      "algorithms": [
+        "bayesian-inference",
+        "markov-chain",
+        "max-entropy",
+        "monte-carlo",
+        "adaptive-ensemble",
+        "astro-statistical",
+        "neural-stat-fusion",
+        "transformer-attention",
+        "distribuzione",
+        "equilibra-gatto",
+        "freq-classica"
+      ]
+    },
     {
       "number": 85,
       "support": 11,
@@ -17,22 +34,6 @@
         "neural-stat-fusion",
         "lstm-sequenziale",
         "coppia-correlazione",
-        "distribuzione",
-        "freq-classica"
-      ]
-    },
-    {
-      "number": 18,
-      "support": 10,
-      "algorithms": [
-        "bayesian-inference",
-        "markov-chain",
-        "max-entropy",
-        "monte-carlo",
-        "adaptive-ensemble",
-        "astro-statistical",
-        "neural-stat-fusion",
-        "transformer-attention",
         "distribuzione",
         "freq-classica"
       ]
@@ -80,12 +81,13 @@
     },
     {
       "number": 56,
-      "support": 5,
+      "support": 6,
       "algorithms": [
         "adaptive-ensemble",
         "freq-delay-blend",
         "neural-stat-fusion",
         "transformer-attention",
+        "equilibra-lepre",
         "freq-classica"
       ]
     }
