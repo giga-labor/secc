@@ -1,0 +1,29 @@
+=== FEEDFORWARD FEATURE ===
+Generato: 24/11/2026 19:54
+Concorso di riferimento: 4293
+Sestina proposta: 9 - 31 - 42 - 59 - 77 - 86
+
+--- METRICHE ---
+Score osservato:  0.1485
+Score atteso:     0.1050
+Edge:             +0.0435 (+41.42%)
+Stabilità:        31.6/100
+Forma recente:    31.7/100
+Confidenza camp.: 98.44%
+Profilo rischio:  ALTO [ROSSO]
+
+--- NOTE ---
+Feature: frequenze 30/90/180 + ritardi + parità + range (450-dim)
+Top 10 per probabilità MLP:
+  86, 59, 9, 77, 42, 31, 45, 88, 83, 37
+
+Dettaglio sestina:
+   9 → P(n) = 0.0882
+  31 → P(n) = 0.0821
+  42 → P(n) = 0.0835
+  59 → P(n) = 0.0882
+  77 → P(n) = 0.0851
+  86 → P(n) = 0.0904
+Estrazioni nel training: 4293
+
+Generato automaticamente da ControlChaos Admin v4

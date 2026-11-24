@@ -1,0 +1,23 @@
+=== FREQ-DELAY BLEND ===
+Generato: 24/11/2026 19:54
+Concorso di riferimento: 4293
+Sestina proposta: 20 - 28 - 47 - 56 - 82 - 85
+
+--- METRICHE ---
+Score osservato:  0.0654
+Score atteso:     0.1050
+Edge:             -0.0396 (-37.71%)
+Stabilità:        51.3/100
+Forma recente:    19.8/100
+Confidenza camp.: 98.46%
+Profilo rischio:  MEDIO [GIALLO]
+
+--- NOTE ---
+Alpha corrente: 0.70 (freq=70% | delay=30%)
+Alpha calibrato automaticamente sul backtest recente.
+
+Top 10 per score blend:
+  85, 28, 82, 47, 20, 56, 38, 12, 41, 64
+Estrazioni analizzate: 4293
+
+Generato automaticamente da ControlChaos Admin v4

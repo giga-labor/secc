@@ -1,0 +1,23 @@
+=== FREQUENZA CLASSICA ===
+Generato: 24/11/2026 19:54
+Concorso di riferimento: 4293
+Sestina proposta: 18 - 28 - 41 - 56 - 82 - 85
+
+--- METRICHE ---
+Score osservato:  0.0653
+Score atteso:     0.1050
+Edge:             -0.0397 (-37.80%)
+Stabilità:        51.8/100
+Forma recente:    39.7/100
+Confidenza camp.: 98.47%
+Profilo rischio:  MEDIO [GIALLO]
+
+--- NOTE ---
+Top 10 per score frequenza ponderata:
+  82, 85, 18, 41, 56, 28, 55, 12, 80, 13
+
+I 6 proposti sono i numeri con la frequenza relativa più alta
+sulle finestre recenti (peso maggiore al breve termine).
+Estrazioni analizzate: 4293
+
+Generato automaticamente da ControlChaos Admin v4

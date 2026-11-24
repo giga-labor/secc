@@ -1,288 +1,139 @@
 {
-  "updated_at": "2026-08-15 00:32:09",
-  "version": "03.00.000",
+  "updated_at": "2026-11-24 19:55:06",
+  "version": "04.00.000",
   "enabled": true,
-  "learning_mode": false,
-  "developing_mode": false,
-  "severity": "warning",
-  "summary": "Problemi attivi: p4_alignment_diff, p6_local_publish",
-  "overview_green": false,
-  "alignment_priority": {
-    "p0_new_contest_found": false,
-    "p1_mirror_map": false,
-    "p2_flow_guard": false,
-    "p3_pending_publish": false,
-    "p4_alignment_diff": true,
-    "p5_training_gap": false,
-    "p5_archive_stale": false,
-    "p6_local_publish": true,
-    "p7_remote_force_align": false,
-    "p8_backup_over_limit": false,
-    "p9_smtp_broken": false
-  },
+  "severity": "ok",
   "alignment": {
     "archive_update_state": "green",
-    "mirror_has_inconsistencies": false,
-    "flow_guard_ok": true,
-    "git_dirty": true,
-    "remote_ahead": 0,
-    "remote_behind": 0,
-    "alignment_diff_count": 1,
-    "active_algorithms_count": 19,
-    "active_algorithms_aligned_count": 19
-  },
-  "circuit": {
-    "state": "CLOSED",
-    "consecutive_failures": 0
+    "active_algorithms_count": 20,
+    "active_algorithms_aligned_count": 20
   },
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-08-15 00:29:31",
-    "last_release_id": "overview-resolved-20260401020218-026ab2fab0",
-    "last_release_at": "2026-04-01 02:02:18",
-    "boot_ts": 1786737604
+    "last_push_at": "2026-11-24 19:55:06",
+    "error": null
   },
   "feed": [
     {
-      "type": "alert",
-      "ts": "2026-08-14T23:19:24",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-08-14T22:27:56",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170214",
+      "message": "max-entropy: aggiornato",
+      "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-08-14T22:27:33",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-08-14T22:08:54",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "alert",
-      "ts": "2026-08-14T22:08:45",
-      "message": "Rilevata una situazione anomala, intervento in corso",
-      "detail": "iARGOS ha rilevato un'anomalia e ha avviato le procedure di ripristino automatico.",
-      "ok": false,
-      "source": "updates"
+      "ts": "2026-11-24T19:55:06.170219",
+      "message": "bayesian-inference: aggiornato",
+      "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-08-14T22:01:34",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
+      "ts": "2026-11-24T19:55:06.170222",
+      "message": "markov-chain: aggiornato",
+      "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-08-14T06:59:26",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-08-14T06:58:09",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
-    },
-    {
-      "type": "draw",
-      "ts": "2026-08-11T23:03:04",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
+      "ts": "2026-11-24T19:55:06.170223",
+      "message": "monte-carlo: aggiornato",
+      "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-08-11T22:53:36",
-      "message": "Algoritmi aggiornati con i dati più recenti",
-      "detail": "Completato l'aggiornamento degli algoritmi predittivi con le ultime estrazioni disponibili.",
-      "ok": true,
-      "source": "updates"
+      "ts": "2026-11-24T19:55:06.170225",
+      "message": "neural-stat-fusion: aggiornato",
+      "ok": true
     },
     {
-      "type": "draw",
-      "ts": "2026-08-09T21:51:20",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170226",
+      "message": "astro-statistical: aggiornato",
+      "ok": true
     },
     {
-      "type": "draw",
-      "ts": "2026-08-07T22:22:06",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170228",
+      "message": "freq-delay-blend: aggiornato",
+      "ok": true
     },
     {
-      "type": "draw",
-      "ts": "2026-08-06T22:12:06",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170229",
+      "message": "transformer-attention: aggiornato",
+      "ok": true
     },
     {
-      "type": "draw",
-      "ts": "2026-08-05T19:19:13",
-      "message": "Nuova estrazione importata e analizzata",
-      "detail": "Rilevato un nuovo concorso: archivio aggiornato e analisi avviate automaticamente.",
-      "ok": true,
-      "source": "iargos"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170231",
+      "message": "coppia-correlazione: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-18T14:14:19",
-      "message": "Nuova versione del sito pubblicata (01.04.008 -> 01.05.000)",
-      "detail": "680 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170233",
+      "message": "distribuzione: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-14T14:17:03",
-      "message": "Nuova versione del sito pubblicata (01.03.000 -> 01.04.000)",
-      "detail": "716 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170234",
+      "message": "equilibra-elefante: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-14T13:17:44",
-      "message": "Nuova versione del sito pubblicata (01.02.000 -> 01.03.000)",
-      "detail": "701 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170236",
+      "message": "equilibra-gatto: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-14T12:25:46",
-      "message": "Nuova versione del sito pubblicata (01.01.004 -> 01.02.000)",
-      "detail": "701 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170237",
+      "message": "lstm-sequenziale: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-12T17:48:48",
-      "message": "Nuova versione del sito pubblicata (01.00.004 -> 01.01.000)",
-      "detail": "667 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170239",
+      "message": "feedforward-feature: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-07T15:08:36",
-      "message": "Nuova versione del sito pubblicata (00.15.000 -> 01.00.000)",
-      "detail": "661 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170240",
+      "message": "equilibra-lepre: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-05T19:36:11",
-      "message": "Nuova versione del sito pubblicata (00.14.000 -> 00.15.000)",
-      "detail": "640 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170242",
+      "message": "freq-classica: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-06-04T22:15:01",
-      "message": "Nuova versione del sito pubblicata (00.13.000 -> 00.14.000)",
-      "detail": "632 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170244",
+      "message": "ritardo-massimo: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-05-26T17:44:41",
-      "message": "Nuova versione del sito pubblicata (00.12.000 -> 00.13.000)",
-      "detail": "632 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170245",
+      "message": "autoencoder-anomaly: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-05-26T17:43:14",
-      "message": "Nuova versione del sito pubblicata (00.11.003 -> 00.12.000)",
-      "detail": "632 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170247",
+      "message": "adaptive-ensemble: aggiornato",
+      "ok": true
     },
     {
-      "type": "versioning",
-      "ts": "2026-04-19T00:23:14",
-      "message": "Versione del sito aggiornata (00.11.000 -> 00.11.002)",
-      "detail": "617 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-04-19T00:06:35",
-      "message": "Versione precedente ripristinata (00.11.001 -> 00.11.000)",
-      "detail": "617 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-04-17T19:46:22",
-      "message": "Nuova versione del sito pubblicata (00.10.033 -> 00.11.000)",
-      "detail": "617 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-25T12:56:04",
-      "message": "Nuova versione del sito pubblicata (00.09.022 -> 00.10.000)",
-      "detail": "501 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-14T23:02:33",
-      "message": "Versione del sito aggiornata (00.09.010 -> 00.09.012)",
-      "detail": "481 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
-    },
-    {
-      "type": "versioning",
-      "ts": "2026-03-14T23:01:41",
-      "message": "Versione precedente ripristinata (00.09.011 -> 00.09.010)",
-      "detail": "481 file sincronizzati tra mirror e sito pubblico",
-      "ok": true,
-      "source": "versioning-audit"
+      "type": "training",
+      "ts": "2026-11-24T19:55:06.170248",
+      "message": "oracle: aggiornato",
+      "ok": true
     }
   ]
 }

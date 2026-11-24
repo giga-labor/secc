@@ -1,694 +1,596 @@
 {
-  "generated_at": "2026-08-15 00:32:13",
-  "active_algorithms_count": 19,
+  "generated_at": "2026-11-24T19:55:00.092221",
   "kpi": {
-    "algoritmi_documentati": 19,
-    "storico_analizzato_anni": 30,
-    "sezioni_tecniche": 0,
-    "bias_documentati": 0,
-    "famiglie_modelli": 5
+    "algorithms_count": 20,
+    "families_count": 5,
+    "families": [
+      "ibridi",
+      "oracle",
+      "statistici",
+      "neurali",
+      "generativi"
+    ]
   },
-  "entries": [
+  "algorithms": [
     {
-      "title": "analisi-anomalie-pattern",
-      "page": "/pages/algoritmi/algs/classic-analisi-anomalie-pattern/",
-      "intro": "Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte.",
-      "scope": "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo.",
-      "method": "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi",
-      "limits": "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti",
-      "analysis": "Classic Analisi Anomalie Pattern: replay incrementale su 4235 concorsi fino al concorso 4235. Per ogni target il pronostico viene calcolato solo con dati storici precedenti. Il modello combina ritardi, deviazioni recenti, terminali e concentrazioni per decadi per costruire una sestina descrittiva ad alta leggibilita strutturale. Le metriche misurano frequenza e intensita dei pattern anomali osservati, non una promessa di previsione.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Analisi Anomalie Pattern e un modulo statistico descrittivo che osserva pattern strutturali insoliti o ricorrenti nelle sestine estratte."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Evidenziare sincronie, sbilanciamenti e segnali di struttura nello storico senza attribuire valore predittivo certo."
-        },
-        {
-          "key": "INPUT",
-          "value": "Storico draws.csv validato completo | Ordinamento cronologico corretto | Aggiornamento progressivo concorso per concorso"
-        },
-        {
-          "key": "METODO",
-          "value": "Calcola frequenze, ritardi e pattern recenti | Costruisce score di anomalia per numero | Genera sestina con diversificazione per finali e decadi"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit incrementali | metrics-db.csv con metriche anomalie e copertura | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Modulo euristico descrittivo | Nessuna garanzia sul futuro | Sensibile alle scelte di scoring e alle finestre recenti"
+      "id": "bayesian-inference",
+      "name": "Bayesian Inference",
+      "family": "generativi",
+      "description": "Prior uniforme aggiornato con estrazioni recenti — posterior pesata temporalmente",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0648,
+        "expected_score": 0.105,
+        "edge": -0.0402,
+        "edge_pct": -38.28,
+        "stability": 51.74,
+        "recent_form": 35.71,
+        "sample_confidence": 98.46,
+        "confidence": 0.0648,
+        "risk": "medio",
+        "total_contests": 4241,
+        "hit_distribution": {
+          "0": 2788,
+          "1": 1266,
+          "2": 177,
+          "3": 10,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "ASTRA Moon",
-      "page": "pages/algoritmi/algs/astra-moon/",
-      "intro": "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome.",
-      "scope": "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico.",
-      "method": "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri.",
-      "limits": "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni.",
-      "analysis": "ASTRA Moon aggiornato fino al concorso 4235 su 4235 estrazioni. Il modello usa sempre il riferimento locale 20:30 Europe/Rome per ogni concorso, con conversione UTC coerente ai passaggi ora solare/legale. Prossimo riferimento: 15/08/2026 20:30 CEST (15/08/2026 18:30 UTC).",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "ASTRA Moon e un algoritmo astro-statistico che collega ogni concorso a feature lunari calcolate con timestamp fisso 20:30 Europe/Rome."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Produrre una classifica 1..90 e una sestina top-6 per il concorso successivo usando effemeridi lunari e memoria incrementale dello storico."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv ufficiale | data concorso | riferimento locale fisso 20:30 Europe/Rome | conversione UTC per calcolo effemeridi"
-        },
-        {
-          "key": "METODO",
-          "value": "Moon features (fase, eta, elongazione, distanza, longitudine, declinazione) + componenti storiche (frequenza e recency) in ranking numeri."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv progressivo con hit marcati | metrics-db.csv con classi hit 0..6 e proposta prossimo concorso | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Modello sperimentale: segnali statistici non causali, nessuna garanzia predittiva sull esito reale delle estrazioni."
-        },
-        {
-          "key": "PARAMETRI",
-          "value": "reference_time_local=20:30 Europe/Rome | timezone_output=UTC | walk_forward_incrementale=true"
+      "id": "markov-chain",
+      "name": "Markov Chain",
+      "family": "generativi",
+      "description": "Probabilità di transizione tra numeri — catena di Markov sullo storico",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0656,
+        "expected_score": 0.105,
+        "edge": -0.0394,
+        "edge_pct": -37.52,
+        "stability": 50.44,
+        "recent_form": 43.64,
+        "sample_confidence": 98.46,
+        "confidence": 0.0656,
+        "risk": "medio",
+        "total_contests": 4191,
+        "hit_distribution": {
+          "0": 2762,
+          "1": 1229,
+          "2": 181,
+          "3": 18,
+          "4": 1,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "CHIMERA-6",
-      "page": "pages/algoritmi/algs/chimera-mix-adattivo/",
-      "intro": "CHIMERA-6 e' un ensemble adattivo: fa competere mix statistici, pesi ottimizzati da un algoritmo genetico e un banco di generatori deterministici, poi fa votare i migliori.",
-      "scope": "Riclassificare periodicamente i modelli candidati sulla finestra recente e comporre la sestina per voto pesato, senza mai usare informazioni successive al concorso da prevedere.",
-      "method": "Sei canali-feature normalizzati (long_frequency, short_frequency, ewma, gap, pair_support, anti_crowd) | tre mix fissi piu' un mix genetico (popolazione 10, 3 generazioni) | banco di 80 seed deterministici | refit ogni 400 concorsi su finestra di validazione 120 | voto pesato dei primi 2 modelli e 4 seed, con bonus gap 0.6 e anti_crowd 0.8 | scoring convesso degli hit (un 4 vale 8, un 5 vale 80).",
-      "limits": "Verificato su holdout mai usato per la selezione, CHIMERA-6 non batte una selezione uniforme: la media hit resta allineata al valore atteso del random (0,40) e la correlazione fra ranking in selezione e risultato in holdout e' negativa (-0,57). E' la firma dell'overfitting su rumore, ed e' il comportamento atteso su estrazioni indipendenti e uniformi. La scheda pubblica questo risultato invece di nasconderlo.",
-      "analysis": "CHIMERA-6: archivio aggiornato al concorso 4235 su 4235 estrazioni (1 righe calcolate, 3634 riusate, 1 refit eseguiti in questa passata).\n\nCome funziona. L'algoritmo non ha un solo modello, ne ha diversi che competono fra loro. Tre mix di pesi fissi rappresentano tre filosofie opposte: il frequenzialista, che punta sui numeri piu' usciti; il bilanciato, che pesa in modo uniforme frequenza recente, ritardo e co-occorrenze; il contrarian, che privilegia numeri in ritardo e poco frequenti. A questi si aggiunge un quarto mix i cui pesi vengono ottimizzati da un algoritmo genetico sulla finestra recente, e un banco di generatori pseudocasuali deterministici. A ogni refit tutti i candidati vengono classificati sulla sola finestra di validazione, e i migliori votano la sestina finale.\n\nCosa dicono i numeri. Nella finestra di selezione questo impianto produce punteggi molto superiori ai singoli mix fissi. Ma sull'holdout - le estrazioni tenute completamente fuori dalla procedura di selezione - il vantaggio sparisce: la media hit torna sul valore atteso di una scelta uniforme, e il test di significativita' contro la distribuzione ipergeometrica esatta non rifiuta l'ipotesi nulla. Piu' significativo ancora: la correlazione fra il punteggio in selezione e il punteggio in holdout e' negativa. Essere il migliore nella finestra di ottimizzazione non predice il comportamento futuro, semmai lo anticorrela.\n\nPerche' pubblicarlo lo stesso. Perche' questo e' esattamente cio' che ci si deve aspettare da un'estrazione indipendente e uniforme, e vederlo misurato su oltre quattromila concorsi vale piu' di qualunque promessa. CHIMERA-6 e' un ensemble tecnicamente solido che documenta il proprio limite: la sofisticazione del modello non sposta la probabilita' di vincita. Chi cerca una leva reale sul valore atteso della giocata la trova nella scheda SOLUS-90, che agisce sulla condivisione del montepremi e non sulla previsione.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "CHIMERA-6 e' un ensemble adattivo: fa competere mix statistici, pesi ottimizzati da un algoritmo genetico e un banco di generatori deterministici, poi fa votare i migliori."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Riclassificare periodicamente i modelli candidati sulla finestra recente e comporre la sestina per voto pesato, senza mai usare informazioni successive al concorso da prevedere."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv ordinato per NR. SEQUENZIALE | training progressivo da 600 concorsi | per il target t si usano esclusivamente i concorsi 1..t-1"
-        },
-        {
-          "key": "METODO",
-          "value": "Sei canali-feature normalizzati (long_frequency, short_frequency, ewma, gap, pair_support, anti_crowd) | tre mix fissi piu' un mix genetico (popolazione 10, 3 generazioni) | banco di 80 seed deterministici | refit ogni 400 concorsi su finestra di validazione 120 | voto pesato dei primi 2 modelli e 4 seed, con bonus gap 0.6 e anti_crowd 0.8 | scoring convesso degli hit (un 4 vale 8, un 5 vale 80)."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Verificato su holdout mai usato per la selezione, CHIMERA-6 non batte una selezione uniforme: la media hit resta allineata al valore atteso del random (0,40) e la correlazione fra ranking in selezione e risultato in holdout e' negativa (-0,57). E' la firma dell'overfitting su rumore, ed e' il comportamento atteso su estrazioni indipendenti e uniformi. La scheda pubblica questo risultato invece di nasconderlo."
-        },
-        {
-          "key": "PARAMETRI",
-          "value": "validation_span=120 | population=10 | generations=3 | refit_every=400 | seed_bank=80 | refit eseguiti=1 | ultimi pesi genetici: long_frequency=-0.96 | short_frequency=-0.25 | ewma=+0.35 | gap=-0.61 | pair_support=-0.95 | anti_crowd=-0.10"
+      "id": "max-entropy",
+      "name": "Massima Entropia",
+      "family": "generativi",
+      "description": "Distribuzione a entropia massima compatibile con i vincoli osservati — least bias",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0619,
+        "expected_score": 0.105,
+        "edge": -0.0431,
+        "edge_pct": -41.04,
+        "stability": 52.63,
+        "recent_form": 35.71,
+        "sample_confidence": 98.46,
+        "confidence": 0.0619,
+        "risk": "medio",
+        "total_contests": 4241,
+        "hit_distribution": {
+          "0": 2847,
+          "1": 1220,
+          "2": 166,
+          "3": 8,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "co-occorrenze",
-      "page": "pages/algoritmi/algs/classic-co-occorrenze/",
-      "intro": "Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna.",
-      "scope": "Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo.",
-      "method": "Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo",
-      "limits": "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa",
-      "analysis": "Contesto e definizioni\nHo analizzato 4,235 concorsi disponibili, con validazione storica progressiva fino al concorso 4235.\nIn ogni passo il modello propone una sestina costruita solo con informazioni disponibili prima dell'estrazione target.\n\nChe cosa misura davvero la co-occorrenza\nLa logica non guarda solo ai numeri piu presenti singolarmente, ma alla loro capacita di muoversi insieme nel tempo.\nIn pratica, il modello favorisce sestine in cui i legami a coppie risultano densi, coerenti e ripetuti nello storico.\nQuesta scelta rende la proposta leggibile: non un elenco casuale di numeri forti isolati, ma un piccolo cluster con struttura interna.\n\nPerche questo approccio puo essere interessante da leggere\nQuando osservi la scheda, puoi seguire tre livelli: frequenza del singolo numero, forza della rete di coppie e tenuta metrica nel tempo.\nQuesta stratificazione allunga naturalmente il tempo di lettura perche ogni livello aggiunge un pezzo di senso: prima il dato, poi la relazione, poi la sintesi operativa.\nIl risultato e una narrazione tecnica piu ricca ma ancora concreta, adatta sia a chi vuole un colpo d'occhio sia a chi cerca approfondimento.\n\nLimiti e disciplina interpretativa\nAnche una rete di co-occorrenze molto ordinata non trasforma un processo aleatorio in un processo deterministico.\nLe metriche sono descrittive: aiutano a confrontare modelli, monitorare stabilita e capire quando una regola perde efficacia.\nUsa quindi il modello come strumento di analisi strutturale e supporto decisionale, mantenendo sempre controllo del rischio e aspettative realistiche.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Co-Occorrenze e un modulo statistico relazionale che studia quanto spesso le coppie di numeri compaiono insieme nel tempo e costruisce sestine con alta coesione storica interna."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Fornire una lettura strutturale delle relazioni tra numeri, privilegiando gruppi che storicamente tendono a co-uscire, senza attribuire al modello valore predittivo certo."
-        },
-        {
-          "key": "INPUT",
-          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo dell'archivio draws.csv"
-        },
-        {
-          "key": "METODO",
-          "value": "Costruisce la matrice di co-occorrenza a coppie su storico precedente | Calcola forza relazionale per numero e coesione incrementale | Seleziona greedy i 6 numeri che massimizzano compatibilita di gruppo"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "Sestina co-occorrenziale proposta | Storico validato con evidenza hit | Metriche descrittive e note di interpretazione"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Non produce garanzia di risultato futuro | Sensibile a cambi di regime statistico e indipendenza del processo | Da usare come strumento comparativo, non come promessa"
+      "id": "monte-carlo",
+      "name": "Monte Carlo",
+      "family": "generativi",
+      "description": "Simulazione probabilistica su N scenari — frequenza empirica campionata",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.065,
+        "expected_score": 0.105,
+        "edge": -0.0401,
+        "edge_pct": -38.18,
+        "stability": 51.56,
+        "recent_form": 23.81,
+        "sample_confidence": 98.46,
+        "confidence": 0.065,
+        "risk": "medio",
+        "total_contests": 4241,
+        "hit_distribution": {
+          "0": 2787,
+          "1": 1267,
+          "2": 176,
+          "3": 10,
+          "4": 1,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "coppie-terni-consecutivi",
-      "page": "/pages/algoritmi/algs/classic-coppie-terni-consecutivi/",
-      "intro": "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte.",
-      "scope": "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti.",
-      "method": "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti",
-      "limits": "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato",
-      "analysis": "Classic Coppie Terni Consecutivi: addestramento incrementale su 4235 concorsi fino al concorso 4235. Per ogni concorso target la sestina viene proposta usando solo segmenti consecutivi e statistiche disponibili prima dell estrazione. Il focus e sulla lettura delle run consecutive (coppie e terni) e sulla loro persistenza storica. Le metriche aiutano a capire quanto spesso il fenomeno compare e quanto il modello lo intercetta in backtest progressivo.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Coppie Terni Consecutivi e un modulo descrittivo che misura e sfrutta la presenza di numeri consecutivi nelle sestine estratte."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Monitorare pattern di adiacenza numerica e proporre sestine costruite su segmenti consecutivi storicamente ricorrenti."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico completo | Replay incrementale concorso per concorso | Ordinamento cronologico corretto"
-        },
-        {
-          "key": "METODO",
-          "value": "Rileva coppie e terni consecutivi | Aggiorna frequenze e recency dei segmenti | Compone la sestina con segmenti piu stabili e numeri partecipanti"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit incrementali | metrics-db.csv con statistiche sui consecutivi | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Pattern consecutivi non implicano causalita | Modulo descrittivo | Nessuna garanzia di risultato"
+      "id": "adaptive-ensemble",
+      "name": "Adaptive Ensemble",
+      "family": "ibridi",
+      "description": "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0782,
+        "expected_score": 0.105,
+        "edge": -0.0269,
+        "edge_pct": -25.61,
+        "stability": 47.91,
+        "recent_form": 39.68,
+        "sample_confidence": 98.47,
+        "confidence": 0.0782,
+        "risk": "medio",
+        "total_contests": 4261,
+        "hit_distribution": {
+          "0": 2552,
+          "1": 1433,
+          "2": 263,
+          "3": 13,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "coppie-terzine-frequenti",
-      "page": "/pages/algoritmi/algs/classic-coppie-terzine-frequenti/",
-      "intro": "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza.",
-      "scope": "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti.",
-      "method": "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale",
-      "limits": "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti",
-      "analysis": "Classic Coppie Terzine Frequenti: training incrementale fino al concorso 4235 su 4235 concorsi. Il modulo aggiorna coppie e terzine concorso per concorso e produce ogni pronostico solo sulla base dello storico precedente. La logica privilegia motivi ricorrenti e densita relazionale interna della sestina proposta. Le metriche mostrano sia i pattern dominanti sia la densita storica della sestina corrente.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Coppie Terzine Frequenti e un modulo relazionale che classifica combinazioni di 2 e 3 numeri per frequenza di co-occorrenza."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Individuare motivi ricorrenti (coppie e terzine) e comporre sestine con alta densita di pattern frequenti."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico completo | Replay incrementale | Combinazioni 2 e 3 generate da ciascuna sestina estratta"
-        },
-        {
-          "key": "METODO",
-          "value": "Aggiorna contatori di coppie e terzine | Ordina per frequenza e recency | Compone sestina con terzina guida e rinforzo relazionale"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit progressivi | metrics-db.csv con top pattern e densita | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Frequenza storica non equivale a previsione | Possibile sovraesposizione a pattern stabili ma non persistenti"
+      "id": "astro-statistical",
+      "name": "Astro Statistical",
+      "family": "ibridi",
+      "description": "Fase lunare + correlazioni storiche per fase + frequenza classica",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.067,
+        "expected_score": 0.105,
+        "edge": -0.038,
+        "edge_pct": -36.18,
+        "stability": 51.29,
+        "recent_form": 27.77,
+        "sample_confidence": 98.46,
+        "confidence": 0.067,
+        "risk": "medio",
+        "total_contests": 4191,
+        "hit_distribution": {
+          "0": 2701,
+          "1": 1310,
+          "2": 164,
+          "3": 16,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "distribuzioni-modelli-raggruppamento",
-      "page": "/pages/algoritmi/algs/classic-distribuzioni-modelli-raggruppamento/",
-      "intro": "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione.",
-      "scope": "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione.",
-      "method": "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape",
-      "limits": "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina",
-      "analysis": "Classic Distribuzioni Modelli Raggruppamento: replay incrementale fino al concorso 4235 su 4235 concorsi. Il modulo osserva la forma delle sestine (pari/dispari, bassi/alti, concentrazione per decadi, somme e ampiezza) e propone una sestina che rispetta i pattern modali storici. Ogni previsione e prodotta solo con i dati disponibili al passo precedente. Le metriche aiutano a leggere la struttura delle estrazioni piu che a formulare una promessa predittiva.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Distribuzioni Modelli Raggruppamento studia la forma delle sestine: bilanciamenti, fasce numeriche e pattern di occupazione."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Descrivere e riusare shape ricorrenti (pari/dispari, bassi/alti, distribuzione per decadi) come criterio di composizione."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | Replay incrementale | Calcolo di shape e aggregati strutturali per ogni concorso"
-        },
-        {
-          "key": "METODO",
-          "value": "Aggiorna split e profili di raggruppamento | Stima target modali | Seleziona numeri per score frequenza+ritardo rispettando vincoli di shape"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit progressivi | metrics-db.csv con shape modali e statistiche strutturali | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Modello di forma descrittiva | Non stima probabilita causali | Vincoli di shape possono ridurre flessibilita della sestina"
+      "id": "freq-delay-blend",
+      "name": "Freq-Delay Blend",
+      "family": "ibridi",
+      "description": "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0654,
+        "expected_score": 0.105,
+        "edge": -0.0396,
+        "edge_pct": -37.71,
+        "stability": 51.27,
+        "recent_form": 19.84,
+        "sample_confidence": 98.46,
+        "confidence": 0.0654,
+        "risk": "medio",
+        "total_contests": 4191,
+        "hit_distribution": {
+          "0": 2751,
+          "1": 1249,
+          "2": 178,
+          "3": 13,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "frequency",
-      "page": "pages/algoritmi/algs/classic-frequency/",
-      "intro": "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti.",
-      "scope": "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa.",
-      "method": "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente.",
-      "limits": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico",
-      "analysis": "Classic Frequency incrementale: storico aggiornato fino al concorso 4235 su 4235 estrazioni. Proposta(t) verificata su concorso t in sequenza.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Frequency e un modulo statistico descrittivo basato su frequenze assolute dei numeri estratti."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Evidenziare persistenze e squilibri di frequenza senza finalita predittiva certa."
-        },
-        {
-          "key": "INPUT",
-          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv"
-        },
-        {
-          "key": "METODO",
-          "value": "Per ogni concorso calcola la sestina dai 6 numeri piu frequenti sullo storico precedente."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "Sestina frequenziale proposta e metriche di hit su storico."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+      "id": "neural-stat-fusion",
+      "name": "Neural-Stat Fusion",
+      "family": "ibridi",
+      "description": "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0681,
+        "expected_score": 0.105,
+        "edge": -0.0369,
+        "edge_pct": -35.14,
+        "stability": 50.84,
+        "recent_form": 47.61,
+        "sample_confidence": 98.46,
+        "confidence": 0.0681,
+        "risk": "medio",
+        "total_contests": 4191,
+        "hit_distribution": {
+          "0": 2695,
+          "1": 1287,
+          "2": 202,
+          "3": 7,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "GeneticSE",
-      "page": "pages/algoritmi/algs/genetic/",
-      "intro": "GeneticSE e un algoritmo evolutivo adattivo a popolazione. Simula una forma di apprendimento progressivo su storico con selezione, crossover e mutazione dei pesi interni.",
-      "scope": "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi.",
-      "method": "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi",
-      "limits": "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale",
-      "analysis": "Descrizione tecnica algoritmo\nGeneticSE usa un approccio evolutivo a popolazione (genomi di pesi) su feature storiche.\nOgni genoma pesa tre segnali: frequenza cumulata, ritardo relativo e frequenza recente su finestra mobile.\nAd ogni concorso storico, il sistema produce una sestina candidata, valuta la fitness sui match reali e aggiorna la popolazione con selezione delle elite, crossover e mutazione.\nIl flusso e walk-forward: per il concorso t usa solo informazione disponibile fino a t-1.\n\nInquadramento neurale\nIl modello e adattivo e apprende in modo progressivo, quindi e spesso percepito come neurale.\nTecnicamente pero non e una rete neurale classica supervisionata con layer e backpropagation: e un ottimizzatore genetico su feature statistiche.\n\nRisultati osservati sullo storico\nConcorsi valutati: 4.234\n- Media hit/sestina: 0.39\n- Hit >=1: 1458 su 4234 (34.4%)\n- Hit >=2: 195 su 4234 (4.6%)\n- Hit >=3: 15 su 4234 (0.4%)\n- Hit >=4: 1 su 4234 (0.0%)\n- Hit >=5: 0 su 4234 (0.0%)\n- Hit =6: 0 su 4234 (0.0%)\n- Best streak hit>=1: 7\n- Distribuzione esatta hit: 0:2776 1:1263 2:180 3:14 4:1 5:0 6:0\n\nConfronto con baseline casuale (6 su 90)\n- Media hit attesa random: 0.4000 | osservata: 0.3942\n- Hit>=2 atteso random: 4.96% | osservato: 4.61% | z-score: -1.07\n- Hit>=3 atteso random: 0.315% | osservato: 0.354%\n- Hit>=4 atteso random: 0.0085% | osservato: 0.0236%\n- Hit>=5 atteso random: 0.000081% | osservato: 0.000000%\n- Hit=6 atteso random: 0.00000016% | osservato: 0.00000000%\n\nStabilita temporale e drift\n- Media ultimi 200 concorsi: 0.3550 (delta vs storico: -0.0392)\n- Hit>=2 ultimi 200: 9/200 (4.50%)\n- Deviazione standard hit: 0.5886\n- Intervallo 95% media hit: [0.3765, 0.4119]\n\nConfigurazione operativa\n- Fonte: training_history progressivo GeneticSE\n- Popolazione: 48 organismi\n- Finestra recente: 90 concorsi\n- Ultimo concorso: 4235 (14/08/2026)\n- Prossimo concorso stimato: 4236\n- Sestina proposta: 50 65 77 81 37 48\n\nLettura e limiti\nLe metriche sono coerenti con un modello adattivo che segue pattern storici, ma non dimostrano vantaggio matematico stabile fuori campione.\nPer uso rigoroso e consigliato monitorare rolling window, confronto costante con baseline random e controllo drift dopo ogni nuovo concorso.\nIl sistema va quindi interpretato come strumento analitico-operativo e non come predittore certo.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "GeneticSE e un algoritmo evolutivo adattivo a popolazione. Simula una forma di apprendimento progressivo su storico con selezione, crossover e mutazione dei pesi interni."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Estrarre segnali statistici ricorrenti dallo storico e produrre sestine candidate con logica walk-forward, mantenendo separata la valutazione su concorsi gia chiusi."
-        },
-        {
-          "key": "INPUT",
-          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv"
-        },
-        {
-          "key": "METODO",
-          "value": "Per ogni step costruisce feature frequenza ritardo e finestra recente | Calcola una fitness sui match hit della sestina proposta | Seleziona elite e genera nuova popolazione con crossover e mutazione | Procede in training progressivo sui nuovi concorsi"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db con hit marcati concorso per concorso | metrics-db con copertura hit 2..6, media e streak | analisi testuale tecnica e operativa | sestina proposta per il prossimo concorso"
-        },
-        {
-          "key": "LIMITI",
-          "value": "E un modello evolutivo e non una rete neurale supervisionata classica con backpropagation | Non fornisce garanzia predittiva | Prestazioni sensibili a regime statistico e drift temporale"
+      "id": "autoencoder-anomaly",
+      "name": "Autoencoder Anomaly",
+      "family": "neurali",
+      "description": "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo",
+      "version": "1.0.0",
+      "needs_training": true,
+      "metrics": {
+        "observed_score": 0.0692,
+        "expected_score": 0.105,
+        "edge": -0.0358,
+        "edge_pct": -34.09,
+        "stability": 49.55,
+        "recent_form": 31.74,
+        "sample_confidence": 98.44,
+        "confidence": 0.0692,
+        "risk": "medio",
+        "total_contests": 4091,
+        "hit_distribution": {
+          "0": 2631,
+          "1": 1235,
+          "2": 211,
+          "3": 14,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "HiSPA",
-      "page": "pages/algoritmi/algs/hispa/",
-      "intro": "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi.",
-      "scope": "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale.",
-      "method": "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati",
-      "limits": "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura.",
-      "analysis": "HiSPA incrementale: storico aggiornato fino al concorso 4235 su 4235 estrazioni. Per ogni target t usa la sestina reale t-1 come query, ricerca pattern su 1..t-2, propaga score dai concorsi successivi e produce proposta top-6 con pipeline SECC out/*. Architettura separata: run.py interfaccia, logica in core/.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "HiSPA e un algoritmo statistico progressivo che usa i pattern della sestina N per stimare N+1 tramite memoria storica dei successivi."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Costruire ranking dei 90 numeri con evidenza condizionata storica e proporre una sestina top-6 senza leakage temporale."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv ordinato per NR. SEQUENZIALE | query=N | ricerca pattern su 1..N-1 | verifica su N+1"
-        },
-        {
-          "key": "METODO",
-          "value": "63 pattern della query (ordini 1..6) | peso_pattern=W[o]*f^(1-alpha)/(f+k[o]) | score numero da concorsi successivi agli eventi storici matchati"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Metodo statistico condizionato non causale | sensibilita a densita storica pattern | nessuna garanzia predittiva futura."
-        },
-        {
-          "key": "PARAMETRI",
-          "value": "alpha=0.50 | W1=1.00 | W2=1.80 | W3=3.20 | W4=5.00 | W5=4.20 | W6=3.00 | k1=20 | k2=10 | k3=6 | k4=4 | k5=3 | k6=2"
+      "id": "feedforward-feature",
+      "name": "Feedforward Feature",
+      "family": "neurali",
+      "description": "MLP su feature engineered per numero — frequenze, ritardi, parità, range",
+      "version": "1.0.0",
+      "needs_training": true,
+      "metrics": {
+        "observed_score": 0.1485,
+        "expected_score": 0.105,
+        "edge": 0.0435,
+        "edge_pct": 41.42,
+        "stability": 31.59,
+        "recent_form": 31.74,
+        "sample_confidence": 98.44,
+        "confidence": 0.1485,
+        "risk": "alto",
+        "total_contests": 4091,
+        "hit_distribution": {
+          "0": 1477,
+          "1": 1720,
+          "2": 766,
+          "3": 118,
+          "4": 10,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "Paradox Logiche Decisionali Metriche",
-      "page": "pages/algoritmi/algs/paradox-logiche-decisionali-metriche/",
-      "intro": "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta.",
-      "scope": "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche.",
-      "method": "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero.",
-      "limits": "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi.",
-      "analysis": "PARADOX - Analisi tecnica run\n\nConcorsi disponibili nel draws condiviso: 4235\nAlgoritmi attivi con output validi: 18\nCampioni meta-neurali usati: 12000\nStato modello neurale: D:\\PROGETTI\\SuperEnalotto\\01 Superenalotto ControlChaos\\iARGOS_iARGOS2 - manifest ok - TEST\\secc-mirror\\pages\\algoritmi\\algs\\paradox-logiche-decisionali-metriche\\paradox_engine\\models\\meta_mlp.json\n\nPesi finali algoritmo (normalizzati):\n- astra-moon: 0.0556\n- chimera-mix-adattivo: 0.0556\n- classic-analisi-anomalie-pattern: 0.0556\n- classic-co-occorrenze: 0.0556\n- classic-coppie-terni-consecutivi: 0.0556\n- classic-coppie-terzine-frequenti: 0.0556\n- classic-distribuzioni-modelli-raggruppamento: 0.0556\n- classic-frequency: 0.0556\n- classic-ritardi: 0.0556\n- classic-ritardi-combinazioni: 0.0556\n- classic-statistiche-combinate-finestre-mobili: 0.0556\n- classic-tavole-probabilita-teorica-test-uniformita: 0.0556\n- genetic-algorithm-evolutionary: 0.0556\n- hispa: 0.0556\n- solus90-anticrowd: 0.0556\n- super6NN: 0.0556\n- xeno-qdna-alpha: 0.0556\n- xeno-qdna-beta: 0.0556\n\nSestina Paradox proposta per prossimo concorso: 50 65 55 77 81 48\n\nNote metodologia:\n- Discovery automatica tramite card.json (isActive=true), senza lista manuale.\n- Lettura black-box di out/historical-db.csv e out/metrics-db.csv.\n- Scoring con meta-feature (consenso, stabilita, anti-pattern) e mini rete neurale MLP.\n- Aggregazione finale a voto pesato per numero.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Paradox e un meta-algoritmo ibrido che unisce segnali dagli algoritmi attivi per costruire una sestina ensemble robusta."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Ridurre bias di singolo modello usando consenso utile, filtri anti-pattern e scoring neurale su metriche storiche."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv condiviso di sistema | card.json algoritmi con isActive=true | out/historical-db.csv e out/metrics-db.csv dei moduli attivi."
-        },
-        {
-          "key": "METODO",
-          "value": "Discovery moduli attivi, canonicalizzazione output, meta-feature statistiche, mini rete neurale MLP e voto pesato per numero."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv, metrics-db.csv, algorithm-sheet.csv, analysis.txt conformi standard secc-admin in cartella out/."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Nessuna garanzia predittiva; risultati dipendono da qualita e coerenza degli output degli algoritmi attivi."
+      "id": "lstm-sequenziale",
+      "name": "LSTM Sequenziale",
+      "family": "neurali",
+      "description": "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero",
+      "version": "1.0.0",
+      "needs_training": true,
+      "metrics": {
+        "observed_score": 0.0744,
+        "expected_score": 0.105,
+        "edge": -0.0306,
+        "edge_pct": -29.14,
+        "stability": 48.15,
+        "recent_form": 39.68,
+        "sample_confidence": 98.44,
+        "confidence": 0.0744,
+        "risk": "medio",
+        "total_contests": 4129,
+        "hit_distribution": {
+          "0": 2545,
+          "1": 1348,
+          "2": 217,
+          "3": 14,
+          "4": 5,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "ritardi",
-      "page": "pages/algoritmi/algs/classic-ritardi/",
-      "intro": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri.",
-      "scope": "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa.",
-      "method": "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo.",
-      "limits": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico",
-      "analysis": "Classic Ritardi: analisi descrittiva dei ritardi storici. Nessuna garanzia predittiva.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Ritardi e un modulo statistico descrittivo basato sul ritardo corrente dei numeri."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Evidenziare i numeri piu assenti nel recente storico senza finalita predittiva certa."
-        },
-        {
-          "key": "INPUT",
-          "value": "Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv"
-        },
-        {
-          "key": "METODO",
-          "value": "Per ogni concorso calcola il ritardo su 1..90 e seleziona i 6 numeri con ritardo massimo."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "Sestina ritardataria proposta e metriche di copertura hit su storico."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Non produce garanzia di risultato futuro | Sensibile a rumore statistico"
+      "id": "transformer-attention",
+      "name": "Transformer Attention",
+      "family": "neurali",
+      "description": "Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.065,
+        "expected_score": 0.105,
+        "edge": -0.04,
+        "edge_pct": -38.09,
+        "stability": 51.56,
+        "recent_form": 43.64,
+        "sample_confidence": 98.46,
+        "confidence": 0.065,
+        "risk": "medio",
+        "total_contests": 4241,
+        "hit_distribution": {
+          "0": 2787,
+          "1": 1266,
+          "2": 176,
+          "3": 12,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "ritardi-combinazioni",
-      "page": "/pages/algoritmi/algs/classic-ritardi-combinazioni/",
-      "intro": "Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico.",
-      "scope": "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie.",
-      "method": "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay",
-      "limits": "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva",
-      "analysis": "Classic Ritardi Combinazioni: replay incrementale concorso per concorso fino al concorso 4235 su 4235 concorsi. Il modulo aggiorna ritardi su coppie e terzine osservate e produce il pronostico del concorso successivo usando solo lo stato disponibile al passo corrente. La sestina viene favorita quando contiene numeri con elevata esposizione a combinazioni ritardatarie. Le metriche riportano copertura storica e ritardi massimi rilevati, con finalita descrittive e comparative.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Ritardi Combinazioni estende il concetto di ritardo dai singoli numeri a coppie e terzine osservate nello storico."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Misurare ritardi di combinazioni multiple e costruire sestine con alta esposizione a coppie/terzine storicamente ritardatarie."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | Replay incrementale | Aggiornamento online di ritardi su coppie e terzine osservate"
-        },
-        {
-          "key": "METODO",
-          "value": "Aggiorna ritardi correnti di coppie e terzine senza usare dati futuri | Calcola score per numero da ritardi combinati | Selezione sestina con rinforzo pair-delay"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit incrementali | metrics-db.csv con ritardi combinazionali | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "I ritardi combinazionali non creano obbligo di uscita | Score interno euristico | Nessuna garanzia predittiva"
+      "id": "oracle",
+      "name": "L'Oracolo",
+      "family": "oracle",
+      "description": "Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0667,
+        "expected_score": 0.105,
+        "edge": -0.0383,
+        "edge_pct": -36.47,
+        "stability": 44.72,
+        "recent_form": 31.74,
+        "sample_confidence": 77.64,
+        "confidence": 0.0667,
+        "risk": "alto",
+        "total_contests": 20,
+        "hit_distribution": {
+          "0": 14,
+          "1": 4,
+          "2": 2,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "SOLUS-90",
-      "page": "pages/algoritmi/algs/solus90-anticrowd/",
-      "intro": "SOLUS-90 non prevede i numeri estratti: sceglie la sestina statisticamente meno giocata dagli altri, per massimizzare la vincita attesa a parita' di probabilita' di vincita.",
-      "scope": "Ridurre il numero atteso di vincitori con cui dividere il montepremi, selezionando combinazioni lontane dai pattern di gioco umani (date, smorfia, sequenze, simmetrie di schedina).",
-      "method": "Modello di popolarita' per numero (date 1-31. mesi 1-12. numeri tondi. smorfia. il 17 evitato) piu' penalita' di combinazione (progressioni. consecutivi. concentrazione per decina e colonna. somma centrale. combinazioni famose. ripetizione dell'ultima estrazione) | pool di 500 candidate minime campionate su 100.000 combinazioni con seed 20260728 | selezione a rotazione con penalita' di sovrapposizione.",
-      "limits": "Non aumenta in alcun modo la probabilita' di vincita, che resta 1 su 622.614.630 come per qualunque sestina. Agisce solo sulla vincita attesa condizionata alla vincita. Il modello di popolarita' e' una stima euristica del comportamento dei giocatori, non un dato ufficiale: Sisal non pubblica la distribuzione delle giocate.",
-      "analysis": "SOLUS-90: archivio aggiornato al concorso 4235 su 4235 estrazioni (1 righe calcolate, 4233 riusate dal backtest precedente).\n\nCome leggere le metriche di questa scheda. La media hit e il tasso di hit >= 2 sono riportati per trasparenza, ma qui non misurano bravura: una selezione uniforme di sei numeri su novanta ha una media attesa di 0,40 numeri corretti per concorso, e SOLUS-90 resta su quel valore per costruzione. Non e' un difetto dell'algoritmo, e' il risultato atteso: le estrazioni del SuperEnalotto sono indipendenti e uniformi, quindi nessuna regola di selezione puo' spostare la probabilita' di vincita.\n\nCio' su cui SOLUS-90 agisce davvero e' un'altra grandezza. Il montepremi del jackpot si divide fra tutti i vincitori: se la sestina vincente e' composta da numeri che milioni di persone giocano abitualmente - compleanni, sequenze regolari, numeri della smorfia - la vincita individuale crolla. Selezionando combinazioni che il modello stima come poco giocate, l'algoritmo non rende piu' probabile la vincita, ma rende piu' alta la vincita nel caso in cui si verifichi.\n\nIl limite da tenere presente e' che il modello di popolarita' e' una stima: Sisal non pubblica la distribuzione reale delle giocate, quindi le penalita' derivano dalla letteratura sul comportamento dei giocatori di lotterie a scelta libera, non da dati ufficiali. La direzione dell'effetto e' solida, la sua entita' no.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "SOLUS-90 non prevede i numeri estratti: sceglie la sestina statisticamente meno giocata dagli altri, per massimizzare la vincita attesa a parita' di probabilita' di vincita."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Ridurre il numero atteso di vincitori con cui dividere il montepremi, selezionando combinazioni lontane dai pattern di gioco umani (date, smorfia, sequenze, simmetrie di schedina)."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv ordinato per NR. SEQUENZIALE | usato solo per evitare la ripetizione dell'ultima estrazione, mai per stimare i numeri futuri"
-        },
-        {
-          "key": "METODO",
-          "value": "Modello di popolarita' per numero (date 1-31. mesi 1-12. numeri tondi. smorfia. il 17 evitato) piu' penalita' di combinazione (progressioni. consecutivi. concentrazione per decina e colonna. somma centrale. combinazioni famose. ripetizione dell'ultima estrazione) | pool di 500 candidate minime campionate su 100.000 combinazioni con seed 20260728 | selezione a rotazione con penalita' di sovrapposizione."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv progressivo con hit marcati | metrics-db.csv | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Non aumenta in alcun modo la probabilita' di vincita, che resta 1 su 622.614.630 come per qualunque sestina. Agisce solo sulla vincita attesa condizionata alla vincita. Il modello di popolarita' e' una stima euristica del comportamento dei giocatori, non un dato ufficiale: Sisal non pubblica la distribuzione delle giocate."
-        },
-        {
-          "key": "PARAMETRI",
-          "value": "seed=20260728 | samples=100000 | pool=500 | overlap_penalty=1.5 | famosa=10.0 | progressione=4.0 | tutte_date=3.0 | popolarita' pool 5.50-6.45"
+      "id": "coppia-correlazione",
+      "name": "Coppia Correlazione",
+      "family": "statistici",
+      "description": "Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0651,
+        "expected_score": 0.105,
+        "edge": -0.0399,
+        "edge_pct": -37.99,
+        "stability": 51.87,
+        "recent_form": 35.71,
+        "sample_confidence": 98.46,
+        "confidence": 0.0651,
+        "risk": "medio",
+        "total_contests": 4191,
+        "hit_distribution": {
+          "0": 2742,
+          "1": 1271,
+          "2": 167,
+          "3": 11,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "statistiche-combinate-finestre-mobili",
-      "page": "/pages/algoritmi/algs/classic-statistiche-combinate-finestre-mobili/",
-      "intro": "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi).",
-      "scope": "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window.",
-      "method": "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top",
-      "limits": "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro",
-      "analysis": "Classic Statistiche Combinate Finestre Mobili: replay incrementale fino al concorso 4235 su 4235 concorsi. Il modulo aggiorna indicatori su finestre 50, 100 e 200 e produce il pronostico del concorso successivo usando solo i dati accumulati al passo corrente. La sestina privilegia numeri con supporto in piu finestre, bilanciando recency e stabilita. Le metriche mostrano top list e overlap per valutare convergenza o volatilita dei segnali.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Statistiche Combinate Finestre Mobili combina frequenza e ritardo su piu orizzonti temporali (50, 100, 200 concorsi)."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Confrontare segnali recenti e stabili nello storico e proporre sestine con supporto cross-window."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | Replay incrementale | Finestre mobili 50/100/200 aggiornate concorso per concorso"
-        },
-        {
-          "key": "METODO",
-          "value": "Calcola frequenze su 3 finestre | Combina trend, stabilita e ritardo in uno score | Seleziona numeri presenti in piu finestre top"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit incrementali | metrics-db.csv con top list per finestra e overlap | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Scelta pesi euristica | Le finestre catturano solo pattern descrittivi | Nessuna garanzia sul futuro"
+      "id": "distribuzione",
+      "name": "Distribuzione Bilanciata",
+      "family": "statistici",
+      "description": "Sestina bilanciata per range, parità e somma target storica",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0679,
+        "expected_score": 0.105,
+        "edge": -0.0371,
+        "edge_pct": -35.33,
+        "stability": 50.48,
+        "recent_form": 35.71,
+        "sample_confidence": 98.46,
+        "confidence": 0.0679,
+        "risk": "medio",
+        "total_contests": 4241,
+        "hit_distribution": {
+          "0": 2733,
+          "1": 1305,
+          "2": 189,
+          "3": 12,
+          "4": 2,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "Super6 NN",
-      "page": "pages/algoritmi/algs/super6NN/",
-      "intro": "Super6NN e un modello neurale GRU multi-label su 90 numeri con lettura sequenziale dello storico estrazioni.",
-      "scope": "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi.",
-      "method": "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step.",
-      "limits": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window.",
-      "analysis": "Descrizione tecnica algoritmo\nSuper6NN usa una rete GRU con output multi-label su 90 classi, una per ogni numero possibile.\nOgni concorso viene codificato in multi-hot e letto in sequenza temporale per estrarre struttura ricorrente.\nLa stima per ogni step usa solo lo storico precedente al concorso target, in ottica walk-forward.\n\nImpostazione di questo export SICC\nAnalisi eseguita su 4235 concorsi del draws admin, con 4234 step di validazione storica.\nPer ogni step viene proposta una sestina deterministica dai 6 logit piu alti del modello.\nOgni proposta e generata dallo stato appreso fino a quel passo, poi verificata sul concorso successivo.\n\nRisultati osservati sullo storico\n- Media hit/sestina: 0.3906\n- Hit >=1: 1445/4234 (34.13%)\n- Hit >=2: 197/4234 (4.65%)\n- Hit >=3: 12/4234 (0.28%)\n- Hit >=4: 0/4234 (0.00%)\n- Hit >=5: 0/4234 (0.0000%)\n- Hit =6: 0/4234 (0.000000%)\n- Distribuzione hit esatta: 0:2789 1:1248 2:185 3:12 4:0 5:0 6:0\n\nConfronto con baseline casuale (6 su 90)\n- Media hit attesa random: 0.4000 | osservata: 0.3906\n- Hit>=2 atteso random: 4.963% | osservato: 4.653% | z-score: -0.93\n- Hit>=3 atteso random: 0.315%\n- Hit>=4 atteso random: 0.00848%\n\nStabilita temporale\n- Media ultimi 200 step: 0.4050\n- Deviazione standard hit: 0.5852\n\nConfigurazione operativa\n- Ultimo concorso disponibile: 4235 (14/08/2026)\n- Prossimo concorso stimato: 4236\n- Sestina proposta: 13 21 24 49 65 88\n\nLettura e limiti\nLe metriche descrivono comportamento storico del modello ma non costituiscono garanzia predittiva futura.\nIl run va rieseguito a ogni aggiornamento draws per mantenere coerenza tra storico, metriche e proposta operativa.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Super6NN e un modello neurale GRU multi-label su 90 numeri con lettura sequenziale dello storico estrazioni."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Generare sestine candidate con logica walk-forward mantenendo separata la valutazione su concorsi gia chiusi."
-        },
-        {
-          "key": "INPUT",
-          "value": "Unico draws.csv admin aggiornato | Ordinamento progressivo NR. SEQUENZIALE | Numeri validi 1..90 senza duplicati."
-        },
-        {
-          "key": "METODO",
-          "value": "Encoding multi-hot delle estrazioni precedenti | Forward GRU su finestra storica | Selezione dei 6 numeri con logit piu alto a ogni step."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db con hit marcati per concorso | metrics-db con copertura e stabilita | analysis tecnica | sestina proposta prossimo concorso."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Modello sensibile a drift statistico e regime shift | Nessuna garanzia predittiva | Necessario monitoraggio continuo su rolling window."
+      "id": "equilibra-elefante",
+      "name": "Equilibra Elefante",
+      "family": "statistici",
+      "description": "EQUILIBRA, ramo memoria lunga: graduatoria per spinta (frequenza storica+ultime 48 vs teorica 1/15), posizioni-obiettivo mu come media cumulativa di tutte le estrazioni osservate.",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0658,
+        "expected_score": 0.105,
+        "edge": -0.0392,
+        "edge_pct": -37.33,
+        "stability": 50.0,
+        "recent_form": 23.81,
+        "sample_confidence": 98.46,
+        "confidence": 0.0658,
+        "risk": "medio",
+        "total_contests": 4231,
+        "hit_distribution": {
+          "0": 2797,
+          "1": 1215,
+          "2": 202,
+          "3": 16,
+          "4": 1,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "tavole-probabilita-teorica-test-uniformita",
-      "page": "/pages/algoritmi/algs/classic-tavole-probabilita-teorica-test-uniformita/",
-      "intro": "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita.",
-      "scope": "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile.",
-      "method": "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso",
-      "limits": "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva",
-      "analysis": "Classic Tavole Probabilita Teorica Test Uniformita: replay incrementale fino al concorso 4235 su 4235 concorsi. Per ogni passo il modulo confronta frequenze osservate e attese teoriche (uniformi) sullo storico disponibile e propone una sestina di numeri sotto-attesi con vincoli di distribuzione per decadi. Le statistiche chi-quadro riportate sono descrittive e servono per confronto interno tra classi, non come certificazione predittiva.",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "Classic Tavole Probabilita Teorica Test Uniformita confronta frequenze osservate e attese con tavole descrittive di uniformita."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Misurare scarti dall atteso teorico (uniforme) e proporre una sestina basata su numeri sotto-attesi nello storico disponibile."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | Replay incrementale | Conteggi osservati per numero e per classi aggregate"
-        },
-        {
-          "key": "METODO",
-          "value": "Aggiorna frequenze osservate | Calcola attesi teorici e statistiche chi-quadro descrittive | Seleziona numeri con deviazione negativa dall atteso"
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv con hit incrementali | metrics-db.csv con scarti osservato-atteso e test descrittivi | algorithm-sheet.csv | analysis.txt"
-        },
-        {
-          "key": "LIMITI",
-          "value": "Test senza inferenza completa/p-value | Regola di selezione sotto-attesi e descrittiva | Nessuna garanzia predittiva"
+      "id": "equilibra-gatto",
+      "name": "Equilibra Gatto",
+      "family": "statistici",
+      "description": "EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale).",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0667,
+        "expected_score": 0.105,
+        "edge": -0.0383,
+        "edge_pct": -36.47,
+        "stability": 51.02,
+        "recent_form": 11.9,
+        "sample_confidence": 98.46,
+        "confidence": 0.0667,
+        "risk": "medio",
+        "total_contests": 4231,
+        "hit_distribution": {
+          "0": 2745,
+          "1": 1292,
+          "2": 183,
+          "3": 10,
+          "4": 0,
+          "5": 1,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "XENO-QDNA α",
-      "page": "pages/algoritmi/algs/xeno-qdna-alpha/",
-      "intro": "XENO-QDNA e un generatore sperimentale a collasso binario: ogni sestina diventa un DNA da 42 bit.",
-      "scope": "Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto.",
-      "method": "Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA.",
-      "limits": "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi.",
-      "analysis": "XENO-QDNA - Concorso 4235 del 14/08/2026\nSestina proposta per il concorso 4236: 22 38 42 45 78 81\n\nMaschera di collasso: 001111101111110111110111111100111110001011\nTentativo: 2. Score decoerenza: 1. Membrana XENO-90: OK.\n\nRiflessioni applicate: 1 | Tunneling: 1",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "XENO-QDNA e un generatore sperimentale a collasso binario: ogni sestina diventa un DNA da 42 bit."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Generare sestine laterali non basate su frequenza, ritardo, rete neurale, genetica o consenso diretto."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | ultime estrazioni reali | finestra mobile di 21 delta XOR"
-        },
-        {
-          "key": "METODO",
-          "value": "Codifica 6 numeri in 42 bit, calcola fratture XOR, seleziona bit vivi ma non periodici, applica maschera all'ultimo DNA."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Modello esplorativo; non aumenta in modo dimostrato la probabilita reale di vincita; utile per test comparativi."
+      "id": "equilibra-lepre",
+      "name": "Equilibra Lepre",
+      "family": "statistici",
+      "description": "EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso).",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.066,
+        "expected_score": 0.105,
+        "edge": -0.039,
+        "edge_pct": -37.14,
+        "stability": 50.35,
+        "recent_form": 43.64,
+        "sample_confidence": 98.46,
+        "confidence": 0.066,
+        "risk": "medio",
+        "total_contests": 4231,
+        "hit_distribution": {
+          "0": 2783,
+          "1": 1236,
+          "2": 199,
+          "3": 12,
+          "4": 0,
+          "5": 1,
+          "6": 0
         }
-      ]
+      }
     },
     {
-      "title": "XENO-QDNA β",
-      "page": "pages/algoritmi/algs/xeno-qdna-beta/",
-      "intro": "XENO-QDNA β non genera la sestina dallo storico reale: metabolizza l'errore di XENO-QDNA α trasformandolo in stringa residua B*.",
-      "scope": "Produrre una sestina alternativa che fugge dal centro predittivo di α, usando il DNA del fallimento come fonte generativa.",
-      "method": "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni.",
-      "limits": "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale.",
-      "analysis": "XENO-QDNA β - Concorso 4235 del 14/08/2026\nSestina β proposta per il concorso 4236: 47 48 54 75 78 81\nSestina α di riferimento: 02 50 60 61 69 79\n\nMaschera B*: 011111101111011111101111111100001010001011\nBit corretti selezionati: 29/42. IFC score: 11.0. Tentativo: 2.\nMembrana XENO-90: accettata in modalita forzata.\n\nRiflessioni: 2 | Tunneling: 0",
-      "facts": [
-        {
-          "key": "INTRO",
-          "value": "XENO-QDNA β non genera la sestina dallo storico reale: metabolizza l'errore di XENO-QDNA α trasformandolo in stringa residua B*."
-        },
-        {
-          "key": "SCOPO",
-          "value": "Produrre una sestina alternativa che fugge dal centro predittivo di α, usando il DNA del fallimento come fonte generativa."
-        },
-        {
-          "key": "INPUT",
-          "value": "draws.csv storico | xeno-qdna-alpha/out/historical-db.csv (previsioni α) | xeno-qdna-alpha/out/snapshot.json (proposta α corrente)"
-        },
-        {
-          "key": "METODO",
-          "value": "Calcola B(t)=Eα XOR R XOR Pα per ogni step. Distilla B* dagli ultimi 34 B con selezione meritocratica (frequenza, transizioni, correction_score). Sceglie il collasso con IFC massimo tra 3 rotazioni."
-        },
-        {
-          "key": "OUTPUT",
-          "value": "historical-db.csv, metrics-db.csv, charts-data.json, algorithm-sheet.csv, analysis.txt in out/."
-        },
-        {
-          "key": "LIMITI",
-          "value": "Dipende da xeno-qdna-alpha (deve girare prima). Modello sperimentale; non garantisce vantaggio probabilistico reale."
+      "id": "freq-classica",
+      "name": "Frequenza Classica",
+      "family": "statistici",
+      "description": "Hot numbers su finestre mobili 30/90/180/full con pesi decrescenti",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0653,
+        "expected_score": 0.105,
+        "edge": -0.0397,
+        "edge_pct": -37.8,
+        "stability": 51.77,
+        "recent_form": 39.68,
+        "sample_confidence": 98.47,
+        "confidence": 0.0653,
+        "risk": "medio",
+        "total_contests": 4261,
+        "hit_distribution": {
+          "0": 2788,
+          "1": 1287,
+          "2": 176,
+          "3": 10,
+          "4": 0,
+          "5": 0,
+          "6": 0
         }
-      ]
+      }
+    },
+    {
+      "id": "ritardo-massimo",
+      "name": "Ritardo Massimo",
+      "family": "statistici",
+      "description": "Numeri più in ritardo rispetto al loro intervallo medio storico atteso",
+      "version": "1.0.0",
+      "needs_training": false,
+      "metrics": {
+        "observed_score": 0.0679,
+        "expected_score": 0.105,
+        "edge": -0.0371,
+        "edge_pct": -35.33,
+        "stability": 49.56,
+        "recent_form": 23.81,
+        "sample_confidence": 98.46,
+        "confidence": 0.0679,
+        "risk": "medio",
+        "total_contests": 4241,
+        "hit_distribution": {
+          "0": 2760,
+          "1": 1251,
+          "2": 214,
+          "3": 15,
+          "4": 1,
+          "5": 0,
+          "6": 0
+        }
+      }
     }
   ]
 }

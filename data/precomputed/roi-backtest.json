@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-11-24T19:55:00.088123",
+  "summary": {
+    "total_spent": 79947.0,
+    "total_won": 95820.0,
+    "roi_pct": 19.85
+  },
+  "algorithms": [
+    {
+      "id": "equilibra-lepre",
+      "name": "Equilibra Lepre",
+      "contests": 4231,
+      "spent": 4231.0,
+      "won": 31295.0,
+      "roi_pct": 639.66
+    },
+    {
+      "id": "equilibra-gatto",
+      "name": "Equilibra Gatto",
+      "contests": 4231,
+      "spent": 4231.0,
+      "won": 31165.0,
+      "roi_pct": 636.59
+    },
+    {
+      "id": "feedforward-feature",
+      "name": "Feedforward Feature",
+      "contests": 4091,
+      "spent": 4091.0,
+      "won": 9780.0,
+      "roi_pct": 139.06
+    },
+    {
+      "id": "lstm-sequenziale",
+      "name": "LSTM Sequenziale",
+      "contests": 4129,
+      "spent": 4129.0,
+      "won": 2935.0,
+      "roi_pct": -28.92
+    },
+    {
+      "id": "oracle",
+      "name": "L'Oracolo",
+      "contests": 20,
+      "spent": 20.0,
+      "won": 10.0,
+      "roi_pct": -50.0
+    },
+    {
+      "id": "distribuzione",
+      "name": "Distribuzione Bilanciata",
+      "contests": 4241,
+      "spent": 4241.0,
+      "won": 1845.0,
+      "roi_pct": -56.5
+    },
+    {
+      "id": "ritardo-massimo",
+      "name": "Ritardo Massimo",
+      "contests": 4241,
+      "spent": 4241.0,
+      "won": 1745.0,
+      "roi_pct": -58.85
+    },
+    {
+      "id": "equilibra-elefante",
+      "name": "Equilibra Elefante",
+      "contests": 4231,
+      "spent": 4231.0,
+      "won": 1710.0,
+      "roi_pct": -59.58
+    },
+    {
+      "id": "markov-chain",
+      "name": "Markov Chain",
+      "contests": 4191,
+      "spent": 4191.0,
+      "won": 1655.0,
+      "roi_pct": -60.51
+    },
+    {
+      "id": "adaptive-ensemble",
+      "name": "Adaptive Ensemble",
+      "contests": 4261,
+      "spent": 4261.0,
+      "won": 1640.0,
+      "roi_pct": -61.51
+    },
+    {
+      "id": "autoencoder-anomaly",
+      "name": "Autoencoder Anomaly",
+      "contests": 4091,
+      "spent": 4091.0,
+      "won": 1405.0,
+      "roi_pct": -65.66
+    },
+    {
+      "id": "monte-carlo",
+      "name": "Monte Carlo",
+      "contests": 4241,
+      "spent": 4241.0,
+      "won": 1430.0,
+      "roi_pct": -66.28
+    },
+    {
+      "id": "astro-statistical",
+      "name": "Astro Statistical",
+      "contests": 4191,
+      "spent": 4191.0,
+      "won": 1220.0,
+      "roi_pct": -70.89
+    },
+    {
+      "id": "freq-delay-blend",
+      "name": "Freq-Delay Blend",
+      "contests": 4191,
+      "spent": 4191.0,
+      "won": 1215.0,
+      "roi_pct": -71.01
+    },
+    {
+      "id": "neural-stat-fusion",
+      "name": "Neural-Stat Fusion",
+      "contests": 4191,
+      "spent": 4191.0,
+      "won": 1185.0,
+      "roi_pct": -71.73
+    },
+    {
+      "id": "transformer-attention",
+      "name": "Transformer Attention",
+      "contests": 4241,
+      "spent": 4241.0,
+      "won": 1180.0,
+      "roi_pct": -72.18
+    },
+    {
+      "id": "bayesian-inference",
+      "name": "Bayesian Inference",
+      "contests": 4241,
+      "spent": 4241.0,
+      "won": 1135.0,
+      "roi_pct": -73.24
+    },
+    {
+      "id": "freq-classica",
+      "name": "Frequenza Classica",
+      "contests": 4261,
+      "spent": 4261.0,
+      "won": 1130.0,
+      "roi_pct": -73.48
+    },
+    {
+      "id": "coppia-correlazione",
+      "name": "Coppia Correlazione",
+      "contests": 4191,
+      "spent": 4191.0,
+      "won": 1110.0,
+      "roi_pct": -73.51
+    },
+    {
+      "id": "max-entropy",
+      "name": "Massima Entropia",
+      "contests": 4241,
+      "spent": 4241.0,
+      "won": 1030.0,
+      "roi_pct": -75.71
+    }
+  ]
+}

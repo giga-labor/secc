@@ -1,0 +1,33 @@
+{
+  "proposal": [
+    41,
+    63,
+    79,
+    85,
+    86,
+    90
+  ],
+  "generated_at": "2026-11-24T19:54:51.281986",
+  "contest_ref": 4293,
+  "metrics": {
+    "observed_score": 0.0744,
+    "expected_score": 0.105,
+    "edge": -0.0306,
+    "edge_pct": -29.14,
+    "stability": 48.15,
+    "recent_form": 39.68,
+    "sample_confidence": 98.44,
+    "confidence": 0.0744,
+    "risk": "medio",
+    "total_contests": 4129,
+    "hit_distribution": {
+      "0": 2545,
+      "1": 1348,
+      "2": 217,
+      "3": 14,
+      "4": 5,
+      "5": 0,
+      "6": 0
+    }
+  }
+}

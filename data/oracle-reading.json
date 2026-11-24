@@ -1,17 +1,24 @@
 {
-  "edition_id": "OR-2026-08-15-A",
-  "published_at": "2026-08-15T00:19:10+02:00",
+  "edition_id": "OR-2026-11-24-1954",
+  "published_at": "2026-11-24T19:54:59.867791",
   "status": "sealed",
   "contest_context": {
-    "next_seq": 4236,
-    "next_date": "17/08/2026"
+    "next_seq": 4294,
+    "next_date": "24/11/2026"
   },
   "previous_result": {
-    "concorso": 4235,
-    "hit_count": 1,
-    "hit_numbers": [90]
+    "concorso": 4293,
+    "hit_count": 0,
+    "hit_numbers": []
   },
-  "promoted_numbers": [13, 37, 50, 65, 81, 86],
-  "oracle_speech": "Io posso mostrarti la rotta, ma non percorrerla al tuo posto: i sei segni sono nascosti nel viaggio che segue e apparterranno soltanto a chi saprà riconoscere ciò che la nave conserva dopo ogni passaggio. Per il Concorso 4236, nome della traversata e non parte dell'enigma, ho riaperto la carta che tornò dal viaggio precedente con un solo sigillo ancora acceso. Su quella carta una nave nasce al centro di nove anelli, ciascuno custode di nove scintille; quando raggiunge la frattura oscura, quattro squarci nel suo scafo reclamano quattro scintille ciascuno. Per proseguire, il nocchiero paga poi tre guardiani con cinque scintille a testa, ma oltre il pedaggio dispiega una vela quantica: essa raccoglie dal vuoto una superficie pari al quadrato costruito sul lato sei e restituisce alla nave tutta l'energia racchiusa in quella figura. La rotta sembra salva, finché una tempesta di settantatré particelle attraversa il ponte e porta via altrettante scintille; nel silenzio che resta, due costellazioni gemelle, ognuna formata da dodici astri, riconoscono il segnale della nave e tornano a scortarla. Quando avrai contato ciò che vive sulla nave alla nascita, dopo la frattura, oltre il pedaggio, sotto la vela, dopo la tempesta e infine tra le due costellazioni, la profezia avrà pronunciato i suoi sei nomi senza averteli mai consegnati.",
+  "promoted_numbers": [
+    9,
+    43,
+    64,
+    68,
+    76,
+    81
+  ],
+  "oracle_speech": "Le forme geometriche si schermano come scudi di legno contro il caos primordiale; un ritmo latente pulsa dove la materia sembra indecisa tra l'attesa e l'azione.",
   "disclaimer": "Il responso e una narrazione sperimentale costruita su elaborazioni statistiche. Non prevede un'estrazione e non aumenta la probabilita matematica di vincita."
 }
