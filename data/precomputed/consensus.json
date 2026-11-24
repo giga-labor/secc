@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24 19:54:59",
+  "generated_at": "2026-11-24 20:28:03",
   "total_algorithms": 20,
   "consensus": [
     {
@@ -98,15 +98,6 @@
       ]
     },
     {
-      "number": 9,
-      "support": 3,
-      "algorithms": [
-        "feedforward-feature",
-        "oracle",
-        "ritardo-massimo"
-      ]
-    },
-    {
       "number": 55,
       "support": 3,
       "algorithms": [
@@ -121,6 +112,14 @@
       "algorithms": [
         "bayesian-inference",
         "monte-carlo"
+      ]
+    },
+    {
+      "number": 9,
+      "support": 2,
+      "algorithms": [
+        "feedforward-feature",
+        "ritardo-massimo"
       ]
     },
     {
@@ -172,14 +171,6 @@
       ]
     },
     {
-      "number": 43,
-      "support": 2,
-      "algorithms": [
-        "markov-chain",
-        "oracle"
-      ]
-    },
-    {
       "number": 47,
       "support": 2,
       "algorithms": [
@@ -193,14 +184,6 @@
       "algorithms": [
         "autoencoder-anomaly",
         "distribuzione"
-      ]
-    },
-    {
-      "number": 64,
-      "support": 2,
-      "algorithms": [
-        "autoencoder-anomaly",
-        "oracle"
       ]
     },
     {
@@ -328,6 +311,13 @@
       ]
     },
     {
+      "number": 43,
+      "support": 1,
+      "algorithms": [
+        "markov-chain"
+      ]
+    },
+    {
       "number": 45,
       "support": 1,
       "algorithms": [
@@ -377,6 +367,13 @@
       ]
     },
     {
+      "number": 64,
+      "support": 1,
+      "algorithms": [
+        "autoencoder-anomaly"
+      ]
+    },
+    {
       "number": 65,
       "support": 1,
       "algorithms": [
@@ -391,24 +388,10 @@
       ]
     },
     {
-      "number": 68,
-      "support": 1,
-      "algorithms": [
-        "oracle"
-      ]
-    },
-    {
       "number": 69,
       "support": 1,
       "algorithms": [
         "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 76,
-      "support": 1,
-      "algorithms": [
-        "oracle"
       ]
     },
     {
@@ -423,13 +406,6 @@
       "support": 1,
       "algorithms": [
         "coppia-correlazione"
-      ]
-    },
-    {
-      "number": 81,
-      "support": 1,
-      "algorithms": [
-        "oracle"
       ]
     },
     {

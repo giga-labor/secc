@@ -1,7 +1,26 @@
 {
-  "generated_at": "2026-11-24 19:54:59",
+  "generated_at": "2026-11-24 20:28:03",
   "active_algorithms_count": 20,
   "rows": [
+    {
+      "id": "oracle",
+      "title": "L'Oracolo",
+      "page": "pages/algoritmi/algs/oracle/",
+      "family": "oracle",
+      "ranking": 45.86,
+      "rankingContest": "4293",
+      "rankProfile": {
+        "edge": 0.0117,
+        "edgePercent": 11.14,
+        "observedScore": 0.1167,
+        "expectedScore": 0.105,
+        "stability": 46.64,
+        "recentForm": 55.55,
+        "sampleConfidence": 77.64,
+        "risk": "medio",
+        "label": "In osservazione"
+      }
+    },
     {
       "id": "neural-stat-fusion",
       "title": "Neural-Stat Fusion",
@@ -322,25 +341,6 @@
         "recentForm": 19.84,
         "sampleConfidence": 98.46,
         "risk": "medio",
-        "label": "In osservazione"
-      }
-    },
-    {
-      "id": "oracle",
-      "title": "L'Oracolo",
-      "page": "pages/algoritmi/algs/oracle/",
-      "family": "oracle",
-      "ranking": 35.86,
-      "rankingContest": "4293",
-      "rankProfile": {
-        "edge": -0.0383,
-        "edgePercent": -36.48,
-        "observedScore": 0.0667,
-        "expectedScore": 0.105,
-        "stability": 44.72,
-        "recentForm": 31.74,
-        "sampleConfidence": 77.64,
-        "risk": "alto",
         "label": "In osservazione"
       }
     },

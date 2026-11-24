@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T19:54:59.877932",
+  "generated_at": "2026-11-24T20:28:03.574735",
   "latest_draw": {
     "seq": 4293
   },
@@ -92,6 +92,25 @@
   ],
   "ranking_top": [
     {
+      "id": "oracle",
+      "title": "L'Oracolo",
+      "page": "pages/algoritmi/algs/oracle/",
+      "family": "oracle",
+      "ranking": 45.86,
+      "rankingContest": "4293",
+      "rankProfile": {
+        "edge": 0.0117,
+        "edgePercent": 11.14,
+        "observedScore": 0.1167,
+        "expectedScore": 0.105,
+        "stability": 46.64,
+        "recentForm": 55.55,
+        "sampleConfidence": 77.64,
+        "risk": "medio",
+        "label": "In osservazione"
+      }
+    },
+    {
       "id": "neural-stat-fusion",
       "title": "Neural-Stat Fusion",
       "page": "pages/algoritmi/algs/neural-stat-fusion/",
@@ -180,25 +199,6 @@
         "observedScore": 0.0653,
         "expectedScore": 0.105,
         "stability": 51.77,
-        "recentForm": 39.68,
-        "sampleConfidence": 98.47,
-        "risk": "medio",
-        "label": "In osservazione"
-      }
-    },
-    {
-      "id": "adaptive-ensemble",
-      "title": "Adaptive Ensemble",
-      "page": "pages/algoritmi/algs/adaptive-ensemble/",
-      "family": "ibridi",
-      "ranking": 42.07,
-      "rankingContest": "4293",
-      "rankProfile": {
-        "edge": -0.0268,
-        "edgePercent": -25.52,
-        "observedScore": 0.0782,
-        "expectedScore": 0.105,
-        "stability": 47.91,
         "recentForm": 39.68,
         "sampleConfidence": 98.47,
         "risk": "medio",

@@ -1,6 +1,40 @@
 [
   {
-    "concorso": 4235,
+    "concorso": 4237,
+    "data": "17/08/2026",
+    "estratti": [
+      18,
+      24,
+      69,
+      71,
+      73,
+      82
+    ],
+    "proposte": [
+      13,
+      37,
+      50,
+      65,
+      81,
+      86
+    ],
+    "proposte_marcate": [
+      "13",
+      "37",
+      "50",
+      "65",
+      "81",
+      "86"
+    ],
+    "indovinati": [],
+    "hit_count": 0,
+    "fonte_verifica": "archives/draws/draws.csv",
+    "edizione": "OR-2026-08-15-A",
+    "salt": null,
+    "sigillo_sha256": null
+  },
+  {
+    "concorso": 4236,
     "data": "14/08/2026",
     "estratti": [
       9,
@@ -30,6 +64,9 @@
       90
     ],
     "hit_count": 1,
-    "fonte_verifica": "archives/draws/draws.csv"
+    "fonte_verifica": "archives/draws/draws.csv",
+    "edizione": "archivio agosto",
+    "salt": null,
+    "sigillo_sha256": null
   }
 ]
