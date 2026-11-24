@@ -7,8 +7,8 @@
     77,
     86
   ],
-  "generated_at": "2026-11-24T20:44:45.186059",
-  "contest_ref": 4293,
+  "generated_at": "2026-11-24T21:10:51.060216",
+  "contest_ref": 4294,
   "metrics": {
     "observed_score": 0.1485,
     "expected_score": 0.105,
@@ -19,9 +19,9 @@
     "sample_confidence": 98.44,
     "confidence": 0.1485,
     "risk": "alto",
-    "total_contests": 4091,
+    "total_contests": 4092,
     "hit_distribution": {
-      "0": 1477,
+      "0": 1478,
       "1": 1720,
       "2": 766,
       "3": 118,

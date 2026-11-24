@@ -1,5 +1,5 @@
 === AUTOENCODER ANOMALY ===
-Generato: 24/11/2026 20:44
+Generato: 24/11/2026 21:10
 Concorso di riferimento: 4293
 Sestina proposta: 4 - 24 - 47 - 61 - 64 - 89
 
@@ -17,7 +17,7 @@ Logica contrarian: numeri con errore di ricostruzione più alto
 = numeri che il modello non si aspettava — candidati 'sorpresa'.
 
 Top 10 anomaly score:
-  24, 47, 4, 89, 61, 64, 11, 52, 28, 10
+  24, 47, 4, 89, 61, 64, 11, 52, 10, 28
 
 Dettaglio sestina:
    4 → anomaly score = 0.10744
@@ -26,6 +26,6 @@ Dettaglio sestina:
   61 → anomaly score = 0.10085
   64 → anomaly score = 0.08816
   89 → anomaly score = 0.10174
-Estrazioni nel training: 4293
+Estrazioni nel training: 4294
 
 Generato automaticamente da ControlChaos Admin v4

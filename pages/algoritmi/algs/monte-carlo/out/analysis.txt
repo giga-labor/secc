@@ -1,14 +1,14 @@
 === MONTE CARLO ===
-Generato: 24/11/2026 20:44
+Generato: 24/11/2026 21:10
 Concorso di riferimento: 4293
-Sestina proposta: 2 - 8 - 18 - 24 - 28 - 85
+Sestina proposta: 2 - 7 - 8 - 18 - 28 - 85
 
 --- METRICHE ---
 Score osservato:  0.0650
 Score atteso:     0.1050
-Edge:             -0.0401 (-38.18%)
+Edge:             -0.0400 (-38.09%)
 Stabilità:        51.6/100
-Forma recente:    23.8/100
+Forma recente:    27.8/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
@@ -17,15 +17,15 @@ Simulazioni eseguite: 100,000
 Finestra distribuzione empirica: 180 estrazioni
 
 Top 10 più frequenti nelle simulazioni:
-  28, 18, 85, 2, 8, 24, 7, 41, 12, 56
+  28, 18, 85, 2, 8, 7, 41, 12, 56, 24
 
 Dettaglio sestina:
    2 → selezionato in 9953 sim. (9.95%)
+   7 → selezionato in 9109 sim. (9.11%)
    8 → selezionato in 9779 sim. (9.78%)
-  18 → selezionato in 11019 sim. (11.02%)
-  24 → selezionato in 9130 sim. (9.13%)
-  28 → selezionato in 11078 sim. (11.08%)
-  85 → selezionato in 10695 sim. (10.70%)
-Estrazioni analizzate: 4293
+  18 → selezionato in 11011 sim. (11.01%)
+  28 → selezionato in 11577 sim. (11.58%)
+  85 → selezionato in 10753 sim. (10.75%)
+Estrazioni analizzate: 4294
 
 Generato automaticamente da ControlChaos Admin v4

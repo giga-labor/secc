@@ -1,24 +1,7 @@
 {
-  "generated_at": "2026-11-24 20:46:03",
+  "generated_at": "2026-11-24 21:11:00",
   "total_algorithms": 20,
   "consensus": [
-    {
-      "number": 18,
-      "support": 11,
-      "algorithms": [
-        "bayesian-inference",
-        "markov-chain",
-        "max-entropy",
-        "monte-carlo",
-        "adaptive-ensemble",
-        "astro-statistical",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "distribuzione",
-        "equilibra-gatto",
-        "freq-classica"
-      ]
-    },
     {
       "number": 85,
       "support": 11,
@@ -37,16 +20,33 @@
       ]
     },
     {
-      "number": 41,
-      "support": 8,
+      "number": 28,
+      "support": 10,
       "algorithms": [
         "bayesian-inference",
+        "max-entropy",
+        "monte-carlo",
+        "adaptive-ensemble",
+        "astro-statistical",
+        "freq-delay-blend",
+        "neural-stat-fusion",
+        "transformer-attention",
+        "distribuzione",
+        "freq-classica"
+      ]
+    },
+    {
+      "number": 18,
+      "support": 9,
+      "algorithms": [
+        "bayesian-inference",
+        "markov-chain",
+        "max-entropy",
+        "monte-carlo",
         "adaptive-ensemble",
         "astro-statistical",
         "neural-stat-fusion",
-        "lstm-sequenziale",
-        "transformer-attention",
-        "distribuzione",
+        "equilibra-gatto",
         "freq-classica"
       ]
     },
@@ -65,28 +65,27 @@
       ]
     },
     {
-      "number": 28,
+      "number": 41,
       "support": 7,
       "algorithms": [
         "bayesian-inference",
-        "markov-chain",
-        "max-entropy",
-        "monte-carlo",
         "adaptive-ensemble",
-        "freq-delay-blend",
+        "astro-statistical",
+        "neural-stat-fusion",
+        "transformer-attention",
+        "distribuzione",
         "freq-classica"
       ]
     },
     {
-      "number": 56,
-      "support": 6,
+      "number": 12,
+      "support": 5,
       "algorithms": [
+        "markov-chain",
+        "max-entropy",
         "adaptive-ensemble",
-        "freq-delay-blend",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "equilibra-lepre",
-        "freq-classica"
+        "astro-statistical",
+        "equilibra-lepre"
       ]
     },
     {
@@ -100,20 +99,21 @@
       ]
     },
     {
-      "number": 31,
+      "number": 8,
       "support": 3,
       "algorithms": [
-        "feedforward-feature",
-        "coppia-correlazione",
-        "equilibra-gatto"
+        "bayesian-inference",
+        "monte-carlo",
+        "equilibra-lepre"
       ]
     },
     {
-      "number": 8,
-      "support": 2,
+      "number": 61,
+      "support": 3,
       "algorithms": [
-        "bayesian-inference",
-        "monte-carlo"
+        "autoencoder-anomaly",
+        "distribuzione",
+        "equilibra-gatto"
       ]
     },
     {
@@ -125,35 +125,11 @@
       ]
     },
     {
-      "number": 12,
+      "number": 31,
       "support": 2,
       "algorithms": [
-        "max-entropy",
-        "astro-statistical"
-      ]
-    },
-    {
-      "number": 19,
-      "support": 2,
-      "algorithms": [
-        "markov-chain",
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 20,
-      "support": 2,
-      "algorithms": [
-        "freq-delay-blend",
-        "equilibra-elefante"
-      ]
-    },
-    {
-      "number": 24,
-      "support": 2,
-      "algorithms": [
-        "monte-carlo",
-        "autoencoder-anomaly"
+        "feedforward-feature",
+        "coppia-correlazione"
       ]
     },
     {
@@ -165,27 +141,51 @@
       ]
     },
     {
-      "number": 55,
+      "number": 50,
       "support": 2,
       "algorithms": [
         "transformer-attention",
-        "coppia-correlazione"
+        "freq-classica"
       ]
     },
     {
-      "number": 61,
+      "number": 63,
+      "support": 2,
+      "algorithms": [
+        "lstm-sequenziale",
+        "equilibra-elefante"
+      ]
+    },
+    {
+      "number": 64,
       "support": 2,
       "algorithms": [
         "autoencoder-anomaly",
-        "distribuzione"
+        "equilibra-lepre"
       ]
     },
     {
-      "number": 77,
+      "number": 71,
       "support": 2,
       "algorithms": [
-        "astro-statistical",
-        "feedforward-feature"
+        "lstm-sequenziale",
+        "equilibra-gatto"
+      ]
+    },
+    {
+      "number": 74,
+      "support": 2,
+      "algorithms": [
+        "freq-delay-blend",
+        "transformer-attention"
+      ]
+    },
+    {
+      "number": 75,
+      "support": 2,
+      "algorithms": [
+        "lstm-sequenziale",
+        "equilibra-elefante"
       ]
     },
     {
@@ -197,6 +197,14 @@
       ]
     },
     {
+      "number": 80,
+      "support": 2,
+      "algorithms": [
+        "coppia-correlazione",
+        "equilibra-gatto"
+      ]
+    },
+    {
       "number": 86,
       "support": 2,
       "algorithms": [
@@ -205,18 +213,18 @@
       ]
     },
     {
-      "number": 90,
+      "number": 88,
       "support": 2,
       "algorithms": [
-        "lstm-sequenziale",
-        "equilibra-lepre"
+        "markov-chain",
+        "equilibra-gatto"
       ]
     },
     {
-      "number": 3,
+      "number": 1,
       "support": 1,
       "algorithms": [
-        "markov-chain"
+        "equilibra-lepre"
       ]
     },
     {
@@ -227,6 +235,27 @@
       ]
     },
     {
+      "number": 5,
+      "support": 1,
+      "algorithms": [
+        "equilibra-lepre"
+      ]
+    },
+    {
+      "number": 6,
+      "support": 1,
+      "algorithms": [
+        "equilibra-elefante"
+      ]
+    },
+    {
+      "number": 7,
+      "support": 1,
+      "algorithms": [
+        "monte-carlo"
+      ]
+    },
+    {
       "number": 15,
       "support": 1,
       "algorithms": [
@@ -234,7 +263,7 @@
       ]
     },
     {
-      "number": 16,
+      "number": 17,
       "support": 1,
       "algorithms": [
         "markov-chain"
@@ -248,6 +277,20 @@
       ]
     },
     {
+      "number": 24,
+      "support": 1,
+      "algorithms": [
+        "autoencoder-anomaly"
+      ]
+    },
+    {
+      "number": 25,
+      "support": 1,
+      "algorithms": [
+        "transformer-attention"
+      ]
+    },
+    {
       "number": 27,
       "support": 1,
       "algorithms": [
@@ -255,17 +298,24 @@
       ]
     },
     {
-      "number": 32,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
-      ]
-    },
-    {
-      "number": 34,
+      "number": 30,
       "support": 1,
       "algorithms": [
         "equilibra-elefante"
+      ]
+    },
+    {
+      "number": 33,
+      "support": 1,
+      "algorithms": [
+        "markov-chain"
+      ]
+    },
+    {
+      "number": 35,
+      "support": 1,
+      "algorithms": [
+        "equilibra-gatto"
       ]
     },
     {
@@ -276,10 +326,10 @@
       ]
     },
     {
-      "number": 38,
+      "number": 37,
       "support": 1,
       "algorithms": [
-        "transformer-attention"
+        "equilibra-elefante"
       ]
     },
     {
@@ -297,41 +347,6 @@
       ]
     },
     {
-      "number": 43,
-      "support": 1,
-      "algorithms": [
-        "markov-chain"
-      ]
-    },
-    {
-      "number": 45,
-      "support": 1,
-      "algorithms": [
-        "equilibra-elefante"
-      ]
-    },
-    {
-      "number": 46,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 48,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 51,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
-      ]
-    },
-    {
       "number": 52,
       "support": 1,
       "algorithms": [
@@ -339,10 +354,17 @@
       ]
     },
     {
-      "number": 57,
+      "number": 55,
       "support": 1,
       "algorithms": [
-        "equilibra-lepre"
+        "coppia-correlazione"
+      ]
+    },
+    {
+      "number": 56,
+      "support": 1,
+      "algorithms": [
+        "freq-delay-blend"
       ]
     },
     {
@@ -360,49 +382,21 @@
       ]
     },
     {
-      "number": 63,
+      "number": 72,
       "support": 1,
       "algorithms": [
-        "lstm-sequenziale"
+        "markov-chain"
       ]
     },
     {
-      "number": 64,
+      "number": 77,
       "support": 1,
       "algorithms": [
-        "autoencoder-anomaly"
+        "feedforward-feature"
       ]
     },
     {
-      "number": 65,
-      "support": 1,
-      "algorithms": [
-        "equilibra-elefante"
-      ]
-    },
-    {
-      "number": 67,
-      "support": 1,
-      "algorithms": [
-        "equilibra-elefante"
-      ]
-    },
-    {
-      "number": 68,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 80,
-      "support": 1,
-      "algorithms": [
-        "coppia-correlazione"
-      ]
-    },
-    {
-      "number": 83,
+      "number": 84,
       "support": 1,
       "algorithms": [
         "equilibra-lepre"

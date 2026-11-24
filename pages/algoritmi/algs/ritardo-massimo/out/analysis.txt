@@ -1,5 +1,5 @@
 === RITARDO MASSIMO ===
-Generato: 24/11/2026 20:44
+Generato: 24/11/2026 21:10
 Concorso di riferimento: 4293
 Sestina proposta: 9 - 15 - 27 - 36 - 58 - 87
 
@@ -14,17 +14,17 @@ Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
 Top 10 per score ritardo/attesa:
-  87, 58, 9, 27, 36, 15, 6, 8, 7, 39
+  87, 58, 9, 27, 15, 36, 6, 8, 7, 39
 
 Dettaglio sestina proposta:
-   9 → score ritardo: 3.598
-  15 → score ritardo: 2.979
-  27 → score ritardo: 3.002
-  36 → score ritardo: 2.982
-  58 → score ritardo: 4.065
-  87 → score ritardo: 5.269
+   9 → score ritardo: 3.660
+  15 → score ritardo: 3.043
+  27 → score ritardo: 3.062
+  36 → score ritardo: 3.040
+  58 → score ritardo: 4.129
+  87 → score ritardo: 5.335
 
 Score > 1.0 = numero in ritardo rispetto alla sua frequenza attesa.
-Estrazioni analizzate: 4293
+Estrazioni analizzate: 4294
 
 Generato automaticamente da ControlChaos Admin v4

@@ -1,14 +1,14 @@
 {
   "proposal": [
-    41,
     63,
+    71,
+    75,
     79,
     85,
-    86,
-    90
+    86
   ],
-  "generated_at": "2026-11-24T20:44:45.177809",
-  "contest_ref": 4293,
+  "generated_at": "2026-11-24T21:10:51.050928",
+  "contest_ref": 4294,
   "metrics": {
     "observed_score": 0.0744,
     "expected_score": 0.105,
@@ -19,9 +19,9 @@
     "sample_confidence": 98.44,
     "confidence": 0.0744,
     "risk": "medio",
-    "total_contests": 4129,
+    "total_contests": 4130,
     "hit_distribution": {
-      "0": 2545,
+      "0": 2546,
       "1": 1348,
       "2": 217,
       "3": 14,

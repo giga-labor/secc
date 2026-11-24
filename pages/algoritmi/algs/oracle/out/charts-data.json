@@ -1,6 +1,6 @@
 {
   "hits_distribution": {
-    "0": 8,
+    "0": 9,
     "1": 10,
     "2": 2,
     "3": 0,
@@ -88,6 +88,10 @@
     {
       "contest": 4293,
       "hits": 1
+    },
+    {
+      "contest": 4294,
+      "hits": 0
     }
   ],
   "metrics_series": [
@@ -195,6 +199,11 @@
       "contest": 4293,
       "stability": 46.64,
       "confidence": 0.1167
+    },
+    {
+      "contest": 4294,
+      "stability": 46.47,
+      "confidence": 0.1111
     }
   ]
 }

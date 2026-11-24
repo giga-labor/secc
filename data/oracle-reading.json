@@ -1,17 +1,17 @@
 {
-  "edition_id": "OR-2026-11-24-1954",
-  "published_at": "2026-11-24T19:54:59.867791",
+  "edition_id": "OR-2026-11-24-2111",
+  "published_at": "2026-11-24T21:11:00.255807",
   "status": "sealed",
   "contest_context": {
-    "next_seq": 4294,
-    "next_date": "24/11/2026"
+    "next_seq": 4295,
+    "next_date": "26/11/2026"
   },
   "promoted_numbers": [],
-  "oracle_speech": "Le forme geometriche si schermano come scudi di legno contro il caos primordiale; un ritmo latente pulsa dove la materia sembra indecisa tra l'attesa e l'azione.",
+  "oracle_speech": "Le onde di memoria ricalcano le tracce delle perdite passate cercando un punto di equilibrio fragile tra basso e alto. Un'ombra che si allunga lentamente suggerisce che ciò che è stato dimenticato ha bisogno di essere ricordato per chiudere il cerchio. La tensione pende sospesa verso la fine, come se una figura tardiva volesse interrompere lo scorrere ordinato del tempo.",
   "disclaimer": "Il responso e una narrazione sperimentale costruita su elaborazioni statistiche. Non prevede un'estrazione e non aumenta la probabilita matematica di vincita.",
-  "sigillo_sha256": "bf6889ecc162c78a16d04f757231915bef7445dda0c52ab79827959f13d840bd",
+  "sigillo_sha256": "be60783ac9fbf07cd06c23ed4bea5c3a8839436e6bed529ab377545136aae95a",
   "previous_result": {
-    "concorso": 4237,
+    "concorso": 4294,
     "hit_count": 0,
     "hit_numbers": []
   }

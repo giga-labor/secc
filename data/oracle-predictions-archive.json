@@ -1,5 +1,39 @@
 [
   {
+    "concorso": 4294,
+    "data": "24/11/2026",
+    "estratti": [
+      19,
+      25,
+      28,
+      45,
+      50,
+      74
+    ],
+    "proposte": [
+      9,
+      43,
+      64,
+      68,
+      76,
+      81
+    ],
+    "proposte_marcate": [
+      "9",
+      "43",
+      "64",
+      "68",
+      "76",
+      "81"
+    ],
+    "indovinati": [],
+    "hit_count": 0,
+    "fonte_verifica": "archives/draws/draws.csv",
+    "edizione": "OR-2026-11-24-1954",
+    "salt": "7507a8b6f7f9c9c9",
+    "sigillo_sha256": "bf6889ecc162c78a16d04f757231915bef7445dda0c52ab79827959f13d840bd"
+  },
+  {
     "concorso": 4237,
     "data": "17/08/2026",
     "estratti": [

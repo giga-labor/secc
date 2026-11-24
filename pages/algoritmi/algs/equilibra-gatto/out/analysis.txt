@@ -1,6 +1,6 @@
 EQUILIBRA — ramo GATTO
-Concorsi processati: 4293 (finestra recente: 48/48)
-Posizioni-obiettivo mu correnti: [10.3, 14.8, 22.3, 37.4, 70.1, 82.0]
-Sestina proposta: [18, 19, 31, 46, 48, 68]
+Concorsi processati: 4294 (finestra recente: 48/48)
+Posizioni-obiettivo mu correnti: [10.2, 21.5, 28.2, 43.3, 70.7, 83.2]
+Sestina proposta: [18, 35, 61, 71, 80, 88]
 Score: osservato=0.0667 atteso=0.105 edge=-36.47% stabilita=51.02 rischio=medio
 Nota: modello euristico riproducibile — non altera la probabilita' matematica reale delle estrazioni.
