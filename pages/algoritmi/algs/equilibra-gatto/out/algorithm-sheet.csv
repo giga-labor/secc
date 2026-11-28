@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale)."
+SCOPO,"EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale)."
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale)."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4234 concorsi simulati l'edge rispetto al caso è -36.5%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

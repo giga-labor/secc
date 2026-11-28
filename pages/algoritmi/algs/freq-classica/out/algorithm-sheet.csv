@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Hot numbers su finestre mobili 30/90/180/full con pesi decrescenti
+SCOPO,Hot numbers su finestre mobili 30/90/180/full con pesi decrescenti
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"Frequenza storica dei numeri su finestre mobili (30/90/180/full). Propone i numeri con frequenza relativa più alta, pesando le finestre recenti maggiormente."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Ignora ritardi e correlazioni tra numeri.

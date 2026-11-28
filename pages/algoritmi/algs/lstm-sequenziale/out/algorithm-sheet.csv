@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero
+SCOPO,Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,LSTM addestrata sulle sequenze di estrazioni ordinate. Input: ultime N estrazioni come vettori one-hot. Output: probabilità per ogni numero 1-90. Propone i 6 con probabilità più alta.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Richiede molti dati; lotto è quasi i.i.d.

@@ -7,7 +7,7 @@
     56,
     85
   ],
-  "generated_at": "2026-11-28T17:08:23.540604",
+  "generated_at": "2026-11-28T17:24:25.100603",
   "contest_ref": 4296,
   "metrics": {
     "observed_score": 0.065,
@@ -31,7 +31,8 @@
     },
     "draws_covered": 4244,
     "avg_hits": 0.39,
-    "hit_rate_gte_2": 4.4
+    "hit_rate_gte_2": 4.4,
+    "best_streak": 8
   },
   "last_seq": 4296
 }

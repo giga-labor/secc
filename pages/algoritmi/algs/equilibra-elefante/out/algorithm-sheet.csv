@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"EQUILIBRA, ramo memoria lunga: graduatoria per spinta (frequenza storica+ultime 48 vs teorica 1/15), posizioni-obiettivo mu come media cumulativa di tutte le estrazioni osservate."
+SCOPO,"EQUILIBRA, ramo memoria lunga: graduatoria per spinta (frequenza storica+ultime 48 vs teorica 1/15), posizioni-obiettivo mu come media cumulativa di tutte le estrazioni osservate."
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"EQUILIBRA, ramo memoria lunga: graduatoria per spinta (frequenza storica+ultime 48 vs teorica 1/15), posizioni-obiettivo mu come media cumulativa di tutte le estrazioni osservate."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4234 concorsi simulati l'edge rispetto al caso è -37.3%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

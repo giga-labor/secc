@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente
+SCOPO,Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Score combinato: α × score_frequenza + (1-α) × score_ritardo. Il peso α si adatta automaticamente in base alla performance recente delle due componenti.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4194 concorsi simulati l'edge rispetto al caso è -37.7%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

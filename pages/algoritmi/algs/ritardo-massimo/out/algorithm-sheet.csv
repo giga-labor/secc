@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Numeri più in ritardo rispetto al loro intervallo medio storico atteso
+SCOPO,Numeri più in ritardo rispetto al loro intervallo medio storico atteso
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"Seleziona i numeri con il ritardo maggiore rispetto alla loro frequenza attesa (ritardo / media_intervallo). Non i più assenti in assoluto, ma i più ""in ritardo"" rispetto al loro ritmo storico."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Fallacia del giocatore se non bilanciato.

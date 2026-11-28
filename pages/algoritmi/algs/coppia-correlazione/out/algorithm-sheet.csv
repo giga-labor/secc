@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte
+SCOPO,Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Calcola le coppie e terzine di numeri che appaiono insieme più frequentemente del caso. Costruisce la sestina partendo dal nucleo di correlazione più forte.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Correlazioni spurie su campioni piccoli.

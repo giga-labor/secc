@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-28T17:08:25",
+  "generated_at": "2026-11-28T17:24:27",
   "count": 20,
   "algorithms": [
     {
       "slug": "markov-chain",
       "title": "Markov Chain",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -17,7 +17,9 @@
         78,
         80
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 8
+      },
       "explanation": [
         "Probabilità di transizione tra numeri — catena di Markov sullo storico"
       ],
@@ -39,7 +41,7 @@
       "slug": "transformer-attention",
       "title": "Transformer Attention",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -50,7 +52,9 @@
         82,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 8
+      },
       "explanation": [
         "Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale"
       ],
@@ -72,7 +76,7 @@
       "slug": "neural-stat-fusion",
       "title": "Neural-Stat Fusion",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -83,7 +87,9 @@
         82,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 8
+      },
       "explanation": [
         "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente"
       ],
@@ -105,18 +111,20 @@
       "slug": "adaptive-ensemble",
       "title": "Adaptive Ensemble",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
-        2,
         28,
         41,
         56,
+        59,
         82,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 9
+      },
       "explanation": [
         "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo"
       ],
@@ -138,7 +146,7 @@
       "slug": "max-entropy",
       "title": "Massima Entropia",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -149,7 +157,9 @@
         82,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 8
+      },
       "explanation": [
         "Distribuzione a entropia massima compatibile con i vincoli osservati — least bias"
       ],
@@ -171,7 +181,7 @@
       "slug": "freq-classica",
       "title": "Frequenza Classica",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -182,7 +192,9 @@
         82,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 7
+      },
       "explanation": [
         "Hot numbers su finestre mobili 30/90/180/full con pesi decrescenti"
       ],
@@ -204,7 +216,7 @@
       "slug": "bayesian-inference",
       "title": "Bayesian Inference",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -215,7 +227,9 @@
         28,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 9
+      },
       "explanation": [
         "Prior uniforme aggiornato con estrazioni recenti — posterior pesata temporalmente"
       ],
@@ -237,11 +251,13 @@
       "slug": "oracle",
       "title": "L'Oracolo",
       "family": "oracle",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 5
+      },
       "explanation": [
         "Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria"
       ],
@@ -264,7 +280,7 @@
       "slug": "lstm-sequenziale",
       "title": "LSTM Sequenziale",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -275,7 +291,9 @@
         85,
         86
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 8
+      },
       "explanation": [
         "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero"
       ],
@@ -297,7 +315,7 @@
       "slug": "distribuzione",
       "title": "Distribuzione Bilanciata",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -308,7 +326,9 @@
         61,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 7
+      },
       "explanation": [
         "Sestina bilanciata per range, parità e somma target storica"
       ],
@@ -330,18 +350,20 @@
       "slug": "equilibra-lepre",
       "title": "Equilibra Lepre",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
-        12,
-        14,
-        31,
-        50,
-        70,
-        76
+        20,
+        34,
+        56,
+        59,
+        69,
+        74
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 7
+      },
       "explanation": [
         "EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso)."
       ],
@@ -363,7 +385,7 @@
       "slug": "autoencoder-anomaly",
       "title": "Autoencoder Anomaly",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -374,7 +396,9 @@
         64,
         89
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 7
+      },
       "explanation": [
         "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo"
       ],
@@ -396,7 +420,7 @@
       "slug": "coppia-correlazione",
       "title": "Coppia Correlazione",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -407,7 +431,9 @@
         80,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 7
+      },
       "explanation": [
         "Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte"
       ],
@@ -429,7 +455,7 @@
       "slug": "monte-carlo",
       "title": "Monte Carlo",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -440,7 +466,9 @@
         56,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 8
+      },
       "explanation": [
         "Simulazione probabilistica su N scenari — frequenza empirica campionata"
       ],
@@ -462,7 +490,7 @@
       "slug": "astro-statistical",
       "title": "Astro Statistical",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -473,7 +501,9 @@
         78,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 9
+      },
       "explanation": [
         "Fase lunare + correlazioni storiche per fase + frequenza classica"
       ],
@@ -495,7 +525,7 @@
       "slug": "equilibra-elefante",
       "title": "Equilibra Elefante",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -506,7 +536,9 @@
         62,
         83
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 7
+      },
       "explanation": [
         "EQUILIBRA, ramo memoria lunga: graduatoria per spinta (frequenza storica+ultime 48 vs teorica 1/15), posizioni-obiettivo mu come media cumulativa di tutte le estrazioni osservate."
       ],
@@ -528,7 +560,7 @@
       "slug": "ritardo-massimo",
       "title": "Ritardo Massimo",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -539,7 +571,9 @@
         27,
         36
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 10
+      },
       "explanation": [
         "Numeri più in ritardo rispetto al loro intervallo medio storico atteso"
       ],
@@ -561,7 +595,7 @@
       "slug": "freq-delay-blend",
       "title": "Freq-Delay Blend",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -572,7 +606,9 @@
         82,
         85
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 6
+      },
       "explanation": [
         "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente"
       ],
@@ -594,7 +630,7 @@
       "slug": "feedforward-feature",
       "title": "Feedforward Feature",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -605,7 +641,9 @@
         59,
         86
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 13
+      },
       "explanation": [
         "MLP su feature engineered per numero — frequenze, ritardi, parità, range"
       ],
@@ -627,18 +665,20 @@
       "slug": "equilibra-gatto",
       "title": "Equilibra Gatto",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:08:25",
+      "generated_at": "2026-11-28T17:24:27",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
-        32,
-        44,
-        68,
-        74,
-        75,
-        83
+        5,
+        6,
+        49,
+        54,
+        82,
+        88
       ],
-      "metrics": {},
+      "metrics": {
+        "best_streak": 6
+      },
       "explanation": [
         "EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale)."
       ],

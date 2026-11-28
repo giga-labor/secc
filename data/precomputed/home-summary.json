@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:08:25.652768",
+  "generated_at": "2026-11-28T17:24:27.514186",
   "latest_draw": {
     "seq": 4296
   },
@@ -40,7 +40,7 @@
     },
     {
       "number": 56,
-      "support": 8,
+      "support": 9,
       "algorithms": [
         "monte-carlo",
         "adaptive-ensemble",
@@ -49,6 +49,20 @@
         "neural-stat-fusion",
         "transformer-attention",
         "distribuzione",
+        "equilibra-lepre",
+        "freq-classica"
+      ]
+    },
+    {
+      "number": 82,
+      "support": 7,
+      "algorithms": [
+        "max-entropy",
+        "adaptive-ensemble",
+        "freq-delay-blend",
+        "neural-stat-fusion",
+        "transformer-attention",
+        "equilibra-gatto",
         "freq-classica"
       ]
     },
@@ -66,25 +80,12 @@
       ]
     },
     {
-      "number": 82,
-      "support": 6,
-      "algorithms": [
-        "max-entropy",
-        "adaptive-ensemble",
-        "freq-delay-blend",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "freq-classica"
-      ]
-    },
-    {
       "number": 2,
-      "support": 5,
+      "support": 4,
       "algorithms": [
         "bayesian-inference",
         "max-entropy",
         "monte-carlo",
-        "adaptive-ensemble",
         "distribuzione"
       ]
     }

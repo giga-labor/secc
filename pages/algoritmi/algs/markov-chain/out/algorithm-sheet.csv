@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Probabilità di transizione tra numeri — catena di Markov sullo storico
+SCOPO,Probabilità di transizione tra numeri — catena di Markov sullo storico
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Matrice di transizione 90x90 — probabilità che il numero j esca dato che i è uscito nella stessa estrazione. Campiona 6 numeri seguendo la catena di transizione più probabile.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4194 concorsi simulati l'edge rispetto al caso è -37.5%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

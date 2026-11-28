@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"Sestina bilanciata per range, parità e somma target storica"
+SCOPO,"Sestina bilanciata per range, parità e somma target storica"
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"Costruisce la sestina garantendo copertura bilanciata: range (1-15, 16-30, 31-45, 46-60, 61-75, 76-90), parità (pari/dispari), somma target (intorno alla media storica delle somme)."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Non usa frequenza o ritardo.

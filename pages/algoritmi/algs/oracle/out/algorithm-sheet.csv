@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria"
+SCOPO,"Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria"
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria"
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 23 concorsi simulati l'edge rispetto al caso è -3.4%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

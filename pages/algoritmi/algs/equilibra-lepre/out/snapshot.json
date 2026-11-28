@@ -1,13 +1,13 @@
 {
   "proposal": [
-    12,
-    14,
-    31,
-    50,
-    70,
-    76
+    20,
+    34,
+    56,
+    59,
+    69,
+    74
   ],
-  "generated_at": "2026-11-28T17:08:25.063530",
+  "generated_at": "2026-11-28T17:24:26.983786",
   "contest_ref": 4296,
   "metrics": {
     "observed_score": 0.0659,
@@ -31,7 +31,8 @@
     },
     "draws_covered": 4234,
     "avg_hits": 0.4,
-    "hit_rate_gte_2": 5.0
+    "hit_rate_gte_2": 5.0,
+    "best_streak": 7
   },
   "last_seq": 4296
 }

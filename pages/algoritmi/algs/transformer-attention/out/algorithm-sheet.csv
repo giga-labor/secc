@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale
+SCOPO,Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Meccanismo di attention su finestra recente di estrazioni. Pesa le estrazioni passate in modo differenziale per predire la prossima.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4244 concorsi simulati l'edge rispetto al caso è -38.1%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

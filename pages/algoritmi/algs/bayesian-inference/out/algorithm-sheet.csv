@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Prior uniforme aggiornato con estrazioni recenti — posterior pesata temporalmente
+SCOPO,Prior uniforme aggiornato con estrazioni recenti — posterior pesata temporalmente
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Prior uniforme aggiornato con le estrazioni recenti tramite inferenza bayesiana. La posterior determina le probabilità di ogni numero. Pesatura temporale decrescente.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4244 concorsi simulati l'edge rispetto al caso è -38.2%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28 17:08:29",
+  "generated_at": "2026-11-28 17:24:32",
   "ok": true,
   "active_algorithms": 20,
   "ranking_rows": 20,
@@ -9,62 +9,62 @@
     "data/modules-manifest.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:28"
+      "generated_at": "2026-11-28 17:24:29"
     },
     "data/cards-index.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:29"
+      "generated_at": "2026-11-28 17:24:31"
     },
     "data/jackpot.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:28"
+      "generated_at": "2026-11-28 17:24:31"
     },
     "data/next-draw.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:29"
+      "generated_at": "2026-11-28 17:24:31"
     },
     "data/numeri-stats.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:28"
+      "generated_at": "2026-11-28 17:24:31"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:25"
+      "generated_at": "2026-11-28 17:24:27"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28T17:08:25"
+      "generated_at": "2026-11-28T17:24:27"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28T17:08:28.021687"
+      "generated_at": "2026-11-28T17:24:29.920078"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28T17:08:25"
+      "generated_at": "2026-11-28T17:24:27"
     },
     "data/precomputed/roi-backtest.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28T17:08:28.016805"
+      "generated_at": "2026-11-28T17:24:29.915312"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28 17:08:25"
+      "generated_at": "2026-11-28 17:24:27"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-11-28T17:08:25.652768"
+      "generated_at": "2026-11-28T17:24:27.514186"
     }
   },
   "errors": [],

@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo
+SCOPO,Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Meta-algoritmo. Legge i snapshot.json di tutti gli altri algoritmi attivi e li combina pesando ciascuno per il suo ranking corrente (score normalizzato). Si adatta automaticamente se entrano o escono algoritmi.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4264 concorsi simulati l'edge rispetto al caso è -25.5%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso)."
+SCOPO,"EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso)."
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso)."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4234 concorsi simulati l'edge rispetto al caso è -37.2%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

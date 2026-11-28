@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo
+SCOPO,Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"Autoencoder addestrato sulle estrazioni storiche. I numeri con errore di ricostruzione più alto (anomali rispetto al pattern apppreso) vengono proposti come ""sorprese attese""."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4094 concorsi simulati l'edge rispetto al caso è -34.1%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Simulazione probabilistica su N scenari — frequenza empirica campionata
+SCOPO,Simulazione probabilistica su N scenari — frequenza empirica campionata
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Simula M estrazioni future campionando dalla distribuzione storica empirica. I 6 numeri più frequenti nelle simulazioni vengono proposti.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4244 concorsi simulati l'edge rispetto al caso è -38.1%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

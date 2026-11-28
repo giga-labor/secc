@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28 16:57:34",
+  "updated_at": "2026-11-28 17:08:30",
   "version": "04.00.000",
   "enabled": true,
   "severity": "ok",
@@ -11,127 +11,127 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-11-28 16:57:34",
+    "last_push_at": "2026-11-28 17:08:30",
     "error": null
   },
   "feed": [
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841055",
-      "message": "bayesian-inference: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-28T16:57:34.841059",
+      "ts": "2026-11-28T17:08:30.936639",
       "message": "markov-chain: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841061",
+      "ts": "2026-11-28T17:08:30.936644",
+      "message": "bayesian-inference: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T17:08:30.936646",
       "message": "max-entropy: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841062",
-      "message": "monte-carlo: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-28T16:57:34.841063",
-      "message": "astro-statistical: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-28T16:57:34.841065",
+      "ts": "2026-11-28T17:08:30.936648",
       "message": "neural-stat-fusion: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841067",
+      "ts": "2026-11-28T17:08:30.936650",
+      "message": "monte-carlo: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T17:08:30.936651",
       "message": "freq-delay-blend: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841069",
-      "message": "feedforward-feature: aggiornato",
+      "ts": "2026-11-28T17:08:30.936653",
+      "message": "astro-statistical: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841070",
-      "message": "lstm-sequenziale: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-28T16:57:34.841072",
-      "message": "coppia-correlazione: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-28T16:57:34.841073",
-      "message": "distribuzione: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-28T16:57:34.841074",
+      "ts": "2026-11-28T17:08:30.936654",
       "message": "transformer-attention: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841076",
+      "ts": "2026-11-28T17:08:30.936656",
+      "message": "coppia-correlazione: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T17:08:30.936657",
+      "message": "distribuzione: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T17:08:30.936659",
       "message": "equilibra-elefante: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841077",
+      "ts": "2026-11-28T17:08:30.936660",
+      "message": "lstm-sequenziale: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T17:08:30.936662",
       "message": "equilibra-gatto: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841078",
-      "message": "freq-classica: aggiornato",
+      "ts": "2026-11-28T17:08:30.936663",
+      "message": "feedforward-feature: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841080",
+      "ts": "2026-11-28T17:08:30.936665",
       "message": "equilibra-lepre: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841081",
+      "ts": "2026-11-28T17:08:30.936666",
+      "message": "freq-classica: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T17:08:30.936668",
       "message": "ritardo-massimo: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841082",
+      "ts": "2026-11-28T17:08:30.936670",
       "message": "autoencoder-anomaly: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841084",
+      "ts": "2026-11-28T17:08:30.936671",
       "message": "adaptive-ensemble: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-28T16:57:34.841085",
+      "ts": "2026-11-28T17:08:30.936673",
       "message": "oracle: aggiornato",
       "ok": true
     }

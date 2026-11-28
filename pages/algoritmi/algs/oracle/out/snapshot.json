@@ -24,7 +24,8 @@
     },
     "draws_covered": 23,
     "avg_hits": 0.61,
-    "hit_rate_gte_2": 8.7
+    "hit_rate_gte_2": 8.7,
+    "best_streak": 5
   },
   "last_seq": 4296,
   "sealed": true

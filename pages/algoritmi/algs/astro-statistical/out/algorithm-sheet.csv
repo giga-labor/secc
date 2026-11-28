@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Fase lunare + correlazioni storiche per fase + frequenza classica
+SCOPO,Fase lunare + correlazioni storiche per fase + frequenza classica
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Combina fase lunare (ciclo 29.5 giorni) e posizione solare con frequenze storiche. Ogni numero riceve un bonus/malus basato su correlazioni osservate tra estrazioni e cicli astronomici.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4194 concorsi simulati l'edge rispetto al caso è -36.2%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

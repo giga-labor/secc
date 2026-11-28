@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente
+SCOPO,Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,Fusione tarda (late fusion) di LSTM e frequenza classica. I due score vengono pesati e combinati. I pesi si aggiornano in base al ranking recente dei due componenti.
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4194 concorsi simulati l'edge rispetto al caso è -35.1%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,Distribuzione a entropia massima compatibile con i vincoli osservati — least bias
+SCOPO,Distribuzione a entropia massima compatibile con i vincoli osservati — least bias
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"Distribuzione a massima entropia compatibile con i vincoli osservati (frequenze medie, parità). La sestina viene campionata minimizzando il bias rispetto al caso."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4244 concorsi simulati l'edge rispetto al caso è -41.0%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

@@ -1,0 +1,7 @@
+CHIAVE,VALORE
+INTRO,"MLP su feature engineered per numero — frequenze, ritardi, parità, range"
+SCOPO,"MLP su feature engineered per numero — frequenze, ritardi, parità, range"
+INPUT,Storico estrazioni validato completo | Ordinamento cronologico corretto | Aggiornamento continuo draws.csv
+METODO,"NN feedforward su feature engineered per ogni numero: ritardo attuale, frequenza 30/90/180, z-score, parità, range. Classifica i 90 numeri e propone i top 6."
+OUTPUT,Sestina proposta e metriche di hit su storico.
+LIMITI,Su 4094 concorsi simulati l'edge rispetto al caso è +41.3%: nessuna garanzia predittiva sull'esito reale delle estrazioni.

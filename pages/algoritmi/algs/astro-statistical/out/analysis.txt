@@ -1,5 +1,5 @@
 === ASTRO STATISTICAL ===
-Generato: 28/11/2026 17:08
+Generato: 28/11/2026 17:24
 Concorso di riferimento: 4296
 Sestina proposta: 12 - 28 - 41 - 56 - 78 - 85
 
@@ -13,7 +13,7 @@ Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
-Fase lunare prossimo concorso: ultimo_quarto (0.738)
+Fase lunare prossimo concorso: ultimo_quarto (0.739)
 Peso lunare: 45% | Peso frequenza: 55%
 
 Top 10 per score astro-statistico:
