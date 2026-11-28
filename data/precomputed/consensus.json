@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28 16:57:30",
+  "generated_at": "2026-11-28 17:08:25",
   "total_algorithms": 20,
   "consensus": [
     {
@@ -65,14 +65,13 @@
     },
     {
       "number": 82,
-      "support": 7,
+      "support": 6,
       "algorithms": [
         "max-entropy",
         "adaptive-ensemble",
         "freq-delay-blend",
         "neural-stat-fusion",
         "transformer-attention",
-        "equilibra-lepre",
         "freq-classica"
       ]
     },
@@ -107,6 +106,15 @@
       ]
     },
     {
+      "number": 12,
+      "support": 3,
+      "algorithms": [
+        "max-entropy",
+        "astro-statistical",
+        "equilibra-lepre"
+      ]
+    },
+    {
       "number": 38,
       "support": 3,
       "algorithms": [
@@ -133,19 +141,19 @@
       ]
     },
     {
-      "number": 12,
+      "number": 31,
       "support": 2,
       "algorithms": [
-        "max-entropy",
-        "astro-statistical"
+        "coppia-correlazione",
+        "equilibra-lepre"
       ]
     },
     {
-      "number": 21,
+      "number": 50,
       "support": 2,
       "algorithms": [
-        "equilibra-elefante",
-        "equilibra-gatto"
+        "transformer-attention",
+        "equilibra-lepre"
       ]
     },
     {
@@ -173,26 +181,18 @@
       ]
     },
     {
-      "number": 63,
-      "support": 2,
-      "algorithms": [
-        "lstm-sequenziale",
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 64,
-      "support": 2,
-      "algorithms": [
-        "autoencoder-anomaly",
-        "equilibra-gatto"
-      ]
-    },
-    {
       "number": 74,
       "support": 2,
       "algorithms": [
         "freq-delay-blend",
+        "equilibra-gatto"
+      ]
+    },
+    {
+      "number": 75,
+      "support": 2,
+      "algorithms": [
+        "lstm-sequenziale",
         "equilibra-gatto"
       ]
     },
@@ -225,7 +225,7 @@
       "support": 2,
       "algorithms": [
         "equilibra-elefante",
-        "equilibra-lepre"
+        "equilibra-gatto"
       ]
     },
     {
@@ -251,6 +251,13 @@
       ]
     },
     {
+      "number": 14,
+      "support": 1,
+      "algorithms": [
+        "equilibra-lepre"
+      ]
+    },
+    {
       "number": 15,
       "support": 1,
       "algorithms": [
@@ -262,6 +269,13 @@
       "support": 1,
       "algorithms": [
         "bayesian-inference"
+      ]
+    },
+    {
+      "number": 21,
+      "support": 1,
+      "algorithms": [
+        "equilibra-elefante"
       ]
     },
     {
@@ -286,17 +300,10 @@
       ]
     },
     {
-      "number": 30,
+      "number": 32,
       "support": 1,
       "algorithms": [
-        "equilibra-lepre"
-      ]
-    },
-    {
-      "number": 31,
-      "support": 1,
-      "algorithms": [
-        "coppia-correlazione"
+        "equilibra-gatto"
       ]
     },
     {
@@ -335,10 +342,10 @@
       ]
     },
     {
-      "number": 46,
+      "number": 44,
       "support": 1,
       "algorithms": [
-        "equilibra-lepre"
+        "equilibra-gatto"
       ]
     },
     {
@@ -349,20 +356,6 @@
       ]
     },
     {
-      "number": 50,
-      "support": 1,
-      "algorithms": [
-        "transformer-attention"
-      ]
-    },
-    {
-      "number": 54,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
-      ]
-    },
-    {
       "number": 62,
       "support": 1,
       "algorithms": [
@@ -370,28 +363,35 @@
       ]
     },
     {
-      "number": 75,
+      "number": 63,
       "support": 1,
       "algorithms": [
         "lstm-sequenziale"
       ]
     },
     {
-      "number": 81,
+      "number": 64,
+      "support": 1,
+      "algorithms": [
+        "autoencoder-anomaly"
+      ]
+    },
+    {
+      "number": 68,
       "support": 1,
       "algorithms": [
         "equilibra-gatto"
       ]
     },
     {
-      "number": 87,
+      "number": 70,
       "support": 1,
       "algorithms": [
-        "equilibra-gatto"
+        "equilibra-lepre"
       ]
     },
     {
-      "number": 88,
+      "number": 76,
       "support": 1,
       "algorithms": [
         "equilibra-lepre"

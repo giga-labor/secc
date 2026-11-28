@@ -1,6 +1,6 @@
 EQUILIBRA — ramo LEPRE
 Concorsi processati: 4296 (finestra recente: 48/48)
-Posizioni-obiettivo mu correnti: [13.4, 31.4, 40.6, 61.0, 77.0, 84.9]
-Sestina proposta: [30, 46, 54, 82, 83, 88]
+Posizioni-obiettivo mu correnti: [16.7, 36.2, 42.3, 63.0, 81.5, 86.4]
+Sestina proposta: [12, 14, 31, 50, 70, 76]
 Score: osservato=0.0659 atteso=0.105 edge=-37.23% stabilita=50.36 rischio=medio
 Nota: modello euristico riproducibile — non altera la probabilita' matematica reale delle estrazioni.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T16:57:30.077386",
+  "generated_at": "2026-11-28T17:08:25.652768",
   "latest_draw": {
     "seq": 4296
   },
@@ -53,19 +53,6 @@
       ]
     },
     {
-      "number": 82,
-      "support": 7,
-      "algorithms": [
-        "max-entropy",
-        "adaptive-ensemble",
-        "freq-delay-blend",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "equilibra-lepre",
-        "freq-classica"
-      ]
-    },
-    {
       "number": 41,
       "support": 7,
       "algorithms": [
@@ -75,6 +62,18 @@
         "lstm-sequenziale",
         "transformer-attention",
         "distribuzione",
+        "freq-classica"
+      ]
+    },
+    {
+      "number": 82,
+      "support": 6,
+      "algorithms": [
+        "max-entropy",
+        "adaptive-ensemble",
+        "freq-delay-blend",
+        "neural-stat-fusion",
+        "transformer-attention",
         "freq-classica"
       ]
     },
