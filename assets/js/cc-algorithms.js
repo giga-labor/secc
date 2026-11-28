@@ -29,6 +29,7 @@
 
   function normalizedFamily(value) {
     var family = String(value || 'statistica').toLowerCase();
+    if (family.indexOf('oracle') >= 0) return 'oracolo';
     if (family.indexOf('neur') >= 0) return 'neurale';
     if (family.indexOf('ibrid') >= 0 || family.indexOf('genet') >= 0) return 'ibrido';
     if (family.indexOf('gener') >= 0) return 'generativi';
@@ -223,7 +224,7 @@
       if (key) facts[key] = firstValue(row, ['VALORE', 'valore', 'VALUE', 'value']);
     });
     var rawFamily = String(card.macroGroup || 'statistica').toLowerCase();
-    var familyLabel = rawFamily.indexOf('neur') >= 0 ? 'Rete neurale' : rawFamily.indexOf('genet') >= 0 ? 'Evolutivo' : rawFamily.indexOf('ibrid') >= 0 ? 'Ibrido' : rawFamily.indexOf('gener') >= 0 ? 'Generativo' : 'Statistico';
+    var familyLabel = rawFamily.indexOf('oracle') >= 0 ? 'Oracolo' : rawFamily.indexOf('neur') >= 0 ? 'Rete neurale' : rawFamily.indexOf('genet') >= 0 ? 'Evolutivo' : rawFamily.indexOf('ibrid') >= 0 ? 'Ibrido' : rawFamily.indexOf('gener') >= 0 ? 'Generativo' : 'Statistico';
     var profile = scoringProfile || {};
     var summary = Array.isArray(profile.summary) ? profile.summary : [profile.summary || facts.INTRO || card.narrativeSummary || card.subtitle || 'L algoritmo assegna un punteggio a ogni numero e ordina la classifica dal valore piu alto al piu basso.'];
     var factors = Array.isArray(profile.factors) && profile.factors.length ? profile.factors : String(facts.METODO || 'Indicatori storici normalizzati e combinati in un unico punteggio.').split(/\s*\|\s*/);

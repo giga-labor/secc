@@ -20,7 +20,7 @@
   function esc(value) { return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function fetchJson(url, fallback) { return fetch(url, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : fallback; }).catch(function () { return fallback; }); }
   function fetchText(url) { return fetch(url, { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).catch(function () { return ''; }); }
-  function family(value) { var v=String(value||'').toLowerCase(); return v.indexOf('neur')>=0?'neurale':v.indexOf('ibrid')>=0||v.indexOf('genet')>=0?'ibrido':v.indexOf('gener')>=0?'generativi':'statistica'; }
+  function family(value) { var v=String(value||'').toLowerCase(); return v.indexOf('oracle')>=0?'oracolo':v.indexOf('neur')>=0?'neurale':v.indexOf('ibrid')>=0||v.indexOf('genet')>=0?'ibrido':v.indexOf('gener')>=0?'generativi':'statistica'; }
   function title(card) { return String(card.title||card.id||'Algoritmo').replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}); }
   function balls(values) { return (values||[]).slice(0,6).map(function (n) { return '<span class="cca-ball">'+esc(n)+'</span>'; }).join(''); }
   function trendBadges(card) {
