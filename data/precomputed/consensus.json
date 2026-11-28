@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28 17:26:54",
+  "generated_at": "2026-11-28 17:27:12",
   "total_algorithms": 20,
   "consensus": [
     {
@@ -52,6 +52,19 @@
       ]
     },
     {
+      "number": 2,
+      "support": 7,
+      "algorithms": [
+        "bayesian-inference",
+        "max-entropy",
+        "monte-carlo",
+        "adaptive-ensemble",
+        "distribuzione",
+        "equilibra-gatto",
+        "equilibra-lepre"
+      ]
+    },
+    {
       "number": 41,
       "support": 7,
       "algorithms": [
@@ -62,18 +75,6 @@
         "transformer-attention",
         "distribuzione",
         "freq-classica"
-      ]
-    },
-    {
-      "number": 2,
-      "support": 6,
-      "algorithms": [
-        "bayesian-inference",
-        "max-entropy",
-        "monte-carlo",
-        "adaptive-ensemble",
-        "distribuzione",
-        "equilibra-lepre"
       ]
     },
     {
@@ -126,21 +127,20 @@
       ]
     },
     {
-      "number": 59,
-      "support": 3,
-      "algorithms": [
-        "feedforward-feature",
-        "equilibra-elefante",
-        "equilibra-gatto"
-      ]
-    },
-    {
       "number": 61,
       "support": 3,
       "algorithms": [
         "markov-chain",
         "autoencoder-anomaly",
         "distribuzione"
+      ]
+    },
+    {
+      "number": 4,
+      "support": 2,
+      "algorithms": [
+        "autoencoder-anomaly",
+        "equilibra-lepre"
       ]
     },
     {
@@ -152,11 +152,27 @@
       ]
     },
     {
+      "number": 23,
+      "support": 2,
+      "algorithms": [
+        "coppia-correlazione",
+        "equilibra-gatto"
+      ]
+    },
+    {
       "number": 37,
       "support": 2,
       "algorithms": [
         "equilibra-elefante",
         "equilibra-lepre"
+      ]
+    },
+    {
+      "number": 50,
+      "support": 2,
+      "algorithms": [
+        "transformer-attention",
+        "equilibra-gatto"
       ]
     },
     {
@@ -173,6 +189,14 @@
       "algorithms": [
         "markov-chain",
         "coppia-correlazione"
+      ]
+    },
+    {
+      "number": 59,
+      "support": 2,
+      "algorithms": [
+        "feedforward-feature",
+        "equilibra-elefante"
       ]
     },
     {
@@ -208,24 +232,17 @@
       ]
     },
     {
-      "number": 1,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
-      ]
-    },
-    {
-      "number": 4,
-      "support": 1,
-      "algorithms": [
-        "autoencoder-anomaly"
-      ]
-    },
-    {
       "number": 6,
       "support": 1,
       "algorithms": [
         "ritardo-massimo"
+      ]
+    },
+    {
+      "number": 7,
+      "support": 1,
+      "algorithms": [
+        "equilibra-gatto"
       ]
     },
     {
@@ -257,13 +274,6 @@
       ]
     },
     {
-      "number": 23,
-      "support": 1,
-      "algorithms": [
-        "coppia-correlazione"
-      ]
-    },
-    {
       "number": 24,
       "support": 1,
       "algorithms": [
@@ -275,13 +285,6 @@
       "support": 1,
       "algorithms": [
         "ritardo-massimo"
-      ]
-    },
-    {
-      "number": 29,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
       ]
     },
     {
@@ -327,31 +330,10 @@
       ]
     },
     {
-      "number": 50,
-      "support": 1,
-      "algorithms": [
-        "transformer-attention"
-      ]
-    },
-    {
       "number": 54,
       "support": 1,
       "algorithms": [
         "equilibra-lepre"
-      ]
-    },
-    {
-      "number": 57,
-      "support": 1,
-      "algorithms": [
-        "equilibra-lepre"
-      ]
-    },
-    {
-      "number": 60,
-      "support": 1,
-      "algorithms": [
-        "equilibra-gatto"
       ]
     },
     {
@@ -390,7 +372,7 @@
       ]
     },
     {
-      "number": 77,
+      "number": 81,
       "support": 1,
       "algorithms": [
         "equilibra-gatto"

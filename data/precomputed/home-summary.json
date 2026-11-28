@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:26:54.258286",
+  "generated_at": "2026-11-28T17:27:12.395897",
   "latest_draw": {
     "seq": 4296,
     "date": "27/11/2026",
@@ -63,6 +63,19 @@
       ]
     },
     {
+      "number": 2,
+      "support": 7,
+      "algorithms": [
+        "bayesian-inference",
+        "max-entropy",
+        "monte-carlo",
+        "adaptive-ensemble",
+        "distribuzione",
+        "equilibra-gatto",
+        "equilibra-lepre"
+      ]
+    },
+    {
       "number": 41,
       "support": 7,
       "algorithms": [
@@ -73,18 +86,6 @@
         "transformer-attention",
         "distribuzione",
         "freq-classica"
-      ]
-    },
-    {
-      "number": 2,
-      "support": 6,
-      "algorithms": [
-        "bayesian-inference",
-        "max-entropy",
-        "monte-carlo",
-        "adaptive-ensemble",
-        "distribuzione",
-        "equilibra-lepre"
       ]
     },
     {

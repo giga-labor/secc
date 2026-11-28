@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:26:54",
+  "generated_at": "2026-11-28T17:27:12",
   "count": 20,
   "sheets": {
     "bayesian-inference": {
@@ -20519,12 +20519,12 @@
       "access_tier": "free",
       "last_updated": "27/11/2026",
       "proposal": [
-        1,
+        2,
+        7,
         12,
-        29,
-        59,
-        60,
-        77
+        23,
+        50,
+        81
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
@@ -21836,11 +21836,11 @@
       "last_updated": "27/11/2026",
       "proposal": [
         2,
+        4,
         22,
         28,
         37,
-        54,
-        57
+        54
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",

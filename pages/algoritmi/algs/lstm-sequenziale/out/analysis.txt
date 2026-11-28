@@ -1,5 +1,5 @@
 === LSTM SEQUENZIALE ===
-Generato: 28/11/2026 17:26
+Generato: 28/11/2026 17:27
 Concorso di riferimento: 4296
 Sestina proposta: 41 - 63 - 75 - 79 - 85 - 86
 
