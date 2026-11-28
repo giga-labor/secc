@@ -145,8 +145,12 @@
     });
   }
 
-  function renderBalls(values) {
-    if (!Array.isArray(values) || !values.length) return '<span class="cca-proposal-empty">Proposta in aggiornamento</span>';
+  function renderBalls(values, snapshot) {
+    if (!Array.isArray(values) || !values.length) {
+      if (snapshot && snapshot.unavailable) return '<span class="cca-proposal-empty">L\u2019Oracolo \u00e8 altrove, in questo momento</span>';
+      if (snapshot && snapshot.sealed) return '<span class="cca-proposal-empty">Sigillata fino all\u2019estrazione</span>';
+      return '<span class="cca-proposal-empty">Proposta in aggiornamento</span>';
+    }
     return values.slice(0, 6).map(function (value) { return '<span class="cca-ball">' + escapeHtml(value) + '</span>'; }).join('');
   }
 
@@ -166,7 +170,7 @@
           '<div class="cca-metric"><small>Media hit</small><strong data-metric-card="media hit/sestina">' + (metrics.avg_hits == null ? '--' : escapeHtml(metrics.avg_hits)) + '</strong></div>' +
           '<div class="cca-metric"><small>Affidabilità</small><strong class="cca-stars" aria-label="' + reliability + ' stelle su 5">' + stars + '</strong></div>' +
         '</div></section>' +
-        '<section class="cca-card cca-pad"><h2 class="cca-section-label">Sestina consigliata</h2><div class="cca-proposal" data-algo-sestina-balls>' + renderBalls(snapshot && snapshot.proposal) + '</div></section>' +
+        '<section class="cca-card cca-pad"><h2 class="cca-section-label">Sestina consigliata</h2><div class="cca-proposal" data-algo-sestina-balls>' + renderBalls(snapshot && snapshot.proposal, snapshot) + '</div></section>' +
         '<div class="cca-tabs" role="tablist"><button class="cca-tab is-active" data-cca-tab="algoritmo">Algoritmo</button><button class="cca-tab" data-cca-tab="storica">Storica</button><button class="cca-tab" data-cca-tab="metriche">Metriche</button><button class="cca-tab" data-cca-tab="analisi">Analisi</button><button class="cca-tab" data-cca-tab="grafici">Grafici</button></div>' +
         '<section class="cca-card cca-pad cca-panel is-active" data-tab-panel="algoritmo"><div data-method-sheet><div class="cca-loading">Caricamento metodo...</div></div></section>' +
         '<section class="cca-card cca-pad cca-panel" data-tab-panel="storica"><div class="cca-history-table-wrap"><table class="cca-history-table"><thead><tr><th>Concorso</th><th>Sestina proposta</th><th class="cca-history-hit-heading">Hit</th></tr></thead><tbody data-historical-body><tr><td colspan="3">Caricamento...</td></tr></tbody></table></div><div class="cca-history-pagination"><button data-historical-prev type="button">Più recenti</button><span data-historical-page>Pagina 1 / 1</span><button data-historical-next type="button">Più vecchie</button></div></section>' +
