@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-28T17:24:27",
+  "generated_at": "2026-11-28T17:26:54",
   "count": 20,
   "algorithms": [
     {
       "slug": "markov-chain",
       "title": "Markov Chain",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -41,7 +41,7 @@
       "slug": "transformer-attention",
       "title": "Transformer Attention",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -76,7 +76,7 @@
       "slug": "neural-stat-fusion",
       "title": "Neural-Stat Fusion",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -111,14 +111,14 @@
       "slug": "adaptive-ensemble",
       "title": "Adaptive Ensemble",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
+        2,
         28,
         41,
         56,
-        59,
         82,
         85
       ],
@@ -146,7 +146,7 @@
       "slug": "max-entropy",
       "title": "Massima Entropia",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -181,7 +181,7 @@
       "slug": "freq-classica",
       "title": "Frequenza Classica",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -216,7 +216,7 @@
       "slug": "bayesian-inference",
       "title": "Bayesian Inference",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -251,7 +251,7 @@
       "slug": "oracle",
       "title": "L'Oracolo",
       "family": "oracle",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [],
@@ -280,7 +280,7 @@
       "slug": "lstm-sequenziale",
       "title": "LSTM Sequenziale",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -315,7 +315,7 @@
       "slug": "distribuzione",
       "title": "Distribuzione Bilanciata",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -350,16 +350,16 @@
       "slug": "equilibra-lepre",
       "title": "Equilibra Lepre",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
-        20,
-        34,
-        56,
-        59,
-        69,
-        74
+        2,
+        22,
+        28,
+        37,
+        54,
+        57
       ],
       "metrics": {
         "best_streak": 7
@@ -385,7 +385,7 @@
       "slug": "autoencoder-anomaly",
       "title": "Autoencoder Anomaly",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -420,7 +420,7 @@
       "slug": "coppia-correlazione",
       "title": "Coppia Correlazione",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -455,7 +455,7 @@
       "slug": "monte-carlo",
       "title": "Monte Carlo",
       "family": "generativi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -490,7 +490,7 @@
       "slug": "astro-statistical",
       "title": "Astro Statistical",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -525,7 +525,7 @@
       "slug": "equilibra-elefante",
       "title": "Equilibra Elefante",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -560,7 +560,7 @@
       "slug": "ritardo-massimo",
       "title": "Ritardo Massimo",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -595,7 +595,7 @@
       "slug": "freq-delay-blend",
       "title": "Freq-Delay Blend",
       "family": "ibridi",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -630,7 +630,7 @@
       "slug": "feedforward-feature",
       "title": "Feedforward Feature",
       "family": "neurali",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
@@ -665,16 +665,16 @@
       "slug": "equilibra-gatto",
       "title": "Equilibra Gatto",
       "family": "statistici",
-      "generated_at": "2026-11-28T17:24:27",
+      "generated_at": "2026-11-28T17:26:54",
       "last_seq": 4296,
       "last_date": "27/11/2026",
       "proposal": [
-        5,
-        6,
-        49,
-        54,
-        82,
-        88
+        1,
+        12,
+        29,
+        59,
+        60,
+        77
       ],
       "metrics": {
         "best_streak": 6

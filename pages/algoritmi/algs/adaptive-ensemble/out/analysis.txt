@@ -1,7 +1,7 @@
 === ADAPTIVE ENSEMBLE ===
-Generato: 28/11/2026 17:24
+Generato: 28/11/2026 17:26
 Concorso di riferimento: 4296
-Sestina proposta: 28 - 41 - 56 - 59 - 82 - 85
+Sestina proposta: 2 - 28 - 41 - 56 - 82 - 85
 
 --- METRICHE ---
 Score osservato:  0.0782
@@ -23,7 +23,7 @@ Top 5 contributori per peso:
   distribuzione: 0.053 (5.3%)
 
 Top 10 per score ensemble:
-  85, 28, 56, 41, 82, 59, 2, 18, 86, 9
+  28, 85, 56, 41, 82, 2, 59, 18, 86, 9
 Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

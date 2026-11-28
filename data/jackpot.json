@@ -4,8 +4,8 @@
   "jackpot_raw": 60500000,
   "jackpot_source": "superenalotto_com",
   "jackpot_source_url": "https://www.superenalotto.com/",
-  "jackpot_fetched_at": "2026-11-28 17:24:31",
-  "jackpot_checked_at": "2026-11-28 17:24:31",
+  "jackpot_fetched_at": "2026-11-28 17:26:58",
+  "jackpot_checked_at": "2026-11-28 17:26:58",
   "jackpot_stale": false,
   "next_draw_datetime_iso": "2026-11-28T20:00:00",
   "next_draw_source": "superenalotto_com",
@@ -13,8 +13,8 @@
   "next_draw_crosscheck_source": "superenalotto_com",
   "next_draw_crosscheck_datetime_iso": "2026-11-28T20:00:00",
   "next_draw_sources_agree": true,
-  "next_draw_fetched_at": "2026-11-28 17:24:31",
-  "next_draw_checked_at": "2026-11-28 17:24:31",
+  "next_draw_fetched_at": "2026-11-28 17:26:58",
+  "next_draw_checked_at": "2026-11-28 17:26:58",
   "next_draw_confirmed": true,
   "next_draw_stale": false
 }

@@ -1,7 +1,16 @@
 {
-  "generated_at": "2026-11-28T17:24:27.514186",
+  "generated_at": "2026-11-28T17:26:54.258286",
   "latest_draw": {
-    "seq": 4296
+    "seq": 4296,
+    "date": "27/11/2026",
+    "nums": [
+      14,
+      22,
+      30,
+      38,
+      56,
+      85
+    ]
   },
   "consensus_top": [
     {
@@ -24,7 +33,7 @@
     },
     {
       "number": 28,
-      "support": 10,
+      "support": 11,
       "algorithms": [
         "bayesian-inference",
         "max-entropy",
@@ -35,12 +44,13 @@
         "neural-stat-fusion",
         "feedforward-feature",
         "distribuzione",
+        "equilibra-lepre",
         "freq-classica"
       ]
     },
     {
       "number": 56,
-      "support": 9,
+      "support": 8,
       "algorithms": [
         "monte-carlo",
         "adaptive-ensemble",
@@ -49,20 +59,6 @@
         "neural-stat-fusion",
         "transformer-attention",
         "distribuzione",
-        "equilibra-lepre",
-        "freq-classica"
-      ]
-    },
-    {
-      "number": 82,
-      "support": 7,
-      "algorithms": [
-        "max-entropy",
-        "adaptive-ensemble",
-        "freq-delay-blend",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "equilibra-gatto",
         "freq-classica"
       ]
     },
@@ -81,12 +77,26 @@
     },
     {
       "number": 2,
-      "support": 4,
+      "support": 6,
       "algorithms": [
         "bayesian-inference",
         "max-entropy",
         "monte-carlo",
-        "distribuzione"
+        "adaptive-ensemble",
+        "distribuzione",
+        "equilibra-lepre"
+      ]
+    },
+    {
+      "number": 82,
+      "support": 6,
+      "algorithms": [
+        "max-entropy",
+        "adaptive-ensemble",
+        "freq-delay-blend",
+        "neural-stat-fusion",
+        "transformer-attention",
+        "freq-classica"
       ]
     }
   ],
@@ -205,5 +215,14 @@
         "label": "In osservazione"
       }
     }
-  ]
+  ],
+  "hits_breakdown_last_contest": {
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0
+  },
+  "avg_hits_last_contest": 0.55,
+  "coverage_last_contest": 20
 }

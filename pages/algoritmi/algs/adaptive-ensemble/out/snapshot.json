@@ -1,13 +1,13 @@
 {
   "proposal": [
+    2,
     28,
     41,
     56,
-    59,
     82,
     85
   ],
-  "generated_at": "2026-11-28T17:24:27.472272",
+  "generated_at": "2026-11-28T17:26:54.213227",
   "contest_ref": 4296,
   "metrics": {
     "observed_score": 0.0782,

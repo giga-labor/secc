@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T17:24:27",
+  "generated_at": "2026-11-28T17:26:54",
   "count": 20,
   "sheets": {
     "bayesian-inference": {
@@ -5277,10 +5277,10 @@
       "access_tier": "free",
       "last_updated": "27/11/2026",
       "proposal": [
+        2,
         28,
         41,
         56,
-        59,
         82,
         85
       ],
@@ -20519,12 +20519,12 @@
       "access_tier": "free",
       "last_updated": "27/11/2026",
       "proposal": [
-        5,
-        6,
-        49,
-        54,
-        82,
-        88
+        1,
+        12,
+        29,
+        59,
+        60,
+        77
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
@@ -21835,12 +21835,12 @@
       "access_tier": "free",
       "last_updated": "27/11/2026",
       "proposal": [
-        20,
-        34,
-        56,
-        59,
-        69,
-        74
+        2,
+        22,
+        28,
+        37,
+        54,
+        57
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",

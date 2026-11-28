@@ -212,11 +212,6 @@
   ],
   "metrics_series": [
     {
-      "contest": 4253,
-      "stability": 49.9,
-      "confidence": 0.0661
-    },
-    {
       "contest": 4254,
       "stability": 49.9,
       "confidence": 0.0661
@@ -445,6 +440,11 @@
       "contest": 4295,
       "stability": 50.01,
       "confidence": 0.0658
+    },
+    {
+      "contest": 4296,
+      "stability": 50.0,
+      "confidence": 0.0659
     },
     {
       "contest": 4296,
