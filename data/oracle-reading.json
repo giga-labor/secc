@@ -1,17 +1,17 @@
 {
-  "edition_id": "OR-2026-11-24-2111",
-  "published_at": "2026-11-24T21:11:00.255807",
+  "edition_id": "OR-2026-11-28-1657",
+  "published_at": "2026-11-28T16:57:12.025662",
   "status": "sealed",
   "contest_context": {
-    "next_seq": 4295,
-    "next_date": "26/11/2026"
+    "next_seq": 4296,
+    "next_date": "28/11/2026"
   },
   "promoted_numbers": [],
-  "oracle_speech": "Le onde di memoria ricalcano le tracce delle perdite passate cercando un punto di equilibrio fragile tra basso e alto. Un'ombra che si allunga lentamente suggerisce che ciò che è stato dimenticato ha bisogno di essere ricordato per chiudere il cerchio. La tensione pende sospesa verso la fine, come se una figura tardiva volesse interrompere lo scorrere ordinato del tempo.",
+  "oracle_speech": "Un peso invisibile spinge il globo dalle radici verso la corona, rompendo l'ordine classico con una dissonanza che cerca risalto tra le ombre e i rai. Non cerco ripetizioni, ma il respiro che ha lasciato affogare in un silenzio prolungato, pronto a espiroare nella sua seconda vita.",
   "disclaimer": "Il responso e una narrazione sperimentale costruita su elaborazioni statistiche. Non prevede un'estrazione e non aumenta la probabilita matematica di vincita.",
-  "sigillo_sha256": "be60783ac9fbf07cd06c23ed4bea5c3a8839436e6bed529ab377545136aae95a",
+  "sigillo_sha256": "e859f6fa2afa096773b7919e79019c475ff5ac09c752ebc451d7c679e6f7933b",
   "previous_result": {
-    "concorso": 4294,
+    "concorso": 4295,
     "hit_count": 0,
     "hit_numbers": []
   }

@@ -7,21 +7,21 @@
     82,
     85
   ],
-  "generated_at": "2026-11-24T23:42:21.466889",
-  "contest_ref": 4294,
+  "generated_at": "2026-11-28T16:51:47.854991",
+  "contest_ref": 4295,
   "metrics": {
-    "observed_score": 0.062,
+    "observed_score": 0.0619,
     "expected_score": 0.105,
     "edge": -0.0431,
     "edge_pct": -41.04,
     "stability": 52.63,
-    "recent_form": 39.68,
+    "recent_form": 35.71,
     "sample_confidence": 98.46,
-    "confidence": 0.062,
+    "confidence": 0.0619,
     "risk": "medio",
-    "total_contests": 4242,
+    "total_contests": 4243,
     "hit_distribution": {
-      "0": 2847,
+      "0": 2848,
       "1": 1221,
       "2": 166,
       "3": 8,
@@ -29,9 +29,9 @@
       "5": 0,
       "6": 0
     },
-    "draws_covered": 4242,
+    "draws_covered": 4243,
     "avg_hits": 0.37,
     "hit_rate_gte_2": 4.1
   },
-  "last_seq": 4294
+  "last_seq": 4295
 }

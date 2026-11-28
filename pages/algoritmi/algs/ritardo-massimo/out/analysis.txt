@@ -1,30 +1,30 @@
 === RITARDO MASSIMO ===
-Generato: 24/11/2026 23:42
+Generato: 28/11/2026 16:51
 Concorso di riferimento: 4294
-Sestina proposta: 9 - 15 - 27 - 36 - 58 - 87
+Sestina proposta: 6 - 8 - 9 - 15 - 27 - 36
 
 --- METRICHE ---
-Score osservato:  0.0679
+Score osservato:  0.0680
 Score atteso:     0.1050
 Edge:             -0.0371 (-35.33%)
-Stabilità:        49.6/100
-Forma recente:    23.8/100
+Stabilità:        49.5/100
+Forma recente:    31.7/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
 Top 10 per score ritardo/attesa:
-  87, 58, 9, 27, 15, 36, 6, 8, 7, 39
+  9, 27, 15, 36, 6, 8, 7, 39, 43, 84
 
 Dettaglio sestina proposta:
-   9 → score ritardo: 3.660
-  15 → score ritardo: 3.043
-  27 → score ritardo: 3.062
-  36 → score ritardo: 3.040
-  58 → score ritardo: 4.129
-  87 → score ritardo: 5.335
+   6 → score ritardo: 2.980
+   8 → score ritardo: 2.913
+   9 → score ritardo: 3.723
+  15 → score ritardo: 3.107
+  27 → score ritardo: 3.123
+  36 → score ritardo: 3.097
 
 Score > 1.0 = numero in ritardo rispetto alla sua frequenza attesa.
-Estrazioni analizzate: 4294
+Estrazioni analizzate: 4295
 
 Generato automaticamente da ControlChaos Admin v4

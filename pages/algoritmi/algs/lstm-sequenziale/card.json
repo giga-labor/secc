@@ -3,7 +3,7 @@
   "title": "LSTM Sequenziale",
   "subtitle": "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero",
   "image": "img.webp",
-  "lastUpdated": "24/11/2026",
+  "lastUpdated": "28/11/2026",
   "hasNews": false,
   "usesOutData": true,
   "statusTag": "Aggiornato",

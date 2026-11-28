@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-06-18 09:17:00",
+  "generated_at": "2026-11-28 16:57:15",
   "ok": true,
-  "active_algorithms": 17,
-  "ranking_rows": 17,
-  "algorithm_snapshots": 17,
-  "algorithm_sheets": 17,
+  "active_algorithms": 20,
+  "ranking_rows": 20,
+  "algorithm_snapshots": 20,
+  "algorithm_sheets": 20,
   "files": {
     "data/modules-manifest.json": {
       "exists": true,
       "json": true,
-      "generated_at": ""
+      "generated_at": "2026-11-28 16:57:14"
     },
     "data/cards-index.json": {
       "exists": true,
       "json": true,
-      "generated_at": ""
+      "generated_at": "2026-11-28 16:57:15"
     },
     "data/jackpot.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-17 12:15:26"
+      "generated_at": "2026-11-28 16:57:14"
     },
     "data/next-draw.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18 09:16:53"
+      "generated_at": "2026-11-28 16:57:15"
     },
     "data/numeri-stats.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18 09:16:53"
-    },
-    "data/iargos-public-status.json": {
-      "exists": true,
-      "json": true,
-      "generated_at": "2026-06-17 16:55:54"
+      "generated_at": "2026-11-28 16:57:14"
     },
     "data/precomputed/ranking.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18 09:16:59"
+      "generated_at": "2026-11-28 16:57:12"
     },
     "data/precomputed/algorithm-sheets.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18 09:17:00"
+      "generated_at": "2026-11-28T16:57:12"
     },
     "data/precomputed/laboratorio-tecnico.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18 09:16:59"
+      "generated_at": "2026-11-28T16:57:14.412228"
     },
     "data/precomputed/algorithms-data.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18T09:17:00"
+      "generated_at": "2026-11-28T16:57:12"
+    },
+    "data/precomputed/roi-backtest.json": {
+      "exists": true,
+      "json": true,
+      "generated_at": "2026-11-28T16:57:14.406847"
     },
     "data/precomputed/consensus.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18T09:17:00"
+      "generated_at": "2026-11-28 16:57:12"
     },
     "data/precomputed/home-summary.json": {
       "exists": true,
       "json": true,
-      "generated_at": "2026-06-18T09:17:00"
+      "generated_at": "2026-11-28T16:57:12.034991"
     }
   },
   "errors": [],

@@ -3,7 +3,7 @@
   "title": "Adaptive Ensemble",
   "subtitle": "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo",
   "image": "img.webp",
-  "lastUpdated": "24/11/2026",
+  "lastUpdated": "28/11/2026",
   "hasNews": false,
   "usesOutData": true,
   "statusTag": "Aggiornato",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T23:42:24",
+  "generated_at": "2026-11-28T16:57:12",
   "count": 20,
   "sheets": {
     "bayesian-inference": {
@@ -8,53 +8,21 @@
       "title": "Bayesian Inference",
       "subtitle": "Prior uniforme aggiornato con estrazioni recenti — posterior pesata temporalmente",
       "family": "generativi",
-      "rank_position": 8,
+      "rank_position": 10,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         2,
         8,
+        16,
         18,
         28,
-        41,
         85
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 7,
-                "hit": true
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 28,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -85,7 +53,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4257",
@@ -117,7 +85,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.5
           },
           {
             "seq": "4258",
@@ -149,7 +117,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -181,7 +149,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.8
+            "moving_avg": 0.75
           },
           {
             "seq": "4260",
@@ -213,7 +181,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.83
+            "moving_avg": 0.8
           },
           {
             "seq": "4261",
@@ -245,7 +213,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.71
+            "moving_avg": 0.67
           },
           {
             "seq": "4262",
@@ -277,7 +245,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 0.71
           },
           {
             "seq": "4263",
@@ -309,7 +277,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.78
+            "moving_avg": 0.75
           },
           {
             "seq": "4264",
@@ -341,7 +309,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.8
+            "moving_avg": 0.78
           },
           {
             "seq": "4265",
@@ -373,7 +341,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.91
+            "moving_avg": 0.9
           },
           {
             "seq": "4266",
@@ -405,7 +373,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.83
+            "moving_avg": 0.82
           },
           {
             "seq": "4267",
@@ -437,7 +405,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.77
+            "moving_avg": 0.75
           },
           {
             "seq": "4268",
@@ -469,7 +437,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.79
+            "moving_avg": 0.77
           },
           {
             "seq": "4269",
@@ -501,7 +469,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.73
+            "moving_avg": 0.71
           },
           {
             "seq": "4270",
@@ -533,7 +501,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.69
+            "moving_avg": 0.67
           },
           {
             "seq": "4271",
@@ -565,7 +533,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.65
+            "moving_avg": 0.62
           },
           {
             "seq": "4272",
@@ -597,7 +565,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.61
+            "moving_avg": 0.59
           },
           {
             "seq": "4273",
@@ -629,7 +597,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.56
           },
           {
             "seq": "4274",
@@ -661,7 +629,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.53
           },
           {
             "seq": "4275",
@@ -693,7 +661,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.57
+            "moving_avg": 0.55
           },
           {
             "seq": "4276",
@@ -725,7 +693,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.52
           },
           {
             "seq": "4277",
@@ -757,7 +725,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4278",
@@ -789,7 +757,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4279",
@@ -821,7 +789,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4280",
@@ -853,7 +821,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.52
           },
           {
             "seq": "4281",
@@ -885,7 +853,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.54
           },
           {
             "seq": "4282",
@@ -917,7 +885,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.52
           },
           {
             "seq": "4283",
@@ -949,7 +917,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.54
           },
           {
             "seq": "4284",
@@ -981,7 +949,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.57
+            "moving_avg": 0.55
           },
           {
             "seq": "4285",
@@ -1013,7 +981,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.57
           },
           {
             "seq": "4286",
@@ -1045,7 +1013,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.55
           },
           {
             "seq": "4287",
@@ -1077,7 +1045,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.53
           },
           {
             "seq": "4288",
@@ -1109,7 +1077,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.52
           },
           {
             "seq": "4289",
@@ -1141,7 +1109,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.51
+            "moving_avg": 0.5
           },
           {
             "seq": "4290",
@@ -1173,7 +1141,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.54
           },
           {
             "seq": "4291",
@@ -1205,7 +1173,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.53
           },
           {
             "seq": "4292",
@@ -1237,7 +1205,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.51
           },
           {
             "seq": "4293",
@@ -1269,7 +1237,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.51
+            "moving_avg": 0.5
           },
           {
             "seq": "4294",
@@ -1301,7 +1269,39 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.51
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.5
           }
         ]
       },
@@ -1310,12 +1310,12 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.4%",
         "hit_rate_gte_3": "0.2%",
-        "last_200_avg": "0.4800",
-        "std_hit": "0.5791"
+        "last_200_avg": "0.4750",
+        "std_hit": "0.5790"
       },
       "method": {
         "intro": "Prior uniforme aggiornato con estrazioni recenti — posterior pesata temporalmente",
-        "observed_results": "Su 4242 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4243 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "markov-chain": {
@@ -1324,53 +1324,21 @@
       "title": "Markov Chain",
       "subtitle": "Probabilità di transizione tra numeri — catena di Markov sullo storico",
       "family": "generativi",
-      "rank_position": 1,
+      "rank_position": 2,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        12,
-        17,
+        2,
+        8,
+        11,
         18,
-        33,
-        72,
-        88
+        64,
+        84
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 1,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 40,
-                "hit": false
-              },
-              {
-                "number": 51,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -1401,7 +1369,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 1.0
           },
           {
             "seq": "4257",
@@ -1433,7 +1401,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.5
           },
           {
             "seq": "4258",
@@ -1465,7 +1433,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -1497,7 +1465,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.75
           },
           {
             "seq": "4260",
@@ -1529,7 +1497,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6
           },
           {
             "seq": "4261",
@@ -1561,7 +1529,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.5
           },
           {
             "seq": "4262",
@@ -1593,7 +1561,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.57
           },
           {
             "seq": "4263",
@@ -1625,7 +1593,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.62
           },
           {
             "seq": "4264",
@@ -1657,7 +1625,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.67
           },
           {
             "seq": "4265",
@@ -1689,7 +1657,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.7
           },
           {
             "seq": "4266",
@@ -1721,7 +1689,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.64
           },
           {
             "seq": "4267",
@@ -1753,7 +1721,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.58
           },
           {
             "seq": "4268",
@@ -1785,7 +1753,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.54
           },
           {
             "seq": "4269",
@@ -1817,7 +1785,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4270",
@@ -1849,7 +1817,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.53
           },
           {
             "seq": "4271",
@@ -1881,7 +1849,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.56
           },
           {
             "seq": "4272",
@@ -1913,7 +1881,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.53
           },
           {
             "seq": "4273",
@@ -1945,7 +1913,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4274",
@@ -1977,7 +1945,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.47
           },
           {
             "seq": "4275",
@@ -2009,7 +1977,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4276",
@@ -2041,7 +2009,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -2073,7 +2041,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -2105,7 +2073,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -2137,7 +2105,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.46
           },
           {
             "seq": "4280",
@@ -2169,7 +2137,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.48
           },
           {
             "seq": "4281",
@@ -2201,7 +2169,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.54
           },
           {
             "seq": "4282",
@@ -2233,7 +2201,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.56
           },
           {
             "seq": "4283",
@@ -2265,7 +2233,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.54
           },
           {
             "seq": "4284",
@@ -2297,7 +2265,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.55
           },
           {
             "seq": "4285",
@@ -2329,7 +2297,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.6
           },
           {
             "seq": "4286",
@@ -2361,7 +2329,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.58
           },
           {
             "seq": "4287",
@@ -2393,7 +2361,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.56
           },
           {
             "seq": "4288",
@@ -2425,7 +2393,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.55
           },
           {
             "seq": "4289",
@@ -2457,7 +2425,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.56
           },
           {
             "seq": "4290",
@@ -2489,7 +2457,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.57
           },
           {
             "seq": "4291",
@@ -2521,7 +2489,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.56
           },
           {
             "seq": "4292",
@@ -2553,7 +2521,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.54
           },
           {
             "seq": "4293",
@@ -2585,7 +2553,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.51
+            "moving_avg": 0.53
           },
           {
             "seq": "4294",
@@ -2617,6 +2585,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.56
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 17,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 33,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 88,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.55
           }
         ]
@@ -2626,12 +2626,12 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.8%",
         "hit_rate_gte_3": "0.5%",
-        "last_200_avg": "0.4200",
+        "last_200_avg": "0.4150",
         "std_hit": "0.5951"
       },
       "method": {
         "intro": "Probabilità di transizione tra numeri — catena di Markov sullo storico",
-        "observed_results": "Su 4192 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4193 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "max-entropy": {
@@ -2640,10 +2640,10 @@
       "title": "Massima Entropia",
       "subtitle": "Distribuzione a entropia massima compatibile con i vincoli osservati — least bias",
       "family": "generativi",
-      "rank_position": 7,
+      "rank_position": 9,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         2,
         12,
@@ -2655,38 +2655,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 7,
-                "hit": true
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 9,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 28,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -2717,7 +2685,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4257",
@@ -2749,7 +2717,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.0
           },
           {
             "seq": "4258",
@@ -2781,7 +2749,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.0
           },
           {
             "seq": "4259",
@@ -2813,7 +2781,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.25
           },
           {
             "seq": "4260",
@@ -2845,7 +2813,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -2877,7 +2845,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -2909,7 +2877,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.43
           },
           {
             "seq": "4263",
@@ -2941,7 +2909,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -2973,7 +2941,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.56
           },
           {
             "seq": "4265",
@@ -3005,7 +2973,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.82
+            "moving_avg": 0.8
           },
           {
             "seq": "4266",
@@ -3037,7 +3005,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 0.73
           },
           {
             "seq": "4267",
@@ -3069,7 +3037,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.69
+            "moving_avg": 0.67
           },
           {
             "seq": "4268",
@@ -3101,7 +3069,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.71
+            "moving_avg": 0.69
           },
           {
             "seq": "4269",
@@ -3133,7 +3101,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.64
           },
           {
             "seq": "4270",
@@ -3165,7 +3133,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.62
+            "moving_avg": 0.6
           },
           {
             "seq": "4271",
@@ -3197,7 +3165,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.59
+            "moving_avg": 0.56
           },
           {
             "seq": "4272",
@@ -3229,7 +3197,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.53
           },
           {
             "seq": "4273",
@@ -3261,7 +3229,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.5
           },
           {
             "seq": "4274",
@@ -3293,7 +3261,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.47
           },
           {
             "seq": "4275",
@@ -3325,7 +3293,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4276",
@@ -3357,7 +3325,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -3389,7 +3357,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -3421,7 +3389,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -3453,7 +3421,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -3485,7 +3453,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.44
           },
           {
             "seq": "4281",
@@ -3517,7 +3485,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.46
           },
           {
             "seq": "4282",
@@ -3549,7 +3517,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.44
           },
           {
             "seq": "4283",
@@ -3581,7 +3549,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.46
           },
           {
             "seq": "4284",
@@ -3613,7 +3581,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4285",
@@ -3645,7 +3613,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4286",
@@ -3677,7 +3645,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4287",
@@ -3709,7 +3677,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4288",
@@ -3741,7 +3709,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4289",
@@ -3773,7 +3741,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.47
           },
           {
             "seq": "4290",
@@ -3805,7 +3773,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.49
           },
           {
             "seq": "4291",
@@ -3837,7 +3805,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.47
           },
           {
             "seq": "4292",
@@ -3869,7 +3837,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.46
           },
           {
             "seq": "4293",
@@ -3901,7 +3869,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.47
           },
           {
             "seq": "4294",
@@ -3933,7 +3901,39 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.49
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.47
           }
         ]
       },
@@ -3947,7 +3947,7 @@
       },
       "method": {
         "intro": "Distribuzione a entropia massima compatibile con i vincoli osservati — least bias",
-        "observed_results": "Su 4242 concorsi simulati: media 0.37 numeri indovinati per sestina."
+        "observed_results": "Su 4243 concorsi simulati: media 0.37 numeri indovinati per sestina."
       }
     },
     "monte-carlo": {
@@ -3956,53 +3956,21 @@
       "title": "Monte Carlo",
       "subtitle": "Simulazione probabilistica su N scenari — frequenza empirica campionata",
       "family": "generativi",
-      "rank_position": 14,
+      "rank_position": 17,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         2,
-        7,
         8,
         18,
+        24,
         28,
         85
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 7,
-                "hit": true
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 9,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -4033,7 +4001,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4257",
@@ -4065,7 +4033,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.5
           },
           {
             "seq": "4258",
@@ -4097,7 +4065,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -4129,7 +4097,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -4161,7 +4129,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.6
           },
           {
             "seq": "4261",
@@ -4193,7 +4161,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.57
+            "moving_avg": 0.5
           },
           {
             "seq": "4262",
@@ -4225,7 +4193,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.62
+            "moving_avg": 0.57
           },
           {
             "seq": "4263",
@@ -4257,7 +4225,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.62
           },
           {
             "seq": "4264",
@@ -4289,7 +4257,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.7
+            "moving_avg": 0.67
           },
           {
             "seq": "4265",
@@ -4321,7 +4289,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.82
+            "moving_avg": 0.8
           },
           {
             "seq": "4266",
@@ -4353,7 +4321,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 0.73
           },
           {
             "seq": "4267",
@@ -4385,7 +4353,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.69
+            "moving_avg": 0.67
           },
           {
             "seq": "4268",
@@ -4417,7 +4385,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.71
+            "moving_avg": 0.69
           },
           {
             "seq": "4269",
@@ -4449,7 +4417,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.64
           },
           {
             "seq": "4270",
@@ -4481,7 +4449,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.62
+            "moving_avg": 0.6
           },
           {
             "seq": "4271",
@@ -4513,7 +4481,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.59
+            "moving_avg": 0.56
           },
           {
             "seq": "4272",
@@ -4545,7 +4513,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.53
           },
           {
             "seq": "4273",
@@ -4577,7 +4545,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.5
           },
           {
             "seq": "4274",
@@ -4609,7 +4577,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.47
           },
           {
             "seq": "4275",
@@ -4641,7 +4609,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4276",
@@ -4673,7 +4641,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -4705,7 +4673,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -4737,7 +4705,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -4769,7 +4737,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -4801,7 +4769,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.4
           },
           {
             "seq": "4281",
@@ -4833,7 +4801,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4282",
@@ -4865,7 +4833,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.41
           },
           {
             "seq": "4283",
@@ -4897,7 +4865,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.43
           },
           {
             "seq": "4284",
@@ -4929,7 +4897,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.45
           },
           {
             "seq": "4285",
@@ -4961,7 +4929,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.43
           },
           {
             "seq": "4286",
@@ -4993,7 +4961,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4287",
@@ -5025,7 +4993,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.41
           },
           {
             "seq": "4288",
@@ -5057,7 +5025,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.39
           },
           {
             "seq": "4289",
@@ -5089,7 +5057,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.38
           },
           {
             "seq": "4290",
@@ -5121,7 +5089,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.43
           },
           {
             "seq": "4291",
@@ -5153,7 +5121,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.42
           },
           {
             "seq": "4292",
@@ -5185,7 +5153,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.41
           },
           {
             "seq": "4293",
@@ -5217,7 +5185,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.39
           },
           {
             "seq": "4294",
@@ -5249,7 +5217,39 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.41
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 7,
+                "hit": false
+              },
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.4
           }
         ]
       },
@@ -5263,7 +5263,7 @@
       },
       "method": {
         "intro": "Simulazione probabilistica su N scenari — frequenza empirica campionata",
-        "observed_results": "Su 4242 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4243 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "adaptive-ensemble": {
@@ -5272,53 +5272,21 @@
       "title": "Adaptive Ensemble",
       "subtitle": "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo",
       "family": "ibridi",
-      "rank_position": 6,
+      "rank_position": 8,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        12,
+        2,
+        8,
         18,
         28,
         41,
-        82,
         85
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -5445,7 +5413,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.25
           },
           {
             "seq": "4260",
@@ -5477,7 +5445,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -5509,7 +5477,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -5541,7 +5509,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -5573,7 +5541,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.38
           },
           {
             "seq": "4264",
@@ -5605,7 +5573,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.44
           },
           {
             "seq": "4265",
@@ -5637,7 +5605,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.6
           },
           {
             "seq": "4266",
@@ -5669,7 +5637,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.55
           },
           {
             "seq": "4267",
@@ -5701,7 +5669,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.5
           },
           {
             "seq": "4268",
@@ -5733,7 +5701,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.54
           },
           {
             "seq": "4269",
@@ -5765,7 +5733,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4270",
@@ -5797,7 +5765,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.47
           },
           {
             "seq": "4271",
@@ -5829,7 +5797,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4272",
@@ -5861,7 +5829,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.47
           },
           {
             "seq": "4273",
@@ -5893,7 +5861,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4274",
@@ -5925,7 +5893,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4275",
@@ -5957,7 +5925,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4276",
@@ -5989,7 +5957,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.43
           },
           {
             "seq": "4277",
@@ -6021,7 +5989,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4278",
@@ -6053,7 +6021,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.39
           },
           {
             "seq": "4279",
@@ -6085,7 +6053,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -6117,7 +6085,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4281",
@@ -6149,7 +6117,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.46
           },
           {
             "seq": "4282",
@@ -6181,7 +6149,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.44
           },
           {
             "seq": "4283",
@@ -6213,7 +6181,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
           },
           {
             "seq": "4284",
@@ -6245,7 +6213,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.48
           },
           {
             "seq": "4285",
@@ -6277,7 +6245,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.53
           },
           {
             "seq": "4286",
@@ -6309,7 +6277,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4287",
@@ -6341,7 +6309,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4288",
@@ -6373,7 +6341,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.48
           },
           {
             "seq": "4289",
@@ -6405,7 +6373,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4290",
@@ -6437,7 +6405,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.51
           },
           {
             "seq": "4291",
@@ -6469,7 +6437,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.5
           },
           {
             "seq": "4292",
@@ -6501,7 +6469,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.49
           },
           {
             "seq": "4293",
@@ -6533,7 +6501,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4294",
@@ -6565,6 +6533,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.49
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.47
           }
         ]
@@ -6579,7 +6579,7 @@
       },
       "method": {
         "intro": "Meta-algoritmo: combina tutti gli algoritmi attivi pesati per ranking corrente — gira per ultimo",
-        "observed_results": "Su 4262 concorsi simulati: media 0.47 numeri indovinati per sestina."
+        "observed_results": "Su 4263 concorsi simulati: media 0.47 numeri indovinati per sestina."
       }
     },
     "astro-statistical": {
@@ -6588,53 +6588,21 @@
       "title": "Astro Statistical",
       "subtitle": "Fase lunare + correlazioni storiche per fase + frequenza classica",
       "family": "ibridi",
-      "rank_position": 15,
+      "rank_position": 18,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         12,
-        18,
         28,
         41,
-        82,
+        64,
+        78,
         85
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 39,
-                "hit": false
-              },
-              {
-                "number": 83,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -6793,7 +6761,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.2
           },
           {
             "seq": "4261",
@@ -6825,7 +6793,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.14
+            "moving_avg": 0.17
           },
           {
             "seq": "4262",
@@ -6857,7 +6825,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.12
+            "moving_avg": 0.14
           },
           {
             "seq": "4263",
@@ -6889,7 +6857,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.11
+            "moving_avg": 0.12
           },
           {
             "seq": "4264",
@@ -6921,7 +6889,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.22
           },
           {
             "seq": "4265",
@@ -6953,7 +6921,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.4
           },
           {
             "seq": "4266",
@@ -6985,7 +6953,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.36
           },
           {
             "seq": "4267",
@@ -7017,7 +6985,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.33
           },
           {
             "seq": "4268",
@@ -7049,7 +7017,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4269",
@@ -7081,7 +7049,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.36
           },
           {
             "seq": "4270",
@@ -7113,7 +7081,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.33
           },
           {
             "seq": "4271",
@@ -7145,7 +7113,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.31
           },
           {
             "seq": "4272",
@@ -7177,7 +7145,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4273",
@@ -7209,7 +7177,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.26
+            "moving_avg": 0.28
           },
           {
             "seq": "4274",
@@ -7241,7 +7209,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.26
           },
           {
             "seq": "4275",
@@ -7273,7 +7241,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4276",
@@ -7305,7 +7273,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.29
           },
           {
             "seq": "4277",
@@ -7337,7 +7305,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.26
+            "moving_avg": 0.27
           },
           {
             "seq": "4278",
@@ -7369,7 +7337,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.26
           },
           {
             "seq": "4279",
@@ -7401,7 +7369,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4280",
@@ -7433,7 +7401,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.28
           },
           {
             "seq": "4281",
@@ -7465,7 +7433,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.31
           },
           {
             "seq": "4282",
@@ -7497,7 +7465,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4283",
@@ -7529,7 +7497,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4284",
@@ -7561,7 +7529,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.28
           },
           {
             "seq": "4285",
@@ -7593,7 +7561,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4286",
@@ -7625,7 +7593,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4287",
@@ -7657,7 +7625,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.28
           },
           {
             "seq": "4288",
@@ -7689,7 +7657,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4289",
@@ -7785,7 +7753,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.31
           },
           {
             "seq": "4292",
@@ -7817,7 +7785,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4293",
@@ -7849,7 +7817,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.32
           },
           {
             "seq": "4294",
@@ -7881,6 +7849,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.31
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.3
           }
         ]
@@ -7890,12 +7890,12 @@
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.3%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4150",
+        "last_200_avg": "0.4100",
         "std_hit": "0.5844"
       },
       "method": {
         "intro": "Fase lunare + correlazioni storiche per fase + frequenza classica",
-        "observed_results": "Su 4192 concorsi simulati: media 0.40 numeri indovinati per sestina."
+        "observed_results": "Su 4193 concorsi simulati: media 0.40 numeri indovinati per sestina."
       }
     },
     "freq-delay-blend": {
@@ -7904,53 +7904,21 @@
       "title": "Freq-Delay Blend",
       "subtitle": "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente",
       "family": "ibridi",
-      "rank_position": 17,
+      "rank_position": 15,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
+        8,
+        9,
+        15,
+        27,
         28,
-        47,
-        56,
-        74,
-        82,
-        85
+        74
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 12,
-                "hit": false
-              },
-              {
-                "number": 28,
-                "hit": false
-              },
-              {
-                "number": 59,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -8045,7 +8013,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -8077,7 +8045,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -8109,7 +8077,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -8141,7 +8109,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -8173,7 +8141,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -8205,7 +8173,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -8237,7 +8205,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.44
           },
           {
             "seq": "4265",
@@ -8269,7 +8237,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.4
           },
           {
             "seq": "4266",
@@ -8301,7 +8269,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.36
           },
           {
             "seq": "4267",
@@ -8333,7 +8301,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.33
           },
           {
             "seq": "4268",
@@ -8365,7 +8333,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.31
           },
           {
             "seq": "4269",
@@ -8397,7 +8365,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.29
           },
           {
             "seq": "4270",
@@ -8429,7 +8397,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.33
           },
           {
             "seq": "4271",
@@ -8461,7 +8429,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.44
           },
           {
             "seq": "4272",
@@ -8493,7 +8461,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4273",
@@ -8525,7 +8493,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.37
+            "moving_avg": 0.39
           },
           {
             "seq": "4274",
@@ -8557,7 +8525,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.37
           },
           {
             "seq": "4275",
@@ -8589,7 +8557,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4276",
@@ -8621,7 +8589,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4277",
@@ -8653,7 +8621,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.36
           },
           {
             "seq": "4278",
@@ -8685,7 +8653,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4279",
@@ -8717,7 +8685,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.32
+            "moving_avg": 0.33
           },
           {
             "seq": "4280",
@@ -8749,7 +8717,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.36
           },
           {
             "seq": "4281",
@@ -8781,7 +8749,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4282",
@@ -8813,7 +8781,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.32
+            "moving_avg": 0.33
           },
           {
             "seq": "4283",
@@ -8845,7 +8813,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.34
+            "moving_avg": 0.36
           },
           {
             "seq": "4284",
@@ -8877,7 +8845,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.34
           },
           {
             "seq": "4285",
@@ -8909,7 +8877,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.37
           },
           {
             "seq": "4286",
@@ -8941,7 +8909,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.34
+            "moving_avg": 0.35
           },
           {
             "seq": "4287",
@@ -8973,7 +8941,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.34
           },
           {
             "seq": "4288",
@@ -9005,7 +8973,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.32
+            "moving_avg": 0.33
           },
           {
             "seq": "4289",
@@ -9037,7 +9005,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.32
           },
           {
             "seq": "4290",
@@ -9069,7 +9037,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.34
           },
           {
             "seq": "4291",
@@ -9101,7 +9069,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.32
+            "moving_avg": 0.33
           },
           {
             "seq": "4292",
@@ -9165,7 +9133,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.32
           },
           {
             "seq": "4294",
@@ -9198,6 +9166,38 @@
               }
             ],
             "moving_avg": 0.33
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 56,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": true
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.35
           }
         ]
       },
@@ -9206,12 +9206,12 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.6%",
         "hit_rate_gte_3": "0.3%",
-        "last_200_avg": "0.3600",
+        "last_200_avg": "0.3650",
         "std_hit": "0.5848"
       },
       "method": {
         "intro": "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente",
-        "observed_results": "Su 4192 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4193 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "neural-stat-fusion": {
@@ -9220,53 +9220,21 @@
       "title": "Neural-Stat Fusion",
       "subtitle": "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente",
       "family": "ibridi",
-      "rank_position": 3,
+      "rank_position": 4,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        18,
-        28,
         41,
         63,
+        74,
+        79,
         82,
         85
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 12,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -9393,7 +9361,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -9425,7 +9393,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -9457,7 +9425,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -9489,7 +9457,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -9521,7 +9489,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -9553,7 +9521,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.44
           },
           {
             "seq": "4265",
@@ -9585,7 +9553,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.6
           },
           {
             "seq": "4266",
@@ -9617,7 +9585,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.55
           },
           {
             "seq": "4267",
@@ -9649,7 +9617,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.5
           },
           {
             "seq": "4268",
@@ -9681,7 +9649,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.46
           },
           {
             "seq": "4269",
@@ -9713,7 +9681,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4270",
@@ -9745,7 +9713,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.47
           },
           {
             "seq": "4271",
@@ -9777,7 +9745,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.44
           },
           {
             "seq": "4272",
@@ -9809,7 +9777,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.47
           },
           {
             "seq": "4273",
@@ -9841,7 +9809,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4274",
@@ -9873,7 +9841,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4275",
@@ -9905,7 +9873,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4276",
@@ -9937,7 +9905,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -9969,7 +9937,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -10001,7 +9969,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -10033,7 +10001,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4280",
@@ -10065,7 +10033,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4281",
@@ -10097,7 +10065,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.54
           },
           {
             "seq": "4282",
@@ -10129,7 +10097,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4283",
@@ -10161,7 +10129,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.54
           },
           {
             "seq": "4284",
@@ -10193,7 +10161,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.55
           },
           {
             "seq": "4285",
@@ -10225,7 +10193,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.6
           },
           {
             "seq": "4286",
@@ -10257,7 +10225,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.58
           },
           {
             "seq": "4287",
@@ -10289,7 +10257,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.59
           },
           {
             "seq": "4288",
@@ -10321,7 +10289,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.58
           },
           {
             "seq": "4289",
@@ -10353,7 +10321,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.56
           },
           {
             "seq": "4290",
@@ -10385,7 +10353,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.57
           },
           {
             "seq": "4291",
@@ -10417,7 +10385,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.56
           },
           {
             "seq": "4292",
@@ -10449,7 +10417,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.54
           },
           {
             "seq": "4293",
@@ -10481,7 +10449,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.51
+            "moving_avg": 0.53
           },
           {
             "seq": "4294",
@@ -10513,6 +10481,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.51
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.5
           }
         ]
@@ -10522,12 +10522,12 @@
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.0%",
         "hit_rate_gte_3": "0.2%",
-        "last_200_avg": "0.4350",
+        "last_200_avg": "0.4300",
         "std_hit": "0.5899"
       },
       "method": {
         "intro": "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente",
-        "observed_results": "Su 4192 concorsi simulati: media 0.41 numeri indovinati per sestina."
+        "observed_results": "Su 4193 concorsi simulati: media 0.41 numeri indovinati per sestina."
       }
     },
     "autoencoder-anomaly": {
@@ -10536,10 +10536,10 @@
       "title": "Autoencoder Anomaly",
       "subtitle": "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo",
       "family": "neurali",
-      "rank_position": 13,
+      "rank_position": 11,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         4,
         24,
@@ -10551,38 +10551,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 47,
-                "hit": false
-              },
-              {
-                "number": 51,
-                "hit": false
-              },
-              {
-                "number": 61,
-                "hit": false
-              },
-              {
-                "number": 64,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -10773,7 +10741,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.14
+            "moving_avg": 0.17
           },
           {
             "seq": "4262",
@@ -10805,11 +10773,43 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.12
+            "moving_avg": 0.14
           },
           {
             "seq": "4263",
             "date": "01/10/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 8,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": false
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 51,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.12
+          },
+          {
+            "seq": "4264",
+            "date": "02/10/2026",
             "hit": 0,
             "picks": [
               {
@@ -10840,38 +10840,6 @@
             "moving_avg": 0.11
           },
           {
-            "seq": "4264",
-            "date": "02/10/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 47,
-                "hit": false
-              },
-              {
-                "number": 51,
-                "hit": false
-              },
-              {
-                "number": 61,
-                "hit": false
-              },
-              {
-                "number": 64,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.1
-          },
-          {
             "seq": "4265",
             "date": "03/10/2026",
             "hit": 0,
@@ -10901,7 +10869,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.09
+            "moving_avg": 0.1
           },
           {
             "seq": "4266",
@@ -10933,7 +10901,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.08
+            "moving_avg": 0.09
           },
           {
             "seq": "4267",
@@ -10997,7 +10965,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.07
+            "moving_avg": 0.08
           },
           {
             "seq": "4269",
@@ -11029,7 +10997,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.13
+            "moving_avg": 0.14
           },
           {
             "seq": "4270",
@@ -11061,7 +11029,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.12
+            "moving_avg": 0.13
           },
           {
             "seq": "4271",
@@ -11093,7 +11061,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.18
+            "moving_avg": 0.19
           },
           {
             "seq": "4272",
@@ -11125,7 +11093,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.18
           },
           {
             "seq": "4273",
@@ -11157,7 +11125,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.16
+            "moving_avg": 0.17
           },
           {
             "seq": "4274",
@@ -11189,7 +11157,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.15
+            "moving_avg": 0.16
           },
           {
             "seq": "4275",
@@ -11221,7 +11189,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.14
+            "moving_avg": 0.15
           },
           {
             "seq": "4276",
@@ -11285,7 +11253,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.13
+            "moving_avg": 0.14
           },
           {
             "seq": "4278",
@@ -11349,7 +11317,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.16
+            "moving_avg": 0.17
           },
           {
             "seq": "4280",
@@ -11381,7 +11349,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.23
+            "moving_avg": 0.24
           },
           {
             "seq": "4281",
@@ -11413,7 +11381,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.22
+            "moving_avg": 0.23
           },
           {
             "seq": "4282",
@@ -11445,7 +11413,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.26
           },
           {
             "seq": "4283",
@@ -11477,7 +11445,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.24
+            "moving_avg": 0.25
           },
           {
             "seq": "4284",
@@ -11509,7 +11477,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.28
           },
           {
             "seq": "4285",
@@ -11541,7 +11509,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.26
+            "moving_avg": 0.27
           },
           {
             "seq": "4286",
@@ -11573,7 +11541,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4287",
@@ -11605,7 +11573,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.28
           },
           {
             "seq": "4288",
@@ -11637,7 +11605,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4289",
@@ -11669,7 +11637,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.32
           },
           {
             "seq": "4290",
@@ -11733,7 +11701,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.31
           },
           {
             "seq": "4292",
@@ -11765,7 +11733,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4293",
@@ -11797,7 +11765,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4294",
@@ -11830,6 +11798,38 @@
               }
             ],
             "moving_avg": 0.28
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 24,
+                "hit": true
+              },
+              {
+                "number": 47,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              },
+              {
+                "number": 64,
+                "hit": false
+              },
+              {
+                "number": 89,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.3
           }
         ]
       },
@@ -11838,12 +11838,12 @@
         "avg_hits": "0.42",
         "hit_rate_gte_2": "5.5%",
         "hit_rate_gte_3": "0.3%",
-        "last_200_avg": "0.3750",
+        "last_200_avg": "0.3800",
         "std_hit": "0.6054"
       },
       "method": {
         "intro": "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo",
-        "observed_results": "Su 4092 concorsi simulati: media 0.42 numeri indovinati per sestina."
+        "observed_results": "Su 4093 concorsi simulati: media 0.42 numeri indovinati per sestina."
       }
     },
     "feedforward-feature": {
@@ -11855,10 +11855,10 @@
       "rank_position": 19,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         9,
-        31,
+        33,
         42,
         59,
         77,
@@ -11867,38 +11867,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 20,
-                "hit": false
-              },
-              {
-                "number": 21,
-                "hit": false
-              },
-              {
-                "number": 60,
-                "hit": false
-              },
-              {
-                "number": 66,
-                "hit": false
-              },
-              {
-                "number": 77,
-                "hit": false
-              },
-              {
-                "number": 79,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -12185,7 +12153,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.1
+            "moving_avg": 0.11
           },
           {
             "seq": "4265",
@@ -12217,7 +12185,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.09
+            "moving_avg": 0.1
           },
           {
             "seq": "4266",
@@ -12249,7 +12217,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.08
+            "moving_avg": 0.09
           },
           {
             "seq": "4267",
@@ -12281,7 +12249,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.15
+            "moving_avg": 0.17
           },
           {
             "seq": "4268",
@@ -12313,7 +12281,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.21
+            "moving_avg": 0.23
           },
           {
             "seq": "4269",
@@ -12345,7 +12313,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.21
           },
           {
             "seq": "4270",
@@ -12377,7 +12345,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.19
+            "moving_avg": 0.2
           },
           {
             "seq": "4271",
@@ -12409,7 +12377,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.24
+            "moving_avg": 0.25
           },
           {
             "seq": "4272",
@@ -12441,7 +12409,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4273",
@@ -12473,7 +12441,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.37
+            "moving_avg": 0.39
           },
           {
             "seq": "4274",
@@ -12505,7 +12473,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.37
           },
           {
             "seq": "4275",
@@ -12537,7 +12505,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4276",
@@ -12569,7 +12537,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4277",
@@ -12601,7 +12569,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.36
           },
           {
             "seq": "4278",
@@ -12633,7 +12601,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4279",
@@ -12665,7 +12633,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -12697,7 +12665,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.4
           },
           {
             "seq": "4281",
@@ -12729,7 +12697,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.37
+            "moving_avg": 0.38
           },
           {
             "seq": "4282",
@@ -12761,7 +12729,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.37
           },
           {
             "seq": "4283",
@@ -12793,7 +12761,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.39
           },
           {
             "seq": "4284",
@@ -12825,7 +12793,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.41
           },
           {
             "seq": "4285",
@@ -12857,7 +12825,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.43
           },
           {
             "seq": "4286",
@@ -12889,7 +12857,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.42
           },
           {
             "seq": "4287",
@@ -12921,7 +12889,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4288",
@@ -12953,7 +12921,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.42
           },
           {
             "seq": "4289",
@@ -12985,7 +12953,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.44
           },
           {
             "seq": "4290",
@@ -13017,7 +12985,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.43
           },
           {
             "seq": "4291",
@@ -13049,7 +13017,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.42
           },
           {
             "seq": "4292",
@@ -13081,7 +13049,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4293",
@@ -13113,11 +13081,43 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.39
           },
           {
             "seq": "4294",
             "date": "24/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 9,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 42,
+                "hit": false
+              },
+              {
+                "number": 59,
+                "hit": false
+              },
+              {
+                "number": 77,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.38
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
             "hit": 0,
             "picks": [
               {
@@ -13154,12 +13154,12 @@
         "avg_hits": "0.89",
         "hit_rate_gte_2": "21.8%",
         "hit_rate_gte_3": "3.1%",
-        "last_200_avg": "0.6400",
+        "last_200_avg": "0.6300",
         "std_hit": "0.8209"
       },
       "method": {
         "intro": "MLP su feature engineered per numero — frequenze, ritardi, parità, range",
-        "observed_results": "Su 4092 concorsi simulati: media 0.89 numeri indovinati per sestina."
+        "observed_results": "Su 4093 concorsi simulati: media 0.89 numeri indovinati per sestina."
       }
     },
     "lstm-sequenziale": {
@@ -13168,13 +13168,13 @@
       "title": "LSTM Sequenziale",
       "subtitle": "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero",
       "family": "neurali",
-      "rank_position": 10,
+      "rank_position": 7,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
+        41,
         63,
-        71,
         75,
         79,
         85,
@@ -13183,38 +13183,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 41,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              },
-              {
-                "number": 71,
-                "hit": false
-              },
-              {
-                "number": 79,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              },
-              {
-                "number": 86,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -13245,7 +13213,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 1.0
           },
           {
             "seq": "4257",
@@ -13277,7 +13245,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 1.0
           },
           {
             "seq": "4258",
@@ -13309,7 +13277,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.67
           },
           {
             "seq": "4259",
@@ -13341,7 +13309,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.8
+            "moving_avg": 1.0
           },
           {
             "seq": "4260",
@@ -13373,7 +13341,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.8
           },
           {
             "seq": "4261",
@@ -13405,7 +13373,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.57
+            "moving_avg": 0.67
           },
           {
             "seq": "4262",
@@ -13437,7 +13405,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.57
           },
           {
             "seq": "4263",
@@ -13469,7 +13437,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.62
           },
           {
             "seq": "4264",
@@ -13501,7 +13469,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.56
           },
           {
             "seq": "4265",
@@ -13533,7 +13501,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.5
           },
           {
             "seq": "4266",
@@ -13565,7 +13533,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.45
           },
           {
             "seq": "4267",
@@ -13597,7 +13565,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.42
           },
           {
             "seq": "4268",
@@ -13629,7 +13597,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4269",
@@ -13661,7 +13629,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.43
           },
           {
             "seq": "4270",
@@ -13693,7 +13661,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.4
           },
           {
             "seq": "4271",
@@ -13725,7 +13693,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.38
           },
           {
             "seq": "4272",
@@ -13757,7 +13725,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4273",
@@ -13789,7 +13757,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4274",
@@ -13821,7 +13789,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4275",
@@ -13853,7 +13821,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.4
           },
           {
             "seq": "4276",
@@ -13885,7 +13853,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.43
           },
           {
             "seq": "4277",
@@ -13917,7 +13885,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4278",
@@ -13949,7 +13917,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.39
           },
           {
             "seq": "4279",
@@ -13981,7 +13949,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -14013,7 +13981,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4281",
@@ -14045,7 +14013,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.42
           },
           {
             "seq": "4282",
@@ -14077,7 +14045,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4283",
@@ -14109,7 +14077,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.39
           },
           {
             "seq": "4284",
@@ -14141,7 +14109,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.37
+            "moving_avg": 0.38
           },
           {
             "seq": "4285",
@@ -14173,7 +14141,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.4
           },
           {
             "seq": "4286",
@@ -14205,7 +14173,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.39
           },
           {
             "seq": "4287",
@@ -14237,7 +14205,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4288",
@@ -14269,7 +14237,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.45
           },
           {
             "seq": "4289",
@@ -14301,7 +14269,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.44
           },
           {
             "seq": "4290",
@@ -14333,7 +14301,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.49
           },
           {
             "seq": "4291",
@@ -14365,7 +14333,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.5
           },
           {
             "seq": "4292",
@@ -14397,7 +14365,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.49
           },
           {
             "seq": "4293",
@@ -14429,7 +14397,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4294",
@@ -14461,6 +14429,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.46
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 79,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              },
+              {
+                "number": 86,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.45
           }
         ]
@@ -14471,11 +14471,11 @@
         "hit_rate_gte_2": "5.7%",
         "hit_rate_gte_3": "0.5%",
         "last_200_avg": "0.4000",
-        "std_hit": "0.6222"
+        "std_hit": "0.6221"
       },
       "method": {
         "intro": "Rete ricorrente LSTM addestrata su sequenze di estrazioni — predice probabilità per ogni numero",
-        "observed_results": "Su 4130 concorsi simulati: media 0.45 numeri indovinati per sestina."
+        "observed_results": "Su 4131 concorsi simulati: media 0.45 numeri indovinati per sestina."
       }
     },
     "transformer-attention": {
@@ -14484,53 +14484,21 @@
       "title": "Transformer Attention",
       "subtitle": "Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale",
       "family": "neurali",
-      "rank_position": 5,
+      "rank_position": 1,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        25,
-        28,
+        24,
         41,
         50,
         74,
+        77,
         82
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 12,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 59,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -14625,7 +14593,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -14657,7 +14625,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.25
           },
           {
             "seq": "4260",
@@ -14689,7 +14657,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.2
           },
           {
             "seq": "4261",
@@ -14721,7 +14689,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.14
+            "moving_avg": 0.17
           },
           {
             "seq": "4262",
@@ -14753,7 +14721,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -14785,7 +14753,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -14817,7 +14785,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.44
           },
           {
             "seq": "4265",
@@ -14849,7 +14817,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.7
           },
           {
             "seq": "4266",
@@ -14881,7 +14849,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.64
           },
           {
             "seq": "4267",
@@ -14913,7 +14881,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.58
           },
           {
             "seq": "4268",
@@ -14945,7 +14913,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.54
           },
           {
             "seq": "4269",
@@ -14977,7 +14945,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4270",
@@ -15009,7 +14977,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.47
           },
           {
             "seq": "4271",
@@ -15041,7 +15009,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.44
           },
           {
             "seq": "4272",
@@ -15073,7 +15041,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4273",
@@ -15105,7 +15073,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.37
+            "moving_avg": 0.39
           },
           {
             "seq": "4274",
@@ -15137,7 +15105,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.37
           },
           {
             "seq": "4275",
@@ -15169,7 +15137,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4276",
@@ -15201,7 +15169,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4277",
@@ -15233,7 +15201,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.36
           },
           {
             "seq": "4278",
@@ -15265,7 +15233,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4279",
@@ -15297,7 +15265,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -15329,7 +15297,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4281",
@@ -15361,7 +15329,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.46
           },
           {
             "seq": "4282",
@@ -15393,7 +15361,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.48
           },
           {
             "seq": "4283",
@@ -15425,7 +15393,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
           },
           {
             "seq": "4284",
@@ -15457,7 +15425,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.48
           },
           {
             "seq": "4285",
@@ -15489,7 +15457,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4286",
@@ -15521,7 +15489,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.48
           },
           {
             "seq": "4287",
@@ -15553,7 +15521,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4288",
@@ -15585,7 +15553,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4289",
@@ -15617,7 +15585,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.5
           },
           {
             "seq": "4290",
@@ -15649,7 +15617,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.49
           },
           {
             "seq": "4291",
@@ -15681,7 +15649,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4292",
@@ -15713,7 +15681,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
           },
           {
             "seq": "4293",
@@ -15745,7 +15713,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4294",
@@ -15777,7 +15745,39 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 1,
+            "picks": [
+              {
+                "number": 25,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 74,
+                "hit": true
+              },
+              {
+                "number": 82,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.47
           }
         ]
       },
@@ -15791,7 +15791,7 @@
       },
       "method": {
         "intro": "Self-attention su finestra recente — pesa le estrazioni passate in modo differenziale",
-        "observed_results": "Su 4242 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4243 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "oracle": {
@@ -15800,13 +15800,13 @@
       "title": "L'Oracolo",
       "subtitle": "Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria",
       "family": "oracle",
-      "rank_position": 2,
+      "rank_position": 3,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [],
       "performance": {
-        "label": "Performance - ultimi 21 concorsi",
+        "label": "Performance - ultimi 22 concorsi",
         "rows": [
           {
             "seq": "4274",
@@ -16479,20 +16479,52 @@
               }
             ],
             "moving_avg": 0.67
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 4,
+                "hit": false
+              },
+              {
+                "number": 17,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.64
           }
         ]
       },
       "metrics": {
         "ranking_stability_pct": 46,
-        "avg_hits": "0.67",
-        "hit_rate_gte_2": "9.5%",
+        "avg_hits": "0.64",
+        "hit_rate_gte_2": "9.1%",
         "hit_rate_gte_3": "0.0%",
-        "last_200_avg": "0.6667",
-        "std_hit": "0.6424"
+        "last_200_avg": "0.6364",
+        "std_hit": "0.6428"
       },
       "method": {
         "intro": "Entità LLM che osserva tutti gli algoritmi, ragiona liberamente e ispira una sestina propria",
-        "observed_results": "Su 21 concorsi simulati: media 0.67 numeri indovinati per sestina."
+        "observed_results": "Su 22 concorsi simulati: media 0.64 numeri indovinati per sestina."
       },
       "sealed": true
     },
@@ -16502,10 +16534,10 @@
       "title": "Coppia Correlazione",
       "subtitle": "Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte",
       "family": "statistici",
-      "rank_position": 12,
+      "rank_position": 14,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         23,
         31,
@@ -16517,38 +16549,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 25,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -16675,7 +16675,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.25
           },
           {
             "seq": "4260",
@@ -16707,7 +16707,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -16739,7 +16739,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -16771,7 +16771,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -16803,7 +16803,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.22
+            "moving_avg": 0.25
           },
           {
             "seq": "4264",
@@ -16835,7 +16835,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.33
           },
           {
             "seq": "4265",
@@ -16867,7 +16867,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.5
           },
           {
             "seq": "4266",
@@ -16899,7 +16899,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.45
           },
           {
             "seq": "4267",
@@ -16931,7 +16931,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.42
           },
           {
             "seq": "4268",
@@ -16963,7 +16963,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.46
           },
           {
             "seq": "4269",
@@ -16995,7 +16995,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.43
           },
           {
             "seq": "4270",
@@ -17027,7 +17027,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.4
           },
           {
             "seq": "4271",
@@ -17059,7 +17059,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.44
           },
           {
             "seq": "4272",
@@ -17091,7 +17091,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4273",
@@ -17123,7 +17123,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4274",
@@ -17155,7 +17155,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.47
           },
           {
             "seq": "4275",
@@ -17187,7 +17187,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4276",
@@ -17219,7 +17219,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -17251,7 +17251,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -17283,7 +17283,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -17315,7 +17315,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -17347,7 +17347,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4281",
@@ -17379,7 +17379,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.46
           },
           {
             "seq": "4282",
@@ -17411,7 +17411,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.44
           },
           {
             "seq": "4283",
@@ -17443,7 +17443,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
           },
           {
             "seq": "4284",
@@ -17475,7 +17475,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.48
           },
           {
             "seq": "4285",
@@ -17507,7 +17507,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.47
           },
           {
             "seq": "4286",
@@ -17539,7 +17539,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.45
           },
           {
             "seq": "4287",
@@ -17571,7 +17571,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.47
           },
           {
             "seq": "4288",
@@ -17603,7 +17603,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4289",
@@ -17635,7 +17635,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.5
           },
           {
             "seq": "4290",
@@ -17667,7 +17667,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.49
           },
           {
             "seq": "4291",
@@ -17699,7 +17699,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4292",
@@ -17731,7 +17731,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
           },
           {
             "seq": "4293",
@@ -17763,11 +17763,43 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.45
           },
           {
             "seq": "4294",
             "date": "24/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 23,
+                "hit": false
+              },
+              {
+                "number": 31,
+                "hit": false
+              },
+              {
+                "number": 40,
+                "hit": false
+              },
+              {
+                "number": 55,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.44
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
             "hit": 0,
             "picks": [
               {
@@ -17805,11 +17837,11 @@
         "hit_rate_gte_2": "4.2%",
         "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.5100",
-        "std_hit": "0.5775"
+        "std_hit": "0.5774"
       },
       "method": {
         "intro": "Coppie e terzine statisticamente correlate — sestina costruita dal nucleo più forte",
-        "observed_results": "Su 4192 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4193 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "distribuzione": {
@@ -17818,13 +17850,13 @@
       "title": "Distribuzione Bilanciata",
       "subtitle": "Sestina bilanciata per range, parità e somma target storica",
       "family": "statistici",
-      "rank_position": 11,
+      "rank_position": 12,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
         2,
-        28,
+        18,
         41,
         52,
         61,
@@ -17833,38 +17865,6 @@
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 7,
-                "hit": true
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 33,
-                "hit": false
-              },
-              {
-                "number": 52,
-                "hit": false
-              },
-              {
-                "number": 63,
-                "hit": false
-              },
-              {
-                "number": 76,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -17895,7 +17895,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4257",
@@ -17927,7 +17927,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.0
           },
           {
             "seq": "4258",
@@ -17959,7 +17959,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -17991,7 +17991,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -18023,7 +18023,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.83
+            "moving_avg": 0.8
           },
           {
             "seq": "4261",
@@ -18055,7 +18055,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.86
+            "moving_avg": 0.83
           },
           {
             "seq": "4262",
@@ -18087,7 +18087,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 0.71
           },
           {
             "seq": "4263",
@@ -18119,7 +18119,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.62
           },
           {
             "seq": "4264",
@@ -18151,7 +18151,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.56
           },
           {
             "seq": "4265",
@@ -18183,7 +18183,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.6
           },
           {
             "seq": "4266",
@@ -18215,7 +18215,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.55
           },
           {
             "seq": "4267",
@@ -18247,7 +18247,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.62
+            "moving_avg": 0.58
           },
           {
             "seq": "4268",
@@ -18279,7 +18279,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.62
           },
           {
             "seq": "4269",
@@ -18311,7 +18311,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.57
           },
           {
             "seq": "4270",
@@ -18343,7 +18343,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.53
           },
           {
             "seq": "4271",
@@ -18375,7 +18375,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.5
           },
           {
             "seq": "4272",
@@ -18407,7 +18407,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.53
           },
           {
             "seq": "4273",
@@ -18439,7 +18439,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.5
           },
           {
             "seq": "4274",
@@ -18471,7 +18471,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.47
           },
           {
             "seq": "4275",
@@ -18503,7 +18503,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4276",
@@ -18535,7 +18535,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -18567,7 +18567,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -18599,7 +18599,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -18631,7 +18631,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.46
           },
           {
             "seq": "4280",
@@ -18663,7 +18663,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.52
           },
           {
             "seq": "4281",
@@ -18695,7 +18695,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.54
           },
           {
             "seq": "4282",
@@ -18727,7 +18727,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.57
+            "moving_avg": 0.56
           },
           {
             "seq": "4283",
@@ -18759,7 +18759,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.54
           },
           {
             "seq": "4284",
@@ -18791,7 +18791,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.52
           },
           {
             "seq": "4285",
@@ -18823,7 +18823,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.53
           },
           {
             "seq": "4286",
@@ -18855,7 +18855,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.52
           },
           {
             "seq": "4287",
@@ -18887,7 +18887,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.5
           },
           {
             "seq": "4288",
@@ -18919,7 +18919,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4289",
@@ -18951,7 +18951,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.47
           },
           {
             "seq": "4290",
@@ -18983,7 +18983,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.51
           },
           {
             "seq": "4291",
@@ -19015,7 +19015,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.51
+            "moving_avg": 0.5
           },
           {
             "seq": "4292",
@@ -19047,7 +19047,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.49
           },
           {
             "seq": "4293",
@@ -19079,7 +19079,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.47
           },
           {
             "seq": "4294",
@@ -19111,7 +19111,39 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.46
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 2,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 52,
+                "hit": false
+              },
+              {
+                "number": 61,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.45
           }
         ]
       },
@@ -19125,7 +19157,7 @@
       },
       "method": {
         "intro": "Sestina bilanciata per range, parità e somma target storica",
-        "observed_results": "Su 4242 concorsi simulati: media 0.41 numeri indovinati per sestina."
+        "observed_results": "Su 4243 concorsi simulati: media 0.41 numeri indovinati per sestina."
       }
     },
     "equilibra-elefante": {
@@ -19137,50 +19169,18 @@
       "rank_position": 16,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
+        2,
         6,
-        30,
-        37,
-        63,
-        75,
-        82
+        38,
+        40,
+        52,
+        62
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 25,
-                "hit": false
-              },
-              {
-                "number": 47,
-                "hit": false
-              },
-              {
-                "number": 66,
-                "hit": false
-              },
-              {
-                "number": 69,
-                "hit": false
-              },
-              {
-                "number": 81,
-                "hit": false
-              },
-              {
-                "number": 88,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -19243,7 +19243,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.5
           },
           {
             "seq": "4258",
@@ -19275,7 +19275,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.67
           },
           {
             "seq": "4259",
@@ -19307,7 +19307,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -19339,7 +19339,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -19371,7 +19371,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -19403,7 +19403,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -19435,7 +19435,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.38
           },
           {
             "seq": "4264",
@@ -19467,7 +19467,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.33
           },
           {
             "seq": "4265",
@@ -19499,7 +19499,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.3
           },
           {
             "seq": "4266",
@@ -19531,7 +19531,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.27
           },
           {
             "seq": "4267",
@@ -19563,7 +19563,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.23
+            "moving_avg": 0.25
           },
           {
             "seq": "4268",
@@ -19595,7 +19595,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.21
+            "moving_avg": 0.23
           },
           {
             "seq": "4269",
@@ -19627,7 +19627,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.21
           },
           {
             "seq": "4270",
@@ -19659,7 +19659,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.19
+            "moving_avg": 0.2
           },
           {
             "seq": "4271",
@@ -19691,7 +19691,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.18
+            "moving_avg": 0.19
           },
           {
             "seq": "4272",
@@ -19723,7 +19723,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.18
           },
           {
             "seq": "4273",
@@ -19755,7 +19755,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.16
+            "moving_avg": 0.17
           },
           {
             "seq": "4274",
@@ -19787,7 +19787,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.15
+            "moving_avg": 0.16
           },
           {
             "seq": "4275",
@@ -19819,7 +19819,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.14
+            "moving_avg": 0.15
           },
           {
             "seq": "4276",
@@ -19851,7 +19851,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.18
+            "moving_avg": 0.19
           },
           {
             "seq": "4277",
@@ -19883,7 +19883,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.18
           },
           {
             "seq": "4278",
@@ -19947,7 +19947,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.16
+            "moving_avg": 0.17
           },
           {
             "seq": "4280",
@@ -19979,7 +19979,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.19
+            "moving_avg": 0.2
           },
           {
             "seq": "4281",
@@ -20043,7 +20043,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.18
+            "moving_avg": 0.19
           },
           {
             "seq": "4283",
@@ -20075,7 +20075,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.18
           },
           {
             "seq": "4284",
@@ -20107,7 +20107,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.21
           },
           {
             "seq": "4285",
@@ -20171,7 +20171,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.22
+            "moving_avg": 0.23
           },
           {
             "seq": "4287",
@@ -20203,7 +20203,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.21
+            "moving_avg": 0.22
           },
           {
             "seq": "4288",
@@ -20267,7 +20267,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.21
           },
           {
             "seq": "4290",
@@ -20299,7 +20299,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.19
+            "moving_avg": 0.2
           },
           {
             "seq": "4291",
@@ -20363,7 +20363,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.21
+            "moving_avg": 0.22
           },
           {
             "seq": "4293",
@@ -20395,7 +20395,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.23
+            "moving_avg": 0.24
           },
           {
             "seq": "4294",
@@ -20427,21 +20427,53 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.26
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 6,
+                "hit": false
+              },
+              {
+                "number": 30,
+                "hit": false
+              },
+              {
+                "number": 37,
+                "hit": false
+              },
+              {
+                "number": 63,
+                "hit": false
+              },
+              {
+                "number": 75,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.25
           }
         ]
       },
       "metrics": {
         "ranking_stability_pct": 50,
-        "avg_hits": "0.40",
+        "avg_hits": "0.39",
         "hit_rate_gte_2": "5.2%",
         "hit_rate_gte_3": "0.4%",
         "last_200_avg": "0.3000",
-        "std_hit": "0.6000"
+        "std_hit": "0.5999"
       },
       "method": {
         "intro": "EQUILIBRA, ramo memoria lunga: graduatoria per spinta (frequenza storica+ultime 48 vs teorica 1/15), posizioni-obiettivo mu come media cumulativa di tutte le estrazioni osservate.",
-        "observed_results": "Su 4232 concorsi simulati: media 0.40 numeri indovinati per sestina."
+        "observed_results": "Su 4233 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "equilibra-gatto": {
@@ -20453,50 +20485,18 @@
       "rank_position": 20,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        43,
+        61,
         71,
         72,
         78,
         80,
-        81
+        90
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 23,
-                "hit": false
-              },
-              {
-                "number": 32,
-                "hit": false
-              },
-              {
-                "number": 56,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              },
-              {
-                "number": 87,
-                "hit": false
-              },
-              {
-                "number": 88,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -20527,7 +20527,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 1.0
+            "moving_avg": 2.0
           },
           {
             "seq": "4257",
@@ -20559,7 +20559,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 1.0
           },
           {
             "seq": "4258",
@@ -20591,7 +20591,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.67
           },
           {
             "seq": "4259",
@@ -20623,7 +20623,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -20655,7 +20655,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -20687,7 +20687,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.5
           },
           {
             "seq": "4262",
@@ -20719,7 +20719,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.43
           },
           {
             "seq": "4263",
@@ -20751,7 +20751,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.38
           },
           {
             "seq": "4264",
@@ -20783,7 +20783,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.33
           },
           {
             "seq": "4265",
@@ -20815,7 +20815,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.3
           },
           {
             "seq": "4266",
@@ -20847,7 +20847,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.36
           },
           {
             "seq": "4267",
@@ -20879,7 +20879,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.42
           },
           {
             "seq": "4268",
@@ -20911,7 +20911,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4269",
@@ -20943,7 +20943,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.36
           },
           {
             "seq": "4270",
@@ -20975,7 +20975,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.38
+            "moving_avg": 0.4
           },
           {
             "seq": "4271",
@@ -21007,7 +21007,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.44
           },
           {
             "seq": "4272",
@@ -21039,7 +21039,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.41
           },
           {
             "seq": "4273",
@@ -21071,7 +21071,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.37
+            "moving_avg": 0.39
           },
           {
             "seq": "4274",
@@ -21103,7 +21103,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.37
           },
           {
             "seq": "4275",
@@ -21135,7 +21135,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4276",
@@ -21167,7 +21167,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4277",
@@ -21199,7 +21199,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.36
           },
           {
             "seq": "4278",
@@ -21231,7 +21231,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4279",
@@ -21263,7 +21263,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.36
+            "moving_avg": 0.38
           },
           {
             "seq": "4280",
@@ -21295,7 +21295,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.35
+            "moving_avg": 0.36
           },
           {
             "seq": "4281",
@@ -21327,7 +21327,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.35
           },
           {
             "seq": "4282",
@@ -21359,7 +21359,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.32
+            "moving_avg": 0.33
           },
           {
             "seq": "4283",
@@ -21391,7 +21391,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.32
           },
           {
             "seq": "4284",
@@ -21423,7 +21423,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.34
           },
           {
             "seq": "4285",
@@ -21455,7 +21455,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.32
+            "moving_avg": 0.33
           },
           {
             "seq": "4286",
@@ -21487,7 +21487,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.31
+            "moving_avg": 0.32
           },
           {
             "seq": "4287",
@@ -21519,7 +21519,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.3
+            "moving_avg": 0.31
           },
           {
             "seq": "4288",
@@ -21551,7 +21551,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.29
+            "moving_avg": 0.3
           },
           {
             "seq": "4289",
@@ -21615,7 +21615,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.28
+            "moving_avg": 0.29
           },
           {
             "seq": "4291",
@@ -21647,7 +21647,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.27
+            "moving_avg": 0.28
           },
           {
             "seq": "4292",
@@ -21679,7 +21679,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.26
+            "moving_avg": 0.27
           },
           {
             "seq": "4293",
@@ -21744,6 +21744,38 @@
               }
             ],
             "moving_avg": 0.28
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 43,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              },
+              {
+                "number": 72,
+                "hit": false
+              },
+              {
+                "number": 78,
+                "hit": false
+              },
+              {
+                "number": 80,
+                "hit": false
+              },
+              {
+                "number": 81,
+                "hit": false
+              }
+            ],
+            "moving_avg": 0.28
           }
         ]
       },
@@ -21752,12 +21784,12 @@
         "avg_hits": "0.40",
         "hit_rate_gte_2": "4.6%",
         "hit_rate_gte_3": "0.3%",
-        "last_200_avg": "0.3800",
+        "last_200_avg": "0.3750",
         "std_hit": "0.5877"
       },
       "method": {
         "intro": "EQUILIBRA, ramo adattamento moderato: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.8/0.2 (memoria lunga con adattamento graduale).",
-        "observed_results": "Su 4232 concorsi simulati: media 0.40 numeri indovinati per sestina."
+        "observed_results": "Su 4233 concorsi simulati: media 0.40 numeri indovinati per sestina."
       }
     },
     "equilibra-lepre": {
@@ -21766,53 +21798,21 @@
       "title": "Equilibra Lepre",
       "subtitle": "EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso).",
       "family": "statistici",
-      "rank_position": 9,
+      "rank_position": 6,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        12,
-        26,
-        29,
-        30,
-        35,
-        71
+        5,
+        18,
+        45,
+        58,
+        61,
+        79
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 28,
-                "hit": false
-              },
-              {
-                "number": 38,
-                "hit": false
-              },
-              {
-                "number": 43,
-                "hit": false
-              },
-              {
-                "number": 62,
-                "hit": false
-              },
-              {
-                "number": 67,
-                "hit": false
-              },
-              {
-                "number": 70,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -21875,7 +21875,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.33
+            "moving_avg": 0.5
           },
           {
             "seq": "4258",
@@ -21907,7 +21907,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.67
           },
           {
             "seq": "4259",
@@ -21939,7 +21939,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -21971,7 +21971,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.6
           },
           {
             "seq": "4261",
@@ -22003,7 +22003,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.5
           },
           {
             "seq": "4262",
@@ -22035,7 +22035,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.57
           },
           {
             "seq": "4263",
@@ -22067,7 +22067,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -22099,7 +22099,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.56
           },
           {
             "seq": "4265",
@@ -22131,7 +22131,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.7
           },
           {
             "seq": "4266",
@@ -22163,7 +22163,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.64
           },
           {
             "seq": "4267",
@@ -22195,7 +22195,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.62
+            "moving_avg": 0.67
           },
           {
             "seq": "4268",
@@ -22227,7 +22227,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.69
           },
           {
             "seq": "4269",
@@ -22259,7 +22259,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.73
+            "moving_avg": 0.79
           },
           {
             "seq": "4270",
@@ -22291,7 +22291,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.69
+            "moving_avg": 0.73
           },
           {
             "seq": "4271",
@@ -22323,7 +22323,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.65
+            "moving_avg": 0.69
           },
           {
             "seq": "4272",
@@ -22355,7 +22355,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.72
+            "moving_avg": 0.76
           },
           {
             "seq": "4273",
@@ -22387,7 +22387,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.68
+            "moving_avg": 0.72
           },
           {
             "seq": "4274",
@@ -22419,7 +22419,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.7
+            "moving_avg": 0.74
           },
           {
             "seq": "4275",
@@ -22451,7 +22451,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.7
           },
           {
             "seq": "4276",
@@ -22483,7 +22483,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.68
+            "moving_avg": 0.71
           },
           {
             "seq": "4277",
@@ -22515,7 +22515,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.7
+            "moving_avg": 0.73
           },
           {
             "seq": "4278",
@@ -22547,7 +22547,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.7
           },
           {
             "seq": "4279",
@@ -22579,7 +22579,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.72
+            "moving_avg": 0.75
           },
           {
             "seq": "4280",
@@ -22611,7 +22611,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.69
+            "moving_avg": 0.72
           },
           {
             "seq": "4281",
@@ -22643,7 +22643,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.7
+            "moving_avg": 0.73
           },
           {
             "seq": "4282",
@@ -22675,7 +22675,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.68
+            "moving_avg": 0.7
           },
           {
             "seq": "4283",
@@ -22707,7 +22707,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.66
+            "moving_avg": 0.68
           },
           {
             "seq": "4284",
@@ -22739,7 +22739,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.69
           },
           {
             "seq": "4285",
@@ -22771,7 +22771,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.68
+            "moving_avg": 0.7
           },
           {
             "seq": "4286",
@@ -22803,7 +22803,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.66
+            "moving_avg": 0.68
           },
           {
             "seq": "4287",
@@ -22835,7 +22835,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.66
           },
           {
             "seq": "4288",
@@ -22867,7 +22867,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.65
+            "moving_avg": 0.67
           },
           {
             "seq": "4289",
@@ -22899,7 +22899,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.63
+            "moving_avg": 0.65
           },
           {
             "seq": "4290",
@@ -22931,7 +22931,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.66
           },
           {
             "seq": "4291",
@@ -22963,7 +22963,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.65
+            "moving_avg": 0.67
           },
           {
             "seq": "4292",
@@ -22995,7 +22995,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.63
+            "moving_avg": 0.65
           },
           {
             "seq": "4293",
@@ -23027,7 +23027,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.62
+            "moving_avg": 0.63
           },
           {
             "seq": "4294",
@@ -23059,6 +23059,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.62
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 12,
+                "hit": false
+              },
+              {
+                "number": 26,
+                "hit": false
+              },
+              {
+                "number": 29,
+                "hit": false
+              },
+              {
+                "number": 30,
+                "hit": false
+              },
+              {
+                "number": 35,
+                "hit": false
+              },
+              {
+                "number": 71,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.6
           }
         ]
@@ -23069,11 +23101,11 @@
         "hit_rate_gte_2": "5.0%",
         "hit_rate_gte_3": "0.3%",
         "last_200_avg": "0.4650",
-        "std_hit": "0.5958"
+        "std_hit": "0.5957"
       },
       "method": {
         "intro": "EQUILIBRA, ramo reattivo: graduatoria per spinta, posizioni-obiettivo mu aggiornate con EMA 0.5/0.5 (peso uguale a stato precedente e ultimo concorso).",
-        "observed_results": "Su 4232 concorsi simulati: media 0.40 numeri indovinati per sestina."
+        "observed_results": "Su 4233 concorsi simulati: media 0.40 numeri indovinati per sestina."
       }
     },
     "freq-classica": {
@@ -23082,53 +23114,21 @@
       "title": "Frequenza Classica",
       "subtitle": "Hot numbers su finestre mobili 30/90/180/full con pesi decrescenti",
       "family": "statistici",
-      "rank_position": 4,
+      "rank_position": 5,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
-        18,
         28,
         41,
         50,
+        74,
         82,
         85
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 0,
-            "picks": [
-              {
-                "number": 2,
-                "hit": false
-              },
-              {
-                "number": 8,
-                "hit": false
-              },
-              {
-                "number": 12,
-                "hit": false
-              },
-              {
-                "number": 18,
-                "hit": false
-              },
-              {
-                "number": 24,
-                "hit": false
-              },
-              {
-                "number": 85,
-                "hit": false
-              }
-            ],
-            "moving_avg": 0.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -23223,7 +23223,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.33
           },
           {
             "seq": "4259",
@@ -23255,7 +23255,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.2
+            "moving_avg": 0.25
           },
           {
             "seq": "4260",
@@ -23287,7 +23287,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.17
+            "moving_avg": 0.2
           },
           {
             "seq": "4261",
@@ -23319,7 +23319,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.14
+            "moving_avg": 0.17
           },
           {
             "seq": "4262",
@@ -23351,7 +23351,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.25
+            "moving_avg": 0.29
           },
           {
             "seq": "4263",
@@ -23383,7 +23383,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -23415,7 +23415,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.44
           },
           {
             "seq": "4265",
@@ -23447,7 +23447,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.64
+            "moving_avg": 0.7
           },
           {
             "seq": "4266",
@@ -23479,7 +23479,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.64
           },
           {
             "seq": "4267",
@@ -23511,7 +23511,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.58
           },
           {
             "seq": "4268",
@@ -23543,7 +23543,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.57
+            "moving_avg": 0.62
           },
           {
             "seq": "4269",
@@ -23575,7 +23575,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.57
           },
           {
             "seq": "4270",
@@ -23607,7 +23607,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.53
           },
           {
             "seq": "4271",
@@ -23639,7 +23639,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.5
           },
           {
             "seq": "4272",
@@ -23671,7 +23671,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.47
           },
           {
             "seq": "4273",
@@ -23703,7 +23703,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.44
           },
           {
             "seq": "4274",
@@ -23735,7 +23735,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.42
           },
           {
             "seq": "4275",
@@ -23767,7 +23767,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4276",
@@ -23799,7 +23799,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -23831,7 +23831,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -23863,7 +23863,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -23895,7 +23895,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.46
           },
           {
             "seq": "4280",
@@ -23927,7 +23927,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.48
           },
           {
             "seq": "4281",
@@ -23959,7 +23959,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4282",
@@ -23991,7 +23991,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.48
           },
           {
             "seq": "4283",
@@ -24023,7 +24023,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.5
           },
           {
             "seq": "4284",
@@ -24055,7 +24055,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4285",
@@ -24087,7 +24087,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.55
+            "moving_avg": 0.57
           },
           {
             "seq": "4286",
@@ -24119,7 +24119,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.55
           },
           {
             "seq": "4287",
@@ -24151,7 +24151,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.52
+            "moving_avg": 0.53
           },
           {
             "seq": "4288",
@@ -24183,7 +24183,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.52
           },
           {
             "seq": "4289",
@@ -24215,7 +24215,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.49
+            "moving_avg": 0.5
           },
           {
             "seq": "4290",
@@ -24247,7 +24247,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.49
           },
           {
             "seq": "4291",
@@ -24279,7 +24279,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4292",
@@ -24311,7 +24311,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.46
           },
           {
             "seq": "4293",
@@ -24343,7 +24343,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.47
           },
           {
             "seq": "4294",
@@ -24375,6 +24375,38 @@
                 "hit": false
               }
             ],
+            "moving_avg": 0.49
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 0,
+            "picks": [
+              {
+                "number": 18,
+                "hit": false
+              },
+              {
+                "number": 28,
+                "hit": false
+              },
+              {
+                "number": 41,
+                "hit": false
+              },
+              {
+                "number": 50,
+                "hit": false
+              },
+              {
+                "number": 82,
+                "hit": false
+              },
+              {
+                "number": 85,
+                "hit": false
+              }
+            ],
             "moving_avg": 0.47
           }
         ]
@@ -24384,12 +24416,12 @@
         "avg_hits": "0.39",
         "hit_rate_gte_2": "4.4%",
         "hit_rate_gte_3": "0.2%",
-        "last_200_avg": "0.4400",
-        "std_hit": "0.5788"
+        "last_200_avg": "0.4350",
+        "std_hit": "0.5787"
       },
       "method": {
         "intro": "Hot numbers su finestre mobili 30/90/180/full con pesi decrescenti",
-        "observed_results": "Su 4262 concorsi simulati: media 0.39 numeri indovinati per sestina."
+        "observed_results": "Su 4263 concorsi simulati: media 0.39 numeri indovinati per sestina."
       }
     },
     "ritardo-massimo": {
@@ -24398,53 +24430,21 @@
       "title": "Ritardo Massimo",
       "subtitle": "Numeri più in ritardo rispetto al loro intervallo medio storico atteso",
       "family": "statistici",
-      "rank_position": 18,
+      "rank_position": 13,
       "is_active": true,
       "access_tier": "free",
-      "last_updated": "24/11/2026",
+      "last_updated": "26/11/2026",
       "proposal": [
+        6,
+        8,
         9,
         15,
         27,
-        36,
-        58,
-        87
+        36
       ],
       "performance": {
         "label": "Performance - ultimi 40 concorsi",
         "rows": [
-          {
-            "seq": "4255",
-            "date": "17/09/2026",
-            "hit": 1,
-            "picks": [
-              {
-                "number": 5,
-                "hit": false
-              },
-              {
-                "number": 22,
-                "hit": false
-              },
-              {
-                "number": 35,
-                "hit": true
-              },
-              {
-                "number": 48,
-                "hit": false
-              },
-              {
-                "number": 65,
-                "hit": false
-              },
-              {
-                "number": 87,
-                "hit": false
-              }
-            ],
-            "moving_avg": 1.0
-          },
           {
             "seq": "4256",
             "date": "18/09/2026",
@@ -24475,7 +24475,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.0
           },
           {
             "seq": "4257",
@@ -24507,7 +24507,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.67
+            "moving_avg": 0.5
           },
           {
             "seq": "4258",
@@ -24539,7 +24539,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.75
+            "moving_avg": 0.67
           },
           {
             "seq": "4259",
@@ -24571,7 +24571,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.6
+            "moving_avg": 0.5
           },
           {
             "seq": "4260",
@@ -24603,7 +24603,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.4
           },
           {
             "seq": "4261",
@@ -24635,7 +24635,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.33
           },
           {
             "seq": "4262",
@@ -24667,7 +24667,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.43
           },
           {
             "seq": "4263",
@@ -24699,7 +24699,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.5
           },
           {
             "seq": "4264",
@@ -24731,7 +24731,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.44
           },
           {
             "seq": "4265",
@@ -24763,7 +24763,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.4
           },
           {
             "seq": "4266",
@@ -24795,7 +24795,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.58
+            "moving_avg": 0.55
           },
           {
             "seq": "4267",
@@ -24827,7 +24827,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.54
+            "moving_avg": 0.5
           },
           {
             "seq": "4268",
@@ -24859,7 +24859,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.46
           },
           {
             "seq": "4269",
@@ -24891,7 +24891,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.47
+            "moving_avg": 0.43
           },
           {
             "seq": "4270",
@@ -24923,7 +24923,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.47
           },
           {
             "seq": "4271",
@@ -24955,7 +24955,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.59
+            "moving_avg": 0.56
           },
           {
             "seq": "4272",
@@ -24987,7 +24987,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.56
+            "moving_avg": 0.53
           },
           {
             "seq": "4273",
@@ -25019,7 +25019,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.53
+            "moving_avg": 0.5
           },
           {
             "seq": "4274",
@@ -25051,7 +25051,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.47
           },
           {
             "seq": "4275",
@@ -25083,7 +25083,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.45
           },
           {
             "seq": "4276",
@@ -25115,7 +25115,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.5
+            "moving_avg": 0.48
           },
           {
             "seq": "4277",
@@ -25147,7 +25147,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.48
+            "moving_avg": 0.45
           },
           {
             "seq": "4278",
@@ -25179,7 +25179,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.43
           },
           {
             "seq": "4279",
@@ -25211,7 +25211,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4280",
@@ -25243,7 +25243,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.46
+            "moving_avg": 0.44
           },
           {
             "seq": "4281",
@@ -25275,7 +25275,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4282",
@@ -25307,7 +25307,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.41
           },
           {
             "seq": "4283",
@@ -25339,7 +25339,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.45
+            "moving_avg": 0.43
           },
           {
             "seq": "4284",
@@ -25371,7 +25371,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.43
+            "moving_avg": 0.41
           },
           {
             "seq": "4285",
@@ -25403,7 +25403,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.4
           },
           {
             "seq": "4286",
@@ -25435,7 +25435,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.44
+            "moving_avg": 0.42
           },
           {
             "seq": "4287",
@@ -25467,7 +25467,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.41
           },
           {
             "seq": "4288",
@@ -25499,7 +25499,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.39
           },
           {
             "seq": "4289",
@@ -25531,7 +25531,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.38
           },
           {
             "seq": "4290",
@@ -25563,7 +25563,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.39
+            "moving_avg": 0.37
           },
           {
             "seq": "4291",
@@ -25595,7 +25595,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.39
           },
           {
             "seq": "4292",
@@ -25627,7 +25627,7 @@
                 "hit": true
               }
             ],
-            "moving_avg": 0.42
+            "moving_avg": 0.41
           },
           {
             "seq": "4293",
@@ -25659,7 +25659,7 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.41
+            "moving_avg": 0.39
           },
           {
             "seq": "4294",
@@ -25691,7 +25691,39 @@
                 "hit": false
               }
             ],
-            "moving_avg": 0.4
+            "moving_avg": 0.38
+          },
+          {
+            "seq": "4295",
+            "date": "26/11/2026",
+            "hit": 2,
+            "picks": [
+              {
+                "number": 9,
+                "hit": false
+              },
+              {
+                "number": 15,
+                "hit": false
+              },
+              {
+                "number": 27,
+                "hit": false
+              },
+              {
+                "number": 36,
+                "hit": false
+              },
+              {
+                "number": 58,
+                "hit": true
+              },
+              {
+                "number": 87,
+                "hit": true
+              }
+            ],
+            "moving_avg": 0.42
           }
         ]
       },
@@ -25700,12 +25732,12 @@
         "avg_hits": "0.41",
         "hit_rate_gte_2": "5.4%",
         "hit_rate_gte_3": "0.4%",
-        "last_200_avg": "0.4100",
-        "std_hit": "0.6053"
+        "last_200_avg": "0.4200",
+        "std_hit": "0.6057"
       },
       "method": {
         "intro": "Numeri più in ritardo rispetto al loro intervallo medio storico atteso",
-        "observed_results": "Su 4242 concorsi simulati: media 0.41 numeri indovinati per sestina."
+        "observed_results": "Su 4243 concorsi simulati: media 0.41 numeri indovinati per sestina."
       }
     }
   }

@@ -1,13 +1,13 @@
 === LSTM SEQUENZIALE ===
-Generato: 24/11/2026 23:42
+Generato: 28/11/2026 16:51
 Concorso di riferimento: 4294
-Sestina proposta: 63 - 71 - 75 - 79 - 85 - 86
+Sestina proposta: 41 - 63 - 75 - 79 - 85 - 86
 
 --- METRICHE ---
 Score osservato:  0.0744
 Score atteso:     0.1050
 Edge:             -0.0306 (-29.14%)
-Stabilità:        48.1/100
+Stabilità:        48.2/100
 Forma recente:    39.7/100
 Confidenza camp.: 98.44%
 Profilo rischio:  MEDIO [GIALLO]
@@ -15,15 +15,15 @@ Profilo rischio:  MEDIO [GIALLO]
 --- NOTE ---
 Finestra sequenza: 20 estrazioni
 Top 10 per probabilità LSTM:
-  79, 85, 86, 63, 75, 71, 41, 87, 90, 83
+  79, 85, 63, 86, 41, 75, 71, 90, 83, 16
 
 Dettaglio sestina:
-  63 → P(n) = 0.0790
-  71 → P(n) = 0.0764
-  75 → P(n) = 0.0766
-  79 → P(n) = 0.0855
+  41 → P(n) = 0.0765
+  63 → P(n) = 0.0802
+  75 → P(n) = 0.0762
+  79 → P(n) = 0.0862
   85 → P(n) = 0.0807
-  86 → P(n) = 0.0803
-Estrazioni nel training: 4294
+  86 → P(n) = 0.0798
+Estrazioni nel training: 4295
 
 Generato automaticamente da ControlChaos Admin v4

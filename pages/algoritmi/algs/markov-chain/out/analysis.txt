@@ -1,26 +1,26 @@
 === MARKOV CHAIN ===
-Generato: 24/11/2026 23:42
+Generato: 28/11/2026 16:51
 Concorso di riferimento: 4294
-Sestina proposta: 12 - 17 - 18 - 33 - 72 - 88
+Sestina proposta: 2 - 8 - 11 - 18 - 64 - 84
 
 --- METRICHE ---
 Score osservato:  0.0656
 Score atteso:     0.1050
 Edge:             -0.0394 (-37.52%)
 Stabilità:        50.4/100
-Forma recente:    51.6/100
+Forma recente:    47.6/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
-Ultima estrazione (seme): 19 - 25 - 28 - 45 - 50 - 74
+Ultima estrazione (seme): 16 - 19 - 24 - 58 - 74 - 87
 
 Top 10 per score transizione:
-  18, 33, 12, 17, 72, 88, 37, 8, 20, 84
+  18, 11, 64, 8, 2, 84, 25, 56, 33, 45
 
 La sestina è costruita sui numeri con la maggiore probabilità
 di comparire insieme ai numeri dell'ultima estrazione.
 Finestra di addestramento: 300 estrazioni
-Estrazioni analizzate: 4294
+Estrazioni analizzate: 4295
 
 Generato automaticamente da ControlChaos Admin v4

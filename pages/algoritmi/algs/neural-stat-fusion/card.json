@@ -3,7 +3,7 @@
   "title": "Neural-Stat Fusion",
   "subtitle": "Late fusion LSTM + frequenza classica con pesi adattativi da ranking recente",
   "image": "img.webp",
-  "lastUpdated": "24/11/2026",
+  "lastUpdated": "28/11/2026",
   "hasNews": false,
   "usesOutData": true,
   "statusTag": "Aggiornato",

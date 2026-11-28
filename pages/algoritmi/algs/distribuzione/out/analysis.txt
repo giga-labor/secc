@@ -1,28 +1,28 @@
 === DISTRIBUZIONE BILANCIATA ===
-Generato: 24/11/2026 23:42
+Generato: 28/11/2026 16:51
 Concorso di riferimento: 4294
-Sestina proposta: 2 - 28 - 41 - 52 - 61 - 85
+Sestina proposta: 2 - 18 - 41 - 52 - 61 - 85
 
 --- METRICHE ---
-Score osservato:  0.0679
+Score osservato:  0.0678
 Score atteso:     0.1050
 Edge:             -0.0372 (-35.42%)
 Stabilità:        50.5/100
-Forma recente:    35.7/100
+Forma recente:    31.7/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
 Struttura sestina:
   [1-15] → 2
-  [16-30] → 28
+  [16-30] → 18
   [31-45] → 41
   [46-60] → 52
   [61-75] → 61
   [76-90] → 85
 
 Parità: 3 pari / 3 dispari
-Somma sestina: 269 (media storica: 276.5 ± 62.0)
-Estrazioni analizzate: 4294
+Somma sestina: 259 (media storica: 276.5 ± 62.0)
+Estrazioni analizzate: 4295
 
 Generato automaticamente da ControlChaos Admin v4

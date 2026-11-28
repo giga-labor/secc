@@ -1,168 +1,1535 @@
 {
-  "generated_at": "2026-11-24T23:42:25.372100",
+  "generated_at": "2026-11-28T16:57:14.406847",
+  "period_days": 365,
+  "contests_covered": 193,
+  "total_cost_eur": 3726.0,
+  "total_estimated_prize_eur": 1470.0,
+  "roi_pct": -60.55,
+  "category_counts": {
+    "2": 179,
+    "3": 11,
+    "4": 1,
+    "5": 0,
+    "6": 0
+  },
+  "jackpot_events": [],
+  "prize_table_note": "Premi stimati a tabella fissa: 2 punti 5 euro, 3 punti 25 euro, 4 punti 300 euro, 5 punti 30.000 euro. I 6 punti (jackpot) sono esclusi dal vinto stimato perché troppo variabili.",
+  "rows": [
+    {
+      "seq": 4101,
+      "date": "27/11/2025",
+      "avg_hits": 0.63,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4102,
+      "date": "28/11/2025",
+      "avg_hits": 0.3,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4103,
+      "date": "29/11/2025",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4104,
+      "date": "04/12/2025",
+      "avg_hits": 1.1,
+      "cost": 20.0,
+      "estimated_prize": 25.0
+    },
+    {
+      "seq": 4105,
+      "date": "06/12/2025",
+      "avg_hits": 0.5,
+      "cost": 20.0,
+      "estimated_prize": 25.0
+    },
+    {
+      "seq": 4106,
+      "date": "07/12/2025",
+      "avg_hits": 0.4,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4107,
+      "date": "08/12/2025",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4108,
+      "date": "09/12/2025",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4109,
+      "date": "12/12/2025",
+      "avg_hits": 0.3,
+      "cost": 20.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4110,
+      "date": "13/12/2025",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4111,
+      "date": "16/12/2025",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4112,
+      "date": "18/12/2025",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4113,
+      "date": "19/12/2025",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4114,
+      "date": "20/12/2025",
+      "avg_hits": 0.15,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4115,
+      "date": "22/12/2025",
+      "avg_hits": 0.5,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4116,
+      "date": "23/12/2025",
+      "avg_hits": 0.35,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4117,
+      "date": "27/12/2025",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4118,
+      "date": "29/12/2025",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4119,
+      "date": "30/12/2025",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4120,
+      "date": "02/01/2026",
+      "avg_hits": 0.35,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4121,
+      "date": "03/01/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4122,
+      "date": "05/01/2026",
+      "avg_hits": 0.4,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4123,
+      "date": "08/01/2026",
+      "avg_hits": 0.4,
+      "cost": 20.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4124,
+      "date": "09/01/2026",
+      "avg_hits": 0.45,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4125,
+      "date": "10/01/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4126,
+      "date": "12/01/2026",
+      "avg_hits": 0.68,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4127,
+      "date": "13/01/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4128,
+      "date": "15/01/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 15.0
+    },
+    {
+      "seq": 4129,
+      "date": "16/01/2026",
+      "avg_hits": 0.25,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4130,
+      "date": "17/01/2026",
+      "avg_hits": 0.5,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4131,
+      "date": "20/01/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4132,
+      "date": "22/01/2026",
+      "avg_hits": 0.45,
+      "cost": 20.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4133,
+      "date": "23/01/2026",
+      "avg_hits": 0.63,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4134,
+      "date": "24/01/2026",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4135,
+      "date": "27/01/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4136,
+      "date": "29/01/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4137,
+      "date": "30/01/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4138,
+      "date": "31/01/2026",
+      "avg_hits": 0.9,
+      "cost": 20.0,
+      "estimated_prize": 70.0
+    },
+    {
+      "seq": 4139,
+      "date": "03/02/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4140,
+      "date": "05/02/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4141,
+      "date": "06/02/2026",
+      "avg_hits": 1.05,
+      "cost": 19.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4142,
+      "date": "07/02/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4143,
+      "date": "10/02/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4144,
+      "date": "12/02/2026",
+      "avg_hits": 0.9,
+      "cost": 20.0,
+      "estimated_prize": 25.0
+    },
+    {
+      "seq": 4145,
+      "date": "13/02/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4146,
+      "date": "14/02/2026",
+      "avg_hits": 0.95,
+      "cost": 19.0,
+      "estimated_prize": 45.0
+    },
+    {
+      "seq": 4147,
+      "date": "17/02/2026",
+      "avg_hits": 0.74,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4148,
+      "date": "19/02/2026",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4149,
+      "date": "20/02/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4150,
+      "date": "21/02/2026",
+      "avg_hits": 0.05,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4151,
+      "date": "24/02/2026",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4152,
+      "date": "26/02/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4153,
+      "date": "27/02/2026",
+      "avg_hits": 0.4,
+      "cost": 20.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4154,
+      "date": "28/02/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4155,
+      "date": "03/03/2026",
+      "avg_hits": 0.3,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4156,
+      "date": "05/03/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4157,
+      "date": "06/03/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4158,
+      "date": "07/03/2026",
+      "avg_hits": 0.05,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4159,
+      "date": "10/03/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4160,
+      "date": "12/03/2026",
+      "avg_hits": 0.68,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4161,
+      "date": "13/03/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4162,
+      "date": "14/03/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4163,
+      "date": "17/03/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4164,
+      "date": "19/03/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4165,
+      "date": "20/03/2026",
+      "avg_hits": 0.25,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4166,
+      "date": "21/03/2026",
+      "avg_hits": 0.25,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4167,
+      "date": "24/03/2026",
+      "avg_hits": 0.15,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4168,
+      "date": "26/03/2026",
+      "avg_hits": 0.4,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4169,
+      "date": "27/03/2026",
+      "avg_hits": 0.25,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4170,
+      "date": "28/03/2026",
+      "avg_hits": 0.11,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4171,
+      "date": "31/03/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4172,
+      "date": "02/04/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4173,
+      "date": "03/04/2026",
+      "avg_hits": 0.65,
+      "cost": 20.0,
+      "estimated_prize": 15.0
+    },
+    {
+      "seq": 4174,
+      "date": "04/04/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4175,
+      "date": "07/04/2026",
+      "avg_hits": 0.65,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4176,
+      "date": "09/04/2026",
+      "avg_hits": 0.95,
+      "cost": 19.0,
+      "estimated_prize": 50.0
+    },
+    {
+      "seq": 4177,
+      "date": "10/04/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4178,
+      "date": "11/04/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4179,
+      "date": "14/04/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4180,
+      "date": "16/04/2026",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4181,
+      "date": "17/04/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4182,
+      "date": "18/04/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4183,
+      "date": "21/04/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4184,
+      "date": "23/04/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4185,
+      "date": "24/04/2026",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4186,
+      "date": "27/04/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4187,
+      "date": "28/04/2026",
+      "avg_hits": 0.05,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4188,
+      "date": "30/04/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4189,
+      "date": "02/05/2026",
+      "avg_hits": 0.74,
+      "cost": 19.0,
+      "estimated_prize": 310.0
+    },
+    {
+      "seq": 4190,
+      "date": "04/05/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4191,
+      "date": "05/05/2026",
+      "avg_hits": 0.05,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4192,
+      "date": "07/05/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4193,
+      "date": "08/05/2026",
+      "avg_hits": 0.63,
+      "cost": 19.0,
+      "estimated_prize": 30.0
+    },
+    {
+      "seq": 4194,
+      "date": "09/05/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4195,
+      "date": "12/05/2026",
+      "avg_hits": 0.63,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4196,
+      "date": "14/05/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4197,
+      "date": "15/05/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4198,
+      "date": "16/05/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4199,
+      "date": "19/05/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4200,
+      "date": "21/05/2026",
+      "avg_hits": 0.74,
+      "cost": 19.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4201,
+      "date": "23/05/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4202,
+      "date": "26/05/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4203,
+      "date": "28/05/2026",
+      "avg_hits": 0.11,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4204,
+      "date": "29/05/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4205,
+      "date": "30/05/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4206,
+      "date": "04/06/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4207,
+      "date": "05/06/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4208,
+      "date": "06/06/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4209,
+      "date": "08/06/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4210,
+      "date": "09/06/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4211,
+      "date": "11/06/2026",
+      "avg_hits": 0.79,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4212,
+      "date": "12/06/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4213,
+      "date": "13/06/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4214,
+      "date": "16/06/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4215,
+      "date": "18/06/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4216,
+      "date": "20/06/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4217,
+      "date": "26/06/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4218,
+      "date": "30/06/2026",
+      "avg_hits": 0.79,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4219,
+      "date": "07/07/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4220,
+      "date": "09/07/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4221,
+      "date": "10/07/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4222,
+      "date": "11/07/2026",
+      "avg_hits": 0.84,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4223,
+      "date": "14/07/2026",
+      "avg_hits": 0.74,
+      "cost": 19.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4224,
+      "date": "16/07/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4225,
+      "date": "25/07/2026",
+      "avg_hits": 0.89,
+      "cost": 19.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4226,
+      "date": "28/07/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4227,
+      "date": "30/07/2026",
+      "avg_hits": 0.11,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4228,
+      "date": "31/07/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4229,
+      "date": "04/08/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4230,
+      "date": "06/08/2026",
+      "avg_hits": 0.63,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4231,
+      "date": "07/08/2026",
+      "avg_hits": 1.05,
+      "cost": 19.0,
+      "estimated_prize": 35.0
+    },
+    {
+      "seq": 4232,
+      "date": "08/08/2026",
+      "avg_hits": 0.79,
+      "cost": 19.0,
+      "estimated_prize": 40.0
+    },
+    {
+      "seq": 4233,
+      "date": "11/08/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4234,
+      "date": "13/08/2026",
+      "avg_hits": 0.79,
+      "cost": 19.0,
+      "estimated_prize": 15.0
+    },
+    {
+      "seq": 4235,
+      "date": "14/08/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4236,
+      "date": "17/08/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4237,
+      "date": "18/08/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4238,
+      "date": "20/08/2026",
+      "avg_hits": 0.68,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4239,
+      "date": "21/08/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4242,
+      "date": "25/08/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4243,
+      "date": "27/08/2026",
+      "avg_hits": 0.68,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4244,
+      "date": "28/08/2026",
+      "avg_hits": 0.63,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4245,
+      "date": "29/08/2026",
+      "avg_hits": 0.11,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4246,
+      "date": "01/09/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4247,
+      "date": "03/09/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4248,
+      "date": "04/09/2026",
+      "avg_hits": 0.84,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4249,
+      "date": "05/09/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4250,
+      "date": "08/09/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4251,
+      "date": "10/09/2026",
+      "avg_hits": 0.84,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4252,
+      "date": "11/09/2026",
+      "avg_hits": 0.68,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4253,
+      "date": "12/09/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4254,
+      "date": "15/09/2026",
+      "avg_hits": 0.58,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4255,
+      "date": "17/09/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4256,
+      "date": "18/09/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4257,
+      "date": "19/09/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4258,
+      "date": "22/09/2026",
+      "avg_hits": 0.37,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4259,
+      "date": "24/09/2026",
+      "avg_hits": 0.74,
+      "cost": 19.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4260,
+      "date": "25/09/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4261,
+      "date": "26/09/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4262,
+      "date": "29/09/2026",
+      "avg_hits": 0.42,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4263,
+      "date": "01/10/2026",
+      "avg_hits": 0.84,
+      "cost": 19.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4264,
+      "date": "02/10/2026",
+      "avg_hits": 0.47,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4265,
+      "date": "03/10/2026",
+      "avg_hits": 1.32,
+      "cost": 19.0,
+      "estimated_prize": 110.0
+    },
+    {
+      "seq": 4266,
+      "date": "06/10/2026",
+      "avg_hits": 0.16,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4267,
+      "date": "08/10/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4268,
+      "date": "09/10/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4269,
+      "date": "10/10/2026",
+      "avg_hits": 0.26,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4270,
+      "date": "13/10/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4271,
+      "date": "15/10/2026",
+      "avg_hits": 0.53,
+      "cost": 19.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4272,
+      "date": "16/10/2026",
+      "avg_hits": 0.32,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4273,
+      "date": "17/10/2026",
+      "avg_hits": 0.21,
+      "cost": 19.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4274,
+      "date": "20/10/2026",
+      "avg_hits": 0.1,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4275,
+      "date": "22/10/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4276,
+      "date": "23/10/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4277,
+      "date": "24/10/2026",
+      "avg_hits": 0.1,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4278,
+      "date": "27/10/2026",
+      "avg_hits": 0.05,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4279,
+      "date": "29/10/2026",
+      "avg_hits": 0.85,
+      "cost": 20.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4280,
+      "date": "30/10/2026",
+      "avg_hits": 0.85,
+      "cost": 20.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4281,
+      "date": "31/10/2026",
+      "avg_hits": 0.7,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4282,
+      "date": "03/11/2026",
+      "avg_hits": 0.3,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4283,
+      "date": "05/11/2026",
+      "avg_hits": 0.55,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4284,
+      "date": "06/11/2026",
+      "avg_hits": 0.7,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4285,
+      "date": "07/11/2026",
+      "avg_hits": 0.9,
+      "cost": 20.0,
+      "estimated_prize": 20.0
+    },
+    {
+      "seq": 4286,
+      "date": "10/11/2026",
+      "avg_hits": 0.1,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4287,
+      "date": "12/11/2026",
+      "avg_hits": 0.3,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4288,
+      "date": "13/11/2026",
+      "avg_hits": 0.5,
+      "cost": 20.0,
+      "estimated_prize": 10.0
+    },
+    {
+      "seq": 4289,
+      "date": "14/11/2026",
+      "avg_hits": 0.15,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4290,
+      "date": "17/11/2026",
+      "avg_hits": 0.8,
+      "cost": 20.0,
+      "estimated_prize": 25.0
+    },
+    {
+      "seq": 4291,
+      "date": "19/11/2026",
+      "avg_hits": 0.2,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4292,
+      "date": "20/11/2026",
+      "avg_hits": 0.15,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4293,
+      "date": "21/11/2026",
+      "avg_hits": 0.3,
+      "cost": 20.0,
+      "estimated_prize": 0.0
+    },
+    {
+      "seq": 4294,
+      "date": "24/11/2026",
+      "avg_hits": 0.5,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    },
+    {
+      "seq": 4295,
+      "date": "26/11/2026",
+      "avg_hits": 0.25,
+      "cost": 20.0,
+      "estimated_prize": 5.0
+    }
+  ],
   "summary": {
-    "total_spent": 79967.0,
-    "total_won": 95825.0,
-    "roi_pct": 19.83
+    "total_spent": 79987.0,
+    "total_won": 95830.0,
+    "roi_pct": 19.81
   },
   "algorithms": [
     {
       "id": "equilibra-lepre",
       "name": "Equilibra Lepre",
-      "contests": 4232,
-      "spent": 4232.0,
+      "contests": 4233,
+      "spent": 4233.0,
       "won": 31295.0,
-      "roi_pct": 639.48
+      "roi_pct": 639.31
     },
     {
       "id": "equilibra-gatto",
       "name": "Equilibra Gatto",
-      "contests": 4232,
-      "spent": 4232.0,
+      "contests": 4233,
+      "spent": 4233.0,
       "won": 31165.0,
-      "roi_pct": 636.41
+      "roi_pct": 636.24
     },
     {
       "id": "feedforward-feature",
       "name": "Feedforward Feature",
-      "contests": 4092,
-      "spent": 4092.0,
+      "contests": 4093,
+      "spent": 4093.0,
       "won": 9780.0,
-      "roi_pct": 139.0
+      "roi_pct": 138.94
     },
     {
       "id": "lstm-sequenziale",
       "name": "LSTM Sequenziale",
-      "contests": 4130,
-      "spent": 4130.0,
+      "contests": 4131,
+      "spent": 4131.0,
       "won": 2935.0,
-      "roi_pct": -28.93
+      "roi_pct": -28.95
     },
     {
       "id": "oracle",
       "name": "L'Oracolo",
-      "contests": 21,
-      "spent": 21.0,
+      "contests": 22,
+      "spent": 22.0,
       "won": 10.0,
-      "roi_pct": -52.38
+      "roi_pct": -54.55
     },
     {
       "id": "distribuzione",
       "name": "Distribuzione Bilanciata",
-      "contests": 4242,
-      "spent": 4242.0,
+      "contests": 4243,
+      "spent": 4243.0,
       "won": 1845.0,
-      "roi_pct": -56.51
+      "roi_pct": -56.52
     },
     {
       "id": "ritardo-massimo",
       "name": "Ritardo Massimo",
-      "contests": 4242,
-      "spent": 4242.0,
-      "won": 1745.0,
-      "roi_pct": -58.86
+      "contests": 4243,
+      "spent": 4243.0,
+      "won": 1750.0,
+      "roi_pct": -58.76
     },
     {
       "id": "equilibra-elefante",
       "name": "Equilibra Elefante",
-      "contests": 4232,
-      "spent": 4232.0,
+      "contests": 4233,
+      "spent": 4233.0,
       "won": 1710.0,
-      "roi_pct": -59.59
+      "roi_pct": -59.6
     },
     {
       "id": "markov-chain",
       "name": "Markov Chain",
-      "contests": 4192,
-      "spent": 4192.0,
+      "contests": 4193,
+      "spent": 4193.0,
       "won": 1660.0,
-      "roi_pct": -60.4
+      "roi_pct": -60.41
     },
     {
       "id": "adaptive-ensemble",
       "name": "Adaptive Ensemble",
-      "contests": 4262,
-      "spent": 4262.0,
+      "contests": 4263,
+      "spent": 4263.0,
       "won": 1640.0,
-      "roi_pct": -61.52
+      "roi_pct": -61.53
     },
     {
       "id": "autoencoder-anomaly",
       "name": "Autoencoder Anomaly",
-      "contests": 4092,
-      "spent": 4092.0,
+      "contests": 4093,
+      "spent": 4093.0,
       "won": 1405.0,
-      "roi_pct": -65.66
+      "roi_pct": -65.67
     },
     {
       "id": "monte-carlo",
       "name": "Monte Carlo",
-      "contests": 4242,
-      "spent": 4242.0,
+      "contests": 4243,
+      "spent": 4243.0,
       "won": 1430.0,
-      "roi_pct": -66.29
+      "roi_pct": -66.3
     },
     {
       "id": "astro-statistical",
       "name": "Astro Statistical",
-      "contests": 4192,
-      "spent": 4192.0,
+      "contests": 4193,
+      "spent": 4193.0,
       "won": 1220.0,
       "roi_pct": -70.9
     },
     {
       "id": "freq-delay-blend",
       "name": "Freq-Delay Blend",
-      "contests": 4192,
-      "spent": 4192.0,
+      "contests": 4193,
+      "spent": 4193.0,
       "won": 1215.0,
       "roi_pct": -71.02
     },
     {
       "id": "neural-stat-fusion",
       "name": "Neural-Stat Fusion",
-      "contests": 4192,
-      "spent": 4192.0,
+      "contests": 4193,
+      "spent": 4193.0,
       "won": 1185.0,
-      "roi_pct": -71.73
+      "roi_pct": -71.74
     },
     {
       "id": "transformer-attention",
       "name": "Transformer Attention",
-      "contests": 4242,
-      "spent": 4242.0,
+      "contests": 4243,
+      "spent": 4243.0,
       "won": 1180.0,
-      "roi_pct": -72.18
+      "roi_pct": -72.19
     },
     {
       "id": "bayesian-inference",
       "name": "Bayesian Inference",
-      "contests": 4242,
-      "spent": 4242.0,
+      "contests": 4243,
+      "spent": 4243.0,
       "won": 1135.0,
-      "roi_pct": -73.24
+      "roi_pct": -73.25
     },
     {
       "id": "freq-classica",
       "name": "Frequenza Classica",
-      "contests": 4262,
-      "spent": 4262.0,
+      "contests": 4263,
+      "spent": 4263.0,
       "won": 1130.0,
       "roi_pct": -73.49
     },
     {
       "id": "coppia-correlazione",
       "name": "Coppia Correlazione",
-      "contests": 4192,
-      "spent": 4192.0,
+      "contests": 4193,
+      "spent": 4193.0,
       "won": 1110.0,
-      "roi_pct": -73.52
+      "roi_pct": -73.53
     },
     {
       "id": "max-entropy",
       "name": "Massima Entropia",
-      "contests": 4242,
-      "spent": 4242.0,
+      "contests": 4243,
+      "spent": 4243.0,
       "won": 1030.0,
       "roi_pct": -75.72
     }

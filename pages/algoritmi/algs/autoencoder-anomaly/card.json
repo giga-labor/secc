@@ -3,7 +3,7 @@
   "title": "Autoencoder Anomaly",
   "subtitle": "Autoencoder su estrazioni storiche — propone numeri con errore di ricostruzione anomalo",
   "image": "img.webp",
-  "lastUpdated": "24/11/2026",
+  "lastUpdated": "28/11/2026",
   "hasNews": false,
   "usesOutData": true,
   "statusTag": "Aggiornato",

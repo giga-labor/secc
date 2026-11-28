@@ -1,27 +1,27 @@
 {
   "proposal": [
+    2,
     6,
-    30,
-    37,
-    63,
-    75,
-    82
+    38,
+    40,
+    52,
+    62
   ],
-  "generated_at": "2026-11-24T23:42:23.918221",
-  "contest_ref": 4294,
+  "generated_at": "2026-11-28T16:51:50.257735",
+  "contest_ref": 4295,
   "metrics": {
     "observed_score": 0.0658,
     "expected_score": 0.105,
     "edge": -0.0392,
     "edge_pct": -37.33,
-    "stability": 50.0,
+    "stability": 50.01,
     "recent_form": 27.77,
     "sample_confidence": 98.46,
     "confidence": 0.0658,
     "risk": "medio",
-    "total_contests": 4232,
+    "total_contests": 4233,
     "hit_distribution": {
-      "0": 2797,
+      "0": 2798,
       "1": 1216,
       "2": 202,
       "3": 16,
@@ -29,9 +29,9 @@
       "5": 0,
       "6": 0
     },
-    "draws_covered": 4232,
-    "avg_hits": 0.4,
+    "draws_covered": 4233,
+    "avg_hits": 0.39,
     "hit_rate_gte_2": 5.2
   },
-  "last_seq": 4294
+  "last_seq": 4295
 }

@@ -1,5 +1,5 @@
 === COPPIA CORRELAZIONE ===
-Generato: 24/11/2026 23:42
+Generato: 28/11/2026 16:51
 Concorso di riferimento: 4294
 Sestina proposta: 23 - 31 - 40 - 55 - 80 - 85
 
@@ -8,7 +8,7 @@ Score osservato:  0.0651
 Score atteso:     0.1050
 Edge:             -0.0399 (-37.99%)
 Stabilità:        51.9/100
-Forma recente:    31.7/100
+Forma recente:    27.8/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
@@ -22,6 +22,6 @@ Top 5 coppie più frequenti (finestra 500 estrazioni):
 
 Score medio correlazione sestina: 5.33
 Soglia minima co-occorrenza: 3
-Estrazioni analizzate: 4294
+Estrazioni analizzate: 4295
 
 Generato automaticamente da ControlChaos Admin v4

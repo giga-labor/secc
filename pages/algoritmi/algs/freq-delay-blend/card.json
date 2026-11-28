@@ -3,7 +3,7 @@
   "title": "Freq-Delay Blend",
   "subtitle": "Fusione adattativa frequenza + ritardo — alpha si ricalibra sul backtest recente",
   "image": "img.webp",
-  "lastUpdated": "24/11/2026",
+  "lastUpdated": "28/11/2026",
   "hasNews": false,
   "usesOutData": true,
   "statusTag": "Aggiornato",

@@ -1,19 +1,18 @@
 {
-  "generated_at": "2026-11-24T23:42:24.605088",
+  "generated_at": "2026-11-28T16:57:12.034991",
   "latest_draw": {
-    "seq": 4294
+    "seq": 4295
   },
   "consensus_top": [
     {
       "number": 85,
-      "support": 11,
+      "support": 10,
       "algorithms": [
         "bayesian-inference",
         "max-entropy",
         "monte-carlo",
         "adaptive-ensemble",
         "astro-statistical",
-        "freq-delay-blend",
         "neural-stat-fusion",
         "lstm-sequenziale",
         "coppia-correlazione",
@@ -22,46 +21,41 @@
       ]
     },
     {
-      "number": 28,
-      "support": 10,
-      "algorithms": [
-        "bayesian-inference",
-        "max-entropy",
-        "monte-carlo",
-        "adaptive-ensemble",
-        "astro-statistical",
-        "freq-delay-blend",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "distribuzione",
-        "freq-classica"
-      ]
-    },
-    {
-      "number": 18,
-      "support": 8,
+      "number": 2,
+      "support": 7,
       "algorithms": [
         "bayesian-inference",
         "markov-chain",
         "max-entropy",
         "monte-carlo",
         "adaptive-ensemble",
-        "astro-statistical",
-        "neural-stat-fusion",
-        "freq-classica"
+        "distribuzione",
+        "equilibra-elefante"
       ]
     },
     {
-      "number": 82,
-      "support": 8,
+      "number": 18,
+      "support": 7,
       "algorithms": [
+        "bayesian-inference",
+        "markov-chain",
         "max-entropy",
+        "monte-carlo",
+        "adaptive-ensemble",
+        "distribuzione",
+        "equilibra-lepre"
+      ]
+    },
+    {
+      "number": 28,
+      "support": 7,
+      "algorithms": [
+        "bayesian-inference",
+        "max-entropy",
+        "monte-carlo",
         "adaptive-ensemble",
         "astro-statistical",
         "freq-delay-blend",
-        "neural-stat-fusion",
-        "transformer-attention",
-        "equilibra-elefante",
         "freq-classica"
       ]
     },
@@ -69,42 +63,62 @@
       "number": 41,
       "support": 7,
       "algorithms": [
-        "bayesian-inference",
         "adaptive-ensemble",
         "astro-statistical",
         "neural-stat-fusion",
+        "lstm-sequenziale",
         "transformer-attention",
         "distribuzione",
         "freq-classica"
       ]
     },
     {
-      "number": 12,
-      "support": 5,
+      "number": 8,
+      "support": 6,
       "algorithms": [
+        "bayesian-inference",
         "markov-chain",
-        "max-entropy",
+        "monte-carlo",
         "adaptive-ensemble",
-        "astro-statistical",
-        "equilibra-lepre"
+        "freq-delay-blend",
+        "ritardo-massimo"
       ]
     }
   ],
   "ranking_top": [
     {
+      "id": "transformer-attention",
+      "title": "Transformer Attention",
+      "page": "pages/algoritmi/algs/transformer-attention/",
+      "family": "neurali",
+      "ranking": 45.86,
+      "rankingContest": "4295",
+      "rankProfile": {
+        "edge": -0.04,
+        "edgePercent": -38.1,
+        "observedScore": 0.065,
+        "expectedScore": 0.105,
+        "stability": 51.56,
+        "recentForm": 47.61,
+        "sampleConfidence": 98.46,
+        "risk": "medio",
+        "label": "In osservazione"
+      }
+    },
+    {
       "id": "markov-chain",
       "title": "Markov Chain",
       "page": "pages/algoritmi/algs/markov-chain/",
       "family": "generativi",
-      "ranking": 46.85,
-      "rankingContest": "4294",
+      "ranking": 45.46,
+      "rankingContest": "4295",
       "rankProfile": {
         "edge": -0.0394,
         "edgePercent": -37.52,
         "observedScore": 0.0656,
         "expectedScore": 0.105,
         "stability": 50.41,
-        "recentForm": 51.58,
+        "recentForm": 47.61,
         "sampleConfidence": 98.46,
         "risk": "medio",
         "label": "In osservazione"
@@ -115,16 +129,16 @@
       "title": "L'Oracolo",
       "page": "pages/algoritmi/algs/oracle/",
       "family": "oracle",
-      "ranking": 45.75,
-      "rankingContest": "4294",
+      "ranking": 44.29,
+      "rankingContest": "4295",
       "rankProfile": {
-        "edge": 0.0061,
-        "edgePercent": 5.81,
-        "observedScore": 0.1111,
+        "edge": 0.0011,
+        "edgePercent": 1.05,
+        "observedScore": 0.1061,
         "expectedScore": 0.105,
-        "stability": 46.47,
-        "recentForm": 55.55,
-        "sampleConfidence": 78.18,
+        "stability": 46.43,
+        "recentForm": 51.58,
+        "sampleConfidence": 78.68,
         "risk": "medio",
         "label": "In osservazione"
       }
@@ -134,15 +148,15 @@
       "title": "Neural-Stat Fusion",
       "page": "pages/algoritmi/algs/neural-stat-fusion/",
       "family": "ibridi",
-      "ranking": 45.67,
-      "rankingContest": "4294",
+      "ranking": 44.27,
+      "rankingContest": "4295",
       "rankProfile": {
-        "edge": -0.0369,
-        "edgePercent": -35.14,
-        "observedScore": 0.0681,
+        "edge": -0.037,
+        "edgePercent": -35.24,
+        "observedScore": 0.068,
         "expectedScore": 0.105,
         "stability": 50.84,
-        "recentForm": 47.61,
+        "recentForm": 43.64,
         "sampleConfidence": 98.46,
         "risk": "medio",
         "label": "In osservazione"
@@ -153,54 +167,35 @@
       "title": "Frequenza Classica",
       "page": "pages/algoritmi/algs/freq-classica/",
       "family": "statistici",
-      "ranking": 44.55,
-      "rankingContest": "4294",
+      "ranking": 43.16,
+      "rankingContest": "4295",
       "rankProfile": {
         "edge": -0.0397,
         "edgePercent": -37.81,
         "observedScore": 0.0653,
         "expectedScore": 0.105,
         "stability": 51.77,
-        "recentForm": 43.64,
+        "recentForm": 39.68,
         "sampleConfidence": 98.47,
         "risk": "medio",
         "label": "In osservazione"
       }
     },
     {
-      "id": "transformer-attention",
-      "title": "Transformer Attention",
-      "page": "pages/algoritmi/algs/transformer-attention/",
-      "family": "neurali",
-      "ranking": 44.47,
-      "rankingContest": "4294",
+      "id": "equilibra-lepre",
+      "title": "Equilibra Lepre",
+      "page": "pages/algoritmi/algs/equilibra-lepre/",
+      "family": "statistici",
+      "ranking": 42.68,
+      "rankingContest": "4295",
       "rankProfile": {
-        "edge": -0.04,
-        "edgePercent": -38.1,
-        "observedScore": 0.065,
+        "edge": -0.039,
+        "edgePercent": -37.14,
+        "observedScore": 0.066,
         "expectedScore": 0.105,
-        "stability": 51.56,
-        "recentForm": 43.64,
+        "stability": 50.36,
+        "recentForm": 39.68,
         "sampleConfidence": 98.46,
-        "risk": "medio",
-        "label": "In osservazione"
-      }
-    },
-    {
-      "id": "adaptive-ensemble",
-      "title": "Adaptive Ensemble",
-      "page": "pages/algoritmi/algs/adaptive-ensemble/",
-      "family": "ibridi",
-      "ranking": 43.45,
-      "rankingContest": "4294",
-      "rankProfile": {
-        "edge": -0.0268,
-        "edgePercent": -25.52,
-        "observedScore": 0.0782,
-        "expectedScore": 0.105,
-        "stability": 47.91,
-        "recentForm": 43.64,
-        "sampleConfidence": 98.47,
         "risk": "medio",
         "label": "In osservazione"
       }
