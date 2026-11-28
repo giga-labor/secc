@@ -7,8 +7,8 @@
     85,
     86
   ],
-  "generated_at": "2026-11-28T16:51:50.359385",
-  "contest_ref": 4295,
+  "generated_at": "2026-11-28T16:57:19.927473",
+  "contest_ref": 4296,
   "metrics": {
     "observed_score": 0.0744,
     "expected_score": 0.105,
@@ -19,19 +19,19 @@
     "sample_confidence": 98.44,
     "confidence": 0.0744,
     "risk": "medio",
-    "total_contests": 4131,
+    "total_contests": 4132,
     "hit_distribution": {
       "0": 2547,
-      "1": 1348,
+      "1": 1349,
       "2": 217,
       "3": 14,
       "4": 5,
       "5": 0,
       "6": 0
     },
-    "draws_covered": 4131,
+    "draws_covered": 4132,
     "avg_hits": 0.45,
     "hit_rate_gte_2": 5.7
   },
-  "last_seq": 4295
+  "last_seq": 4296
 }

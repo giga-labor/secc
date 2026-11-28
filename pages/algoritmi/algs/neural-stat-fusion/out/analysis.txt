@@ -1,12 +1,12 @@
 === NEURAL-STAT FUSION ===
-Generato: 28/11/2026 16:51
-Concorso di riferimento: 4294
-Sestina proposta: 41 - 63 - 74 - 79 - 82 - 85
+Generato: 28/11/2026 16:57
+Concorso di riferimento: 4295
+Sestina proposta: 28 - 41 - 56 - 79 - 82 - 85
 
 --- METRICHE ---
-Score osservato:  0.0680
+Score osservato:  0.0681
 Score atteso:     0.1050
-Edge:             -0.0370 (-35.23%)
+Edge:             -0.0369 (-35.14%)
 Stabilità:        50.8/100
 Forma recente:    43.6/100
 Confidenza camp.: 98.46%
@@ -17,7 +17,7 @@ LSTM: disponibile
 Peso LSTM adattativo: 0.33 | Peso freq: 0.67
 
 Top 10 per score fusion:
-  85, 74, 82, 41, 79, 63, 28, 50, 24, 18
-Estrazioni analizzate: 4295
+  41, 85, 82, 56, 79, 28, 38, 63, 50, 24
+Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

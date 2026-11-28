@@ -1,6 +1,6 @@
 {
   "hits_distribution": {
-    "0": 10,
+    "0": 11,
     "1": 10,
     "2": 2,
     "3": 0,
@@ -95,6 +95,10 @@
     },
     {
       "contest": 4295,
+      "hits": 0
+    },
+    {
+      "contest": 4296,
       "hits": 0
     }
   ],
@@ -213,6 +217,11 @@
       "contest": 4295,
       "stability": 46.43,
       "confidence": 0.1061
+    },
+    {
+      "contest": 4296,
+      "stability": 46.5,
+      "confidence": 0.1014
     }
   ]
 }

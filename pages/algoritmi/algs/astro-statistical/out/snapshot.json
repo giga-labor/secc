@@ -3,35 +3,35 @@
     12,
     28,
     41,
-    64,
+    56,
     78,
     85
   ],
-  "generated_at": "2026-11-28T16:51:48.679191",
-  "contest_ref": 4295,
+  "generated_at": "2026-11-28T16:57:18.861852",
+  "contest_ref": 4296,
   "metrics": {
     "observed_score": 0.067,
     "expected_score": 0.105,
     "edge": -0.038,
     "edge_pct": -36.18,
     "stability": 51.3,
-    "recent_form": 23.81,
+    "recent_form": 27.77,
     "sample_confidence": 98.46,
     "confidence": 0.067,
     "risk": "medio",
-    "total_contests": 4193,
+    "total_contests": 4194,
     "hit_distribution": {
       "0": 2703,
-      "1": 1310,
+      "1": 1311,
       "2": 164,
       "3": 16,
       "4": 0,
       "5": 0,
       "6": 0
     },
-    "draws_covered": 4193,
+    "draws_covered": 4194,
     "avg_hits": 0.4,
     "hit_rate_gte_2": 4.3
   },
-  "last_seq": 4295
+  "last_seq": 4296
 }

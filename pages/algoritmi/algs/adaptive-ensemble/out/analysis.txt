@@ -1,14 +1,14 @@
 === ADAPTIVE ENSEMBLE ===
-Generato: 28/11/2026 16:51
-Concorso di riferimento: 4294
-Sestina proposta: 2 - 8 - 18 - 28 - 41 - 85
+Generato: 28/11/2026 16:57
+Concorso di riferimento: 4295
+Sestina proposta: 2 - 28 - 41 - 56 - 82 - 85
 
 --- METRICHE ---
 Score osservato:  0.0782
 Score atteso:     0.1050
-Edge:             -0.0269 (-25.61%)
+Edge:             -0.0268 (-25.52%)
 Stabilità:        47.9/100
-Forma recente:    39.7/100
+Forma recente:    43.6/100
 Confidenza camp.: 98.47%
 Profilo rischio:  MEDIO [GIALLO]
 
@@ -19,11 +19,11 @@ Top 5 contributori per peso:
   feedforward-feature: 0.116 (11.6%)
   lstm-sequenziale: 0.058 (5.8%)
   autoencoder-anomaly: 0.054 (5.4%)
-  ritardo-massimo: 0.053 (5.3%)
   neural-stat-fusion: 0.053 (5.3%)
+  distribuzione: 0.053 (5.3%)
 
 Top 10 per score ensemble:
-  85, 41, 18, 2, 28, 8, 9, 61, 74, 82
-Estrazioni analizzate: 4295
+  85, 28, 56, 41, 82, 2, 18, 86, 9, 52
+Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

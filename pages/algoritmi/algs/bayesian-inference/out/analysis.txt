@@ -1,31 +1,31 @@
 === BAYESIAN INFERENCE ===
-Generato: 28/11/2026 16:51
-Concorso di riferimento: 4294
+Generato: 28/11/2026 16:57
+Concorso di riferimento: 4295
 Sestina proposta: 2 - 8 - 16 - 18 - 28 - 85
 
 --- METRICHE ---
 Score osservato:  0.0649
 Score atteso:     0.1050
-Edge:             -0.0402 (-38.28%)
+Edge:             -0.0401 (-38.18%)
 Stabilità:        51.8/100
-Forma recente:    35.7/100
+Forma recente:    39.7/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
 --- NOTE ---
 Decay factor: 0.995 (le estrazioni recenti pesano di più)
-Entropia posterior: 4.4843 / 4.4998 (uniforme)
+Entropia posterior: 4.4841 / 4.4998 (uniforme)
 
 Top 10 per probabilità posterior:
-  85, 28, 18, 2, 8, 16, 41, 74, 7, 64
+  85, 28, 18, 2, 8, 16, 56, 41, 74, 7
 
 Dettaglio sestina:
-   2 → P(n) = 0.01461
-   8 → P(n) = 0.01404
-  16 → P(n) = 0.01378
-  18 → P(n) = 0.01663
-  28 → P(n) = 0.01703
-  85 → P(n) = 0.01717
-Estrazioni analizzate: 4295
+   2 → P(n) = 0.01454
+   8 → P(n) = 0.01397
+  16 → P(n) = 0.01371
+  18 → P(n) = 0.01655
+  28 → P(n) = 0.01694
+  85 → P(n) = 0.01787
+Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

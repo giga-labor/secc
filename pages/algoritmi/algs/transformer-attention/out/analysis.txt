@@ -1,14 +1,14 @@
 === TRANSFORMER ATTENTION ===
-Generato: 28/11/2026 16:51
-Concorso di riferimento: 4294
-Sestina proposta: 24 - 41 - 50 - 74 - 77 - 82
+Generato: 28/11/2026 16:57
+Concorso di riferimento: 4295
+Sestina proposta: 38 - 41 - 50 - 56 - 82 - 85
 
 --- METRICHE ---
 Score osservato:  0.0650
 Score atteso:     0.1050
 Edge:             -0.0400 (-38.09%)
 Stabilità:        51.6/100
-Forma recente:    47.6/100
+Forma recente:    43.6/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
@@ -16,12 +16,12 @@ Profilo rischio:  MEDIO [GIALLO]
 Finestra: 30 estrazioni | Heads: 4
 
 Estrazioni con maggior peso attention:
-  posizione -1: [16, 19, 24, 58, 74, 87]
-  posizione -25: [16, 24, 46, 49, 77, 80]
-  posizione -16: [19, 24, 49, 62, 64, 85]
+  posizione -1: [14, 22, 30, 38, 56, 85]
+  posizione -27: [4, 21, 30, 33, 38, 78]
+  posizione -4: [12, 30, 56, 62, 75, 88]
 
 Top 10 per score attention:
-  74, 82, 50, 41, 24, 77, 56, 38, 13, 19
-Estrazioni analizzate: 4295
+  38, 56, 85, 41, 50, 82, 13, 80, 30, 74
+Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

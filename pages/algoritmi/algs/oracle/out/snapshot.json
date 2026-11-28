@@ -1,20 +1,20 @@
 {
   "proposal": [],
-  "generated_at": "2026-11-28T16:57:12.026487",
-  "contest_ref": 4295,
+  "generated_at": "2026-11-28T16:57:30.069447",
+  "contest_ref": 4296,
   "metrics": {
-    "observed_score": 0.1061,
+    "observed_score": 0.1014,
     "expected_score": 0.105,
-    "edge": 0.001,
-    "edge_pct": 0.95,
-    "stability": 46.43,
-    "recent_form": 51.58,
-    "sample_confidence": 78.68,
-    "confidence": 0.1061,
+    "edge": -0.0036,
+    "edge_pct": -3.43,
+    "stability": 46.5,
+    "recent_form": 47.61,
+    "sample_confidence": 79.15,
+    "confidence": 0.1014,
     "risk": "medio",
-    "total_contests": 22,
+    "total_contests": 23,
     "hit_distribution": {
-      "0": 10,
+      "0": 11,
       "1": 10,
       "2": 2,
       "3": 0,
@@ -22,10 +22,10 @@
       "5": 0,
       "6": 0
     },
-    "draws_covered": 22,
-    "avg_hits": 0.64,
-    "hit_rate_gte_2": 9.1
+    "draws_covered": 23,
+    "avg_hits": 0.61,
+    "hit_rate_gte_2": 8.7
   },
-  "last_seq": 4295,
+  "last_seq": 4296,
   "sealed": true
 }

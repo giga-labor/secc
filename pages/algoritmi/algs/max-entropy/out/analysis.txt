@@ -1,14 +1,14 @@
 === MASSIMA ENTROPIA ===
-Generato: 28/11/2026 16:51
-Concorso di riferimento: 4294
+Generato: 28/11/2026 16:57
+Concorso di riferimento: 4295
 Sestina proposta: 2 - 12 - 18 - 28 - 82 - 85
 
 --- METRICHE ---
-Score osservato:  0.0619
+Score osservato:  0.0620
 Score atteso:     0.1050
-Edge:             -0.0431 (-41.04%)
+Edge:             -0.0430 (-40.95%)
 Stabilità:        52.6/100
-Forma recente:    35.7/100
+Forma recente:    39.7/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
@@ -18,16 +18,16 @@ Entropia uniforme (max teorico): 4.4998
 Entropia relativa: 100.0%
 
 Top 10 per probabilità MaxEnt:
-  28, 12, 18, 85, 2, 82, 16, 24, 55, 74
+  28, 18, 85, 12, 2, 82, 16, 24, 78, 7
 
 Dettaglio sestina:
    2 → P(n) = 0.01152
-  12 → P(n) = 0.01173
+  12 → P(n) = 0.01162
   18 → P(n) = 0.01173
   28 → P(n) = 0.01183
   82 → P(n) = 0.01152
-  85 → P(n) = 0.01162
+  85 → P(n) = 0.01173
 Finestra vincoli: 90 estrazioni
-Estrazioni analizzate: 4295
+Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

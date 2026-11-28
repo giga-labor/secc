@@ -1,14 +1,14 @@
 === ASTRO STATISTICAL ===
-Generato: 28/11/2026 16:51
-Concorso di riferimento: 4294
-Sestina proposta: 12 - 28 - 41 - 64 - 78 - 85
+Generato: 28/11/2026 16:57
+Concorso di riferimento: 4295
+Sestina proposta: 12 - 28 - 41 - 56 - 78 - 85
 
 --- METRICHE ---
 Score osservato:  0.0670
 Score atteso:     0.1050
 Edge:             -0.0380 (-36.18%)
 Stabilità:        51.3/100
-Forma recente:    23.8/100
+Forma recente:    27.8/100
 Confidenza camp.: 98.46%
 Profilo rischio:  MEDIO [GIALLO]
 
@@ -17,7 +17,7 @@ Fase lunare prossimo concorso: ultimo_quarto (0.738)
 Peso lunare: 45% | Peso frequenza: 55%
 
 Top 10 per score astro-statistico:
-  41, 28, 85, 12, 64, 78, 55, 56, 62, 77
-Estrazioni analizzate: 4295
+  41, 28, 85, 12, 78, 56, 64, 55, 62, 77
+Estrazioni analizzate: 4296
 
 Generato automaticamente da ControlChaos Admin v4

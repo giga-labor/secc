@@ -1,7 +1,7 @@
 {
   "hits_distribution": {
     "0": 2703,
-    "1": 1310,
+    "1": 1311,
     "2": 164,
     "3": 16,
     "4": 0,
@@ -9,10 +9,6 @@
     "6": 0
   },
   "recent_form_series": [
-    {
-      "contest": 4246,
-      "hits": 0
-    },
     {
       "contest": 4247,
       "hits": 1
@@ -208,14 +204,13 @@
     {
       "contest": 4295,
       "hits": 0
+    },
+    {
+      "contest": 4296,
+      "hits": 1
     }
   ],
   "metrics_series": [
-    {
-      "contest": 4250,
-      "stability": 51.24,
-      "confidence": 0.0671
-    },
     {
       "contest": 4251,
       "stability": 51.24,
@@ -458,6 +453,11 @@
     },
     {
       "contest": 4295,
+      "stability": 51.3,
+      "confidence": 0.067
+    },
+    {
+      "contest": 4296,
       "stability": 51.3,
       "confidence": 0.067
     }

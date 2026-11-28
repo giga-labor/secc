@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24 23:42:28",
+  "updated_at": "2026-11-28 16:57:17",
   "version": "04.00.000",
   "enabled": true,
   "severity": "ok",
@@ -11,127 +11,127 @@
   "runtime": {
     "state_level": "ok",
     "state_label": "operativo",
-    "last_push_at": "2026-11-24 23:42:28",
+    "last_push_at": "2026-11-28 16:57:17",
     "error": null
   },
   "feed": [
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484350",
+      "ts": "2026-11-28T16:57:17.316983",
       "message": "markov-chain: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484358",
-      "message": "max-entropy: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-24T23:42:28.484362",
+      "ts": "2026-11-28T16:57:17.316988",
       "message": "bayesian-inference: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484365",
-      "message": "neural-stat-fusion: aggiornato",
+      "ts": "2026-11-28T16:57:17.316990",
+      "message": "max-entropy: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484367",
+      "ts": "2026-11-28T16:57:17.316992",
       "message": "monte-carlo: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484369",
+      "ts": "2026-11-28T16:57:17.316993",
       "message": "astro-statistical: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484372",
+      "ts": "2026-11-28T16:57:17.316995",
+      "message": "neural-stat-fusion: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T16:57:17.316996",
       "message": "freq-delay-blend: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484374",
+      "ts": "2026-11-28T16:57:17.316997",
       "message": "transformer-attention: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484389",
+      "ts": "2026-11-28T16:57:17.316999",
       "message": "coppia-correlazione: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484392",
+      "ts": "2026-11-28T16:57:17.317000",
       "message": "distribuzione: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484394",
+      "ts": "2026-11-28T16:57:17.317002",
       "message": "equilibra-elefante: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484396",
-      "message": "lstm-sequenziale: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-24T23:42:28.484399",
-      "message": "feedforward-feature: aggiornato",
-      "ok": true
-    },
-    {
-      "type": "training",
-      "ts": "2026-11-24T23:42:28.484401",
+      "ts": "2026-11-28T16:57:17.317003",
       "message": "equilibra-gatto: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484403",
+      "ts": "2026-11-28T16:57:17.317005",
+      "message": "feedforward-feature: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T16:57:17.317006",
+      "message": "lstm-sequenziale: aggiornato",
+      "ok": true
+    },
+    {
+      "type": "training",
+      "ts": "2026-11-28T16:57:17.317007",
       "message": "equilibra-lepre: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484406",
+      "ts": "2026-11-28T16:57:17.317009",
       "message": "freq-classica: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484408",
+      "ts": "2026-11-28T16:57:17.317010",
       "message": "ritardo-massimo: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484410",
+      "ts": "2026-11-28T16:57:17.317011",
       "message": "autoencoder-anomaly: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484412",
+      "ts": "2026-11-28T16:57:17.317013",
       "message": "adaptive-ensemble: aggiornato",
       "ok": true
     },
     {
       "type": "training",
-      "ts": "2026-11-24T23:42:28.484415",
+      "ts": "2026-11-28T16:57:17.317014",
       "message": "oracle: aggiornato",
       "ok": true
     }

@@ -1,17 +1,17 @@
 {
   "edition_id": "OR-2026-11-28-1657",
-  "published_at": "2026-11-28T16:57:12.025662",
+  "published_at": "2026-11-28T16:57:30.068567",
   "status": "sealed",
   "contest_context": {
-    "next_seq": 4296,
+    "next_seq": 4297,
     "next_date": "28/11/2026"
   },
   "promoted_numbers": [],
-  "oracle_speech": "Un peso invisibile spinge il globo dalle radici verso la corona, rompendo l'ordine classico con una dissonanza che cerca risalto tra le ombre e i rai. Non cerco ripetizioni, ma il respiro che ha lasciato affogare in un silenzio prolungato, pronto a espiroare nella sua seconda vita.",
+  "oracle_speech": "Il vuoto si riempie dove sembrava che non avrebbe potuto mai accadere una svolta improvvisa. Un peso gravita verso la fine della scala mentre un'energia leggera cerca di sfuggire dall'inizio del viaggio. L'ordine perfetto è rotto da una danza caotica che lascia spazio al silenzio prima della tempesta, e la risposta nasconde il suo stesso paradosso nella tensione tra ciò che ritorna e ciò che nasce nuovo.",
   "disclaimer": "Il responso e una narrazione sperimentale costruita su elaborazioni statistiche. Non prevede un'estrazione e non aumenta la probabilita matematica di vincita.",
-  "sigillo_sha256": "e859f6fa2afa096773b7919e79019c475ff5ac09c752ebc451d7c679e6f7933b",
+  "sigillo_sha256": "9d7029e574bc61a83cca1e7e9db5664ad2b0765b41b81882ce1fbe4116540074",
   "previous_result": {
-    "concorso": 4295,
+    "concorso": 4296,
     "hit_count": 0,
     "hit_numbers": []
   }
